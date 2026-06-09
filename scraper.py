@@ -27,7 +27,12 @@ def scrape_rss(feed_url: str, lookback_hours: int) -> list[NewsItem]:
     """Parse a single RSS feed and return recent items."""
     items = []
     try:
-        feed = feedparser.parse(feed_url)
+        # Fetch via httpx (uses certifi's CA bundle) instead of feedparser's
+        # built-in urllib fetch, which fails with CERTIFICATE_VERIFY_FAILED
+        # on systems where the stdlib ssl module has no default CA bundle.
+        resp = httpx.get(feed_url, timeout=15, follow_redirects=True)
+        resp.raise_for_status()
+        feed = feedparser.parse(resp.content)
     except Exception:
         return items
 

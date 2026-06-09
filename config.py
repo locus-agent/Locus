@@ -48,7 +48,7 @@ MIN_VOLUME_USD = float(os.getenv("MIN_VOLUME_USD", "1000"))
 MATERIALITY_THRESHOLD = float(os.getenv("MATERIALITY_THRESHOLD", "0.6"))
 SPEED_TARGET_SECONDS = float(os.getenv("SPEED_TARGET_SECONDS", "5"))
 CLASSIFICATION_MODEL = "claude-haiku-4-5-20251001"
-SCORING_MODEL = "claude-sonnet-4-6-20250514"
+SCORING_MODEL = "claude-sonnet-4-6"
 
 # --- Categories to track ---
 MARKET_CATEGORIES = [
