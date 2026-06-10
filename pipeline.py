@@ -16,6 +16,7 @@ from rich.panel import Panel
 
 import config
 import logger
+from export_status import export_status
 from scraper import scrape_all
 from markets import fetch_active_markets, filter_by_categories
 from scorer import score_market, filter_news_for_market
@@ -105,6 +106,17 @@ class PipelineV2:
                     )
 
                     signal = detect_edge_v2(market, classification, event)
+
+                    logger.log_classification(
+                        market_question=market.question,
+                        headline=event.headline,
+                        news_source=event.source,
+                        direction=classification.direction,
+                        materiality=classification.materiality,
+                        edge=signal.edge if signal else None,
+                        action="signal" if signal else "skip",
+                    )
+
                     if signal:
                         self.stats["signals_found"] += 1
                         await self.signal_queue.put(signal)
@@ -135,7 +147,8 @@ class PipelineV2:
             )
 
     async def _status_printer(self):
-        """Print periodic status updates."""
+        """Print periodic status updates and export the public dashboard snapshot."""
+        last_news_processed = 0
         while True:
             await asyncio.sleep(30)
             ns = self.news_aggregator.stats
@@ -148,6 +161,13 @@ class PipelineV2:
                 f"trades={self.stats['trades_executed']} "
                 f"markets={len(self.market_watcher.tracked_markets)}[/dim]\n"
             )
+
+            headlines_last_cycle = self.stats["news_processed"] - last_news_processed
+            last_news_processed = self.stats["news_processed"]
+            try:
+                export_status(headlines_last_cycle=headlines_last_cycle)
+            except Exception as e:
+                log.warning(f"[pipeline] Status export error: {e}")
 
 
 def run_pipeline_v2():
@@ -185,6 +205,7 @@ def run_pipeline(
     if not news:
         console.print("[yellow]   No news found. Aborting run.[/yellow]")
         logger.log_run_end(run_id, 0, 0, 0, "no_news")
+        export_status(headlines_last_cycle=0)
         return results
 
     # Step 2: Fetch Markets
@@ -196,6 +217,7 @@ def run_pipeline(
     if not markets:
         console.print("[yellow]   No markets found. Aborting run.[/yellow]")
         logger.log_run_end(run_id, 0, 0, 0, "no_markets")
+        export_status(headlines_last_cycle=len(news))
         return results
 
     # Step 3: Score Each Market
@@ -239,6 +261,7 @@ def run_pipeline(
 
     logger.log_run_end(run_id, len(markets), len(signals), len(results))
     _print_summary(results, len(markets), len(signals))
+    export_status(headlines_last_cycle=len(news))
     return results
 
 

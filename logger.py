@@ -92,6 +92,18 @@ def init_db():
             lesson TEXT NOT NULL,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
+
+        CREATE TABLE IF NOT EXISTS classifications (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            market_question TEXT NOT NULL,
+            headline TEXT,
+            news_source TEXT,
+            direction TEXT,
+            materiality REAL,
+            edge REAL,
+            action TEXT NOT NULL,
+            created_at TEXT NOT NULL DEFAULT (datetime('now'))
+        );
     """)
     # Add V2 columns to existing trades table if missing
     _migrate_v2_columns(conn)
@@ -233,6 +245,61 @@ def get_recent_lessons(limit: int = 5) -> list[dict]:
     ).fetchall()
     conn.close()
     return [dict(r) for r in rows]
+
+
+def log_classification(
+    market_question: str,
+    headline: str,
+    news_source: str,
+    direction: str,
+    materiality: float,
+    edge: float | None,
+    action: str,
+) -> int:
+    conn = _conn()
+    cur = conn.execute(
+        """INSERT INTO classifications
+           (market_question, headline, news_source, direction, materiality, edge, action)
+           VALUES (?, ?, ?, ?, ?, ?, ?)""",
+        (market_question, headline, news_source, direction, materiality, edge, action),
+    )
+    classification_id = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return classification_id
+
+
+def get_recent_classifications(limit: int = 20) -> list[dict]:
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT * FROM classifications ORDER BY created_at DESC LIMIT ?", (limit,)
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_classification_count_since(since: str, action: str | None = None) -> int:
+    conn = _conn()
+    if action:
+        row = conn.execute(
+            "SELECT COUNT(*) as c FROM classifications WHERE created_at >= ? AND action = ?",
+            (since, action),
+        ).fetchone()
+    else:
+        row = conn.execute(
+            "SELECT COUNT(*) as c FROM classifications WHERE created_at >= ?", (since,)
+        ).fetchone()
+    conn.close()
+    return row["c"]
+
+
+def get_news_event_count_since(since: str) -> int:
+    conn = _conn()
+    row = conn.execute(
+        "SELECT COUNT(*) as c FROM news_events WHERE created_at >= ?", (since,)
+    ).fetchone()
+    conn.close()
+    return row["c"]
 
 
 def log_run_start() -> int:
