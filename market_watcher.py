@@ -6,10 +6,13 @@ from __future__ import annotations
 
 import asyncio
 import json
+import ssl
 import time
 import logging
 from datetime import datetime, timezone
 from dataclasses import dataclass, field
+
+import certifi
 
 import config
 from markets import Market, fetch_active_markets, filter_by_categories
@@ -97,9 +100,11 @@ class MarketWatcher:
             log.warning("[watcher] websockets not installed — using polling fallback")
             return
 
+        ssl_context = ssl.create_default_context(cafile=certifi.where())
+
         while True:
             try:
-                async with websockets.connect(config.POLYMARKET_WS_HOST) as ws:
+                async with websockets.connect(config.POLYMARKET_WS_HOST, ssl=ssl_context) as ws:
                     self._ws_connected = True
                     log.info("[watcher] WebSocket connected")
 
