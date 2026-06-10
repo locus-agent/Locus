@@ -8,6 +8,7 @@ from __future__ import annotations
 import json
 import logging
 import subprocess
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -19,6 +20,8 @@ log = logging.getLogger(__name__)
 
 REPO_DIR = Path(__file__).parent
 STATUS_PATH = REPO_DIR / "docs" / "status.json"
+
+_last_push_at = float("-inf")
 
 
 def export_status(headlines_last_cycle: int = 0) -> dict:
@@ -66,8 +69,15 @@ def export_status(headlines_last_cycle: int = 0) -> dict:
 
 
 def _auto_push_status():
-    """Commit and push docs/status.json if it changed. Never raises — logs a warning instead."""
+    """Commit and push docs/status.json if it changed, at most once per
+    AUTO_PUSH_MIN_INTERVAL_SECONDS. Never raises — logs a warning instead."""
+    global _last_push_at
+
     if not config.AUTO_PUSH_STATUS:
+        return
+
+    now = time.monotonic()
+    if now - _last_push_at < config.AUTO_PUSH_MIN_INTERVAL_SECONDS:
         return
 
     try:
@@ -90,6 +100,7 @@ def _auto_push_status():
             ["git", "push", "origin", "main"],
             cwd=REPO_DIR, check=True, capture_output=True, timeout=30,
         )
+        _last_push_at = now
     except Exception as e:
         log.warning(f"[export_status] Auto-push of dashboard data failed: {e}")
 

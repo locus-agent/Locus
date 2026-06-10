@@ -53,6 +53,8 @@ SCORING_MODEL = "claude-sonnet-4-6"
 # --- Dashboard ---
 # Auto-commit and push docs/status.json after each pipeline cycle.
 AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"
+# Minimum time between auto-pushes, regardless of how often cycles run.
+AUTO_PUSH_MIN_INTERVAL_SECONDS = float(os.getenv("AUTO_PUSH_MIN_INTERVAL_SECONDS", "300"))
 
 # --- Categories to track ---
 MARKET_CATEGORIES = [
