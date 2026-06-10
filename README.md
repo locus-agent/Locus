@@ -196,7 +196,7 @@ Every trade is tracked. As markets resolve, the system measures whether its clas
 
 ---
 
-Built by [Locus](https://github.com/locus-agent/Locus)
+Built by [@locus_agent](https://x.com/locus_agent)
 
 ---
 
@@ -206,4 +206,4 @@ This project is for **entertainment and educational purposes only**. It is not f
 
 ---
 
-Based on polymarket-pipeline by brodyautomates
+Based on polymarket-pipeline by [@brodyautomates](https://x.com/brodyautomates)
