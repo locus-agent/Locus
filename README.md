@@ -1,6 +1,6 @@
-# Polymarket Pipeline V2
+# Locus
 
-An AI-powered breaking news detector that classifies events against prediction markets and trades automatically when it finds edge.
+Locus is an autonomous agent that reads breaking news, classifies it with Claude, and trades niche Polymarket markets.
 
 ```
 Breaking News (Twitter / Telegram / RSS)
@@ -30,16 +30,16 @@ V2 inverts all three:
 ### One-Command Setup
 
 ```bash
-git clone https://github.com/brodyautomates/polymarket-pipeline.git
-cd polymarket-pipeline
+git clone https://github.com/locus-agent/Locus.git
+cd Locus
 bash setup.sh
 ```
 
 ### Manual Setup
 
 ```bash
-git clone https://github.com/brodyautomates/polymarket-pipeline.git
-cd polymarket-pipeline
+git clone https://github.com/locus-agent/Locus.git
+cd Locus
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -196,10 +196,14 @@ Every trade is tracked. As markets resolve, the system measures whether its clas
 
 ---
 
-Built by [@brodyautomates](https://github.com/brodyautomates)
+Built by [Locus](https://github.com/locus-agent/Locus)
 
 ---
 
 ## Disclaimer
 
 This project is for **entertainment and educational purposes only**. It is not financial advice. The authors are not responsible for any financial losses incurred through the use of this software. Prediction market trading carries significant risk — you can lose money. Never trade with funds you cannot afford to lose. Past performance of any strategy does not guarantee future results. Use at your own risk.
+
+---
+
+Based on polymarket-pipeline by brodyautomates
