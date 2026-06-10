@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 import httpx
 
 import config
-from scraper import scrape_all, NewsItem
+from scraper import scrape_all, scrape_newsapi, scrape_newsapi_top_headlines, NewsItem
 
 log = logging.getLogger(__name__)
 
@@ -255,6 +255,82 @@ class RSSFallback:
             await asyncio.sleep(self.interval)
 
 
+class NewsAPISource:
+    """Periodic NewsAPI.org polling — top headlines plus per-category searches.
+
+    The free "Developer" plan allows config.NEWSAPI_DAILY_LIMIT requests/day
+    across all endpoints, so requests are spread evenly across the day
+    (interval = 24h / daily_limit) and round-robin through one spec per poll.
+    scraper._newsapi_budget_ok() is the hard backstop against exceeding the
+    daily cap.
+    """
+
+    def __init__(self, api_key: str, daily_limit: int = 100):
+        self.enabled = bool(api_key)
+        self.interval = max(60.0, 86400.0 / max(daily_limit, 1))
+        self._seen_headlines: set[str] = set()
+        self._specs = (
+            [("everything", q) for q in config.NEWSAPI_CATEGORY_QUERIES.values()]
+            + [("top-headlines", c) for c in config.NEWSAPI_TOP_HEADLINE_CATEGORIES]
+        )
+        self._spec_idx = 0
+
+    async def stream(self, queue: asyncio.Queue):
+        """Poll NewsAPI periodically and emit new headlines."""
+        if not self.enabled:
+            log.info("[newsapi] No API key — source disabled")
+            return
+
+        while True:
+            kind, arg = self._specs[self._spec_idx % len(self._specs)]
+            self._spec_idx += 1
+
+            try:
+                if kind == "everything":
+                    items = await asyncio.get_event_loop().run_in_executor(
+                        None, scrape_newsapi, arg, config.NEWS_LOOKBACK_HOURS
+                    )
+                else:
+                    items = await asyncio.get_event_loop().run_in_executor(
+                        None, scrape_newsapi_top_headlines, arg
+                    )
+
+                now = datetime.now(timezone.utc)
+                new_count = 0
+
+                for item in items:
+                    key = item.headline.lower()[:80]
+                    if key in self._seen_headlines:
+                        continue
+                    self._seen_headlines.add(key)
+                    new_count += 1
+
+                    latency = int((now - item.published_at).total_seconds() * 1000)
+
+                    event = NewsEvent(
+                        headline=item.headline,
+                        source="newsapi",
+                        url=item.url,
+                        received_at=now,
+                        published_at=item.published_at,
+                        summary=item.summary,
+                        latency_ms=latency,
+                    )
+                    await queue.put(event)
+
+                if new_count:
+                    log.info(f"[newsapi] {kind}:{arg} -> {new_count} new headlines")
+
+                # Trim seen cache
+                if len(self._seen_headlines) > 5000:
+                    self._seen_headlines = set(list(self._seen_headlines)[-2000:])
+
+            except Exception as e:
+                log.warning(f"[newsapi] Error fetching {kind}:{arg}: {e}")
+
+            await asyncio.sleep(self.interval)
+
+
 class NewsAggregator:
     """Runs all news sources concurrently, deduplicates, emits to output queue."""
 
@@ -266,8 +342,9 @@ class NewsAggregator:
         self.twitter = TwitterStream(config.TWITTER_BEARER_TOKEN, config.TWITTER_KEYWORDS)
         self.telegram = TelegramMonitor(config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_CHANNEL_IDS)
         self.rss = RSSFallback(interval_seconds=120)
+        self.newsapi = NewsAPISource(config.NEWSAPI_KEY, config.NEWSAPI_DAILY_LIMIT)
 
-        self.stats = {"twitter": 0, "telegram": 0, "rss": 0, "total": 0, "deduped": 0}
+        self.stats = {"twitter": 0, "telegram": 0, "rss": 0, "newsapi": 0, "total": 0, "deduped": 0}
 
     async def run(self):
         """Start all sources and the dedup router."""
@@ -275,6 +352,7 @@ class NewsAggregator:
             self.twitter.stream(self._internal_queue),
             self.telegram.stream(self._internal_queue),
             self.rss.stream(self._internal_queue),
+            self.newsapi.stream(self._internal_queue),
             self._dedup_router(),
             return_exceptions=True,
         )

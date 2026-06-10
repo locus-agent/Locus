@@ -62,9 +62,26 @@ def scrape_rss(feed_url: str, lookback_hours: int) -> list[NewsItem]:
     return items
 
 
+# Tracks NewsAPI requests against the free-tier daily limit (resets at UTC midnight).
+_newsapi_day = None
+_newsapi_request_count = 0
+
+
+def _newsapi_budget_ok() -> bool:
+    global _newsapi_day, _newsapi_request_count
+    today = datetime.now(timezone.utc).date()
+    if today != _newsapi_day:
+        _newsapi_day = today
+        _newsapi_request_count = 0
+    if _newsapi_request_count >= config.NEWSAPI_DAILY_LIMIT:
+        return False
+    _newsapi_request_count += 1
+    return True
+
+
 def scrape_newsapi(query: str, lookback_hours: int) -> list[NewsItem]:
-    """Pull from NewsAPI.org if key is configured."""
-    if not config.NEWSAPI_KEY:
+    """Pull from NewsAPI.org /v2/everything if key is configured and within budget."""
+    if not config.NEWSAPI_KEY or not _newsapi_budget_ok():
         return []
 
     items = []
@@ -84,6 +101,45 @@ def scrape_newsapi(query: str, lookback_hours: int) -> list[NewsItem]:
             },
             timeout=15,
         )
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception:
+        return items
+
+    for article in data.get("articles", []):
+        pub_str = article.get("publishedAt", "")
+        try:
+            published = datetime.fromisoformat(pub_str.replace("Z", "+00:00"))
+        except (ValueError, AttributeError):
+            published = datetime.now(timezone.utc)
+
+        items.append(NewsItem(
+            headline=article.get("title", "").strip(),
+            source=article.get("source", {}).get("name", "NewsAPI"),
+            url=article.get("url", ""),
+            published_at=published,
+            summary=(article.get("description") or "")[:500],
+        ))
+
+    return items
+
+
+def scrape_newsapi_top_headlines(category: str | None = None, country: str = "us") -> list[NewsItem]:
+    """Pull from NewsAPI.org /v2/top-headlines if key is configured and within budget."""
+    if not config.NEWSAPI_KEY or not _newsapi_budget_ok():
+        return []
+
+    items = []
+    params = {
+        "country": country,
+        "pageSize": 50,
+        "apiKey": config.NEWSAPI_KEY,
+    }
+    if category:
+        params["category"] = category
+
+    try:
+        resp = httpx.get("https://newsapi.org/v2/top-headlines", params=params, timeout=15)
         resp.raise_for_status()
         data = resp.json()
     except Exception:
@@ -127,9 +183,6 @@ def scrape_all(lookback_hours: int | None = None) -> list[NewsItem]:
     for feed_url in config.RSS_FEEDS:
         all_items.extend(scrape_rss(feed_url, hours))
         time.sleep(0.5)  # polite crawling
-
-    # NewsAPI broad query
-    all_items.extend(scrape_newsapi("AI OR artificial intelligence OR crypto OR blockchain", hours))
 
     unique = deduplicate(all_items)
     unique.sort(key=lambda x: x.published_at, reverse=True)

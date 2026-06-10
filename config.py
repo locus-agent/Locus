@@ -23,8 +23,22 @@ TELEGRAM_CHANNEL_IDS = [
     c.strip() for c in os.getenv("TELEGRAM_CHANNEL_IDS", "").split(",") if c.strip()
 ]
 
-# --- NewsAPI (optional, RSS fallback) ---
+# --- NewsAPI (optional, broader news coverage) ---
 NEWSAPI_KEY = os.getenv("NEWSAPI_KEY", "")
+# Free "Developer" plan allows 100 requests/day across all endpoints.
+NEWSAPI_DAILY_LIMIT = int(os.getenv("NEWSAPI_DAILY_LIMIT", "100"))
+
+# /v2/everything search queries, one per market category (NewsAPI source)
+NEWSAPI_CATEGORY_QUERIES = {
+    "ai": '"artificial intelligence" OR OpenAI OR Anthropic OR "Claude AI" OR "Google AI" OR Gemini OR GPT-5',
+    "technology": 'Apple OR NVIDIA OR Microsoft OR "big tech"',
+    "crypto": "Bitcoin OR Ethereum OR Solana OR cryptocurrency OR blockchain",
+    "politics": 'Congress OR "White House" OR Senate OR election OR tariff OR "Fed rate"',
+    "science": 'NASA OR SpaceX OR Starship OR "scientific research"',
+}
+
+# /v2/top-headlines categories (country=us) to cover the markets above
+NEWSAPI_TOP_HEADLINE_CATEGORIES = ["general", "technology", "science", "business"]
 
 # --- RSS Feeds (fallback) ---
 RSS_FEEDS = [

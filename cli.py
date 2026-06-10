@@ -216,7 +216,26 @@ def cmd_verify(args):
     else:
         console.print(f"  [dim]SKIP[/dim]  Telegram bot (optional — enables channel monitoring)")
 
-    # 8. Polymarket API
+    # 8. NewsAPI (optional)
+    has_newsapi = bool(config.NEWSAPI_KEY)
+    if has_newsapi:
+        try:
+            import httpx
+            resp = httpx.get(
+                "https://newsapi.org/v2/top-headlines",
+                params={"country": "us", "pageSize": 1, "apiKey": config.NEWSAPI_KEY},
+                timeout=15,
+            )
+            resp.raise_for_status()
+            total = resp.json().get("totalResults", 0)
+            console.print(f"  [bright_green]PASS[/bright_green]  NewsAPI key (verified, {total} headlines available)")
+        except Exception as e:
+            console.print(f"  [red]FAIL[/red]  NewsAPI key — {type(e).__name__}: {e}")
+            all_good = False
+    else:
+        console.print(f"  [dim]SKIP[/dim]  NewsAPI (optional — broader news coverage)")
+
+    # 9. Polymarket API
     try:
         from markets import fetch_active_markets
         mkts = fetch_active_markets(limit=5)
@@ -224,7 +243,7 @@ def cmd_verify(args):
     except Exception as e:
         console.print(f"  [yellow]WARN[/yellow]  Polymarket API — {e}")
 
-    # 9. Niche market filter
+    # 10. Niche market filter
     try:
         from markets import fetch_active_markets, filter_by_categories
         all_m = fetch_active_markets(limit=100)
@@ -234,14 +253,14 @@ def cmd_verify(args):
     except Exception as e:
         console.print(f"  [yellow]WARN[/yellow]  Niche filter — {e}")
 
-    # 10. Polymarket trading credentials (optional)
+    # 11. Polymarket trading credentials (optional)
     has_poly = bool(config.POLYMARKET_API_KEY)
     if has_poly:
         console.print(f"  [bright_green]PASS[/bright_green]  Polymarket trading credentials set")
     else:
         console.print(f"  [dim]SKIP[/dim]  Polymarket trading credentials (optional — needed for --live)")
 
-    # 11. SQLite
+    # 12. SQLite
     try:
         import logger as _
         console.print(f"  [bright_green]PASS[/bright_green]  SQLite database (V2 schema)")

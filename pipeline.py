@@ -155,7 +155,7 @@ class PipelineV2:
             console.print(
                 f"\n  [dim]Status: "
                 f"news={self.stats['news_processed']} "
-                f"(tw:{ns.get('twitter', 0)} tg:{ns.get('telegram', 0)} rss:{ns.get('rss', 0)}) "
+                f"(tw:{ns.get('twitter', 0)} tg:{ns.get('telegram', 0)} rss:{ns.get('rss', 0)} na:{ns.get('newsapi', 0)}) "
                 f"matched={self.stats['markets_matched']} "
                 f"signals={self.stats['signals_found']} "
                 f"trades={self.stats['trades_executed']} "
