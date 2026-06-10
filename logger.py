@@ -82,6 +82,16 @@ def init_db():
             resolved_at TEXT,
             UNIQUE(trade_id)
         );
+
+        CREATE TABLE IF NOT EXISTS lessons (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            trade_id INTEGER REFERENCES trades(id),
+            market_question TEXT,
+            classification TEXT,
+            actual_direction TEXT,
+            lesson TEXT NOT NULL,
+            created_at TEXT NOT NULL DEFAULT (datetime('now'))
+        );
     """)
     # Add V2 columns to existing trades table if missing
     _migrate_v2_columns(conn)
@@ -187,6 +197,42 @@ def log_calibration(
     )
     conn.commit()
     conn.close()
+
+
+def get_calibration_with_trades() -> list[dict]:
+    """Resolved calibration records joined with their trade's question and news source."""
+    conn = _conn()
+    rows = conn.execute("""
+        SELECT c.trade_id, c.classification, c.correct,
+               t.market_question, t.news_source
+        FROM calibration c
+        JOIN trades t ON c.trade_id = t.id
+        WHERE c.correct IS NOT NULL
+    """).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def log_lesson(trade_id: int, market_question: str, classification: str, actual_direction: str, lesson: str) -> int:
+    conn = _conn()
+    cur = conn.execute(
+        """INSERT INTO lessons (trade_id, market_question, classification, actual_direction, lesson)
+           VALUES (?, ?, ?, ?, ?)""",
+        (trade_id, market_question, classification, actual_direction, lesson),
+    )
+    lesson_id = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return lesson_id
+
+
+def get_recent_lessons(limit: int = 5) -> list[dict]:
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT * FROM lessons ORDER BY created_at DESC LIMIT ?", (limit,)
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
 
 
 def log_run_start() -> int:

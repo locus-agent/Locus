@@ -11,6 +11,7 @@ import httpx
 
 import config
 import logger
+import memory
 
 log = logging.getLogger(__name__)
 
@@ -96,6 +97,10 @@ def check_resolutions():
                 actual_direction=actual_direction,
                 correct=correct,
             )
+
+            if not correct:
+                memory.record_lesson(trade, actual_direction, entry_price, exit_price)
+
             resolved_count += 1
 
         except Exception as e:

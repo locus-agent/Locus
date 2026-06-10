@@ -68,7 +68,10 @@ PipelineV2._execute_signals:
   (no API call). `match_news_to_markets_broad` adds a category-keyword fallback.
 - `classifier.py` asks Claude a *classification* question — "does this news make the
   market MORE likely YES / NO / NOT RELEVANT", plus a 0-1 materiality score. This is
-  the core philosophical difference from V1 (see README "What Changed From V1").
+  the core philosophical difference from V1 (see README "What Changed From V1"). Each
+  call injects a "Your track record" section (via `memory.get_track_record()` +
+  `logger.get_recent_lessons()`) so Claude can see its historical accuracy and recent
+  mistakes before classifying.
 - `edge.py: detect_edge_v2` only signals when direction is non-neutral, materiality
   clears `MATERIALITY_THRESHOLD`, and the market price has room to move in that
   direction (skips YES if price > 0.85, skips NO if price < 0.15). `size_position`
@@ -94,11 +97,18 @@ PipelineV2._execute_signals:
   `config.X` (not via `from config import X`) to see overrides.
 - `logger.py` — SQLite (`trades.db`, WAL mode). `init_db()` runs at import time and
   auto-migrates V2 columns onto the `trades` table (`_migrate_v2_columns`). Tables:
-  `trades`, `outcomes`, `pipeline_runs`, `news_events`, `calibration`.
+  `trades`, `outcomes`, `pipeline_runs`, `news_events`, `calibration`, `lessons`.
 - `markets.py` — Polymarket Gamma API client (`fetch_active_markets`), with a CLOB API
   fallback. Infers a `category` per market from question text/tags
   (`_infer_category`), used by `filter_by_categories` against `MARKET_CATEGORIES`.
 - `calibrator.py` — polls Gamma API for resolved markets referenced in `trades`,
   compares the classification's predicted direction to the actual price move, and
   writes to the `calibration` table. `cli.py calibrate` surfaces accuracy by source
-  and by classification.
+  and by classification. When a classification turns out wrong, it calls
+  `memory.record_lesson()` to generate and store a lesson.
+- `memory.py` — the classifier's feedback loop. `get_track_record()` reads the
+  `calibration` table and returns total resolved count, overall accuracy, and accuracy
+  broken down by market category (via `markets._infer_category` on the question text)
+  and by news source. `record_lesson()` asks Claude for a 1-2 sentence explanation of
+  why an incorrect classification was wrong and stores it in `lessons`. `classifier.py`
+  pulls both into every classification prompt.
