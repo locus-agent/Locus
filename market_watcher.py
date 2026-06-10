@@ -108,50 +108,80 @@ class MarketWatcher:
                     self._ws_connected = True
                     log.info("[watcher] WebSocket connected")
 
-                    # Subscribe to tracked markets
-                    for market in self.tracked_markets:
-                        for token in market.tokens:
-                            tid = token.get("token_id")
-                            if tid:
-                                sub = {"type": "subscribe", "channel": "price", "market": tid}
-                                await ws.send(json.dumps(sub))
+                    # Subscribe to the market channel: one message with all asset (token) ids
+                    asset_ids = [
+                        tid
+                        for market in self.tracked_markets
+                        for token in market.tokens
+                        if (tid := token.get("token_id"))
+                    ]
+                    if asset_ids:
+                        await ws.send(json.dumps({"assets_ids": asset_ids, "type": "market"}))
 
                     # Listen for updates
                     while True:
                         try:
                             msg = await asyncio.wait_for(ws.recv(), timeout=10)
-                            self.stats["ws_messages"] += 1
-                            data = json.loads(msg)
-                            self._handle_ws_message(data)
                         except asyncio.TimeoutError:
                             # Send ping
                             await ws.ping()
+                            continue
+
+                        self.stats["ws_messages"] += 1
+
+                        if not msg:
+                            continue
+
+                        try:
+                            data = json.loads(msg)
+                        except json.JSONDecodeError:
+                            log.debug(f"[watcher] Skipping non-JSON WebSocket message: {msg!r}")
+                            continue
+
+                        self._handle_ws_message(data)
 
             except Exception as e:
                 self._ws_connected = False
                 log.warning(f"[watcher] WebSocket error: {e}, reconnecting in 5s")
                 await asyncio.sleep(5)
 
-    def _handle_ws_message(self, data: dict):
-        """Process a WebSocket price update."""
-        msg_type = data.get("type", "")
-        if msg_type not in ("price_change", "last_trade_price"):
+    def _handle_ws_message(self, data: dict | list):
+        """Process a market-channel WebSocket message (book snapshot or price change)."""
+        if isinstance(data, list):
+            # Initial book snapshots sent on subscribe — no single "current price" to
+            # extract here; live prices arrive via subsequent price_change events.
             return
 
-        market_id = data.get("market", data.get("condition_id", ""))
-        price = data.get("price")
+        event_type = data.get("event_type", "")
 
-        if not market_id or price is None:
+        if event_type == "price_change":
+            for change in data.get("price_changes", []):
+                self._apply_price_update(change.get("asset_id", ""), change)
+        elif event_type == "last_trade_price":
+            self._apply_price_update(data.get("asset_id", ""), data)
+
+    def _apply_price_update(self, asset_id: str, change: dict):
+        """Update the snapshot for asset_id using best_bid/best_ask (or price as fallback)."""
+        if not asset_id:
             return
 
-        # Find matching snapshot
-        for cid, snap in self.snapshots.items():
+        best_bid = change.get("best_bid")
+        best_ask = change.get("best_ask")
+        if best_bid is not None and best_ask is not None:
+            price = (float(best_bid) + float(best_ask)) / 2
+        elif change.get("price") is not None:
+            price = float(change["price"])
+        else:
+            return
+
+        # Find matching snapshot by token id
+        for snap in self.snapshots.values():
             token_ids = [t.get("token_id", "") for t in snap.market.tokens]
-            if market_id in token_ids or market_id == cid:
+            if asset_id in token_ids:
                 now = datetime.now(timezone.utc)
                 elapsed = (now - snap.last_update).total_seconds()
                 snap.prev_price = snap.last_price
-                snap.last_price = float(price)
+                snap.last_price = price
                 snap.last_update = now
                 if elapsed > 0:
                     snap.momentum = (snap.last_price - snap.prev_price) / (elapsed / 60)
