@@ -50,6 +50,10 @@ SPEED_TARGET_SECONDS = float(os.getenv("SPEED_TARGET_SECONDS", "5"))
 CLASSIFICATION_MODEL = "claude-haiku-4-5-20251001"
 SCORING_MODEL = "claude-sonnet-4-6"
 
+# --- Dashboard ---
+# Auto-commit and push docs/status.json after each pipeline cycle.
+AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"
+
 # --- Categories to track ---
 MARKET_CATEGORIES = [
     "ai",

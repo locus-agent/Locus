@@ -6,6 +6,8 @@ just classification history, accuracy stats, and lessons learned.
 from __future__ import annotations
 
 import json
+import logging
+import subprocess
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -13,7 +15,10 @@ import config
 import logger
 import memory
 
-STATUS_PATH = Path(__file__).parent / "docs" / "status.json"
+log = logging.getLogger(__name__)
+
+REPO_DIR = Path(__file__).parent
+STATUS_PATH = REPO_DIR / "docs" / "status.json"
 
 
 def export_status(headlines_last_cycle: int = 0) -> dict:
@@ -55,7 +60,38 @@ def export_status(headlines_last_cycle: int = 0) -> dict:
 
     STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     STATUS_PATH.write_text(json.dumps(status, indent=2))
+
+    _auto_push_status()
     return status
+
+
+def _auto_push_status():
+    """Commit and push docs/status.json if it changed. Never raises — logs a warning instead."""
+    if not config.AUTO_PUSH_STATUS:
+        return
+
+    try:
+        diff = subprocess.run(
+            ["git", "diff", "--quiet", "--", "docs/status.json"],
+            cwd=REPO_DIR, capture_output=True,
+        )
+        if diff.returncode == 0:
+            return  # no changes to commit
+
+        subprocess.run(
+            ["git", "add", "docs/status.json"],
+            cwd=REPO_DIR, check=True, capture_output=True, timeout=30,
+        )
+        subprocess.run(
+            ["git", "commit", "-m", "update dashboard data"],
+            cwd=REPO_DIR, check=True, capture_output=True, timeout=30,
+        )
+        subprocess.run(
+            ["git", "push", "origin", "main"],
+            cwd=REPO_DIR, check=True, capture_output=True, timeout=30,
+        )
+    except Exception as e:
+        log.warning(f"[export_status] Auto-push of dashboard data failed: {e}")
 
 
 if __name__ == "__main__":
