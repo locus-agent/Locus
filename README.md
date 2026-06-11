@@ -121,52 +121,82 @@ python cli.py backtest --limit 50 --category ai
 
 ## Architecture
 
-### V2 Pipeline (Event-Driven)
-
 ```
-news_stream.py      Real-time news — Twitter API v2, Telegram, RSS fallback
-market_watcher.py   Polymarket WebSocket — live prices, niche filter, momentum
-classifier.py       Claude classification — bullish/bearish/neutral + materiality
-matcher.py          Routes breaking news to relevant markets
-edge.py             Edge detection + Kelly sizing (V2: classification-based)
-executor.py         Trade execution — dry-run + live CLOB orders (async)
-pipeline.py         Event-driven orchestrator (asyncio)
-calibrator.py       Tracks classification accuracy over time
-backtest.py         Historical replay for strategy validation
+                cli.py   (entry point: watch, run, verify, …)
+                   │
+                   ▼
+              pipeline.py   (asyncio event loop)
+                   │
+       ┌───────────┴──────────────┐
+       ▼                          ▼
+ news_stream.py             market_watcher.py
+ Twitter · RSS ·            niche markets ($1k–$500k volume),
+ NewsAPI · Telegram         Gamma API refresh + WebSocket prices
+ → deduped event queue            │
+       │                          │
+       └───────────┬──────────────┘
+                   ▼
+              matcher.py          headline → candidate markets
+                   ▼
+             classifier.py        Claude: bullish / bearish / neutral
+                   │  ▲           + materiality (0–1)
+                   │  └─────────────────────────────┐
+                   ▼                                │ track record
+                edge.py           signal filter +   │ + lessons
+                   │              quarter-Kelly     │
+                   ▼              sizing            │
+             executor.py          dry-run or live   │
+                   │              CLOB order,       │
+                   ▼              daily loss limit  │
+          logger.py (trades.db)                     │
+                   │                                │
+                   ├──► calibrator.py ──► memory.py ┘
+                   │    resolved markets   accuracy stats
+                   ▼    vs predictions     + lessons
+           export_status.py
+                   ▼
+        docs/status.json → GitHub Pages dashboard
 ```
 
-### Shared Infrastructure
+The loop at the right is the feedback cycle: as markets resolve, `calibrator.py` grades each
+classification, `memory.py` turns the results into a track record and one-line lessons, and
+`classifier.py` injects both into every future prompt — so Claude sees its own accuracy
+history before classifying the next headline.
 
-```
-logger.py           SQLite — trades, news events, calibration, latency tracking
-config.py           All settings, API keys, thresholds
-dashboard.py        Bloomberg Terminal-style live dashboard
-cli.py              CLI — watch, run, backtest, calibrate, niche, verify, etc.
-```
+### Module Map
 
----
+| File | What it does |
+|---|---|
+| `cli.py` | Entry point — `watch`, `run`, `dashboard`, `backtest`, `verify`, and friends |
+| `pipeline.py` | Orchestrators: V2 asyncio event loop (`watch`) and V1 synchronous loop (`run`) |
+| `news_stream.py` | Aggregates Twitter stream, RSS, NewsAPI, and Telegram into one deduped queue |
+| `market_watcher.py` | Tracks niche markets — 5-min Gamma refresh, live WebSocket prices, momentum |
+| `markets.py` | Polymarket Gamma API client, `Market` model, category inference |
+| `matcher.py` | Matches headlines to tracked markets by keyword overlap |
+| `classifier.py` | Asks Claude for direction + materiality, with track record injected |
+| `edge.py` | Turns classifications into signals; quarter-Kelly position sizing |
+| `executor.py` | Executes trades — dry-run log or live CLOB order; enforces daily loss limit |
+| `logger.py` | SQLite store (`trades.db`): trades, outcomes, news events, calibration, lessons |
+| `calibrator.py` | Grades classifications once markets resolve |
+| `memory.py` | Track record + lessons — the classifier's feedback loop |
+| `export_status.py` | Writes `docs/status.json` for the public GitHub Pages dashboard |
+| `dashboard.py` | Terminal dashboard (runs the V1 scan loop) |
+| `scraper.py` | V1 news scraper (RSS + NewsAPI) |
+| `scorer.py` | V1 probability scoring with Claude |
+| `backtest.py` | Replays resolved markets through the V2 classifier |
+| `backtest_real.py` | Backtest pilot on real data: Gamma markets, GDELT/NewsAPI headlines, CLOB prices |
+| `config.py` | All settings — `.env` keys, thresholds, market categories |
 
-## How It Actually Works
+### How a Headline Becomes a Trade Decision
 
-### 1. News Detection
-Real-time streams from Twitter (filtered by keywords: OpenAI, Bitcoin, Fed rate, etc.), Telegram channels, and RSS fallback. Events are deduplicated and timestamped with receive latency.
-
-### 2. Market Matching
-Each headline is matched to active niche markets (<$500K volume) by keyword overlap. Only relevant markets proceed to classification.
-
-### 3. Classification (The Key Shift)
-Instead of "what's the probability?", Claude is asked: *"Does this news make the market MORE likely to resolve YES, MORE likely to resolve NO, or is it NOT RELEVANT?"*
-
-This is a classification task — something LLMs are genuinely good at. Claude also rates materiality (0-1): how much should this move the price?
-
-### 4. Edge Detection
-If direction is bullish/bearish AND materiality exceeds threshold (default 0.6) AND the market price has room to move — that's a signal. Position sizing uses quarter-Kelly.
-
-### 5. Execution
-Dry-run by default. Live mode places orders via Polymarket CLOB API. Safety: $25 max bet, $100 daily limit.
-
-### 6. Calibration
-Every trade is tracked. As markets resolve, the system measures whether its classifications were correct. Accuracy by source and category informs future confidence.
+1. **A headline arrives** — say, from the Twitter stream. `news_stream.py` dedupes it against recent events and stamps how long it took to arrive.
+2. **Matching** — `matcher.py` compares its words against every tracked niche market's question and keeps the few markets it might be about. No API call, just keyword overlap.
+3. **Classification** — for each candidate market, `classifier.py` asks Claude one question: does this news make the market *more likely YES*, *more likely NO*, or is it *not relevant*? Claude also scores materiality — how much this news should move the price — and sees its own historical accuracy and recent mistakes before answering.
+4. **Edge check** — `edge.py` drops the signal unless the direction is non-neutral, materiality clears the threshold, and the price actually has room to move (no buying YES at 0.95).
+5. **Sizing** — surviving signals are sized with quarter-Kelly, capped at `MAX_BET_USD`.
+6. **Execution** — `executor.py` checks the daily loss limit, then either logs a dry-run trade (default) or places a real CLOB order.
+7. **Logging** — the trade, the headline, and the news-to-decision latency land in `trades.db`, and the public dashboard updates.
+8. **Learning** — when the market eventually resolves, `calibrator.py` grades the call. Wrong calls become one-line lessons that Claude reads next time, closing the loop.
 
 ---
 
