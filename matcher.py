@@ -1,11 +1,18 @@
 """
 News-to-market matching — routes breaking news to relevant active markets.
-Two strategies: fast keyword matching + semantic Claude matching for ambiguous cases.
+Two strategies: fast keyword overlap (no model, no API) and semantic search
+over the embedded market index (market_index.py); the V2 pipeline unions both.
 """
 from __future__ import annotations
 
 import logging
+from typing import TYPE_CHECKING
+
+import config
 from markets import Market
+
+if TYPE_CHECKING:
+    from market_index import MarketIndex
 
 log = logging.getLogger(__name__)
 
@@ -57,6 +64,46 @@ def match_news_to_markets(
     # Sort by score descending
     scored.sort(key=lambda x: x[0], reverse=True)
     return [m for _, m in scored[:max_matches]]
+
+
+def match_news_to_markets_hybrid(
+    headline: str,
+    markets: list[Market],
+    index: "MarketIndex | None" = None,
+    max_matches: int = 5,
+) -> list[tuple[Market, str]]:
+    """
+    Union of keyword and embedding matches, deduped by condition_id.
+    Returns (market, match_source) pairs where match_source is
+    "keyword", "embedding", or "both". Falls back to keyword-only while
+    the embedding index is cold (or absent). Blocking (~50ms when warm) —
+    the async pipeline calls this in an executor.
+    """
+    keyword_matches = match_news_to_markets(headline, markets, max_matches)
+    sources: dict[str, str] = {m.condition_id: "keyword" for m in keyword_matches}
+    matched: dict[str, Market] = {m.condition_id: m for m in keyword_matches}
+
+    if index is not None and not index.ready:
+        # First call after process start: load the persisted index now (we're
+        # already off the event loop) rather than miss the startup news burst.
+        index.warm()
+
+    if index is not None and index.ready:
+        by_id = {m.condition_id: m for m in markets}
+        extras = 0
+        hits = index.search(headline)
+        for cid, _dist in sorted(hits.items(), key=lambda kv: kv[1]):
+            market = by_id.get(cid)
+            if market is None:
+                continue  # index entry no longer tracked; next sync removes it
+            if cid in sources:
+                sources[cid] = "both"
+            elif extras < config.EMBED_MAX_EXTRA_MATCHES:
+                sources[cid] = "embedding"
+                matched[cid] = market
+                extras += 1
+
+    return [(market, sources[cid]) for cid, market in matched.items()]
 
 
 def match_news_to_markets_broad(

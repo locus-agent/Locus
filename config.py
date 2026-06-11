@@ -61,6 +61,13 @@ MAX_VOLUME_USD = float(os.getenv("MAX_VOLUME_USD", "500000"))
 MIN_VOLUME_USD = float(os.getenv("MIN_VOLUME_USD", "1000"))
 MATERIALITY_THRESHOLD = float(os.getenv("MATERIALITY_THRESHOLD", "0.6"))
 SPEED_TARGET_SECONDS = float(os.getenv("SPEED_TARGET_SECONDS", "5"))
+
+# --- Semantic matching (V2) ---
+# Cosine distance ceiling for headline -> market embedding matches.
+EMBED_DISTANCE_THRESHOLD = float(os.getenv("EMBED_DISTANCE_THRESHOLD", "0.6"))
+EMBED_TOP_K = int(os.getenv("EMBED_TOP_K", "8"))
+# Embedding-only matches added on top of keyword matches per headline.
+EMBED_MAX_EXTRA_MATCHES = int(os.getenv("EMBED_MAX_EXTRA_MATCHES", "3"))
 CLASSIFICATION_MODEL = "claude-haiku-4-5-20251001"
 SCORING_MODEL = "claude-sonnet-4-6"
 

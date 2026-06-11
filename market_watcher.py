@@ -15,6 +15,7 @@ from dataclasses import dataclass, field
 import certifi
 
 import config
+from market_index import MarketIndex
 from markets import Market, fetch_active_markets, filter_by_categories
 
 log = logging.getLogger(__name__)
@@ -39,6 +40,8 @@ class MarketWatcher:
     def __init__(self):
         self.snapshots: dict[str, MarketSnapshot] = {}
         self.tracked_markets: list[Market] = []
+        self.index = MarketIndex()  # semantic index; synced after each refresh
+        self._index_syncing = False
         self._refresh_interval = 300  # refresh market list every 5 min
         self._ws_connected = False
         self.stats = {
@@ -103,8 +106,29 @@ class MarketWatcher:
                 f"-> tracking {len(self.tracked_markets)} niche markets"
             )
 
+            self._schedule_index_sync()
+
         except Exception as e:
             log.warning(f"[watcher] Market refresh error: {e}")
+
+    def _schedule_index_sync(self):
+        """Sync the semantic index in a worker thread (first build embeds all
+        ~3k markets and takes minutes; later syncs touch only changed rows).
+        News matching falls back to keyword-only until index.ready."""
+        if self._index_syncing:
+            return
+        self._index_syncing = True
+        markets_snapshot = list(self.tracked_markets)
+
+        def _sync():
+            try:
+                self.index.sync(markets_snapshot)
+            except Exception as e:
+                log.warning(f"[watcher] Index sync error: {e}")
+            finally:
+                self._index_syncing = False
+
+        asyncio.get_event_loop().run_in_executor(None, _sync)
 
     async def _connect_websocket(self):
         """Connect to Polymarket WebSocket for live price updates."""
@@ -212,6 +236,9 @@ class MarketWatcher:
 
     async def run(self):
         """Start the market watcher — refresh + WebSocket + polling fallback."""
+        # Warm the persisted semantic index right away: the RSS source bursts
+        # headlines in the first seconds, before the first refresh+sync lands.
+        asyncio.get_event_loop().run_in_executor(None, self.index.warm)
         await self.refresh_markets()
 
         async def refresh_loop():

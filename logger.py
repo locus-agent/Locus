@@ -102,11 +102,13 @@ def init_db():
             materiality REAL,
             edge REAL,
             action TEXT NOT NULL,
+            match_source TEXT,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
     """)
     # Add V2 columns to existing trades table if missing
     _migrate_v2_columns(conn)
+    _migrate_classification_columns(conn)
     conn.close()
 
 
@@ -125,6 +127,15 @@ def _migrate_v2_columns(conn):
     for col_name, col_type in new_cols:
         if col_name not in columns:
             conn.execute(f"ALTER TABLE trades ADD COLUMN {col_name} {col_type}")
+    conn.commit()
+
+
+def _migrate_classification_columns(conn):
+    """Add newer columns to the classifications table if they don't exist."""
+    cursor = conn.execute("PRAGMA table_info(classifications)")
+    columns = {row[1] for row in cursor.fetchall()}
+    if "match_source" not in columns:
+        conn.execute("ALTER TABLE classifications ADD COLUMN match_source TEXT")
     conn.commit()
 
 
@@ -255,13 +266,14 @@ def log_classification(
     materiality: float,
     edge: float | None,
     action: str,
+    match_source: str | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
-           (market_question, headline, news_source, direction, materiality, edge, action)
-           VALUES (?, ?, ?, ?, ?, ?, ?)""",
-        (market_question, headline, news_source, direction, materiality, edge, action),
+           (market_question, headline, news_source, direction, materiality, edge, action, match_source)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        (market_question, headline, news_source, direction, materiality, edge, action, match_source),
     )
     classification_id = cur.lastrowid
     conn.commit()

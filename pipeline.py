@@ -24,7 +24,7 @@ from edge import detect_edge, detect_edge_v2, Signal
 from executor import execute_trade, execute_trade_async
 from news_stream import NewsAggregator, NewsEvent
 from market_watcher import MarketWatcher
-from matcher import match_news_to_markets
+from matcher import match_news_to_markets, match_news_to_markets_hybrid
 from classifier import classify_async
 
 console = Console()
@@ -87,10 +87,15 @@ class PipelineV2:
                 latency_ms=event.latency_ms,
             )
 
-            # Match to niche markets
-            matched = match_news_to_markets(
-                event.headline,
-                self.market_watcher.tracked_markets,
+            # Match to niche markets: keyword pre-filter + embedding index
+            # (search blocks ~50ms, so run it off the event loop)
+            matched = await asyncio.get_event_loop().run_in_executor(
+                None,
+                lambda: match_news_to_markets_hybrid(
+                    event.headline,
+                    self.market_watcher.tracked_markets,
+                    index=self.market_watcher.index,
+                ),
             )
 
             if not matched:
@@ -99,7 +104,7 @@ class PipelineV2:
             self.stats["markets_matched"] += len(matched)
 
             # Classify against each matched market
-            for market in matched:
+            for market, match_source in matched:
                 try:
                     classification = await classify_async(
                         event.headline, market, event.source
@@ -115,6 +120,7 @@ class PipelineV2:
                         materiality=classification.materiality,
                         edge=signal.edge if signal else None,
                         action="signal" if signal else "skip",
+                        match_source=match_source,
                     )
 
                     if signal:

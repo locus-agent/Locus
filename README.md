@@ -181,7 +181,8 @@ history before classifying the next headline.
 | `news_stream.py` | Aggregates Twitter stream, RSS, NewsAPI, and Telegram into one deduped queue |
 | `market_watcher.py` | Tracks niche markets — 5-min Gamma refresh, live WebSocket prices, momentum |
 | `markets.py` | Polymarket Gamma API client, `Market` model, category inference |
-| `matcher.py` | Matches headlines to tracked markets by keyword overlap |
+| `matcher.py` | Matches headlines to markets — keyword overlap + semantic index union |
+| `market_index.py` | Persistent Chroma index of markets, embedded locally (MiniLM) |
 | `classifier.py` | Asks Claude for direction + materiality, with track record injected |
 | `edge.py` | Turns classifications into signals; quarter-Kelly position sizing |
 | `executor.py` | Executes trades — dry-run log or live CLOB order; enforces daily loss limit |
