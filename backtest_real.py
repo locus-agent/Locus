@@ -41,9 +41,14 @@ GDELT_API = "https://api.gdeltproject.org/api/v2/doc/doc"
 NEWSAPI_API = "https://newsapi.org/v2/everything"
 
 # Gamma's offset-based pagination 422s past offset=10000 ("use /markets/keyset
-# for deeper pagination"). With volume_num_min/max + order=closedTime desc,
-# offset 0..10000 covers roughly the last ~3 days of resolved markets.
+# for deeper pagination"). A flat closedTime-desc scan therefore only reaches
+# ~3 days back. To go deeper, the scan is split into end_date_min/max windows
+# (each window gets its own 10k offset budget) and filtered server-side to
+# Gamma's canonical Crypto tag, which keeps every window to a handful of pages.
 MAX_OFFSET = 10000
+LOOKBACK_DAYS = 30
+WINDOW_DAYS = 3
+CRYPTO_TAG_ID = 21  # Gamma's canonical "Crypto" tag
 MIN_DURATION_DAYS = 2  # createdAt -> closedTime; excludes 5m/1h "Up or Down" markets
 TARGET_MARKETS = 30
 MAX_CLASSIFY_CALLS = 100
@@ -111,13 +116,14 @@ class TradeRecord:
 
 
 def fetch_crypto_markets() -> dict:
-    """Paginate Gamma for resolved, niche-volume crypto markets.
+    """Scan Gamma for resolved, niche-volume crypto markets over LOOKBACK_DAYS.
 
-    Groups candidates by (coin label, closed date) since within Gamma's
-    offset<=10000 ceiling there are only ~4 coins x ~3 dates worth of the
-    weekly "Will the price of X be ... on <date>?" markets — but each date
-    has many distinct price-band questions, so we keep all of them and pick
-    a diverse subset later.
+    The scan walks end-date windows newest->oldest (WINDOW_DAYS each), with
+    tag_id + volume bounds applied Gamma-side, so each window needs only a
+    few pages and the whole lookback stays well under the 10k offset cap.
+    Candidates are grouped by (coin label, closed date); each date has many
+    distinct price-band questions, so we keep all of them and pick a diverse
+    subset later. Boundary days appear in two windows; deduped by conditionId.
     """
     groups: dict[tuple[str, object], list[dict]] = {}
     oldest_closed = None
@@ -126,37 +132,61 @@ def fetch_crypto_markets() -> dict:
     raw_candidates = 0
     pages_scanned = 0
     last_offset = None
+    windows_scanned = 0
+    seen_condition_ids: set[str] = set()
 
-    for page in range((MAX_OFFSET // 100) + 1):
-        offset = page * 100
-        try:
-            resp = httpx.get(
-                f"{GAMMA_API}/markets",
-                params={
-                    "closed": "true",
-                    "volume_num_min": config.MIN_VOLUME_USD,
-                    "volume_num_max": config.MAX_VOLUME_USD,
-                    "order": "closedTime",
-                    "ascending": "false",
-                    "limit": 100,
-                    "offset": offset,
-                },
-                timeout=20,
-            )
-            resp.raise_for_status()
-            items = resp.json()
-        except Exception as e:
-            console.print(f"  [yellow]Gamma error at offset {offset}: {e}[/yellow]")
-            break
+    now = datetime.now(timezone.utc)
+    window_bounds = [
+        (now - timedelta(days=w + WINDOW_DAYS), now - timedelta(days=w))
+        for w in range(0, LOOKBACK_DAYS, WINDOW_DAYS)
+    ]
 
-        if not isinstance(items, list) or not items:
-            break
+    page_items: list[dict] = []
+    for window_start, window_end in window_bounds:
+        windows_scanned += 1
+        for page in range((MAX_OFFSET // 100) + 1):
+            offset = page * 100
+            try:
+                resp = httpx.get(
+                    f"{GAMMA_API}/markets",
+                    params={
+                        "closed": "true",
+                        "tag_id": CRYPTO_TAG_ID,
+                        "volume_num_min": config.MIN_VOLUME_USD,
+                        "volume_num_max": config.MAX_VOLUME_USD,
+                        "end_date_min": window_start.strftime("%Y-%m-%d"),
+                        "end_date_max": window_end.strftime("%Y-%m-%d"),
+                        "order": "closedTime",
+                        "ascending": "false",
+                        "limit": 100,
+                        "offset": offset,
+                    },
+                    timeout=20,
+                )
+                resp.raise_for_status()
+                items = resp.json()
+            except Exception as e:
+                console.print(
+                    f"  [yellow]Gamma error at offset {offset} "
+                    f"(window {window_start.date()}..{window_end.date()}): {e}[/yellow]"
+                )
+                break
 
-        pages_scanned += 1
-        last_offset = offset
-        total_scanned += len(items)
+            if not isinstance(items, list) or not items:
+                break
 
-        for m in items:
+            pages_scanned += 1
+            last_offset = offset
+            total_scanned += len(items)
+            page_items.extend(items)
+
+            if len(items) < 100:
+                break
+
+    for m in page_items:
+        cid = str(m.get("conditionId", "") or "")
+        if cid and cid not in seen_condition_ids:
+            seen_condition_ids.add(cid)
             closed_time = _parse_dt(m.get("closedTime", ""))
             created_at = _parse_dt(m.get("createdAt", ""))
             if closed_time is None:
@@ -233,6 +263,7 @@ def fetch_crypto_markets() -> dict:
         "last_offset": last_offset,
         "total_scanned": total_scanned,
         "raw_candidates": raw_candidates,
+        "windows_scanned": windows_scanned,
     }
 
 
@@ -406,15 +437,11 @@ def run_pilot():
     span_days = (newest - oldest).total_seconds() / 86400 if oldest and newest else 0.0
 
     console.print(
-        f"  Scanned {scan['pages_scanned']} pages "
-        f"({scan['total_scanned']} markets total, offset 0-{scan['last_offset']})"
+        f"  Scanned {scan['pages_scanned']} pages across {scan['windows_scanned']} "
+        f"end-date windows of {WINDOW_DAYS}d ({scan['total_scanned']} markets total, "
+        f"crypto tag + volume band filtered Gamma-side)"
     )
     console.print(f"  closedTime range covered: {oldest} -> {newest}  (~{span_days:.1f} days)")
-    console.print(
-        f"  [yellow]NOTE: Gamma offset pagination 422s past offset={MAX_OFFSET}, so this only reaches "
-        f"~{span_days:.1f} days back -- not the ~3 months originally requested. "
-        f"/markets/keyset would be needed for deeper history (out of scope for this pilot).[/yellow]"
-    )
     console.print(
         f"  Crypto candidates (duration>={MIN_DURATION_DAYS}d, excl. 'Up or Down', binary-resolved): "
         f"{scan['raw_candidates']} across {len(groups)} (coin, date) groups"
@@ -677,7 +704,7 @@ def _print_report(scan, selected, pairs, trades, news_stats, markets_zero_headli
     dq = Table(title="Data Quality", show_header=True, header_style="bold yellow")
     dq.add_column("Check", style="bold")
     dq.add_column("Result", justify="right")
-    dq.add_row("Gamma closedTime coverage", f"~{span_days:.1f} days (offset cap={MAX_OFFSET}; spec asked for ~3mo)")
+    dq.add_row("Gamma closedTime coverage", f"~{span_days:.1f} days ({LOOKBACK_DAYS}d end-date window scan)")
     dq.add_row("Crypto candidates found", f"{scan['raw_candidates']} across {len(scan['groups'])} (coin,date) groups")
     dq.add_row("GDELT queries OK", f"{news_stats['gdelt_succeeded']}/{news_stats['gdelt_attempted']}")
     dq.add_row(
@@ -745,8 +772,27 @@ def _save_results(scan, selected, pairs, trades, news_stats, markets_zero_headli
 
     out = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "status_note": {
+            "status": "parked",
+            "blocker": (
+                "Deep-history news coverage. The windowed market scan now reaches "
+                f"{LOOKBACK_DAYS} days of resolved markets, but the news sources don't: "
+                f"GDELT proved unreliable (succeeded {news_stats['gdelt_succeeded']}/"
+                f"{news_stats['gdelt_attempted']} queries, used for "
+                f"{news_stats['groups_used_gdelt']}/{news_stats['total_groups']} groups this run) "
+                "and NewsAPI's free tier only returns articles from the last ~30 days, so "
+                f"{markets_zero_headlines}/{len(selected)} selected markets had zero usable "
+                "headlines. Until a reliable historical headline source is added, the market "
+                "scan outruns the news data. Parking the backtest line for now — live "
+                "calibration on the expanded market universe (3,098 tracked niche markets) "
+                "is the faster path to real numbers."
+            ),
+        },
         "config": {
             "max_offset": MAX_OFFSET,
+            "lookback_days": LOOKBACK_DAYS,
+            "window_days": WINDOW_DAYS,
+            "crypto_tag_id": CRYPTO_TAG_ID,
             "min_duration_days": MIN_DURATION_DAYS,
             "target_markets": TARGET_MARKETS,
             "max_classify_calls": MAX_CLASSIFY_CALLS,
@@ -758,6 +804,7 @@ def _save_results(scan, selected, pairs, trades, news_stats, markets_zero_headli
         },
         "coverage": {
             "pages_scanned": scan["pages_scanned"],
+            "windows_scanned": scan["windows_scanned"],
             "last_offset": scan["last_offset"],
             "oldest_closed": scan["oldest_closed"].isoformat() if scan["oldest_closed"] else None,
             "newest_closed": scan["newest_closed"].isoformat() if scan["newest_closed"] else None,
