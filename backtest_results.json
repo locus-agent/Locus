@@ -1,0 +1,1239 @@
+{
+  "generated_at": "2026-06-11T00:10:34.236566+00:00",
+  "config": {
+    "max_offset": 10000,
+    "min_duration_days": 2,
+    "target_markets": 30,
+    "max_classify_calls": 100,
+    "headlines_per_market_cap": 5,
+    "min_volume_usd": 1000.0,
+    "max_volume_usd": 500000.0,
+    "materiality_threshold": 0.4,
+    "edge_threshold": 0.1
+  },
+  "coverage": {
+    "pages_scanned": 101,
+    "last_offset": 10000,
+    "oldest_closed": "2026-06-07T21:00:25+00:00",
+    "newest_closed": "2026-06-10T23:59:36+00:00",
+    "raw_candidates": 150,
+    "groups": {
+      "ethereum_2026-06-10": 22,
+      "bitcoin_2026-06-10": 21,
+      "ethereum_2026-06-09": 21,
+      "bitcoin_2026-06-09": 22,
+      "ethereum_2026-06-08": 30,
+      "bitcoin_2026-06-08": 34
+    }
+  },
+  "selected_markets": [
+    {
+      "question": "Will the price of Bitcoin be above $58,000 on June 8?",
+      "condition_id": "0x21fdb2317e1cdd254fa511a35b860b831e745f63f57cb1dd3419e7c85b14a78d",
+      "volume": 473722.0337770009,
+      "closed_time": "2026-06-08T18:09:36+00:00",
+      "yes_resolution": 1.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $66,000 on June 9?",
+      "condition_id": "0x84761f5410fff5586c8ebaa7b0331b2a02066a03a6713fc17890d5a306114450",
+      "volume": 409830.0609919994,
+      "closed_time": "2026-06-09T18:04:54+00:00",
+      "yes_resolution": 0.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $64,000 on June 10?",
+      "condition_id": "0x621dae25dbac00196245cea3b17a30a23c690473f4b5a13ae5b281a0d82c9906",
+      "volume": 444859.29604300007,
+      "closed_time": "2026-06-10T18:43:51+00:00",
+      "yes_resolution": 0.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,500 on June 8?",
+      "condition_id": "0x0efeb727bf5378d4e587000d14031e45c03bc39b6586515df35984b441cb9e02",
+      "volume": 134743.796093,
+      "closed_time": "2026-06-08T18:09:34+00:00",
+      "yes_resolution": 1.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,900 on June 9?",
+      "condition_id": "0xeacb7e3abaca027a428f88a02b68771e999183f0751bb285b571fe31e94bd6b9",
+      "volume": 183752.28805299997,
+      "closed_time": "2026-06-09T18:04:09+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $2,000 on June 10?",
+      "condition_id": "0x4f80acbc7f44697e24a24fab87967237266716031c7e2a68a7b5e3342d05d752",
+      "volume": 193364.53671299995,
+      "closed_time": "2026-06-10T18:23:30+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $66,000 on June 8?",
+      "condition_id": "0x9fa083924b489387aea0e5b0a0ca39dba52146deb1d85da442a7af8e14ac71d5",
+      "volume": 470478.57138299965,
+      "closed_time": "2026-06-08T18:09:30+00:00",
+      "yes_resolution": 0.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $58,000 on June 9?",
+      "condition_id": "0x2f617abd0203f77df94a3557c09ab5ee200b4c583e7091cd7b77c20229d4ec21",
+      "volume": 374060.476266,
+      "closed_time": "2026-06-09T18:04:10+00:00",
+      "yes_resolution": 1.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $58,000 on June 10?",
+      "condition_id": "0x8ec112fe3575eae487813a8100154a11ec31f73bb98a504794da5a0e01fd6319",
+      "volume": 395193.62320599967,
+      "closed_time": "2026-06-10T18:25:58+00:00",
+      "yes_resolution": 1.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,900 on June 8?",
+      "condition_id": "0xc32a9a914d6feb0a5a3d325b36223b71bdebf28476e224213a501ac089b0a1fc",
+      "volume": 133258.51495099996,
+      "closed_time": "2026-06-08T18:03:18+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,600 on June 9?",
+      "condition_id": "0xe54ca484a30018e816dc3315c85b442907b4fee8c765367bff316d2d54f98b18",
+      "volume": 86750.51689999994,
+      "closed_time": "2026-06-09T18:04:12+00:00",
+      "yes_resolution": 1.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,800 on June 10?",
+      "condition_id": "0x537e33262ecd2029984699d60c7b43089e86f0db1dd80596a4f5b7803a428fd4",
+      "volume": 190987.89873399996,
+      "closed_time": "2026-06-10T18:05:42+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $64,000 on June 8?",
+      "condition_id": "0x09f9d4aca74a3d2feb4c95633abf1cf49758b0c8bfe0dd2c99a20c2fa44a0164",
+      "volume": 451382.87390099955,
+      "closed_time": "2026-06-08T18:10:07+00:00",
+      "yes_resolution": 0.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $62,000 on June 9?",
+      "condition_id": "0x6bf85e812cfeb18d8168e801709ed67fd21bd8888f7aa6010cf1da7cffbfa4d0",
+      "volume": 367187.62263099983,
+      "closed_time": "2026-06-09T18:04:54+00:00",
+      "yes_resolution": 0.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $60,000 on June 10?",
+      "condition_id": "0x620f45d32e0d9fa463800c344596b6250d170b6c1e6e56046e97997f80e5888c",
+      "volume": 390808.07514200034,
+      "closed_time": "2026-06-10T18:33:19+00:00",
+      "yes_resolution": 1.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,800 on June 8?",
+      "condition_id": "0x6ad6170a620094c65707336afe3cb69ac317afa7911ee770f1a9b34d033df548",
+      "volume": 128044.70122299998,
+      "closed_time": "2026-06-08T18:09:51+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,500 on June 9?",
+      "condition_id": "0xcec96155da33ea6e3e8861a5de4c71bae69fafbcf935b060fa40e2c5510bb886",
+      "volume": 77671.15417400001,
+      "closed_time": "2026-06-09T18:04:13+00:00",
+      "yes_resolution": 1.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,700 on June 10?",
+      "condition_id": "0xb820985a80dee805b5a422bf97c7ece7d2275d6cfadf161d4c3d0a5cbc1a092e",
+      "volume": 112455.56309999998,
+      "closed_time": "2026-06-10T18:08:48+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $56,000 on June 8?",
+      "condition_id": "0x97c155ac744145664202353a813f9eee549ff6124f440235bef223dfb3d47afc",
+      "volume": 430130.8781220001,
+      "closed_time": "2026-06-08T18:10:00+00:00",
+      "yes_resolution": 1.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $64,000 on June 9?",
+      "condition_id": "0x87aca965d099a3dbc17f4b7b37ddb569ceaade39a9621cc4a3ab43a01565271c",
+      "volume": 323523.6761169995,
+      "closed_time": "2026-06-09T18:05:01+00:00",
+      "yes_resolution": 0.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $66,000 on June 10?",
+      "condition_id": "0xa8719ff07997eb34cfd5c2fe3ead54ba28ef8051e4d6a2c60871f58d698f6125",
+      "volume": 386214.1368910003,
+      "closed_time": "2026-06-10T18:34:48+00:00",
+      "yes_resolution": 0.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,700 on June 8?",
+      "condition_id": "0x0aa0d85d6ba9ad6b96d87d97dc500fed0e9651cb85f2b65971376591be899aa4",
+      "volume": 107064.597742,
+      "closed_time": "2026-06-08T18:04:22+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,800 on June 9?",
+      "condition_id": "0x7d3044c62827df73e7f1be16d45d3cc81fa573246e703d4e0ecab6ebc9651573",
+      "volume": 75469.44516800003,
+      "closed_time": "2026-06-09T18:04:48+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,600 on June 10?",
+      "condition_id": "0x293072018400056a9e4a1ac7be3b7658e6753d3eef831ac598c21c5e6070a3be",
+      "volume": 92986.326863,
+      "closed_time": "2026-06-10T18:19:16+00:00",
+      "yes_resolution": 1.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $68,000 on June 8?",
+      "condition_id": "0x415eb6d3c4fb1a368656428df7bcdc528616576ece05340a047b721e60ac8af4",
+      "volume": 405929.9129089999,
+      "closed_time": "2026-06-08T18:09:46+00:00",
+      "yes_resolution": 0.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $56,000 on June 9?",
+      "condition_id": "0x4287dfc2e852595da6ad585ff95d5aaadb3e1c74c62751b637f7e466a434cc40",
+      "volume": 306165.0382360001,
+      "closed_time": "2026-06-09T18:04:15+00:00",
+      "yes_resolution": 1.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will the price of Bitcoin be above $62,000 on June 10?",
+      "condition_id": "0x697897a7dc8565a5a969e487fbf63741162e96dd5a77ed06c584d7ed30f82ab5",
+      "volume": 284536.24668600026,
+      "closed_time": "2026-06-10T18:20:18+00:00",
+      "yes_resolution": 1.0,
+      "label": "bitcoin"
+    },
+    {
+      "question": "Will Ethereum dip to $1,500 June 1-7?",
+      "condition_id": "0x6bb705287d9342971baf4b6c145b755497c1e0534fb2f102396f58d292f62f0a",
+      "volume": 102451.0331620001,
+      "closed_time": "2026-06-08T06:03:36+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,700 on June 9?",
+      "condition_id": "0xf59c0975c1146ff3352354bb7559ec5ecc83eecd502694d01daf4d9f12ceaaf6",
+      "volume": 43858.333402,
+      "closed_time": "2026-06-09T18:04:46+00:00",
+      "yes_resolution": 0.0,
+      "label": "ethereum"
+    },
+    {
+      "question": "Will the price of Ethereum be above $1,400 on June 10?",
+      "condition_id": "0x606f506620afc67d3dc84ca055d24556b8cac7de1fc83193a04ad3b907069dc7",
+      "volume": 85563.84109599996,
+      "closed_time": "2026-06-10T18:12:40+00:00",
+      "yes_resolution": 1.0,
+      "label": "ethereum"
+    }
+  ],
+  "news_sources": {
+    "gdelt_attempted": 6,
+    "gdelt_succeeded": 0,
+    "newsapi_attempted": 6,
+    "newsapi_succeeded": 6,
+    "groups_used_gdelt": 0,
+    "groups_used_newsapi": 6,
+    "total_groups": 6
+  },
+  "data_quality": {
+    "markets_zero_headlines": 0,
+    "markets_no_price_history": 0,
+    "total_pairs": 90
+  },
+  "summary": {
+    "pairs_tested": 90,
+    "signals_generated": 3,
+    "total_pnl": -43.35,
+    "win_rate_pct": 33.3,
+    "wins": 1,
+    "losses": 2
+  },
+  "trades": [
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 10?",
+      "headline": "ETH crash to $1K looms if key support breaks: Will futures traders step in?",
+      "headline_date": "2026-06-09T21:21:47+00:00",
+      "direction": "bearish",
+      "materiality": 0.65,
+      "side": "NO",
+      "entry_price": 0.79,
+      "edge": 0.1365,
+      "bet_amount": 25.0,
+      "resolved_yes": false,
+      "pnl": 6.65,
+      "won": true
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,600 on June 10?",
+      "headline": "ETH crash to $1K looms if key support breaks: Will futures traders step in?",
+      "headline_date": "2026-06-09T21:21:47+00:00",
+      "direction": "bearish",
+      "materiality": 0.65,
+      "side": "NO",
+      "entry_price": 0.109,
+      "edge": 0.5792,
+      "bet_amount": 25.0,
+      "resolved_yes": true,
+      "pnl": -25.0,
+      "won": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,400 on June 10?",
+      "headline": "ETH crash to $1K looms if key support breaks: Will futures traders step in?",
+      "headline_date": "2026-06-09T21:21:47+00:00",
+      "direction": "bearish",
+      "materiality": 0.65,
+      "side": "NO",
+      "entry_price": 0.0035,
+      "edge": 0.6477,
+      "bet_amount": 25.0,
+      "resolved_yes": true,
+      "pnl": -25.0,
+      "won": false
+    }
+  ],
+  "replay_log": [
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 8?",
+      "headline": "Institutional Conviction Remains Strong Despite Bitcoin Downturn, According to Coinbase Executive",
+      "headline_source": "Yahoo Entertainment",
+      "headline_date": "2026-06-08T23:13:00+00:00",
+      "price_before": 0.9995,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 8?",
+      "headline": "Professional Blockchain-Based Cryptocurrency Recovery and Digital Asset Retrieval",
+      "headline_source": "Wolfram.com",
+      "headline_date": "2026-06-08T22:44:23+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 8?",
+      "headline": "Bitcoin Bull Turn Hinges On US Debt Wall, Real Vision Says",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T22:30:17+00:00",
+      "price_before": 0.9995,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 9?",
+      "headline": "Bitcoin Close To Setting A New Record Despite Price Crash, But Can This Save BTC?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-09T23:30:12+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 9?",
+      "headline": "Show HN: PolyHelper \u2013 Self-evolving cognitive exoskeleton orchestrating 10 AIs",
+      "headline_source": "Github.com",
+      "headline_date": "2026-06-09T23:16:50+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 10?",
+      "headline": "Mexico decrees telework for World Cup 2026 opening day, spotlighting crypto\u2019s growing role in sports",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:04:30+00:00",
+      "price_before": 0.055,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 10?",
+      "headline": "Gold falls as US launches strikes against Iran, jeopardizing truce",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:43:26+00:00",
+      "price_before": 0.065,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 10?",
+      "headline": "SpaceX IPO demand approaches $250B as crypto investors sell Bitcoin to buy shares",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:26:46+00:00",
+      "price_before": 0.065,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,500 on June 8?",
+      "headline": "Scientists found a new Alzheimer\u2019s trigger and a drug that stops it",
+      "headline_source": "Science Daily",
+      "headline_date": "2026-06-08T23:23:33+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,500 on June 8?",
+      "headline": "Norks blast 250+ fake job offers to developers over 6 weeks to try and snarf creds and crypto",
+      "headline_source": "Theregister.com",
+      "headline_date": "2026-06-08T22:13:20+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,500 on June 8?",
+      "headline": "Ethereum Founder Dumps 100,000 ETH Worth $170M, What\u2019s Going On?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T21:00:40+00:00",
+      "price_before": 0.9995,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,900 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,900 on June 9?",
+      "headline": "Geoffrey K. Auyeung sentenced to five years for laundering $100M fraud funds via Bitcoin, Ethereum",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T22:19:32+00:00",
+      "price_before": 0.0005,
+      "direction": "bearish",
+      "materiality": 0.15,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,900 on June 9?",
+      "headline": "Citrea's Token (CTR) Now Live on UPbit and Bithumb",
+      "headline_source": "PR Newswire UK",
+      "headline_date": "2026-06-09T21:17:00+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $2,000 on June 10?",
+      "headline": "Bitmine acquires 75,000 Ethereum for $123M from Kraken and FalconX",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:00:31+00:00",
+      "price_before": 0.0015,
+      "direction": "bullish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $2,000 on June 10?",
+      "headline": "Treasury Stablecoin Proposal Draws Major Warning From Hyperliquid Policy Center\u2013Here\u2019s Why",
+      "headline_source": "newsBTC",
+      "headline_date": "2026-06-09T22:34:55+00:00",
+      "price_before": 0.0015,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $2,000 on June 10?",
+      "headline": "ETH crash to $1K looms if key support breaks: Will futures traders step in?",
+      "headline_source": "Cointelegraph",
+      "headline_date": "2026-06-09T21:21:47+00:00",
+      "price_before": 0.0015,
+      "direction": "bearish",
+      "materiality": 0.65,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 8?",
+      "headline": "Institutional Conviction Remains Strong Despite Bitcoin Downturn, According to Coinbase Executive",
+      "headline_source": "Yahoo Entertainment",
+      "headline_date": "2026-06-08T23:13:00+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 8?",
+      "headline": "Professional Blockchain-Based Cryptocurrency Recovery and Digital Asset Retrieval",
+      "headline_source": "Wolfram.com",
+      "headline_date": "2026-06-08T22:44:23+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 8?",
+      "headline": "Bitcoin Bull Turn Hinges On US Debt Wall, Real Vision Says",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T22:30:17+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 9?",
+      "headline": "Bitcoin Close To Setting A New Record Despite Price Crash, But Can This Save BTC?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-09T23:30:12+00:00",
+      "price_before": 0.9995,
+      "direction": "bullish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 9?",
+      "headline": "Show HN: PolyHelper \u2013 Self-evolving cognitive exoskeleton orchestrating 10 AIs",
+      "headline_source": "Github.com",
+      "headline_date": "2026-06-09T23:16:50+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 10?",
+      "headline": "Mexico decrees telework for World Cup 2026 opening day, spotlighting crypto\u2019s growing role in sports",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:04:30+00:00",
+      "price_before": 0.9695,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 10?",
+      "headline": "Gold falls as US launches strikes against Iran, jeopardizing truce",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:43:26+00:00",
+      "price_before": 0.9785,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 10?",
+      "headline": "SpaceX IPO demand approaches $250B as crypto investors sell Bitcoin to buy shares",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:26:46+00:00",
+      "price_before": 0.9785,
+      "direction": "bearish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,900 on June 8?",
+      "headline": "Scientists found a new Alzheimer\u2019s trigger and a drug that stops it",
+      "headline_source": "Science Daily",
+      "headline_date": "2026-06-08T23:23:33+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,900 on June 8?",
+      "headline": "Norks blast 250+ fake job offers to developers over 6 weeks to try and snarf creds and crypto",
+      "headline_source": "Theregister.com",
+      "headline_date": "2026-06-08T22:13:20+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,900 on June 8?",
+      "headline": "Ethereum Founder Dumps 100,000 ETH Worth $170M, What\u2019s Going On?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T21:00:40+00:00",
+      "price_before": 0.0005,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,600 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,600 on June 9?",
+      "headline": "Geoffrey K. Auyeung sentenced to five years for laundering $100M fraud funds via Bitcoin, Ethereum",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T22:19:32+00:00",
+      "price_before": 0.9995,
+      "direction": "bearish",
+      "materiality": 0.15,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,600 on June 9?",
+      "headline": "Citrea's Token (CTR) Now Live on UPbit and Bithumb",
+      "headline_source": "PR Newswire UK",
+      "headline_date": "2026-06-09T21:17:00+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 10?",
+      "headline": "Bitmine acquires 75,000 Ethereum for $123M from Kraken and FalconX",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:00:31+00:00",
+      "price_before": 0.005,
+      "direction": "bullish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 10?",
+      "headline": "Treasury Stablecoin Proposal Draws Major Warning From Hyperliquid Policy Center\u2013Here\u2019s Why",
+      "headline_source": "newsBTC",
+      "headline_date": "2026-06-09T22:34:55+00:00",
+      "price_before": 0.0055,
+      "direction": "bearish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 10?",
+      "headline": "ETH crash to $1K looms if key support breaks: Will futures traders step in?",
+      "headline_source": "Cointelegraph",
+      "headline_date": "2026-06-09T21:21:47+00:00",
+      "price_before": 0.0065,
+      "direction": "bearish",
+      "materiality": 0.65,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 8?",
+      "headline": "Institutional Conviction Remains Strong Despite Bitcoin Downturn, According to Coinbase Executive",
+      "headline_source": "Yahoo Entertainment",
+      "headline_date": "2026-06-08T23:13:00+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 8?",
+      "headline": "Professional Blockchain-Based Cryptocurrency Recovery and Digital Asset Retrieval",
+      "headline_source": "Wolfram.com",
+      "headline_date": "2026-06-08T22:44:23+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 8?",
+      "headline": "Bitcoin Bull Turn Hinges On US Debt Wall, Real Vision Says",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T22:30:17+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 9?",
+      "headline": "Bitcoin Close To Setting A New Record Despite Price Crash, But Can This Save BTC?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-09T23:30:12+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 9?",
+      "headline": "Show HN: PolyHelper \u2013 Self-evolving cognitive exoskeleton orchestrating 10 AIs",
+      "headline_source": "Github.com",
+      "headline_date": "2026-06-09T23:16:50+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $60,000 on June 10?",
+      "headline": "Mexico decrees telework for World Cup 2026 opening day, spotlighting crypto\u2019s growing role in sports",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:04:30+00:00",
+      "price_before": 0.875,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $60,000 on June 10?",
+      "headline": "Gold falls as US launches strikes against Iran, jeopardizing truce",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:43:26+00:00",
+      "price_before": 0.865,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $60,000 on June 10?",
+      "headline": "SpaceX IPO demand approaches $250B as crypto investors sell Bitcoin to buy shares",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:26:46+00:00",
+      "price_before": 0.865,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 8?",
+      "headline": "Scientists found a new Alzheimer\u2019s trigger and a drug that stops it",
+      "headline_source": "Science Daily",
+      "headline_date": "2026-06-08T23:23:33+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 8?",
+      "headline": "Norks blast 250+ fake job offers to developers over 6 weeks to try and snarf creds and crypto",
+      "headline_source": "Theregister.com",
+      "headline_date": "2026-06-08T22:13:20+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 8?",
+      "headline": "Ethereum Founder Dumps 100,000 ETH Worth $170M, What\u2019s Going On?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T21:00:40+00:00",
+      "price_before": 0.0005,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,500 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,500 on June 9?",
+      "headline": "Geoffrey K. Auyeung sentenced to five years for laundering $100M fraud funds via Bitcoin, Ethereum",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T22:19:32+00:00",
+      "price_before": 0.9995,
+      "direction": "bearish",
+      "materiality": 0.15,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,500 on June 9?",
+      "headline": "Citrea's Token (CTR) Now Live on UPbit and Bithumb",
+      "headline_source": "PR Newswire UK",
+      "headline_date": "2026-06-09T21:17:00+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 10?",
+      "headline": "Bitmine acquires 75,000 Ethereum for $123M from Kraken and FalconX",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:00:31+00:00",
+      "price_before": 0.1,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 10?",
+      "headline": "Treasury Stablecoin Proposal Draws Major Warning From Hyperliquid Policy Center\u2013Here\u2019s Why",
+      "headline_source": "newsBTC",
+      "headline_date": "2026-06-09T22:34:55+00:00",
+      "price_before": 0.155,
+      "direction": "bearish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 10?",
+      "headline": "ETH crash to $1K looms if key support breaks: Will futures traders step in?",
+      "headline_source": "Cointelegraph",
+      "headline_date": "2026-06-09T21:21:47+00:00",
+      "price_before": 0.21,
+      "direction": "bearish",
+      "materiality": 0.65,
+      "signal": true
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 8?",
+      "headline": "Institutional Conviction Remains Strong Despite Bitcoin Downturn, According to Coinbase Executive",
+      "headline_source": "Yahoo Entertainment",
+      "headline_date": "2026-06-08T23:13:00+00:00",
+      "price_before": 0.9995,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 8?",
+      "headline": "Professional Blockchain-Based Cryptocurrency Recovery and Digital Asset Retrieval",
+      "headline_source": "Wolfram.com",
+      "headline_date": "2026-06-08T22:44:23+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 8?",
+      "headline": "Bitcoin Bull Turn Hinges On US Debt Wall, Real Vision Says",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T22:30:17+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.15,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.15,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 9?",
+      "headline": "Bitcoin Close To Setting A New Record Despite Price Crash, But Can This Save BTC?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-09T23:30:12+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 9?",
+      "headline": "Show HN: PolyHelper \u2013 Self-evolving cognitive exoskeleton orchestrating 10 AIs",
+      "headline_source": "Github.com",
+      "headline_date": "2026-06-09T23:16:50+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 10?",
+      "headline": "Mexico decrees telework for World Cup 2026 opening day, spotlighting crypto\u2019s growing role in sports",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:04:30+00:00",
+      "price_before": 0.0025,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 10?",
+      "headline": "Gold falls as US launches strikes against Iran, jeopardizing truce",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:43:26+00:00",
+      "price_before": 0.0055,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 10?",
+      "headline": "SpaceX IPO demand approaches $250B as crypto investors sell Bitcoin to buy shares",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:26:46+00:00",
+      "price_before": 0.0055,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 8?",
+      "headline": "Scientists found a new Alzheimer\u2019s trigger and a drug that stops it",
+      "headline_source": "Science Daily",
+      "headline_date": "2026-06-08T23:23:33+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 8?",
+      "headline": "Norks blast 250+ fake job offers to developers over 6 weeks to try and snarf creds and crypto",
+      "headline_source": "Theregister.com",
+      "headline_date": "2026-06-08T22:13:20+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 8?",
+      "headline": "Ethereum Founder Dumps 100,000 ETH Worth $170M, What\u2019s Going On?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T21:00:40+00:00",
+      "price_before": 0.0005,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 9?",
+      "headline": "Geoffrey K. Auyeung sentenced to five years for laundering $100M fraud funds via Bitcoin, Ethereum",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T22:19:32+00:00",
+      "price_before": 0.0005,
+      "direction": "bearish",
+      "materiality": 0.15,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,800 on June 9?",
+      "headline": "Citrea's Token (CTR) Now Live on UPbit and Bithumb",
+      "headline_source": "PR Newswire UK",
+      "headline_date": "2026-06-09T21:17:00+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,600 on June 10?",
+      "headline": "Bitmine acquires 75,000 Ethereum for $123M from Kraken and FalconX",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:00:31+00:00",
+      "price_before": 0.785,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,600 on June 10?",
+      "headline": "Treasury Stablecoin Proposal Draws Major Warning From Hyperliquid Policy Center\u2013Here\u2019s Why",
+      "headline_source": "newsBTC",
+      "headline_date": "2026-06-09T22:34:55+00:00",
+      "price_before": 0.85,
+      "direction": "bearish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,600 on June 10?",
+      "headline": "ETH crash to $1K looms if key support breaks: Will futures traders step in?",
+      "headline_source": "Cointelegraph",
+      "headline_date": "2026-06-09T21:21:47+00:00",
+      "price_before": 0.891,
+      "direction": "bearish",
+      "materiality": 0.65,
+      "signal": true
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $68,000 on June 8?",
+      "headline": "Institutional Conviction Remains Strong Despite Bitcoin Downturn, According to Coinbase Executive",
+      "headline_source": "Yahoo Entertainment",
+      "headline_date": "2026-06-08T23:13:00+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $68,000 on June 8?",
+      "headline": "Professional Blockchain-Based Cryptocurrency Recovery and Digital Asset Retrieval",
+      "headline_source": "Wolfram.com",
+      "headline_date": "2026-06-08T22:44:23+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $68,000 on June 8?",
+      "headline": "Bitcoin Bull Turn Hinges On US Debt Wall, Real Vision Says",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T22:30:17+00:00",
+      "price_before": 0.0005,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 9?",
+      "headline": "Bitcoin Close To Setting A New Record Despite Price Crash, But Can This Save BTC?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-09T23:30:12+00:00",
+      "price_before": 0.9995,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 9?",
+      "headline": "Show HN: PolyHelper \u2013 Self-evolving cognitive exoskeleton orchestrating 10 AIs",
+      "headline_source": "Github.com",
+      "headline_date": "2026-06-09T23:16:50+00:00",
+      "price_before": 0.9995,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 10?",
+      "headline": "Mexico decrees telework for World Cup 2026 opening day, spotlighting crypto\u2019s growing role in sports",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:04:30+00:00",
+      "price_before": 0.415,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 10?",
+      "headline": "Gold falls as US launches strikes against Iran, jeopardizing truce",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:43:26+00:00",
+      "price_before": 0.415,
+      "direction": "bullish",
+      "materiality": 0.25,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 10?",
+      "headline": "SpaceX IPO demand approaches $250B as crypto investors sell Bitcoin to buy shares",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:26:46+00:00",
+      "price_before": 0.415,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will Ethereum dip to $1,500 June 1-7?",
+      "headline": "Scientists found a new Alzheimer\u2019s trigger and a drug that stops it",
+      "headline_source": "Science Daily",
+      "headline_date": "2026-06-08T23:23:33+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will Ethereum dip to $1,500 June 1-7?",
+      "headline": "Norks blast 250+ fake job offers to developers over 6 weeks to try and snarf creds and crypto",
+      "headline_source": "Theregister.com",
+      "headline_date": "2026-06-08T22:13:20+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will Ethereum dip to $1,500 June 1-7?",
+      "headline": "Ethereum Founder Dumps 100,000 ETH Worth $170M, What\u2019s Going On?",
+      "headline_source": "Bitcoinist",
+      "headline_date": "2026-06-08T21:00:40+00:00",
+      "price_before": 0.0005,
+      "direction": "bearish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 9?",
+      "headline": "Kalshi\u2019s perpetual futures trading surpasses $1B in volume within a week",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T23:55:50+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 9?",
+      "headline": "Geoffrey K. Auyeung sentenced to five years for laundering $100M fraud funds via Bitcoin, Ethereum",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-09T22:19:32+00:00",
+      "price_before": 0.0005,
+      "direction": "bearish",
+      "materiality": 0.15,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,700 on June 9?",
+      "headline": "Citrea's Token (CTR) Now Live on UPbit and Bithumb",
+      "headline_source": "PR Newswire UK",
+      "headline_date": "2026-06-09T21:17:00+00:00",
+      "price_before": 0.0005,
+      "direction": "neutral",
+      "materiality": 0.0,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,400 on June 10?",
+      "headline": "Bitmine acquires 75,000 Ethereum for $123M from Kraken and FalconX",
+      "headline_source": "Crypto Briefing",
+      "headline_date": "2026-06-10T00:00:31+00:00",
+      "price_before": 0.9975,
+      "direction": "bullish",
+      "materiality": 0.35,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,400 on June 10?",
+      "headline": "Treasury Stablecoin Proposal Draws Major Warning From Hyperliquid Policy Center\u2013Here\u2019s Why",
+      "headline_source": "newsBTC",
+      "headline_date": "2026-06-09T22:34:55+00:00",
+      "price_before": 0.9965,
+      "direction": "neutral",
+      "materiality": 0.05,
+      "signal": false
+    },
+    {
+      "market_question": "Will the price of Ethereum be above $1,400 on June 10?",
+      "headline": "ETH crash to $1K looms if key support breaks: Will futures traders step in?",
+      "headline_source": "Cointelegraph",
+      "headline_date": "2026-06-09T21:21:47+00:00",
+      "price_before": 0.9965,
+      "direction": "bearish",
+      "materiality": 0.65,
+      "signal": true
+    }
+  ]
+}
