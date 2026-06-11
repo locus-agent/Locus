@@ -30,6 +30,9 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0) -> di
     today_start = now.strftime("%Y-%m-%d 00:00:00")
     since_24h = (now - timedelta(hours=24)).strftime("%Y-%m-%d %H:%M:%S")
 
+    signals_24h = logger.get_classification_count_since(since_24h, action="signal")
+    classifications_24h = logger.get_classification_count_since(since_24h)
+
     status = {
         "generated_at": now.isoformat(),
         "dry_run": config.DRY_RUN,
@@ -37,7 +40,31 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0) -> di
         "track_record": memory.get_track_record(),
         "headlines_scanned_today": logger.get_news_event_count_since(today_start),
         "headlines_last_cycle": headlines_last_cycle,
-        "signals_24h": logger.get_classification_count_since(since_24h, action="signal"),
+        "signals_24h": signals_24h,
+        "classifications_24h": classifications_24h,
+        "selectivity_pct": (
+            round(signals_24h / classifications_24h * 100, 1)
+            if classifications_24h else None
+        ),
+        "pipeline_24h": {
+            "news": logger.get_news_event_count_since(since_24h),
+            "matched": logger.get_matched_headline_count_since(since_24h),
+            "classified": classifications_24h,
+            "signals": signals_24h,
+            "trades": logger.get_trade_count_since(since_24h),
+        },
+        "open_positions": [
+            {
+                "time": t["created_at"],
+                "market_question": t["market_question"],
+                "side": t["side"],
+                "entry_price": t["market_price"],
+                "edge": t["edge"],
+                "amount_usd": t["amount_usd"],
+                "status": t["status"],
+            }
+            for t in logger.get_recent_trades(limit=10)
+        ],
         "recent_classifications": [
             {
                 "time": c["created_at"],
@@ -47,6 +74,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0) -> di
                 "materiality": c["materiality"],
                 "edge": c["edge"],
                 "action": c["action"],
+                "match_source": c["match_source"],
             }
             for c in logger.get_recent_classifications(limit=20)
         ],

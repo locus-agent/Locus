@@ -305,6 +305,26 @@ def get_classification_count_since(since: str, action: str | None = None) -> int
     return row["c"]
 
 
+def get_matched_headline_count_since(since: str) -> int:
+    """Headlines that produced at least one classification (i.e. matched)."""
+    conn = _conn()
+    row = conn.execute(
+        "SELECT COUNT(DISTINCT headline) as c FROM classifications WHERE created_at >= ?",
+        (since,),
+    ).fetchone()
+    conn.close()
+    return row["c"]
+
+
+def get_trade_count_since(since: str) -> int:
+    conn = _conn()
+    row = conn.execute(
+        "SELECT COUNT(*) as c FROM trades WHERE created_at >= ?", (since,)
+    ).fetchone()
+    conn.close()
+    return row["c"]
+
+
 def get_news_event_count_since(since: str) -> int:
     conn = _conn()
     row = conn.execute(

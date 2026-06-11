@@ -79,9 +79,41 @@
     font-size: 12px;
   }
 
+  /* Pipeline strip */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 10px 16px;
+  }
+
+  .pipe-step {
+    text-align: center;
+  }
+
+  .pipe-step .pipe-label {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pipe-step .pipe-count {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .pipe-arrow {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
   .stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 12px;
     margin-bottom: 24px;
   }
@@ -216,6 +248,31 @@
     color: var(--muted);
   }
 
+  /* Match-source badges */
+  .match-badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+
+  .match-badge.sem {
+    color: var(--purple);
+    border-color: var(--purple);
+  }
+
+  .match-badge.both {
+    color: var(--green);
+    border-color: var(--green);
+  }
+
+  .side-yes { color: var(--green); font-weight: 700; }
+  .side-no { color: var(--red); font-weight: 700; }
+
   /* Lessons */
   .lesson-card {
     background: var(--card);
@@ -271,9 +328,14 @@
     border-color: var(--purple);
   }
 
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(3, 1fr); }
+  }
+
   @media (max-width: 720px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
     .bar-label { width: 80px; }
+    .pipe-arrow { display: none; }
   }
 
   @media (max-width: 420px) {
@@ -291,6 +353,18 @@
     <span id="last-cycle" class="last-cycle">last cycle: —</span>
   </header>
 
+  <div class="card pipeline" id="pipeline-strip">
+    <div class="pipe-step"><div class="pipe-label">News</div><div class="pipe-count" id="pipe-news">—</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="pipe-label">Matched</div><div class="pipe-count" id="pipe-matched">—</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="pipe-label">Classified</div><div class="pipe-count" id="pipe-classified">—</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="pipe-label">Signals</div><div class="pipe-count" id="pipe-signals">—</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="pipe-label">Trades</div><div class="pipe-count" id="pipe-trades">—</div></div>
+  </div>
+
   <div class="stats">
     <div class="card stat-card">
       <div class="stat-label">Overall Accuracy</div>
@@ -303,9 +377,19 @@
       <div class="stat-sub" id="stat-headlines-cycle">0 last cycle</div>
     </div>
     <div class="card stat-card">
+      <div class="stat-label">Classifications (24h)</div>
+      <div class="stat-value" id="stat-classifications">—</div>
+      <div class="stat-sub">claude calls</div>
+    </div>
+    <div class="card stat-card">
       <div class="stat-label">Signals (24h)</div>
       <div class="stat-value" id="stat-signals">—</div>
       <div class="stat-sub">edge &gt; threshold</div>
+    </div>
+    <div class="card stat-card">
+      <div class="stat-label">Selectivity</div>
+      <div class="stat-value" id="stat-selectivity">—</div>
+      <div class="stat-sub">signals / classifications</div>
     </div>
     <div class="card stat-card">
       <div class="stat-label">Lessons Learned</div>
@@ -313,6 +397,28 @@
       <div class="stat-sub">from past mistakes</div>
     </div>
   </div>
+
+  <section class="block">
+    <h2 id="positions-title">Open Positions (dry run)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Market</th>
+            <th>Side</th>
+            <th>Entry</th>
+            <th>Edge</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="position-rows">
+          <tr><td colspan="7" class="empty">No positions yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
   <section class="block">
     <h2>Track Record by Category</h2>
@@ -330,6 +436,7 @@
             <th>Time</th>
             <th>Market</th>
             <th>Headline</th>
+            <th>Match</th>
             <th>Direction</th>
             <th>Materiality</th>
             <th>Edge</th>
@@ -337,7 +444,7 @@
           </tr>
         </thead>
         <tbody id="classification-rows">
-          <tr><td colspan="7" class="empty">No classifications yet.</td></tr>
+          <tr><td colspan="8" class="empty">No classifications yet.</td></tr>
         </tbody>
       </table>
     </div>
@@ -424,8 +531,54 @@
     document.getElementById('stat-signals').textContent =
       status.signals_24h ?? 0;
 
+    document.getElementById('stat-classifications').textContent =
+      status.classifications_24h ?? 0;
+
+    document.getElementById('stat-selectivity').textContent =
+      status.selectivity_pct == null ? '—' : status.selectivity_pct.toFixed(1) + '%';
+
     document.getElementById('stat-lessons').textContent =
       (status.lessons || []).length;
+  }
+
+  function renderPipeline(status) {
+    const p = status.pipeline_24h || {};
+    for (const step of ['news', 'matched', 'classified', 'signals', 'trades']) {
+      document.getElementById('pipe-' + step).textContent = p[step] ?? '—';
+    }
+  }
+
+  function matchBadge(source) {
+    if (!source) return '<span class="match-badge">—</span>';
+    if (source === 'keyword') return '<span class="match-badge">kw</span>';
+    if (source === 'embedding') return '<span class="match-badge sem">sem</span>';
+    if (source === 'both') return '<span class="match-badge both">both</span>';
+    return '<span class="match-badge">' + escapeHtml(source) + '</span>';
+  }
+
+  function renderPositions(status) {
+    document.getElementById('positions-title').textContent =
+      'Open Positions ' + (status.dry_run ? '(dry run)' : '(live)');
+
+    const tbody = document.getElementById('position-rows');
+    const rows = status.open_positions || [];
+
+    if (rows.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty">No positions yet.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = rows.map(t => `
+      <tr>
+        <td>${fmtTime(t.time)}</td>
+        <td class="market">${escapeHtml(t.market_question)}</td>
+        <td class="${t.side === 'YES' ? 'side-yes' : 'side-no'}">${escapeHtml(t.side)}</td>
+        <td>${t.entry_price == null ? '—' : t.entry_price.toFixed(2)}</td>
+        <td>${fmtPct(t.edge)}</td>
+        <td>$${t.amount_usd == null ? '—' : t.amount_usd.toFixed(2)}</td>
+        <td>${escapeHtml(t.status)}</td>
+      </tr>
+    `).join('');
   }
 
   function renderCategoryBars(status) {
@@ -454,7 +607,7 @@
     const rows = status.recent_classifications || [];
 
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7" class="empty">No classifications yet.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="8" class="empty">No classifications yet.</td></tr>';
       return;
     }
 
@@ -463,6 +616,7 @@
         <td>${fmtTime(c.time)}</td>
         <td class="market">${escapeHtml(c.market_question)}</td>
         <td class="headline">${escapeHtml(c.headline)}</td>
+        <td>${matchBadge(c.match_source)}</td>
         <td class="${directionClass(c.direction)}">${directionArrow(c.direction)}</td>
         <td>${fmtPct(c.materiality)}</td>
         <td>${fmtPct(c.edge)}</td>
@@ -499,7 +653,9 @@
       const status = await resp.json();
 
       renderHeader(status);
+      renderPipeline(status);
       renderStats(status);
+      renderPositions(status);
       renderCategoryBars(status);
       renderClassifications(status);
       renderLessons(status);
