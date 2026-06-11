@@ -62,6 +62,11 @@ MIN_VOLUME_USD = float(os.getenv("MIN_VOLUME_USD", "1000"))
 MATERIALITY_THRESHOLD = float(os.getenv("MATERIALITY_THRESHOLD", "0.6"))
 SPEED_TARGET_SECONDS = float(os.getenv("SPEED_TARGET_SECONDS", "5"))
 
+# Trade only on fresh news: suppress signals (classification still runs and
+# is logged) when the headline was published more than this long before we
+# received it. Stale RSS/NewsAPI articles must not trigger trades.
+MAX_NEWS_AGE_SECONDS = float(os.getenv("MAX_NEWS_AGE_SECONDS", "900"))
+
 # --- Semantic matching (V2) ---
 # Cosine distance ceiling for headline -> market embedding matches.
 EMBED_DISTANCE_THRESHOLD = float(os.getenv("EMBED_DISTANCE_THRESHOLD", "0.6"))

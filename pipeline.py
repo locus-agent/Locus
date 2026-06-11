@@ -35,6 +35,29 @@ log = logging.getLogger(__name__)
 # V2: Event-Driven Pipeline
 # ============================================================
 
+def gate_trade(event: NewsEvent, signal, traded_headlines: set[str]):
+    """Trade-time risk gates, applied after classification so every
+    classification is still logged and calibrated.
+
+    Returns (signal_or_none, action):
+      "skip"   — no edge detected
+      "stale"  — would-be signal, but the headline is older than
+                 MAX_NEWS_AGE_SECONDS (publication -> receipt); we classify
+                 old news for calibration but never trade on it
+      "capped" — this headline already produced a trade; one headline
+                 matching N markets must not open N correlated positions
+      "signal" — trade approved; headline recorded against the cap
+    """
+    if signal is None:
+        return None, "skip"
+    if (event.latency_ms or 0) > config.MAX_NEWS_AGE_SECONDS * 1000:
+        return None, "stale"
+    if event.headline in traded_headlines:
+        return None, "capped"
+    traded_headlines.add(event.headline)
+    return signal, "signal"
+
+
 class PipelineV2:
     """Async event-driven pipeline. Runs indefinitely."""
 
@@ -43,6 +66,7 @@ class PipelineV2:
         self.signal_queue: asyncio.Queue = asyncio.Queue()
         self.news_aggregator = NewsAggregator(self.news_queue)
         self.market_watcher = MarketWatcher()
+        self._traded_headlines: set[str] = set()
         self.running = False
         self.stats = {
             "news_processed": 0,
@@ -75,6 +99,12 @@ class PipelineV2:
 
     async def _process_news(self):
         """Process each news event: match → classify → detect edge."""
+        # Hold consumption until the first market refresh: news sources burst
+        # headlines at startup, and matching them against an empty market list
+        # silently discards the whole burst. They buffer in the queue meanwhile.
+        while not self.market_watcher.tracked_markets:
+            await asyncio.sleep(1)
+
         while True:
             event: NewsEvent = await self.news_queue.get()
             self.stats["news_processed"] += 1
@@ -110,7 +140,8 @@ class PipelineV2:
                         event.headline, market, event.source
                     )
 
-                    signal = detect_edge_v2(market, classification, event)
+                    raw_signal = detect_edge_v2(market, classification, event)
+                    signal, action = gate_trade(event, raw_signal, self._traded_headlines)
 
                     logger.log_classification(
                         market_question=market.question,
@@ -118,10 +149,18 @@ class PipelineV2:
                         news_source=event.source,
                         direction=classification.direction,
                         materiality=classification.materiality,
-                        edge=signal.edge if signal else None,
-                        action="signal" if signal else "skip",
+                        edge=raw_signal.edge if raw_signal else None,
+                        action=action,
                         match_source=match_source,
                     )
+
+                    if action in ("stale", "capped"):
+                        age_min = (event.latency_ms or 0) / 60000
+                        console.print(
+                            f"  [dim]{action.upper()}: suppressed would-be signal "
+                            f"({event.source}, news age {age_min:.0f}m) "
+                            f"on \"{market.question[:40]}\"[/dim]"
+                        )
 
                     if signal:
                         self.stats["signals_found"] += 1
