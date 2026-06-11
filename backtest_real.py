@@ -575,7 +575,7 @@ def run_pilot():
             published_at=h["date"],
         )
 
-        classification = classify(h["title"], market, source=news_event.source)
+        classification = classify(h["title"], market, source=news_event.source, as_of=h["date"])
         signal = detect_edge_v2(market, classification, news_event)
 
         tag = "SIGNAL" if signal else "--"

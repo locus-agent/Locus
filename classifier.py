@@ -5,9 +5,11 @@ Asks "does this news confirm or deny the market question?" instead of "what's th
 from __future__ import annotations
 
 import json
+import re
 import time
 import logging
 from dataclasses import dataclass
+from datetime import datetime, timezone
 
 import anthropic
 
@@ -25,8 +27,9 @@ CLASSIFICATION_PROMPT = """You are a news classifier for prediction markets.
 ## Market Question
 {question}
 
-## Current Market Price
-YES: {yes_price:.2f} (implied probability: {yes_price:.0%})
+## Market Context
+{threshold_line}Current YES price: {yes_price:.3f} (implied probability: {yes_price:.1%})
+Time remaining until market close: {time_remaining}
 
 ## Breaking News
 {headline}
@@ -40,6 +43,18 @@ Does this news make the market question MORE likely to resolve YES, MORE likely 
 
 Also rate the MATERIALITY — how much should this move the price? 0.0 means no impact, 1.0 means this is definitive evidence.
 
+Judge materiality for THIS SPECIFIC market: does the news materially change the probability that
+this specific threshold is crossed by this specific deadline? Direction alone is not materiality.
+- If the market is already nearly decided (implied probability above ~95% or below ~5%) and the
+  news is not dramatic enough to flip that outcome before the close, materiality is LOW (0.0-0.2)
+  even if the news points in the "right" direction.
+- A generic directional headline (analyst commentary, "looms"/"could"/"might" speculation,
+  predictions without a concrete new event) should get LOW materiality for thresholds that are
+  far from where the price currently implies the asset is trading.
+- The less time remaining, the larger and more concrete the news must be to move the outcome.
+Reserve materiality above 0.4 for concrete new developments plausibly large enough to push this
+particular threshold across the line within the remaining time.
+
 Use your track record above to calibrate: if a category or source has been unreliable, or a
 past lesson applies to this situation, factor that into your materiality and reasoning.
 
@@ -49,6 +64,35 @@ Respond with ONLY valid JSON:
   "materiality": <float 0.0 to 1.0>,
   "reasoning": "<1 sentence>"
 }}"""
+
+
+# Dollar amount in the question, e.g. "$1,700" or "$0.50" — the market's price threshold.
+_THRESHOLD_RE = re.compile(r"\$\s?[\d,]+(?:\.\d+)?")
+
+
+def _extract_threshold(question: str) -> str | None:
+    m = _THRESHOLD_RE.search(question)
+    return m.group(0).replace(" ", "") if m else None
+
+
+def _format_time_remaining(end_date: str, as_of: datetime) -> str:
+    try:
+        end = datetime.fromisoformat(end_date.replace("Z", "+00:00"))
+    except (ValueError, AttributeError, TypeError):
+        return "unknown"
+    if end.tzinfo is None:
+        end = end.replace(tzinfo=timezone.utc)
+
+    remaining = (end - as_of).total_seconds()
+    if remaining <= 0:
+        return "market is closing now"
+    days, rem = divmod(int(remaining), 86400)
+    hours = rem // 3600
+    if days > 0:
+        return f"{days} day{'s' if days != 1 else ''}, {hours} hour{'s' if hours != 1 else ''}"
+    if hours > 0:
+        return f"{hours} hour{'s' if hours != 1 else ''}"
+    return "less than 1 hour"
 
 
 def _format_track_record() -> str:
@@ -86,12 +130,28 @@ class Classification:
     model: str
 
 
-def classify(headline: str, market: Market, source: str = "unknown") -> Classification:
-    """Classify a news headline against a market question. Synchronous."""
+def classify(
+    headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None
+) -> Classification:
+    """Classify a news headline against a market question. Synchronous.
+
+    as_of: the moment the news broke — defaults to now. Backtests pass the
+    historical headline time so time-remaining is computed as of that moment.
+    """
     start = time.time()
+
+    if as_of is None:
+        as_of = datetime.now(timezone.utc)
+    elif as_of.tzinfo is None:
+        as_of = as_of.replace(tzinfo=timezone.utc)
+
+    threshold = _extract_threshold(market.question)
+    threshold_line = f"Price threshold in question: {threshold}\n" if threshold else ""
 
     prompt = CLASSIFICATION_PROMPT.format(
         question=market.question,
+        threshold_line=threshold_line,
+        time_remaining=_format_time_remaining(market.end_date, as_of),
         yes_price=market.yes_price,
         headline=headline,
         source=source,
@@ -143,11 +203,13 @@ def classify(headline: str, market: Market, source: str = "unknown") -> Classifi
         )
 
 
-async def classify_async(headline: str, market: Market, source: str = "unknown") -> Classification:
+async def classify_async(
+    headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None
+) -> Classification:
     """Async wrapper around classify()."""
     import asyncio
     return await asyncio.get_event_loop().run_in_executor(
-        None, classify, headline, market, source
+        None, classify, headline, market, source, as_of
     )
 
 
