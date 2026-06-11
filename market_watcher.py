@@ -58,9 +58,18 @@ class MarketWatcher:
     async def refresh_markets(self):
         """Fetch and filter markets from Gamma API."""
         try:
+            # Full paginated scan of the niche volume band (Gamma-side filter),
+            # not a top-N-by-volume slice — niche markets live at the tail.
+            fetch_start = time.monotonic()
             all_markets = await asyncio.get_event_loop().run_in_executor(
-                None, lambda: fetch_active_markets(limit=200)
+                None,
+                lambda: fetch_active_markets(
+                    limit=None,
+                    min_volume=config.MIN_VOLUME_USD,
+                    max_volume=config.MAX_VOLUME_USD,
+                ),
             )
+            fetch_secs = time.monotonic() - fetch_start
             categorized = filter_by_categories(all_markets)
             self.tracked_markets = self.get_niche_markets(categorized)
 
@@ -87,7 +96,12 @@ class MarketWatcher:
                 del self.snapshots[stale_id]
 
             self.stats["market_refreshes"] += 1
-            log.info(f"[watcher] Tracking {len(self.tracked_markets)} niche markets")
+            log.info(
+                f"[watcher] Fetched {len(all_markets)} markets in volume band "
+                f"${config.MIN_VOLUME_USD:,.0f}-${config.MAX_VOLUME_USD:,.0f} "
+                f"in {fetch_secs:.1f}s -> {len(categorized)} in target categories "
+                f"-> tracking {len(self.tracked_markets)} niche markets"
+            )
 
         except Exception as e:
             log.warning(f"[watcher] Market refresh error: {e}")

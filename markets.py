@@ -20,35 +20,99 @@ class Market:
     end_date: str
     active: bool
     tokens: list[dict]
+    description: str = ""
+    spread: float = 0.0
+    liquidity: float = 0.0
 
     @property
     def implied_probability(self) -> float:
         return self.yes_price
 
 
-def fetch_active_markets(limit: int = 50) -> list[Market]:
-    """Fetch active, liquid markets from Polymarket's Gamma API."""
-    markets = []
+# Gamma caps page size at 100 regardless of the requested limit.
+_GAMMA_PAGE_SIZE = 100
+# Gamma rejects offsets past 10,000 with a 422; beyond that we roll the
+# volume cursor (see fetch_active_markets) instead of paging deeper.
+_GAMMA_OFFSET_CAP = 10_000
+# Safety cap on total requests per fetch.
+_GAMMA_MAX_PAGES = 200
 
+
+def fetch_active_markets(
+    limit: int | None = 50,
+    min_volume: float | None = None,
+    max_volume: float | None = None,
+) -> list[Market]:
+    """
+    Fetch active, orderbook-enabled markets from Polymarket's Gamma API.
+
+    Paginates until `limit` markets are collected, or until the API is
+    exhausted when limit is None. Volume bounds are applied Gamma-side
+    (volume_num_min/max) so a full scan of the niche band stays cheap.
+
+    Gamma rejects offsets past 10k, so on hitting that wall we restart at
+    offset 0 with volume_num_max lowered to the smallest volume seen so far
+    (results are volume-ordered; the one-row overlap is deduped below).
+    """
+    params = {
+        "active": True,
+        "closed": False,
+        "enableOrderBook": True,
+        "order": "volume",
+        "ascending": False,
+    }
+    if min_volume is not None:
+        params["volume_num_min"] = min_volume
+
+    items = []
+    offset = 0
+    volume_ceiling = max_volume
+    lowest_volume_seen = None
     try:
-        resp = httpx.get(
-            f"{GAMMA_API}/markets",
-            params={
-                "limit": limit,
-                "active": True,
-                "closed": False,
-                "order": "volume",
-                "ascending": False,
-            },
-            timeout=15,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-    except Exception as e:
-        print(f"[markets] Gamma API error: {e}, falling back to CLOB...")
-        return _fetch_from_clob(limit)
+        with httpx.Client(timeout=15) as client:
+            for _ in range(_GAMMA_MAX_PAGES):
+                page_size = _GAMMA_PAGE_SIZE
+                if limit is not None:
+                    page_size = min(page_size, limit - len(items))
+                    if page_size <= 0:
+                        break
 
-    items = data if isinstance(data, list) else data.get("data", [])
+                if offset + page_size > _GAMMA_OFFSET_CAP:
+                    # Roll the volume cursor instead of paging past the cap.
+                    if lowest_volume_seen is None or lowest_volume_seen == volume_ceiling:
+                        break
+                    volume_ceiling = lowest_volume_seen
+                    offset = 0
+
+                page_params = {**params, "limit": page_size, "offset": offset}
+                if volume_ceiling is not None:
+                    page_params["volume_num_max"] = volume_ceiling
+
+                resp = client.get(f"{GAMMA_API}/markets", params=page_params)
+                resp.raise_for_status()
+                data = resp.json()
+                batch = data if isinstance(data, list) else data.get("data", [])
+                if not batch:
+                    break
+                items.extend(batch)
+                offset += len(batch)
+
+                page_volumes = [
+                    float(m.get("volumeNum", m.get("volume", 0)) or 0) for m in batch
+                ]
+                if page_volumes:
+                    page_min = min(page_volumes)
+                    if lowest_volume_seen is None or page_min < lowest_volume_seen:
+                        lowest_volume_seen = page_min
+    except Exception as e:
+        if not items:
+            print(f"[markets] Gamma API error: {e}, falling back to CLOB...")
+            return _fetch_from_clob(limit or _GAMMA_PAGE_SIZE)
+        # Mid-pagination failure: keep what we have rather than losing the refresh.
+        print(f"[markets] Gamma pagination stopped early at offset {offset}: {e}")
+
+    markets = []
+    seen_ids = set()
 
     for m in items:
         try:
@@ -101,8 +165,14 @@ def fetch_active_markets(limit: int = 50) -> list[Market]:
             if yes_price in (0.0, 1.0) and vol == 0:
                 continue
 
+            condition_id = m.get("conditionId", m.get("condition_id", m.get("id", "")))
+            # Pagination ordered by live volume can shift between pages; dedupe.
+            if condition_id in seen_ids:
+                continue
+            seen_ids.add(condition_id)
+
             markets.append(Market(
-                condition_id=m.get("conditionId", m.get("condition_id", m.get("id", ""))),
+                condition_id=condition_id,
                 question=question,
                 category=_infer_category(question, m.get("tags", None) or []),
                 yes_price=yes_price,
@@ -111,6 +181,9 @@ def fetch_active_markets(limit: int = 50) -> list[Market]:
                 end_date=m.get("endDate", m.get("end_date_iso", "")),
                 active=m.get("active", True),
                 tokens=token_list,
+                description=m.get("description", "") or "",
+                spread=float(m.get("spread", 0) or 0),
+                liquidity=float(m.get("liquidityNum", m.get("liquidity", 0)) or 0),
             ))
         except (KeyError, ValueError, TypeError):
             continue
