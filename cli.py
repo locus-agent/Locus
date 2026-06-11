@@ -135,8 +135,17 @@ def cmd_niche(args):
 
 
 def cmd_dashboard(args):
-    from dashboard import run_dashboard
-    run_dashboard(scan_interval=args.speed)
+    if args.legacy:
+        from dashboard import run_dashboard
+        run_dashboard(scan_interval=args.speed)
+        return
+    try:
+        from tui import run_tui
+    except ImportError:
+        console.print("[red]Textual not installed — run: pip install textual[/red]")
+        console.print("(or use the old dashboard with: python cli.py dashboard --legacy)")
+        return
+    run_tui()
 
 
 def cmd_verify(args):
@@ -415,8 +424,9 @@ def main():
     p_run.set_defaults(func=cmd_run)
 
     # dashboard
-    p_dash = sub.add_parser("dashboard", help="Launch live terminal dashboard")
-    p_dash.add_argument("--speed", type=float, default=60.0, help="Seconds between scan cycles")
+    p_dash = sub.add_parser("dashboard", help="Launch live terminal dashboard (TUI)")
+    p_dash.add_argument("--legacy", action="store_true", help="Old rich dashboard (runs V1 scan loop)")
+    p_dash.add_argument("--speed", type=float, default=60.0, help="Seconds between scan cycles (legacy only)")
     p_dash.set_defaults(func=cmd_dashboard)
 
     # backtest

@@ -165,7 +165,10 @@ class PipelineV2:
             headlines_last_cycle = self.stats["news_processed"] - last_news_processed
             last_news_processed = self.stats["news_processed"]
             try:
-                export_status(headlines_last_cycle=headlines_last_cycle)
+                export_status(
+                    headlines_last_cycle=headlines_last_cycle,
+                    markets_tracked=len(self.market_watcher.tracked_markets),
+                )
             except Exception as e:
                 log.warning(f"[pipeline] Status export error: {e}")
 

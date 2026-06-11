@@ -89,8 +89,17 @@ python cli.py run --max 15 --hours 12
 ### Live Dashboard
 
 ```bash
-python cli.py dashboard
+python cli.py dashboard            # Textual TUI — read-only, run it next to `watch`
+python cli.py dashboard --legacy   # old rich dashboard (runs the V1 scan loop)
 ```
+
+![Locus TUI dashboard](docs/tui.svg)
+
+The TUI only reads `trades.db` and `docs/status.json` — it never scans, classifies, or
+trades — so it's safe to keep open alongside a running `watch` process. Header: mode
+(DRY RUN/LIVE) and uptime. Left: live stats (news by source, matched, signals, trades,
+markets tracked). Center: real-time classification feed. Right: track record by category
+and the last five lessons. Footer: details of the most recent signal. Press `q` to quit.
 
 ### Backtest
 
@@ -180,7 +189,8 @@ history before classifying the next headline.
 | `calibrator.py` | Grades classifications once markets resolve |
 | `memory.py` | Track record + lessons — the classifier's feedback loop |
 | `export_status.py` | Writes `docs/status.json` for the public GitHub Pages dashboard |
-| `dashboard.py` | Terminal dashboard (runs the V1 scan loop) |
+| `tui.py` | Textual TUI dashboard — read-only live view over `trades.db` |
+| `dashboard.py` | Legacy terminal dashboard (runs the V1 scan loop) |
 | `scraper.py` | V1 news scraper (RSS + NewsAPI) |
 | `scorer.py` | V1 probability scoring with Claude |
 | `backtest.py` | Replays resolved markets through the V2 classifier |
