@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 import httpx
@@ -240,22 +241,31 @@ def _fetch_from_clob(limit: int) -> list[Market]:
     return markets
 
 
+# Order matters: first matching category wins. Keywords are matched on word
+# boundaries (with optional plural "s") — substring matching mis-tagged e.g.
+# "jail"/"chair"/"raise" as "ai". Longer forms ("technology", "cryptocurrency")
+# are listed explicitly since the short forms no longer match inside them.
+_CATEGORY_KEYWORDS = [
+    ("ai", ["ai", "artificial intelligence", "openai", "chatgpt", "llm", "google ai", "anthropic"]),
+    ("crypto", ["bitcoin", "ethereum", "crypto", "cryptocurrency", "blockchain", "defi", "token"]),
+    ("politics", ["election", "president", "congress", "senate", "trump", "biden", "political"]),
+    ("science", ["spacex", "nasa", "climate", "research", "study", "discovery"]),
+    ("technology", ["tech", "technology", "apple", "google", "microsoft", "software", "startup"]),
+]
+_CATEGORY_PATTERNS = [
+    (cat, re.compile(r"\b(?:" + "|".join(re.escape(kw) + r"s?" for kw in kws) + r")\b"))
+    for cat, kws in _CATEGORY_KEYWORDS
+]
+
+
 def _infer_category(question: str, tags: list) -> str:
     """Infer category from question text and tags."""
-    q = question.lower()
     tag_str = " ".join(str(t).lower() for t in tags)
-    combined = f"{q} {tag_str}"
+    combined = f"{question.lower()} {tag_str}"
 
-    if any(kw in combined for kw in ["ai", "artificial intelligence", "openai", "chatgpt", "llm", "google ai", "anthropic"]):
-        return "ai"
-    if any(kw in combined for kw in ["bitcoin", "ethereum", "crypto", "blockchain", "defi", "token"]):
-        return "crypto"
-    if any(kw in combined for kw in ["election", "president", "congress", "senate", "trump", "biden", "political"]):
-        return "politics"
-    if any(kw in combined for kw in ["spacex", "nasa", "climate", "research", "study", "discovery"]):
-        return "science"
-    if any(kw in combined for kw in ["tech", "apple", "google", "microsoft", "software", "startup"]):
-        return "technology"
+    for cat, pattern in _CATEGORY_PATTERNS:
+        if pattern.search(combined):
+            return cat
     return "other"
 
 
