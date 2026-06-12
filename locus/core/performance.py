@@ -50,50 +50,46 @@ def _fetch_current_yes_price(condition_id: str) -> float | None:
 
 
 def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
-    """Aggregate dry-run/executed trades into a performance summary.
+    """Aggregate the positions table into a performance summary.
 
-    current_prices: {condition_id: yes_price} from the live watcher when
-    available; missing open-position prices are fetched from Gamma (a few
-    HTTP calls at most), and positions still unpriced are marked at entry
-    (zero unrealized contribution).
+    Realized PnL sums realized_pnl_usd over all positions (including
+    partial close_half realizations on still-open ones); wins/losses count
+    closed positions by their total realized PnL. Unrealized marks open
+    positions at current_prices when given, else the position's stored
+    mark, else a Gamma fetch, else entry (zero contribution).
     """
     trades = logger.get_trades_for_performance()
-    exits = logger.get_calibration_exits()
     current_prices = dict(current_prices or {})
 
+    conn = logger._conn()
+    rows = [dict(r) for r in conn.execute("SELECT * FROM positions").fetchall()]
+    conn.close()
+
     deployed = sum(t["amount_usd"] for t in trades)
-    wins = losses = 0
-    realized = 0.0
+    realized = sum(p["realized_pnl_usd"] or 0.0 for p in rows)
+    closed = [p for p in rows if p["status"] != "open"]
+    wins = sum(1 for p in closed if (p["realized_pnl_usd"] or 0) > 0)
+    losses = len(closed) - wins
+
     unrealized = 0.0
-    open_count = 0
+    open_rows = [p for p in rows if p["status"] == "open"]
+    for p in open_rows:
+        price_now = current_prices.get(p["condition_id"]) or p["current_yes_price"]
+        if price_now is None:
+            price_now = _fetch_current_yes_price(p["condition_id"])
+        if price_now is not None:
+            unrealized += position_pnl(
+                p["side"], p["entry_yes_price"], price_now, p["amount_usd"]
+            )
 
-    for t in trades:
-        if t["id"] in exits:
-            pnl = position_pnl(t["side"], t["market_price"], exits[t["id"]], t["amount_usd"])
-            realized += pnl
-            if pnl > 0:
-                wins += 1
-            else:
-                losses += 1
-        else:
-            open_count += 1
-            price_now = current_prices.get(t["market_id"])
-            if price_now is None:
-                price_now = _fetch_current_yes_price(t["market_id"])
-                if price_now is not None:
-                    current_prices[t["market_id"]] = price_now
-            if price_now is not None:
-                unrealized += position_pnl(t["side"], t["market_price"], price_now, t["amount_usd"])
-
-    closed = wins + losses
     return {
         "trades_total": len(trades),
         "deployed_usd": round(deployed, 2),
-        "open_count": open_count,
-        "closed_count": closed,
+        "open_count": len(open_rows),
+        "closed_count": len(closed),
         "wins": wins,
         "losses": losses,
-        "win_rate_pct": round(wins / closed * 100, 1) if closed else None,
+        "win_rate_pct": round(wins / len(closed) * 100, 1) if closed else None,
         "realized_pnl_usd": round(realized, 2),
         "unrealized_pnl_usd": round(unrealized, 2),
     }

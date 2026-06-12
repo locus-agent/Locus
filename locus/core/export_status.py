@@ -16,6 +16,7 @@ from locus import config
 from locus.memory import logger
 from locus import memory
 from locus.core.performance import compute_performance
+from locus.core import positions
 
 log = logging.getLogger(__name__)
 
@@ -62,15 +63,41 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
         "performance": compute_performance(current_prices),
         "open_positions": [
             {
-                "time": t["created_at"],
-                "market_question": t["market_question"],
-                "side": t["side"],
-                "entry_price": t["market_price"],
-                "edge": t["edge"],
-                "amount_usd": t["amount_usd"],
-                "status": t["status"],
+                "time": p["opened_at"],
+                "market_question": p["market_question"],
+                "slug": p["slug"],
+                "side": p["side"],
+                "entry_price": p["entry_yes_price"],
+                "current_price": p["current_yes_price"],
+                "pnl_pct": p["unrealized_pnl_pct"],
+                "amount_usd": p["amount_usd"],
             }
-            for t in logger.get_recent_trades(limit=10)
+            for p in positions.get_open_positions()[:10]
+        ],
+        "closed_positions": [
+            {
+                "time": p["closed_at"],
+                "market_question": p["market_question"],
+                "slug": p["slug"],
+                "side": p["side"],
+                "entry_price": p["entry_yes_price"],
+                "exit_price": p["exit_yes_price"],
+                "realized_pnl_usd": p["realized_pnl_usd"],
+                "exit_reason": p["exit_reason"],
+            }
+            for p in positions.get_closed_positions(limit=10)
+        ],
+        "exit_decisions": [
+            {
+                "time": d["created_at"],
+                "market_question": d["market_question"],
+                "side": d["side"],
+                "trigger": d["trigger"],
+                "decision": d["decision"],
+                "reasoning": d["reasoning"],
+                "pnl_pct": d["pnl_pct"],
+            }
+            for d in positions.get_recent_exit_decisions(limit=5)
         ],
         "recent_classifications": [
             {

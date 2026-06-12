@@ -293,25 +293,34 @@ class LocusTUI(App):
         self.query_one("#record", Static).update(text)
 
     def _refresh_footer(self) -> None:
+        from locus.core.positions import get_open_positions
+
         status = _read_status_json()
         mode = "DRY RUN" if status.get("dry_run", config.DRY_RUN) else "LIVE"
-        trades = logger.get_recent_trades(limit=4)
+        open_positions = get_open_positions()[:4]
 
         text = Text()
         text.append(f"OPEN POSITIONS ({mode})", style=f"bold {GREEN}")
-        if not trades:
-            text.append("\nnone yet — waiting for a signal to clear the gates", style="dim")
-        for t in trades:
-            side = (t["side"] or "?").upper()
+        if not open_positions:
+            text.append("\nnone open — waiting for a signal to clear the gates", style="dim")
+        for p in open_positions:
+            side = (p["side"] or "?").upper()
             side_style = GREEN if side == "YES" else RED
-            edge = t["edge"]
-            text.append(f"\n{_fmt_time(t['created_at'])}  ", style="dim")
+            pnl = p["unrealized_pnl_pct"]
+            current = p["current_yes_price"]
+            text.append(f"\n{_fmt_time(p['opened_at'])}  ", style="dim")
             text.append(f"{side:<3}", style=f"bold {side_style}")
-            text.append(f" ${t['amount_usd']:>6.2f}", style="bold")
-            text.append(f" @{t['market_price']:.2f}")
-            text.append(f"  edge {edge:.0%}" if edge is not None else "  edge —", style="bold")
-            text.append(f"  [{t['status']}]", style="dim")
-            text.append(f"  {(t['market_question'] or '')[:52]}")
+            text.append(f" ${p['amount_usd']:>6.2f}", style="bold")
+            text.append(f" {p['entry_yes_price']:.2f}")
+            text.append(f"→{current:.2f}" if current is not None else "→ —", style="dim")
+            if pnl is not None:
+                text.append(
+                    f"  {'+' if pnl >= 0 else '−'}{abs(pnl):.1f}%",
+                    style=f"bold {GREEN}" if pnl >= 0 else f"bold {RED}",
+                )
+            else:
+                text.append("   —", style="dim")
+            text.append(f"  {(p['market_question'] or '')[:50]}")
         self.query_one("#footer", Static).update(text)
 
 

@@ -122,7 +122,7 @@
   /* Stats */
   .stats {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 12px;
   }
 
@@ -170,6 +170,18 @@
     font-size: 11px;
     margin-top: 2px;
   }
+
+  td.market a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--muted);
+  }
+
+  td.market a:hover { color: var(--green); border-color: var(--green); }
+
+  .decision-close { color: var(--red); font-weight: 700; }
+  .decision-close_half { color: var(--yellow); font-weight: 700; }
+  .decision-hold { color: var(--green); font-weight: 700; }
 
   .pnl-pos { color: var(--green); }
   .pnl-neg { color: var(--red); }
@@ -444,6 +456,11 @@
         <div class="stat-sub">signals / classifications</div>
       </div>
       <div class="panel stat-card">
+        <div class="stat-label">Realized PnL</div>
+        <div class="stat-value" id="stat-realized">—</div>
+        <div class="stat-sub">cumulative, simulated</div>
+      </div>
+      <div class="panel stat-card">
         <div class="stat-label">Lessons Learned</div>
         <div class="stat-value" id="stat-lessons">—</div>
         <div class="stat-sub">from past mistakes</div>
@@ -491,15 +508,48 @@
               <th>Market</th>
               <th>Side</th>
               <th>Entry</th>
-              <th>Edge</th>
+              <th>Current</th>
+              <th>PnL%</th>
               <th>Amount</th>
-              <th>Status</th>
             </tr>
           </thead>
           <tbody id="position-rows">
             <tr><td colspan="7" class="empty">No positions yet.</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
+      <div class="panel-title" id="closed-title">Closed Positions (dry run)</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Closed</th>
+              <th>Market</th>
+              <th>Side</th>
+              <th>Entry</th>
+              <th>Exit</th>
+              <th>Realized</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody id="closed-rows">
+            <tr><td colspan="7" class="empty">No closed positions yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
+      <div class="panel-title">Exit Decisions</div>
+      <div id="exit-decisions">
+        <div class="empty">No re-evaluations yet — triggers: +50% / −30% / contradicting news.</div>
       </div>
     </div>
   </section>
@@ -664,6 +714,12 @@
 
     document.getElementById('stat-lessons').textContent =
       (status.lessons || []).length;
+
+    const perf = status.performance || {};
+    const [rTxt, rCls] = fmtPnl(perf.realized_pnl_usd);
+    const rStat = document.getElementById('stat-realized');
+    rStat.textContent = rTxt;
+    rStat.className = 'stat-value ' + rCls;
   }
 
   function renderGates(status) {
@@ -713,6 +769,13 @@
     document.getElementById('perf-open').textContent = (p.open_count ?? 0) + ' open';
   }
 
+  function marketCell(question, slug) {
+    const text = escapeHtml(question);
+    if (!slug) return text;
+    const url = 'https://polymarket.com/event/' + encodeURIComponent(slug);
+    return '<a href="' + url + '" target="_blank" rel="noopener">' + text + '</a>';
+  }
+
   function renderPositions(status) {
     document.getElementById('positions-title').textContent =
       'Open Positions ' + (status.dry_run ? '(dry run)' : '(live)');
@@ -725,16 +788,64 @@
       return;
     }
 
-    tbody.innerHTML = rows.map(t => `
+    tbody.innerHTML = rows.map(t => {
+      const pnl = t.pnl_pct;
+      const pnlTxt = pnl == null ? '—'
+        : (pnl >= 0 ? '+' : '−') + Math.abs(pnl).toFixed(1) + '%';
+      const pnlCls = pnl == null ? '' : (pnl >= 0 ? 'pnl-pos' : 'pnl-neg');
+      return `
       <tr>
         <td>${fmtTime(t.time)}</td>
-        <td class="market">${escapeHtml(t.market_question)}</td>
+        <td class="market">${marketCell(t.market_question, t.slug)}</td>
         <td class="${t.side === 'YES' ? 'side-yes' : 'side-no'}">${escapeHtml(t.side)}</td>
         <td>${t.entry_price == null ? '—' : t.entry_price.toFixed(2)}</td>
-        <td>${fmtPct(t.edge)}</td>
+        <td>${t.current_price == null ? '—' : t.current_price.toFixed(2)}</td>
+        <td class="${pnlCls}">${pnlTxt}</td>
         <td>$${t.amount_usd == null ? '—' : t.amount_usd.toFixed(2)}</td>
-        <td>${escapeHtml(t.status)}</td>
-      </tr>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderClosed(status) {
+    document.getElementById('closed-title').textContent =
+      'Closed Positions ' + (status.dry_run ? '(dry run)' : '(live)');
+    const tbody = document.getElementById('closed-rows');
+    const rows = status.closed_positions || [];
+    if (rows.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty">No closed positions yet.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = rows.map(t => {
+      const [pnlTxt, pnlCls] = fmtPnl(t.realized_pnl_usd);
+      return `
+      <tr>
+        <td>${fmtTime(t.time)}</td>
+        <td class="market">${marketCell(t.market_question, t.slug)}</td>
+        <td class="${t.side === 'YES' ? 'side-yes' : 'side-no'}">${escapeHtml(t.side)}</td>
+        <td>${t.entry_price == null ? '—' : t.entry_price.toFixed(2)}</td>
+        <td>${t.exit_price == null ? '—' : t.exit_price.toFixed(2)}</td>
+        <td class="${pnlCls}">${pnlTxt}</td>
+        <td>${escapeHtml(t.exit_reason || '—')}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderExitDecisions(status) {
+    const container = document.getElementById('exit-decisions');
+    const rows = status.exit_decisions || [];
+    if (rows.length === 0) {
+      container.innerHTML = '<div class="empty">No re-evaluations yet — triggers: +50% / −30% / contradicting news.</div>';
+      return;
+    }
+    container.innerHTML = rows.map(d => `
+      <div class="lesson-card">
+        <div class="lesson-meta">
+          ${fmtTime(d.time)} · ${escapeHtml(d.market_question)} (${escapeHtml(d.side)}) ·
+          trigger <span class="purple">${escapeHtml(d.trigger)}</span> at ${d.pnl_pct == null ? '—' : (d.pnl_pct >= 0 ? '+' : '−') + Math.abs(d.pnl_pct).toFixed(1) + '%'} →
+          <span class="decision-${escapeHtml(d.decision)}">${escapeHtml(d.decision)}</span>
+        </div>
+        <div class="lesson-text">${escapeHtml(d.reasoning)}</div>
+      </div>
     `).join('');
   }
 
@@ -831,6 +942,8 @@
       renderStats(status);
       renderPerformance(status);
       renderPositions(status);
+      renderClosed(status);
+      renderExitDecisions(status);
       renderGates(status);
       renderCategoryBars(status);
       renderJournal(status);
