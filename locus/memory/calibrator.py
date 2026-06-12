@@ -224,6 +224,21 @@ def grade_classifications(max_tokens_per_run: int = 50) -> int:
     return graded
 
 
+def run_cycle() -> dict:
+    """One full calibration pass: resolve trades, grade non-traded
+    classifications, return a summary. Used by the pipeline's schedule;
+    `cli.py calibrate` remains the manual equivalent."""
+    resolved = check_resolutions()
+    graded = grade_classifications()
+    record = memory.get_track_record()
+    return {
+        "resolved": resolved,
+        "graded": graded,
+        "total": record["total"],
+        "accuracy": record["accuracy"],
+    }
+
+
 def get_report() -> CalibrationReport:
     """Generate a calibration report from stored data."""
     stats = logger.get_calibration_stats()

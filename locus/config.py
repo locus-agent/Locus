@@ -112,6 +112,8 @@ NEWS_REEVAL_MATERIALITY = float(os.getenv("NEWS_REEVAL_MATERIALITY", "0.4"))
 
 # --- Classification grading (non-traded calls vs later price moves) ---
 CALIBRATION_HORIZON_HOURS = float(os.getenv("CALIBRATION_HORIZON_HOURS", "24"))
+# Automatic calibration cadence inside the pipeline (first run ~5 min after start).
+CALIBRATION_INTERVAL_HOURS = float(os.getenv("CALIBRATION_INTERVAL_HOURS", "4"))
 CALIBRATION_MOVE_THRESHOLD = float(os.getenv("CALIBRATION_MOVE_THRESHOLD", "0.02"))
 
 # --- Journal ---

@@ -74,6 +74,37 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     return signal, "signal"
 
 
+CALIBRATION_STARTUP_DELAY_SECONDS = 300.0
+
+
+async def run_calibration_schedule(
+    startup_delay: float,
+    interval_seconds: float,
+    runner=None,
+) -> None:
+    """Run a full calibration cycle on a fixed schedule, off the event loop.
+    Errors are logged loudly and never crash the loop (the supervisor above
+    is the second net). Standalone so the schedule is unit-testable."""
+    from locus.memory import calibrator
+
+    runner = runner or calibrator.run_cycle
+    await asyncio.sleep(startup_delay)
+    while True:
+        try:
+            summary = await asyncio.get_event_loop().run_in_executor(None, runner)
+            acc = (
+                f", track record {summary['total']} @ {summary['accuracy']:.1f}%"
+                if summary.get("total") else ""
+            )
+            console.print(
+                f"  [dim]calibration: {summary['resolved']} resolved, "
+                f"{summary['graded']} graded{acc}[/dim]"
+            )
+        except Exception:
+            log.exception("[pipeline] CALIBRATION CYCLE FAILED (will retry next interval)")
+        await asyncio.sleep(interval_seconds)
+
+
 class PipelineV2:
     """Async event-driven pipeline. Runs indefinitely."""
 
@@ -110,6 +141,14 @@ class PipelineV2:
                 supervise("process_news", self._process_news, self.stats),
                 supervise("execute_signals", self._execute_signals, self.stats),
                 supervise("status_printer", self._status_printer, self.stats),
+                supervise(
+                    "calibration",
+                    lambda: run_calibration_schedule(
+                        CALIBRATION_STARTUP_DELAY_SECONDS,
+                        config.CALIBRATION_INTERVAL_HOURS * 3600,
+                    ),
+                    self.stats,
+                ),
             )
         except asyncio.CancelledError:
             self.running = False
