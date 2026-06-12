@@ -33,6 +33,18 @@ DIRECTION_STYLES = {
     "neutral": "dim",
 }
 
+ACTION_STYLES = {
+    "SIGNAL": f"bold {GREEN}",
+    "STALE": "dim yellow",
+    "CAPPED": "dim cyan",
+}
+
+MATCH_BADGES = {
+    "keyword": ("kw", "dim"),
+    "embedding": ("sem", PURPLE),
+    "both": ("both", GREEN),
+}
+
 
 def _read_status_json() -> dict:
     try:
@@ -51,23 +63,15 @@ def _news_counts_by_source(since: str) -> dict[str, int]:
     return {r["source"]: r["c"] for r in rows}
 
 
-def _matched_count(since: str) -> int:
+def _action_counts(since: str) -> dict[str, int]:
+    """Classification counts by action (signal/skip/stale/capped) since `since`."""
     conn = logger._conn()
-    row = conn.execute(
-        "SELECT COUNT(*) AS c FROM news_events WHERE created_at >= ? AND matched_markets > 0",
+    rows = conn.execute(
+        "SELECT action, COUNT(*) AS c FROM classifications WHERE created_at >= ? GROUP BY action",
         (since,),
-    ).fetchone()
+    ).fetchall()
     conn.close()
-    return row["c"]
-
-
-def _last_signal() -> dict | None:
-    conn = logger._conn()
-    row = conn.execute(
-        "SELECT * FROM classifications WHERE action = 'signal' ORDER BY id DESC LIMIT 1"
-    ).fetchone()
-    conn.close()
-    return dict(row) if row else None
+    return {r["action"]: r["c"] for r in rows}
 
 
 def _fmt_time(created_at: str) -> str:
@@ -75,7 +79,7 @@ def _fmt_time(created_at: str) -> str:
 
 
 class LocusTUI(App):
-    """Bloomberg-for-one-bot: header, stats, live feed, track record, last signal."""
+    """Bloomberg-for-one-bot: header, stats, live feed, track record, open positions."""
 
     TITLE = "Locus"
     BINDINGS = [("q", "quit", "Quit")]
@@ -116,7 +120,7 @@ class LocusTUI(App):
         text-style: bold;
     }}
     #footer {{
-        height: 3;
+        height: 7;
         border: round {GREEN};
         padding: 0 1;
     }}
@@ -143,8 +147,9 @@ class LocusTUI(App):
     def on_mount(self) -> None:
         table = self.query_one(DataTable)
         table.add_column("TIME", width=8)
-        table.add_column("MARKET", width=34)
-        table.add_column("HEADLINE", width=38)
+        table.add_column("MARKET", width=32)
+        table.add_column("HEADLINE", width=34)
+        table.add_column("MATCH", width=5)
         table.add_column("DIR", width=8)
         table.add_column("MAT", width=4)
         table.add_column("ACTION", width=6)
@@ -192,15 +197,27 @@ class LocusTUI(App):
                 text.append(f"  {source:<10}", style="dim")
                 text.append(f"{count:>6}\n")
         text.append("\n")
+        acts = _action_counts(since_24h)
+        classified = sum(acts.values())
+        signals = acts.get("signal", 0)
+        selectivity = f"{signals / classified * 100:.1f}%" if classified else "—"
         rows = [
-            ("matched", _matched_count(since_24h)),
-            ("signals", logger.get_classification_count_since(since_24h, action="signal")),
+            ("matched", logger.get_matched_headline_count_since(since_24h)),
+            ("classified", classified),
+            ("signals", signals),
+            ("selectivity", selectivity),
             ("trades", trade_stats.get("total", 0)),
             ("markets", status.get("markets_tracked", "—")),
         ]
         for label, value in rows:
             text.append(f"{label:<12}", style="bold")
             text.append(f"{value:>6}\n")
+
+        text.append("\ngates (24h)\n", style=f"bold {PURPLE}")
+        text.append("  stale     ", style="dim")
+        text.append(f"{acts.get('stale', 0):>6}\n", style="yellow")
+        text.append("  capped    ", style="dim")
+        text.append(f"{acts.get('capped', 0):>6}\n", style="cyan")
         self.query_one("#stats", Static).update(text)
 
     def _refresh_feed(self) -> None:
@@ -219,13 +236,15 @@ class LocusTUI(App):
             dir_style = DIRECTION_STYLES.get(direction, "")
             action = (c["action"] or "").upper()
             mat = c["materiality"]
+            badge, badge_style = MATCH_BADGES.get(c["match_source"], ("—", "dim"))
             table.add_row(
                 Text(_fmt_time(c["created_at"]), style="dim"),
-                (c["market_question"] or "")[:34],
-                Text((c["headline"] or "")[:38], style="#e2e2e2"),
+                (c["market_question"] or "")[:32],
+                Text((c["headline"] or "")[:34], style="#e2e2e2"),
+                Text(badge, style=badge_style),
                 Text(direction, style=dir_style),
                 f"{mat:.2f}" if mat is not None else "—",
-                Text(action, style=f"bold {GREEN}" if action == "SIGNAL" else "dim"),
+                Text(action, style=ACTION_STYLES.get(action, "dim")),
             )
 
     def _refresh_record(self) -> None:
@@ -253,21 +272,25 @@ class LocusTUI(App):
         self.query_one("#record", Static).update(text)
 
     def _refresh_footer(self) -> None:
-        signal = _last_signal()
+        status = _read_status_json()
+        mode = "DRY RUN" if status.get("dry_run", config.DRY_RUN) else "LIVE"
+        trades = logger.get_recent_trades(limit=4)
+
         text = Text()
-        text.append("LAST SIGNAL  ", style=f"bold {GREEN}")
-        if not signal:
-            text.append("none yet — waiting for material news on a tracked market", style="dim")
-        else:
-            direction = (signal["direction"] or "?").lower()
-            edge = signal["edge"]
-            text.append(_fmt_time(signal["created_at"]), style="dim")
-            text.append(f"  {direction}", style=DIRECTION_STYLES.get(direction, "bold"))
-            text.append(f"  mat {signal['materiality']:.2f}", style="bold")
-            if edge is not None:
-                text.append(f"  edge {edge:.1%}", style="bold")
-            text.append(f"  {(signal['market_question'] or '')[:60]}")
-            text.append(f"  ← {(signal['headline'] or '')[:50]}", style="dim")
+        text.append(f"OPEN POSITIONS ({mode})", style=f"bold {GREEN}")
+        if not trades:
+            text.append("\nnone yet — waiting for a signal to clear the gates", style="dim")
+        for t in trades:
+            side = (t["side"] or "?").upper()
+            side_style = GREEN if side == "YES" else RED
+            edge = t["edge"]
+            text.append(f"\n{_fmt_time(t['created_at'])}  ", style="dim")
+            text.append(f"{side:<3}", style=f"bold {side_style}")
+            text.append(f" ${t['amount_usd']:>6.2f}", style="bold")
+            text.append(f" @{t['market_price']:.2f}")
+            text.append(f"  edge {edge:.0%}" if edge is not None else "  edge —", style="bold")
+            text.append(f"  [{t['status']}]", style="dim")
+            text.append(f"  {(t['market_question'] or '')[:52]}")
         self.query_one("#footer", Static).update(text)
 
 
