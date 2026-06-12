@@ -44,6 +44,10 @@ def get_track_record() -> dict:
     overall accuracy, and accuracy broken down by market category and news source.
     """
     rows = logger.get_calibration_with_trades()
+    # Non-traded directional classifications graded against the market's
+    # later price move — same shape (market_question, news_source, correct),
+    # ~100x the sample size of trade-only grading.
+    rows = rows + logger.get_classification_grades_with_meta()
 
     by_category: dict[str, list[int]] = {}
     by_source: dict[str, list[int]] = {}

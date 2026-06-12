@@ -19,7 +19,7 @@ from locus import config
 from locus.memory import logger
 from locus.core.export_status import export_status
 from locus.sources.scraper import scrape_all
-from locus.markets.gamma import fetch_active_markets, filter_by_categories
+from locus.markets.gamma import fetch_active_markets, filter_by_categories, get_token_id
 from locus.core.scorer import score_market, filter_news_for_market
 from locus.core.edge import detect_edge, detect_edge_v2, Signal
 from locus.core.executor import execute_trade, execute_trade_async
@@ -173,6 +173,9 @@ class PipelineV2:
                         edge=raw_signal.edge if raw_signal else None,
                         action=action,
                         match_source=match_source,
+                        condition_id=market.condition_id,
+                        yes_price=market.yes_price,
+                        yes_token_id=get_token_id(market, "YES"),
                     )
 
                     if action in ("stale", "capped"):

@@ -85,6 +85,10 @@ EMBED_MAX_EXTRA_MATCHES = int(os.getenv("EMBED_MAX_EXTRA_MATCHES", "3"))
 CLASSIFICATION_MODEL = "claude-haiku-4-5-20251001"
 SCORING_MODEL = "claude-sonnet-4-6"
 
+# --- Classification grading (non-traded calls vs later price moves) ---
+CALIBRATION_HORIZON_HOURS = float(os.getenv("CALIBRATION_HORIZON_HOURS", "24"))
+CALIBRATION_MOVE_THRESHOLD = float(os.getenv("CALIBRATION_MOVE_THRESHOLD", "0.02"))
+
 # --- Journal ---
 # Daily first-person journal entry (one Sonnet call/day, written at the
 # first pipeline cycle after 21:00 UTC; see locus/core/journal.py).

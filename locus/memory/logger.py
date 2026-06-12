@@ -108,6 +108,18 @@ def init_db():
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
 
+        CREATE TABLE IF NOT EXISTS classification_grades (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            classification_id INTEGER NOT NULL UNIQUE REFERENCES classifications(id),
+            direction TEXT,
+            materiality REAL,
+            entry_price REAL,
+            price_after REAL,
+            horizon_hours REAL,
+            correct INTEGER,
+            resolved_at TEXT
+        );
+
         CREATE TABLE IF NOT EXISTS journal (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             date TEXT NOT NULL UNIQUE,
@@ -144,8 +156,17 @@ def _migrate_classification_columns(conn):
     """Add newer columns to the classifications table if they don't exist."""
     cursor = conn.execute("PRAGMA table_info(classifications)")
     columns = {row[1] for row in cursor.fetchall()}
-    if "match_source" not in columns:
-        conn.execute("ALTER TABLE classifications ADD COLUMN match_source TEXT")
+    new_cols = [
+        ("match_source", "TEXT"),
+        # Market context captured at classification time, so non-traded
+        # directional calls can be graded against later price moves.
+        ("condition_id", "TEXT"),
+        ("yes_price", "REAL"),
+        ("yes_token_id", "TEXT"),
+    ]
+    for col_name, col_type in new_cols:
+        if col_name not in columns:
+            conn.execute(f"ALTER TABLE classifications ADD COLUMN {col_name} {col_type}")
     conn.commit()
 
 
@@ -268,6 +289,65 @@ def get_calibrated_trade_ids() -> set[int]:
     return {r["trade_id"] for r in rows}
 
 
+def get_ungraded_directional_classifications(min_age_hours: float, limit: int = 500) -> list[dict]:
+    """Directional (non-neutral) classifications with market context, old
+    enough to grade, that have no grade row yet."""
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT c.id, c.direction, c.materiality, c.yes_price, c.yes_token_id, c.created_at
+           FROM classifications c
+           LEFT JOIN classification_grades g ON g.classification_id = c.id
+           WHERE g.id IS NULL
+             AND c.direction IN ('bullish', 'bearish')
+             AND c.condition_id IS NOT NULL
+             AND c.yes_token_id IS NOT NULL
+             AND c.yes_price IS NOT NULL
+             AND c.created_at <= datetime('now', ?)
+           ORDER BY c.yes_token_id, c.id
+           LIMIT ?""",
+        (f"-{min_age_hours} hours", limit),
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def log_classification_grade(
+    classification_id: int,
+    direction: str,
+    materiality: float | None,
+    entry_price: float,
+    price_after: float | None,
+    horizon_hours: float,
+    correct: bool | None,
+    resolved_at: str,
+) -> None:
+    conn = _conn()
+    conn.execute(
+        """INSERT OR IGNORE INTO classification_grades
+           (classification_id, direction, materiality, entry_price, price_after,
+            horizon_hours, correct, resolved_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        (classification_id, direction, materiality, entry_price, price_after,
+         horizon_hours, 1 if correct else (0 if correct is not None else None), resolved_at),
+    )
+    conn.commit()
+    conn.close()
+
+
+def get_classification_grades_with_meta() -> list[dict]:
+    """Graded classification rows joined with question/source, for track record."""
+    conn = _conn()
+    rows = conn.execute("""
+        SELECT g.correct, g.direction AS classification,
+               c.market_question, c.news_source
+        FROM classification_grades g
+        JOIN classifications c ON g.classification_id = c.id
+        WHERE g.correct IS NOT NULL
+    """).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
 def get_calibration_with_trades() -> list[dict]:
     """Resolved calibration records joined with their trade's question and news source."""
     conn = _conn()
@@ -313,13 +393,18 @@ def log_classification(
     edge: float | None,
     action: str,
     match_source: str | None = None,
+    condition_id: str | None = None,
+    yes_price: float | None = None,
+    yes_token_id: str | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
-           (market_question, headline, news_source, direction, materiality, edge, action, match_source)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-        (market_question, headline, news_source, direction, materiality, edge, action, match_source),
+           (market_question, headline, news_source, direction, materiality, edge, action,
+            match_source, condition_id, yes_price, yes_token_id)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        (market_question, headline, news_source, direction, materiality, edge, action,
+         match_source, condition_id, yes_price, yes_token_id),
     )
     classification_id = cur.lastrowid
     conn.commit()

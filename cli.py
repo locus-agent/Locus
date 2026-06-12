@@ -72,13 +72,24 @@ def cmd_backtest(args):
 
 def cmd_calibrate(args):
     """Show classification accuracy report."""
-    from locus.memory.calibrator import check_resolutions, get_report
+    from locus.memory.calibrator import check_resolutions, get_report, grade_classifications
+    from locus import memory
     from rich.panel import Panel
 
     console.print("[bold]Checking for resolved markets...[/bold]")
     resolved = check_resolutions()
     if resolved:
         console.print(f"  Updated {resolved} trade resolutions")
+
+    console.print("[bold]Grading non-traded classifications vs price moves...[/bold]")
+    graded = grade_classifications()
+    if graded:
+        console.print(f"  Graded {graded} classifications")
+    record = memory.get_track_record()
+    console.print(
+        f"  Combined track record: {record['total']} graded calls, "
+        f"{record['accuracy']:.1f}% accurate"
+    )
 
     report = get_report()
 
