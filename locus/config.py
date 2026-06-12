@@ -17,6 +17,14 @@ POLYMARKET_API_KEY = os.getenv("POLYMARKET_API_KEY", "")
 POLYMARKET_API_SECRET = os.getenv("POLYMARKET_API_SECRET", "")
 POLYMARKET_API_PASSPHRASE = os.getenv("POLYMARKET_API_PASSPHRASE", "")
 POLYMARKET_PRIVATE_KEY = os.getenv("POLYMARKET_PRIVATE_KEY", "")
+# Proxy-wallet (Polymarket UI account) trading only: the proxy ADDRESS and
+# its signature type (1 = email/Magic, 2 = browser wallet proxy). Leave
+# unset for a plain EOA wallet signing with POLYMARKET_PRIVATE_KEY.
+POLYMARKET_FUNDER_ADDRESS = os.getenv("POLYMARKET_FUNDER_ADDRESS", "")
+POLYMARKET_SIGNATURE_TYPE = int(os.getenv("POLYMARKET_SIGNATURE_TYPE", "1"))
+# Live orders: skip when the book's spread exceeds this (the apparent edge
+# is mostly spread on thin niche books).
+LIVE_MAX_SPREAD = float(os.getenv("LIVE_MAX_SPREAD", "0.05"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 
