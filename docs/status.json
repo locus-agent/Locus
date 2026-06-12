@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T11:42:56.202089+00:00",
+  "generated_at": "2026-06-12T11:47:58.272904+00:00",
   "dry_run": true,
   "markets_tracked": 2611,
   "track_record": {
@@ -8,19 +8,19 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 77,
-  "headlines_last_cycle": 5,
+  "headlines_scanned_today": 85,
+  "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 1279,
+  "classifications_24h": 1317,
   "selectivity_pct": 0.5,
   "gates_24h": {
     "stale": 6,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 492,
+    "news": 500,
     "matched": 183,
-    "classified": 1279,
+    "classified": 1317,
     "signals": 6,
     "trades": 6
   },
@@ -82,29 +82,159 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-12 11:42:55",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Artificial Intelligence Market Set for Explosive Growth as Automation, Generative AI, and Intelligent Decision-Making Transform Industries - vocal.media",
+      "time": "2026-06-12 11:44:00",
+      "market_question": "Will SpaceX raise between $110B and $120B in its IPO?",
+      "headline": "SpaceX Finalizes IPO Price at $135 a Share in World\u2019s Largest Public Offering",
       "direction": "bearish",
-      "materiality": 0.08,
+      "materiality": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 11:43:58",
+      "market_question": "Will SpaceX raise between $70B and $80B in its IPO?",
+      "headline": "SpaceX Finalizes IPO Price at $135 a Share in World\u2019s Largest Public Offering",
+      "direction": "bearish",
+      "materiality": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 11:43:57",
+      "market_question": "Will SpaceX raise at least $120B in its IPO?",
+      "headline": "SpaceX Finalizes IPO Price at $135 a Share in World\u2019s Largest Public Offering",
+      "direction": "bullish",
+      "materiality": 0.85,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 11:43:55",
+      "market_question": "Will SpaceX not IPO by December 31, 2027?",
+      "headline": "SpaceX Finalizes IPO Price at $135 a Share in World\u2019s Largest Public Offering",
+      "direction": "bearish",
+      "materiality": 0.95,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 11:42:53",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Artificial Intelligence Market Set for Explosive Growth as Automation, Generative AI, and Intelligent Decision-Making Transform Industries - vocal.media",
+      "time": "2026-06-12 11:43:54",
+      "market_question": "Will SpaceX not IPO by December 31, 2027?",
+      "headline": "SpaceX Finalizes IPO Price at $135 a Share in World\u2019s Largest Public Offering",
       "direction": "bearish",
+      "materiality": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:52",
+      "market_question": "Will SpaceX IPO by September 30, 2026?",
+      "headline": "SpaceX Finalizes IPO Price at $135 a Share in World\u2019s Largest Public Offering",
+      "direction": "bullish",
+      "materiality": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:50",
+      "market_question": "Will SpaceX IPO by December 31, 2026?",
+      "headline": "SpaceX Finalizes IPO Price at $135 a Share in World\u2019s Largest Public Offering",
+      "direction": "bullish",
+      "materiality": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:48",
+      "market_question": "SpaceX IPO: Open Price above IPO Price?",
+      "headline": "SpaceX Finalizes IPO Price at $135 a Share in World\u2019s Largest Public Offering",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:46",
+      "market_question": "Will Brent Hennrich advance to the general election for WA-03?",
+      "headline": "Amazon Founder Jeff Bezos' Bet to Build \"Artificial General Engineer\" - NDTV",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:45",
+      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
+      "headline": "Amazon Founder Jeff Bezos' Bet to Build \"Artificial General Engineer\" - NDTV",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:44",
+      "market_question": "Will Amazon have the top AI model at the end of June 2026?",
+      "headline": "Amazon Founder Jeff Bezos' Bet to Build \"Artificial General Engineer\" - NDTV",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:42",
+      "market_question": "Peru General Election invalidated by June 30?",
+      "headline": "Amazon Founder Jeff Bezos' Bet to Build \"Artificial General Engineer\" - NDTV",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:40",
+      "market_question": "Will Amazon have a #1 AI model by December 31, 2026?",
+      "headline": "Amazon Founder Jeff Bezos' Bet to Build \"Artificial General Engineer\" - NDTV",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:38",
+      "market_question": "Will SpaceX raise less than $40B in its IPO?",
+      "headline": "Google Sues to Stop Chinese Cybercrime Group from Using Its A.I.",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 11:43:37",
+      "market_question": "Will Google have the top AI model at the end of June 2026?",
+      "headline": "Google Sues to Stop Chinese Cybercrime Group from Using Its A.I.",
+      "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 11:42:51",
-      "market_question": "Will SpaceX's market cap be less than $500B at market close on IPO day?",
-      "headline": "Artificial Intelligence Market Set for Explosive Growth as Automation, Generative AI, and Intelligent Decision-Making Transform Industries - vocal.media",
+      "time": "2026-06-12 11:43:36",
+      "market_question": "Will Google have the #3 AI model at the end of July 2026?",
+      "headline": "Google Sues to Stop Chinese Cybercrime Group from Using Its A.I.",
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
@@ -112,174 +242,44 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 11:42:49",
-      "market_question": "Will Cindy Holscher win the 2026 Kansas Governor Democratic primary election?",
-      "headline": "\u2018Hard Fork\u2019 Live, Part 1: Satya Nadella and Cindy Cohn",
+      "time": "2026-06-12 11:43:35",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Google Sues to Stop Chinese Cybercrime Group from Using Its A.I.",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 11:42:48",
-      "market_question": "Will Trump try to acquire part of Alberta?",
-      "headline": "\u2018Hard Fork\u2019 Live, Part 1: Satya Nadella and Cindy Cohn",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 11:42:47",
-      "market_question": "Will Amazon have the third best AI model at the end of June 2026?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "bullish",
-      "materiality": 0.08,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 11:42:45",
-      "market_question": "Will Amazon have the second best AI model at the end of June 2026?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "bullish",
-      "materiality": 0.08,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 11:42:43",
-      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "bullish",
-      "materiality": 0.08,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 11:42:41",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 11:42:40",
-      "market_question": "Will Trump deport 800-900k people?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 11:42:39",
-      "market_question": "Will Trump deport 300-400k people?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 11:42:38",
-      "market_question": "Will Trump deport 700-800k people?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 11:42:36",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 11:40:54",
-      "market_question": "AI data center moratorium passed before 2027?",
-      "headline": "Canada's move to rein in AI chatbots, spurred by school shooting, faces doubts over loopholes - Reuters",
+      "time": "2026-06-12 11:43:33",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "Google Sues to Stop Chinese Cybercrime Group from Using Its A.I.",
       "direction": "bearish",
       "materiality": 0.08,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 11:30:42",
-      "market_question": "Will Amazon have the third best AI model at the end of June 2026?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "bullish",
-      "materiality": 0.08,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 11:30:40",
-      "market_question": "Will Amazon have the second best AI model at the end of June 2026?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "bullish",
-      "materiality": 0.08,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 11:30:38",
-      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "bullish",
-      "materiality": 0.08,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 11:30:36",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 11:30:35",
-      "market_question": "Will Trump deport 800-900k people?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
+      "time": "2026-06-12 11:43:30",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "Exclusive: U.S. bank regulators ramp up scrutiny of AI use at financial companies - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
+      "match_source": "embedding"
     },
     {
-      "time": "2026-06-12 11:30:33",
-      "market_question": "Will Trump deport 300-400k people?",
-      "headline": "Amazon Founder Calls AI Pessimism Wrong, Blames \"Smart\" People - NDTV",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-12 11:43:29",
+      "market_question": "Trump orders federal review of AI model releases by June 30?",
+      "headline": "Exclusive: U.S. bank regulators ramp up scrutiny of AI use at financial companies - Reuters",
+      "direction": "bullish",
+      "materiality": 0.15,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
+      "match_source": "embedding"
     }
   ],
   "lessons": []
