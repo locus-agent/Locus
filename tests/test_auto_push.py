@@ -62,3 +62,26 @@ def test_auto_push_noop_when_status_unchanged(tmp_path, monkeypatch):
 
     export_status._auto_push_status()
     assert _git(repo, "rev-parse", "HEAD") == head  # nothing committed
+
+
+def test_archives_rewrite_only_on_new_rows(tmp_db, tmp_path, monkeypatch):
+    from locus.core import export_status as es
+
+    monkeypatch.setattr(es, "JOURNAL_PATH", tmp_path / "journal.json")
+    monkeypatch.setattr(es, "DECISIONS_PATH", tmp_path / "exit_decisions.json")
+    monkeypatch.setattr(es, "_archive_state", {"journal": None, "decisions": None})
+
+    tmp_db.log_journal_entry("2026-06-13", "entry one", "{}")
+    es._export_archives()
+    first_mtime = (tmp_path / "journal.json").stat().st_mtime_ns
+
+    # no new rows: file must not be rewritten
+    es._export_archives()
+    assert (tmp_path / "journal.json").stat().st_mtime_ns == first_mtime
+
+    # new row: rewritten, newest first
+    tmp_db.log_journal_entry("2026-06-14", "entry two", "{}")
+    es._export_archives()
+    import json
+    data = json.loads((tmp_path / "journal.json").read_text())
+    assert [e["date"] for e in data["entries"]] == ["2026-06-14", "2026-06-13"]

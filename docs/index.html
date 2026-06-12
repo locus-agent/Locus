@@ -92,6 +92,18 @@
     margin-bottom: 8px;
   }
 
+  .panel-title a.view-all {
+    float: right;
+    color: var(--muted);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--muted);
+  }
+
+  .panel-title a.view-all:hover { color: var(--green); border-color: var(--green); }
+
   section.block { margin-bottom: 20px; }
 
   /* Pipeline strip */
@@ -547,7 +559,7 @@
 
   <section class="block">
     <div class="panel">
-      <div class="panel-title">Exit Decisions</div>
+      <div class="panel-title">Exit Decisions<a class="view-all" href="decisions.html">view all →</a></div>
       <div id="exit-decisions">
         <div class="empty">No re-evaluations yet — triggers: +50% / −30% / contradicting news.</div>
       </div>
@@ -578,7 +590,7 @@
 
   <section class="block">
     <div class="panel">
-      <div class="panel-title">Journal</div>
+      <div class="panel-title">Journal<a class="view-all" href="journal.html">view all entries →</a></div>
       <div id="journal-list">
         <div class="empty">No entries yet — Locus writes one per day at 21:00 UTC.</div>
       </div>

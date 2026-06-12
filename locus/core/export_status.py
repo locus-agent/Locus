@@ -22,8 +22,46 @@ log = logging.getLogger(__name__)
 
 REPO_DIR = config.PROJECT_ROOT
 STATUS_PATH = REPO_DIR / "docs" / "status.json"
+JOURNAL_PATH = REPO_DIR / "docs" / "journal.json"
+DECISIONS_PATH = REPO_DIR / "docs" / "exit_decisions.json"
+# All files the auto-pusher is allowed to commit.
+PUSH_PATHS = ["docs/status.json", "docs/journal.json", "docs/exit_decisions.json"]
 
 _last_push_at = float("-inf")
+# Max row ids already exported — archives rewrite only when new rows exist,
+# so the 30s cycle stays cheap. No generated_at inside the archives: content
+# is byte-identical unless rows changed, keeping auto-push commits honest.
+_archive_state: dict[str, int | None] = {"journal": None, "decisions": None}
+
+
+def _export_archives() -> None:
+    """Write full-history journal.json / exit_decisions.json when new rows exist."""
+    conn = logger._conn()
+    journal_max = conn.execute("SELECT COALESCE(MAX(id), 0) FROM journal").fetchone()[0]
+    decisions_max = conn.execute("SELECT COALESCE(MAX(id), 0) FROM exit_decisions").fetchone()[0]
+    conn.close()
+
+    if journal_max != _archive_state["journal"]:
+        entries = logger.get_journal_entries(limit=100000)
+        JOURNAL_PATH.write_text(json.dumps({"entries": entries}, indent=1))
+        _archive_state["journal"] = journal_max
+
+    if decisions_max != _archive_state["decisions"]:
+        decisions = [
+            {
+                "time": d["created_at"],
+                "market_question": d["market_question"],
+                "side": d["side"],
+                "trigger": d["trigger"],
+                "decision": d["decision"],
+                "pnl_pct": d["pnl_pct"],
+                "yes_price": d["yes_price"],
+                "reasoning": d["reasoning"],
+            }
+            for d in positions.get_recent_exit_decisions(limit=100000)
+        ]
+        DECISIONS_PATH.write_text(json.dumps({"decisions": decisions}, indent=1))
+        _archive_state["decisions"] = decisions_max
 
 
 def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0, current_prices: dict | None = None) -> dict:
@@ -131,6 +169,11 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
     STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     STATUS_PATH.write_text(json.dumps(status, indent=2))
 
+    try:
+        _export_archives()
+    except Exception as e:
+        log.warning(f"[export_status] Archive export failed: {e}")
+
     _auto_push_status()
     return status
 
@@ -148,19 +191,28 @@ def _auto_push_status():
         return
 
     try:
-        diff = subprocess.run(
-            ["git", "diff", "--quiet", "--", "docs/status.json"],
-            cwd=REPO_DIR, capture_output=True,
+        paths = [p for p in PUSH_PATHS if (REPO_DIR / p).exists()]
+        if not paths:
+            return
+        # status --porcelain (unlike diff) also sees brand-new untracked
+        # archive files, so the first journal.json gets committed too.
+        changed = subprocess.run(
+            ["git", "status", "--porcelain", "--", *paths],
+            cwd=REPO_DIR, capture_output=True, text=True,
         )
-        if diff.returncode == 0:
+        if not changed.stdout.strip():
             return  # no changes to commit
 
-        # Pathspec-limited commit: a bare `git commit` commits the whole
-        # index, sweeping in anything a human (or agent) had staged when
-        # the 30s cycle fired. With the pathspec, only status.json is
-        # committed and unrelated staged work stays staged.
+        # Add only the dashboard data files, then commit pathspec-limited:
+        # a bare `git commit` commits the whole index, sweeping in anything
+        # a human (or agent) had staged when the 30s cycle fired. Unrelated
+        # staged work stays staged.
         subprocess.run(
-            ["git", "commit", "-m", "update dashboard data", "--", "docs/status.json"],
+            ["git", "add", "--", *paths],
+            cwd=REPO_DIR, check=True, capture_output=True, timeout=30,
+        )
+        subprocess.run(
+            ["git", "commit", "-m", "update dashboard data", "--", *paths],
             cwd=REPO_DIR, check=True, capture_output=True, timeout=30,
         )
         subprocess.run(
