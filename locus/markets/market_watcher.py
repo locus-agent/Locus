@@ -42,6 +42,8 @@ class MarketWatcher:
         self.tracked_markets: list[Market] = []
         self.index = MarketIndex()  # semantic index; synced after each refresh
         self._token_to_cid: dict[str, str] = {}  # WS asset id -> condition id
+        self._subscribed_assets: set[str] = set()  # assets the live WS covers
+        self._active_ws = None
         self._index_syncing = False
         self._refresh_interval = 300  # refresh market list every 5 min
         self._ws_connected = False
@@ -107,6 +109,27 @@ class MarketWatcher:
                 if (token_id := t.get("token_id"))
             }
 
+            # If the tracked set changed, the open WS is subscribed to a stale
+            # asset list — newly tracked markets would get no live prices
+            # until an accidental reconnect. Close it; the connect loop
+            # re-subscribes with the current assets.
+            current_assets = set(self._token_to_cid)
+            if (
+                self._ws_connected
+                and self._active_ws is not None
+                and current_assets != self._subscribed_assets
+            ):
+                log.info(
+                    f"[watcher] Tracked set changed "
+                    f"(+{len(current_assets - self._subscribed_assets)}/"
+                    f"-{len(self._subscribed_assets - current_assets)} assets) — "
+                    f"reconnecting WebSocket"
+                )
+                try:
+                    await self._active_ws.close()
+                except Exception:
+                    pass
+
             self.stats["market_refreshes"] += 1
             log.info(
                 f"[watcher] Fetched {len(all_markets)} markets in volume band "
@@ -153,6 +176,7 @@ class MarketWatcher:
             try:
                 async with websockets.connect(config.POLYMARKET_WS_HOST, ssl=ssl_context) as ws:
                     self._ws_connected = True
+                    self._active_ws = ws
                     log.info("[watcher] WebSocket connected")
 
                     # Subscribe to the market channel: one message with all asset (token) ids
@@ -162,6 +186,7 @@ class MarketWatcher:
                         for token in market.tokens
                         if (tid := token.get("token_id"))
                     ]
+                    self._subscribed_assets = set(asset_ids)
                     if asset_ids:
                         await ws.send(json.dumps({"assets_ids": asset_ids, "type": "market"}))
 
@@ -189,6 +214,7 @@ class MarketWatcher:
 
             except Exception as e:
                 self._ws_connected = False
+                self._active_ws = None
                 log.warning(f"[watcher] WebSocket error: {e}, reconnecting in 5s")
                 await asyncio.sleep(5)
 

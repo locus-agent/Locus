@@ -51,3 +51,42 @@ def test_refresh_rebuilds_token_map():
     # the map used by _apply_price_update is derived from tracked markets
     w = _watcher_with(MKT)
     assert w._token_to_cid == {"tokYES": "cond1", "tokNO": "cond1"}
+
+
+def test_refresh_closes_stale_ws_subscription(monkeypatch):
+    """When the tracked asset set changes, the open WS must be closed so the
+    connect loop re-subscribes with current assets."""
+    import asyncio
+
+    class FakeWS:
+        def __init__(self):
+            self.closed = False
+
+        async def close(self):
+            self.closed = True
+
+    async def run():
+        w = MarketWatcher()
+        ws = FakeWS()
+        w._ws_connected = True
+        w._active_ws = ws
+        w._subscribed_assets = {"oldtok"}
+
+        async def fake_fetch():
+            return [MKT]
+
+        # drive just the post-fetch part of refresh by faking the fetch
+        monkeypatch.setattr(
+            "locus.markets.market_watcher.fetch_active_markets",
+            lambda **kw: [MKT],
+        )
+        monkeypatch.setattr(
+            "locus.markets.market_watcher.filter_by_categories", lambda ms: ms
+        )
+        w._schedule_index_sync = lambda: None
+        await w.refresh_markets()
+        return ws.closed, w._token_to_cid
+
+    closed, mapping = asyncio.run(run())
+    assert closed is True
+    assert set(mapping) == {"tokYES", "tokNO"}
