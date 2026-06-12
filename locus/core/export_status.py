@@ -121,12 +121,12 @@ def _auto_push_status():
         if diff.returncode == 0:
             return  # no changes to commit
 
+        # Pathspec-limited commit: a bare `git commit` commits the whole
+        # index, sweeping in anything a human (or agent) had staged when
+        # the 30s cycle fired. With the pathspec, only status.json is
+        # committed and unrelated staged work stays staged.
         subprocess.run(
-            ["git", "add", "docs/status.json"],
-            cwd=REPO_DIR, check=True, capture_output=True, timeout=30,
-        )
-        subprocess.run(
-            ["git", "commit", "-m", "update dashboard data"],
+            ["git", "commit", "-m", "update dashboard data", "--", "docs/status.json"],
             cwd=REPO_DIR, check=True, capture_output=True, timeout=30,
         )
         subprocess.run(
