@@ -290,6 +290,33 @@ def get_calibrated_trade_ids() -> set[int]:
     return {r["trade_id"] for r in rows}
 
 
+def find_recent_classification(
+    headline: str,
+    condition_id: str,
+    yes_price: float,
+    price_tolerance: float,
+    max_age_hours: float,
+) -> dict | None:
+    """A reusable prior result for the same (headline, market) pair: real
+    classification (not prefiltered/cached/error), recent, and made when the
+    market price was within price_tolerance of the current one."""
+    conn = _conn()
+    row = conn.execute(
+        """SELECT direction, materiality, yes_price, created_at
+           FROM classifications
+           WHERE headline = ? AND condition_id = ?
+             AND action NOT IN ('prefiltered', 'cached', 'error')
+             AND direction IS NOT NULL
+             AND yes_price IS NOT NULL
+             AND ABS(yes_price - ?) <= ?
+             AND created_at >= datetime('now', ?)
+           ORDER BY id DESC LIMIT 1""",
+        (headline, condition_id, yes_price, price_tolerance, f"-{max_age_hours} hours"),
+    ).fetchone()
+    conn.close()
+    return dict(row) if row else None
+
+
 def get_ungraded_directional_classifications(min_age_hours: float, limit: int = 500) -> list[dict]:
     """Directional (non-neutral) classifications with market context, old
     enough to grade, that have no grade row yet."""

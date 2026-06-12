@@ -169,6 +169,33 @@ class PipelineV2:
                         )
                         continue
 
+                    # Dedup memory: same headline against the same market at
+                    # ~the same price was already classified — reuse it
+                    # instead of buying the same answer from Claude again.
+                    prior = logger.find_recent_classification(
+                        event.headline,
+                        market.condition_id,
+                        market.yes_price,
+                        config.CLASSIFY_CACHE_PRICE_TOLERANCE,
+                        config.CLASSIFY_CACHE_HOURS,
+                    )
+                    if prior:
+                        self.stats["cache_hits"] = self.stats.get("cache_hits", 0) + 1
+                        logger.log_classification(
+                            market_question=market.question,
+                            headline=event.headline,
+                            news_source=event.source,
+                            direction=prior["direction"],
+                            materiality=prior["materiality"],
+                            edge=None,
+                            action="cached",
+                            match_source=match_source,
+                            condition_id=market.condition_id,
+                            yes_price=market.yes_price,
+                            yes_token_id=get_token_id(market, "YES"),
+                        )
+                        continue
+
                     classification = await classify_async(
                         event.headline, market, event.source
                     )
