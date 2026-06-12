@@ -102,6 +102,14 @@ PREFILTER_KEYWORD_SCORE = float(os.getenv("PREFILTER_KEYWORD_SCORE", "0.25"))
 CLASSIFY_CACHE_HOURS = float(os.getenv("CLASSIFY_CACHE_HOURS", "24"))
 CLASSIFY_CACHE_PRICE_TOLERANCE = float(os.getenv("CLASSIFY_CACHE_PRICE_TOLERANCE", "0.02"))
 
+# --- Position exits ---
+# Rules trigger a Claude re-evaluation; the hard stop never waits for one.
+TAKE_PROFIT_TRIGGER_PCT = float(os.getenv("TAKE_PROFIT_TRIGGER_PCT", "50"))
+REEVAL_LOSS_PCT = float(os.getenv("REEVAL_LOSS_PCT", "-30"))
+STOP_LOSS_PCT = float(os.getenv("STOP_LOSS_PCT", "-50"))
+REEVAL_COOLDOWN_HOURS = float(os.getenv("REEVAL_COOLDOWN_HOURS", "6"))
+NEWS_REEVAL_MATERIALITY = float(os.getenv("NEWS_REEVAL_MATERIALITY", "0.4"))
+
 # --- Classification grading (non-traded calls vs later price moves) ---
 CALIBRATION_HORIZON_HOURS = float(os.getenv("CALIBRATION_HORIZON_HOURS", "24"))
 CALIBRATION_MOVE_THRESHOLD = float(os.getenv("CALIBRATION_MOVE_THRESHOLD", "0.02"))

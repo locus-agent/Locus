@@ -121,6 +121,40 @@ def init_db():
             resolved_at TEXT
         );
 
+        CREATE TABLE IF NOT EXISTS positions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            trade_id INTEGER UNIQUE REFERENCES trades(id),
+            condition_id TEXT NOT NULL,
+            market_question TEXT NOT NULL,
+            slug TEXT,
+            side TEXT NOT NULL,
+            entry_yes_price REAL NOT NULL,
+            amount_usd REAL NOT NULL,
+            headline TEXT,
+            reasoning TEXT,
+            status TEXT NOT NULL DEFAULT 'open',
+            current_yes_price REAL,
+            unrealized_pnl_pct REAL,
+            realized_pnl_usd REAL DEFAULT 0,
+            exit_yes_price REAL,
+            exit_reason TEXT,
+            last_reeval_at TEXT,
+            last_trigger TEXT,
+            opened_at TEXT NOT NULL DEFAULT (datetime('now')),
+            closed_at TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS exit_decisions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            position_id INTEGER NOT NULL REFERENCES positions(id),
+            trigger TEXT NOT NULL,
+            decision TEXT NOT NULL,
+            reasoning TEXT,
+            pnl_pct REAL,
+            yes_price REAL,
+            created_at TEXT NOT NULL DEFAULT (datetime('now'))
+        );
+
         CREATE TABLE IF NOT EXISTS journal (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             date TEXT NOT NULL UNIQUE,

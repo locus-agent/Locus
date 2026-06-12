@@ -24,6 +24,7 @@ class Market:
     description: str = ""
     spread: float = 0.0
     liquidity: float = 0.0
+    slug: str = ""  # polymarket.com/event/<slug>
 
     @property
     def implied_probability(self) -> float:
@@ -185,6 +186,7 @@ def fetch_active_markets(
                 description=m.get("description", "") or "",
                 spread=float(m.get("spread", 0) or 0),
                 liquidity=float(m.get("liquidityNum", m.get("liquidity", 0)) or 0),
+                slug=(m.get("events") or [{}])[0].get("slug", "") or m.get("slug", ""),
             ))
         except (KeyError, ValueError, TypeError):
             continue
