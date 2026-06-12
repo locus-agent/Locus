@@ -9,6 +9,7 @@ from __future__ import annotations
 import asyncio
 import time
 import logging
+from datetime import datetime, timezone
 
 from rich.console import Console
 from rich.table import Table
@@ -36,14 +37,25 @@ log = logging.getLogger(__name__)
 # V2: Event-Driven Pipeline
 # ============================================================
 
-def gate_trade(event: NewsEvent, signal, traded_headlines: set[str]):
+def news_age_seconds(event: NewsEvent, now: datetime | None = None) -> float | None:
+    """Age of the news at this moment (publication -> now), or None when the
+    publication time is unknown (latency_ms == -1 sentinel). Computed at
+    decision time, not receipt time, so queue dwell counts against it."""
+    if event.latency_ms is not None and event.latency_ms < 0:
+        return None
+    now = now or datetime.now(timezone.utc)
+    return (now - event.published_at).total_seconds()
+
+
+def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: datetime | None = None):
     """Trade-time risk gates, applied after classification so every
     classification is still logged and calibrated.
 
     Returns (signal_or_none, action):
       "skip"   — no edge detected
       "stale"  — would-be signal, but the headline is older than
-                 MAX_NEWS_AGE_SECONDS (publication -> receipt); we classify
+                 MAX_NEWS_AGE_SECONDS as of *now* (including time spent in
+                 the queue), or its publication time is unknown; we classify
                  old news for calibration but never trade on it
       "capped" — this headline already produced a trade; one headline
                  matching N markets must not open N correlated positions
@@ -51,7 +63,8 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str]):
     """
     if signal is None:
         return None, "skip"
-    if (event.latency_ms or 0) > config.MAX_NEWS_AGE_SECONDS * 1000:
+    age = news_age_seconds(event, now)
+    if age is None or age > config.MAX_NEWS_AGE_SECONDS:
         return None, "stale"
     if event.headline in traded_headlines:
         return None, "capped"
@@ -155,10 +168,11 @@ class PipelineV2:
                     )
 
                     if action in ("stale", "capped"):
-                        age_min = (event.latency_ms or 0) / 60000
+                        age = news_age_seconds(event)
+                        age_min = age / 60 if age is not None else -1
                         console.print(
                             f"  [dim]{action.upper()}: suppressed would-be signal "
-                            f"({event.source}, news age {age_min:.0f}m) "
+                            f"({event.source}, news age {'unknown' if age is None else f'{age_min:.0f}m'}) "
                             f"on \"{market.question[:40]}\"[/dim]"
                         )
 

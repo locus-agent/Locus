@@ -17,6 +17,7 @@ class NewsItem:
     url: str
     published_at: datetime
     summary: str = ""
+    date_known: bool = True  # False when the feed/article had no parseable date
 
     def age_hours(self) -> float:
         delta = datetime.now(timezone.utc) - self.published_at
@@ -40,13 +41,14 @@ def scrape_rss(feed_url: str, lookback_hours: int) -> list[NewsItem]:
     source_name = feed.feed.get("title", feed_url)
 
     for entry in feed.entries:
-        published = None
+        date_known = True
         if hasattr(entry, "published_parsed") and entry.published_parsed:
             published = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
         elif hasattr(entry, "updated_parsed") and entry.updated_parsed:
             published = datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
         else:
             published = datetime.now(timezone.utc)
+            date_known = False
 
         if published < cutoff:
             continue
@@ -57,6 +59,7 @@ def scrape_rss(feed_url: str, lookback_hours: int) -> list[NewsItem]:
             url=entry.get("link", ""),
             published_at=published,
             summary=entry.get("summary", "")[:500],
+            date_known=date_known,
         ))
 
     return items
@@ -108,10 +111,12 @@ def scrape_newsapi(query: str, lookback_hours: int) -> list[NewsItem]:
 
     for article in data.get("articles", []):
         pub_str = article.get("publishedAt", "")
+        date_known = True
         try:
             published = datetime.fromisoformat(pub_str.replace("Z", "+00:00"))
         except (ValueError, AttributeError):
             published = datetime.now(timezone.utc)
+            date_known = False
 
         items.append(NewsItem(
             headline=article.get("title", "").strip(),
@@ -119,6 +124,7 @@ def scrape_newsapi(query: str, lookback_hours: int) -> list[NewsItem]:
             url=article.get("url", ""),
             published_at=published,
             summary=(article.get("description") or "")[:500],
+            date_known=date_known,
         ))
 
     return items
@@ -147,10 +153,12 @@ def scrape_newsapi_top_headlines(category: str | None = None, country: str = "us
 
     for article in data.get("articles", []):
         pub_str = article.get("publishedAt", "")
+        date_known = True
         try:
             published = datetime.fromisoformat(pub_str.replace("Z", "+00:00"))
         except (ValueError, AttributeError):
             published = datetime.now(timezone.utc)
+            date_known = False
 
         items.append(NewsItem(
             headline=article.get("title", "").strip(),
@@ -158,6 +166,7 @@ def scrape_newsapi_top_headlines(category: str | None = None, country: str = "us
             url=article.get("url", ""),
             published_at=published,
             summary=(article.get("description") or "")[:500],
+            date_known=date_known,
         ))
 
     return items

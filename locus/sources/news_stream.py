@@ -29,7 +29,7 @@ class NewsEvent:
     published_at: datetime
     summary: str = ""
     raw_data: dict = field(default_factory=dict)
-    latency_ms: int = 0  # time from publication to our receipt
+    latency_ms: int = 0  # publication -> receipt; -1 = publication time unknown
 
     def age_seconds(self) -> float:
         return (datetime.now(timezone.utc) - self.received_at).total_seconds()
@@ -128,7 +128,7 @@ class TwitterStream:
                                     latency = int((now - pub).total_seconds() * 1000)
                                 except (ValueError, AttributeError):
                                     pub = now
-                                    latency = 0
+                                    latency = -1  # unknown publication time
 
                                 event = NewsEvent(
                                     headline=text[:280],
@@ -188,7 +188,7 @@ class TelegramMonitor:
                     now = datetime.now(timezone.utc)
                     msg_date = msg.get("date", 0)
                     pub = datetime.fromtimestamp(msg_date, tz=timezone.utc) if msg_date else now
-                    latency = int((now - pub).total_seconds() * 1000)
+                    latency = int((now - pub).total_seconds() * 1000) if msg_date else -1
 
                     event = NewsEvent(
                         headline=text[:500],
@@ -230,7 +230,10 @@ class RSSFallback:
                     self._seen_headlines.add(key)
                     new_count += 1
 
-                    latency = int((now - item.published_at).total_seconds() * 1000)
+                    latency = (
+                        int((now - item.published_at).total_seconds() * 1000)
+                        if item.date_known else -1
+                    )
 
                     event = NewsEvent(
                         headline=item.headline,
@@ -306,7 +309,10 @@ class NewsAPISource:
                     self._seen_headlines.add(key)
                     new_count += 1
 
-                    latency = int((now - item.published_at).total_seconds() * 1000)
+                    latency = (
+                        int((now - item.published_at).total_seconds() * 1000)
+                        if item.date_known else -1
+                    )
 
                     event = NewsEvent(
                         headline=item.headline,
