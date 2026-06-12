@@ -100,8 +100,8 @@ def scrape_newsapi(query: str, lookback_hours: int) -> list[NewsItem]:
                 "sortBy": "publishedAt",
                 "language": "en",
                 "pageSize": 50,
-                "apiKey": config.NEWSAPI_KEY,
             },
+            headers={"X-Api-Key": config.NEWSAPI_KEY},
             timeout=15,
         )
         resp.raise_for_status()
@@ -139,13 +139,17 @@ def scrape_newsapi_top_headlines(category: str | None = None, country: str = "us
     params = {
         "country": country,
         "pageSize": 50,
-        "apiKey": config.NEWSAPI_KEY,
     }
     if category:
         params["category"] = category
 
     try:
-        resp = httpx.get("https://newsapi.org/v2/top-headlines", params=params, timeout=15)
+        resp = httpx.get(
+            "https://newsapi.org/v2/top-headlines",
+            params=params,
+            headers={"X-Api-Key": config.NEWSAPI_KEY},
+            timeout=15,
+        )
         resp.raise_for_status()
         data = resp.json()
     except Exception:

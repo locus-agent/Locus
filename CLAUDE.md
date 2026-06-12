@@ -33,8 +33,11 @@ python cli.py stats           # latency + calibration + exposure stats
 python cli.py scrape          # test the RSS/NewsAPI scraper only
 ```
 
-There are no automated tests. Most modules also have a `__main__` block that runs a
-small live smoke test against real APIs — run them as packages from the repo root,
+Run the test suite with `python -m pytest tests/` (no network or API keys needed —
+the DB is a tmp fixture and external calls are faked). It covers the trade risk
+gates, position sizing, matching, calibration math, dedup eviction, and task
+supervision. Most modules also have a `__main__` block that runs a small live
+smoke test against real APIs — run them as packages from the repo root,
 e.g. `python -m locus.core.classifier`, `python -m locus.core.matcher`,
 `python -m locus.markets.market_watcher`.
 

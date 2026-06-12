@@ -231,7 +231,9 @@ class TelegramMonitor:
                     await queue.put(event)
 
             except Exception as e:
-                log.warning(f"[telegram] Error: {e}")
+                # httpx errors embed the request URL, which contains the bot token
+                msg = str(e).replace(self.bot_token, "***") if self.bot_token else str(e)
+                log.warning(f"[telegram] Error: {msg}")
                 await asyncio.sleep(5)
 
 
