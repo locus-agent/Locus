@@ -282,6 +282,27 @@ def has_journal_for(date: str) -> bool:
     return row is not None
 
 
+def get_trades_for_performance() -> list[dict]:
+    """Real (dry-run or live) trades with the fields PnL math needs."""
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT id, market_id, side, amount_usd, market_price
+           FROM trades WHERE status IN ('dry_run', 'executed', 'filled')"""
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_calibration_exits() -> dict[int, float]:
+    """{trade_id: exit YES price} for resolved trades."""
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT trade_id, exit_price FROM calibration WHERE exit_price IS NOT NULL"
+    ).fetchall()
+    conn.close()
+    return {r["trade_id"]: r["exit_price"] for r in rows}
+
+
 def get_calibrated_trade_ids() -> set[int]:
     """Trade ids already graded — used to resolve each trade exactly once."""
     conn = _conn()

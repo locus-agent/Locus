@@ -299,6 +299,10 @@ class PipelineV2:
                     headlines_last_cycle=headlines_last_cycle,
                     markets_tracked=len(self.market_watcher.tracked_markets),
                     classify_error_streak=self.stats.get("classify_error_streak", 0),
+                    current_prices={
+                        cid: snap.last_price
+                        for cid, snap in self.market_watcher.snapshots.items()
+                    },
                 )
             except Exception as e:
                 log.warning(f"[pipeline] Status export error: {e}")

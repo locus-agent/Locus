@@ -15,6 +15,7 @@ from pathlib import Path
 from locus import config
 from locus.memory import logger
 from locus import memory
+from locus.core.performance import compute_performance
 
 log = logging.getLogger(__name__)
 
@@ -24,7 +25,7 @@ STATUS_PATH = REPO_DIR / "docs" / "status.json"
 _last_push_at = float("-inf")
 
 
-def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0) -> dict:
+def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0, current_prices: dict | None = None) -> dict:
     """Write a snapshot of current pipeline status to docs/status.json."""
     now = datetime.now(timezone.utc)
     today_start = now.strftime("%Y-%m-%d 00:00:00")
@@ -58,6 +59,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "signals": signals_24h,
             "trades": logger.get_trade_count_since(since_24h),
         },
+        "performance": compute_performance(current_prices),
         "open_positions": [
             {
                 "time": t["created_at"],

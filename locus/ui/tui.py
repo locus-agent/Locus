@@ -219,6 +219,26 @@ class LocusTUI(App):
         text.append(f"{acts.get('stale', 0):>6}\n", style="yellow")
         text.append("  capped    ", style="dim")
         text.append(f"{acts.get('capped', 0):>6}\n", style="cyan")
+
+        perf = status.get("performance") or {}
+        mode = "dry run" if status.get("dry_run", config.DRY_RUN) else "LIVE"
+        text.append(f"\nperformance ({mode})\n", style=f"bold {PURPLE}")
+        text.append("  trades    ", style="dim")
+        text.append(f"{perf.get('trades_total', 0):>3} ")
+        text.append(f"${perf.get('deployed_usd', 0) or 0:,.0f}\n", style="dim")
+        wins, losses = perf.get("wins", 0), perf.get("losses", 0)
+        win_rate = perf.get("win_rate_pct")
+        text.append("  w/l       ", style="dim")
+        text.append(f"{wins}W/{losses}L")
+        text.append(f" {win_rate:.0f}%\n" if win_rate is not None else "  —\n", style="dim")
+        for label, key in (("realized", "realized_pnl_usd"), ("unrealized", "unrealized_pnl_usd")):
+            value = perf.get(key) or 0.0
+            text.append(f"  {label:<10}", style="dim")
+            text.append(
+                f"{'+' if value >= 0 else '−'}${abs(value):,.2f}\n",
+                style=GREEN if value >= 0 else RED,
+            )
+        text.append("  sim fills, no fees/slippage\n", style="dim italic")
         self.query_one("#stats", Static).update(text)
 
     def _refresh_feed(self) -> None:

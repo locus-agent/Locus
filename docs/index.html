@@ -145,6 +145,42 @@
     margin-top: 4px;
   }
 
+  /* Performance */
+  .perf-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .perf-cell .perf-label {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .perf-cell .perf-value {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .perf-cell .perf-sub {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  .pnl-pos { color: var(--green); }
+  .pnl-neg { color: var(--red); }
+
+  .perf-note {
+    color: var(--muted);
+    font-size: 11px;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
   /* Gates + track record row */
   .two-col {
     display: grid;
@@ -417,6 +453,35 @@
 
   <section class="block">
     <div class="panel">
+      <div class="panel-title" id="perf-title">Performance (dry run)</div>
+      <div class="perf-grid">
+        <div class="perf-cell">
+          <div class="perf-label">Trades</div>
+          <div class="perf-value" id="perf-trades">—</div>
+          <div class="perf-sub" id="perf-deployed">$0 deployed</div>
+        </div>
+        <div class="perf-cell">
+          <div class="perf-label">Wins / Losses</div>
+          <div class="perf-value" id="perf-wl">—</div>
+          <div class="perf-sub" id="perf-winrate">win rate —</div>
+        </div>
+        <div class="perf-cell">
+          <div class="perf-label">Realized PnL</div>
+          <div class="perf-value" id="perf-realized">—</div>
+          <div class="perf-sub" id="perf-closed">0 closed</div>
+        </div>
+        <div class="perf-cell">
+          <div class="perf-label">Unrealized PnL</div>
+          <div class="perf-value" id="perf-unrealized">—</div>
+          <div class="perf-sub" id="perf-open">0 open</div>
+        </div>
+      </div>
+      <div class="perf-note">simulated fills at last price, no fees/slippage</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
       <div class="panel-title" id="positions-title">Open Positions (dry run)</div>
       <div class="table-scroll">
         <table>
@@ -615,6 +680,39 @@
     return '<span class="match-badge">' + escapeHtml(source) + '</span>';
   }
 
+  function fmtPnl(v) {
+    if (v === null || v === undefined) return ['—', ''];
+    const sign = v >= 0 ? '+' : '−';
+    return [sign + '$' + Math.abs(v).toFixed(2), v >= 0 ? 'pnl-pos' : 'pnl-neg'];
+  }
+
+  function renderPerformance(status) {
+    document.getElementById('perf-title').textContent =
+      'Performance ' + (status.dry_run ? '(dry run)' : '(live)');
+
+    const p = status.performance || {};
+    document.getElementById('perf-trades').textContent = p.trades_total ?? '—';
+    document.getElementById('perf-deployed').textContent =
+      '$' + (p.deployed_usd ?? 0).toFixed(2) + ' deployed';
+
+    document.getElementById('perf-wl').textContent =
+      (p.wins ?? 0) + 'W / ' + (p.losses ?? 0) + 'L';
+    document.getElementById('perf-winrate').textContent =
+      p.win_rate_pct == null ? 'win rate —' : 'win rate ' + p.win_rate_pct.toFixed(1) + '%';
+
+    const [rTxt, rCls] = fmtPnl(p.realized_pnl_usd);
+    const rEl = document.getElementById('perf-realized');
+    rEl.textContent = rTxt;
+    rEl.className = 'perf-value ' + rCls;
+    document.getElementById('perf-closed').textContent = (p.closed_count ?? 0) + ' closed';
+
+    const [uTxt, uCls] = fmtPnl(p.unrealized_pnl_usd);
+    const uEl = document.getElementById('perf-unrealized');
+    uEl.textContent = uTxt;
+    uEl.className = 'perf-value ' + uCls;
+    document.getElementById('perf-open').textContent = (p.open_count ?? 0) + ' open';
+  }
+
   function renderPositions(status) {
     document.getElementById('positions-title').textContent =
       'Open Positions ' + (status.dry_run ? '(dry run)' : '(live)');
@@ -731,6 +829,7 @@
       renderHeader(status);
       renderPipeline(status);
       renderStats(status);
+      renderPerformance(status);
       renderPositions(status);
       renderGates(status);
       renderCategoryBars(status);
