@@ -41,6 +41,7 @@ class MarketWatcher:
         self.snapshots: dict[str, MarketSnapshot] = {}
         self.tracked_markets: list[Market] = []
         self.index = MarketIndex()  # semantic index; synced after each refresh
+        self._token_to_cid: dict[str, str] = {}  # WS asset id -> condition id
         self._index_syncing = False
         self._refresh_interval = 300  # refresh market list every 5 min
         self._ws_connected = False
@@ -97,6 +98,14 @@ class MarketWatcher:
             # Remove stale snapshots
             for stale_id in existing_ids - new_ids:
                 del self.snapshots[stale_id]
+
+            # O(1) lookup for WS price ticks (was an O(markets) scan per tick)
+            self._token_to_cid = {
+                token_id: m.condition_id
+                for m in self.tracked_markets
+                for t in m.tokens
+                if (token_id := t.get("token_id"))
+            }
 
             self.stats["market_refreshes"] += 1
             log.info(
@@ -212,19 +221,17 @@ class MarketWatcher:
         else:
             return
 
-        # Find matching snapshot by token id
-        for snap in self.snapshots.values():
-            token_ids = [t.get("token_id", "") for t in snap.market.tokens]
-            if asset_id in token_ids:
-                now = datetime.now(timezone.utc)
-                elapsed = (now - snap.last_update).total_seconds()
-                snap.prev_price = snap.last_price
-                snap.last_price = price
-                snap.last_update = now
-                if elapsed > 0:
-                    snap.momentum = (snap.last_price - snap.prev_price) / (elapsed / 60)
-                self.stats["price_updates"] += 1
-                break
+        snap = self.snapshots.get(self._token_to_cid.get(asset_id, ""))
+        if snap is None:
+            return
+        now = datetime.now(timezone.utc)
+        elapsed = (now - snap.last_update).total_seconds()
+        snap.prev_price = snap.last_price
+        snap.last_price = price
+        snap.last_update = now
+        if elapsed > 0:
+            snap.momentum = (snap.last_price - snap.prev_price) / (elapsed / 60)
+        self.stats["price_updates"] += 1
 
     async def _polling_fallback(self):
         """Poll Gamma API for price updates when WebSocket unavailable."""
