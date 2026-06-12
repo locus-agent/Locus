@@ -224,6 +224,14 @@ def log_calibration(
     conn.close()
 
 
+def get_calibrated_trade_ids() -> set[int]:
+    """Trade ids already graded — used to resolve each trade exactly once."""
+    conn = _conn()
+    rows = conn.execute("SELECT trade_id FROM calibration").fetchall()
+    conn.close()
+    return {r["trade_id"] for r in rows}
+
+
 def get_calibration_with_trades() -> list[dict]:
     """Resolved calibration records joined with their trade's question and news source."""
     conn = _conn()

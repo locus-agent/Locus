@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
+from datetime import datetime, timezone
 
 import httpx
 
@@ -27,15 +28,29 @@ class CalibrationReport:
     recommendation: str
 
 
+def grade_direction(entry_price: float, exit_price: float) -> str:
+    """The market's actual direction between trade entry and resolution."""
+    if exit_price > entry_price:
+        return "bullish"
+    if exit_price < entry_price:
+        return "bearish"
+    return "neutral"
+
+
 def check_resolutions():
     """
     Check if any open trades have resolved. Update calibration table.
-    Queries Gamma API for market resolution status.
+    Queries Gamma API for market resolution status. Trades already graded
+    (present in the calibration table) are skipped, so each trade is
+    resolved — and its lesson generated — exactly once.
     """
     trades = logger.get_recent_trades(limit=100)
+    already_calibrated = logger.get_calibrated_trade_ids()
     unresolved = [
         t for t in trades
-        if t.get("classification") and t.get("status") in ("dry_run", "executed")
+        if t.get("classification")
+        and t.get("status") in ("dry_run", "executed")
+        and t["id"] not in already_calibrated
     ]
 
     if not unresolved:
@@ -46,9 +61,12 @@ def check_resolutions():
         market_id = trade["market_id"]
 
         try:
+            # NB: the param is condition_ids (plural) — Gamma silently ignores
+            # unknown params and returns the default market list, so the
+            # singular form made this loop compare trades to random markets.
             resp = httpx.get(
                 f"{GAMMA_API}/markets",
-                params={"condition_id": market_id},
+                params={"condition_ids": market_id},
                 timeout=10,
             )
             data = resp.json()
@@ -77,13 +95,7 @@ def check_resolutions():
 
             exit_price = float(prices[0])
             entry_price = trade["market_price"]
-
-            if exit_price > entry_price:
-                actual_direction = "bullish"
-            elif exit_price < entry_price:
-                actual_direction = "bearish"
-            else:
-                actual_direction = "neutral"
+            actual_direction = grade_direction(entry_price, exit_price)
 
             classification = trade.get("classification", "neutral")
             correct = classification == actual_direction
@@ -96,6 +108,7 @@ def check_resolutions():
                 exit_price=exit_price,
                 actual_direction=actual_direction,
                 correct=correct,
+                resolved_at=datetime.now(timezone.utc).isoformat(),
             )
 
             if not correct:
