@@ -37,6 +37,7 @@ class MarketIndex:
     def __init__(self, path: str = CHROMA_PATH):
         self._path = path
         self._model = None
+        self._client = None
         self._collection = None
         # True once the collection is queryable (persisted from a previous run,
         # or after the first sync). Until then, matching falls back to keywords.
@@ -46,8 +47,8 @@ class MarketIndex:
         if self._collection is None:
             import chromadb
 
-            client = chromadb.PersistentClient(path=self._path)
-            self._collection = client.get_or_create_collection(
+            self._client = chromadb.PersistentClient(path=self._path)
+            self._collection = self._client.get_or_create_collection(
                 COLLECTION, metadata={"hnsw:space": "cosine"}
             )
             if self._collection.count() > 0:
@@ -74,8 +75,35 @@ class MarketIndex:
     def sync(self, markets: list[Market]) -> None:
         """Upsert changed/new markets, drop untracked ones. Blocking — run in
         an executor. Embeds only docs whose content hash changed, so the first
-        call builds the full index and later calls touch a handful of rows."""
+        call builds the full index and later calls touch a handful of rows.
+
+        A corrupted store (e.g. hnsw segment damage after a process was
+        killed mid-write) is healed automatically: drop the collection,
+        re-embed everything, retry once."""
         self._ensure_loaded()
+        try:
+            self._sync_once(markets)
+        except Exception as e:
+            log.error(
+                f"[index] SYNC FAILED ({type(e).__name__}: {e}) — "
+                f"rebuilding the collection from scratch"
+            )
+            self._rebuild_collection()
+            self._sync_once(markets)
+            log.error("[index] Rebuild succeeded — index is healthy again")
+
+    def _rebuild_collection(self) -> None:
+        """Drop and recreate the collection (heals segment corruption)."""
+        self.ready = False
+        try:
+            self._client.delete_collection(COLLECTION)
+        except Exception as e:
+            log.warning(f"[index] delete_collection failed ({e}); recreating anyway")
+        self._collection = self._client.get_or_create_collection(
+            COLLECTION, metadata={"hnsw:space": "cosine"}
+        )
+
+    def _sync_once(self, markets: list[Market]) -> None:
         t0 = time.monotonic()
 
         docs = {m.condition_id: _doc_text(m) for m in markets if m.condition_id}
