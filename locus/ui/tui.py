@@ -307,11 +307,17 @@ class LocusTUI(App):
             side = (p["side"] or "?").upper()
             side_style = GREEN if side == "YES" else RED
             pnl = p["unrealized_pnl_pct"]
+            # Stored prices are YES-terms; show NO positions in NO-terms so
+            # the displayed move matches the PnL sign.
+            entry = p["entry_yes_price"]
             current = p["current_yes_price"]
+            if side == "NO":
+                entry = 1.0 - entry
+                current = None if current is None else 1.0 - current
             text.append(f"\n{_fmt_time(p['opened_at'])}  ", style="dim")
             text.append(f"{side:<3}", style=f"bold {side_style}")
             text.append(f" ${p['amount_usd']:>6.2f}", style="bold")
-            text.append(f" {p['entry_yes_price']:.2f}")
+            text.append(f" {entry:.2f}")
             text.append(f"→{current:.2f}" if current is not None else "→ —", style="dim")
             if pnl is not None:
                 text.append(

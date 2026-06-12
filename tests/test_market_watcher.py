@@ -12,8 +12,9 @@ def _watcher_with(market):
         market=market, last_price=market.yes_price, prev_price=market.yes_price,
         last_update=datetime.now(timezone.utc) - timedelta(seconds=60),
     )
-    w._token_to_cid = {
-        t["token_id"]: market.condition_id for t in market.tokens
+    w._token_index = {
+        t["token_id"]: (market.condition_id, t["outcome"].lower())
+        for t in market.tokens
     }
     return w
 
@@ -43,14 +44,37 @@ def test_unknown_asset_is_ignored():
 
 def test_price_fallback_field():
     w = _watcher_with(MKT)
-    w._apply_price_update("tokNO", {"price": "0.45"})
+    w._apply_price_update("tokYES", {"price": "0.45"})
     assert w.snapshots["cond1"].last_price == 0.45
+
+
+def test_no_asset_tick_converted_to_yes_terms():
+    # Snapshots hold YES prices; a NO-token tick must be stored as 1 - p,
+    # not clobber the mark with the NO price.
+    w = _watcher_with(MKT)
+    w._apply_price_update("tokNO", {"price": "0.45"})
+    assert w.snapshots["cond1"].last_price == 0.55
+    w._apply_price_update("tokNO", {"best_bid": "0.38", "best_ask": "0.42"})
+    assert w.snapshots["cond1"].last_price == 0.60
+
+
+def test_non_binary_outcome_tick_ignored():
+    mkt = Market(
+        "cond1", "Will X happen?", "ai", 0.50, 0.50, 5000, "", True,
+        tokens=[{"token_id": "tokYES", "outcome": "Yes"},
+                {"token_id": "tokNO", "outcome": "No"},
+                {"token_id": "tokOTHER", "outcome": "Outcome_2"}],
+    )
+    w = _watcher_with(mkt)
+    w._apply_price_update("tokOTHER", {"price": "0.10"})
+    assert w.snapshots["cond1"].last_price == 0.50
+    assert w.stats["price_updates"] == 0
 
 
 def test_refresh_rebuilds_token_map():
     # the map used by _apply_price_update is derived from tracked markets
     w = _watcher_with(MKT)
-    assert w._token_to_cid == {"tokYES": "cond1", "tokNO": "cond1"}
+    assert w._token_index == {"tokYES": ("cond1", "yes"), "tokNO": ("cond1", "no")}
 
 
 def test_refresh_closes_stale_ws_subscription(monkeypatch):
@@ -85,7 +109,7 @@ def test_refresh_closes_stale_ws_subscription(monkeypatch):
         )
         w._schedule_index_sync = lambda: None
         await w.refresh_markets()
-        return ws.closed, w._token_to_cid
+        return ws.closed, w._token_index
 
     closed, mapping = asyncio.run(run())
     assert closed is True

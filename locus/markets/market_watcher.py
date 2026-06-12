@@ -41,7 +41,9 @@ class MarketWatcher:
         self.snapshots: dict[str, MarketSnapshot] = {}
         self.tracked_markets: list[Market] = []
         self.index = MarketIndex()  # semantic index; synced after each refresh
-        self._token_to_cid: dict[str, str] = {}  # WS asset id -> condition id
+        # WS asset id -> (condition id, outcome). Both YES and NO assets are
+        # subscribed; snapshots store YES-terms prices, so NO ticks need 1-p.
+        self._token_index: dict[str, tuple[str, str]] = {}
         self._subscribed_assets: set[str] = set()  # assets the live WS covers
         self._active_ws = None
         self._index_syncing = False
@@ -102,8 +104,8 @@ class MarketWatcher:
                 del self.snapshots[stale_id]
 
             # O(1) lookup for WS price ticks (was an O(markets) scan per tick)
-            self._token_to_cid = {
-                token_id: m.condition_id
+            self._token_index = {
+                token_id: (m.condition_id, (t.get("outcome") or "").lower())
                 for m in self.tracked_markets
                 for t in m.tokens
                 if (token_id := t.get("token_id"))
@@ -113,7 +115,7 @@ class MarketWatcher:
             # asset list — newly tracked markets would get no live prices
             # until an accidental reconnect. Close it; the connect loop
             # re-subscribes with the current assets.
-            current_assets = set(self._token_to_cid)
+            current_assets = set(self._token_index)
             if (
                 self._ws_connected
                 and self._active_ws is not None
@@ -247,8 +249,16 @@ class MarketWatcher:
         else:
             return
 
-        snap = self.snapshots.get(self._token_to_cid.get(asset_id, ""))
+        cid, outcome = self._token_index.get(asset_id, ("", ""))
+        snap = self.snapshots.get(cid)
         if snap is None:
+            return
+        # Snapshots hold YES-terms prices. A NO-asset tick carries the NO
+        # token's price: convert, don't clobber. Other outcomes (multi-outcome
+        # markets) have no YES-terms equivalent — ignore those ticks.
+        if outcome == "no":
+            price = 1.0 - price
+        elif outcome != "yes":
             return
         now = datetime.now(timezone.utc)
         elapsed = (now - snap.last_update).total_seconds()

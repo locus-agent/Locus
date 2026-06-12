@@ -66,6 +66,22 @@ def test_no_side_pnl_sign():
     assert positions.pnl_pct("NO", 0.55, 0.50) > 0, "NO position gaining value must be positive PnL"
 
 
+def test_no_entry_price_stored_in_yes_terms(tmp_db):
+    # entry_yes_price is ALWAYS the YES price, regardless of side: a NO
+    # position on a market at YES=0.55 (NO costs 0.45) stores 0.55.
+    mkt = Market("cond1", "Will X happen?", "ai", 0.55, 0.45, 5000, "", True, [])
+    trade_id = tmp_db.log_trade(
+        market_id="cond1", market_question="Will X happen?", claude_score=0.7,
+        market_price=0.55, edge=0.2, side="NO", amount_usd=25.0,
+        status="dry_run", classification="bearish", materiality=0.7,
+    )
+    positions.open_position(trade_id, mkt, "NO", 25.0)
+    pos = positions.get_open_positions()[0]
+    assert pos["entry_yes_price"] == pytest.approx(0.55)
+    # NO gains when YES falls: 0.55 -> 0.50 means NO 0.45 -> 0.50, +11.1%
+    assert positions.pnl_pct("NO", pos["entry_yes_price"], 0.50) == pytest.approx(11.111, abs=0.01)
+
+
 def test_check_trigger_thresholds():
     pos = {"id": 1}
     assert positions.check_trigger(pos, 55.0) == "take_profit"
