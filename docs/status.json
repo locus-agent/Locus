@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-06-12T14:15:01.094076+00:00",
+  "generated_at": "2026-06-12T14:20:06.087443+00:00",
   "dry_run": true,
-  "markets_tracked": 2605,
+  "markets_tracked": 2601,
   "track_record": {
     "total": 0,
     "accuracy": 0.0,
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 99,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 101,
+  "headlines_last_cycle": 2,
   "signals_24h": 6,
-  "classifications_24h": 1363,
+  "classifications_24h": 1365,
   "selectivity_pct": 0.4,
   "gates_24h": {
     "stale": 6,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 481,
-    "matched": 187,
-    "classified": 1363,
+    "news": 483,
+    "matched": 188,
+    "classified": 1365,
     "signals": 6,
     "trades": 6
   },
@@ -81,6 +81,26 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-12 14:20:04",
+      "market_question": "Will SpaceX list on the NYSE?",
+      "headline": "SpaceX Satellites Are Creating an Accidental Geoengineering Experiment - WSJ",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 14:20:02",
+      "market_question": "Will SpaceX list on the NASDAQ?",
+      "headline": "SpaceX Satellites Are Creating an Accidental Geoengineering Experiment - WSJ",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-12 14:04:27",
       "market_question": "Will Eric Vaughan advance to the general election for WA-03?",
@@ -257,26 +277,6 @@
       "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
       "direction": "neutral",
       "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 13:50:23",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 13:50:22",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
-      "direction": "neutral",
-      "materiality": 0.02,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
