@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-06-12T16:27:14.950904+00:00",
+  "generated_at": "2026-06-12T16:32:17.517848+00:00",
   "dry_run": true,
-  "markets_tracked": 2607,
+  "markets_tracked": 2618,
   "track_record": {
     "total": 0,
     "accuracy": 0.0,
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 282,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 284,
+  "headlines_last_cycle": 1,
   "signals_24h": 6,
-  "classifications_24h": 2163,
+  "classifications_24h": 2167,
   "selectivity_pct": 0.3,
   "gates_24h": {
     "stale": 7,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 664,
-    "matched": 303,
-    "classified": 2163,
+    "news": 666,
+    "matched": 304,
+    "classified": 2167,
     "signals": 6,
     "trades": 6
   },
@@ -81,6 +81,46 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-12 16:32:16",
+      "market_question": "Will SpaceX IPO by August 31, 2026?",
+      "headline": "SpaceX Stock Rises 11% in Largest IPO Ever",
+      "direction": "bullish",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 16:32:15",
+      "market_question": "Will SpaceX not IPO by December 31, 2027?",
+      "headline": "SpaceX Stock Rises 11% in Largest IPO Ever",
+      "direction": "bearish",
+      "materiality": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 16:32:13",
+      "market_question": "Will SpaceX IPO by December 31, 2026?",
+      "headline": "SpaceX Stock Rises 11% in Largest IPO Ever",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 16:32:11",
+      "market_question": "Will SpaceX IPO by September 30, 2026?",
+      "headline": "SpaceX Stock Rises 11% in Largest IPO Ever",
+      "direction": "bullish",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-12 16:26:08",
       "market_question": "Will Trump meet with Elon Musk in June 2026?",
@@ -240,46 +280,6 @@
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 16:25:03",
-      "market_question": "Will Trump try to acquire part of Alberta?",
-      "headline": "\u2018Hard Fork\u2019 Live, Part 1: Satya Nadella and Cindy Cohn",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 16:25:02",
-      "market_question": "AI data center moratorium passed before 2027?",
-      "headline": "2027: Stakeholders urge Nigerians to verify information amid AI threat - The Guardian Nigeria News",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 16:25:01",
-      "market_question": "Trump orders federal review of AI model releases by June 30?",
-      "headline": "2027: Stakeholders urge Nigerians to verify information amid AI threat - The Guardian Nigeria News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 16:24:59",
-      "market_question": "Will Peter Obi win the 2027 Nigerian Presidential Election?",
-      "headline": "2027: Stakeholders urge Nigerians to verify information amid AI threat - The Guardian Nigeria News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
     }
   ],
   "journal": [
