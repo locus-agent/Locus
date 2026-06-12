@@ -27,11 +27,11 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
-import config
-from classifier import classify
-from edge import detect_edge_v2
-from markets import Market, _infer_category
-from news_stream import NewsEvent
+from locus import config
+from locus.core.classifier import classify
+from locus.core.edge import detect_edge_v2
+from locus.markets.gamma import Market, _infer_category
+from locus.sources.news_stream import NewsEvent
 
 console = Console()
 

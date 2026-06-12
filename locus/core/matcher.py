@@ -8,11 +8,11 @@ from __future__ import annotations
 import logging
 from typing import TYPE_CHECKING
 
-import config
-from markets import Market
+from locus import config
+from locus.markets.gamma import Market
 
 if TYPE_CHECKING:
-    from market_index import MarketIndex
+    from locus.core.market_index import MarketIndex
 
 log = logging.getLogger(__name__)
 
@@ -145,8 +145,8 @@ def match_news_to_markets_broad(
 
 
 if __name__ == "__main__":
-    from markets import fetch_active_markets, filter_by_categories
-    import config
+    from locus.markets.gamma import fetch_active_markets, filter_by_categories
+    from locus import config
 
     print("Fetching markets...")
     all_m = fetch_active_markets(limit=100)

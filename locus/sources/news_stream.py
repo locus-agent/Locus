@@ -13,8 +13,8 @@ from dataclasses import dataclass, field
 
 import httpx
 
-import config
-from scraper import scrape_all, scrape_newsapi, scrape_newsapi_top_headlines, NewsItem
+from locus import config
+from locus.sources.scraper import scrape_all, scrape_newsapi, scrape_newsapi_top_headlines, NewsItem
 
 log = logging.getLogger(__name__)
 

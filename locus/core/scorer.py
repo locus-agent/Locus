@@ -4,9 +4,9 @@ import json
 
 import anthropic
 
-import config
-from scraper import NewsItem
-from markets import Market
+from locus import config
+from locus.sources.scraper import NewsItem
+from locus.markets.gamma import Market
 
 
 client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
@@ -120,7 +120,7 @@ def _extract_keywords(question: str) -> list[str]:
 
 
 if __name__ == "__main__":
-    from scraper import scrape_all
+    from locus.sources.scraper import scrape_all
 
     test_market = Market(
         condition_id="test",

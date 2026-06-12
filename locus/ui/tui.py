@@ -17,11 +17,11 @@ from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical
 from textual.widgets import DataTable, Static
 
-import config
-import logger
-import memory
+from locus import config
+from locus.memory import logger
+from locus import memory
 
-STATUS_PATH = Path(__file__).parent / "docs" / "status.json"
+STATUS_PATH = config.PROJECT_ROOT / "docs" / "status.json"
 
 PURPLE = "#534AB7"
 GREEN = "#0f6e56"

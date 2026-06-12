@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import asyncio
 
-import config
-import logger
-from edge import Signal
-from markets import get_token_id
+from locus import config
+from locus.memory import logger
+from locus.core.edge import Signal
+from locus.markets.gamma import get_token_id
 
 
 def execute_trade(signal: Signal) -> dict:

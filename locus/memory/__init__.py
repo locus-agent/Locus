@@ -8,9 +8,9 @@ import logging
 
 import anthropic
 
-import config
-import logger
-from markets import _infer_category
+from locus import config
+from locus.memory import logger
+from locus.markets.gamma import _infer_category
 
 log = logging.getLogger(__name__)
 

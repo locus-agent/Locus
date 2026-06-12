@@ -9,9 +9,9 @@ from dataclasses import dataclass
 
 import httpx
 
-import config
-import logger
-import memory
+from locus import config
+from locus.memory import logger
+from locus import memory
 
 log = logging.getLogger(__name__)
 

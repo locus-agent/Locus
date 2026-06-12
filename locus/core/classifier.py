@@ -13,10 +13,10 @@ from datetime import datetime, timezone
 
 import anthropic
 
-import config
-import logger
-import memory
-from markets import Market
+from locus import config
+from locus.memory import logger
+from locus import memory
+from locus.markets.gamma import Market
 
 log = logging.getLogger(__name__)
 

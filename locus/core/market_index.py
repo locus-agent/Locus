@@ -13,12 +13,12 @@ import hashlib
 import logging
 import time
 
-import config
-from markets import Market
+from locus import config
+from locus.markets.gamma import Market
 
 log = logging.getLogger(__name__)
 
-CHROMA_PATH = "./chroma_db"
+CHROMA_PATH = str(config.PROJECT_ROOT / "chroma_db")
 COLLECTION = "markets"
 MODEL_NAME = "all-MiniLM-L6-v2"
 EMBED_BATCH = 128
@@ -148,7 +148,7 @@ class MarketIndex:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(message)s")
-    from markets import fetch_active_markets, filter_by_categories
+    from locus.markets.gamma import fetch_active_markets, filter_by_categories
 
     print("Fetching niche markets...")
     all_m = fetch_active_markets(

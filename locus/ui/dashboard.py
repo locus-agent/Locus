@@ -17,13 +17,13 @@ from rich.table import Table
 from rich.text import Text
 from rich import box
 
-import config
-import logger
-from scraper import scrape_all
-from markets import fetch_active_markets, filter_by_categories, Market
-from scorer import score_market, filter_news_for_market
-from edge import detect_edge
-from executor import execute_trade
+from locus import config
+from locus.memory import logger
+from locus.sources.scraper import scrape_all
+from locus.markets.gamma import fetch_active_markets, filter_by_categories, Market
+from locus.core.scorer import score_market, filter_news_for_market
+from locus.core.edge import detect_edge
+from locus.core.executor import execute_trade
 
 console = Console()
 

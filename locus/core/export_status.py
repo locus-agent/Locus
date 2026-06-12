@@ -12,13 +12,13 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-import config
-import logger
-import memory
+from locus import config
+from locus.memory import logger
+from locus import memory
 
 log = logging.getLogger(__name__)
 
-REPO_DIR = Path(__file__).parent
+REPO_DIR = config.PROJECT_ROOT
 STATUS_PATH = REPO_DIR / "docs" / "status.json"
 
 _last_push_at = float("-inf")

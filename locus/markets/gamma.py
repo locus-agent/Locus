@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 import httpx
 
-import config
+from locus import config
 
 GAMMA_API = "https://gamma-api.polymarket.com"
 

@@ -14,9 +14,9 @@ from dataclasses import dataclass, field
 
 import certifi
 
-import config
-from market_index import MarketIndex
-from markets import Market, fetch_active_markets, filter_by_categories
+from locus import config
+from locus.core.market_index import MarketIndex
+from locus.markets.gamma import Market, fetch_active_markets, filter_by_categories
 
 log = logging.getLogger(__name__)
 

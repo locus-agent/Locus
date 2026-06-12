@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-import config
-from markets import Market
-from classifier import Classification
-from news_stream import NewsEvent
+from locus import config
+from locus.markets.gamma import Market
+from locus.core.classifier import Classification
+from locus.sources.news_stream import NewsEvent
 
 
 @dataclass

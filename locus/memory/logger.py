@@ -4,7 +4,9 @@ import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
-DB_PATH = Path(__file__).parent / "trades.db"
+from locus import config
+
+DB_PATH = config.PROJECT_ROOT / "trades.db"
 
 
 def _conn() -> sqlite3.Connection:

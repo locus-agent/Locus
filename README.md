@@ -177,26 +177,26 @@ history before classifying the next headline.
 | File | What it does |
 |---|---|
 | `cli.py` | Entry point — `watch`, `run`, `dashboard`, `backtest`, `verify`, and friends |
-| `pipeline.py` | Orchestrators: V2 asyncio event loop (`watch`) and V1 synchronous loop (`run`) |
-| `news_stream.py` | Aggregates Twitter stream, RSS, NewsAPI, and Telegram into one deduped queue |
-| `market_watcher.py` | Tracks niche markets — 5-min Gamma refresh, live WebSocket prices, momentum |
-| `markets.py` | Polymarket Gamma API client, `Market` model, category inference |
-| `matcher.py` | Matches headlines to markets — keyword overlap + semantic index union |
-| `market_index.py` | Persistent Chroma index of markets, embedded locally (MiniLM) |
-| `classifier.py` | Asks Claude for direction + materiality, with track record injected |
-| `edge.py` | Turns classifications into signals; quarter-Kelly position sizing |
-| `executor.py` | Executes trades — dry-run log or live CLOB order; enforces daily loss limit |
-| `logger.py` | SQLite store (`trades.db`): trades, outcomes, news events, calibration, lessons |
-| `calibrator.py` | Grades classifications once markets resolve |
-| `memory.py` | Track record + lessons — the classifier's feedback loop |
-| `export_status.py` | Writes `docs/status.json` for the public GitHub Pages dashboard |
-| `tui.py` | Textual TUI dashboard — read-only live view over `trades.db` |
-| `dashboard.py` | Legacy terminal dashboard (runs the V1 scan loop) |
-| `scraper.py` | V1 news scraper (RSS + NewsAPI) |
-| `scorer.py` | V1 probability scoring with Claude |
-| `backtest.py` | Replays resolved markets through the V2 classifier |
-| `backtest_real.py` | Backtest pilot on real data: Gamma markets, GDELT/NewsAPI headlines, CLOB prices |
-| `config.py` | All settings — `.env` keys, thresholds, market categories |
+| `locus/config.py` | All settings — `.env` keys, thresholds, market categories, `PROJECT_ROOT` |
+| `locus/core/pipeline.py` | Orchestrators: V2 asyncio event loop (`watch`), V1 loop (`run`), trade risk gates |
+| `locus/core/classifier.py` | Asks Claude for direction + materiality, with track record injected |
+| `locus/core/matcher.py` | Matches headlines to markets — keyword overlap + semantic index union |
+| `locus/core/market_index.py` | Persistent Chroma index of markets, embedded locally (MiniLM) |
+| `locus/core/edge.py` | Turns classifications into signals; quarter-Kelly position sizing |
+| `locus/core/executor.py` | Executes trades — dry-run log or live CLOB order; daily loss limit |
+| `locus/core/export_status.py` | Writes `docs/status.json` for the public GitHub Pages dashboard |
+| `locus/core/scorer.py` | V1 probability scoring with Claude |
+| `locus/sources/news_stream.py` | Aggregates Twitter stream, RSS, NewsAPI, and Telegram into one deduped queue |
+| `locus/sources/scraper.py` | V1 news scraper (RSS + NewsAPI) |
+| `locus/markets/gamma.py` | Polymarket Gamma API client, `Market` model, category inference |
+| `locus/markets/market_watcher.py` | Tracks niche markets — 5-min Gamma refresh, WebSocket prices, index sync |
+| `locus/memory/__init__.py` | Track record + lessons — the classifier's feedback loop |
+| `locus/memory/logger.py` | SQLite store (`trades.db`): trades, news events, classifications, calibration |
+| `locus/memory/calibrator.py` | Grades classifications once markets resolve |
+| `locus/backtest/synthetic.py` | Replays resolved markets through the V2 classifier |
+| `locus/backtest/real.py` | Backtest pilot on real data (parked: historical news coverage gap) |
+| `locus/ui/tui.py` | Textual TUI dashboard — read-only live view over `trades.db` |
+| `locus/ui/dashboard.py` | Legacy terminal dashboard (runs the V1 scan loop) |
 
 ### How a Headline Becomes a Trade Decision
 

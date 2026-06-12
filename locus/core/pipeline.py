@@ -14,18 +14,18 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 
-import config
-import logger
-from export_status import export_status
-from scraper import scrape_all
-from markets import fetch_active_markets, filter_by_categories
-from scorer import score_market, filter_news_for_market
-from edge import detect_edge, detect_edge_v2, Signal
-from executor import execute_trade, execute_trade_async
-from news_stream import NewsAggregator, NewsEvent
-from market_watcher import MarketWatcher
-from matcher import match_news_to_markets, match_news_to_markets_hybrid
-from classifier import classify_async
+from locus import config
+from locus.memory import logger
+from locus.core.export_status import export_status
+from locus.sources.scraper import scrape_all
+from locus.markets.gamma import fetch_active_markets, filter_by_categories
+from locus.core.scorer import score_market, filter_news_for_market
+from locus.core.edge import detect_edge, detect_edge_v2, Signal
+from locus.core.executor import execute_trade, execute_trade_async
+from locus.sources.news_stream import NewsAggregator, NewsEvent
+from locus.markets.market_watcher import MarketWatcher
+from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid
+from locus.core.classifier import classify_async
 
 console = Console()
 log = logging.getLogger(__name__)

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import feedparser
 import httpx
 
-import config
+from locus import config
 
 
 @dataclass

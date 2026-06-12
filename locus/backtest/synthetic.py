@@ -14,10 +14,10 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 
-import config
-from markets import Market
-from classifier import classify
-from edge import size_position
+from locus import config
+from locus.markets.gamma import Market
+from locus.core.classifier import classify
+from locus.core.edge import size_position
 
 log = logging.getLogger(__name__)
 console = Console()
@@ -88,7 +88,7 @@ def fetch_resolved_markets(limit: int = 50, category: str | None = None) -> list
 
             question = m.get("question", "")
             if category:
-                from markets import _infer_category
+                from locus.markets.gamma import _infer_category
                 cat = _infer_category(question, m.get("tags") or [])
                 if cat != category:
                     continue
