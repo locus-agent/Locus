@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T23:38:41.387273+00:00",
+  "generated_at": "2026-06-12T23:43:43.528344+00:00",
   "dry_run": true,
   "markets_tracked": 2523,
   "classify_error_streak": 0,
@@ -9,21 +9,21 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 747,
-  "headlines_last_cycle": 2,
-  "signals_24h": 2,
-  "classifications_24h": 3602,
-  "selectivity_pct": 0.1,
+  "headlines_scanned_today": 781,
+  "headlines_last_cycle": 0,
+  "signals_24h": 0,
+  "classifications_24h": 3746,
+  "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 15,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 802,
+    "news": 828,
     "matched": 257,
-    "classified": 3602,
-    "signals": 2,
-    "trades": 2
+    "classified": 3746,
+    "signals": 0,
+    "trades": 0
   },
   "performance": {
     "trades_total": 6,
@@ -113,19 +113,59 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-12 23:38:40",
-      "market_question": "Ethereum Up or Down - June 12, 4:00PM-8:00PM ET",
-      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
-      "direction": "bullish",
-      "materiality": 0.25,
+      "time": "2026-06-12 23:42:14",
+      "market_question": "Will National Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
+      "headline": "Paramount-Warner Bros. Deal Cleared in Australia, New Zealand - The Hollywood Reporter",
+      "direction": "neutral",
+      "materiality": 0.0,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding"
+      "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:38:38",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
+      "time": "2026-06-12 23:42:14",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Paramount-Warner Bros. Deal Cleared in Australia, New Zealand - The Hollywood Reporter",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:14",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Paramount-Warner Bros. Deal Cleared in Australia, New Zealand - The Hollywood Reporter",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:14",
+      "market_question": "Will Trump and Putin meet next in Australia?",
+      "headline": "Paramount-Warner Bros. Deal Cleared in Australia, New Zealand - The Hollywood Reporter",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:12",
+      "market_question": "Will Labour Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
+      "headline": "Paramount-Warner Bros. Deal Cleared in Australia, New Zealand - The Hollywood Reporter",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:11",
+      "market_question": "Will OpenAI's public ticker be $OAI?",
+      "headline": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning Event Contracts Involving Enumerated Activities - Commodity Futures Trading Commission | CFTC (.gov)",
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
@@ -133,9 +173,59 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:38:37",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
+      "time": "2026-06-12 23:42:11",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "3 Big Dates For Student Loans Are In Just Weeks As Reforms Take Effect - Forbes",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:11",
+      "market_question": "Will the US federal government take a stake in Anthropic PBC?",
+      "headline": "3 Big Dates For Student Loans Are In Just Weeks As Reforms Take Effect - Forbes",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:11",
+      "market_question": "Will the US federal government take a stake in Micron Technology, Inc.?",
+      "headline": "3 Big Dates For Student Loans Are In Just Weeks As Reforms Take Effect - Forbes",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:11",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the most seats in the next Russian parliamentary election?",
+      "headline": "3 Big Dates For Student Loans Are In Just Weeks As Reforms Take Effect - Forbes",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:11",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the second-most seats in the next Russian parliamentary election?",
+      "headline": "3 Big Dates For Student Loans Are In Just Weeks As Reforms Take Effect - Forbes",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:42:10",
+      "market_question": "Will Anthropic's public ticker be $ANT?",
+      "headline": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning Event Contracts Involving Enumerated Activities - Commodity Futures Trading Commission | CFTC (.gov)",
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
@@ -143,109 +233,69 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:38:35",
-      "market_question": "Will SpaceX have the second highest private market valuation on June 30?",
-      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
-      "direction": "bullish",
-      "materiality": 0.15,
+      "time": "2026-06-12 23:42:08",
+      "market_question": "Will Anthropic's public ticker be $ANAI?",
+      "headline": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning Event Contracts Involving Enumerated Activities - Commodity Futures Trading Commission | CFTC (.gov)",
+      "direction": "neutral",
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:38:33",
-      "market_question": "SpaceX IPO: Officially added to S&P 500 in 2026?",
-      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 23:38:30",
-      "market_question": "SpaceX IPO: Open Up/Down on Second Day",
-      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
-      "direction": "bullish",
-      "materiality": 0.15,
+      "time": "2026-06-12 23:42:06",
+      "market_question": "Will Anthropic's public ticker be $ANTH?",
+      "headline": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning Event Contracts Involving Enumerated Activities - Commodity Futures Trading Commission | CFTC (.gov)",
+      "direction": "neutral",
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:38:29",
-      "market_question": "Will SpaceX\u2019s IPO valuation be between 1.25T and 1.50T?",
-      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
-      "direction": "bullish",
-      "materiality": 0.35,
+      "time": "2026-06-12 23:42:05",
+      "market_question": "Will Anthropic's public ticker be $CLAU?",
+      "headline": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning Event Contracts Involving Enumerated Activities - Commodity Futures Trading Commission | CFTC (.gov)",
+      "direction": "neutral",
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding"
+      "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:38:26",
-      "market_question": "Will SpaceX\u2019s IPO valuation be less than 1.25T?",
-      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "time": "2026-06-12 23:42:03",
+      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
+      "headline": "Trump's Iran War Fuels Skyrocketing Airfare: Data Shows 30% Increase In Five Months - One Mile at a Time",
       "direction": "bearish",
-      "materiality": 0.35,
+      "materiality": 0.25,
       "edge": null,
       "action": "skip",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-12 23:38:25",
-      "market_question": "SpaceX IPO: Open Price above IPO Price?",
-      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
-      "direction": "bullish",
-      "materiality": 0.15,
+      "time": "2026-06-12 23:42:02",
+      "market_question": "Trump goes to space in 2026?",
+      "headline": "Trump's Iran War Fuels Skyrocketing Airfare: Data Shows 30% Increase In Five Months - One Mile at a Time",
+      "direction": "bearish",
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-12 23:38:23",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
-      "direction": "neutral",
-      "materiality": 0.05,
+      "time": "2026-06-12 23:41:59",
+      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
+      "headline": "Trump's Iran War Fuels Skyrocketing Airfare: Data Shows 30% Increase In Five Months - One Mile at a Time",
+      "direction": "bearish",
+      "materiality": 0.25,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
+      "match_source": "embedding"
     },
     {
-      "time": "2026-06-12 23:38:22",
-      "market_question": "Will SpaceX have the highest IPO Market Cap 2026?",
-      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:38:20",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:38:18",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:38:17",
-      "market_question": "Will SpaceX\u2019s IPO valuation be at least 2.50T?",
-      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "time": "2026-06-12 23:41:57",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Trump's Iran War Fuels Skyrocketing Airfare: Data Shows 30% Increase In Five Months - One Mile at a Time",
       "direction": "bullish",
       "materiality": 0.15,
       "edge": null,
@@ -253,63 +303,13 @@
       "match_source": "both"
     },
     {
-      "time": "2026-06-12 23:38:13",
-      "market_question": "SpaceX IPO: Closing Share Price Up/Down on Second Day?",
-      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
-      "direction": "bullish",
-      "materiality": 0.25,
+      "time": "2026-06-12 23:41:57",
+      "market_question": "AI data center moratorium passed before 2027?",
+      "headline": "Trump's Iran War Fuels Skyrocketing Airfare: Data Shows 30% Increase In Five Months - One Mile at a Time",
+      "direction": null,
+      "materiality": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:38:11",
-      "market_question": "SpaceX IPO: Open Price above IPO Price?",
-      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
-      "direction": "bullish",
-      "materiality": 0.08,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:38:09",
-      "market_question": "SpaceX IPO: Open Up/Down on Second Day",
-      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:38:08",
-      "market_question": "Will SpaceX have the second highest private market valuation on June 30?",
-      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
-      "direction": "bullish",
-      "materiality": 0.65,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:38:06",
-      "market_question": "Will SpaceX be the largest company in the world by market cap on December 31?",
-      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:38:04",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword"
     }
   ],
