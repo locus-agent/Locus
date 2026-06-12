@@ -35,6 +35,18 @@ def extract_keywords(question: str) -> list[str]:
     return keywords
 
 
+_TOKEN_STRIP = "?.,!\"'()[]"
+
+
+def tokenize(text: str) -> set[str]:
+    """Lowercased word tokens, stripped of edge punctuation."""
+    return {
+        stripped
+        for w in text.lower().split()
+        if (stripped := w.strip(_TOKEN_STRIP))
+    }
+
+
 def match_news_to_markets(
     headline: str,
     markets: list[Market],
@@ -42,9 +54,11 @@ def match_news_to_markets(
 ) -> list[Market]:
     """
     Find markets that a news headline is relevant to.
-    Uses keyword overlap scoring — fast, no API call.
+    Uses whole-token keyword overlap scoring — fast, no API call.
+    (Substring matching let "cap" hit "capital" and "ai" hit "raise",
+    burning classify calls on junk matches.)
     """
-    headline_lower = headline.lower()
+    headline_tokens = tokenize(headline)
     scored = []
 
     for market in markets:
@@ -52,8 +66,8 @@ def match_news_to_markets(
         if not keywords:
             continue
 
-        # Count keyword hits
-        hits = sum(1 for kw in keywords if kw in headline_lower)
+        # Count whole-token keyword hits
+        hits = sum(1 for kw in keywords if kw in headline_tokens)
         if hits == 0:
             continue
 

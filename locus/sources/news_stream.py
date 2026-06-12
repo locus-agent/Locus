@@ -35,6 +35,35 @@ class NewsEvent:
         return (datetime.now(timezone.utc) - self.received_at).total_seconds()
 
 
+class RecentKeys:
+    """Bounded recently-seen set with insertion-order (FIFO) eviction.
+
+    The old pattern — set(list(seen)[-N:]) — relied on set order, which is
+    arbitrary: trimming could evict the *newest* keys and let recently seen
+    headlines through dedup again. dict preserves insertion order.
+    """
+
+    def __init__(self, max_size: int = 10000, keep: int = 5000):
+        self._keys: dict[str, None] = {}
+        self._max_size = max_size
+        self._keep = keep
+
+    def seen(self, key: str) -> bool:
+        """True if key was already recorded; records it otherwise."""
+        if key in self._keys:
+            return True
+        self._keys[key] = None
+        if len(self._keys) > self._max_size:
+            self._keys = dict.fromkeys(list(self._keys)[-self._keep:])
+        return False
+
+    def __contains__(self, key: str) -> bool:
+        return key in self._keys
+
+    def __len__(self) -> int:
+        return len(self._keys)
+
+
 class TwitterStream:
     """Twitter API v2 filtered stream for real-time keyword monitoring."""
 
@@ -211,7 +240,7 @@ class RSSFallback:
 
     def __init__(self, interval_seconds: float = 120):
         self.interval = interval_seconds
-        self._seen_headlines: set[str] = set()
+        self._seen_headlines = RecentKeys(max_size=5000, keep=2000)
 
     async def stream(self, queue: asyncio.Queue):
         """Poll RSS feeds periodically and emit new headlines."""
@@ -225,9 +254,8 @@ class RSSFallback:
 
                 for item in items:
                     key = item.headline.lower()[:80]
-                    if key in self._seen_headlines:
+                    if self._seen_headlines.seen(key):
                         continue
-                    self._seen_headlines.add(key)
                     new_count += 1
 
                     latency = (
@@ -249,9 +277,7 @@ class RSSFallback:
                 if new_count:
                     log.info(f"[rss] {new_count} new headlines")
 
-                # Trim seen cache
-                if len(self._seen_headlines) > 5000:
-                    self._seen_headlines = set(list(self._seen_headlines)[-2000:])
+
 
             except Exception as e:
                 log.warning(f"[rss] Error: {e}")
@@ -272,7 +298,7 @@ class NewsAPISource:
     def __init__(self, api_key: str, daily_limit: int = 100):
         self.enabled = bool(api_key)
         self.interval = max(60.0, 86400.0 / max(daily_limit, 1))
-        self._seen_headlines: set[str] = set()
+        self._seen_headlines = RecentKeys(max_size=5000, keep=2000)
         self._specs = (
             [("everything", q) for q in config.NEWSAPI_CATEGORY_QUERIES.values()]
             + [("top-headlines", c) for c in config.NEWSAPI_TOP_HEADLINE_CATEGORIES]
@@ -304,9 +330,8 @@ class NewsAPISource:
 
                 for item in items:
                     key = item.headline.lower()[:80]
-                    if key in self._seen_headlines:
+                    if self._seen_headlines.seen(key):
                         continue
-                    self._seen_headlines.add(key)
                     new_count += 1
 
                     latency = (
@@ -328,9 +353,7 @@ class NewsAPISource:
                 if new_count:
                     log.info(f"[newsapi] {kind}:{arg} -> {new_count} new headlines")
 
-                # Trim seen cache
-                if len(self._seen_headlines) > 5000:
-                    self._seen_headlines = set(list(self._seen_headlines)[-2000:])
+
 
             except Exception as e:
                 log.warning(f"[newsapi] Error fetching {kind}:{arg}: {e}")
@@ -344,7 +367,7 @@ class NewsAggregator:
     def __init__(self, output_queue: asyncio.Queue):
         self.output_queue = output_queue
         self._internal_queue: asyncio.Queue = asyncio.Queue()
-        self._seen: set[str] = set()
+        self._seen = RecentKeys(max_size=10000, keep=5000)
 
         self.twitter = TwitterStream(config.TWITTER_BEARER_TOKEN, config.TWITTER_KEYWORDS)
         self.telegram = TelegramMonitor(config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_CHANNEL_IDS)
@@ -368,18 +391,14 @@ class NewsAggregator:
         while True:
             event = await self._internal_queue.get()
             key = event.headline.lower()[:80]
-            if key in self._seen:
+            if self._seen.seen(key):
                 self.stats["deduped"] += 1
                 continue
 
-            self._seen.add(key)
             self.stats[event.source] = self.stats.get(event.source, 0) + 1
             self.stats["total"] += 1
 
             await self.output_queue.put(event)
-
-            if len(self._seen) > 10000:
-                self._seen = set(list(self._seen)[-5000:])
 
 
 if __name__ == "__main__":
