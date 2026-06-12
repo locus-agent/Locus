@@ -6,14 +6,16 @@
 <title>LOCUS · crypto research agent</title>
 <style>
   :root {
-    --bg: #fafafa;
-    --card: #ffffff;
-    --border: #e2e2e2;
-    --text: #1a1a1a;
-    --muted: #888888;
-    --green: #0f6e56;
-    --red: #a32d2d;
+    --bg: #1a1a1a;
+    --panel: #141414;
     --purple: #534AB7;
+    --green: #2bd47e;
+    --red: #e05a5a;
+    --yellow: #d9b94a;
+    --cyan: #56c8d8;
+    --text: #e2e2e2;
+    --muted: #888888;
+    --row-border: #2a2a2a;
   }
 
   * { box-sizing: border-box; }
@@ -28,71 +30,80 @@
     line-height: 1.5;
   }
 
-  .wrap {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 24px 16px 48px;
+  /* Header bar — purple strip like the TUI */
+  .topbar {
+    background: var(--purple);
+    color: #fafafa;
   }
 
-  header {
+  .topbar-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 6px 16px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
-    padding-bottom: 16px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--border);
+    gap: 10px;
   }
 
-  header .title {
+  .topbar .title {
     font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
   }
 
-  header .subtitle {
-    color: var(--muted);
+  .topbar .subtitle {
+    color: #d8d4f2;
   }
 
-  .badge {
-    padding: 2px 10px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-size: 12px;
+  .topbar .mode {
     font-weight: 700;
     letter-spacing: 0.05em;
   }
 
-  .badge.dry-run {
-    color: var(--green);
-    border-color: var(--green);
-  }
+  .topbar .mode .dot { color: var(--green); }
+  .topbar .mode.live .dot { color: #ffb3b3; }
 
-  .badge.live {
-    color: var(--red);
-    border-color: var(--red);
-  }
-
-  header .last-cycle {
+  .topbar .last-cycle {
     margin-left: auto;
-    color: var(--muted);
+    color: #d8d4f2;
     font-size: 12px;
   }
+
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 16px 48px;
+  }
+
+  /* Panels — thin purple borders, titles inside, like Textual round borders */
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--purple);
+    border-radius: 6px;
+    padding: 10px 14px;
+  }
+
+  .panel-title {
+    color: var(--purple);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  section.block { margin-bottom: 20px; }
 
   /* Pipeline strip */
-  .pipeline {
+  .pipeline-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 24px;
-    padding: 10px 16px;
   }
 
-  .pipe-step {
-    text-align: center;
-  }
+  .pipe-step { text-align: center; }
 
   .pipe-step .pipe-label {
     color: var(--muted);
@@ -106,55 +117,51 @@
     font-weight: 700;
   }
 
-  .pipe-arrow {
-    color: var(--muted);
-    font-size: 14px;
-  }
+  .pipe-arrow { color: var(--muted); font-size: 14px; }
 
+  /* Stats */
   .stats {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 12px;
-    margin-bottom: 24px;
-  }
-
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 14px 16px;
   }
 
   .stat-card .stat-label {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 6px;
   }
 
   .stat-card .stat-value {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 700;
   }
 
   .stat-card .stat-sub {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 11px;
     margin-top: 4px;
   }
 
-  section.block {
-    margin-bottom: 24px;
+  /* Gates + track record row */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 12px;
   }
 
-  section.block h2 {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    margin: 0 0 10px;
+  .gate-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
   }
+
+  .gate-row .gate-label { color: var(--muted); }
+  .gate-row .gate-count { font-weight: 700; }
+  .gate-stale .gate-count { color: var(--yellow); }
+  .gate-capped .gate-count { color: var(--cyan); }
 
   /* Track record bars */
   .bar-row {
@@ -163,6 +170,8 @@
     gap: 10px;
     margin-bottom: 8px;
   }
+
+  .bar-row:last-child { margin-bottom: 0; }
 
   .bar-label {
     width: 110px;
@@ -175,19 +184,13 @@
     flex: 1;
     height: 14px;
     background: var(--bg);
-    border: 1px solid var(--border);
+    border: 1px solid var(--row-border);
     border-radius: 3px;
     overflow: hidden;
   }
 
-  .bar-fill {
-    height: 100%;
-    background: var(--green);
-  }
-
-  .bar-fill.low {
-    background: var(--red);
-  }
+  .bar-fill { height: 100%; background: var(--green); }
+  .bar-fill.low { background: var(--red); }
 
   .bar-pct {
     width: 50px;
@@ -197,14 +200,7 @@
     font-weight: 700;
   }
 
-  /* Classification log table */
-  .table-wrap {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow-x: auto;
-  }
-
+  /* Tables */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -212,10 +208,12 @@
     white-space: nowrap;
   }
 
+  .table-scroll { overflow-x: auto; }
+
   th, td {
-    padding: 8px 10px;
+    padding: 7px 10px;
     text-align: left;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--row-border);
   }
 
   th {
@@ -226,9 +224,7 @@
     font-weight: 700;
   }
 
-  tr:last-child td {
-    border-bottom: none;
-  }
+  tr:last-child td { border-bottom: none; }
 
   td.market, td.headline {
     white-space: normal;
@@ -239,20 +235,19 @@
   .dir-bearish { color: var(--red); font-weight: 700; }
   .dir-neutral { color: var(--muted); }
 
-  .action-signal {
-    color: var(--green);
-    font-weight: 700;
-  }
+  .side-yes { color: var(--green); font-weight: 700; }
+  .side-no { color: var(--red); font-weight: 700; }
 
-  .action-skip {
-    color: var(--muted);
-  }
+  .action-signal { color: var(--green); font-weight: 700; }
+  .action-skip { color: var(--muted); }
+  .action-stale { color: var(--yellow); }
+  .action-capped { color: var(--cyan); }
 
   /* Match-source badges */
   .match-badge {
     display: inline-block;
     padding: 1px 7px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--row-border);
     border-radius: 3px;
     font-size: 10px;
     font-weight: 700;
@@ -260,23 +255,13 @@
     color: var(--muted);
   }
 
-  .match-badge.sem {
-    color: var(--purple);
-    border-color: var(--purple);
-  }
-
-  .match-badge.both {
-    color: var(--green);
-    border-color: var(--green);
-  }
-
-  .side-yes { color: var(--green); font-weight: 700; }
-  .side-no { color: var(--red); font-weight: 700; }
+  .match-badge.sem { color: var(--purple); border-color: var(--purple); }
+  .match-badge.both { color: var(--green); border-color: var(--green); }
 
   /* Lessons */
   .lesson-card {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: var(--panel);
+    border: 1px solid var(--row-border);
     border-left: 4px solid var(--purple);
     border-radius: 4px;
     padding: 10px 14px;
@@ -294,9 +279,7 @@
     font-weight: 700;
   }
 
-  .lesson-card .lesson-text {
-    font-size: 13px;
-  }
+  .lesson-card .lesson-text { font-size: 13px; }
 
   .empty {
     color: var(--muted);
@@ -308,7 +291,7 @@
   footer {
     margin-top: 32px;
     padding-top: 16px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--row-border);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -324,12 +307,13 @@
   }
 
   footer a:hover {
-    color: var(--purple);
-    border-color: var(--purple);
+    color: var(--green);
+    border-color: var(--green);
   }
 
   @media (max-width: 900px) {
     .stats { grid-template-columns: repeat(3, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 720px) {
@@ -344,116 +328,145 @@
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
+<div class="topbar">
+  <div class="topbar-inner">
     <span class="title">LOCUS</span>
     <span class="subtitle">· crypto research agent</span>
-    <span id="mode-badge" class="badge dry-run">DRY RUN</span>
+    <span id="mode-badge" class="mode"><span class="dot">●</span> DRY RUN</span>
     <span id="last-cycle" class="last-cycle">last cycle: —</span>
-  </header>
-
-  <div class="card pipeline" id="pipeline-strip">
-    <div class="pipe-step"><div class="pipe-label">News</div><div class="pipe-count" id="pipe-news">—</div></div>
-    <div class="pipe-arrow">→</div>
-    <div class="pipe-step"><div class="pipe-label">Matched</div><div class="pipe-count" id="pipe-matched">—</div></div>
-    <div class="pipe-arrow">→</div>
-    <div class="pipe-step"><div class="pipe-label">Classified</div><div class="pipe-count" id="pipe-classified">—</div></div>
-    <div class="pipe-arrow">→</div>
-    <div class="pipe-step"><div class="pipe-label">Signals</div><div class="pipe-count" id="pipe-signals">—</div></div>
-    <div class="pipe-arrow">→</div>
-    <div class="pipe-step"><div class="pipe-label">Trades</div><div class="pipe-count" id="pipe-trades">—</div></div>
   </div>
+</div>
 
-  <div class="stats">
-    <div class="card stat-card">
-      <div class="stat-label">Overall Accuracy</div>
-      <div class="stat-value" id="stat-accuracy">—</div>
-      <div class="stat-sub" id="stat-resolved">0 resolved</div>
-    </div>
-    <div class="card stat-card">
-      <div class="stat-label">Headlines Today</div>
-      <div class="stat-value" id="stat-headlines">—</div>
-      <div class="stat-sub" id="stat-headlines-cycle">0 last cycle</div>
-    </div>
-    <div class="card stat-card">
-      <div class="stat-label">Classifications (24h)</div>
-      <div class="stat-value" id="stat-classifications">—</div>
-      <div class="stat-sub">claude calls</div>
-    </div>
-    <div class="card stat-card">
-      <div class="stat-label">Signals (24h)</div>
-      <div class="stat-value" id="stat-signals">—</div>
-      <div class="stat-sub">edge &gt; threshold</div>
-    </div>
-    <div class="card stat-card">
-      <div class="stat-label">Selectivity</div>
-      <div class="stat-value" id="stat-selectivity">—</div>
-      <div class="stat-sub">signals / classifications</div>
-    </div>
-    <div class="card stat-card">
-      <div class="stat-label">Lessons Learned</div>
-      <div class="stat-value" id="stat-lessons">—</div>
-      <div class="stat-sub">from past mistakes</div>
-    </div>
-  </div>
+<div class="wrap">
 
   <section class="block">
-    <h2 id="positions-title">Open Positions (dry run)</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Market</th>
-            <th>Side</th>
-            <th>Entry</th>
-            <th>Edge</th>
-            <th>Amount</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="position-rows">
-          <tr><td colspan="7" class="empty">No positions yet.</td></tr>
-        </tbody>
-      </table>
+    <div class="panel">
+      <div class="panel-title">Pipeline (24h)</div>
+      <div class="pipeline-row" id="pipeline-strip">
+        <div class="pipe-step"><div class="pipe-label">News</div><div class="pipe-count" id="pipe-news">—</div></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step"><div class="pipe-label">Matched</div><div class="pipe-count" id="pipe-matched">—</div></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step"><div class="pipe-label">Classified</div><div class="pipe-count" id="pipe-classified">—</div></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step"><div class="pipe-label">Signals</div><div class="pipe-count" id="pipe-signals">—</div></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step"><div class="pipe-label">Trades</div><div class="pipe-count" id="pipe-trades">—</div></div>
+      </div>
     </div>
   </section>
 
   <section class="block">
-    <h2>Track Record by Category</h2>
-    <div class="card" id="category-bars">
-      <div class="empty">No resolved classifications yet.</div>
+    <div class="stats">
+      <div class="panel stat-card">
+        <div class="stat-label">Overall Accuracy</div>
+        <div class="stat-value" id="stat-accuracy">—</div>
+        <div class="stat-sub" id="stat-resolved">0 resolved</div>
+      </div>
+      <div class="panel stat-card">
+        <div class="stat-label">Headlines Today</div>
+        <div class="stat-value" id="stat-headlines">—</div>
+        <div class="stat-sub" id="stat-headlines-cycle">0 last cycle</div>
+      </div>
+      <div class="panel stat-card">
+        <div class="stat-label">Classifications (24h)</div>
+        <div class="stat-value" id="stat-classifications">—</div>
+        <div class="stat-sub">claude calls</div>
+      </div>
+      <div class="panel stat-card">
+        <div class="stat-label">Signals (24h)</div>
+        <div class="stat-value" id="stat-signals">—</div>
+        <div class="stat-sub">edge &gt; threshold</div>
+      </div>
+      <div class="panel stat-card">
+        <div class="stat-label">Selectivity</div>
+        <div class="stat-value" id="stat-selectivity">—</div>
+        <div class="stat-sub">signals / classifications</div>
+      </div>
+      <div class="panel stat-card">
+        <div class="stat-label">Lessons Learned</div>
+        <div class="stat-value" id="stat-lessons">—</div>
+        <div class="stat-sub">from past mistakes</div>
+      </div>
     </div>
   </section>
 
   <section class="block">
-    <h2>Classification Log</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Market</th>
-            <th>Headline</th>
-            <th>Match</th>
-            <th>Direction</th>
-            <th>Materiality</th>
-            <th>Edge</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="classification-rows">
-          <tr><td colspan="8" class="empty">No classifications yet.</td></tr>
-        </tbody>
-      </table>
+    <div class="panel">
+      <div class="panel-title" id="positions-title">Open Positions (dry run)</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Market</th>
+              <th>Side</th>
+              <th>Entry</th>
+              <th>Edge</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="position-rows">
+            <tr><td colspan="7" class="empty">No positions yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
   <section class="block">
-    <h2>Lessons Learned</h2>
+    <div class="two-col">
+      <div class="panel">
+        <div class="panel-title">Gates (24h)</div>
+        <div class="gate-row gate-stale">
+          <span class="gate-label">stale — news too old to trade</span>
+          <span class="gate-count" id="gate-stale">—</span>
+        </div>
+        <div class="gate-row gate-capped">
+          <span class="gate-label">capped — headline already traded</span>
+          <span class="gate-count" id="gate-capped">—</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Track Record</div>
+        <div id="category-bars">
+          <div class="empty">No resolved classifications yet.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
+      <div class="panel-title">Classification Log</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Market</th>
+              <th>Headline</th>
+              <th>Match</th>
+              <th>Direction</th>
+              <th>Materiality</th>
+              <th>Edge</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="classification-rows">
+            <tr><td colspan="8" class="empty">No classifications yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel-title">Lessons Learned</div>
     <div id="lessons-list">
-      <div class="card"><div class="empty">No lessons recorded yet.</div></div>
+      <div class="panel"><div class="empty">No lessons recorded yet.</div></div>
     </div>
   </section>
 
@@ -503,17 +516,31 @@
     return '· neutral';
   }
 
+  function actionClass(action) {
+    if (action === 'signal') return 'action-signal';
+    if (action === 'stale') return 'action-stale';
+    if (action === 'capped') return 'action-capped';
+    return 'action-skip';
+  }
+
   function renderHeader(status) {
     const badge = document.getElementById('mode-badge');
     if (status.dry_run) {
-      badge.textContent = 'DRY RUN';
-      badge.className = 'badge dry-run';
+      badge.innerHTML = '<span class="dot">●</span> DRY RUN';
+      badge.className = 'mode';
     } else {
-      badge.textContent = 'LIVE';
-      badge.className = 'badge live';
+      badge.innerHTML = '<span class="dot">●</span> LIVE';
+      badge.className = 'mode live';
     }
     document.getElementById('last-cycle').textContent =
       'last cycle: ' + fmtTime(status.generated_at);
+  }
+
+  function renderPipeline(status) {
+    const p = status.pipeline_24h || {};
+    for (const step of ['news', 'matched', 'classified', 'signals', 'trades']) {
+      document.getElementById('pipe-' + step).textContent = p[step] ?? '—';
+    }
   }
 
   function renderStats(status) {
@@ -541,11 +568,10 @@
       (status.lessons || []).length;
   }
 
-  function renderPipeline(status) {
-    const p = status.pipeline_24h || {};
-    for (const step of ['news', 'matched', 'classified', 'signals', 'trades']) {
-      document.getElementById('pipe-' + step).textContent = p[step] ?? '—';
-    }
+  function renderGates(status) {
+    const g = status.gates_24h || {};
+    document.getElementById('gate-stale').textContent = g.stale ?? '—';
+    document.getElementById('gate-capped').textContent = g.capped ?? '—';
   }
 
   function matchBadge(source) {
@@ -620,7 +646,7 @@
         <td class="${directionClass(c.direction)}">${directionArrow(c.direction)}</td>
         <td>${fmtPct(c.materiality)}</td>
         <td>${fmtPct(c.edge)}</td>
-        <td class="${c.action === 'signal' ? 'action-signal' : 'action-skip'}">${escapeHtml(c.action)}</td>
+        <td class="${actionClass(c.action)}">${escapeHtml(c.action)}</td>
       </tr>
     `).join('');
   }
@@ -630,7 +656,7 @@
     const lessons = status.lessons || [];
 
     if (lessons.length === 0) {
-      container.innerHTML = '<div class="card"><div class="empty">No lessons recorded yet.</div></div>';
+      container.innerHTML = '<div class="panel"><div class="empty">No lessons recorded yet.</div></div>';
       return;
     }
 
@@ -656,6 +682,7 @@
       renderPipeline(status);
       renderStats(status);
       renderPositions(status);
+      renderGates(status);
       renderCategoryBars(status);
       renderClassifications(status);
       renderLessons(status);

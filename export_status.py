@@ -46,6 +46,10 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0) -> di
             round(signals_24h / classifications_24h * 100, 1)
             if classifications_24h else None
         ),
+        "gates_24h": {
+            "stale": logger.get_classification_count_since(since_24h, action="stale"),
+            "capped": logger.get_classification_count_since(since_24h, action="capped"),
+        },
         "pipeline_24h": {
             "news": logger.get_news_event_count_since(since_24h),
             "matched": logger.get_matched_headline_count_since(since_24h),
