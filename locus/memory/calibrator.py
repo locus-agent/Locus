@@ -14,6 +14,7 @@ import httpx
 from locus import config
 from locus.memory import logger
 from locus import memory
+from locus.core import positions
 
 log = logging.getLogger(__name__)
 
@@ -115,6 +116,7 @@ def check_resolutions():
             if not correct:
                 memory.record_lesson(trade, actual_direction, entry_price, exit_price)
 
+            positions.close_on_resolution(trade["id"], exit_price)
             resolved_count += 1
 
         except Exception as e:

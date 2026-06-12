@@ -29,6 +29,7 @@ from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import classify_async
 from locus.core.journal import maybe_write_journal
+from locus.core import positions
 
 console = Console()
 log = logging.getLogger(__name__)
@@ -99,6 +100,8 @@ class PipelineV2:
         console.print(f"  Materiality threshold: {config.MATERIALITY_THRESHOLD}")
         console.print(f"  Speed target: {config.SPEED_TARGET_SECONDS}s")
         console.print()
+
+        await asyncio.get_event_loop().run_in_executor(None, positions.backfill_positions)
 
         try:
             await asyncio.gather(
@@ -233,6 +236,15 @@ class PipelineV2:
                             f"on \"{market.question[:40]}\"[/dim]"
                         )
 
+                    if classification.direction in ("bullish", "bearish") and not classification.error:
+                        await asyncio.get_event_loop().run_in_executor(
+                            None,
+                            lambda: positions.trigger_news_reeval(
+                                market.condition_id, classification.direction,
+                                classification.materiality, event.headline,
+                            ),
+                        )
+
                     if signal:
                         self.stats["signals_found"] += 1
                         await self.signal_queue.put(signal)
@@ -253,6 +265,16 @@ class PipelineV2:
             signal: Signal = await self.signal_queue.get()
             result = await execute_trade_async(signal)
             self.stats["trades_executed"] += 1
+
+            if result["status"] in ("dry_run", "executed"):
+                await asyncio.get_event_loop().run_in_executor(
+                    None,
+                    lambda: positions.open_position(
+                        result["trade_id"], signal.market, signal.side,
+                        signal.bet_amount, headline=signal.headlines,
+                        reasoning=signal.reasoning,
+                    ),
+                )
 
             status_color = "bright_green" if result["status"] in ("dry_run", "executed") else "red"
             console.print(
@@ -283,6 +305,25 @@ class PipelineV2:
 
             headlines_last_cycle = self.stats["news_processed"] - last_news_processed
             last_news_processed = self.stats["news_processed"]
+
+            # Mark open positions to live prices; hard SL + rule-triggered
+            # re-evaluations happen inside (off the event loop).
+            try:
+                prices = {
+                    cid: snap.last_price
+                    for cid, snap in self.market_watcher.snapshots.items()
+                }
+                pos_stats = await asyncio.get_event_loop().run_in_executor(
+                    None, lambda: positions.update_and_manage(prices)
+                )
+                if pos_stats.get("stop_losses") or pos_stats.get("reevals"):
+                    console.print(
+                        f"  [dim]positions: {pos_stats['updated']} marked, "
+                        f"{pos_stats['stop_losses']} stop-loss, "
+                        f"{pos_stats['reevals']} re-evals[/dim]"
+                    )
+            except Exception as e:
+                log.warning(f"[pipeline] Position management error: {e}")
 
             # Daily journal: first cycle after 21:00 UTC (no-op otherwise).
             try:
