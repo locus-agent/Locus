@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-12T23:33:39.019660+00:00",
+  "generated_at": "2026-06-12T23:38:41.387273+00:00",
   "dry_run": true,
-  "markets_tracked": 2525,
+  "markets_tracked": 2523,
   "classify_error_streak": 0,
   "track_record": {
     "total": 0,
@@ -9,19 +9,19 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 742,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 747,
+  "headlines_last_cycle": 2,
   "signals_24h": 2,
-  "classifications_24h": 3567,
+  "classifications_24h": 3602,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 15,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 835,
+    "news": 802,
     "matched": 257,
-    "classified": 3567,
+    "classified": 3602,
     "signals": 2,
     "trades": 2
   },
@@ -34,7 +34,7 @@
     "losses": 3,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -42.77,
-    "unrealized_pnl_usd": 0.68
+    "unrealized_pnl_usd": 0.9
   },
   "open_positions": [
     {
@@ -63,8 +63,8 @@
       "slug": null,
       "side": "NO",
       "entry_price": 0.445,
-      "current_price": 0.43,
-      "pnl_pct": 2.7,
+      "current_price": 0.425,
+      "pnl_pct": 3.6,
       "amount_usd": 25.0
     }
   ],
@@ -113,89 +113,19 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-12 23:24:02",
-      "market_question": "Trump goes to space in 2026?",
-      "headline": "Periodical cicadas in the eastern United States emerge from the ground every 13 or 17 years \u2014 both prime numbers, not by coincidence \u2014 because their long, indivisible cycles make it nearly impossible for any predator with a shorter life cycle to evolve to fee - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-12 23:38:40",
+      "market_question": "Ethereum Up or Down - June 12, 4:00PM-8:00PM ET",
+      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
+      "direction": "bullish",
+      "materiality": 0.25,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
+      "match_source": "embedding"
     },
     {
-      "time": "2026-06-12 23:24:00",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Periodical cicadas in the eastern United States emerge from the ground every 13 or 17 years \u2014 both prime numbers, not by coincidence \u2014 because their long, indivisible cycles make it nearly impossible for any predator with a shorter life cycle to evolve to fee - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:59",
-      "market_question": "Will Trump and Putin meet next in United States?",
-      "headline": "Periodical cicadas in the eastern United States emerge from the ground every 13 or 17 years \u2014 both prime numbers, not by coincidence \u2014 because their long, indivisible cycles make it nearly impossible for any predator with a shorter life cycle to evolve to fee - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:57",
-      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
-      "headline": "Periodical cicadas in the eastern United States emerge from the ground every 13 or 17 years \u2014 both prime numbers, not by coincidence \u2014 because their long, indivisible cycles make it nearly impossible for any predator with a shorter life cycle to evolve to fee - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:56",
-      "market_question": "Will Trump and Putin meet next in United States?",
-      "headline": "Periodical cicadas in the eastern United States emerge from the ground every 13 or 17 years \u2014 both prime numbers, not by coincidence \u2014 because their long, indivisible cycles make it nearly impossible for any predator with a shorter life cycle to evolve to fee - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:55",
-      "market_question": "Will the next elected US president be a woman?",
-      "headline": "The next great space race may not be to plant flags, but to bring home the first untouched samples from Mars, Phobos, and ancient asteroids. - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:55",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "The next great space race may not be to plant flags, but to bring home the first untouched samples from Mars, Phobos, and ancient asteroids. - Space Daily",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:54",
-      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
-      "headline": "The next great space race may not be to plant flags, but to bring home the first untouched samples from Mars, Phobos, and ancient asteroids. - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:53",
-      "market_question": "Trump goes to space in 2026?",
-      "headline": "The next great space race may not be to plant flags, but to bring home the first untouched samples from Mars, Phobos, and ancient asteroids. - Space Daily",
+      "time": "2026-06-12 23:38:38",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
@@ -203,113 +133,183 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:23:51",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "The next great space race may not be to plant flags, but to bring home the first untouched samples from Mars, Phobos, and ancient asteroids. - Space Daily",
+      "time": "2026-06-12 23:38:37",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:23:50",
-      "market_question": "Trump goes to space in 2026?",
-      "headline": "In January 2005, the Huygens probe parachuted for 147 minutes through Titan\u2019s orange haze, landed on a cold plain scattered with ice pebbles, and kept transmitting from the surface of Saturn\u2019s largest moon for 72 minutes before Cassini carried its signal out - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-12 23:38:35",
+      "market_question": "Will SpaceX have the second highest private market valuation on June 30?",
+      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
+      "direction": "bullish",
+      "materiality": 0.15,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:23:50",
-      "market_question": "Trump renames ICE to NICE by June 30?",
-      "headline": "In January 2005, the Huygens probe parachuted for 147 minutes through Titan\u2019s orange haze, landed on a cold plain scattered with ice pebbles, and kept transmitting from the surface of Saturn\u2019s largest moon for 72 minutes before Cassini carried its signal out - Space Daily",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-12 23:38:33",
+      "market_question": "SpaceX IPO: Officially added to S&P 500 in 2026?",
+      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
+      "direction": "bullish",
+      "materiality": 0.15,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
+      "action": "skip",
+      "match_source": "both"
     },
     {
-      "time": "2026-06-12 23:23:50",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "In January 2005, the Huygens probe parachuted for 147 minutes through Titan\u2019s orange haze, landed on a cold plain scattered with ice pebbles, and kept transmitting from the surface of Saturn\u2019s largest moon for 72 minutes before Cassini carried its signal out - Space Daily",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:50",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "In January 2005, the Huygens probe parachuted for 147 minutes through Titan\u2019s orange haze, landed on a cold plain scattered with ice pebbles, and kept transmitting from the surface of Saturn\u2019s largest moon for 72 minutes before Cassini carried its signal out - Space Daily",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:23:49",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "In January 2005, the Huygens probe parachuted for 147 minutes through Titan\u2019s orange haze, landed on a cold plain scattered with ice pebbles, and kept transmitting from the surface of Saturn\u2019s largest moon for 72 minutes before Cassini carried its signal out - Space Daily",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-12 23:38:30",
+      "market_question": "SpaceX IPO: Open Up/Down on Second Day",
+      "headline": "Stock Market Today: Dow, S&P 500 and Nasdaq rise after latest wholesale inflation data and as tech sector rebounds ahead of SpaceX IPO; Oracle shares slide after earnings results; U.S. and Iran exchange strikes for second day - MarketWatch",
+      "direction": "bullish",
+      "materiality": 0.15,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:23:48",
-      "market_question": "Trump goes to space in 2026?",
-      "headline": "Strange 'spacetime crystals' could give birth to tiny black holes - Space",
+      "time": "2026-06-12 23:38:29",
+      "market_question": "Will SpaceX\u2019s IPO valuation be between 1.25T and 1.50T?",
+      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:38:26",
+      "market_question": "Will SpaceX\u2019s IPO valuation be less than 1.25T?",
+      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:38:25",
+      "market_question": "SpaceX IPO: Open Price above IPO Price?",
+      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:38:23",
+      "market_question": "Mistral AI IPO before 2027?",
+      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
       "direction": "neutral",
-      "materiality": 0.02,
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:23:48",
-      "market_question": "AI data center in space by December 31, 2026?",
-      "headline": "Strange 'spacetime crystals' could give birth to tiny black holes - Space",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-12 23:38:22",
+      "market_question": "Will SpaceX have the highest IPO Market Cap 2026?",
+      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "direction": "bullish",
+      "materiality": 0.35,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:23:48",
-      "market_question": "Will less than 5 SpaceX Starship launches successfully reach Space in 2026?",
-      "headline": "Strange 'spacetime crystals' could give birth to tiny black holes - Space",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-12 23:38:20",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "direction": "neutral",
+      "materiality": 0.05,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:23:48",
-      "market_question": "Will more than 16 SpaceX Starship launches successfully reach Space in 2026?",
-      "headline": "Strange 'spacetime crystals' could give birth to tiny black holes - Space",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-12 23:38:18",
+      "market_question": "OpenAI IPO before 2027?",
+      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "direction": "neutral",
+      "materiality": 0.05,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:23:48",
-      "market_question": "Will 7-8 SpaceX Starship launches successfully reach Space in 2026?",
-      "headline": "Strange 'spacetime crystals' could give birth to tiny black holes - Space",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-12 23:38:17",
+      "market_question": "Will SpaceX\u2019s IPO valuation be at least 2.50T?",
+      "headline": "Exclusive | SpaceX IPO Draws At Least $5 Billion Order from BlackRock - WSJ",
+      "direction": "bullish",
+      "materiality": 0.15,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
+      "match_source": "both"
+    },
+    {
+      "time": "2026-06-12 23:38:13",
+      "market_question": "SpaceX IPO: Closing Share Price Up/Down on Second Day?",
+      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:38:11",
+      "market_question": "SpaceX IPO: Open Price above IPO Price?",
+      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.08,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:38:09",
+      "market_question": "SpaceX IPO: Open Up/Down on Second Day",
+      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:38:08",
+      "market_question": "Will SpaceX have the second highest private market valuation on June 30?",
+      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.65,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:38:06",
+      "market_question": "Will SpaceX be the largest company in the world by market cap on December 31?",
+      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:38:04",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "Stock Market Today: Russell 2000 Leads Upside Ahead Of SpaceX IPO; AI Stocks Rally (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
       "match_source": "keyword"
     }
   ],
