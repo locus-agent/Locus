@@ -5,6 +5,7 @@ short lessons from incorrect calls so the classifier can calibrate itself.
 from __future__ import annotations
 
 import logging
+import time
 
 import anthropic
 
@@ -38,11 +39,32 @@ and actionable so a future classifier can avoid the same mistake.
 Respond with ONLY the lesson text — no preamble, no JSON."""
 
 
+TRACK_RECORD_TTL_SECONDS = 300.0
+_track_record_cache: tuple[float, dict] | None = None
+
+
+def invalidate_track_record_cache() -> None:
+    """Call after writing calibration rows or classification grades."""
+    global _track_record_cache
+    _track_record_cache = None
+
+
 def get_track_record() -> dict:
     """
     Summarize the `calibration` table: total resolved classifications,
     overall accuracy, and accuracy broken down by market category and news source.
+
+    Cached for TRACK_RECORD_TTL_SECONDS — this runs on every classify call
+    (~1,500/day), and the underlying tables only change when the calibrator
+    runs (which invalidates the cache explicitly).
     """
+    global _track_record_cache
+    if (
+        _track_record_cache is not None
+        and time.monotonic() - _track_record_cache[0] < TRACK_RECORD_TTL_SECONDS
+    ):
+        return _track_record_cache[1]
+
     rows = logger.get_calibration_with_trades()
     # Non-traded directional classifications graded against the market's
     # later price move — same shape (market_question, news_source, correct),
@@ -61,12 +83,14 @@ def get_track_record() -> dict:
     def _pct(values: list[int]) -> float:
         return round(sum(values) / len(values) * 100, 1) if values else 0.0
 
-    return {
+    result = {
         "total": len(rows),
         "accuracy": _pct([r["correct"] for r in rows]),
         "by_category": {cat: _pct(vals) for cat, vals in by_category.items()},
         "by_source": {src: _pct(vals) for src, vals in by_source.items()},
     }
+    _track_record_cache = (time.monotonic(), result)
+    return result
 
 
 def record_lesson(trade: dict, actual_direction: str, entry_price: float, exit_price: float) -> str:

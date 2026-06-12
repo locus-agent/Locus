@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import sqlite3
 from datetime import datetime, timezone
+from time import monotonic as _monotonic
 from pathlib import Path
 
 from locus import config
@@ -363,6 +364,8 @@ def get_calibration_with_trades() -> list[dict]:
 
 
 def log_lesson(trade_id: int, market_question: str, classification: str, actual_direction: str, lesson: str) -> int:
+    global _lessons_cache
+    _lessons_cache = None
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO lessons (trade_id, market_question, classification, actual_direction, lesson)
@@ -375,13 +378,28 @@ def log_lesson(trade_id: int, market_question: str, classification: str, actual_
     return lesson_id
 
 
+LESSONS_TTL_SECONDS = 300.0
+_lessons_cache: tuple[float, int, list[dict]] | None = None
+
+
 def get_recent_lessons(limit: int = 5) -> list[dict]:
+    """Cached for LESSONS_TTL_SECONDS (queried on every classify call);
+    log_lesson() invalidates."""
+    global _lessons_cache
+    if (
+        _lessons_cache is not None
+        and _lessons_cache[1] == limit
+        and _monotonic() - _lessons_cache[0] < LESSONS_TTL_SECONDS
+    ):
+        return _lessons_cache[2]
     conn = _conn()
     rows = conn.execute(
         "SELECT * FROM lessons ORDER BY created_at DESC LIMIT ?", (limit,)
     ).fetchall()
     conn.close()
-    return [dict(r) for r in rows]
+    result = [dict(r) for r in rows]
+    _lessons_cache = (_monotonic(), limit, result)
+    return result
 
 
 def log_classification(

@@ -122,6 +122,7 @@ def check_resolutions():
             continue
 
     if resolved_count:
+        memory.invalidate_track_record_cache()
         log.info(f"[calibrator] Resolved {resolved_count} trades")
     return resolved_count
 
@@ -216,6 +217,7 @@ def grade_classifications(max_tokens_per_run: int = 50) -> int:
         time.sleep(0.1)
 
     if graded:
+        memory.invalidate_track_record_cache()
         log.info(f"[calibrator] Graded {graded} non-traded classifications")
     return graded
 
