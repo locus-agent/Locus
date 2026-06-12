@@ -37,6 +37,7 @@ ACTION_STYLES = {
     "SIGNAL": f"bold {GREEN}",
     "STALE": "dim yellow",
     "CAPPED": "dim cyan",
+    "ERROR": f"bold {RED}",
 }
 
 MATCH_BADGES = {

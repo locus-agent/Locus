@@ -154,8 +154,15 @@ class PipelineV2:
                         event.headline, market, event.source
                     )
 
-                    raw_signal = detect_edge_v2(market, classification, event)
-                    signal, action = gate_trade(event, raw_signal, self._traded_headlines)
+                    if classification.error:
+                        self.stats["classify_error_streak"] = (
+                            self.stats.get("classify_error_streak", 0) + 1
+                        )
+                        raw_signal, signal, action = None, None, "error"
+                    else:
+                        self.stats["classify_error_streak"] = 0
+                        raw_signal = detect_edge_v2(market, classification, event)
+                        signal, action = gate_trade(event, raw_signal, self._traded_headlines)
 
                     logger.log_classification(
                         market_question=market.question,
@@ -221,6 +228,7 @@ class PipelineV2:
                 f"trades={self.stats['trades_executed']} "
                 f"markets={len(self.market_watcher.tracked_markets)}"
                 + (f" [red]restarts={self.stats['task_restarts']}[/red]" if self.stats.get("task_restarts") else "")
+                + (f" [red]err={self.stats['classify_error_streak']}[/red]" if self.stats.get("classify_error_streak") else "")
                 + "[/dim]\n"
             )
 
@@ -241,6 +249,7 @@ class PipelineV2:
                 export_status(
                     headlines_last_cycle=headlines_last_cycle,
                     markets_tracked=len(self.market_watcher.tracked_markets),
+                    classify_error_streak=self.stats.get("classify_error_streak", 0),
                 )
             except Exception as e:
                 log.warning(f"[pipeline] Status export error: {e}")

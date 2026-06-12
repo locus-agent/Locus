@@ -22,6 +22,8 @@ log = logging.getLogger(__name__)
 
 client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
 
+RETRY_BACKOFF_SECONDS = 2.0
+
 CLASSIFICATION_PROMPT = """You are a news classifier for prediction markets.
 
 ## Market Question
@@ -128,6 +130,7 @@ class Classification:
     reasoning: str
     latency_ms: int
     model: str
+    error: bool = False  # True when classification failed (API/parse error)
 
 
 def classify(
@@ -158,49 +161,58 @@ def classify(
         track_record=_format_track_record(),
     )
 
-    try:
-        response = client.messages.create(
-            model=config.CLASSIFICATION_MODEL,
-            max_tokens=200,
-            temperature=0.1,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = response.content[0].text.strip()
+    last_err: Exception | None = None
+    for attempt in range(2):  # one retry with backoff, no retry storms
+        try:
+            response = client.messages.create(
+                model=config.CLASSIFICATION_MODEL,
+                max_tokens=200,
+                temperature=0.1,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            text = response.content[0].text.strip()
 
-        # Extract JSON
-        if "```" in text:
-            text = text.split("```")[1]
-            if text.startswith("json"):
-                text = text[4:]
-            text = text.strip()
+            # Extract JSON
+            if "```" in text:
+                text = text.split("```")[1]
+                if text.startswith("json"):
+                    text = text[4:]
+                text = text.strip()
 
-        result = json.loads(text)
-        latency = int((time.time() - start) * 1000)
+            result = json.loads(text)
+            latency = int((time.time() - start) * 1000)
 
-        direction = result.get("direction", "neutral")
-        if direction not in ("bullish", "bearish", "neutral"):
-            direction = "neutral"
+            direction = result.get("direction", "neutral")
+            if direction not in ("bullish", "bearish", "neutral"):
+                direction = "neutral"
 
-        materiality = max(0.0, min(1.0, float(result.get("materiality", 0))))
+            materiality = max(0.0, min(1.0, float(result.get("materiality", 0))))
 
-        return Classification(
-            direction=direction,
-            materiality=materiality,
-            reasoning=result.get("reasoning", ""),
-            latency_ms=latency,
-            model=config.CLASSIFICATION_MODEL,
-        )
+            return Classification(
+                direction=direction,
+                materiality=materiality,
+                reasoning=result.get("reasoning", ""),
+                latency_ms=latency,
+                model=config.CLASSIFICATION_MODEL,
+            )
 
-    except Exception as e:
-        latency = int((time.time() - start) * 1000)
-        log.warning(f"[classifier] Error: {e}")
-        return Classification(
-            direction="neutral",
-            materiality=0.0,
-            reasoning=f"Classification error: {type(e).__name__}",
-            latency_ms=latency,
-            model=config.CLASSIFICATION_MODEL,
-        )
+        except Exception as e:
+            last_err = e
+            log.warning(f"[classifier] Error (attempt {attempt + 1}/2): {e}")
+            if attempt == 0:
+                time.sleep(RETRY_BACKOFF_SECONDS)
+
+    # Both attempts failed: flag it instead of disguising the outage as a
+    # confident "neutral" — the pipeline logs these as action="error".
+    latency = int((time.time() - start) * 1000)
+    return Classification(
+        direction="neutral",
+        materiality=0.0,
+        reasoning=f"Classification error: {type(last_err).__name__}",
+        latency_ms=latency,
+        model=config.CLASSIFICATION_MODEL,
+        error=True,
+    )
 
 
 async def classify_async(

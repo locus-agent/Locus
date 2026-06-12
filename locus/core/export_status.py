@@ -24,7 +24,7 @@ STATUS_PATH = REPO_DIR / "docs" / "status.json"
 _last_push_at = float("-inf")
 
 
-def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0) -> dict:
+def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0) -> dict:
     """Write a snapshot of current pipeline status to docs/status.json."""
     now = datetime.now(timezone.utc)
     today_start = now.strftime("%Y-%m-%d 00:00:00")
@@ -37,6 +37,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0) -> di
         "generated_at": now.isoformat(),
         "dry_run": config.DRY_RUN,
         "markets_tracked": markets_tracked,
+        "classify_error_streak": classify_error_streak,
         "track_record": memory.get_track_record(),
         "headlines_scanned_today": logger.get_news_event_count_since(today_start),
         "headlines_last_cycle": headlines_last_cycle,

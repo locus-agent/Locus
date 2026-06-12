@@ -242,6 +242,7 @@
   .action-skip { color: var(--muted); }
   .action-stale { color: var(--yellow); }
   .action-capped { color: var(--cyan); }
+  .action-error { color: var(--red); font-weight: 700; }
 
   /* Match-source badges */
   .match-badge {
@@ -551,6 +552,7 @@
     if (action === 'signal') return 'action-signal';
     if (action === 'stale') return 'action-stale';
     if (action === 'capped') return 'action-capped';
+    if (action === 'error') return 'action-error';
     return 'action-skip';
   }
 
