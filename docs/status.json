@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:26:05.920226+00:00",
+  "generated_at": "2026-06-12T21:27:01.122234+00:00",
   "dry_run": true,
   "markets_tracked": 2556,
   "classify_error_streak": 0,
@@ -9,288 +9,307 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 542,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 570,
+  "headlines_last_cycle": 28,
   "signals_24h": 2,
-  "classifications_24h": 2685,
+  "classifications_24h": 2839,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 12,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 637,
+    "news": 665,
     "matched": 255,
-    "classified": 2685,
+    "classified": 2839,
     "signals": 2,
     "trades": 2
   },
   "performance": {
     "trades_total": 6,
     "deployed_usd": 150.0,
-    "open_count": 6,
-    "closed_count": 0,
+    "open_count": 3,
+    "closed_count": 3,
     "wins": 0,
-    "losses": 0,
-    "win_rate_pct": null,
-    "realized_pnl_usd": 0.0,
-    "unrealized_pnl_usd": 8257.35
+    "losses": 3,
+    "win_rate_pct": 0.0,
+    "realized_pnl_usd": -42.77,
+    "unrealized_pnl_usd": -1.35
   },
   "open_positions": [
     {
-      "time": "2026-06-11 23:41:32",
+      "time": "2026-06-12 21:07:20",
       "market_question": "Will SpaceX raise between $70B and $80B in its IPO?",
+      "slug": null,
       "side": "NO",
       "entry_price": 0.9915,
-      "edge": 0.941925,
-      "amount_usd": 25.0,
-      "status": "dry_run"
+      "current_price": 0.9915,
+      "pnl_pct": 0.0,
+      "amount_usd": 25.0
     },
     {
-      "time": "2026-06-11 23:41:30",
-      "market_question": "Will SpaceX raise at least $120B in its IPO?",
-      "side": "YES",
-      "entry_price": 0.0015,
-      "edge": 0.8487250000000001,
-      "amount_usd": 25.0,
-      "status": "dry_run"
-    },
-    {
-      "time": "2026-06-11 20:28:00",
+      "time": "2026-06-12 21:07:20",
       "market_question": "Will SpaceX list on the NYSE?",
+      "slug": null,
       "side": "YES",
       "entry_price": 0.001,
-      "edge": 0.84915,
-      "amount_usd": 25.0,
-      "status": "dry_run"
+      "current_price": 0.001,
+      "pnl_pct": 0.0,
+      "amount_usd": 25.0
     },
     {
-      "time": "2026-06-11 20:13:23",
-      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
-      "side": "YES",
-      "entry_price": 0.005,
-      "edge": 0.84575,
-      "amount_usd": 25.0,
-      "status": "dry_run"
-    },
-    {
-      "time": "2026-06-11 20:13:17",
-      "market_question": "Will Steve Hilton win the 2026 California Governor Primary Election?",
-      "side": "YES",
-      "entry_price": 0.0295,
-      "edge": 0.824925,
-      "amount_usd": 25.0,
-      "status": "dry_run"
-    },
-    {
-      "time": "2026-06-11 20:10:48",
+      "time": "2026-06-12 21:07:20",
       "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
+      "slug": null,
       "side": "NO",
       "entry_price": 0.445,
-      "edge": 0.28925,
-      "amount_usd": 25.0,
-      "status": "dry_run"
+      "current_price": 0.475,
+      "pnl_pct": -5.41,
+      "amount_usd": 25.0
+    }
+  ],
+  "closed_positions": [
+    {
+      "time": "2026-06-12T21:27:01.117383+00:00",
+      "market_question": "Will Steve Hilton win the 2026 California Governor Primary Election?",
+      "slug": null,
+      "side": "YES",
+      "entry_price": 0.0295,
+      "exit_price": 0.0105,
+      "realized_pnl_usd": -16.101694915254235,
+      "exit_reason": "sl"
+    },
+    {
+      "time": "2026-06-12T21:27:01.116499+00:00",
+      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
+      "slug": null,
+      "side": "YES",
+      "entry_price": 0.005,
+      "exit_price": 0.003,
+      "realized_pnl_usd": -10.0,
+      "exit_reason": "drawdown_decision"
+    },
+    {
+      "time": "2026-06-12T21:26:57.713796+00:00",
+      "market_question": "Will SpaceX raise at least $120B in its IPO?",
+      "slug": null,
+      "side": "YES",
+      "entry_price": 0.0015,
+      "exit_price": 0.0005,
+      "realized_pnl_usd": -16.666666666666668,
+      "exit_reason": "sl"
+    }
+  ],
+  "exit_decisions": [
+    {
+      "time": "2026-06-12 21:27:01",
+      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
+      "side": "YES",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The original thesis was based on a headline that appears to have been misread or was unreliable\u2014the price has moved further against the position to 0.003, suggesting the market disagrees strongly with the premise. With no clear catalyst to reverse the move and the position already down 40%, there is no reason beyond hope to hold; cutting losses is the rational choice.",
+      "pnl_pct": -40.0
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-12 21:05:43",
-      "market_question": "Will Anthropic have the best AI Agent at the end of June 2026?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.25,
+      "time": "2026-06-12 21:26:49",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Avataar unveils India's 1st distilled video AI model under IndiaAI Mission - Business Standard",
+      "direction": "neutral",
+      "materiality": 0.02,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-12 21:05:40",
-      "market_question": "Will Anthropic have the best AI model at the end of December 2026?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.25,
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
+      "headline": "Avataar unveils India's 1st distilled video AI model under IndiaAI Mission - Business Standard",
+      "direction": "bearish",
+      "materiality": 0.08,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-12 21:05:38",
-      "market_question": "Will Anthropic have the best Coding AI model at the end of June 2026?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "I held the Trump phone",
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 21:05:37",
-      "market_question": "Will Anthropic not IPO by June 30, 2026?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
+      "action": "cached",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 21:05:35",
-      "market_question": "Anthropic acquired before 2027?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 21:05:34",
-      "market_question": "Will Anthropic be acquired before 2027?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 21:05:31",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 21:05:30",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 21:05:28",
-      "market_question": "Will Mistral have the second best AI model at the end of June 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 21:05:26",
-      "market_question": "Will Mistral have the third best AI model at the end of June 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 21:05:24",
-      "market_question": "Will Mistral be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 21:05:22",
-      "market_question": "Will Mistral have the best AI model at the end of July 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 21:05:20",
-      "market_question": "Will Mistral have the top AI model at the end of June 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 21:05:19",
-      "market_question": "Will Mistral have a #1 AI model by December 31, 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 21:05:17",
-      "market_question": "Will Mistral have a #1 AI model by June 30?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 21:05:15",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
+      "headline": "I held the Trump phone",
       "direction": "bullish",
       "materiality": 0.35,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 20:53:04",
-      "market_question": "Will 9-10 SpaceX Starship launches successfully reach Space in 2026?",
-      "headline": "SpaceX\u2019s Unlikely Journey From Far-Out Idea to $2 Trillion Juggernaut",
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Trump resign before 2027?",
+      "headline": "I held the Trump phone",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Trump nationalize elections?",
+      "headline": "I held the Trump phone",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "I held the Trump phone",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will SpaceX\u2019s IPO valuation be less than 1.25T?",
+      "headline": "SpaceX\u2019s IPO Could Turn 4,400 Employees Into Millionaires",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will SpaceX\u2019s IPO valuation be between 1.75T and 2.00T?",
+      "headline": "SpaceX\u2019s IPO Could Turn 4,400 Employees Into Millionaires",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will SpaceX\u2019s IPO valuation be at least 2.50T?",
+      "headline": "SpaceX\u2019s IPO Could Turn 4,400 Employees Into Millionaires",
       "direction": "bullish",
       "materiality": 0.08,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
+      "action": "cached",
+      "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 20:53:03",
-      "market_question": "Will less than 5 SpaceX Starship launches successfully reach Space in 2026?",
-      "headline": "SpaceX\u2019s Unlikely Journey From Far-Out Idea to $2 Trillion Juggernaut",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 20:53:01",
-      "market_question": "Will SpaceX be the largest company in the world by market cap on December 31?",
-      "headline": "SpaceX\u2019s Unlikely Journey From Far-Out Idea to $2 Trillion Juggernaut",
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will SpaceX\u2019s IPO valuation be between 2.00T and 2.25T?",
+      "headline": "SpaceX\u2019s IPO Could Turn 4,400 Employees Into Millionaires",
       "direction": "bullish",
       "materiality": 0.15,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will SpaceX\u2019s IPO valuation be between 1.25T and 1.50T?",
+      "headline": "SpaceX\u2019s IPO Could Turn 4,400 Employees Into Millionaires",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will SpaceX raise less than $40B in its IPO?",
+      "headline": "SpaceX\u2019s IPO Could Turn 4,400 Employees Into Millionaires",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "cached",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-12 20:52:59",
-      "market_question": "Will SpaceX\u2019s IPO valuation be between 1.25T and 1.50T?",
-      "headline": "SpaceX\u2019s Unlikely Journey From Far-Out Idea to $2 Trillion Juggernaut",
-      "direction": "bearish",
-      "materiality": 0.35,
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will SpaceX raise at least $120B in its IPO?",
+      "headline": "SpaceX\u2019s IPO Could Turn 4,400 Employees Into Millionaires",
+      "direction": "bullish",
+      "materiality": 0.15,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will SpaceX raise between $40B and $50B in its IPO?",
+      "headline": "SpaceX\u2019s IPO Could Turn 4,400 Employees Into Millionaires",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Trump pardon Young Thug before 2027?",
+      "headline": "Why the liberal arts can help young Americans prepare for the era of AI - CBS News",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Partido Liberal (PL) win the most seats in the next Brazilian Senate election?",
+      "headline": "Why the liberal arts can help young Americans prepare for the era of AI - CBS News",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Partido Liberal (PL) hold the most seats in the Brazilian Chamber of Deputies after the 2026 election?",
+      "headline": "Why the liberal arts can help young Americans prepare for the era of AI - CBS News",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will National Liberal Party win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "Why the liberal arts can help young Americans prepare for the era of AI - CBS News",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 21:26:49",
+      "market_question": "Will Partido Liberal (PL) hold the most seats as a result of the next Brazilian Senate election?",
+      "headline": "Why the liberal arts can help young Americans prepare for the era of AI - CBS News",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
       "match_source": "keyword"
     }
   ],
