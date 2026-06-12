@@ -28,6 +28,7 @@ from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid
 from locus.core.classifier import classify_async
+from locus.core.journal import maybe_write_journal
 
 console = Console()
 log = logging.getLogger(__name__)
@@ -225,6 +226,17 @@ class PipelineV2:
 
             headlines_last_cycle = self.stats["news_processed"] - last_news_processed
             last_news_processed = self.stats["news_processed"]
+
+            # Daily journal: first cycle after 21:00 UTC (no-op otherwise).
+            try:
+                entry = await asyncio.get_event_loop().run_in_executor(
+                    None, lambda: maybe_write_journal(self.stats)
+                )
+                if entry:
+                    console.print(f"  [dim]journal entry written ({len(entry.split())} words)[/dim]")
+            except Exception as e:
+                log.warning(f"[pipeline] Journal error: {e}")
+
             try:
                 export_status(
                     headlines_last_cycle=headlines_last_cycle,

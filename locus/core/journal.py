@@ -1,0 +1,215 @@
+"""
+The Agent's Journal — once a day, Locus looks at its own last 24 hours and
+writes a short first-person entry: what it noticed, what surprised it, what
+it suspects it got wrong, what it wants to watch tomorrow. Entries are stored
+in the journal table and published on the dashboard.
+
+One Claude (Sonnet) call per day. Triggered from the pipeline's periodic
+cycle: the first cycle after JOURNAL_HOUR_UTC writes that day's entry.
+"""
+from __future__ import annotations
+
+import json
+import logging
+import re
+from datetime import datetime, timedelta, timezone
+
+import anthropic
+
+from locus import config
+from locus.memory import logger
+
+log = logging.getLogger(__name__)
+
+JOURNAL_HOUR_UTC = 21
+
+JOURNAL_PROMPT = """You are Locus, an autonomous agent that reads breaking news and trades \
+niche Polymarket prediction markets (dry-run mode unless stated otherwise). Once a day you \
+write a short public journal entry reflecting on your own performance.
+
+Here is your last 24 hours, as data:
+
+{stats_json}
+
+Field notes: "actions" counts your decisions per classification — "signal" means you traded, \
+"skip" means no edge, "stale" means you wanted to trade but the news was too old (your stale \
+gate stopped you), "capped" means a second trade on the same headline was blocked. \
+"match_sources" shows how each news-market pair was found: kw = keyword overlap, \
+sem = embedding similarity, both = both. "top_materiality" are the news-market pairs you \
+scored as most material. "resolutions" are markets that closed, grading your past calls.
+
+Write your journal entry for {date}.
+
+Rules:
+- 100 to 200 words, first person, plain prose (no headers, no bullet points, no emojis).
+- Honest, dry, a little self-deprecating. No hype. No exclamation marks.
+- Reference concrete numbers from the data — at least three of them.
+- Cover, in whatever order feels natural: what you noticed, what surprised you, what you got
+  wrong or suspect you got wrong, and one thing you want to watch tomorrow.
+- If the day was quiet or your numbers are unimpressive, say so plainly. Do not invent drama
+  and do not anthropomorphize markets.
+- Do not address the reader. Do not explain what you are. Just write the entry.
+
+Output only the entry text."""
+
+
+# A line that is only a date — "June 12, 2026", "2026-06-12", optionally
+# bolded. The model likes to open with one; the dashboard already renders
+# the date as a label, so it would show twice.
+_DATE_LINE_RE = re.compile(
+    r"^\s*[*_#]*\s*(?:"
+    r"\d{4}-\d{2}-\d{2}"
+    r"|(?:january|february|march|april|may|june|july|august|september|october|november|december)"
+    r"\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}"
+    r")\s*[*_#]*\s*$",
+    re.IGNORECASE,
+)
+
+
+def _strip_leading_date_lines(text: str) -> str:
+    lines = text.splitlines()
+    while lines and (not lines[0].strip() or _DATE_LINE_RE.match(lines[0])):
+        lines.pop(0)
+    return "\n".join(lines).strip()
+
+
+def gather_daily_stats(extra: dict | None = None) -> dict:
+    """Collect the last 24h of activity from the database."""
+    now = datetime.now(timezone.utc)
+    since = (now - timedelta(hours=24)).strftime("%Y-%m-%d %H:%M:%S")
+    conn = logger._conn()
+
+    def counts(query, *args):
+        return {r[0] or "unknown": r[1] for r in conn.execute(query, args).fetchall()}
+
+    actions = counts(
+        "SELECT action, COUNT(*) FROM classifications WHERE created_at >= ? GROUP BY action",
+        since,
+    )
+    directions = counts(
+        "SELECT direction, COUNT(*) FROM classifications WHERE created_at >= ? GROUP BY direction",
+        since,
+    )
+    match_sources = counts(
+        "SELECT match_source, COUNT(*) FROM classifications WHERE created_at >= ? GROUP BY match_source",
+        since,
+    )
+
+    top_materiality = [
+        dict(r)
+        for r in conn.execute(
+            """SELECT market_question, headline, direction, materiality, action
+               FROM classifications WHERE created_at >= ? AND materiality IS NOT NULL
+               ORDER BY materiality DESC LIMIT 3""",
+            (since,),
+        ).fetchall()
+    ]
+
+    trades = [
+        dict(r)
+        for r in conn.execute(
+            """SELECT market_question, side, amount_usd, market_price, status, created_at
+               FROM trades WHERE created_at >= ? ORDER BY id DESC LIMIT 10""",
+            (since,),
+        ).fetchall()
+    ]
+    error_trades = conn.execute(
+        "SELECT COUNT(*) FROM trades WHERE created_at >= ? AND status LIKE 'error%'", (since,)
+    ).fetchone()[0]
+
+    resolutions = conn.execute(
+        """SELECT COUNT(*) AS total, COALESCE(SUM(correct), 0) AS correct
+           FROM calibration WHERE resolved_at >= ?""",
+        (since,),
+    ).fetchone()
+    lessons = [
+        r["lesson"]
+        for r in conn.execute(
+            "SELECT lesson FROM lessons WHERE created_at >= ? ORDER BY id DESC LIMIT 3", (since,)
+        ).fetchall()
+    ]
+
+    news_count = conn.execute(
+        "SELECT COUNT(*) FROM news_events WHERE created_at >= ?", (since,)
+    ).fetchone()[0]
+    # Largest silence between consecutive news events — a data-gap indicator.
+    gaps = conn.execute(
+        """SELECT created_at FROM news_events WHERE created_at >= ?
+           ORDER BY created_at""",
+        (since,),
+    ).fetchall()
+    largest_gap_min = 0.0
+    times = [datetime.fromisoformat(r[0].replace(" ", "T")) for r in gaps]
+    for a, b in zip(times, times[1:]):
+        largest_gap_min = max(largest_gap_min, (b - a).total_seconds() / 60)
+
+    conn.close()
+
+    stats = {
+        "date": now.strftime("%Y-%m-%d"),
+        "mode": "dry-run" if config.DRY_RUN else "LIVE",
+        "classifications_24h": sum(actions.values()),
+        "actions": actions,
+        "directions": directions,
+        "match_sources": match_sources,
+        "top_materiality": top_materiality,
+        "trades_24h": trades,
+        "error_trades_24h": error_trades,
+        "resolutions_24h": {"total": resolutions["total"], "correct": resolutions["correct"]},
+        "new_lessons_24h": lessons,
+        "news_events_24h": news_count,
+        "largest_news_gap_minutes": round(largest_gap_min, 1),
+    }
+    if extra:
+        stats["task_restarts"] = extra.get("task_restarts", 0)
+    return stats
+
+
+def write_journal_entry(extra: dict | None = None, date: str | None = None) -> str | None:
+    """Generate and store today's entry. Returns the text, or None on failure."""
+    stats = gather_daily_stats(extra)
+    date = date or stats["date"]
+
+    prompt = JOURNAL_PROMPT.format(
+        stats_json=json.dumps(stats, indent=1, default=str), date=date
+    )
+    try:
+        client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
+        response = client.messages.create(
+            model=config.SCORING_MODEL,
+            max_tokens=400,
+            temperature=0.7,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        entry = _strip_leading_date_lines(response.content[0].text.strip())
+    except Exception as e:
+        log.warning(f"[journal] Entry generation failed: {e}")
+        return None
+
+    logger.log_journal_entry(date, entry, json.dumps(stats, default=str))
+    log.info(f"[journal] Wrote entry for {date} ({len(entry.split())} words)")
+    return entry
+
+
+def maybe_write_journal(extra: dict | None = None, now: datetime | None = None) -> str | None:
+    """Daily trigger: write today's entry on the first call after
+    JOURNAL_HOUR_UTC. Idempotent — the journal table's UNIQUE date plus this
+    check make double-writes impossible."""
+    if not config.JOURNAL_ENABLED:
+        return None
+    now = now or datetime.now(timezone.utc)
+    if now.hour < JOURNAL_HOUR_UTC:
+        return None
+    today = now.strftime("%Y-%m-%d")
+    if logger.has_journal_for(today):
+        return None
+    return write_journal_entry(extra, date=today)
+
+
+if __name__ == "__main__":
+    import sys
+
+    text = write_journal_entry()
+    if text is None:
+        sys.exit(1)
+    print(text)

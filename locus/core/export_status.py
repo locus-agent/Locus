@@ -82,6 +82,10 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0) -> di
             }
             for c in logger.get_recent_classifications(limit=20)
         ],
+        "journal": [
+            {"date": j["date"], "entry": j["entry"]}
+            for j in logger.get_journal_entries(limit=3)
+        ],
         "lessons": [
             {
                 "time": l["created_at"],

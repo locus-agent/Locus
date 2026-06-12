@@ -281,6 +281,28 @@
 
   .lesson-card .lesson-text { font-size: 13px; }
 
+  /* Journal */
+  .journal-entry {
+    border-bottom: 1px solid var(--row-border);
+    padding: 10px 0;
+  }
+
+  .journal-entry:first-child { padding-top: 2px; }
+  .journal-entry:last-child { border-bottom: none; padding-bottom: 2px; }
+
+  .journal-entry .journal-date {
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .journal-entry .journal-text {
+    font-size: 13px;
+    white-space: pre-wrap;
+  }
+
   .empty {
     color: var(--muted);
     font-style: italic;
@@ -434,6 +456,15 @@
         <div id="category-bars">
           <div class="empty">No resolved classifications yet.</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
+      <div class="panel-title">Journal</div>
+      <div id="journal-list">
+        <div class="empty">No entries yet — Locus writes one per day at 21:00 UTC.</div>
       </div>
     </div>
   </section>
@@ -651,6 +682,23 @@
     `).join('');
   }
 
+  function renderJournal(status) {
+    const container = document.getElementById('journal-list');
+    const entries = status.journal || [];
+
+    if (entries.length === 0) {
+      container.innerHTML = '<div class="empty">No entries yet — Locus writes one per day at 21:00 UTC.</div>';
+      return;
+    }
+
+    container.innerHTML = entries.map(j => `
+      <div class="journal-entry">
+        <div class="journal-date">${escapeHtml(j.date)}</div>
+        <div class="journal-text">${escapeHtml(j.entry)}</div>
+      </div>
+    `).join('');
+  }
+
   function renderLessons(status) {
     const container = document.getElementById('lessons-list');
     const lessons = status.lessons || [];
@@ -684,6 +732,7 @@
       renderPositions(status);
       renderGates(status);
       renderCategoryBars(status);
+      renderJournal(status);
       renderClassifications(status);
       renderLessons(status);
     } catch (e) {

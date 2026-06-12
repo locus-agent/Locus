@@ -85,6 +85,11 @@ EMBED_MAX_EXTRA_MATCHES = int(os.getenv("EMBED_MAX_EXTRA_MATCHES", "3"))
 CLASSIFICATION_MODEL = "claude-haiku-4-5-20251001"
 SCORING_MODEL = "claude-sonnet-4-6"
 
+# --- Journal ---
+# Daily first-person journal entry (one Sonnet call/day, written at the
+# first pipeline cycle after 21:00 UTC; see locus/core/journal.py).
+JOURNAL_ENABLED = os.getenv("JOURNAL_ENABLED", "true").lower() == "true"
+
 # --- Dashboard ---
 # Auto-commit and push docs/status.json after each pipeline cycle.
 AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"

@@ -107,6 +107,14 @@ def init_db():
             match_source TEXT,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
+
+        CREATE TABLE IF NOT EXISTS journal (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            date TEXT NOT NULL UNIQUE,
+            entry TEXT NOT NULL,
+            stats_snapshot TEXT,
+            created_at TEXT NOT NULL DEFAULT (datetime('now'))
+        );
     """)
     # Add V2 columns to existing trades table if missing
     _migrate_v2_columns(conn)
@@ -222,6 +230,34 @@ def log_calibration(
     )
     conn.commit()
     conn.close()
+
+
+def log_journal_entry(date: str, entry: str, stats_snapshot: str) -> int:
+    conn = _conn()
+    cur = conn.execute(
+        "INSERT INTO journal (date, entry, stats_snapshot) VALUES (?, ?, ?)",
+        (date, entry, stats_snapshot),
+    )
+    journal_id = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return journal_id
+
+
+def get_journal_entries(limit: int = 3) -> list[dict]:
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT date, entry, created_at FROM journal ORDER BY date DESC LIMIT ?", (limit,)
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def has_journal_for(date: str) -> bool:
+    conn = _conn()
+    row = conn.execute("SELECT 1 FROM journal WHERE date = ?", (date,)).fetchone()
+    conn.close()
+    return row is not None
 
 
 def get_calibrated_trade_ids() -> set[int]:
