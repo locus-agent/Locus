@@ -22,6 +22,7 @@ from locus.markets.gamma import fetch_active_markets, filter_by_categories
 from locus.core.scorer import score_market, filter_news_for_market
 from locus.core.edge import detect_edge, detect_edge_v2, Signal
 from locus.core.executor import execute_trade, execute_trade_async
+from locus.supervisor import supervise
 from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid
@@ -87,12 +88,11 @@ class PipelineV2:
 
         try:
             await asyncio.gather(
-                self.news_aggregator.run(),
-                self.market_watcher.run(),
-                self._process_news(),
-                self._execute_signals(),
-                self._status_printer(),
-                return_exceptions=True,
+                supervise("news_aggregator", self.news_aggregator.run, self.stats),
+                supervise("market_watcher", self.market_watcher.run, self.stats),
+                supervise("process_news", self._process_news, self.stats),
+                supervise("execute_signals", self._execute_signals, self.stats),
+                supervise("status_printer", self._status_printer, self.stats),
             )
         except asyncio.CancelledError:
             self.running = False
@@ -204,7 +204,9 @@ class PipelineV2:
                 f"matched={self.stats['markets_matched']} "
                 f"signals={self.stats['signals_found']} "
                 f"trades={self.stats['trades_executed']} "
-                f"markets={len(self.market_watcher.tracked_markets)}[/dim]\n"
+                f"markets={len(self.market_watcher.tracked_markets)}"
+                + (f" [red]restarts={self.stats['task_restarts']}[/red]" if self.stats.get("task_restarts") else "")
+                + "[/dim]\n"
             )
 
             headlines_last_cycle = self.stats["news_processed"] - last_news_processed

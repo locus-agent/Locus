@@ -14,6 +14,7 @@ from dataclasses import dataclass, field
 import httpx
 
 from locus import config
+from locus.supervisor import supervise
 from locus.sources.scraper import scrape_all, scrape_newsapi, scrape_newsapi_top_headlines, NewsItem
 
 log = logging.getLogger(__name__)
@@ -349,12 +350,11 @@ class NewsAggregator:
     async def run(self):
         """Start all sources and the dedup router."""
         await asyncio.gather(
-            self.twitter.stream(self._internal_queue),
-            self.telegram.stream(self._internal_queue),
-            self.rss.stream(self._internal_queue),
-            self.newsapi.stream(self._internal_queue),
-            self._dedup_router(),
-            return_exceptions=True,
+            supervise("twitter_stream", lambda: self.twitter.stream(self._internal_queue), self.stats),
+            supervise("telegram_monitor", lambda: self.telegram.stream(self._internal_queue), self.stats),
+            supervise("rss_fallback", lambda: self.rss.stream(self._internal_queue), self.stats),
+            supervise("newsapi_source", lambda: self.newsapi.stream(self._internal_queue), self.stats),
+            supervise("dedup_router", self._dedup_router, self.stats),
         )
 
     async def _dedup_router(self):
