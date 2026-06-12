@@ -57,6 +57,15 @@ def test_pnl_pct_math():
     assert positions.pnl_pct("NO", 0.80, 0.90) == pytest.approx(-50.0)  # NO entry 0.20 -> 0.10
 
 
+def test_no_side_pnl_sign():
+    # Entry NO @ 0.45 means entry_yes=0.55; current NO @ 0.43 means now_yes=0.57.
+    # NO token fell in value -> loss, must be negative.
+    assert positions.pnl_pct("NO", 0.55, 0.57) == pytest.approx(-100 * (1 - 0.43 / 0.45))
+    assert positions.pnl_pct("NO", 0.55, 0.57) < 0, "NO position losing value must be negative PnL"
+    # NO token rose in value (YES dropped 0.55->0.50, NO 0.45->0.50) -> gain
+    assert positions.pnl_pct("NO", 0.55, 0.50) > 0, "NO position gaining value must be positive PnL"
+
+
 def test_check_trigger_thresholds():
     pos = {"id": 1}
     assert positions.check_trigger(pos, 55.0) == "take_profit"
