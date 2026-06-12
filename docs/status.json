@@ -1,17 +1,146 @@
 {
-  "generated_at": "2026-06-12T00:06:22.995444+00:00",
+  "generated_at": "2026-06-12T00:11:52.097673+00:00",
   "dry_run": true,
-  "markets_tracked": 2622,
+  "markets_tracked": 2619,
   "track_record": {
     "total": 0,
     "accuracy": 0.0,
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 0,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2,
+  "headlines_last_cycle": 2,
   "signals_24h": 6,
+  "classifications_24h": 993,
+  "selectivity_pct": 0.6,
+  "gates_24h": {
+    "stale": 4,
+    "capped": 0
+  },
+  "pipeline_24h": {
+    "news": 479,
+    "matched": 176,
+    "classified": 993,
+    "signals": 6,
+    "trades": 6
+  },
+  "open_positions": [
+    {
+      "time": "2026-06-11 23:41:32",
+      "market_question": "Will SpaceX raise between $70B and $80B in its IPO?",
+      "side": "NO",
+      "entry_price": 0.9915,
+      "edge": 0.941925,
+      "amount_usd": 25.0,
+      "status": "dry_run"
+    },
+    {
+      "time": "2026-06-11 23:41:30",
+      "market_question": "Will SpaceX raise at least $120B in its IPO?",
+      "side": "YES",
+      "entry_price": 0.0015,
+      "edge": 0.8487250000000001,
+      "amount_usd": 25.0,
+      "status": "dry_run"
+    },
+    {
+      "time": "2026-06-11 20:28:00",
+      "market_question": "Will SpaceX list on the NYSE?",
+      "side": "YES",
+      "entry_price": 0.001,
+      "edge": 0.84915,
+      "amount_usd": 25.0,
+      "status": "dry_run"
+    },
+    {
+      "time": "2026-06-11 20:13:23",
+      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
+      "side": "YES",
+      "entry_price": 0.005,
+      "edge": 0.84575,
+      "amount_usd": 25.0,
+      "status": "dry_run"
+    },
+    {
+      "time": "2026-06-11 20:13:17",
+      "market_question": "Will Steve Hilton win the 2026 California Governor Primary Election?",
+      "side": "YES",
+      "entry_price": 0.0295,
+      "edge": 0.824925,
+      "amount_usd": 25.0,
+      "status": "dry_run"
+    },
+    {
+      "time": "2026-06-11 20:10:48",
+      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
+      "side": "NO",
+      "entry_price": 0.445,
+      "edge": 0.28925,
+      "amount_usd": 25.0,
+      "status": "dry_run"
+    }
+  ],
   "recent_classifications": [
+    {
+      "time": "2026-06-12 00:11:50",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Opinion | How AI can revolutionize conservation - The Washington Post",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 00:11:49",
+      "market_question": "Will Wayne Lonny Washington be the Republican nominee for Senate in Oklahoma?",
+      "headline": "Opinion | How AI can revolutionize conservation - The Washington Post",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 00:11:48",
+      "market_question": "Will George Washington Markert be the Republican nominee for Senate in Colorado?",
+      "headline": "Opinion | How AI can revolutionize conservation - The Washington Post",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 00:11:47",
+      "market_question": "Washington Commanders agree to name stadium after Trump?",
+      "headline": "Opinion | How AI can revolutionize conservation - The Washington Post",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 00:11:45",
+      "market_question": "Will a US court rule that the 2020 election was fradulent?",
+      "headline": "Opinion | How AI can revolutionize conservation - The Washington Post",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 00:11:44",
+      "market_question": "Will Donald Trump visit Washington in 2026?",
+      "headline": "Opinion | How AI can revolutionize conservation - The Washington Post",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-11 23:58:50",
       "market_question": "Trump orders federal review of AI model releases by June 30?",
@@ -19,7 +148,8 @@
       "direction": "bearish",
       "materiality": 0.15,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "embedding"
     },
     {
       "time": "2026-06-11 23:58:48",
@@ -28,7 +158,8 @@
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "embedding"
     },
     {
       "time": "2026-06-11 23:58:47",
@@ -37,7 +168,8 @@
       "direction": "neutral",
       "materiality": 0.15,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "embedding"
     },
     {
       "time": "2026-06-11 23:58:46",
@@ -46,7 +178,8 @@
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:44",
@@ -55,7 +188,8 @@
       "direction": "neutral",
       "materiality": 0.0,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:43",
@@ -64,7 +198,8 @@
       "direction": "neutral",
       "materiality": 0.0,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:42",
@@ -73,7 +208,8 @@
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:40",
@@ -82,7 +218,8 @@
       "direction": "bearish",
       "materiality": 0.15,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "both"
     },
     {
       "time": "2026-06-11 23:58:39",
@@ -91,7 +228,8 @@
       "direction": "neutral",
       "materiality": 0.0,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:38",
@@ -100,7 +238,8 @@
       "direction": "neutral",
       "materiality": 0.0,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:36",
@@ -109,7 +248,8 @@
       "direction": "neutral",
       "materiality": 0.0,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:35",
@@ -118,7 +258,8 @@
       "direction": "neutral",
       "materiality": 0.0,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:34",
@@ -127,7 +268,8 @@
       "direction": "neutral",
       "materiality": 0.0,
       "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     },
     {
       "time": "2026-06-11 23:58:33",
@@ -136,61 +278,8 @@
       "direction": "neutral",
       "materiality": 0.0,
       "edge": null,
-      "action": "skip"
-    },
-    {
-      "time": "2026-06-11 23:58:30",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "DataFirst launches imaging classification, normalization platform - AuntMinnie",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip"
-    },
-    {
-      "time": "2026-06-11 23:58:28",
-      "market_question": "Will SpaceX have between 160-179 launches in 2026?",
-      "headline": "DataFirst launches imaging classification, normalization platform - AuntMinnie",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip"
-    },
-    {
-      "time": "2026-06-11 23:58:27",
-      "market_question": "Will SpaceX or OpenAI IPO first?",
-      "headline": "DataFirst launches imaging classification, normalization platform - AuntMinnie",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip"
-    },
-    {
-      "time": "2026-06-11 23:58:26",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "DataFirst launches imaging classification, normalization platform - AuntMinnie",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip"
-    },
-    {
-      "time": "2026-06-11 23:58:25",
-      "market_question": "Will Trump announce Sara Brenner as the next FDA commissioner by December 31?",
-      "headline": "Subtle Medical wins FDA clearance for CT image enhancement software - AuntMinnie",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "edge": null,
-      "action": "skip"
-    },
-    {
-      "time": "2026-06-11 23:58:19",
-      "market_question": "Will Robert Kenyon win the 2026 Makerfield by-election?",
-      "headline": "Subtle Medical wins FDA clearance for CT image enhancement software - AuntMinnie",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip"
+      "action": "skip",
+      "match_source": "keyword"
     }
   ],
   "lessons": []
