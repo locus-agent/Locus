@@ -26,7 +26,7 @@ from locus.core.executor import execute_trade, execute_trade_async
 from locus.supervisor import supervise
 from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
-from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid
+from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import classify_async
 from locus.core.journal import maybe_write_journal
 
@@ -148,8 +148,27 @@ class PipelineV2:
             self.stats["markets_matched"] += len(matched)
 
             # Classify against each matched market
-            for market, match_source in matched:
+            for market, match_source, match_score in matched:
                 try:
+                    # Cheap pre-classification gate: weak keyword-only matches
+                    # with no topic overlap aren't worth a Claude call.
+                    if prefilter_match(event.headline, market, match_source, match_score):
+                        self.stats["prefiltered"] = self.stats.get("prefiltered", 0) + 1
+                        logger.log_classification(
+                            market_question=market.question,
+                            headline=event.headline,
+                            news_source=event.source,
+                            direction=None,
+                            materiality=None,
+                            edge=None,
+                            action="prefiltered",
+                            match_source=match_source,
+                            condition_id=market.condition_id,
+                            yes_price=market.yes_price,
+                            yes_token_id=get_token_id(market, "YES"),
+                        )
+                        continue
+
                     classification = await classify_async(
                         event.headline, market, event.source
                     )

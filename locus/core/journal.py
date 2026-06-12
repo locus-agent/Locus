@@ -157,6 +157,7 @@ def gather_daily_stats(extra: dict | None = None) -> dict:
         "error_trades_24h": error_trades,
         "resolutions_24h": {"total": resolutions["total"], "correct": resolutions["correct"]},
         "new_lessons_24h": lessons,
+        "claude_calls_saved_24h": actions.get("prefiltered", 0) + actions.get("cached", 0),
         "news_events_24h": news_count,
         "largest_news_gap_minutes": round(largest_gap_min, 1),
     }

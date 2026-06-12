@@ -9,7 +9,7 @@ import logging
 from typing import TYPE_CHECKING
 
 from locus import config
-from locus.markets.gamma import Market
+from locus.markets.gamma import Market, _infer_category
 
 if TYPE_CHECKING:
     from locus.core.market_index import MarketIndex
@@ -47,17 +47,12 @@ def tokenize(text: str) -> set[str]:
     }
 
 
-def match_news_to_markets(
+def _scored_keyword_matches(
     headline: str,
     markets: list[Market],
     max_matches: int = 5,
-) -> list[Market]:
-    """
-    Find markets that a news headline is relevant to.
-    Uses whole-token keyword overlap scoring — fast, no API call.
-    (Substring matching let "cap" hit "capital" and "ai" hit "raise",
-    burning classify calls on junk matches.)
-    """
+) -> list[tuple[float, Market]]:
+    """Whole-token keyword overlap, scored as hits / question-keywords."""
     headline_tokens = tokenize(headline)
     scored = []
 
@@ -77,7 +72,34 @@ def match_news_to_markets(
 
     # Sort by score descending
     scored.sort(key=lambda x: x[0], reverse=True)
-    return [m for _, m in scored[:max_matches]]
+    return scored[:max_matches]
+
+
+def match_news_to_markets(
+    headline: str,
+    markets: list[Market],
+    max_matches: int = 5,
+) -> list[Market]:
+    """
+    Find markets that a news headline is relevant to.
+    Uses whole-token keyword overlap scoring — fast, no API call.
+    (Substring matching let "cap" hit "capital" and "ai" hit "raise",
+    burning classify calls on junk matches.)
+    """
+    return [m for _, m in _scored_keyword_matches(headline, markets, max_matches)]
+
+
+def prefilter_match(headline: str, market: Market, match_source: str, score: float) -> bool:
+    """True when a match is junk-likely and not worth a Claude call:
+    keyword-only, weak overlap (score below PREFILTER_KEYWORD_SCORE), and
+    the headline's inferred topic doesn't even share the market's category.
+    Embedding-backed matches always pass — they cleared the semantic bar."""
+    if match_source != "keyword":
+        return False
+    if score >= config.PREFILTER_KEYWORD_SCORE:
+        return False
+    headline_topic = _infer_category(headline, [])
+    return headline_topic != market.category
 
 
 def match_news_to_markets_hybrid(
@@ -85,17 +107,20 @@ def match_news_to_markets_hybrid(
     markets: list[Market],
     index: "MarketIndex | None" = None,
     max_matches: int = 5,
-) -> list[tuple[Market, str]]:
+) -> list[tuple[Market, str, float]]:
     """
     Union of keyword and embedding matches, deduped by condition_id.
-    Returns (market, match_source) pairs where match_source is
-    "keyword", "embedding", or "both". Falls back to keyword-only while
-    the embedding index is cold (or absent). Blocking (~50ms when warm) —
-    the async pipeline calls this in an executor.
+    Returns (market, match_source, score) triples where match_source is
+    "keyword", "embedding", or "both"; score is the keyword overlap ratio
+    for keyword/both matches and (1 - cosine distance) for embedding-only
+    ones. Falls back to keyword-only while the embedding index is cold (or
+    absent). Blocking (~50ms when warm) — the async pipeline calls this in
+    an executor.
     """
-    keyword_matches = match_news_to_markets(headline, markets, max_matches)
-    sources: dict[str, str] = {m.condition_id: "keyword" for m in keyword_matches}
-    matched: dict[str, Market] = {m.condition_id: m for m in keyword_matches}
+    keyword_scored = _scored_keyword_matches(headline, markets, max_matches)
+    sources: dict[str, str] = {m.condition_id: "keyword" for _, m in keyword_scored}
+    scores: dict[str, float] = {m.condition_id: s for s, m in keyword_scored}
+    matched: dict[str, Market] = {m.condition_id: m for _, m in keyword_scored}
 
     if index is not None and not index.ready:
         # First call after process start: load the persisted index now (we're
@@ -106,7 +131,7 @@ def match_news_to_markets_hybrid(
         by_id = {m.condition_id: m for m in markets}
         extras = 0
         hits = index.search(headline)
-        for cid, _dist in sorted(hits.items(), key=lambda kv: kv[1]):
+        for cid, dist in sorted(hits.items(), key=lambda kv: kv[1]):
             market = by_id.get(cid)
             if market is None:
                 continue  # index entry no longer tracked; next sync removes it
@@ -114,10 +139,11 @@ def match_news_to_markets_hybrid(
                 sources[cid] = "both"
             elif extras < config.EMBED_MAX_EXTRA_MATCHES:
                 sources[cid] = "embedding"
+                scores[cid] = 1.0 - dist
                 matched[cid] = market
                 extras += 1
 
-    return [(market, sources[cid]) for cid, market in matched.items()]
+    return [(market, sources[cid], scores[cid]) for cid, market in matched.items()]
 
 
 def match_news_to_markets_broad(

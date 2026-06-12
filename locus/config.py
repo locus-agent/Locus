@@ -93,6 +93,15 @@ EMBED_MAX_EXTRA_MATCHES = int(os.getenv("EMBED_MAX_EXTRA_MATCHES", "3"))
 CLASSIFICATION_MODEL = "claude-haiku-4-5-20251001"
 SCORING_MODEL = "claude-sonnet-4-6"
 
+# --- Claude-call efficiency ---
+# Prefilter: skip classification for keyword-only matches whose overlap
+# score is below this AND whose headline topic mismatches the market category.
+PREFILTER_KEYWORD_SCORE = float(os.getenv("PREFILTER_KEYWORD_SCORE", "0.25"))
+# Classification cache: reuse a stored result for the same (headline, market)
+# within this window if the market price hasn't moved beyond the tolerance.
+CLASSIFY_CACHE_HOURS = float(os.getenv("CLASSIFY_CACHE_HOURS", "24"))
+CLASSIFY_CACHE_PRICE_TOLERANCE = float(os.getenv("CLASSIFY_CACHE_PRICE_TOLERANCE", "0.02"))
+
 # --- Classification grading (non-traded calls vs later price moves) ---
 CALIBRATION_HORIZON_HOURS = float(os.getenv("CALIBRATION_HORIZON_HOURS", "24"))
 CALIBRATION_MOVE_THRESHOLD = float(os.getenv("CALIBRATION_MOVE_THRESHOLD", "0.02"))
