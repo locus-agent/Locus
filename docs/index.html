@@ -314,6 +314,7 @@
   .gate-row .gate-count { font-weight: 700; }
   .gate-stale .gate-count { color: var(--yellow); }
   .gate-capped .gate-count { color: var(--cyan); }
+  .gate-correlation .gate-count { color: var(--red); }
 
   /* Track record bars */
   .bar-row {
@@ -684,6 +685,10 @@
           <span class="gate-label">capped — headline already traded</span>
           <span class="gate-count" id="gate-capped">—</span>
         </div>
+        <div class="gate-row gate-correlation">
+          <span class="gate-label">correlation — over-concentrated in topic</span>
+          <span class="gate-count" id="gate-correlation">—</span>
+        </div>
       </div>
       <div class="panel">
         <div class="panel-title">Track Record</div>
@@ -844,6 +849,7 @@
     const g = status.gates_24h || {};
     document.getElementById('gate-stale').textContent = g.stale ?? '—';
     document.getElementById('gate-capped').textContent = g.capped ?? '—';
+    document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
   }
 
   function matchBadge(source) {

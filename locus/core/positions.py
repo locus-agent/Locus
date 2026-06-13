@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from datetime import datetime, timezone
 
 import anthropic
@@ -153,6 +154,99 @@ def get_recent_exit_decisions(limit: int = 5) -> list[dict]:
     ).fetchall()
     conn.close()
     return [dict(r) for r in rows]
+
+
+# --- Correlation risk ---------------------------------------------------------
+#
+# One headline can only open one position (the pipeline's headline cap), but
+# distinct headlines about the same subject — three Trump markets, two SpaceX
+# markets — can quietly stack into one concentrated bet. The correlation
+# tracker estimates topic overlap between a candidate market and the open book
+# and flags over-concentration before another correlated position is opened.
+
+# Market-question scaffolding we don't treat as a topic ("Will Trump win?").
+_TOPIC_STOPWORDS = {
+    "will", "who", "what", "when", "where", "which", "the", "a", "an", "is",
+    "are", "be", "to", "of", "in", "on", "at", "by", "for", "and", "or", "win",
+    "wins", "won", "first", "before", "after", "between", "during", "this",
+    "that", "next", "new", "no", "yes", "it", "its", "his", "her", "than",
+    "with", "from", "into", "over", "under", "out", "up", "down", "end",
+}
+
+# Topics/entities worth tracking even when they appear lowercase in a question.
+_TOPIC_KEYWORDS = {
+    "trump", "biden", "harris", "vance", "desantis", "newsom", "obama",
+    "putin", "zelensky", "musk", "spacex", "tesla", "openai", "anthropic",
+    "nvidia", "apple", "google", "meta", "microsoft",
+    "ai", "agi", "election", "primary", "senate", "congress", "president",
+    "governor", "fed", "inflation", "rates", "recession", "gdp", "jobs",
+    "bitcoin", "btc", "ethereum", "eth", "crypto", "solana", "doge", "xrp",
+    "ukraine", "russia", "israel", "gaza", "iran", "china", "taiwan", "korea",
+    "nfl", "nba", "mlb", "nhl", "ufc", "olympics", "superbowl", "worldcup",
+    "oil", "gold", "stock", "ipo", "nyse", "nasdaq",
+}
+
+
+def extract_topics(question: str) -> set[str]:
+    """Pull topic keywords (people, entities, themes) out of a market question.
+
+    Two complementary passes: capitalized proper nouns / acronyms as they
+    appear in the text (Trump, SpaceX, AI, NYSE), plus a curated keyword list
+    matched case-insensitively so lowercase themes ("election", "crypto") are
+    caught regardless of capitalization. Everything is lowercased so the two
+    passes share a namespace and set intersection means "shared topic".
+    """
+    text = question or ""
+    topics: set[str] = set()
+    for token in re.findall(r"\b[A-Z][A-Za-z]+\b", text):
+        word = token.lower()
+        if word not in _TOPIC_STOPWORDS:
+            topics.add(word)
+    lowered = text.lower()
+    for kw in _TOPIC_KEYWORDS:
+        if re.search(rf"\b{re.escape(kw)}\b", lowered):
+            topics.add(kw)
+    return topics
+
+
+def check_correlation_risk(new_market_question: str, new_side: str,
+                           open_positions: list[dict]) -> dict:
+    """Estimate concentration risk of adding a position correlated with the book.
+
+    `new_side` is accepted for caller context/logging; risk is driven purely by
+    topic overlap and combined dollar exposure of the correlated open positions:
+
+      high   — 3+ correlated positions OR combined exposure > $75
+      medium — 2 correlated positions OR combined exposure > $50
+      low    — otherwise
+    """
+    new_topics = extract_topics(new_market_question)
+    correlated: list[dict] = []
+    if new_topics:
+        for p in open_positions:
+            shared = new_topics & extract_topics(p.get("market_question", ""))
+            if shared:
+                correlated.append({
+                    "market_question": p.get("market_question", ""),
+                    "side": p.get("side"),
+                    "amount_usd": p.get("amount_usd") or 0.0,
+                    "shared_topics": sorted(shared),
+                })
+
+    total_exposure = sum(c["amount_usd"] for c in correlated)
+    count = len(correlated)
+    if count >= 3 or total_exposure > 75:
+        risk_level = "high"
+    elif count >= 2 or total_exposure > 50:
+        risk_level = "medium"
+    else:
+        risk_level = "low"
+
+    return {
+        "correlated_positions": correlated,
+        "total_exposure_usd": round(total_exposure, 2),
+        "risk_level": risk_level,
+    }
 
 
 def check_trigger(position: dict, current_pnl_pct: float) -> str | None:

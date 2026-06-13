@@ -252,6 +252,31 @@ class PipelineV2:
                         raw_signal = detect_edge_v2(market, classification, event)
                         signal, action = gate_trade(event, raw_signal, self._traded_headlines)
 
+                        # Correlation gate: don't stack the book into one
+                        # subject. HIGH risk blocks; MEDIUM warns but allows.
+                        if signal is not None:
+                            corr = positions.check_correlation_risk(
+                                market.question, signal.side, positions.get_open_positions()
+                            )
+                            if corr["risk_level"] == "high":
+                                self.stats["correlation_blocks"] = (
+                                    self.stats.get("correlation_blocks", 0) + 1
+                                )
+                                signal, action = None, "correlation_block"
+                                console.print(
+                                    f"  [red]CORRELATION BLOCK[/red]: "
+                                    f"{len(corr['correlated_positions'])} related "
+                                    f"positions (${corr['total_exposure_usd']:.0f} exposure) "
+                                    f"on \"{market.question[:40]}\""
+                                )
+                            elif corr["risk_level"] == "medium":
+                                console.print(
+                                    f"  [yellow]CORRELATION WARNING[/yellow]: "
+                                    f"{len(corr['correlated_positions'])} related "
+                                    f"positions (${corr['total_exposure_usd']:.0f} exposure) "
+                                    f"on \"{market.question[:40]}\" (allowed)"
+                                )
+
                     logger.log_classification(
                         market_question=market.question,
                         headline=event.headline,

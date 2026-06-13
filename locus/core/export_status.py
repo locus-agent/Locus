@@ -90,6 +90,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
         "gates_24h": {
             "stale": logger.get_classification_count_since(since_24h, action="stale"),
             "capped": logger.get_classification_count_since(since_24h, action="capped"),
+            "correlation_block": logger.get_classification_count_since(since_24h, action="correlation_block"),
         },
         "pipeline_24h": {
             "news": logger.get_news_event_count_since(since_24h),
