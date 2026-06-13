@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T22:33:51.329245+00:00",
+  "generated_at": "2026-06-13T22:38:53.630541+00:00",
   "dry_run": true,
   "markets_tracked": 2511,
   "classify_error_streak": 0,
@@ -16,10 +16,10 @@
       "rss": 21.3
     }
   },
-  "headlines_scanned_today": 583,
+  "headlines_scanned_today": 586,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3307,
+  "classifications_24h": 3323,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 25,
@@ -33,9 +33,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 756,
-    "matched": 441,
-    "classified": 3307,
+    "news": 759,
+    "matched": 443,
+    "classified": 3323,
     "signals": 0,
     "trades": 0
   },
@@ -177,6 +177,182 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-13 22:34:38",
+      "market_question": "Will Anthropic\u2019s market cap be between $300B and $400B at market close on IPO day?",
+      "headline": "Stock Market Today: Dow Climbs 400 Points On Iran Deal Hopes; SpaceX Rockets Higher (Live Coverage) - Investor's Business Daily",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 22:34:36",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "Stock Market Today: Dow Climbs 400 Points On Iran Deal Hopes; SpaceX Rockets Higher (Live Coverage) - Investor's Business Daily",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 22:34:34",
+      "market_question": "Ethereum Up or Down - June 13, 4:00PM-8:00PM ET",
+      "headline": "Stock Market Today: Dow Climbs 400 Points On Iran Deal Hopes; SpaceX Rockets Higher (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 22:34:32",
+      "market_question": "Will Anthropic's market cap be less than $1.25T at market close on IPO day?",
+      "headline": "Stock Market Today: Dow Climbs 400 Points On Iran Deal Hopes; SpaceX Rockets Higher (Live Coverage) - Investor's Business Daily",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 22:34:30",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Stock Market Today: Dow Climbs 400 Points On Iran Deal Hopes; SpaceX Rockets Higher (Live Coverage) - Investor's Business Daily",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 22:34:29",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "Stock Market Today: Dow Climbs 400 Points On Iran Deal Hopes; SpaceX Rockets Higher (Live Coverage) - Investor's Business Daily",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 22:34:27",
+      "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
+      "headline": "Stock Market Today: Dow Climbs 400 Points On Iran Deal Hopes; SpaceX Rockets Higher (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.58,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 22:34:25",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "Stock Market Today: Dow Climbs 400 Points On Iran Deal Hopes; SpaceX Rockets Higher (Live Coverage) - Investor's Business Daily",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 22:34:23",
+      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
+      "headline": "SpaceX IPO Live Updates: SPCX Rises 20%; Musk Becomes World's First Trillionaire - WSJ",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.68,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 22:34:21",
+      "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
+      "headline": "SpaceX IPO Live Updates: SPCX Rises 20%; Musk Becomes World's First Trillionaire - WSJ",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.68,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 22:34:19",
+      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
+      "headline": "SpaceX IPO Live Updates: SPCX Rises 20%; Musk Becomes World's First Trillionaire - WSJ",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 22:34:18",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "SpaceX IPO Live Updates: SPCX Rises 20%; Musk Becomes World's First Trillionaire - WSJ",
+      "direction": "bullish",
+      "materiality": 0.62,
+      "confidence": 0.72,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both"
+    },
+    {
+      "time": "2026-06-13 22:34:15",
+      "market_question": "Mistral AI IPO before 2027?",
+      "headline": "SpaceX IPO Live Updates: SPCX Rises 20%; Musk Becomes World's First Trillionaire - WSJ",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 22:34:14",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "SpaceX IPO Live Updates: SPCX Rises 20%; Musk Becomes World's First Trillionaire - WSJ",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.58,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 22:34:12",
+      "market_question": "OpenAI IPO before 2027?",
+      "headline": "SpaceX IPO Live Updates: SPCX Rises 20%; Musk Becomes World's First Trillionaire - WSJ",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.58,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 22:34:10",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "SpaceX IPO Live Updates: SPCX Rises 20%; Musk Becomes World's First Trillionaire - WSJ",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
       "time": "2026-06-13 22:20:24",
       "market_question": "Will Tempo launch a token by September 30, 2026?",
       "headline": "The First PS5 Game Delay Out of September 2026 Has Been Confirmed - Push Square",
@@ -218,182 +394,6 @@
       "confidence": null,
       "edge": null,
       "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will S\u00e1nchez win the 2nd round of the 2026 Peru presidential election by 0\u20134%?",
-      "headline": "Round Up: The Previews Are In For Rhythm Heaven Groove - Nintendo Life",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will Fujimori win the 2nd round of the 2026 Peru presidential election by 0\u20134%?",
-      "headline": "Round Up: The Previews Are In For Rhythm Heaven Groove - Nintendo Life",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will El Salvador hold $1b+ of BTC by December 31, 2026?",
-      "headline": "3 must-play JRPGs that will hold you over until Final Fantasy 7 Revelation - Polygon.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "3 must-play JRPGs that will hold you over until Final Fantasy 7 Revelation - Polygon.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will the Republican Party hold 32 or more governorships after the 2026 midterm elections?",
-      "headline": "3 must-play JRPGs that will hold you over until Final Fantasy 7 Revelation - Polygon.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will the Republican Party hold fewer than 22 governorships after the 2026 midterm elections?",
-      "headline": "3 must-play JRPGs that will hold you over until Final Fantasy 7 Revelation - Polygon.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will the Republican Party hold exactly 24 or 25 governorships after the 2026 midterm elections?",
-      "headline": "3 must-play JRPGs that will hold you over until Final Fantasy 7 Revelation - Polygon.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Trump talks to Cuba leader Diaz-Canel by June 30?",
-      "headline": "RGG Studio Head Talks Tupac's Controversial Stranger Than Heaven Inclusion - Game Informer",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "RGG Studio Head Talks Tupac's Controversial Stranger Than Heaven Inclusion - Game Informer",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "RGG Studio Head Talks Tupac's Controversial Stranger Than Heaven Inclusion - Game Informer",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:24",
-      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "RGG Studio Head Talks Tupac's Controversial Stranger Than Heaven Inclusion - Game Informer",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:23",
-      "market_question": "Will o1 launch a token by September 30, 2026?",
-      "headline": "The First PS5 Game Delay Out of September 2026 Has Been Confirmed - Push Square",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:21",
-      "market_question": "Will Anthropic IPO by September 15, 2026?",
-      "headline": "The First PS5 Game Delay Out of September 2026 Has Been Confirmed - Push Square",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:20",
-      "market_question": "Will OpenAI IPO by September 30 2026?",
-      "headline": "The First PS5 Game Delay Out of September 2026 Has Been Confirmed - Push Square",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:19",
-      "market_question": "Will Anthropic IPO by September 30, 2026?",
-      "headline": "The First PS5 Game Delay Out of September 2026 Has Been Confirmed - Push Square",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 22:20:14",
-      "market_question": "Will Google Gemini be #1 Free App in the US Apple App Store on June 15?",
-      "headline": "Meta\u2019s Edits app is getting an AI assistant and a desktop version - TechCrunch",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.58,
-      "edge": null,
-      "action": "skip",
       "match_source": "keyword"
     }
   ],
