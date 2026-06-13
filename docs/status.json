@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-13T19:05:40.384316+00:00",
+  "generated_at": "2026-06-13T19:10:42.590017+00:00",
   "dry_run": true,
-  "markets_tracked": 2452,
+  "markets_tracked": 2455,
   "classify_error_streak": 0,
   "track_record": {
     "total": 0,
@@ -9,19 +9,19 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 449,
+  "headlines_scanned_today": 451,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3674,
+  "classifications_24h": 3676,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 21,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 797,
-    "matched": 420,
-    "classified": 3674,
+    "news": 798,
+    "matched": 422,
+    "classified": 3676,
     "signals": 0,
     "trades": 0
   },
@@ -121,6 +121,76 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-13 19:09:01",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Consumer sentiment rises for the first time in three months - CNN",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 19:09:01",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Consumer sentiment rises for the first time in three months - CNN",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 19:09:01",
+      "market_question": "Ethereum all time high by June 30, 2026?",
+      "headline": "Consumer sentiment rises for the first time in three months - CNN",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 19:09:01",
+      "market_question": "Ethereum all time high by September 30, 2026?",
+      "headline": "Consumer sentiment rises for the first time in three months - CNN",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 19:09:01",
+      "market_question": "SpaceX IPO: Closing Price Up/Down End of First Month?",
+      "headline": "Consumer sentiment rises for the first time in three months - CNN",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 19:09:00",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "1,000,000,000,000 (that\u2019s 1 trillion), in graphics - NBC News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 19:08:59",
+      "market_question": "Will Trump deport 900k-1m people?",
+      "headline": "1,000,000,000,000 (that\u2019s 1 trillion), in graphics - NBC News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
     {
       "time": "2026-06-13 18:54:46",
       "market_question": "Will AI be charged with a crime before 2027?",
@@ -249,76 +319,6 @@
       "materiality": 0.05,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 18:54:35",
-      "market_question": "Trump goes to space in 2026?",
-      "headline": "DNA Study Reveals That Space Permanently Changes The Human Body - Yahoo",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 18:54:35",
-      "market_question": "AI data center in space by December 31, 2026?",
-      "headline": "DNA Study Reveals That Space Permanently Changes The Human Body - Yahoo",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 18:54:33",
-      "market_question": "Italy Senate approves Nuclear Power Bill by August 31?",
-      "headline": "Physicists Just Built the First-Ever Nuclear Clock - Gizmodo",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 18:54:33",
-      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the most seats in the next Russian parliamentary election?",
-      "headline": "Physicists Just Built the First-Ever Nuclear Clock - Gizmodo",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 18:54:33",
-      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the second-most seats in the next Russian parliamentary election?",
-      "headline": "Physicists Just Built the First-Ever Nuclear Clock - Gizmodo",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 18:40:35",
-      "market_question": "Haiti elections delayed again?",
-      "headline": "We Played Tomb Raider: Legacy of Atlantis, Which Makes a 30-Year-Old Adventure Feel Brand New Again. - IGN",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 18:40:35",
-      "market_question": "Will Trump flip the bird again in 2026?",
-      "headline": "We Played Tomb Raider: Legacy of Atlantis, Which Makes a 30-Year-Old Adventure Feel Brand New Again. - IGN",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
       "match_source": "keyword"
     }
   ],
