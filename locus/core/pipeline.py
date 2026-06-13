@@ -28,6 +28,7 @@ from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import classify_async, classify_edge_type
+from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
 from locus.core.journal import maybe_write_journal
 from locus.core import positions
 
@@ -277,6 +278,24 @@ class PipelineV2:
                                     f"positions (${corr['total_exposure_usd']:.0f} exposure) "
                                     f"on \"{market.question[:40]}\" (allowed)"
                                 )
+
+                        # Orderbook imbalance gate: don't trade into strong
+                        # opposing flow on the live YES book. Fails open when
+                        # the CLOB is unreachable (imbalance is None -> allowed).
+                        if signal is not None:
+                            imbalance = await asyncio.get_event_loop().run_in_executor(
+                                None, fetch_orderbook_imbalance, get_token_id(market, "YES")
+                            )
+                            if not orderbook_allows(signal.side, imbalance):
+                                self.stats["orderbook_skips"] = (
+                                    self.stats.get("orderbook_skips", 0) + 1
+                                )
+                                console.print(
+                                    f"  [yellow]ORDERBOOK SKIP[/yellow]: {signal.side} "
+                                    f"into imbalance {imbalance:+.2f} "
+                                    f"on \"{market.question[:40]}\""
+                                )
+                                signal, action = None, "orderbook_skip"
 
                         # Attribute a surviving signal to an edge type, for the
                         # trade record and per-type calibration.

@@ -315,6 +315,7 @@
   .gate-stale .gate-count { color: var(--yellow); }
   .gate-capped .gate-count { color: var(--cyan); }
   .gate-correlation .gate-count { color: var(--red); }
+  .gate-orderbook .gate-count { color: var(--yellow); }
 
   /* Track record bars */
   .bar-row {
@@ -707,6 +708,10 @@
           <span class="gate-label">correlation — over-concentrated in topic</span>
           <span class="gate-count" id="gate-correlation">—</span>
         </div>
+        <div class="gate-row gate-orderbook">
+          <span class="gate-label">orderbook — strong opposing flow</span>
+          <span class="gate-count" id="gate-orderbook">—</span>
+        </div>
       </div>
       <div class="panel">
         <div class="panel-title">Track Record</div>
@@ -869,6 +874,7 @@
     document.getElementById('gate-stale').textContent = g.stale ?? '—';
     document.getElementById('gate-capped').textContent = g.capped ?? '—';
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
+    document.getElementById('gate-orderbook').textContent = g.orderbook_skip ?? '—';
   }
 
   function matchBadge(source) {
