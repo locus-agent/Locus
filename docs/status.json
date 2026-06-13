@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-13T11:52:22.890728+00:00",
+  "generated_at": "2026-06-13T11:57:25.021130+00:00",
   "dry_run": true,
-  "markets_tracked": 2488,
+  "markets_tracked": 2490,
   "classify_error_streak": 0,
   "track_record": {
     "total": 0,
@@ -9,32 +9,32 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 176,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 182,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 4092,
+  "classifications_24h": 4116,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "stale": 15,
+    "stale": 17,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 890,
-    "matched": 253,
-    "classified": 4092,
+    "news": 895,
+    "matched": 258,
+    "classified": 4116,
     "signals": 0,
     "trades": 0
   },
   "performance": {
     "trades_total": 6,
     "deployed_usd": 150.0,
-    "open_count": 3,
-    "closed_count": 3,
+    "open_count": 2,
+    "closed_count": 4,
     "wins": 0,
-    "losses": 3,
+    "losses": 4,
     "win_rate_pct": 0.0,
-    "realized_pnl_usd": -42.77,
-    "unrealized_pnl_usd": -6.08
+    "realized_pnl_usd": -48.62,
+    "unrealized_pnl_usd": 0.0
   },
   "open_positions": [
     {
@@ -56,19 +56,19 @@
       "current_price": 0.001,
       "pnl_pct": 0.0,
       "amount_usd": 25.0
-    },
+    }
+  ],
+  "closed_positions": [
     {
-      "time": "2026-06-12 21:07:20",
+      "time": "2026-06-13T11:57:15.739323+00:00",
       "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
       "slug": null,
       "side": "NO",
       "entry_price": 0.445,
-      "current_price": 0.58,
-      "pnl_pct": -24.32,
-      "amount_usd": 25.0
-    }
-  ],
-  "closed_positions": [
+      "exit_price": 0.575,
+      "realized_pnl_usd": -5.855855855855852,
+      "exit_reason": "news_decision"
+    },
     {
       "time": "2026-06-12T21:27:01.117383+00:00",
       "market_question": "Will Steve Hilton win the 2026 California Governor Primary Election?",
@@ -102,6 +102,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-13 11:57:15",
+      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
+      "side": "NO",
+      "trigger": "news",
+      "decision": "close",
+      "reasoning": "Trump claiming a deal was reached directly contradicts the original thesis that he viewed sanctions as beneficial and would not agree to relief; with the position already down 23.4% and a materiality-0.62 headline shifting the narrative toward YES resolution, the edge is gone and holding risks further losses.",
+      "pnl_pct": -23.42
+    },
+    {
       "time": "2026-06-12 21:27:01",
       "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
       "side": "YES",
@@ -113,9 +122,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-13 11:26:51",
-      "market_question": "Trump declassifies new UFO files by June 22?",
-      "headline": "Disclosure Day: Steven Spielberg's new alien movie arrives as AI reshapes truth - Moneycontrol.com",
+      "time": "2026-06-13 11:57:23",
+      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
+      "headline": "Kennedy Center board seeks pause of ruling ordering removal of Trump's name - NPR",
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
@@ -123,149 +132,149 @@
       "match_source": "both"
     },
     {
-      "time": "2026-06-13 11:26:49",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Disclosure Day: Steven Spielberg's new alien movie arrives as AI reshapes truth - Moneycontrol.com",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 11:26:49",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Disclosure Day: Steven Spielberg's new alien movie arrives as AI reshapes truth - Moneycontrol.com",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 11:26:49",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Disclosure Day: Steven Spielberg's new alien movie arrives as AI reshapes truth - Moneycontrol.com",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 11:26:49",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Disclosure Day: Steven Spielberg's new alien movie arrives as AI reshapes truth - Moneycontrol.com",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 11:06:12",
-      "market_question": "Will Microsoft have the best AI Agent at the end of June 2026?",
-      "headline": "UK sets out AI infrastructure push at London Tech Week \u2013 how does it stack up? - The Guardian",
+      "time": "2026-06-13 11:57:22",
+      "market_question": "SCOTUS strikes down Trump's Birthright Citizenship EO?",
+      "headline": "Kennedy Center board seeks pause of ruling ordering removal of Trump's name - NPR",
       "direction": "neutral",
       "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 11:57:20",
+      "market_question": "Trump's face on US gold coin by July 4?",
+      "headline": "Kennedy Center board seeks pause of ruling ordering removal of Trump's name - NPR",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 11:57:20",
+      "market_question": "AI data center in space by December 31, 2026?",
+      "headline": "Kennedy Center board seeks pause of ruling ordering removal of Trump's name - NPR",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 11:57:19",
+      "market_question": "Will Trump agree to Iranian enrichment of uranium by June 30?",
+      "headline": "Trump claims Iran deal reached, Tehran says no \"final decision\" - Axios",
+      "direction": "bullish",
+      "materiality": 0.35,
       "edge": null,
       "action": "skip",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-13 11:06:11",
+      "time": "2026-06-13 11:57:19",
       "market_question": "AI data center moratorium passed before 2027?",
-      "headline": "UK sets out AI infrastructure push at London Tech Week \u2013 how does it stack up? - The Guardian",
-      "direction": "bearish",
-      "materiality": 0.08,
+      "headline": "Kennedy Center board seeks pause of ruling ordering removal of Trump's name - NPR",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 11:57:17",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Trump claims Iran deal reached, Tehran says no \"final decision\" - Axios",
+      "direction": "bullish",
+      "materiality": 0.35,
       "edge": null,
       "action": "skip",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-13 11:06:08",
-      "market_question": "Will Trump say \"UFC\" this week?",
-      "headline": "UK sets out AI infrastructure push at London Tech Week \u2013 how does it stack up? - The Guardian",
+      "time": "2026-06-13 11:57:11",
+      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
+      "headline": "Trump claims Iran deal reached, Tehran says no \"final decision\" - Axios",
+      "direction": "bullish",
+      "materiality": 0.62,
+      "edge": 0.2759,
+      "action": "stale",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 11:57:10",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Trump claims Iran deal reached, Tehran says no \"final decision\" - Axios",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.02,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-13 11:06:08",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "UK sets out AI infrastructure push at London Tech Week \u2013 how does it stack up? - The Guardian",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 11:06:08",
-      "market_question": "Will Trump say \"Six Seven\" this week?",
-      "headline": "UK sets out AI infrastructure push at London Tech Week \u2013 how does it stack up? - The Guardian",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 11:06:08",
-      "market_question": "Tamas Sulyok out as President of Hungary by June 30?",
-      "headline": "UK sets out AI infrastructure push at London Tech Week \u2013 how does it stack up? - The Guardian",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-13 11:06:07",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "UK sets out AI infrastructure push at London Tech Week \u2013 how does it stack up? - The Guardian",
+      "time": "2026-06-13 11:57:07",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Trump claims Iran deal reached, Tehran says no \"final decision\" - Axios",
       "direction": "bearish",
-      "materiality": 0.08,
+      "materiality": 0.35,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
+      "match_source": "both"
     },
     {
-      "time": "2026-06-13 11:01:57",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "The future of Hollywood isn\u2019t feeding prompts into vanilla gen AI models",
+      "time": "2026-06-13 11:57:06",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Trump claims Iran deal reached, Tehran says no \"final decision\" - Axios",
       "direction": "neutral",
       "materiality": 0.05,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding"
+      "match_source": "keyword"
     },
     {
-      "time": "2026-06-13 11:01:56",
-      "market_question": "Will Moonshot have the best Coding AI model at the end of June 2026?",
-      "headline": "The future of Hollywood isn\u2019t feeding prompts into vanilla gen AI models",
-      "direction": "neutral",
-      "materiality": 0.05,
+      "time": "2026-06-13 11:57:04",
+      "market_question": "Trump announces US x Iran ceasefire over by June 30?",
+      "headline": "Trump claims Iran deal reached, Tehran says no \"final decision\" - Axios",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both"
+    },
+    {
+      "time": "2026-06-13 11:57:03",
+      "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
+      "headline": "Trump claims Iran deal reached, Tehran says no \"final decision\" - Axios",
+      "direction": "bullish",
+      "materiality": 0.55,
+      "edge": 0.3712500000000001,
+      "action": "stale",
+      "match_source": "both"
+    },
+    {
+      "time": "2026-06-13 11:57:01",
+      "market_question": "Will SpaceX\u2019s IPO valuation be between 1.50T and 1.75T?",
+      "headline": "SpaceX Shares Indicated More Than 35% Higher in Shadow Trading - Bloomberg",
+      "direction": "bullish",
+      "materiality": 0.55,
       "edge": null,
       "action": "skip",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-13 11:01:54",
-      "market_question": "Will Google have the best Coding AI model at the end of June 2026?",
-      "headline": "The future of Hollywood isn\u2019t feeding prompts into vanilla gen AI models",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-13 11:57:00",
+      "market_question": "Will SpaceX\u2019s IPO valuation be at least 2.50T?",
+      "headline": "SpaceX Shares Indicated More Than 35% Higher in Shadow Trading - Bloomberg",
+      "direction": "bullish",
+      "materiality": 0.25,
       "edge": null,
       "action": "skip",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-13 09:34:54",
-      "market_question": "Will Anthropic have the #3 AI model at the end of June 2026 (Style Control On)?",
-      "headline": "Anthropic says it has taken its latest AI models offline to comply with new export controls - ABC News - Breaking News, Latest News and Videos",
+      "time": "2026-06-13 11:56:58",
+      "market_question": "Will SpaceX\u2019s IPO valuation be less than 1.25T?",
+      "headline": "SpaceX Shares Indicated More Than 35% Higher in Shadow Trading - Bloomberg",
       "direction": "bearish",
       "materiality": 0.35,
       "edge": null,
@@ -273,43 +282,43 @@
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-13 09:34:52",
-      "market_question": "Will Anthropic have the #2 AI model at the end of June 2026 (Style Control On)?",
-      "headline": "Anthropic says it has taken its latest AI models offline to comply with new export controls - ABC News - Breaking News, Latest News and Videos",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "edge": 0.47850000000000004,
-      "action": "stale",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-13 09:34:50",
-      "market_question": "Will Anthropic have the #3 AI model at the end of July 2026?",
-      "headline": "Anthropic says it has taken its latest AI models offline to comply with new export controls - ABC News - Breaking News, Latest News and Videos",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "edge": 0.40425,
-      "action": "stale",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-13 09:34:48",
-      "market_question": "Anthropic acquired before 2027?",
-      "headline": "Anthropic says it has taken its latest AI models offline to comply with new export controls - ABC News - Breaking News, Latest News and Videos",
-      "direction": "bearish",
+      "time": "2026-06-13 11:56:56",
+      "market_question": "Will SpaceX have between 140-159 launches in 2026?",
+      "headline": "SpaceX Shares Indicated More Than 35% Higher in Shadow Trading - Bloomberg",
+      "direction": "bullish",
       "materiality": 0.15,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-13 09:34:44",
-      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
-      "headline": "Anthropic says it has taken its latest AI models offline to comply with new export controls - ABC News - Breaking News, Latest News and Videos",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "edge": 0.18700000000000003,
-      "action": "stale",
+      "time": "2026-06-13 11:56:55",
+      "market_question": "Will SpaceX have between 180-199 launches in 2026?",
+      "headline": "SpaceX Shares Indicated More Than 35% Higher in Shadow Trading - Bloomberg",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 11:56:53",
+      "market_question": "Will SpaceX have between 160-179 launches in 2026?",
+      "headline": "SpaceX Shares Indicated More Than 35% Higher in Shadow Trading - Bloomberg",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 11:56:52",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "SpaceX Shares Indicated More Than 35% Higher in Shadow Trading - Bloomberg",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "edge": null,
+      "action": "skip",
       "match_source": "keyword"
     }
   ],
