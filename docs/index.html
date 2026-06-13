@@ -205,6 +205,98 @@
     margin-top: 8px;
   }
 
+  /* Live readiness */
+  .readiness-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .readiness-head .criteria-met {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .readiness-badge {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 14px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+
+  .readiness-badge.ready {
+    color: var(--green);
+    border-color: var(--green);
+    background: rgba(43, 212, 126, 0.1);
+  }
+
+  .readiness-badge.not-ready {
+    color: var(--red);
+    border-color: var(--red);
+    background: rgba(224, 90, 90, 0.1);
+  }
+
+  .readiness-badge.na {
+    color: var(--muted);
+    border-color: var(--row-border);
+  }
+
+  .crit-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto 70px;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--row-border);
+  }
+
+  .crit-row:last-child { border-bottom: none; }
+
+  .crit-name {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .crit-value { font-weight: 700; font-size: 15px; }
+
+  .crit-threshold { color: var(--muted); font-size: 12px; }
+
+  .crit-status {
+    text-align: right;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .crit-status.pass { color: var(--green); }
+  .crit-status.fail { color: var(--red); }
+  .crit-status.na { color: var(--muted); }
+
+  .readiness-msg {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  .readiness-msg.ready {
+    color: var(--green);
+    background: rgba(43, 212, 126, 0.08);
+    border: 1px solid var(--green);
+    font-weight: 700;
+  }
+
+  .readiness-msg.muted {
+    color: var(--muted);
+    font-style: italic;
+  }
+
   /* Gates + track record row */
   .two-col {
     display: grid;
@@ -511,6 +603,20 @@
 
   <section class="block">
     <div class="panel">
+      <div class="readiness-head">
+        <div class="panel-title" style="margin-bottom: 0;">Live Readiness</div>
+        <div class="criteria-met" id="readiness-met">—</div>
+        <div class="readiness-badge na" id="readiness-badge">—</div>
+      </div>
+      <div id="readiness-rows">
+        <div class="empty">Accumulating data…</div>
+      </div>
+      <div class="readiness-msg muted" id="readiness-msg" style="display: none;"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
       <div class="panel-title" id="positions-title">Open Positions (dry run)</div>
       <div class="table-scroll">
         <table>
@@ -788,6 +894,72 @@
     return '<a href="' + url + '" target="_blank" rel="noopener">' + text + '</a>';
   }
 
+  function fmtMetric(value, unit) {
+    if (value === null || value === undefined) return '—';
+    if (unit === 'pct') return value.toFixed(1) + '%';
+    if (unit === 'ratio') return value.toFixed(2);
+    return String(value);  // count
+  }
+
+  function renderReadiness(status) {
+    const r = status.live_readiness || {};
+    const metrics = r.metrics || [];
+    const badge = document.getElementById('readiness-badge');
+    const met = document.getElementById('readiness-met');
+    const rows = document.getElementById('readiness-rows');
+    const msg = document.getElementById('readiness-msg');
+
+    if (metrics.length === 0) {
+      met.textContent = '—';
+      badge.textContent = '—';
+      badge.className = 'readiness-badge na';
+      rows.innerHTML = '<div class="empty">Accumulating data…</div>';
+      msg.style.display = 'none';
+      return;
+    }
+
+    const total = r.criteria_total ?? metrics.length;
+    met.textContent = (r.criteria_met ?? 0) + '/' + total + ' criteria met';
+
+    const allNa = metrics.every(m => m.pass === null);
+    if (allNa) {
+      badge.textContent = 'NO DATA';
+      badge.className = 'readiness-badge na';
+    } else if (r.ready) {
+      badge.textContent = 'READY';
+      badge.className = 'readiness-badge ready';
+    } else {
+      badge.textContent = 'NOT READY';
+      badge.className = 'readiness-badge not-ready';
+    }
+
+    rows.innerHTML = metrics.map(m => {
+      let statusTxt, statusCls;
+      if (m.pass === null) { statusTxt = 'N/A'; statusCls = 'na'; }
+      else if (m.pass) { statusTxt = 'PASS'; statusCls = 'pass'; }
+      else { statusTxt = 'FAIL'; statusCls = 'fail'; }
+      return `
+      <div class="crit-row">
+        <div class="crit-name">${escapeHtml(m.label)}</div>
+        <div class="crit-value">${fmtMetric(m.value, m.unit)}</div>
+        <div class="crit-threshold">${escapeHtml(m.threshold_display)}</div>
+        <div class="crit-status ${statusCls}">${statusTxt}</div>
+      </div>`;
+    }).join('');
+
+    if (r.ready) {
+      msg.style.display = 'block';
+      msg.className = 'readiness-msg ready';
+      msg.textContent = 'Strategy has demonstrated edge. Consider live trading.';
+    } else if (allNa) {
+      msg.style.display = 'block';
+      msg.className = 'readiness-msg muted';
+      msg.textContent = 'Accumulating data…';
+    } else {
+      msg.style.display = 'none';
+    }
+  }
+
   function renderPositions(status) {
     document.getElementById('positions-title').textContent =
       'Open Positions ' + (status.dry_run ? '(dry run)' : '(live)');
@@ -953,6 +1125,7 @@
       renderPipeline(status);
       renderStats(status);
       renderPerformance(status);
+      renderReadiness(status);
       renderPositions(status);
       renderClosed(status);
       renderExitDecisions(status);

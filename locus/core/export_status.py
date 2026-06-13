@@ -15,7 +15,7 @@ from pathlib import Path
 from locus import config
 from locus.memory import logger
 from locus import memory
-from locus.core.performance import compute_performance
+from locus.core.performance import compute_performance, compute_live_readiness
 from locus.core import positions
 
 log = logging.getLogger(__name__)
@@ -99,6 +99,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "trades": logger.get_trade_count_since(since_24h),
         },
         "performance": compute_performance(current_prices),
+        "live_readiness": compute_live_readiness(),
         "open_positions": [
             {
                 "time": p["opened_at"],

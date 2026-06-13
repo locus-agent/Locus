@@ -8,6 +8,8 @@ fees or slippage — the dashboard says so in small print.
 from __future__ import annotations
 
 import logging
+import math
+from collections import defaultdict
 
 import httpx
 
@@ -16,6 +18,124 @@ from locus.memory import logger
 log = logging.getLogger(__name__)
 
 GAMMA_API = "https://gamma-api.polymarket.com"
+
+# Live-readiness bar: thresholds a dry-run strategy should clear before
+# risking real capital (from the polymarket-skills research). Each criterion
+# carries its comparator so both the export and the dashboard agree on what
+# "pass" means.
+LIVE_READINESS_CRITERIA = [
+    {"key": "closed_trades", "label": "Closed Trades", "unit": "count",
+     "cmp": ">=", "threshold": 20, "threshold_display": "≥ 20"},
+    {"key": "win_rate", "label": "Win Rate", "unit": "pct",
+     "cmp": ">", "threshold": 55, "threshold_display": "> 55%"},
+    {"key": "sharpe_ratio", "label": "Sharpe Ratio", "unit": "ratio",
+     "cmp": ">", "threshold": 0.5, "threshold_display": "> 0.50"},
+    {"key": "max_drawdown", "label": "Max Drawdown", "unit": "pct",
+     "cmp": "<", "threshold": 15, "threshold_display": "< 15%"},
+]
+
+
+def _passes(cmp: str, value: float | None, threshold: float) -> bool | None:
+    """Evaluate one criterion; None (N/A) when the metric isn't computable yet."""
+    if value is None:
+        return None
+    if cmp == ">=":
+        return value >= threshold
+    if cmp == ">":
+        return value > threshold
+    if cmp == "<":
+        return value < threshold
+    return None
+
+
+def compute_live_readiness() -> dict:
+    """Track-record gate for graduating from dry-run to live trading.
+
+    Reads only fully-closed positions (status LIKE 'closed_%'); partial
+    close_half realizations on still-open positions don't count as a trade.
+
+    - closed_trades: how many closed positions exist.
+    - win_rate: % of them with positive realized PnL.
+    - sharpe_ratio: annualized (×√365) ratio of mean to std of realized PnL
+      grouped by close date; null until at least 7 distinct days of data.
+    - max_drawdown: deepest peak-to-trough drop of the realized-PnL equity
+      curve, as a % of the running peak. The curve is seeded with the capital
+      deployed across closed positions so the percentage stays well-defined
+      even while cumulative PnL is negative; null with no closed trades.
+    """
+    conn = logger._conn()
+    closed = [
+        dict(r) for r in conn.execute(
+            "SELECT amount_usd, realized_pnl_usd, closed_at FROM positions "
+            "WHERE status LIKE 'closed_%' ORDER BY closed_at"
+        ).fetchall()
+    ]
+    conn.close()
+
+    closed_trades = len(closed)
+
+    win_rate = (
+        round(sum(1 for p in closed if (p["realized_pnl_usd"] or 0) > 0)
+              / closed_trades * 100, 1)
+        if closed_trades else None
+    )
+
+    # Sharpe over realized PnL grouped by close date.
+    daily: dict[str, float] = defaultdict(float)
+    for p in closed:
+        day = (p["closed_at"] or "")[:10]
+        if day:
+            daily[day] += p["realized_pnl_usd"] or 0.0
+    sharpe = None
+    if len(daily) >= 7:
+        vals = list(daily.values())
+        mean = sum(vals) / len(vals)
+        std = math.sqrt(sum((x - mean) ** 2 for x in vals) / (len(vals) - 1))
+        if std > 0:
+            sharpe = round(mean / std * math.sqrt(365), 2)
+
+    # Max drawdown of the realized-PnL equity curve, seeded with deployed capital.
+    max_drawdown = None
+    bankroll = sum(p["amount_usd"] or 0.0 for p in closed)
+    if closed_trades and bankroll > 0:
+        equity = peak = bankroll
+        worst = 0.0
+        for p in closed:
+            equity += p["realized_pnl_usd"] or 0.0
+            peak = max(peak, equity)
+            if peak > 0:
+                worst = max(worst, (peak - equity) / peak * 100)
+        max_drawdown = round(worst, 1)
+
+    values = {
+        "closed_trades": closed_trades,
+        "win_rate": win_rate,
+        "sharpe_ratio": sharpe,
+        "max_drawdown": max_drawdown,
+    }
+
+    metrics = []
+    for c in LIVE_READINESS_CRITERIA:
+        value = values[c["key"]]
+        # With zero closed trades nothing is real yet — mark every criterion
+        # N/A (not FAIL) so the dashboard reads "accumulating data".
+        passed = None if closed_trades == 0 else _passes(c["cmp"], value, c["threshold"])
+        metrics.append({
+            "key": c["key"],
+            "label": c["label"],
+            "unit": c["unit"],
+            "value": value,
+            "threshold_display": c["threshold_display"],
+            "pass": passed,
+        })
+
+    criteria_met = sum(1 for m in metrics if m["pass"] is True)
+    return {
+        "ready": all(m["pass"] is True for m in metrics),
+        "criteria_met": criteria_met,
+        "criteria_total": len(metrics),
+        "metrics": metrics,
+    }
 
 
 def position_pnl(side: str, entry_yes_price: float, yes_price_now: float, amount_usd: float) -> float:
