@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-13T00:07:03.158146+00:00",
+  "generated_at": "2026-06-13T00:12:05.325969+00:00",
   "dry_run": true,
-  "markets_tracked": 2519,
+  "markets_tracked": 2520,
   "classify_error_streak": 0,
   "track_record": {
     "total": 0,
@@ -9,19 +9,19 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 1,
+  "headlines_scanned_today": 2,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3675,
+  "classifications_24h": 3671,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 11,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 800,
-    "matched": 256,
-    "classified": 3675,
+    "news": 799,
+    "matched": 255,
+    "classified": 3671,
     "signals": 0,
     "trades": 0
   },
@@ -34,7 +34,7 @@
     "losses": 3,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -42.77,
-    "unrealized_pnl_usd": -1.58
+    "unrealized_pnl_usd": -1.35
   },
   "open_positions": [
     {
@@ -63,8 +63,8 @@
       "slug": null,
       "side": "NO",
       "entry_price": 0.445,
-      "current_price": 0.48,
-      "pnl_pct": -6.31,
+      "current_price": 0.475,
+      "pnl_pct": -5.41,
       "amount_usd": 25.0
     }
   ],
@@ -112,6 +112,86 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-13 00:09:13",
+      "market_question": "AI data center moratorium passed before 2027?",
+      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 00:09:11",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 00:09:10",
+      "market_question": "AI wins IMO gold medal in 2026?",
+      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-13 00:09:08",
+      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
+      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 00:09:07",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 00:09:06",
+      "market_question": "Will Anthropic's market cap be less than $1.25T at market close on IPO day?",
+      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 00:09:04",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-13 00:09:03",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "\u2018There\u2019s a huge market demand\u2019: University of Utah approves new bachelor\u2019s degree in artificial intelligence - The Salt Lake Tribune",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-13 00:04:54",
       "market_question": "Will AI be charged with a crime before 2027?",
@@ -231,86 +311,6 @@
       "edge": null,
       "action": "cached",
       "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:57:13",
-      "market_question": "AI data center moratorium passed before 2027?",
-      "headline": "PeopleSoft 0-day affecting hundreds of organizations steals gigabytes of data",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:57:13",
-      "market_question": "AI data center in space by December 31, 2026?",
-      "headline": "PeopleSoft 0-day affecting hundreds of organizations steals gigabytes of data",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:57:13",
-      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
-      "headline": "PeopleSoft 0-day affecting hundreds of organizations steals gigabytes of data",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:57:13",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:57:13",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:57:13",
-      "market_question": "Will Anthropic be acquired before 2027?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:57:13",
-      "market_question": "Anthropic acquired before 2027?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:57:13",
-      "market_question": "Will Anthropic not IPO by June 30, 2026?",
-      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
     }
   ],
   "journal": [
