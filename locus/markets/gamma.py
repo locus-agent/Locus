@@ -196,6 +196,27 @@ def fetch_active_markets(
     return markets
 
 
+def fetch_slug_by_condition_id(condition_id: str) -> str:
+    """Look up a market's event slug by condition_id (used to backfill positions).
+
+    Returns "" if the market is unknown to Gamma or the request fails.
+    """
+    if not condition_id:
+        return ""
+    try:
+        with httpx.Client(timeout=15) as client:
+            resp = client.get(f"{GAMMA_API}/markets", params={"condition_ids": condition_id})
+            resp.raise_for_status()
+            data = resp.json()
+    except (httpx.HTTPError, ValueError):
+        return ""
+    batch = data if isinstance(data, list) else data.get("data", [])
+    if not batch:
+        return ""
+    m = batch[0]
+    return (m.get("events") or [{}])[0].get("slug", "") or m.get("slug", "")
+
+
 def _fetch_from_clob(limit: int) -> list[Market]:
     """Fallback: fetch from CLOB API directly."""
     markets = []
