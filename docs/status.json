@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:52:23.422981+00:00",
+  "generated_at": "2026-06-13T00:57:25.517555+00:00",
   "dry_run": true,
   "markets_tracked": 2511,
   "classify_error_streak": 0,
@@ -9,19 +9,19 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 3,
+  "headlines_scanned_today": 4,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3591,
+  "classifications_24h": 3592,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 9,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 786,
-    "matched": 244,
-    "classified": 3591,
+    "news": 787,
+    "matched": 245,
+    "classified": 3592,
     "signals": 0,
     "trades": 0
   },
@@ -112,6 +112,16 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-13 00:54:48",
+      "market_question": "Will any other model be the best AI model on June 13, 2026?",
+      "headline": "Why Intel, AMD, Arm, and Other Artificial Intelligence (AI) Stocks Popped Today - The Motley Fool",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-13 00:21:34",
       "market_question": "OpenAI announces it has achieved AGI before 2027?",
@@ -300,16 +310,6 @@
       "materiality": 0.02,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:57:18",
-      "market_question": "Will Google Gemini score at least 50% on the FrontierMath Benchmark?",
-      "headline": "Google Sues Chinese Cybercrime Network for Using Gemini AI to Fuel Scams - Android Headlines",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "cached",
       "match_source": "keyword"
     }
   ],
