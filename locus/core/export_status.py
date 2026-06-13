@@ -92,6 +92,12 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "capped": logger.get_classification_count_since(since_24h, action="capped"),
             "correlation_block": logger.get_classification_count_since(since_24h, action="correlation_block"),
         },
+        # Signals in the last 24h broken down by edge type (news/momentum/
+        # arbitrage). Zero-filled so the dashboard has stable keys.
+        "edge_types_24h": {
+            "news": 0, "momentum": 0, "arbitrage": 0,
+            **logger.get_edge_type_breakdown_since(since_24h, action="signal"),
+        },
         "pipeline_24h": {
             "news": logger.get_news_event_count_since(since_24h),
             "matched": logger.get_matched_headline_count_since(since_24h),
@@ -111,6 +117,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
                 "current_price": p["current_yes_price"],
                 "pnl_pct": p["unrealized_pnl_pct"],
                 "amount_usd": p["amount_usd"],
+                "edge_type": p.get("edge_type"),
             }
             for p in positions.get_open_positions()[:10]
         ],

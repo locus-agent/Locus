@@ -215,6 +215,36 @@ def classify(
     )
 
 
+# Edge types a signal can be attributed to. 'arbitrage' is defined for a
+# future cross-platform arbitrage strategy and is not emitted yet.
+EDGE_TYPES = ("news", "momentum", "arbitrage")
+
+# A YES-price move larger than this (%) over the lookback window marks the
+# signal as riding momentum rather than fresh news.
+MOMENTUM_MOVE_PCT = 10.0
+
+
+def classify_edge_type(market: Market, lookback_hours: float = 24.0) -> str:
+    """Attribute a signal to an edge type from market context.
+
+    - 'momentum' when this market's YES price has moved more than
+      MOMENTUM_MOVE_PCT (relative) over the last `lookback_hours`, inferred
+      from the earliest stored classification price for the market vs its
+      current price.
+    - 'news' otherwise — the default for our news-driven pipeline.
+    - 'arbitrage' is reserved for future cross-platform arbitrage; never
+      returned here yet.
+    """
+    prior_price = logger.get_earliest_classification_price(
+        market.condition_id, lookback_hours
+    )
+    if prior_price and prior_price > 0:
+        move_pct = abs(market.yes_price - prior_price) / prior_price * 100.0
+        if move_pct > MOMENTUM_MOVE_PCT:
+            return "momentum"
+    return "news"
+
+
 async def classify_async(
     headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None
 ) -> Classification:

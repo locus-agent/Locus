@@ -25,6 +25,7 @@ class Signal:
     news_latency_ms: int = 0
     classification_latency_ms: int = 0
     total_latency_ms: int = 0
+    edge_type: str = "news"  # set by the pipeline once a signal clears the gates
 
 
 def detect_edge(

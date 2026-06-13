@@ -180,6 +180,8 @@ def _migrate_v2_columns(conn):
         ("news_latency_ms", "INTEGER"),
         ("classification_latency_ms", "INTEGER"),
         ("total_latency_ms", "INTEGER"),
+        # Edge type behind the signal: 'news' (default), 'momentum', 'arbitrage'.
+        ("edge_type", "TEXT"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -198,6 +200,8 @@ def _migrate_classification_columns(conn):
         ("condition_id", "TEXT"),
         ("yes_price", "REAL"),
         ("yes_token_id", "TEXT"),
+        # Edge type behind a signal classification, for calibration by type.
+        ("edge_type", "TEXT"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -223,6 +227,7 @@ def log_trade(
     news_latency_ms: int | None = None,
     classification_latency_ms: int | None = None,
     total_latency_ms: int | None = None,
+    edge_type: str | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
@@ -230,12 +235,12 @@ def log_trade(
            (market_id, market_question, claude_score, market_price, edge,
             side, amount_usd, order_id, status, reasoning, headlines,
             news_source, classification, materiality,
-            news_latency_ms, classification_latency_ms, total_latency_ms)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            news_latency_ms, classification_latency_ms, total_latency_ms, edge_type)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_id, market_question, claude_score, market_price, edge,
          side, amount_usd, order_id, status, reasoning, headlines,
          news_source, classification, materiality,
-         news_latency_ms, classification_latency_ms, total_latency_ms),
+         news_latency_ms, classification_latency_ms, total_latency_ms, edge_type),
     )
     trade_id = cur.lastrowid
     conn.commit()
@@ -496,15 +501,16 @@ def log_classification(
     condition_id: str | None = None,
     yes_price: float | None = None,
     yes_token_id: str | None = None,
+    edge_type: str | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
            (market_question, headline, news_source, direction, materiality, edge, action,
-            match_source, condition_id, yes_price, yes_token_id)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            match_source, condition_id, yes_price, yes_token_id, edge_type)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_question, headline, news_source, direction, materiality, edge, action,
-         match_source, condition_id, yes_price, yes_token_id),
+         match_source, condition_id, yes_price, yes_token_id, edge_type),
     )
     classification_id = cur.lastrowid
     conn.commit()
@@ -534,6 +540,34 @@ def get_classification_count_since(since: str, action: str | None = None) -> int
         ).fetchone()
     conn.close()
     return row["c"]
+
+
+def get_earliest_classification_price(condition_id: str, lookback_hours: float) -> float | None:
+    """Oldest stored YES price for a market within the lookback window — the
+    baseline the current price is compared against to detect a momentum move."""
+    conn = _conn()
+    row = conn.execute(
+        """SELECT yes_price FROM classifications
+           WHERE condition_id = ? AND yes_price IS NOT NULL
+             AND created_at >= datetime('now', ?)
+           ORDER BY created_at ASC, id ASC LIMIT 1""",
+        (condition_id, f"-{lookback_hours} hours"),
+    ).fetchone()
+    conn.close()
+    return row["yes_price"] if row else None
+
+
+def get_edge_type_breakdown_since(since: str, action: str = "signal") -> dict[str, int]:
+    """Count of `action` classifications by edge_type within the window."""
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT edge_type, COUNT(*) AS c FROM classifications
+           WHERE created_at >= ? AND action = ? AND edge_type IS NOT NULL
+           GROUP BY edge_type""",
+        (since, action),
+    ).fetchall()
+    conn.close()
+    return {r["edge_type"]: r["c"] for r in rows}
 
 
 def get_matched_headline_count_since(since: str) -> int:

@@ -412,6 +412,23 @@
   .match-badge.sem { color: var(--purple); border-color: var(--purple); }
   .match-badge.both { color: var(--green); border-color: var(--green); }
 
+  /* Edge-type badges (Open Positions) */
+  .edge-badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border: 1px solid var(--row-border);
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .edge-badge.news { color: var(--cyan); border-color: var(--cyan); }
+  .edge-badge.momentum { color: var(--yellow); border-color: var(--yellow); }
+  .edge-badge.arbitrage { color: var(--purple); border-color: var(--purple); }
+
   /* Lessons */
   .lesson-card {
     background: var(--panel);
@@ -626,6 +643,7 @@
               <th>Time</th>
               <th>Market</th>
               <th>Side</th>
+              <th>Edge</th>
               <th>Entry</th>
               <th>Current</th>
               <th>PnL%</th>
@@ -633,7 +651,7 @@
             </tr>
           </thead>
           <tbody id="position-rows">
-            <tr><td colspan="7" class="empty">No positions yet.</td></tr>
+            <tr><td colspan="8" class="empty">No positions yet.</td></tr>
           </tbody>
         </table>
       </div>
@@ -893,6 +911,12 @@
     document.getElementById('perf-open').textContent = (p.open_count ?? 0) + ' open';
   }
 
+  function edgeBadge(type) {
+    if (!type) return '<span class="edge-badge">—</span>';
+    const cls = ['news', 'momentum', 'arbitrage'].includes(type) ? type : '';
+    return '<span class="edge-badge ' + cls + '">' + escapeHtml(type) + '</span>';
+  }
+
   function marketCell(question, slug) {
     const text = escapeHtml(question);
     if (!slug) return text;
@@ -974,7 +998,7 @@
     const rows = status.open_positions || [];
 
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7" class="empty">No positions yet.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="8" class="empty">No positions yet.</td></tr>';
       return;
     }
 
@@ -988,6 +1012,7 @@
         <td>${fmtTime(t.time)}</td>
         <td class="market">${marketCell(t.market_question, t.slug)}</td>
         <td class="${t.side === 'YES' ? 'side-yes' : 'side-no'}">${escapeHtml(t.side)}</td>
+        <td>${edgeBadge(t.edge_type)}</td>
         <td>${t.entry_price == null ? '—' : t.entry_price.toFixed(2)}</td>
         <td>${t.current_price == null ? '—' : t.current_price.toFixed(2)}</td>
         <td class="${pnlCls}">${pnlTxt}</td>

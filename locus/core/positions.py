@@ -128,7 +128,9 @@ def backfill_positions() -> int:
 def get_open_positions() -> list[dict]:
     conn = logger._conn()
     rows = conn.execute(
-        "SELECT * FROM positions WHERE status = 'open' ORDER BY id DESC"
+        """SELECT p.*, t.edge_type FROM positions p
+           LEFT JOIN trades t ON p.trade_id = t.id
+           WHERE p.status = 'open' ORDER BY p.id DESC"""
     ).fetchall()
     conn.close()
     return [dict(r) for r in rows]

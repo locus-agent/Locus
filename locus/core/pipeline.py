@@ -27,7 +27,7 @@ from locus.supervisor import supervise
 from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
-from locus.core.classifier import classify_async
+from locus.core.classifier import classify_async, classify_edge_type
 from locus.core.journal import maybe_write_journal
 from locus.core import positions
 
@@ -246,7 +246,7 @@ class PipelineV2:
                         self.stats["classify_error_streak"] = (
                             self.stats.get("classify_error_streak", 0) + 1
                         )
-                        raw_signal, signal, action = None, None, "error"
+                        raw_signal, signal, action, edge_type = None, None, "error", None
                     else:
                         self.stats["classify_error_streak"] = 0
                         raw_signal = detect_edge_v2(market, classification, event)
@@ -277,6 +277,12 @@ class PipelineV2:
                                     f"on \"{market.question[:40]}\" (allowed)"
                                 )
 
+                        # Attribute a surviving signal to an edge type, for the
+                        # trade record and per-type calibration.
+                        edge_type = classify_edge_type(market) if signal is not None else None
+                        if signal is not None:
+                            signal.edge_type = edge_type
+
                     logger.log_classification(
                         market_question=market.question,
                         headline=event.headline,
@@ -289,6 +295,7 @@ class PipelineV2:
                         condition_id=market.condition_id,
                         yes_price=market.yes_price,
                         yes_token_id=get_token_id(market, "YES"),
+                        edge_type=edge_type,
                     )
 
                     if action in ("stale", "capped"):
