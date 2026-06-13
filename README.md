@@ -7,9 +7,11 @@ Breaking News (Twitter / Telegram / RSS)
         ↓ (< 5 seconds)
 Match to niche markets (< $500K volume)
         ↓
-Claude Classification: bullish / bearish / neutral + materiality
+Claude Classification: bullish / bearish / neutral + materiality + confidence
         ↓
-Edge detection + quarter-Kelly sizing
+Edge detection → risk gates (freshness · headline cap · correlation · orderbook)
+        ↓
+Confidence-based half-Kelly sizing
         ↓
 Instant execution → SQLite log → calibration tracking
 ```
@@ -101,6 +103,17 @@ trades — so it's safe to keep open alongside a running `watch` process. Header
 markets tracked). Center: real-time classification feed. Right: track record by category
 and the last five lessons. Footer: details of the most recent signal. Press `q` to quit.
 
+#### Public web dashboard
+
+`watch` also writes `docs/status.json` (plus full-history archives) every cycle, which the
+GitHub Pages site at `docs/index.html` renders with the same terminal aesthetic: the pipeline
+funnel, performance, the LIVE READINESS panel, gates (stale · capped · correlation · orderbook),
+open/closed positions with edge-type badges, the classification log (with materiality and
+confidence), and exit decisions. Two archive pages hang off it:
+
+- **`docs/journal.html`** — the full history of Locus's daily journal entries (`journal.json`).
+- **`docs/decisions.html`** — every position re-evaluation and its reasoning (`exit_decisions.json`).
+
 ### Backtest
 
 ```bash
@@ -130,6 +143,28 @@ python cli.py backtest --limit 50 --category ai
 
 ## Architecture
 
+### Package layout
+
+```
+cli.py                  entry point: watch · run · dashboard · backtest · verify
+locus/
+  config.py             .env keys, thresholds, market categories, PROJECT_ROOT
+  supervisor.py         supervises async pipeline tasks, restarts on crash
+  core/                 pipeline · classifier · edge · executor · export_status
+                        market_index · matcher · positions · performance
+                        journal · orderbook · scorer (V1)
+  sources/              news_stream · scraper (V1)
+  markets/              gamma · market_watcher
+  memory/               __init__ (memory) · calibrator · logger
+  backtest/             synthetic · real
+  ui/                   tui · dashboard (legacy)
+```
+
+Runtime artifacts (`trades.db`, `chroma_db/`, `docs/status.json`, `.env`) live at the
+project root, resolved via `config.PROJECT_ROOT` — run everything from the repo root.
+
+### Data flow
+
 ```
                 cli.py   (entry point: watch, run, verify, …)
                    │
@@ -148,12 +183,12 @@ python cli.py backtest --limit 50 --category ai
               matcher.py          headline → candidate markets
                    ▼
              classifier.py        Claude: bullish / bearish / neutral
-                   │  ▲           + materiality (0–1)
+                   │  ▲           + materiality + confidence
                    │  └─────────────────────────────┐
                    ▼                                │ track record
-                edge.py           signal filter +   │ + lessons
-                   │              quarter-Kelly     │
-                   ▼              sizing            │
+                edge.py           edge filter, then │ + lessons
+                   │              risk gates +      │
+                   ▼              half-Kelly sizing │
              executor.py          dry-run or live   │
                    │              CLOB order,       │
                    ▼              daily loss limit  │
@@ -179,13 +214,18 @@ history before classifying the next headline.
 | `cli.py` | Entry point — `watch`, `run`, `dashboard`, `backtest`, `verify`, and friends |
 | `locus/config.py` | All settings — `.env` keys, thresholds, market categories, `PROJECT_ROOT` |
 | `locus/core/pipeline.py` | Orchestrators: V2 asyncio event loop (`watch`), V1 loop (`run`), trade risk gates |
-| `locus/core/classifier.py` | Asks Claude for direction + materiality, with track record injected |
+| `locus/core/classifier.py` | Asks Claude for direction + materiality + confidence, with track record injected; tags each signal's edge type |
 | `locus/core/matcher.py` | Matches headlines to markets — keyword overlap + semantic index union |
 | `locus/core/market_index.py` | Persistent Chroma index of markets, embedded locally (MiniLM) |
-| `locus/core/edge.py` | Turns classifications into signals; quarter-Kelly position sizing |
+| `locus/core/edge.py` | Turns classifications into signals; confidence-based half-Kelly position sizing |
+| `locus/core/orderbook.py` | Live CLOB orderbook imbalance gate — skips trading into strong opposing flow |
+| `locus/core/positions.py` | Open-position tracking + exits (hard stop-loss, rule-triggered Claude re-evaluations); correlation-risk check |
+| `locus/core/performance.py` | Dry-run PnL aggregation (realized/unrealized) and the live-readiness metrics |
+| `locus/core/journal.py` | Daily retrospective — Claude writes one journal entry per day (21:00 UTC) |
 | `locus/core/executor.py` | Executes trades — dry-run log or live CLOB order; daily loss limit |
-| `locus/core/export_status.py` | Writes `docs/status.json` for the public GitHub Pages dashboard |
+| `locus/core/export_status.py` | Writes `docs/status.json` (+ journal/decisions archives) for the public GitHub Pages dashboard |
 | `locus/core/scorer.py` | V1 probability scoring with Claude |
+| `locus/supervisor.py` | Supervises the async pipeline tasks and restarts them on crash |
 | `locus/sources/news_stream.py` | Aggregates Twitter stream, RSS, NewsAPI, and Telegram into one deduped queue |
 | `locus/sources/scraper.py` | V1 news scraper (RSS + NewsAPI) |
 | `locus/markets/gamma.py` | Polymarket Gamma API client, `Market` model, category inference |
@@ -201,13 +241,32 @@ history before classifying the next headline.
 ### How a Headline Becomes a Trade Decision
 
 1. **A headline arrives** — say, from the Twitter stream. `news_stream.py` dedupes it against recent events and stamps how long it took to arrive.
-2. **Matching** — `matcher.py` compares its words against every tracked niche market's question and keeps the few markets it might be about. No API call, just keyword overlap.
-3. **Classification** — for each candidate market, `classifier.py` asks Claude one question: does this news make the market *more likely YES*, *more likely NO*, or is it *not relevant*? Claude also scores materiality — how much this news should move the price — and sees its own historical accuracy and recent mistakes before answering.
+2. **Matching** — `matcher.py` compares its words against every tracked niche market's question and keeps the few markets it might be about. No API call, just keyword overlap unioned with semantic hits from the market index.
+3. **Classification** — for each candidate market, `classifier.py` asks Claude one question: does this news make the market *more likely YES*, *more likely NO*, or is it *not relevant*? Claude also scores **materiality** (how much this news should move the price) and **confidence** (the 0.5–1.0 probability the market resolves in the predicted direction), and sees its own historical accuracy and recent mistakes before answering.
 4. **Edge check** — `edge.py` drops the signal unless the direction is non-neutral, materiality clears the threshold, and the price actually has room to move (no buying YES at 0.95).
-5. **Sizing** — surviving signals are sized with quarter-Kelly, capped at `MAX_BET_USD`.
-6. **Execution** — `executor.py` checks the daily loss limit, then either logs a dry-run trade (default) or places a real CLOB order.
-7. **Logging** — the trade, the headline, and the news-to-decision latency land in `trades.db`, and the public dashboard updates.
-8. **Learning** — when the market eventually resolves, `calibrator.py` grades the call. Wrong calls become one-line lessons that Claude reads next time, closing the loop.
+5. **Risk gates** — a would-be signal still has to clear, in order: **freshness** (news older than the limit is classified but never traded), the **headline cap** (one headline opens at most one position), the **correlation check** (`positions.py` blocks a trade that would over-concentrate the book in one topic — by shared keywords or combined exposure), and the **orderbook imbalance** check (`orderbook.py` fetches the live CLOB book and skips trading into strong opposing flow; it fails open if the CLOB is unreachable). Each gate that fires is logged with its own action so the dashboard can count them.
+6. **Edge type + sizing** — `classifier.py` tags the surviving signal with an **edge type** (`news` by default, `momentum` when the YES price has already moved >10% in 24h), and `edge.py` sizes it with **confidence-based half-Kelly**: stake = `KELLY_BANKROLL_USD × (p·b − q)/b ÷ 2` from the market odds and Claude's confidence, capped at `MAX_BET_USD`, floored at $1. Sizing now reflects conviction, not just how big the news is.
+7. **Execution** — `executor.py` checks the daily loss limit, then either logs a dry-run trade (default) or places a real CLOB order.
+8. **Logging** — the trade, the headline, the confidence/edge-type, and the news-to-decision latency land in `trades.db`, and the public dashboard updates.
+9. **Learning** — when the market eventually resolves, `calibrator.py` grades the call. Wrong calls become one-line lessons that Claude reads next time, closing the loop.
+
+### Live Readiness Criteria
+
+Locus runs in dry-run by default. Before it's worth risking real capital, the simulated track
+record should clear a graduation bar. `performance.py` computes four metrics from closed
+positions, exports them in `status.json`, and the dashboard shows them as a **LIVE READINESS**
+panel — each criterion passes/fails independently, and only when all four pass does it flip to
+**READY**.
+
+| Metric | Threshold | Meaning |
+|---|---|---|
+| Closed Trades | ≥ 20 | Enough resolved positions for the other numbers to mean anything |
+| Win Rate | > 55% | Share of closed positions with positive realized PnL |
+| Sharpe Ratio | > 0.50 | Annualized (×√365) mean/stdev of daily realized PnL; null until ≥ 7 days of data |
+| Max Drawdown | < 15% | Deepest peak-to-trough drop of the realized-PnL equity curve |
+
+Until there's any closed position the panel reads "accumulating data"; metrics that can't be
+computed yet (e.g. Sharpe before 7 days) show as N/A rather than failing.
 
 ---
 
@@ -230,9 +289,11 @@ history before classifying the next headline.
 
 - Dry-run mode ON by default
 - $25 max single bet, $100 daily limit
-- Quarter-Kelly position sizing
+- Confidence-based half-Kelly position sizing
+- Correlation and orderbook-imbalance gates before every trade
 - Niche market filter prevents competing against sophisticated bots
 - Calibration tracking — auto-detects if strategy accuracy drops
+- Live-readiness bar gates the move from dry-run to real capital
 - All API keys in `.env`, never committed
 
 ---
