@@ -165,10 +165,11 @@ def match_news_to_markets_broad(
     combined = f"{headline} {summary}".lower()
     category_keywords = {
         "ai": ["ai", "openai", "gpt", "anthropic", "claude", "llm", "chatgpt", "gemini", "artificial intelligence"],
-        "crypto": ["bitcoin", "ethereum", "solana", "crypto", "blockchain", "defi", "token", "btc", "eth"],
+        "crypto": ["bitcoin", "btc", "ethereum", "eth", "solana", "sol", "crypto", "blockchain", "defi",
+                   "nft", "token", "coinbase", "binance", "stablecoin", "usdc", "usdt", "web3", "altcoin",
+                   "memecoin", "polymarket"],
         "politics": ["trump", "biden", "congress", "senate", "election", "tariff", "fed", "white house"],
         "technology": ["apple", "google", "microsoft", "nvidia", "tech", "software", "startup"],
-        "science": ["spacex", "nasa", "climate", "research", "discovery"],
     }
 
     matched_categories = set()

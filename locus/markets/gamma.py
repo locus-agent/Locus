@@ -249,9 +249,10 @@ def _fetch_from_clob(limit: int) -> list[Market]:
 # are listed explicitly since the short forms no longer match inside them.
 _CATEGORY_KEYWORDS = [
     ("ai", ["ai", "artificial intelligence", "openai", "chatgpt", "llm", "google ai", "anthropic"]),
-    ("crypto", ["bitcoin", "ethereum", "crypto", "cryptocurrency", "blockchain", "defi", "token"]),
+    ("crypto", ["bitcoin", "btc", "ethereum", "eth", "solana", "sol", "crypto", "cryptocurrency",
+                "blockchain", "defi", "nft", "token", "coinbase", "binance", "stablecoin", "usdc",
+                "usdt", "web3", "altcoin", "memecoin", "polymarket"]),
     ("politics", ["election", "president", "congress", "senate", "trump", "biden", "political"]),
-    ("science", ["spacex", "nasa", "climate", "research", "study", "discovery"]),
     ("technology", ["tech", "technology", "apple", "google", "microsoft", "software", "startup"]),
 ]
 _CATEGORY_PATTERNS = [

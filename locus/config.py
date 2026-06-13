@@ -46,13 +46,14 @@ NEWSAPI_DAILY_LIMIT = int(os.getenv("NEWSAPI_DAILY_LIMIT", "100"))
 NEWSAPI_CATEGORY_QUERIES = {
     "ai": '"artificial intelligence" OR OpenAI OR Anthropic OR "Claude AI" OR "Google AI" OR Gemini OR GPT-5',
     "technology": 'Apple OR NVIDIA OR Microsoft OR "big tech"',
-    "crypto": "Bitcoin OR Ethereum OR Solana OR cryptocurrency OR blockchain",
+    "crypto": "Bitcoin OR Ethereum OR Solana OR cryptocurrency OR blockchain OR Coinbase OR stablecoin",
     "politics": 'Congress OR "White House" OR Senate OR election OR tariff OR "Fed rate"',
-    "science": 'NASA OR SpaceX OR Starship OR "scientific research"',
 }
 
-# /v2/top-headlines categories (country=us) to cover the markets above
-NEWSAPI_TOP_HEADLINE_CATEGORIES = ["general", "technology", "science", "business"]
+# /v2/top-headlines categories (country=us) to cover the markets above.
+# NewsAPI has no 'crypto' top-headline category — crypto coverage comes from
+# the NEWSAPI_CATEGORY_QUERIES /v2/everything search above.
+NEWSAPI_TOP_HEADLINE_CATEGORIES = ["general", "technology", "business"]
 
 # --- RSS Feeds (fallback) ---
 RSS_FEEDS = [
@@ -133,7 +134,6 @@ MARKET_CATEGORIES = [
     "technology",
     "crypto",
     "politics",
-    "science",
 ]
 
 # --- Twitter filter keywords (for filtered stream rules) ---
