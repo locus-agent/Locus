@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T23:56:59.115315+00:00",
+  "generated_at": "2026-06-13T00:02:01.003016+00:00",
   "dry_run": true,
   "markets_tracked": 2522,
   "classify_error_streak": 0,
@@ -9,19 +9,19 @@
     "by_category": {},
     "by_source": {}
   },
-  "headlines_scanned_today": 786,
-  "headlines_last_cycle": 5,
+  "headlines_scanned_today": 0,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3669,
+  "classifications_24h": 3670,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 11,
     "capped": 0
   },
   "pipeline_24h": {
-    "news": 796,
-    "matched": 258,
-    "classified": 3669,
+    "news": 799,
+    "matched": 255,
+    "classified": 3670,
     "signals": 0,
     "trades": 0
   },
@@ -34,7 +34,7 @@
     "losses": 3,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -42.77,
-    "unrealized_pnl_usd": 0.9
+    "unrealized_pnl_usd": -1.8
   },
   "open_positions": [
     {
@@ -63,8 +63,8 @@
       "slug": null,
       "side": "NO",
       "entry_price": 0.445,
-      "current_price": 0.425,
-      "pnl_pct": 3.6,
+      "current_price": 0.485,
+      "pnl_pct": -7.21,
       "amount_usd": 25.0
     }
   ],
@@ -113,179 +113,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-12 23:56:58",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "SpaceX Stock Rises 11% in Largest IPO Ever",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:56:58",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "SpaceX Stock Rises 11% in Largest IPO Ever",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:56:58",
-      "market_question": "Will SpaceX have the highest IPO Market Cap 2026?",
-      "headline": "SpaceX Stock Rises 11% in Largest IPO Ever",
-      "direction": "bullish",
-      "materiality": 0.65,
-      "edge": null,
-      "action": "cached",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
-      "headline": "3 Core Artificial Intelligence (AI) Stocks to Buy With $1,000 Right Now and Hold for the Next Decade - The Globe and Mail",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "Will Mistral have a #1 AI model by June 30?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "Will Mistral have a #1 AI model by December 31, 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "edge": null,
-      "action": "cached",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "Will Mistral have the top AI model at the end of June 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "Will Mistral have the best AI model at the end of July 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "both"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "Will Mistral be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "Will Mistral have the third best AI model at the end of June 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:56:57",
-      "market_question": "Will Mistral have the second best AI model at the end of June 2026?",
-      "headline": "Mistral Seeks $3.5 Billion to Build European AI Infrastructure - PYMNTS.com",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:56:55",
-      "market_question": "AI data center in space by December 31, 2026?",
-      "headline": "3 Core Artificial Intelligence (AI) Stocks to Buy With $1,000 Right Now and Hold for the Next Decade - The Globe and Mail",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:56:54",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "3 Core Artificial Intelligence (AI) Stocks to Buy With $1,000 Right Now and Hold for the Next Decade - The Globe and Mail",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-12 23:56:52",
-      "market_question": "Will the next elected US president be a woman?",
-      "headline": "3 Core Artificial Intelligence (AI) Stocks to Buy With $1,000 Right Now and Hold for the Next Decade - The Globe and Mail",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:56:52",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "3 Core Artificial Intelligence (AI) Stocks to Buy With $1,000 Right Now and Hold for the Next Decade - The Globe and Mail",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:56:52",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "3 Core Artificial Intelligence (AI) Stocks to Buy With $1,000 Right Now and Hold for the Next Decade - The Globe and Mail",
-      "direction": null,
-      "materiality": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-12 23:56:51",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "3 Core Artificial Intelligence (AI) Stocks to Buy With $1,000 Right Now and Hold for the Next Decade - The Globe and Mail",
+      "time": "2026-06-12 23:57:18",
+      "market_question": "Will Google Gemini score at least 40% on the FrontierMath Benchmark?",
+      "headline": "Google Sues Chinese Cybercrime Network for Using Gemini AI to Fuel Scams - Android Headlines",
       "direction": "neutral",
       "materiality": 0.02,
       "edge": null,
@@ -293,23 +123,193 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:56:50",
-      "market_question": "Will Ethereum dip to $1,000 in June?",
-      "headline": "3 Core Artificial Intelligence (AI) Stocks to Buy With $1,000 Right Now and Hold for the Next Decade - The Globe and Mail",
+      "time": "2026-06-12 23:57:18",
+      "market_question": "Will Google Gemini score at least 50% on the FrontierMath Benchmark?",
+      "headline": "Google Sues Chinese Cybercrime Network for Using Gemini AI to Fuel Scams - Android Headlines",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:18",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "Google Sues Chinese Cybercrime Network for Using Gemini AI to Fuel Scams - Android Headlines",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:18",
+      "market_question": "Will ByteDance have the best Chinese AI model at the end of June 2026?",
+      "headline": "Google Sues Chinese Cybercrime Network for Using Gemini AI to Fuel Scams - Android Headlines",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:57:16",
+      "market_question": "Will Google Gemini score at least 60% on the FrontierMath Benchmark?",
+      "headline": "Google Sues Chinese Cybercrime Network for Using Gemini AI to Fuel Scams - Android Headlines",
+      "direction": "neutral",
+      "materiality": 0.05,
       "edge": null,
       "action": "skip",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-12 23:56:49",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "What the SpaceX I.P.O. Means for OpenAI and Anthropic",
+      "time": "2026-06-12 23:57:14",
+      "market_question": "Will Google Gemini score at least 45% on the FrontierMath Benchmark?",
+      "headline": "Google Sues Chinese Cybercrime Network for Using Gemini AI to Fuel Scams - Android Headlines",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "The Role Of Artificial Intelligence And Preventive Health In Longevity Care - The AI Journal",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "AI data center moratorium passed before 2027?",
+      "headline": "PeopleSoft 0-day affecting hundreds of organizations steals gigabytes of data",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "AI data center in space by December 31, 2026?",
+      "headline": "PeopleSoft 0-day affecting hundreds of organizations steals gigabytes of data",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
+      "headline": "PeopleSoft 0-day affecting hundreds of organizations steals gigabytes of data",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Will Anthropic be acquired before 2027?",
+      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Anthropic acquired before 2027?",
+      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Will Anthropic not IPO by June 30, 2026?",
+      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Will Anthropic have the best Coding AI model at the end of June 2026?",
+      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Will Anthropic have the best AI model at the end of December 2026?",
+      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
       "direction": "bullish",
       "materiality": 0.25,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Will Anthropic have the best AI Agent at the end of June 2026?",
+      "headline": "Anthropic Vertical Software Rollout Threatens Enterprise AI Builders - PYMNTS.com",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "The world\u2019s first trillionaire is a killer",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-12 23:57:13",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "The world\u2019s first trillionaire is a killer",
+      "direction": null,
+      "materiality": null,
+      "edge": null,
+      "action": "prefiltered",
       "match_source": "keyword"
     }
   ],
