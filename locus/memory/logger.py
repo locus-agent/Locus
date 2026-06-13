@@ -182,6 +182,8 @@ def _migrate_v2_columns(conn):
         ("total_latency_ms", "INTEGER"),
         # Edge type behind the signal: 'news' (default), 'momentum', 'arbitrage'.
         ("edge_type", "TEXT"),
+        # Claude's win-probability estimate (0.5-1.0) used for Kelly sizing.
+        ("confidence", "REAL"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -202,6 +204,8 @@ def _migrate_classification_columns(conn):
         ("yes_token_id", "TEXT"),
         # Edge type behind a signal classification, for calibration by type.
         ("edge_type", "TEXT"),
+        # Claude's win-probability estimate (0.5-1.0).
+        ("confidence", "REAL"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -228,6 +232,7 @@ def log_trade(
     classification_latency_ms: int | None = None,
     total_latency_ms: int | None = None,
     edge_type: str | None = None,
+    confidence: float | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
@@ -235,12 +240,14 @@ def log_trade(
            (market_id, market_question, claude_score, market_price, edge,
             side, amount_usd, order_id, status, reasoning, headlines,
             news_source, classification, materiality,
-            news_latency_ms, classification_latency_ms, total_latency_ms, edge_type)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            news_latency_ms, classification_latency_ms, total_latency_ms, edge_type,
+            confidence)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_id, market_question, claude_score, market_price, edge,
          side, amount_usd, order_id, status, reasoning, headlines,
          news_source, classification, materiality,
-         news_latency_ms, classification_latency_ms, total_latency_ms, edge_type),
+         news_latency_ms, classification_latency_ms, total_latency_ms, edge_type,
+         confidence),
     )
     trade_id = cur.lastrowid
     conn.commit()
@@ -362,7 +369,7 @@ def find_recent_classification(
     market price was within price_tolerance of the current one."""
     conn = _conn()
     row = conn.execute(
-        """SELECT direction, materiality, yes_price, created_at
+        """SELECT direction, materiality, confidence, yes_price, created_at
            FROM classifications
            WHERE headline = ? AND condition_id = ?
              AND action NOT IN ('prefiltered', 'cached', 'error')
@@ -502,15 +509,16 @@ def log_classification(
     yes_price: float | None = None,
     yes_token_id: str | None = None,
     edge_type: str | None = None,
+    confidence: float | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
            (market_question, headline, news_source, direction, materiality, edge, action,
-            match_source, condition_id, yes_price, yes_token_id, edge_type)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            match_source, condition_id, yes_price, yes_token_id, edge_type, confidence)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_question, headline, news_source, direction, materiality, edge, action,
-         match_source, condition_id, yes_price, yes_token_id, edge_type),
+         match_source, condition_id, yes_price, yes_token_id, edge_type, confidence),
     )
     classification_id = cur.lastrowid
     conn.commit()

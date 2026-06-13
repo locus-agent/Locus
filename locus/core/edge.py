@@ -22,6 +22,7 @@ class Signal:
     news_source: str = ""
     classification: str = ""
     materiality: float = 0.0
+    confidence: float = 0.5  # P(predicted direction) used for Kelly sizing
     news_latency_ms: int = 0
     classification_latency_ms: int = 0
     total_latency_ms: int = 0
@@ -44,15 +45,14 @@ def detect_edge(
     if edge > 0:
         side = "YES"
         raw_edge = edge
-        # Kelly for buying YES at p with believed probability q: (q-p)/(1-p)
-        kelly = edge / max(1.0 - market_price, 0.01)
     else:
         side = "NO"
         raw_edge = abs(edge)
-        # Mirrored for NO bought at (1-p): (p-q)/p
-        kelly = raw_edge / max(market_price, 0.01)
 
-    bet_amount = size_position(min(kelly, 1.0))
+    # claude_score is Claude's estimated YES probability; confidence in the
+    # chosen side is that probability (YES) or its complement (NO).
+    confidence = claude_score if side == "YES" else 1.0 - claude_score
+    bet_amount = size_position(side, market_price, confidence)
 
     return Signal(
         market=market,
@@ -105,7 +105,8 @@ def detect_edge_v2(
     if edge < config.EDGE_THRESHOLD:
         return None
 
-    bet_amount = size_position(classification.materiality)
+    # Size on Claude's win-probability estimate (confidence), not materiality.
+    bet_amount = size_position(side, market_price, classification.confidence)
     total_latency = news_event.latency_ms + classification.latency_ms
 
     return Signal(
@@ -120,25 +121,38 @@ def detect_edge_v2(
         news_source=news_event.source,
         classification=classification.direction,
         materiality=classification.materiality,
+        confidence=classification.confidence,
         news_latency_ms=news_event.latency_ms,
         classification_latency_ms=classification.latency_ms,
         total_latency_ms=total_latency,
     )
 
 
-def size_position(kelly_fraction: float) -> float:
-    """Quarter-Kelly position sizing against KELLY_BANKROLL_USD, capped at
-    MAX_BET_USD, floored at $1.
+def size_position(side: str, yes_price: float, confidence: float) -> float:
+    """Half-Kelly position sizing from win probability and market odds.
 
-    kelly_fraction is the full-Kelly fraction of bankroll. For V2 signals
-    that's the materiality m: modelling the news as a believed probability
-    shift of m x (room to move), Kelly for buying YES at price p with
-    believed q = p + m(1-p) is (q-p)/(1-p) = m, and symmetrically m for NO.
-    So conviction maps directly to size: with the default $100 bankroll,
-    m=0.4 bets $10, m=0.8 bets $20, m=1.0 hits the $25 cap.
+    Previously this scaled size by *materiality* — how much the news matters —
+    which is not the probability of winning. A high-materiality, low-confidence
+    call (big news, unclear direction) was sized like a sure thing. Kelly needs
+    the actual win probability, so we use `confidence` (Claude's P that the
+    market resolves in the predicted direction).
 
-    The previous formula (250 x edge vs a 0.10 edge floor) saturated the
-    cap on every signal — sizing was a constant $25 in practice.
+    Decimal-odds payoff b for a $1 stake at the current price:
+      YES bought at yes_price pays (1 - yes_price)/yes_price on a win
+      NO  bought at (1 - yes_price) pays yes_price/(1 - yes_price)
+    With p = confidence, q = 1 - p, full Kelly fraction is (p*b - q)/b. We bet
+    HALF Kelly of KELLY_BANKROLL_USD, capped at MAX_BET_USD and floored at $1.
+    A non-positive Kelly (no edge at these odds) floors to the $1 minimum.
     """
-    raw_size = config.KELLY_BANKROLL_USD * kelly_fraction * 0.25
+    price = min(max(yes_price, 1e-6), 1.0 - 1e-6)
+    p = min(max(confidence, 0.0), 1.0)
+    q = 1.0 - p
+
+    if side == "YES":
+        b = (1.0 - price) / price
+    else:  # NO
+        b = price / (1.0 - price)
+
+    full_kelly = (p * b - q) / b if b > 0 else 0.0
+    raw_size = config.KELLY_BANKROLL_USD * (full_kelly / 2.0)
     return min(max(round(raw_size, 2), 1.0), config.MAX_BET_USD)

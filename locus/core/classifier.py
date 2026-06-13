@@ -60,10 +60,18 @@ particular threshold across the line within the remaining time.
 Use your track record above to calibrate: if a category or source has been unreliable, or a
 past lesson applies to this situation, factor that into your materiality and reasoning.
 
+Also estimate your CONFIDENCE: the probability, between 0.5 and 1.0, that the market actually
+resolves in the direction you predicted. This is DISTINCT from materiality — materiality is how
+much the news should move the price, confidence is how sure you are about the resulting outcome.
+0.5 means a coin flip (no real conviction); 1.0 means near-certain. Position size is scaled by
+this number, so be honest: reserve confidence above ~0.7 for situations where the evidence
+genuinely makes the predicted outcome much more likely than not. For "neutral", return 0.5.
+
 Respond with ONLY valid JSON:
 {{
   "direction": "bullish" | "bearish" | "neutral",
   "materiality": <float 0.0 to 1.0>,
+  "confidence": <float 0.5 to 1.0>,
   "reasoning": "<1 sentence>"
 }}"""
 
@@ -126,10 +134,11 @@ def _format_track_record() -> str:
 @dataclass
 class Classification:
     direction: str  # "bullish", "bearish", "neutral"
-    materiality: float  # 0.0-1.0
+    materiality: float  # 0.0-1.0: how much the news should move the price
     reasoning: str
     latency_ms: int
     model: str
+    confidence: float = 0.5  # 0.5-1.0: P(market resolves in predicted direction)
     error: bool = False  # True when classification failed (API/parse error)
 
 
@@ -187,10 +196,15 @@ def classify(
                 direction = "neutral"
 
             materiality = max(0.0, min(1.0, float(result.get("materiality", 0))))
+            # Confidence is P(predicted direction is right); clamp to [0.5, 1.0]
+            # since "less than a coin flip" in your own predicted direction is
+            # incoherent. Defaults to 0.5 (no conviction) when absent.
+            confidence = max(0.5, min(1.0, float(result.get("confidence", 0.5))))
 
             return Classification(
                 direction=direction,
                 materiality=materiality,
+                confidence=confidence,
                 reasoning=result.get("reasoning", ""),
                 latency_ms=latency,
                 model=config.CLASSIFICATION_MODEL,

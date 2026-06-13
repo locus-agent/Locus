@@ -235,6 +235,7 @@ class PipelineV2:
                             condition_id=market.condition_id,
                             yes_price=market.yes_price,
                             yes_token_id=get_token_id(market, "YES"),
+                            confidence=prior.get("confidence"),
                         )
                         continue
 
@@ -296,6 +297,7 @@ class PipelineV2:
                         yes_price=market.yes_price,
                         yes_token_id=get_token_id(market, "YES"),
                         edge_type=edge_type,
+                        confidence=classification.confidence if not classification.error else None,
                     )
 
                     if action in ("stale", "capped"):

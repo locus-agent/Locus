@@ -153,6 +153,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
                 "headline": c["headline"],
                 "direction": c["direction"],
                 "materiality": c["materiality"],
+                "confidence": c["confidence"],
                 "edge": c["edge"],
                 "action": c["action"],
                 "match_source": c["match_source"],

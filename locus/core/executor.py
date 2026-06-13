@@ -139,6 +139,7 @@ def _log_and_return(signal: Signal, status: str, order_id: str | None) -> dict:
         classification_latency_ms=signal.classification_latency_ms,
         total_latency_ms=signal.total_latency_ms,
         edge_type=signal.edge_type,
+        confidence=signal.confidence,
     )
 
     return {

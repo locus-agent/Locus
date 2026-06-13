@@ -178,8 +178,7 @@ def run_backtest(
             side = "NO"
             won = resolved_price < entry_price
 
-        edge = cls.materiality * 0.5  # conservative edge estimate
-        bet = size_position(edge)
+        bet = size_position(side, entry_price, cls.confidence)
 
         if won:
             if side == "YES" and entry_price > 0:

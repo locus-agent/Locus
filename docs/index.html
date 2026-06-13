@@ -739,12 +739,13 @@
               <th>Match</th>
               <th>Direction</th>
               <th>Materiality</th>
+              <th>Confidence</th>
               <th>Edge</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody id="classification-rows">
-            <tr><td colspan="8" class="empty">No classifications yet.</td></tr>
+            <tr><td colspan="9" class="empty">No classifications yet.</td></tr>
           </tbody>
         </table>
       </div>
@@ -1090,7 +1091,7 @@
     const rows = status.recent_classifications || [];
 
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="8" class="empty">No classifications yet.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="9" class="empty">No classifications yet.</td></tr>';
       return;
     }
 
@@ -1102,6 +1103,7 @@
         <td>${matchBadge(c.match_source)}</td>
         <td class="${directionClass(c.direction)}">${directionArrow(c.direction)}</td>
         <td>${fmtPct(c.materiality)}</td>
+        <td>${fmtPct(c.confidence)}</td>
         <td>${fmtPct(c.edge)}</td>
         <td class="${actionClass(c.action)}">${escapeHtml(c.action)}</td>
       </tr>
