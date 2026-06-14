@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-14T11:32:16.880170+00:00",
+  "generated_at": "2026-06-14T12:02:59.850350+00:00",
   "dry_run": true,
-  "markets_tracked": 781,
+  "markets_tracked": 478,
   "classify_error_streak": 0,
   "track_record": {
     "total": 616,
@@ -18,13 +18,13 @@
       "newsapi": 17.6
     }
   },
-  "headlines_scanned_today": 138,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 139,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2424,
+  "classifications_24h": 2297,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "stale": 23,
+    "stale": 20,
     "capped": 0,
     "correlation_block": 0,
     "orderbook_skip": 0
@@ -35,9 +35,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 550,
-    "matched": 385,
-    "classified": 2424,
+    "news": 522,
+    "matched": 363,
+    "classified": 2297,
     "signals": 1,
     "trades": 1
   },
@@ -50,7 +50,7 @@
     "losses": 4,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -48.62,
-    "unrealized_pnl_usd": 0.09
+    "unrealized_pnl_usd": 0.0
   },
   "live_readiness": {
     "ready": false,
@@ -98,8 +98,8 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.45999999999999996,
-      "pnl_pct": 0.93,
+      "current_price": 0.46499999999999997,
+      "pnl_pct": 0.0,
       "amount_usd": 9.14,
       "edge_type": "momentum"
     },
@@ -189,6 +189,61 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-14 11:42:21",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "UAE unveils AI and data authority to create 'faster and smarter' government - The National",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 11:42:20",
+      "market_question": "AI data center in space by December 31, 2026?",
+      "headline": "UAE unveils AI and data authority to create 'faster and smarter' government - The National",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 11:42:18",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "UAE unveils AI and data authority to create 'faster and smarter' government - The National",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 11:42:18",
+      "market_question": "Will Trump create a tariff dividend by June 30?",
+      "headline": "UAE unveils AI and data authority to create 'faster and smarter' government - The National",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 11:42:16",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "UAE unveils AI and data authority to create 'faster and smarter' government - The National",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-14 11:32:07",
       "market_question": "Will OpenAI release a new frontier model on or before June 30, 2026?",
@@ -352,61 +407,6 @@
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 10:47:08",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "The Blood of Dawnwalker's modern-day twist promises an RPG \"saga\" with carried-over saves, devs say - GamesRadar+",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 10:47:08",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "The Blood of Dawnwalker's modern-day twist promises an RPG \"saga\" with carried-over saves, devs say - GamesRadar+",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 10:47:08",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "The Blood of Dawnwalker's modern-day twist promises an RPG \"saga\" with carried-over saves, devs say - GamesRadar+",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 10:47:08",
-      "market_question": "Will Trump meet with Delcy Rodr\u00edguez by June 30?",
-      "headline": "The Blood of Dawnwalker's modern-day twist promises an RPG \"saga\" with carried-over saves, devs say - GamesRadar+",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 10:47:08",
-      "market_question": "Will Trump meet with Jair Bolsonaro in 2026?",
-      "headline": "The Blood of Dawnwalker's modern-day twist promises an RPG \"saga\" with carried-over saves, devs say - GamesRadar+",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
       "match_source": "keyword"
     }
   ],
