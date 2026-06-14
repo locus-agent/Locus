@@ -60,10 +60,11 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     Returns (signal_or_none, action):
       "skip"               — no edge detected
       "stale"              — would-be signal, but the headline is older than
-                             MAX_NEWS_AGE_SECONDS as of *now* (including time
-                             spent in the queue), or its publication time is
-                             unknown; we classify old news for calibration but
-                             never trade on it
+                             the source-specific freshness limit
+                             (config.get_max_age_seconds) as of *now*
+                             (including time spent in the queue), or its
+                             publication time is unknown; we classify old news
+                             for calibration but never trade on it
       "capped"             — this headline already produced a trade; one
                              headline matching N markets must not open N
                              correlated positions
@@ -79,7 +80,7 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     if signal is None:
         return None, "skip"
     age = news_age_seconds(event, now)
-    if age is None or age > config.MAX_NEWS_AGE_SECONDS:
+    if age is None or age > config.get_max_age_seconds(signal.news_source):
         return None, "stale"
     if event.headline in traded_headlines:
         return None, "capped"

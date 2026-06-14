@@ -64,6 +64,45 @@ def test_unknown_publication_time_is_stale():
     assert s is None and a == "stale"
 
 
+def src_sig(news_source):
+    """Tradeable signal tagged with a specific news source."""
+    return Signal(market=MKT, claude_score=0.7, market_price=0.5, edge=0.2,
+                  side="YES", bet_amount=25.0, reasoning="", headlines="h",
+                  classification="bullish", materiality=0.35,
+                  news_source=news_source)
+
+
+def test_twitter_uses_15min_limit():
+    # 15 min (900s) is the limit; just past it is stale, just under trades.
+    twitter = src_sig("twitter")
+    assert gate_trade(ev("t", 900), twitter, set(), now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("t", 901), twitter, set(), now=NOW)
+    assert s is None and a == "stale"
+
+
+def test_rss_uses_2h_limit():
+    # 90 min old would be stale for Twitter, but RSS allows up to 2 hours.
+    rss = src_sig("rss")
+    assert gate_trade(ev("r", 90 * 60), rss, set(), now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("r", 2 * 3600 + 1), rss, set(), now=NOW)
+    assert s is None and a == "stale"
+
+
+def test_newsapi_uses_4h_limit():
+    # 3 hours old would be stale for RSS, but NewsAPI allows up to 4 hours.
+    newsapi = src_sig("newsapi")
+    assert gate_trade(ev("n", 3 * 3600), newsapi, set(), now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("n", 4 * 3600 + 1), newsapi, set(), now=NOW)
+    assert s is None and a == "stale"
+
+
+def test_unknown_source_falls_back_to_15min():
+    unknown = src_sig("mystery-wire")
+    assert gate_trade(ev("u", 900), unknown, set(), now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("u", 901), unknown, set(), now=NOW)
+    assert s is None and a == "stale"
+
+
 def test_headline_cap_allows_one_trade():
     traded = set()
     assert gate_trade(ev("Hilton expands", 60), SIG, traded, now=NOW)[1] == "signal"

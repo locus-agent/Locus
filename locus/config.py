@@ -115,7 +115,27 @@ def materiality_threshold(direction: str) -> float:
 # Trade only on fresh news: suppress signals (classification still runs and
 # is logged) when the headline was published more than this long before we
 # received it. Stale RSS/NewsAPI articles must not trigger trades.
+#
+# Limits are source-specific: real-time feeds (Twitter) get a tight window,
+# while slower aggregators (RSS/NewsAPI) get more slack. MAX_NEWS_AGE_SECONDS
+# is the fallback for unknown/unlisted sources. Use get_max_age_seconds().
 MAX_NEWS_AGE_SECONDS = float(os.getenv("MAX_NEWS_AGE_SECONDS", "900"))
+MAX_NEWS_AGE_SECONDS_TWITTER = float(os.getenv("MAX_NEWS_AGE_SECONDS_TWITTER", "900"))
+MAX_NEWS_AGE_SECONDS_RSS = float(os.getenv("MAX_NEWS_AGE_SECONDS_RSS", "7200"))
+MAX_NEWS_AGE_SECONDS_NEWSAPI = float(os.getenv("MAX_NEWS_AGE_SECONDS_NEWSAPI", "14400"))
+MAX_NEWS_AGE_SECONDS_TELEGRAM = float(os.getenv("MAX_NEWS_AGE_SECONDS_TELEGRAM", "1800"))
+
+
+def get_max_age_seconds(news_source: str) -> float:
+    """Freshness limit (seconds) for a given news source, falling back to
+    MAX_NEWS_AGE_SECONDS for unknown/unlisted sources. Read these as
+    config.X at call time so CLI/env overrides are honored."""
+    return {
+        "twitter": MAX_NEWS_AGE_SECONDS_TWITTER,
+        "rss": MAX_NEWS_AGE_SECONDS_RSS,
+        "newsapi": MAX_NEWS_AGE_SECONDS_NEWSAPI,
+        "telegram": MAX_NEWS_AGE_SECONDS_TELEGRAM,
+    }.get((news_source or "").lower(), MAX_NEWS_AGE_SECONDS)
 
 # --- Semantic matching (V2) ---
 # Cosine distance ceiling for headline -> market embedding matches.
