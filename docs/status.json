@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-14T09:03:39.835494+00:00",
+  "generated_at": "2026-06-14T09:08:42.169842+00:00",
   "dry_run": true,
-  "markets_tracked": 2541,
+  "markets_tracked": 2537,
   "classify_error_streak": 0,
   "track_record": {
     "total": 449,
@@ -18,10 +18,10 @@
       "newsapi": 14.8
     }
   },
-  "headlines_scanned_today": 122,
+  "headlines_scanned_today": 123,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2399,
+  "classifications_24h": 2406,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 26,
@@ -35,9 +35,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 539,
-    "matched": 379,
-    "classified": 2399,
+    "news": 540,
+    "matched": 380,
+    "classified": 2406,
     "signals": 1,
     "trades": 1
   },
@@ -98,7 +98,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.45499999999999996,
+      "current_price": 0.455,
       "pnl_pct": 1.87,
       "amount_usd": 9.14,
       "edge_type": "momentum"
@@ -189,6 +189,83 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-14 09:07:29",
+      "market_question": "Will Keith Ellison be the Democratic nominee for Senate in Minnesota?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-14 09:07:27",
+      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-14 09:07:25",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 09:07:24",
+      "market_question": "Will David Sacks leave the Trump administration before 2027?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 09:07:23",
+      "market_question": "Will Trump nationalize elections?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 09:07:21",
+      "market_question": "Will Trump resign before 2027?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 09:07:19",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.01,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-14 07:24:18",
       "market_question": "Will OpenAI have the #3 AI model at the end of June 2026 (Style Control On)?",
@@ -331,83 +408,6 @@
       "edge": null,
       "action": "prefiltered",
       "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 07:23:57",
-      "market_question": "Will the US federal government take a stake in Micron Technology, Inc.?",
-      "headline": "Artificial intelligence (AI) is now not a technology of a specific department, but a key management - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 07:23:56",
-      "market_question": "Will Alibaba have the best Chinese AI model at the end of July 2026?",
-      "headline": "As artificial intelligence (AI) becomes a key competitor in determining a company's survival, manage.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 07:23:55",
-      "market_question": "Will Meituan have the best AI Agent at the end of June 2026?",
-      "headline": "As artificial intelligence (AI) becomes a key competitor in determining a company's survival, manage.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 07:23:49",
-      "market_question": "Will a Chinese company have the best AI model by December 31?",
-      "headline": "As artificial intelligence (AI) becomes a key competitor in determining a company's survival, manage.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 07:23:47",
-      "market_question": "AI wins IMO gold medal in 2026?",
-      "headline": "Now that artificial intelligence (AI) has become a survival condition, not an option for corporate m.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 07:23:44",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Now that artificial intelligence (AI) has become a survival condition, not an option for corporate m.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 07:23:43",
-      "market_question": "AI data center moratorium passed before 2027?",
-      "headline": "Now that artificial intelligence (AI) has become a survival condition, not an option for corporate m.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "bearish",
-      "materiality": 0.08,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
     }
   ],
   "journal": [
