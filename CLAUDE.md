@@ -124,6 +124,14 @@ PipelineV2._execute_signals:
   than the market the news named, the pipeline switches the trade to it
   (`build_switched_signal`). `event_id` is stored on the `trades`, `classifications`, and
   `positions` tables (migrated in `logger._migrate_event_columns`).
+- `core/whale_tracker.py` + the pipeline's `whale_tracker` task shadow `WHALE_WALLETS`:
+  every `WHALE_CHECK_INTERVAL_MINUTES` it polls Polymarket's public trades feed
+  (`POLYMARKET_DATA_HOST`), and `find_missed_opportunities` flags whale BUYs on tracked
+  markets we had no actionable classification on (skipping markets closing within
+  `WHALE_MIN_HOURS_TO_CLOSE` and those on a `WHALE_COOLDOWN_HOURS` cooldown). Each gets one
+  Claude `decide_investigation` call; on "investigate" the market runs the normal
+  classify -> gates path and is logged with action `whale_triggered`, `edge_type='whale'`.
+  Empty `WHALE_WALLETS` disables the task (clean return).
 - `core/executor.py` enforces `DAILY_LOSS_LIMIT_USD` (checked via `logger.get_daily_pnl`),
   then either logs a `dry_run` row or places a live order via `py_clob_client`
   (optional dependency, commented out in requirements.txt — install separately).

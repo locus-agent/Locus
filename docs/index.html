@@ -318,6 +318,7 @@
   .gate-orderbook .gate-count { color: var(--yellow); }
   .gate-confirm .gate-count { color: var(--cyan); }
   .gate-event .gate-count { color: var(--red); }
+  .gate-whale .gate-count { color: var(--green); }
 
   /* Track record bars */
   .bar-row {
@@ -723,12 +724,34 @@
           <span class="gate-label">event exposure — position already on event</span>
           <span class="gate-count" id="gate-event">—</span>
         </div>
+        <div class="gate-row gate-whale">
+          <span class="gate-label">whale triggered — opportunity investigated</span>
+          <span class="gate-count" id="gate-whale">—</span>
+        </div>
       </div>
       <div class="panel">
         <div class="panel-title">Track Record</div>
         <div id="category-bars">
           <div class="empty">No resolved classifications yet.</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
+      <div class="panel-title">Whale Activity</div>
+      <div class="gate-row">
+        <span class="gate-label">watched wallets</span>
+        <span class="gate-count" id="whale-wallets">—</span>
+      </div>
+      <div class="gate-row gate-whale">
+        <span class="gate-label">opportunities triggered (24h)</span>
+        <span class="gate-count" id="whale-triggered">—</span>
+      </div>
+      <div class="gate-row">
+        <span class="gate-label">last whale check</span>
+        <span class="gate-count" id="whale-last-check">—</span>
       </div>
     </div>
   </section>
@@ -889,6 +912,17 @@
     document.getElementById('gate-orderbook').textContent = g.orderbook_skip ?? '—';
     document.getElementById('gate-confirm').textContent = g.needs_confirmation ?? '—';
     document.getElementById('gate-event').textContent = g.event_exposure_block ?? '—';
+    document.getElementById('gate-whale').textContent = g.whale_triggered ?? '—';
+  }
+
+  function renderWhale(status) {
+    const w = status.whale || {};
+    const g = status.gates_24h || {};
+    document.getElementById('whale-wallets').textContent = w.watched_wallets ?? '—';
+    document.getElementById('whale-triggered').textContent =
+      g.whale_triggered ?? w.triggered_24h ?? '—';
+    document.getElementById('whale-last-check').textContent =
+      w.last_check ? fmtTime(w.last_check) : 'never';
   }
 
   function matchBadge(source) {
@@ -1183,6 +1217,7 @@
       renderClosed(status);
       renderExitDecisions(status);
       renderGates(status);
+      renderWhale(status);
       renderCategoryBars(status);
       renderJournal(status);
       renderClassifications(status);

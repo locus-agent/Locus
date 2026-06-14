@@ -29,6 +29,7 @@ from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import classify_async, classify_edge_type
 from locus.core import event_context
+from locus.core import whale_tracker
 from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
 from locus.core.journal import maybe_write_journal
 from locus.core import positions
@@ -153,6 +154,7 @@ class PipelineV2:
             "markets_matched": 0,
             "signals_found": 0,
             "trades_executed": 0,
+            "whale_last_check": None,
         }
 
     async def run(self):
@@ -187,6 +189,7 @@ class PipelineV2:
                     ),
                     self.stats,
                 ),
+                supervise("whale_tracker", self._whale_check_loop, self.stats),
             )
         except asyncio.CancelledError:
             self.running = False
@@ -432,6 +435,148 @@ class PipelineV2:
                 except Exception as e:
                     log.warning(f"[pipeline] Classification error: {e}")
 
+    async def _whale_check_loop(self):
+        """Periodically shadow the watched wallets and investigate the niche
+        markets they move that we missed. Clean return (no wallets configured)
+        ends supervision intentionally — whale tracking is simply disabled."""
+        if not config.WHALE_WALLETS:
+            console.print("  [dim]whale tracking disabled (no WHALE_WALLETS configured)[/dim]")
+            return
+        # Don't poll before the first market refresh: we match whale trades
+        # against tracked markets, and that list is empty at startup.
+        while not self.market_watcher.tracked_markets:
+            await asyncio.sleep(1)
+        console.print(
+            f"  [dim]whale tracking: {len(config.WHALE_WALLETS)} wallet(s), "
+            f"every {config.WHALE_CHECK_INTERVAL_MINUTES:.0f}m[/dim]"
+        )
+        interval = config.WHALE_CHECK_INTERVAL_MINUTES * 60.0
+        while True:
+            try:
+                await self._run_whale_check()
+            except Exception:
+                log.exception("[pipeline] WHALE CHECK FAILED (will retry next interval)")
+            await asyncio.sleep(interval)
+
+    async def _run_whale_check(self):
+        """One whale poll: fetch recent whale trades, find missed opportunities,
+        and investigate each. All blocking work runs off the event loop."""
+        loop = asyncio.get_event_loop()
+        trades = await loop.run_in_executor(
+            None,
+            lambda: whale_tracker.fetch_recent_whale_trades(config.WHALE_LOOKBACK_MINUTES),
+        )
+        self.stats["whale_last_check"] = datetime.now(timezone.utc).isoformat()
+        self.stats["whale_checks"] = self.stats.get("whale_checks", 0) + 1
+        if not trades:
+            return
+
+        def _find():
+            conn = logger._conn()
+            try:
+                return whale_tracker.find_missed_opportunities(
+                    trades, self.market_watcher.tracked_markets, conn,
+                    min_trade_usd=config.WHALE_MIN_TRADE_USD,
+                )
+            finally:
+                conn.close()
+
+        missed = await loop.run_in_executor(None, _find)
+        if not missed:
+            return
+        console.print(
+            f"  [cyan]WHALE[/cyan] {len(trades)} recent trade(s), "
+            f"{len(missed)} missed opportunit(ies)"
+        )
+        for opp in missed:
+            await self._investigate_whale_opportunity(opp)
+
+    async def _investigate_whale_opportunity(self, opp: dict):
+        """One Claude call decides hold/investigate; if investigate, run the
+        market through the normal classify -> gates path with edge_type='whale'.
+        A whale_triggered classification is always logged (opportunity record +
+        6h cooldown marker)."""
+        market = opp["market"]
+        loop = asyncio.get_event_loop()
+
+        decision = await loop.run_in_executor(
+            None, lambda: whale_tracker.decide_investigation(opp)
+        )
+        if decision != "investigate":
+            console.print(
+                f"  [dim]WHALE HOLD: \"{market.question[:40]}\" "
+                f"(whale ${opp['size_usd']:,.0f})[/dim]"
+            )
+            return
+
+        self.stats["whale_investigations"] = self.stats.get("whale_investigations", 0) + 1
+        headline = whale_tracker.whale_headline(opp)
+        now = datetime.now(timezone.utc)
+        whale_event = NewsEvent(
+            headline=headline, source="whale", url="",
+            received_at=now, published_at=now, latency_ms=0,
+        )
+
+        classification = await classify_async(headline, market, "whale")
+
+        signal = None
+        if not classification.error:
+            raw_signal = detect_edge_v2(market, classification, whale_event)
+            signal, _ = gate_trade(whale_event, raw_signal, self._traded_headlines)
+
+            if signal is not None:
+                open_positions = await loop.run_in_executor(None, positions.get_open_positions)
+                corr = positions.check_correlation_risk(
+                    market.question, signal.side, open_positions
+                )
+                if corr["risk_level"] == "high":
+                    signal = None
+                else:
+                    imbalance = await loop.run_in_executor(
+                        None, fetch_orderbook_imbalance, get_token_id(market, "YES")
+                    )
+                    if not orderbook_allows(signal.side, imbalance):
+                        signal = None
+                    else:
+                        event_id = getattr(market, "event_id", "") or ""
+                        exposure = event_context.get_event_exposure(event_id, open_positions)
+                        if event_id and exposure["position_count"] >= config.MAX_POSITIONS_PER_EVENT:
+                            signal = None
+                        else:
+                            signal.edge_type = "whale"
+
+        logger.log_classification(
+            market_question=market.question,
+            headline=headline,
+            news_source="whale",
+            direction=classification.direction,
+            materiality=classification.materiality,
+            edge=signal.edge if signal else None,
+            action="whale_triggered",
+            match_source="whale",
+            condition_id=market.condition_id,
+            yes_price=market.yes_price,
+            yes_token_id=get_token_id(market, "YES"),
+            edge_type="whale",
+            confidence=classification.confidence if not classification.error else None,
+            event_id=getattr(market, "event_id", "") or None,
+        )
+
+        if signal is not None:
+            self.stats["signals_found"] += 1
+            await self.signal_queue.put(signal)
+            console.print(
+                f"  [bright_green]WHALE SIGNAL[/bright_green] "
+                f"{classification.direction.upper()} mat:{classification.materiality:.2f} "
+                f"→ {signal.side} ${signal.bet_amount} on \"{market.question[:40]}\""
+            )
+        else:
+            console.print(
+                f"  [cyan]WHALE TRIGGERED[/cyan] (no trade after gates) "
+                f"\"{market.question[:40]}\" "
+                f"[{classification.direction} mat:{classification.materiality:.2f}]"
+            )
+
     async def _execute_signals(self):
         """Execute trades from the signal queue."""
         while True:
@@ -517,6 +662,7 @@ class PipelineV2:
                         cid: snap.last_price
                         for cid, snap in self.market_watcher.snapshots.items()
                     },
+                    whale_last_check=self.stats.get("whale_last_check"),
                 )
             except Exception as e:
                 log.warning(f"[pipeline] Status export error: {e}")

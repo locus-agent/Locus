@@ -27,6 +27,9 @@ POLYMARKET_SIGNATURE_TYPE = int(os.getenv("POLYMARKET_SIGNATURE_TYPE", "1"))
 LIVE_MAX_SPREAD = float(os.getenv("LIVE_MAX_SPREAD", "0.05"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
+# Public trades feed (no auth). The CLOB /data/trades endpoint requires API
+# keys; this read-only data API exposes the same recent-trade stream.
+POLYMARKET_DATA_HOST = os.getenv("POLYMARKET_DATA_HOST", "https://data-api.polymarket.com")
 
 # --- Twitter API v2 ---
 TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN", "")
@@ -156,6 +159,26 @@ JOURNAL_ENABLED = os.getenv("JOURNAL_ENABLED", "true").lower() == "true"
 AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"
 # Minimum time between auto-pushes, regardless of how often cycles run.
 AUTO_PUSH_MIN_INTERVAL_SECONDS = float(os.getenv("AUTO_PUSH_MIN_INTERVAL_SECONDS", "300"))
+
+# --- Whale tracking ---
+# Top-performing wallets to shadow (comma-separated addresses in .env). When a
+# whale opens a position on a niche market we hadn't acted on, the pipeline
+# investigates it. Empty list disables whale tracking entirely.
+WHALE_WALLETS = [
+    w.strip().lower() for w in os.getenv("WHALE_WALLETS", "").split(",") if w.strip()
+]
+# How often the whale-check task runs, and how far back each poll looks.
+WHALE_CHECK_INTERVAL_MINUTES = float(os.getenv("WHALE_CHECK_INTERVAL_MINUTES", "15"))
+WHALE_LOOKBACK_MINUTES = float(os.getenv("WHALE_LOOKBACK_MINUTES", "30"))
+# After a whale-triggered investigation on a market, skip it for this long.
+WHALE_COOLDOWN_HOURS = float(os.getenv("WHALE_COOLDOWN_HOURS", "6"))
+# Ignore whale trades smaller than this (USD notional).
+WHALE_MIN_TRADE_USD = float(os.getenv("WHALE_MIN_TRADE_USD", "1000"))
+# A whale trade is a "missed opportunity" only if we have no actionable
+# classification on that market within this window, and the market is not
+# closing sooner than the minimum time-to-close (too late to act).
+WHALE_CLASSIFICATION_LOOKBACK_HOURS = float(os.getenv("WHALE_CLASSIFICATION_LOOKBACK_HOURS", "2"))
+WHALE_MIN_HOURS_TO_CLOSE = float(os.getenv("WHALE_MIN_HOURS_TO_CLOSE", "2"))
 
 # --- Categories to track ---
 MARKET_CATEGORIES = [

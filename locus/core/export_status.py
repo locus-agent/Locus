@@ -64,7 +64,7 @@ def _export_archives() -> None:
         _archive_state["decisions"] = decisions_max
 
 
-def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0, current_prices: dict | None = None) -> dict:
+def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0, current_prices: dict | None = None, whale_last_check: str | None = None) -> dict:
     """Write a snapshot of current pipeline status to docs/status.json."""
     now = datetime.now(timezone.utc)
     today_start = now.strftime("%Y-%m-%d 00:00:00")
@@ -94,6 +94,13 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
             "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
+            # An opportunity, not a block: whale-triggered investigations.
+            "whale_triggered": logger.get_classification_count_since(since_24h, action="whale_triggered"),
+        },
+        "whale": {
+            "watched_wallets": len(config.WHALE_WALLETS),
+            "triggered_24h": logger.get_classification_count_since(since_24h, action="whale_triggered"),
+            "last_check": whale_last_check,
         },
         # Signals in the last 24h broken down by edge type (news/momentum/
         # arbitrage). Zero-filled so the dashboard has stable keys.
