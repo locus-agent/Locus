@@ -10,9 +10,11 @@ from __future__ import annotations
 import logging
 import math
 from collections import defaultdict
+from datetime import datetime, timedelta, timezone
 
 import httpx
 
+from locus import config
 from locus.memory import logger
 
 log = logging.getLogger(__name__)
@@ -134,6 +136,90 @@ def compute_live_readiness() -> dict:
         "ready": all(m["pass"] is True for m in metrics),
         "criteria_met": criteria_met,
         "criteria_total": len(metrics),
+        "metrics": metrics,
+    }
+
+
+def compute_circuit_breaker() -> dict:
+    """Auto-pause signal: trips when recent realized performance deteriorates.
+
+    Reads positions fully closed within the last 7 days (status LIKE 'closed_%')
+    and computes:
+
+    - max_drawdown_7d (key 'drawdown_7d'): deepest peak-to-trough drop of the
+      realized-PnL equity curve, seeded with the capital deployed across those
+      closes, as a *fraction* of the running peak (0-1). Seeding keeps the
+      fraction well-defined even while cumulative PnL is negative.
+    - sharpe_7d: mean/std of realized PnL grouped by close date (not annualized
+      — the threshold is on the raw daily ratio). Null until at least 2 distinct
+      close-days with non-zero variance, so a thin window never trips it.
+
+    Trips when drawdown_7d > config.CIRCUIT_BREAKER_DD OR (sharpe_7d is known and)
+    sharpe_7d < config.CIRCUIT_BREAKER_SHARPE. When config.CIRCUIT_BREAKER_ENABLED
+    is false the metrics are still returned but triggered is always False
+    (reason 'disabled').
+
+    Returns {triggered: bool, reason: str, metrics: dict}.
+    """
+    since = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d %H:%M:%S")
+
+    conn = logger._conn()
+    closed = [
+        dict(r) for r in conn.execute(
+            "SELECT amount_usd, realized_pnl_usd, closed_at FROM positions "
+            "WHERE status LIKE 'closed_%' AND closed_at >= ? ORDER BY closed_at",
+            (since,),
+        ).fetchall()
+    ]
+    conn.close()
+
+    # Max drawdown of the realized-PnL equity curve, seeded with deployed capital.
+    drawdown_7d = 0.0
+    bankroll = sum(p["amount_usd"] or 0.0 for p in closed)
+    if closed and bankroll > 0:
+        equity = peak = bankroll
+        for p in closed:
+            equity += p["realized_pnl_usd"] or 0.0
+            peak = max(peak, equity)
+            if peak > 0:
+                drawdown_7d = max(drawdown_7d, (peak - equity) / peak)
+
+    # Sharpe over realized PnL grouped by close date (raw daily ratio).
+    daily: dict[str, float] = defaultdict(float)
+    for p in closed:
+        day = (p["closed_at"] or "")[:10]
+        if day:
+            daily[day] += p["realized_pnl_usd"] or 0.0
+    sharpe_7d = None
+    if len(daily) >= 2:
+        vals = list(daily.values())
+        mean = sum(vals) / len(vals)
+        std = math.sqrt(sum((x - mean) ** 2 for x in vals) / (len(vals) - 1))
+        if std > 0:
+            sharpe_7d = round(mean / std, 2)
+
+    metrics = {
+        "drawdown_7d": round(drawdown_7d, 4),
+        "sharpe_7d": sharpe_7d,
+        "closed_trades_7d": len(closed),
+    }
+
+    if not config.CIRCUIT_BREAKER_ENABLED:
+        return {"triggered": False, "reason": "disabled", "metrics": metrics}
+
+    reasons = []
+    if drawdown_7d > config.CIRCUIT_BREAKER_DD:
+        reasons.append(
+            f"7d drawdown {drawdown_7d * 100:.1f}% > {config.CIRCUIT_BREAKER_DD * 100:.0f}% limit"
+        )
+    if sharpe_7d is not None and sharpe_7d < config.CIRCUIT_BREAKER_SHARPE:
+        reasons.append(
+            f"7d Sharpe {sharpe_7d:.2f} < {config.CIRCUIT_BREAKER_SHARPE:.2f} limit"
+        )
+
+    return {
+        "triggered": bool(reasons),
+        "reason": "; ".join(reasons),
         "metrics": metrics,
     }
 

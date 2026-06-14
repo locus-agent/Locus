@@ -214,6 +214,19 @@ REENTRY_NEWS_MATERIALITY = float(os.getenv("REENTRY_NEWS_MATERIALITY", "0.45"))
 REENTRY_SL_MATERIALITY = float(os.getenv("REENTRY_SL_MATERIALITY", "0.55"))
 REENTRY_SL_MIN_SOURCES = int(os.getenv("REENTRY_SL_MIN_SOURCES", "2"))
 
+# --- Circuit breaker ---
+# Auto-pause trading when recent realized performance deteriorates. Evaluated
+# at the start of each signal-processing cycle: a tripped breaker holds every
+# would-be trade (logged with action 'circuit_breaker') instead of executing.
+# Trips when the 7-day realized-PnL drawdown exceeds CIRCUIT_BREAKER_DD (a
+# fraction of the running peak) OR the 7-day daily Sharpe falls below
+# CIRCUIT_BREAKER_SHARPE. CIRCUIT_BREAKER_ENABLED=false disables it entirely
+# (compute_circuit_breaker still reports the metrics, just never trips). Read
+# these as config.X at call time so env/CLI overrides are honored.
+CIRCUIT_BREAKER_ENABLED = os.getenv("CIRCUIT_BREAKER_ENABLED", "true").lower() == "true"
+CIRCUIT_BREAKER_DD = float(os.getenv("CIRCUIT_BREAKER_DD", "0.20"))
+CIRCUIT_BREAKER_SHARPE = float(os.getenv("CIRCUIT_BREAKER_SHARPE", "-1.0"))
+
 # --- Categories to track ---
 MARKET_CATEGORIES = [
     "ai",

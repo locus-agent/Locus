@@ -1,8 +1,15 @@
 """Performance aggregation: position PnL math, realized/unrealized rollups."""
+from datetime import datetime, timedelta, timezone
+
 import pytest
 
+from locus import config
 from locus.core import performance
-from locus.core.performance import position_pnl, compute_performance
+from locus.core.performance import (
+    position_pnl,
+    compute_performance,
+    compute_circuit_breaker,
+)
 
 
 def test_yes_position_pnl():
@@ -93,3 +100,116 @@ def test_empty_db_yields_zeroes(tmp_db):
     assert perf["win_rate_pct"] is None
     assert perf["realized_pnl_usd"] == 0.0
     assert perf["unrealized_pnl_usd"] == 0.0
+
+
+# --- Circuit breaker ---
+
+def _closed_position(tmp_db, mid, amount, realized_pnl, closed_at):
+    """Insert a fully-closed position with a chosen realized PnL and close time."""
+    from locus.core import positions
+    from locus.markets.gamma import Market
+
+    trade_id = tmp_db.log_trade(
+        market_id=mid, market_question="Q?", claude_score=0.7,
+        market_price=0.5, edge=0.2, side="YES", amount_usd=amount,
+        status="dry_run", classification="bullish", materiality=0.7,
+    )
+    mkt = Market(mid, "Q?", "ai", 0.5, 0.5, 5000, "", True, [])
+    positions.open_position(trade_id, mkt, "YES", amount)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET status='closed_resolution', realized_pnl_usd=?, "
+        "closed_at=? WHERE trade_id=?",
+        (realized_pnl, closed_at, trade_id),
+    )
+    conn.commit()
+    conn.close()
+    return trade_id
+
+
+def _days_ago(days, hours=0):
+    return (datetime.now(timezone.utc) - timedelta(days=days, hours=hours)).strftime(
+        "%Y-%m-%d %H:%M:%S"
+    )
+
+
+def test_circuit_breaker_drawdown_trigger(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", True)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_DD", 0.20)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_SHARPE", -1.0)
+
+    # All on the same day (one close-day -> Sharpe stays None, so only the
+    # drawdown path can trip). Bankroll 75; equity 75 -> 115 -> 65 -> 55,
+    # peak 115, trough 55 -> drawdown 52%.
+    base = _days_ago(1)
+    _closed_position(tmp_db, "m1", 25.0, +40.0, base[:11] + "10:00:00")
+    _closed_position(tmp_db, "m2", 25.0, -50.0, base[:11] + "11:00:00")
+    _closed_position(tmp_db, "m3", 25.0, -10.0, base[:11] + "12:00:00")
+
+    cb = compute_circuit_breaker()
+    assert cb["triggered"] is True
+    assert "drawdown" in cb["reason"].lower()
+    assert cb["metrics"]["drawdown_7d"] > 0.20
+    assert cb["metrics"]["sharpe_7d"] is None
+
+
+def test_circuit_breaker_sharpe_trigger(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", True)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_DD", 0.20)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_SHARPE", -1.0)
+
+    # Three distinct close-days of mild losses on a large bankroll: drawdown
+    # stays tiny (<20%) but daily PnL {-10,-12,-8} gives Sharpe -10/2 = -5.
+    _closed_position(tmp_db, "m1", 1000.0, -10.0, _days_ago(3))
+    _closed_position(tmp_db, "m2", 1000.0, -12.0, _days_ago(2))
+    _closed_position(tmp_db, "m3", 1000.0, -8.0, _days_ago(1))
+
+    cb = compute_circuit_breaker()
+    assert cb["triggered"] is True
+    assert "sharpe" in cb["reason"].lower()
+    assert cb["metrics"]["sharpe_7d"] == pytest.approx(-5.0)
+    assert cb["metrics"]["drawdown_7d"] < 0.20
+
+
+def test_circuit_breaker_disabled(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", False)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_DD", 0.20)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_SHARPE", -1.0)
+
+    # Same draw-down-tripping data as above, but the flag is off.
+    base = _days_ago(1)
+    _closed_position(tmp_db, "m1", 25.0, +40.0, base[:11] + "10:00:00")
+    _closed_position(tmp_db, "m2", 25.0, -50.0, base[:11] + "11:00:00")
+    _closed_position(tmp_db, "m3", 25.0, -10.0, base[:11] + "12:00:00")
+
+    cb = compute_circuit_breaker()
+    assert cb["triggered"] is False
+    assert cb["reason"] == "disabled"
+    # Metrics are still computed so the dashboard can show them.
+    assert cb["metrics"]["drawdown_7d"] > 0.20
+
+
+def test_circuit_breaker_normal_operation(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", True)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_DD", 0.20)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_SHARPE", -1.0)
+
+    # Steady winners across three days: no drawdown, positive Sharpe.
+    _closed_position(tmp_db, "m1", 100.0, +10.0, _days_ago(3))
+    _closed_position(tmp_db, "m2", 100.0, +12.0, _days_ago(2))
+    _closed_position(tmp_db, "m3", 100.0, +8.0, _days_ago(1))
+
+    cb = compute_circuit_breaker()
+    assert cb["triggered"] is False
+    assert cb["reason"] == ""
+    assert cb["metrics"]["drawdown_7d"] == pytest.approx(0.0)
+    assert cb["metrics"]["sharpe_7d"] > 0
+
+
+def test_circuit_breaker_empty_db(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", True)
+    cb = compute_circuit_breaker()
+    assert cb["triggered"] is False
+    assert cb["metrics"]["drawdown_7d"] == 0.0
+    assert cb["metrics"]["sharpe_7d"] is None
+    assert cb["metrics"]["closed_trades_7d"] == 0

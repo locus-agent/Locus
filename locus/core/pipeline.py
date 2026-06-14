@@ -18,6 +18,7 @@ from rich.panel import Panel
 from locus import config
 from locus.memory import logger
 from locus.core.export_status import export_status
+from locus.core.performance import compute_circuit_breaker
 from locus.sources.scraper import scrape_all
 from locus.markets.gamma import fetch_active_markets, filter_by_categories, get_token_id
 from locus.core.scorer import score_market, filter_news_for_market
@@ -150,6 +151,9 @@ class PipelineV2:
         self.news_aggregator = NewsAggregator(self.news_queue)
         self.market_watcher = MarketWatcher()
         self._traded_headlines: set[str] = set()
+        # Latest circuit-breaker read (refreshed each status cycle and whenever a
+        # signal is evaluated); drives the trade-time gate and the status line.
+        self._circuit_breaker: dict = {"triggered": False, "reason": "", "metrics": {}}
         self.running = False
         self.stats = {
             "news_processed": 0,
@@ -420,6 +424,28 @@ class PipelineV2:
                                     )
                                     signal = switched
 
+                        # Circuit breaker: when recent realized performance has
+                        # deteriorated past the configured limits, hold every
+                        # would-be trade until it recovers. Final say over every
+                        # earlier gate (including re-entry), so it runs last.
+                        # Signals are rare, so the extra DB read here is cheap.
+                        if signal is not None:
+                            breaker = await asyncio.get_event_loop().run_in_executor(
+                                None, compute_circuit_breaker
+                            )
+                            self._circuit_breaker = breaker
+                            if breaker["triggered"]:
+                                self.stats["circuit_breaker_blocks"] = (
+                                    self.stats.get("circuit_breaker_blocks", 0) + 1
+                                )
+                                signal, action = None, "circuit_breaker"
+                                reentry_active = False
+                                console.print(
+                                    f"  [red]CIRCUIT BREAKER ACTIVE[/red]: "
+                                    f"{breaker['reason']} — holding trade on "
+                                    f"\"{market.question[:40]}\""
+                                )
+
                         # A triggered re-entry is logged as the opportunity it is
                         # (green on the dashboard), even if a later gate blocked
                         # the trade. Only consume the re-entry budget when we
@@ -683,6 +709,16 @@ class PipelineV2:
         while True:
             await asyncio.sleep(30)
             ns = self.news_aggregator.stats
+
+            # Refresh the circuit-breaker read each cycle so the status line
+            # reflects it even between signals (off the event loop — DB read).
+            try:
+                self._circuit_breaker = await asyncio.get_event_loop().run_in_executor(
+                    None, compute_circuit_breaker
+                )
+            except Exception as e:
+                log.warning(f"[pipeline] Circuit breaker check error: {e}")
+
             console.print(
                 f"\n  [dim]Status: "
                 f"news={self.stats['news_processed']} "
@@ -695,6 +731,11 @@ class PipelineV2:
                 + (f" [red]err={self.stats['classify_error_streak']}[/red]" if self.stats.get("classify_error_streak") else "")
                 + "[/dim]\n"
             )
+            if self._circuit_breaker.get("triggered"):
+                console.print(
+                    f"  [red bold]CIRCUIT BREAKER ACTIVE[/red bold] "
+                    f"[red]({self._circuit_breaker.get('reason', '')}) — trading paused[/red]"
+                )
 
             headlines_last_cycle = self.stats["news_processed"] - last_news_processed
             last_news_processed = self.stats["news_processed"]

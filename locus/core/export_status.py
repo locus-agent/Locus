@@ -15,7 +15,7 @@ from pathlib import Path
 from locus import config
 from locus.memory import logger
 from locus import memory
-from locus.core.performance import compute_performance, compute_live_readiness
+from locus.core.performance import compute_performance, compute_live_readiness, compute_circuit_breaker
 from locus.core import positions
 
 log = logging.getLogger(__name__)
@@ -112,6 +112,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
     signals_24h = logger.get_classification_count_since(since_24h, action="signal")
     classifications_24h = logger.get_classification_count_since(since_24h)
 
+    cb = compute_circuit_breaker()
+
     status = {
         "generated_at": now.isoformat(),
         "dry_run": config.DRY_RUN,
@@ -159,6 +161,12 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
         },
         "performance": compute_performance(current_prices),
         "live_readiness": compute_live_readiness(),
+        "circuit_breaker": {
+            "triggered": cb["triggered"],
+            "reason": cb["reason"],
+            "drawdown_7d": cb["metrics"].get("drawdown_7d"),
+            "sharpe_7d": cb["metrics"].get("sharpe_7d"),
+        },
         "open_positions": [
             {
                 "time": p["opened_at"],

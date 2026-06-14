@@ -246,6 +246,71 @@
     border-color: var(--row-border);
   }
 
+  /* Circuit breaker */
+  .cb-badge {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    color: var(--red);
+    border: 1px solid var(--red);
+    background: rgba(224, 90, 90, 0.12);
+  }
+
+  .cb-panel {
+    border: 1px solid var(--red);
+    background: rgba(224, 90, 90, 0.07);
+  }
+
+  .cb-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .cb-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--red);
+  }
+
+  .cb-status-badge {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 12px;
+    border-radius: 4px;
+    color: var(--red);
+    border: 1px solid var(--red);
+    background: rgba(224, 90, 90, 0.12);
+  }
+
+  .cb-reason {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .cb-metrics {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .cb-metrics b { color: var(--text); }
+
+  .cb-note {
+    margin-top: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--muted);
+  }
+
   .crit-row {
     display: grid;
     grid-template-columns: 1fr auto auto 70px;
@@ -533,11 +598,27 @@
     <span class="title">LOCUS</span>
     <span class="subtitle">· crypto research agent</span>
     <span id="mode-badge" class="mode"><span class="dot">●</span> DRY RUN</span>
+    <span id="cb-badge" class="cb-badge" style="display: none;">⚠ CIRCUIT BREAKER</span>
     <span id="last-cycle" class="last-cycle">last cycle: —</span>
   </div>
 </div>
 
 <div class="wrap">
+
+  <section class="block" id="cb-section" style="display: none;">
+    <div class="panel cb-panel">
+      <div class="cb-head">
+        <span class="cb-title">⚠ CIRCUIT BREAKER</span>
+        <span class="cb-status-badge" id="cb-status">ACTIVE</span>
+      </div>
+      <div class="cb-reason" id="cb-reason"></div>
+      <div class="cb-metrics">
+        <span>7d Drawdown <b id="cb-dd">—</b></span>
+        <span>7d Sharpe <b id="cb-sharpe">—</b></span>
+      </div>
+      <div class="cb-note">Trading is paused automatically. It resumes when 7-day performance recovers above the limits.</div>
+    </div>
+  </section>
 
   <section class="block">
     <div class="panel">
@@ -869,6 +950,27 @@
     }
     document.getElementById('last-cycle').textContent =
       'last cycle: ' + fmtTime(status.generated_at);
+  }
+
+  function renderCircuitBreaker(status) {
+    const cb = status.circuit_breaker || {};
+    const section = document.getElementById('cb-section');
+    const badge = document.getElementById('cb-badge');
+    const fmtPct = v => (v === null || v === undefined) ? '—' : (v * 100).toFixed(1) + '%';
+    const fmtNum = v => (v === null || v === undefined) ? '—' : v.toFixed(2);
+
+    document.getElementById('cb-dd').textContent = fmtPct(cb.drawdown_7d);
+    document.getElementById('cb-sharpe').textContent = fmtNum(cb.sharpe_7d);
+
+    if (cb.triggered) {
+      section.style.display = '';
+      badge.style.display = '';
+      document.getElementById('cb-reason').textContent = cb.reason || 'Performance below limits.';
+      document.getElementById('cb-status').textContent = 'ACTIVE';
+    } else {
+      section.style.display = 'none';
+      badge.style.display = 'none';
+    }
   }
 
   function renderPipeline(status) {
@@ -1215,6 +1317,7 @@
       const status = await resp.json();
 
       renderHeader(status);
+      renderCircuitBreaker(status);
       renderPipeline(status);
       renderStats(status);
       renderPerformance(status);
