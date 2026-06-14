@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-14T20:32:59.292242+00:00",
+  "generated_at": "2026-06-14T20:38:01.645292+00:00",
   "dry_run": true,
-  "markets_tracked": 2500,
+  "markets_tracked": 2499,
   "classify_error_streak": 0,
   "track_record": {
     "total": 906,
@@ -18,10 +18,10 @@
       "newsapi": 13.9
     }
   },
-  "headlines_scanned_today": 475,
+  "headlines_scanned_today": 477,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2625,
+  "classifications_24h": 2626,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 40,
@@ -45,9 +45,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 580,
-    "matched": 320,
-    "classified": 2625,
+    "news": 582,
+    "matched": 321,
+    "classified": 2626,
     "signals": 1,
     "trades": 1
   },
@@ -108,7 +108,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42500000000000004,
+      "current_price": 0.425,
       "pnl_pct": 7.48,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -207,6 +207,17 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-14 20:34:05",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "AI Learned the Rules of the Universe and That Became a Problem - SciTechDaily",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.62,
+      "edge": 0.14500000000000002,
+      "action": "low_materiality",
+      "match_source": "embedding"
+    },
+    {
       "time": "2026-06-14 20:17:49",
       "market_question": "Will Trump attend 2 World Cup matches?",
       "headline": "How to watch most of the World Cup matches with free trials",
@@ -248,17 +259,6 @@
       "confidence": 0.5,
       "edge": null,
       "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 20:17:49",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
       "match_source": "keyword"
     }
   ],
