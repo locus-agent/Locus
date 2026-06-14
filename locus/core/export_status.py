@@ -33,6 +33,11 @@ PUSH_PATHS = [
 
 # Rows shown inline on the main dashboard; the rest live in the archive page.
 RECENT_CLASSIFICATIONS_LIMIT = 5
+# Cap the full-history archive (classifications.json) to the newest N rows.
+# Classifications accrue continuously, so an uncapped archive would grow without
+# bound and get re-committed on every push — bloating git history. 5000 rows
+# keeps the archive page rich while keeping the file (and each diff) modest.
+CLASSIFICATIONS_ARCHIVE_LIMIT = 5000
 
 _last_push_at = float("-inf")
 # Max row ids already exported — archives rewrite only when new rows exist,
@@ -90,7 +95,7 @@ def _export_archives() -> None:
     if classifications_max != _archive_state["classifications"]:
         classifications = [
             _classification_row(c)
-            for c in logger.get_recent_classifications(limit=100000)
+            for c in logger.get_recent_classifications(limit=CLASSIFICATIONS_ARCHIVE_LIMIT)
         ]
         CLASSIFICATIONS_PATH.write_text(
             json.dumps({"classifications": classifications}, indent=1)
