@@ -280,7 +280,11 @@ computed yet (e.g. Sharpe before 7 days) show as N/A rather than failing.
 | `EDGE_THRESHOLD` | `0.10` | Minimum edge to trigger trade |
 | `MAX_VOLUME_USD` | `500000` | Only trade markets below this volume |
 | `MIN_VOLUME_USD` | `1000` | Skip dead markets |
-| `MATERIALITY_THRESHOLD` | `0.6` | Minimum materiality to act on |
+| `MATERIALITY_THRESHOLD_BULLISH` | `0.3` | Min materiality to act on a bullish call |
+| `MATERIALITY_THRESHOLD_BEARISH` | `0.4` | Min materiality to act on a bearish call (bearish accuracy is lower, so it needs a higher bar) |
+| `HIGH_MATERIALITY_THRESHOLD` | `0.5` | At/above this, a signal needs multi-source confirmation before trading |
+| `CONFIRMATION_WINDOW_HOURS` | `2` | Window for counting confirming sources |
+| `MIN_CONFIRMING_SOURCES` | `2` | Distinct sources required to confirm a high-materiality signal |
 | `SPEED_TARGET_SECONDS` | `5` | Target news-to-trade latency |
 
 ---

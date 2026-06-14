@@ -550,6 +550,22 @@ def get_classification_count_since(since: str, action: str | None = None) -> int
     return row["c"]
 
 
+def get_confirming_sources(condition_id: str, direction: str, since: str) -> set[str]:
+    """Distinct news_source values among directional classifications for this
+    market in this direction since `since`. Backs the high-materiality
+    multi-source confirmation gate in pipeline.gate_trade."""
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT DISTINCT news_source FROM classifications
+           WHERE condition_id = ? AND direction = ?
+             AND news_source IS NOT NULL AND news_source != ''
+             AND created_at >= ?""",
+        (condition_id, direction, since),
+    ).fetchall()
+    conn.close()
+    return {r["news_source"] for r in rows}
+
+
 def get_earliest_classification_price(condition_id: str, lookback_hours: float) -> float | None:
     """Oldest stored YES price for a market within the lookback window — the
     baseline the current price is compared against to detect a momentum move."""

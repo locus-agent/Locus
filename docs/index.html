@@ -316,6 +316,7 @@
   .gate-capped .gate-count { color: var(--cyan); }
   .gate-correlation .gate-count { color: var(--red); }
   .gate-orderbook .gate-count { color: var(--yellow); }
+  .gate-confirm .gate-count { color: var(--cyan); }
 
   /* Track record bars */
   .bar-row {
@@ -396,6 +397,7 @@
   .action-skip { color: var(--muted); }
   .action-stale { color: var(--yellow); }
   .action-capped { color: var(--cyan); }
+  .action-confirm { color: var(--cyan); }
   .action-error { color: var(--red); font-weight: 700; }
 
   /* Match-source badges */
@@ -712,6 +714,10 @@
           <span class="gate-label">orderbook — strong opposing flow</span>
           <span class="gate-count" id="gate-orderbook">—</span>
         </div>
+        <div class="gate-row gate-confirm">
+          <span class="gate-label">needs confirmation — awaiting 2nd source</span>
+          <span class="gate-count" id="gate-confirm">—</span>
+        </div>
       </div>
       <div class="panel">
         <div class="panel-title">Track Record</div>
@@ -814,6 +820,7 @@
     if (action === 'signal') return 'action-signal';
     if (action === 'stale') return 'action-stale';
     if (action === 'capped') return 'action-capped';
+    if (action === 'needs_confirmation') return 'action-confirm';
     if (action === 'error') return 'action-error';
     return 'action-skip';
   }
@@ -875,6 +882,7 @@
     document.getElementById('gate-capped').textContent = g.capped ?? '—';
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
     document.getElementById('gate-orderbook').textContent = g.orderbook_skip ?? '—';
+    document.getElementById('gate-confirm').textContent = g.needs_confirmation ?? '—';
   }
 
   function matchBadge(source) {

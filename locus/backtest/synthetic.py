@@ -165,7 +165,7 @@ def run_backtest(
         # Classify
         cls = classify(headline, market, source="backtest")
 
-        if cls.direction == "neutral" or cls.materiality < config.MATERIALITY_THRESHOLD:
+        if cls.direction == "neutral" or cls.materiality < config.materiality_threshold(cls.direction):
             continue
 
         signals += 1

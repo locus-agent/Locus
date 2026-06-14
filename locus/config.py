@@ -77,8 +77,31 @@ NEWS_LOOKBACK_HOURS = 6
 # --- V2 Settings ---
 MAX_VOLUME_USD = float(os.getenv("MAX_VOLUME_USD", "500000"))
 MIN_VOLUME_USD = float(os.getenv("MIN_VOLUME_USD", "1000"))
-MATERIALITY_THRESHOLD = float(os.getenv("MATERIALITY_THRESHOLD", "0.6"))
 SPEED_TARGET_SECONDS = float(os.getenv("SPEED_TARGET_SECONDS", "5"))
+
+# Direction-specific materiality floors (applied in pipeline.gate_trade).
+# Calibration on 700 graded calls showed bearish calls far less accurate
+# (11.1%, worse than random) than bullish (18.1%), so bearish signals need a
+# higher materiality bar; low-materiality bullish signals still pay off.
+MATERIALITY_THRESHOLD_BULLISH = float(os.getenv("MATERIALITY_THRESHOLD_BULLISH", "0.3"))
+MATERIALITY_THRESHOLD_BEARISH = float(os.getenv("MATERIALITY_THRESHOLD_BEARISH", "0.4"))
+
+# High-materiality confirmation gate: the most "obvious" news (materiality >=
+# HIGH_MATERIALITY_THRESHOLD) graded *worst* (12.0%), likely because it is
+# already priced in. Require the same directional read from at least
+# MIN_CONFIRMING_SOURCES distinct news sources on the same market within
+# CONFIRMATION_WINDOW_HOURS before trading; otherwise hold for confirmation.
+HIGH_MATERIALITY_THRESHOLD = float(os.getenv("HIGH_MATERIALITY_THRESHOLD", "0.5"))
+CONFIRMATION_WINDOW_HOURS = float(os.getenv("CONFIRMATION_WINDOW_HOURS", "2"))
+MIN_CONFIRMING_SOURCES = int(os.getenv("MIN_CONFIRMING_SOURCES", "2"))
+
+
+def materiality_threshold(direction: str) -> float:
+    """Direction-specific materiality floor for a would-be signal."""
+    return (
+        MATERIALITY_THRESHOLD_BEARISH if direction == "bearish"
+        else MATERIALITY_THRESHOLD_BULLISH
+    )
 
 # Trade only on fresh news: suppress signals (classification still runs and
 # is logged) when the headline was published more than this long before we

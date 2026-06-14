@@ -13,7 +13,8 @@ from datetime import datetime, timezone
 def deterministic_config(monkeypatch):
     monkeypatch.setattr(config, "KELLY_BANKROLL_USD", 100.0)
     monkeypatch.setattr(config, "MAX_BET_USD", 25.0)
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD", 0.4)
+    # detect_edge_v2 no longer enforces a materiality floor (that moved to
+    # pipeline.gate_trade); only EDGE_THRESHOLD and price-room guards remain.
     monkeypatch.setattr(config, "EDGE_THRESHOLD", 0.10)
 
 
@@ -112,6 +113,11 @@ def test_price_room_guards_are_symmetric():
     assert detect_edge_v2(_mkt(0.50), strong_bear, EVENT) is not None
 
 
-def test_neutral_and_low_materiality_never_signal():
+def test_neutral_never_signals():
     assert detect_edge_v2(_mkt(0.5), _cls("neutral", 0.9), EVENT) is None
-    assert detect_edge_v2(_mkt(0.5), _cls("bullish", 0.2), EVENT) is None
+
+
+def test_edge_below_threshold_never_signals():
+    # Very low materiality leaves edge under EDGE_THRESHOLD. (The materiality
+    # *floor* itself is now enforced in pipeline.gate_trade, not here.)
+    assert detect_edge_v2(_mkt(0.5), _cls("bullish", 0.05), EVENT) is None

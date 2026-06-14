@@ -39,7 +39,8 @@ def cmd_watch(args):
         console.print("[yellow]Dry-run mode (use --live to trade for real)[/yellow]\n")
 
     if args.threshold:
-        config.MATERIALITY_THRESHOLD = args.threshold
+        config.MATERIALITY_THRESHOLD_BULLISH = args.threshold
+        config.MATERIALITY_THRESHOLD_BEARISH = args.threshold
 
     run_pipeline_v2()
 

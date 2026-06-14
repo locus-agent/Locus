@@ -97,8 +97,11 @@ def test_empty_book_is_low():
 
 MKT = Market("c1", "Will Trump win the 2026 primary?", "election", 0.5, 0.5,
              5000, "", True, [])
+# Bullish, materiality above the bullish floor (0.3) and below the
+# high-materiality confirmation gate (0.5) so it clears gate_trade cleanly.
 SIG = Signal(market=MKT, claude_score=0.7, market_price=0.5, edge=0.2,
-             side="YES", bet_amount=25.0, reasoning="", headlines="h")
+             side="YES", bet_amount=25.0, reasoning="", headlines="h",
+             classification="bullish", materiality=0.35)
 
 
 def _ev(headline):

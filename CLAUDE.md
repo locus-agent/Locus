@@ -104,10 +104,17 @@ PipelineV2._execute_signals:
   call injects a "Your track record" section (via `memory.get_track_record()` +
   `logger.get_recent_lessons()`) so Claude can see its historical accuracy and recent
   mistakes before classifying.
-- `core/edge.py: detect_edge_v2` only signals when direction is non-neutral, materiality
-  clears `MATERIALITY_THRESHOLD`, and the market price has room to move in that
-  direction (skips YES if price > 0.85, skips NO if price < 0.15). `size_position`
+- `core/edge.py: detect_edge_v2` only signals when direction is non-neutral and the
+  market price has room to move in that direction (skips YES if price > 0.85, skips NO
+  if price < 0.15). The materiality floor is direction-specific and enforced downstream
+  in `gate_trade` (so every classification is still logged/calibrated). `size_position`
   applies quarter-Kelly, capped at `MAX_BET_USD`.
+- `core/pipeline.py: gate_trade` (continued) also applies calibration-driven materiality
+  gates: bullish signals need materiality >= `MATERIALITY_THRESHOLD_BULLISH`, bearish
+  need >= `MATERIALITY_THRESHOLD_BEARISH` (bearish accuracy is lower, so a higher bar;
+  action `low_materiality`), and any signal at/above `HIGH_MATERIALITY_THRESHOLD` must be
+  seen in the same direction from `MIN_CONFIRMING_SOURCES` distinct news sources within
+  `CONFIRMATION_WINDOW_HOURS` or it is held (action `needs_confirmation`).
 - `core/executor.py` enforces `DAILY_LOSS_LIMIT_USD` (checked via `logger.get_daily_pnl`),
   then either logs a `dry_run` row or places a live order via `py_clob_client`
   (optional dependency, commented out in requirements.txt — install separately).
@@ -125,10 +132,12 @@ in `ui/tui.py`, a read-only view over `trades.db`).
 - `config.py` — loads `.env`, defines all thresholds/keys/categories and
   `PROJECT_ROOT`. `DRY_RUN`, `MAX_BET_USD`, `DAILY_LOSS_LIMIT_USD`, `EDGE_THRESHOLD`
   apply to both pipelines;
-  `MAX_VOLUME_USD`/`MIN_VOLUME_USD`/`MATERIALITY_THRESHOLD`/`SPEED_TARGET_SECONDS` are
-  V2-only. `cli.py` mutates `config.DRY_RUN` / `config.MATERIALITY_THRESHOLD` /
-  `config.EDGE_THRESHOLD` at runtime based on CLI flags — modules must read these as
-  `config.X` (not via `from locus.config import X`) to see overrides.
+  `MAX_VOLUME_USD`/`MIN_VOLUME_USD`/`MATERIALITY_THRESHOLD_BULLISH`/
+  `MATERIALITY_THRESHOLD_BEARISH`/`HIGH_MATERIALITY_THRESHOLD`/`SPEED_TARGET_SECONDS` are
+  V2-only. `cli.py` mutates `config.DRY_RUN` / `config.MATERIALITY_THRESHOLD_BULLISH` +
+  `config.MATERIALITY_THRESHOLD_BEARISH` (via `--threshold`) / `config.EDGE_THRESHOLD` at
+  runtime based on CLI flags — modules must read these as `config.X` (not via
+  `from locus.config import X`) to see overrides.
 - `memory/logger.py` — SQLite (`trades.db`, WAL mode). `init_db()` runs at import time
   and auto-migrates newer columns (`_migrate_v2_columns`,
   `_migrate_classification_columns`). Tables: `trades`, `outcomes`, `pipeline_runs`,

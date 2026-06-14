@@ -799,7 +799,8 @@ def _save_results(scan, selected, pairs, trades, news_stats, markets_zero_headli
             "headlines_per_market_cap": HEADLINES_PER_MARKET_CAP,
             "min_volume_usd": config.MIN_VOLUME_USD,
             "max_volume_usd": config.MAX_VOLUME_USD,
-            "materiality_threshold": config.MATERIALITY_THRESHOLD,
+            "materiality_threshold_bullish": config.MATERIALITY_THRESHOLD_BULLISH,
+            "materiality_threshold_bearish": config.MATERIALITY_THRESHOLD_BEARISH,
             "edge_threshold": config.EDGE_THRESHOLD,
         },
         "coverage": {

@@ -75,13 +75,13 @@ def detect_edge_v2(
     V2: Use classification direction + materiality instead of probability estimation.
     Only generates a signal when:
     - Direction is bullish or bearish (not neutral)
-    - Materiality exceeds threshold
     - Market price has room to move in the predicted direction
+
+    The materiality floor is direction-specific and is enforced downstream in
+    pipeline.gate_trade (so every classification is still logged/calibrated);
+    edge here only requires a non-neutral direction with EDGE_THRESHOLD of room.
     """
     if classification.direction == "neutral":
-        return None
-
-    if classification.materiality < config.MATERIALITY_THRESHOLD:
         return None
 
     market_price = market.yes_price

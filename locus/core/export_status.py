@@ -92,6 +92,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "capped": logger.get_classification_count_since(since_24h, action="capped"),
             "correlation_block": logger.get_classification_count_since(since_24h, action="correlation_block"),
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
+            "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
         },
         # Signals in the last 24h broken down by edge type (news/momentum/
         # arbitrage). Zero-filled so the dashboard has stable keys.

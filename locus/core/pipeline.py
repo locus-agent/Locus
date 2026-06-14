@@ -9,7 +9,7 @@ from __future__ import annotations
 import asyncio
 import time
 import logging
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from rich.console import Console
 from rich.table import Table
@@ -55,14 +55,23 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     classification is still logged and calibrated.
 
     Returns (signal_or_none, action):
-      "skip"   — no edge detected
-      "stale"  — would-be signal, but the headline is older than
-                 MAX_NEWS_AGE_SECONDS as of *now* (including time spent in
-                 the queue), or its publication time is unknown; we classify
-                 old news for calibration but never trade on it
-      "capped" — this headline already produced a trade; one headline
-                 matching N markets must not open N correlated positions
-      "signal" — trade approved; headline recorded against the cap
+      "skip"               — no edge detected
+      "stale"              — would-be signal, but the headline is older than
+                             MAX_NEWS_AGE_SECONDS as of *now* (including time
+                             spent in the queue), or its publication time is
+                             unknown; we classify old news for calibration but
+                             never trade on it
+      "capped"             — this headline already produced a trade; one
+                             headline matching N markets must not open N
+                             correlated positions
+      "low_materiality"    — materiality below the direction-specific floor
+                             (bearish calls need a higher bar than bullish)
+      "needs_confirmation" — high-materiality (>= HIGH_MATERIALITY_THRESHOLD)
+                             call seen from fewer than MIN_CONFIRMING_SOURCES
+                             distinct sources within CONFIRMATION_WINDOW_HOURS;
+                             obvious news is the least accurate, so hold until
+                             a second source agrees
+      "signal"             — trade approved; headline recorded against the cap
     """
     if signal is None:
         return None, "skip"
@@ -71,6 +80,28 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         return None, "stale"
     if event.headline in traded_headlines:
         return None, "capped"
+
+    # Direction-specific materiality floor (calibration: bearish accuracy is
+    # far worse than bullish, so bearish needs a higher bar).
+    direction = signal.classification
+    if signal.materiality < config.materiality_threshold(direction):
+        return None, "low_materiality"
+
+    # High-materiality confirmation gate: the most "obvious" news grades worst
+    # (likely already priced in), so require the same directional read from
+    # >= MIN_CONFIRMING_SOURCES distinct sources within the recent window.
+    if signal.materiality >= config.HIGH_MATERIALITY_THRESHOLD:
+        since = (
+            (now or datetime.now(timezone.utc))
+            - timedelta(hours=config.CONFIRMATION_WINDOW_HOURS)
+        ).strftime("%Y-%m-%d %H:%M:%S")
+        sources = logger.get_confirming_sources(
+            signal.market.condition_id, direction, since
+        )
+        sources.add(event.source)
+        if len(sources) < config.MIN_CONFIRMING_SOURCES:
+            return None, "needs_confirmation"
+
     traded_headlines.add(event.headline)
     return signal, "signal"
 
@@ -129,7 +160,12 @@ class PipelineV2:
         mode = "[red bold]LIVE[/red bold]" if not config.DRY_RUN else "[yellow]DRY RUN[/yellow]"
         console.print(Panel(f"Pipeline V2 Starting  |  Mode: {mode}", style="bright_green"))
         console.print(f"  Niche filter: ${config.MIN_VOLUME_USD:,.0f} - ${config.MAX_VOLUME_USD:,.0f} volume")
-        console.print(f"  Materiality threshold: {config.MATERIALITY_THRESHOLD}")
+        console.print(
+            f"  Materiality threshold: bullish {config.MATERIALITY_THRESHOLD_BULLISH} / "
+            f"bearish {config.MATERIALITY_THRESHOLD_BEARISH} "
+            f"(confirm >= {config.HIGH_MATERIALITY_THRESHOLD} from "
+            f"{config.MIN_CONFIRMING_SOURCES} sources)"
+        )
         console.print(f"  Speed target: {config.SPEED_TARGET_SECONDS}s")
         console.print()
 
@@ -319,7 +355,7 @@ class PipelineV2:
                         confidence=classification.confidence if not classification.error else None,
                     )
 
-                    if action in ("stale", "capped"):
+                    if action in ("stale", "capped", "needs_confirmation"):
                         age = news_age_seconds(event)
                         age_min = age / 60 if age is not None else -1
                         console.print(
