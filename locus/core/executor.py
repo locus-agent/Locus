@@ -140,6 +140,7 @@ def _log_and_return(signal: Signal, status: str, order_id: str | None) -> dict:
         total_latency_ms=signal.total_latency_ms,
         edge_type=signal.edge_type,
         confidence=signal.confidence,
+        event_id=getattr(signal.market, "event_id", "") or None,
     )
 
     return {

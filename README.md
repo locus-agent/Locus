@@ -285,6 +285,7 @@ computed yet (e.g. Sharpe before 7 days) show as N/A rather than failing.
 | `HIGH_MATERIALITY_THRESHOLD` | `0.5` | At/above this, a signal needs multi-source confirmation before trading |
 | `CONFIRMATION_WINDOW_HOURS` | `2` | Window for counting confirming sources |
 | `MIN_CONFIRMING_SOURCES` | `2` | Distinct sources required to confirm a high-materiality signal |
+| `MAX_POSITIONS_PER_EVENT` | `1` | Max open positions across one Gamma event (sibling outcomes) |
 | `SPEED_TARGET_SECONDS` | `5` | Target news-to-trade latency |
 
 ---

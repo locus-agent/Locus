@@ -25,6 +25,7 @@ class Market:
     spread: float = 0.0
     liquidity: float = 0.0
     slug: str = ""  # polymarket.com/event/<slug>
+    event_id: str = ""  # Gamma event id; markets sharing it are sibling outcomes
 
     @property
     def implied_probability(self) -> float:
@@ -173,6 +174,9 @@ def fetch_active_markets(
                 continue
             seen_ids.add(condition_id)
 
+            event = (m.get("events") or [{}])[0]
+            event_id = str(event.get("id", "") or "")
+
             markets.append(Market(
                 condition_id=condition_id,
                 question=question,
@@ -186,7 +190,8 @@ def fetch_active_markets(
                 description=m.get("description", "") or "",
                 spread=float(m.get("spread", 0) or 0),
                 liquidity=float(m.get("liquidityNum", m.get("liquidity", 0)) or 0),
-                slug=(m.get("events") or [{}])[0].get("slug", "") or m.get("slug", ""),
+                slug=event.get("slug", "") or m.get("slug", ""),
+                event_id=event_id,
             ))
         except (KeyError, ValueError, TypeError):
             continue

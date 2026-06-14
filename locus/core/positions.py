@@ -87,11 +87,12 @@ def open_position(trade_id: int, market, side: str, amount_usd: float,
         """INSERT OR IGNORE INTO positions
            (trade_id, condition_id, market_question, slug, side,
             entry_yes_price, amount_usd, headline, reasoning,
-            current_yes_price, unrealized_pnl_pct)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)""",
+            current_yes_price, unrealized_pnl_pct, event_id)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?)""",
         (trade_id, market.condition_id, market.question,
          getattr(market, "slug", "") or None, side,
-         market.yes_price, amount_usd, headline, reasoning, market.yes_price),
+         market.yes_price, amount_usd, headline, reasoning, market.yes_price,
+         getattr(market, "event_id", "") or None),
     )
     conn.commit()
     position_id = cur.lastrowid if cur.rowcount else None

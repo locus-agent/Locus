@@ -115,6 +115,15 @@ PipelineV2._execute_signals:
   action `low_materiality`), and any signal at/above `HIGH_MATERIALITY_THRESHOLD` must be
   seen in the same direction from `MIN_CONFIRMING_SOURCES` distinct news sources within
   `CONFIRMATION_WINDOW_HOURS` or it is held (action `needs_confirmation`).
+- `core/event_context.py` runs after a signal clears the gates: markets sharing a Gamma
+  `event_id` (added to the `Market` dataclass, populated in `gamma.fetch_active_markets`)
+  are sibling outcomes of one event. `get_event_exposure` enforces a per-event position
+  cap (`MAX_POSITIONS_PER_EVENT`, action `event_exposure_block`); `find_best_outcome`
+  inspects a categorical event (sibling YES prices sum to ~1.0) and, when a sibling's
+  implied play (bullish on A ⇒ bearish on its siblings, and vice-versa) has more edge
+  than the market the news named, the pipeline switches the trade to it
+  (`build_switched_signal`). `event_id` is stored on the `trades`, `classifications`, and
+  `positions` tables (migrated in `logger._migrate_event_columns`).
 - `core/executor.py` enforces `DAILY_LOSS_LIMIT_USD` (checked via `logger.get_daily_pnl`),
   then either logs a `dry_run` row or places a live order via `py_clob_client`
   (optional dependency, commented out in requirements.txt — install separately).

@@ -317,6 +317,7 @@
   .gate-correlation .gate-count { color: var(--red); }
   .gate-orderbook .gate-count { color: var(--yellow); }
   .gate-confirm .gate-count { color: var(--cyan); }
+  .gate-event .gate-count { color: var(--red); }
 
   /* Track record bars */
   .bar-row {
@@ -718,6 +719,10 @@
           <span class="gate-label">needs confirmation — awaiting 2nd source</span>
           <span class="gate-count" id="gate-confirm">—</span>
         </div>
+        <div class="gate-row gate-event">
+          <span class="gate-label">event exposure — position already on event</span>
+          <span class="gate-count" id="gate-event">—</span>
+        </div>
       </div>
       <div class="panel">
         <div class="panel-title">Track Record</div>
@@ -883,6 +888,7 @@
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
     document.getElementById('gate-orderbook').textContent = g.orderbook_skip ?? '—';
     document.getElementById('gate-confirm').textContent = g.needs_confirmation ?? '—';
+    document.getElementById('gate-event').textContent = g.event_exposure_block ?? '—';
   }
 
   function matchBadge(source) {

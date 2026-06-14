@@ -93,6 +93,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "correlation_block": logger.get_classification_count_since(since_24h, action="correlation_block"),
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
+            "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
         },
         # Signals in the last 24h broken down by edge type (news/momentum/
         # arbitrage). Zero-filled so the dashboard has stable keys.
@@ -120,6 +121,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
                 "pnl_pct": p["unrealized_pnl_pct"],
                 "amount_usd": p["amount_usd"],
                 "edge_type": p.get("edge_type"),
+                "event_id": p.get("event_id"),
             }
             for p in positions.get_open_positions()[:10]
         ],
@@ -133,6 +135,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
                 "exit_price": p["exit_yes_price"],
                 "realized_pnl_usd": p["realized_pnl_usd"],
                 "exit_reason": p["exit_reason"],
+                "event_id": p.get("event_id"),
             }
             for p in positions.get_closed_positions(limit=10)
         ],

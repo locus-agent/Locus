@@ -166,6 +166,7 @@ def init_db():
     # Add V2 columns to existing trades table if missing
     _migrate_v2_columns(conn)
     _migrate_classification_columns(conn)
+    _migrate_event_columns(conn)
     conn.close()
 
 
@@ -213,6 +214,17 @@ def _migrate_classification_columns(conn):
     conn.commit()
 
 
+def _migrate_event_columns(conn):
+    """Add the Gamma event_id column to trades, classifications, and positions
+    (event context awareness — sibling outcomes share an event_id)."""
+    for table in ("trades", "classifications", "positions"):
+        cursor = conn.execute(f"PRAGMA table_info({table})")
+        columns = {row[1] for row in cursor.fetchall()}
+        if "event_id" not in columns:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN event_id TEXT")
+    conn.commit()
+
+
 def log_trade(
     market_id: str,
     market_question: str,
@@ -233,6 +245,7 @@ def log_trade(
     total_latency_ms: int | None = None,
     edge_type: str | None = None,
     confidence: float | None = None,
+    event_id: str | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
@@ -241,13 +254,13 @@ def log_trade(
             side, amount_usd, order_id, status, reasoning, headlines,
             news_source, classification, materiality,
             news_latency_ms, classification_latency_ms, total_latency_ms, edge_type,
-            confidence)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            confidence, event_id)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_id, market_question, claude_score, market_price, edge,
          side, amount_usd, order_id, status, reasoning, headlines,
          news_source, classification, materiality,
          news_latency_ms, classification_latency_ms, total_latency_ms, edge_type,
-         confidence),
+         confidence, event_id),
     )
     trade_id = cur.lastrowid
     conn.commit()
@@ -510,15 +523,18 @@ def log_classification(
     yes_token_id: str | None = None,
     edge_type: str | None = None,
     confidence: float | None = None,
+    event_id: str | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
            (market_question, headline, news_source, direction, materiality, edge, action,
-            match_source, condition_id, yes_price, yes_token_id, edge_type, confidence)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
+            event_id)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_question, headline, news_source, direction, materiality, edge, action,
-         match_source, condition_id, yes_price, yes_token_id, edge_type, confidence),
+         match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
+         event_id),
     )
     classification_id = cur.lastrowid
     conn.commit()

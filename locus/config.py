@@ -95,6 +95,12 @@ HIGH_MATERIALITY_THRESHOLD = float(os.getenv("HIGH_MATERIALITY_THRESHOLD", "0.5"
 CONFIRMATION_WINDOW_HOURS = float(os.getenv("CONFIRMATION_WINDOW_HOURS", "2"))
 MIN_CONFIRMING_SOURCES = int(os.getenv("MIN_CONFIRMING_SOURCES", "2"))
 
+# Event context awareness: markets sharing a Gamma event_id are sibling
+# outcomes of one event. Cap how many positions we hold across one event so a
+# single event can't quietly dominate the book (mutually-exclusive outcomes are
+# highly correlated). Default 1 = one position per event.
+MAX_POSITIONS_PER_EVENT = int(os.getenv("MAX_POSITIONS_PER_EVENT", "1"))
+
 
 def materiality_threshold(direction: str) -> float:
     """Direction-specific materiality floor for a would-be signal."""

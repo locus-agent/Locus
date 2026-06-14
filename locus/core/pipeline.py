@@ -28,6 +28,7 @@ from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import classify_async, classify_edge_type
+from locus.core import event_context
 from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
 from locus.core.journal import maybe_write_journal
 from locus.core import positions
@@ -339,6 +340,49 @@ class PipelineV2:
                         if signal is not None:
                             signal.edge_type = edge_type
 
+                        # Event context: once a signal clears the gates, look
+                        # across the whole event. Cap per-event exposure (sibling
+                        # outcomes are highly correlated), then prefer the
+                        # highest-edge outcome — often an implied play on a
+                        # sibling rather than the market the news named.
+                        if signal is not None:
+                            open_positions = await asyncio.get_event_loop().run_in_executor(
+                                None, positions.get_open_positions
+                            )
+                            event_id = getattr(market, "event_id", "") or ""
+                            exposure = event_context.get_event_exposure(event_id, open_positions)
+                            if event_id and exposure["position_count"] >= config.MAX_POSITIONS_PER_EVENT:
+                                self.stats["event_exposure_blocks"] = (
+                                    self.stats.get("event_exposure_blocks", 0) + 1
+                                )
+                                signal, action = None, "event_exposure_block"
+                                console.print(
+                                    f"  [red]EVENT EXPOSURE BLOCK[/red]: "
+                                    f"{exposure['position_count']} position(s) "
+                                    f"(${exposure['total_exposure_usd']:.0f}) already on event "
+                                    f"{event_id} for \"{market.question[:40]}\""
+                                )
+                            else:
+                                event_markets = event_context.get_event_markets(
+                                    event_id, self.market_watcher.tracked_markets
+                                )
+                                best = event_context.find_best_outcome(
+                                    signal, event_markets, open_positions
+                                )
+                                if best and best["recommended_market"].condition_id != market.condition_id:
+                                    self.stats["event_switches"] = (
+                                        self.stats.get("event_switches", 0) + 1
+                                    )
+                                    switched = event_context.build_switched_signal(signal, best)
+                                    console.print(
+                                        f"  [cyan]EVENT SWITCH[/cyan]: "
+                                        f"original=\"{market.question[:40]}\" ({signal.side}) -> "
+                                        f"switched_to=\"{switched.market.question[:40]}\" ({switched.side}) "
+                                        f"edge {signal.edge:.1%} -> {switched.edge:.1%} "
+                                        f"[{best['reason']}]"
+                                    )
+                                    signal = switched
+
                     logger.log_classification(
                         market_question=market.question,
                         headline=event.headline,
@@ -353,6 +397,7 @@ class PipelineV2:
                         yes_token_id=get_token_id(market, "YES"),
                         edge_type=edge_type,
                         confidence=classification.confidence if not classification.error else None,
+                        event_id=getattr(market, "event_id", "") or None,
                     )
 
                     if action in ("stale", "capped", "needs_confirmation"):
