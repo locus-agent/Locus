@@ -29,6 +29,7 @@ from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import classify_async, classify_edge_type
+from locus.core.multi_classifier import classify_ensemble, is_low_consensus
 from locus.core import event_context
 from locus.core import reentry
 from locus.core import whale_tracker
@@ -286,9 +287,17 @@ class PipelineV2:
                         )
                         continue
 
-                    classification = await classify_async(
-                        event.headline, market, event.source
-                    )
+                    # Multi-LLM ensemble (Claude + Grok) when enabled, else
+                    # single-model Claude. Ensemble results carry a
+                    # consensus_score; single-model results leave it None.
+                    if config.ENSEMBLE_ENABLED:
+                        classification = await classify_ensemble(
+                            event.headline, market, event.source
+                        )
+                    else:
+                        classification = await classify_async(
+                            event.headline, market, event.source
+                        )
 
                     if classification.error:
                         self.stats["classify_error_streak"] = (
@@ -299,6 +308,22 @@ class PipelineV2:
                         self.stats["classify_error_streak"] = 0
                         raw_signal = detect_edge_v2(market, classification, event)
                         signal, action = gate_trade(event, raw_signal, self._traded_headlines)
+
+                        # Multi-LLM consensus gate: when the two models disagree
+                        # (consensus below the floor), don't trust the call —
+                        # suppress the would-be signal. Single-model/non-ensemble
+                        # results (consensus_score None) skip this gate.
+                        if signal is not None and is_low_consensus(classification):
+                            self.stats["low_consensus"] = (
+                                self.stats.get("low_consensus", 0) + 1
+                            )
+                            signal, action = None, "low_consensus"
+                            console.print(
+                                f"  [yellow]LOW CONSENSUS[/yellow]: "
+                                f"{classification.consensus_score:.2f} < "
+                                f"{config.ENSEMBLE_MIN_CONSENSUS} on "
+                                f"\"{market.question[:40]}\""
+                            )
 
                         # Re-entry gate: if this market was recently closed and
                         # is still being watched, a fresh signal only gets back
@@ -472,6 +497,8 @@ class PipelineV2:
                         edge_type=edge_type,
                         confidence=classification.confidence if not classification.error else None,
                         event_id=getattr(market, "event_id", "") or None,
+                        consensus_score=classification.consensus_score,
+                        ensemble_used=classification.ensemble_used,
                     )
 
                     if action in ("stale", "capped", "needs_confirmation"):

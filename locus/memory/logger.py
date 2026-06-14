@@ -223,6 +223,10 @@ def _migrate_classification_columns(conn):
         ("edge_type", "TEXT"),
         # Claude's win-probability estimate (0.5-1.0).
         ("confidence", "REAL"),
+        # Multi-LLM ensemble: agreement score (0-1) and whether two models
+        # were actually blended for this classification.
+        ("consensus_score", "REAL"),
+        ("ensemble_used", "INTEGER"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -540,17 +544,21 @@ def log_classification(
     edge_type: str | None = None,
     confidence: float | None = None,
     event_id: str | None = None,
+    consensus_score: float | None = None,
+    ensemble_used: bool | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
            (market_question, headline, news_source, direction, materiality, edge, action,
             match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
-            event_id)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            event_id, consensus_score, ensemble_used)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_question, headline, news_source, direction, materiality, edge, action,
          match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
-         event_id),
+         event_id,
+         consensus_score,
+         None if ensemble_used is None else int(ensemble_used)),
     )
     classification_id = cur.lastrowid
     conn.commit()

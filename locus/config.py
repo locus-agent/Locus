@@ -12,6 +12,20 @@ load_dotenv(PROJECT_ROOT / ".env")
 # --- Anthropic ---
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 
+# --- Grok (xAI) — second opinion for ensemble classification ---
+# OpenAI-compatible API. Empty key disables Grok: the ensemble cleanly falls
+# back to Claude-only (consensus_score 0.85). Read as config.X at call time.
+GROK_API_KEY = os.getenv("GROK_API_KEY", "")
+GROK_MODEL = os.getenv("GROK_MODEL", "grok-4")
+
+# --- Multi-LLM consensus classification ---
+# When enabled, headlines are classified by Claude (weight 0.6) and Grok
+# (weight 0.4) in parallel, blended into one Classification with a
+# consensus_score measuring agreement. Trades are gated when the two models
+# disagree (consensus_score < ENSEMBLE_MIN_CONSENSUS -> action 'low_consensus').
+ENSEMBLE_ENABLED = os.getenv("ENSEMBLE_ENABLED", "true").lower() == "true"
+ENSEMBLE_MIN_CONSENSUS = float(os.getenv("ENSEMBLE_MIN_CONSENSUS", "0.5"))
+
 # --- Polymarket CLOB ---
 POLYMARKET_API_KEY = os.getenv("POLYMARKET_API_KEY", "")
 POLYMARKET_API_SECRET = os.getenv("POLYMARKET_API_SECRET", "")

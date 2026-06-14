@@ -62,9 +62,12 @@ def test_persistent_failure_is_flagged_not_neutralized(monkeypatch):
     assert calls["n"] == 2  # one retry max — no storm
 
 
-def test_garbage_json_counts_as_error(monkeypatch):
+def test_garbage_response_falls_back_to_neutral(monkeypatch):
+    # The universal parser never raises: an unparseable response degrades to a
+    # neutral (non-error) classification rather than being retried as an outage.
     client, calls = _fake_client(["not json at all"])
     monkeypatch.setattr(classifier, "client", client)
     c = classifier.classify("headline", MKT)
-    assert c.error is True
-    assert calls["n"] == 2
+    assert c.error is False
+    assert c.direction == "neutral" and c.materiality == 0.0 and c.confidence == 0.5
+    assert calls["n"] == 1  # no retry — parsing succeeded (as a fallback)

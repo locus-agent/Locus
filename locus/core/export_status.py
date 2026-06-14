@@ -58,6 +58,8 @@ def _classification_row(c: dict) -> dict:
         "edge": c["edge"],
         "action": c["action"],
         "match_source": c["match_source"],
+        "consensus_score": c["consensus_score"],
+        "ensemble_used": bool(c["ensemble_used"]) if c["ensemble_used"] is not None else None,
     }
 
 
@@ -135,6 +137,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
             "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
+            "low_consensus": logger.get_classification_count_since(since_24h, action="low_consensus"),
             # Opportunities, not blocks: whale-triggered investigations and
             # re-entries into recently closed markets.
             "whale_triggered": logger.get_classification_count_since(since_24h, action="whale_triggered"),

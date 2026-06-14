@@ -76,6 +76,27 @@ Respond with ONLY valid JSON:
 }}"""
 
 
+# Simplified, JSON-only prompt for the Grok second opinion. Deliberately leaner
+# than CLASSIFICATION_PROMPT (no track record / calibration guidance) so the two
+# models reason independently rather than anchoring on the same context.
+GROK_CLASSIFICATION_PROMPT = """You are a news classifier for prediction markets.
+
+Market question: {question}
+Current YES price: {yes_price:.3f} (implied probability {yes_price:.1%})
+Time remaining until close: {time_remaining}
+
+Breaking news: {headline}
+Source: {source}
+
+Does this news make the market MORE likely to resolve YES (bullish), MORE likely \
+to resolve NO (bearish), or is it NOT RELEVANT (neutral)?
+Rate materiality (0.0 = no impact, 1.0 = definitive evidence) and your confidence \
+(0.5 = coin flip, 1.0 = near-certain) that the market resolves in your predicted direction.
+
+Respond with ONLY valid JSON, no other text:
+{{"direction": "bullish|bearish|neutral", "materiality": <0.0-1.0>, "confidence": <0.5-1.0>, "reasoning": "<1 sentence>"}}"""
+
+
 # Dollar amount in the question, e.g. "$1,700" or "$0.50" — the market's price threshold.
 _THRESHOLD_RE = re.compile(r"\$\s?[\d,]+(?:\.\d+)?")
 
@@ -140,6 +161,100 @@ class Classification:
     model: str
     confidence: float = 0.5  # 0.5-1.0: P(market resolves in predicted direction)
     error: bool = False  # True when classification failed (API/parse error)
+    raw_response: str = ""  # The model's raw text response (for debugging/audit)
+    # Multi-LLM ensemble fields (set by multi_classifier.classify_ensemble);
+    # left at defaults for plain single-model classify() results.
+    consensus_score: float | None = None  # 0.0-1.0 agreement between models
+    ensemble_used: bool = False  # True when two models were blended
+
+
+# Direction synonyms normalized to our three canonical labels. Different models
+# (and prompt drift) phrase direction differently; map them all to one vocab.
+_BULLISH_SYNONYMS = {"bullish", "up", "positive", "buy", "long", "yes"}
+_BEARISH_SYNONYMS = {"bearish", "down", "negative", "sell", "short", "no"}
+
+
+def _normalize_direction(value: object) -> str:
+    """Map a model's direction label (incl. synonyms) to bullish/bearish/neutral."""
+    v = str(value or "").strip().lower()
+    if v in _BULLISH_SYNONYMS:
+        return "bullish"
+    if v in _BEARISH_SYNONYMS:
+        return "bearish"
+    return "neutral"
+
+
+def _clamp(value: object, lo: float, hi: float) -> float:
+    """Coerce to float and clamp to [lo, hi]; returns lo on bad input."""
+    try:
+        return max(lo, min(hi, float(value)))
+    except (ValueError, TypeError):
+        return lo
+
+
+# JSON object anywhere in the text (greedy, spans newlines).
+_JSON_OBJ_RE = re.compile(r"\{.*\}", re.DOTALL)
+# Loose key/value extraction straight from prose, for when JSON parsing fails.
+_DIRECTION_RE = re.compile(r'direction["\s:=]+([a-zA-Z]+)', re.IGNORECASE)
+_MATERIALITY_RE = re.compile(r'materiality["\s:=]+(-?[0-9]*\.?[0-9]+)', re.IGNORECASE)
+_CONFIDENCE_RE = re.compile(r'confidence["\s:=]+(-?[0-9]*\.?[0-9]+)', re.IGNORECASE)
+_REASONING_RE = re.compile(r'reasoning["\s:=]+"([^"]*)"', re.IGNORECASE)
+
+
+def parse_classification(text: str) -> dict:
+    """Universal, defensive parser for any classifier model's text response.
+
+    Three escalating strategies so a malformed or chatty response still yields
+    usable fields instead of raising:
+      1. Extract the first {...} block and json.loads it.
+      2. Regex direction / materiality / confidence / reasoning from free text.
+      3. Fall back to neutral / 0.0 / 0.5.
+
+    Returns a dict with normalized, clamped keys: direction (bullish/bearish/
+    neutral), materiality (0-1), confidence (0.5-1), reasoning. Direction
+    synonyms (up/positive/buy, down/negative/sell) are normalized.
+    """
+    text = (text or "").strip()
+
+    # Strip a Markdown code fence if present (```json ... ```).
+    if "```" in text:
+        parts = text.split("```")
+        if len(parts) >= 2:
+            candidate = parts[1]
+            if candidate.lstrip().lower().startswith("json"):
+                candidate = candidate.lstrip()[4:]
+            text = candidate.strip()
+
+    # Try 1: a JSON object somewhere in the text.
+    m = _JSON_OBJ_RE.search(text)
+    if m:
+        try:
+            result = json.loads(m.group(0))
+            if isinstance(result, dict):
+                return {
+                    "direction": _normalize_direction(result.get("direction", "neutral")),
+                    "materiality": _clamp(result.get("materiality", 0.0), 0.0, 1.0),
+                    "confidence": _clamp(result.get("confidence", 0.5), 0.5, 1.0),
+                    "reasoning": str(result.get("reasoning", "")),
+                }
+        except (ValueError, TypeError):
+            pass
+
+    # Try 2: regex the fields straight out of the prose.
+    d = _DIRECTION_RE.search(text)
+    mat = _MATERIALITY_RE.search(text)
+    conf = _CONFIDENCE_RE.search(text)
+    reason = _REASONING_RE.search(text)
+    if d or mat or conf:
+        return {
+            "direction": _normalize_direction(d.group(1)) if d else "neutral",
+            "materiality": _clamp(mat.group(1), 0.0, 1.0) if mat else 0.0,
+            "confidence": _clamp(conf.group(1), 0.5, 1.0) if conf else 0.5,
+            "reasoning": reason.group(1) if reason else "",
+        }
+
+    # Try 3: nothing parseable — neutral fallback.
+    return {"direction": "neutral", "materiality": 0.0, "confidence": 0.5, "reasoning": ""}
 
 
 def classify(
@@ -181,33 +296,20 @@ def classify(
             )
             text = response.content[0].text.strip()
 
-            # Extract JSON
-            if "```" in text:
-                text = text.split("```")[1]
-                if text.startswith("json"):
-                    text = text[4:]
-                text = text.strip()
-
-            result = json.loads(text)
+            # Universal parser: JSON -> regex -> neutral fallback. Never raises,
+            # so a chatty/malformed response degrades to neutral rather than
+            # being counted as an outage and retried.
+            parsed = parse_classification(text)
             latency = int((time.time() - start) * 1000)
 
-            direction = result.get("direction", "neutral")
-            if direction not in ("bullish", "bearish", "neutral"):
-                direction = "neutral"
-
-            materiality = max(0.0, min(1.0, float(result.get("materiality", 0))))
-            # Confidence is P(predicted direction is right); clamp to [0.5, 1.0]
-            # since "less than a coin flip" in your own predicted direction is
-            # incoherent. Defaults to 0.5 (no conviction) when absent.
-            confidence = max(0.5, min(1.0, float(result.get("confidence", 0.5))))
-
             return Classification(
-                direction=direction,
-                materiality=materiality,
-                confidence=confidence,
-                reasoning=result.get("reasoning", ""),
+                direction=parsed["direction"],
+                materiality=parsed["materiality"],
+                confidence=parsed["confidence"],
+                reasoning=parsed["reasoning"],
                 latency_ms=latency,
                 model=config.CLASSIFICATION_MODEL,
+                raw_response=text,
             )
 
         except Exception as e:

@@ -382,9 +382,16 @@
   .gate-correlation .gate-count { color: var(--red); }
   .gate-orderbook .gate-count { color: var(--yellow); }
   .gate-confirm .gate-count { color: var(--cyan); }
+  .gate-consensus .gate-count { color: var(--yellow); }
   .gate-event .gate-count { color: var(--red); }
   .gate-whale .gate-count { color: var(--green); }
   .gate-reentry .gate-count { color: var(--green); }
+
+  /* Consensus cell in the classification log */
+  .consensus-ok { color: var(--green); font-weight: 700; }
+  .consensus-single { color: var(--muted); font-weight: 700; }
+  .consensus-low { color: var(--red); font-weight: 700; }
+  span.muted { color: var(--muted); }
 
   /* Track record bars */
   .bar-row {
@@ -802,6 +809,10 @@
           <span class="gate-label">needs confirmation — awaiting 2nd source</span>
           <span class="gate-count" id="gate-confirm">—</span>
         </div>
+        <div class="gate-row gate-consensus">
+          <span class="gate-label">low consensus — models disagree</span>
+          <span class="gate-count" id="gate-consensus">—</span>
+        </div>
         <div class="gate-row gate-event">
           <span class="gate-label">event exposure — position already on event</span>
           <span class="gate-count" id="gate-event">—</span>
@@ -865,12 +876,13 @@
               <th>Direction</th>
               <th>Materiality</th>
               <th>Confidence</th>
+              <th>Consensus</th>
               <th>Edge</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody id="classification-rows">
-            <tr><td colspan="9" class="empty">No classifications yet.</td></tr>
+            <tr><td colspan="10" class="empty">No classifications yet.</td></tr>
           </tbody>
         </table>
       </div>
@@ -1018,6 +1030,7 @@
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
     document.getElementById('gate-orderbook').textContent = g.orderbook_skip ?? '—';
     document.getElementById('gate-confirm').textContent = g.needs_confirmation ?? '—';
+    document.getElementById('gate-consensus').textContent = g.low_consensus ?? '—';
     document.getElementById('gate-event').textContent = g.event_exposure_block ?? '—';
     document.getElementById('gate-whale').textContent = g.whale_triggered ?? '—';
     document.getElementById('gate-reentry').textContent = g.reentry_triggered ?? '—';
@@ -1253,7 +1266,7 @@
     const rows = status.recent_classifications || [];
 
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="9" class="empty">No classifications yet.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="10" class="empty">No classifications yet.</td></tr>';
       return;
     }
 
@@ -1266,10 +1279,18 @@
         <td class="${directionClass(c.direction)}">${directionArrow(c.direction)}</td>
         <td>${fmtPct(c.materiality)}</td>
         <td>${fmtPct(c.confidence)}</td>
+        <td>${consensusCell(c.consensus_score, c.ensemble_used)}</td>
         <td>${fmtPct(c.edge)}</td>
         <td class="${actionClass(c.action)}">${escapeHtml(c.action)}</td>
       </tr>
     `).join('');
+  }
+
+  function consensusCell(score, ensembleUsed) {
+    if (score === null || score === undefined) return '<span class="muted">—</span>';
+    const cls = score < 0.5 ? 'consensus-low' : (ensembleUsed ? 'consensus-ok' : 'consensus-single');
+    const tag = ensembleUsed ? '' : ' <span class="muted">(1)</span>';
+    return '<span class="' + cls + '">' + Math.round(score * 100) + '%</span>' + tag;
   }
 
   function renderJournal(status) {
