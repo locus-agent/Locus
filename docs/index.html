@@ -380,6 +380,7 @@
   .gate-stale .gate-count { color: var(--yellow); }
   .gate-capped .gate-count { color: var(--cyan); }
   .gate-correlation .gate-count { color: var(--red); }
+  .gate-category .gate-count { color: var(--red); }
   .gate-orderbook .gate-count { color: var(--yellow); }
   .gate-confirm .gate-count { color: var(--cyan); }
   .gate-consensus .gate-count { color: var(--yellow); }
@@ -801,6 +802,10 @@
           <span class="gate-label">correlation — over-concentrated in topic</span>
           <span class="gate-count" id="gate-correlation">—</span>
         </div>
+        <div class="gate-row gate-category">
+          <span class="gate-label">category limit — over-exposed in category</span>
+          <span class="gate-count" id="gate-category">—</span>
+        </div>
         <div class="gate-row gate-orderbook">
           <span class="gate-label">orderbook — strong opposing flow</span>
           <span class="gate-count" id="gate-orderbook">—</span>
@@ -1028,6 +1033,7 @@
     document.getElementById('gate-stale').textContent = g.stale ?? '—';
     document.getElementById('gate-capped').textContent = g.capped ?? '—';
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
+    document.getElementById('gate-category').textContent = g.category_limit ?? '—';
     document.getElementById('gate-orderbook').textContent = g.orderbook_skip ?? '—';
     document.getElementById('gate-confirm').textContent = g.needs_confirmation ?? '—';
     document.getElementById('gate-consensus').textContent = g.low_consensus ?? '—';

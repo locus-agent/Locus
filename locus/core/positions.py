@@ -102,12 +102,13 @@ def open_position(trade_id: int, market, side: str, amount_usd: float,
         """INSERT OR IGNORE INTO positions
            (trade_id, condition_id, market_question, slug, side,
             entry_yes_price, amount_usd, headline, reasoning,
-            current_yes_price, unrealized_pnl_pct, event_id)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?)""",
+            current_yes_price, unrealized_pnl_pct, event_id, category)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)""",
         (trade_id, market.condition_id, market.question,
          getattr(market, "slug", "") or None, side,
          market.yes_price, amount_usd, headline, reasoning, market.yes_price,
-         getattr(market, "event_id", "") or None),
+         getattr(market, "event_id", "") or None,
+         getattr(market, "category", "") or None),
     )
     conn.commit()
     position_id = cur.lastrowid if cur.rowcount else None
@@ -289,6 +290,48 @@ def check_correlation_risk(new_market_question: str, new_side: str,
         "correlated_positions": correlated,
         "total_exposure_usd": round(total_exposure, 2),
         "risk_level": risk_level,
+    }
+
+
+def check_category_exposure(category: str, open_positions: list[dict]) -> dict:
+    """Combined open exposure in a market category vs its configured hard cap.
+
+    Sums amount_usd over open positions in `category` (falling back to inferring
+    the category from each position's question when the stored category is
+    missing — e.g. legacy rows). The new trade's own size is not added: the gate
+    blocks once a category's *existing* exposure is over its hard limit, and
+    warns inside the soft band (CATEGORY_SOFT_LIMIT_PCT..100% of the limit).
+
+    Returns {allowed, warning, current_usd, limit_usd, pct}:
+      allowed — existing exposure is at/under the hard limit
+      warning — allowed, but at/above CATEGORY_SOFT_LIMIT_PCT of the limit
+    """
+    category = category or "other"
+    limits = config.MAX_EXPOSURE_PER_CATEGORY
+    limit_usd = float(limits.get(category, limits.get("other", 0)))
+
+    current = 0.0
+    for p in open_positions:
+        pcat = p.get("category") or gamma._infer_category(p.get("market_question", ""), [])
+        if pcat == category:
+            current += p.get("amount_usd") or 0.0
+
+    pct = (current / limit_usd) if limit_usd > 0 else 0.0
+    allowed = current <= limit_usd
+    warning = allowed and pct >= config.CATEGORY_SOFT_LIMIT_PCT
+
+    # Log exposure on every check — the per-category book is otherwise invisible.
+    log.info(
+        f"[positions] Category exposure {category}: "
+        f"${current:.0f}/${limit_usd:.0f} ({pct:.0%})"
+    )
+
+    return {
+        "allowed": allowed,
+        "warning": warning,
+        "current_usd": round(current, 2),
+        "limit_usd": limit_usd,
+        "pct": round(pct, 4),
     }
 
 

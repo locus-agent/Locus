@@ -183,6 +183,7 @@ def init_db():
     _migrate_v2_columns(conn)
     _migrate_classification_columns(conn)
     _migrate_event_columns(conn)
+    _migrate_position_category(conn)
     conn.close()
 
 
@@ -242,6 +243,16 @@ def _migrate_event_columns(conn):
         columns = {row[1] for row in cursor.fetchall()}
         if "event_id" not in columns:
             conn.execute(f"ALTER TABLE {table} ADD COLUMN event_id TEXT")
+
+
+def _migrate_position_category(conn):
+    """Add the inferred market category to positions (per-category exposure
+    limits). Legacy rows stay NULL and fall back to question-based inference."""
+    cursor = conn.execute("PRAGMA table_info(positions)")
+    columns = {row[1] for row in cursor.fetchall()}
+    if "category" not in columns:
+        conn.execute("ALTER TABLE positions ADD COLUMN category TEXT")
+    conn.commit()
     conn.commit()
 
 

@@ -1,3 +1,4 @@
+import json
 import os
 from pathlib import Path
 
@@ -254,6 +255,30 @@ MARKET_CATEGORIES = [
     "crypto",
     "politics",
 ]
+
+# --- Per-category exposure limits ---
+# Hard cap (USD) on combined open-position exposure per inferred market
+# category. A would-be trade is blocked (action 'category_limit') once a
+# category's existing exposure is over its hard limit; between
+# CATEGORY_SOFT_LIMIT_PCT and 100% of the limit it is allowed but warned.
+# 'other' is the fallback for any category without an explicit entry.
+# Override the whole mapping with a CATEGORY_EXPOSURE_LIMITS JSON string, e.g.
+# CATEGORY_EXPOSURE_LIMITS='{"politics": 100, "crypto": 100, "other": 25}'.
+MAX_EXPOSURE_PER_CATEGORY = {
+    "politics": 75,
+    "crypto": 75,
+    "ai": 50,
+    "technology": 50,
+    "other": 25,
+}
+_category_exposure_override = os.getenv("CATEGORY_EXPOSURE_LIMITS", "")
+if _category_exposure_override:
+    try:
+        MAX_EXPOSURE_PER_CATEGORY = json.loads(_category_exposure_override)
+    except (ValueError, TypeError):
+        pass  # malformed override -> keep the defaults above
+# Warn (but still allow) once a category reaches this fraction of its hard limit.
+CATEGORY_SOFT_LIMIT_PCT = float(os.getenv("CATEGORY_SOFT_LIMIT_PCT", "0.8"))
 
 # --- Twitter filter keywords (for filtered stream rules) ---
 TWITTER_KEYWORDS = [

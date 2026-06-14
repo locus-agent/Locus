@@ -379,6 +379,34 @@ class PipelineV2:
                                     f"on \"{market.question[:40]}\" (allowed)"
                                 )
 
+                        # Category exposure gate: cap combined open exposure per
+                        # market category. Soft band (>= CATEGORY_SOFT_LIMIT_PCT
+                        # of the hard limit) warns but allows; over the hard
+                        # limit blocks (action 'category_limit').
+                        if signal is not None:
+                            cat_exp = positions.check_category_exposure(
+                                getattr(market, "category", "") or "other",
+                                positions.get_open_positions(),
+                            )
+                            if not cat_exp["allowed"]:
+                                self.stats["category_limits"] = (
+                                    self.stats.get("category_limits", 0) + 1
+                                )
+                                signal, action = None, "category_limit"
+                                console.print(
+                                    f"  [red]CATEGORY LIMIT[/red]: {market.category} "
+                                    f"exposure ${cat_exp['current_usd']:.0f}/"
+                                    f"${cat_exp['limit_usd']:.0f} ({cat_exp['pct']:.0%}) "
+                                    f"on \"{market.question[:40]}\""
+                                )
+                            elif cat_exp["warning"]:
+                                console.print(
+                                    f"  [yellow]CATEGORY WARNING[/yellow]: {market.category} "
+                                    f"exposure ${cat_exp['current_usd']:.0f}/"
+                                    f"${cat_exp['limit_usd']:.0f} ({cat_exp['pct']:.0%}) "
+                                    f"on \"{market.question[:40]}\" (allowed)"
+                                )
+
                         # Orderbook imbalance gate: don't trade into strong
                         # opposing flow on the live YES book. Fails open when
                         # the CLOB is unreachable (imbalance is None -> allowed).

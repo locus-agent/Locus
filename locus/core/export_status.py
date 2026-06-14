@@ -134,6 +134,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "stale": logger.get_classification_count_since(since_24h, action="stale"),
             "capped": logger.get_classification_count_since(since_24h, action="capped"),
             "correlation_block": logger.get_classification_count_since(since_24h, action="correlation_block"),
+            "category_limit": logger.get_classification_count_since(since_24h, action="category_limit"),
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
             "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
