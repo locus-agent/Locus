@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-14T18:28:34.282166+00:00",
+  "generated_at": "2026-06-14T18:33:36.658551+00:00",
   "dry_run": true,
-  "markets_tracked": 2495,
+  "markets_tracked": 2492,
   "classify_error_streak": 0,
   "track_record": {
     "total": 845,
@@ -18,10 +18,10 @@
       "newsapi": 13.9
     }
   },
-  "headlines_scanned_today": 378,
+  "headlines_scanned_today": 379,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2406,
+  "classifications_24h": 2409,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 29,
@@ -45,9 +45,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 540,
-    "matched": 297,
-    "classified": 2406,
+    "news": 541,
+    "matched": 298,
+    "classified": 2409,
     "signals": 1,
     "trades": 1
   },
@@ -207,6 +207,39 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-14 18:28:51",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "China may have accessed Mythos",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 18:28:51",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "China may have accessed Mythos",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 18:28:48",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "China may have accessed Mythos",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword"
+    },
+    {
       "time": "2026-06-14 18:14:29",
       "market_question": "Will AI be charged with a crime before 2027?",
       "headline": "US govt's curbs on Anthropic models reignite calls for sovereign AI - Business Standard",
@@ -227,39 +260,6 @@
       "edge": 0.12625,
       "action": "low_materiality",
       "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 18:14:25",
-      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
-      "headline": "US govt's curbs on Anthropic models reignite calls for sovereign AI - Business Standard",
-      "direction": "bearish",
-      "materiality": 0.25,
-      "confidence": 0.62,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 18:14:23",
-      "market_question": "Will Anthropic not IPO by June 30, 2026?",
-      "headline": "US govt's curbs on Anthropic models reignite calls for sovereign AI - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 18:14:21",
-      "market_question": "Anthropic acquired before 2027?",
-      "headline": "US govt's curbs on Anthropic models reignite calls for sovereign AI - Business Standard",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.58,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both"
     }
   ],
   "journal": [
