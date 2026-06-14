@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T20:45:33.272000+00:00",
+  "generated_at": "2026-06-14T20:47:12.677232+00:00",
   "dry_run": true,
   "markets_tracked": 2504,
   "classify_error_streak": 0,
@@ -18,10 +18,10 @@
       "newsapi": 13.9
     }
   },
-  "headlines_scanned_today": 497,
+  "headlines_scanned_today": 507,
   "headlines_last_cycle": 10,
   "signals_24h": 1,
-  "classifications_24h": 2688,
+  "classifications_24h": 2732,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 41,
@@ -37,7 +37,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-14T20:45:27.711474+00:00"
+    "last_check": "2026-06-14T20:46:52.014288+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -45,9 +45,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 595,
+    "news": 605,
     "matched": 321,
-    "classified": 2688,
+    "classified": 2732,
     "signals": 1,
     "trades": 1
   },
@@ -102,8 +102,8 @@
     ]
   },
   "circuit_breaker": {
-    "triggered": false,
-    "reason": "disabled",
+    "triggered": true,
+    "reason": "7d drawdown 48.6% > 20% limit",
     "drawdown_7d": 0.4862,
     "sharpe_7d": -0.93
   },
@@ -213,18 +213,7 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-14 20:45:27",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "AI Learned the Rules of the Universe and That Became a Problem - SciTechDaily",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.62,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 20:45:27",
+      "time": "2026-06-14 20:46:52",
       "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
       "headline": "China may have accessed Mythos",
       "direction": "bearish",
@@ -235,7 +224,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 20:45:27",
+      "time": "2026-06-14 20:46:52",
       "market_question": "Solana Up or Down - May 20, 6AM ET",
       "headline": "China may have accessed Mythos",
       "direction": "bearish",
@@ -246,7 +235,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 20:45:27",
+      "time": "2026-06-14 20:46:52",
       "market_question": "Will Trump and Putin meet next in China?",
       "headline": "China may have accessed Mythos",
       "direction": null,
@@ -257,12 +246,23 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 20:45:27",
+      "time": "2026-06-14 20:46:52",
       "market_question": "Anthropic IPO before 2027?",
       "headline": "US govt's curbs on Anthropic models reignite calls for sovereign AI - Business Standard",
       "direction": "bearish",
       "materiality": 0.15,
       "confidence": 0.58,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 20:46:52",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "US govt's curbs on Anthropic models reignite calls for sovereign AI - Business Standard",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "action": "cached",
       "match_source": "keyword"
