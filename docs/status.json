@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T16:17:42.286034+00:00",
+  "generated_at": "2026-06-14T16:18:52.824805+00:00",
   "dry_run": true,
   "markets_tracked": 2527,
   "classify_error_streak": 0,
@@ -18,10 +18,10 @@
       "newsapi": 14.9
     }
   },
-  "headlines_scanned_today": 246,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 256,
+  "headlines_last_cycle": 9,
   "signals_24h": 1,
-  "classifications_24h": 2039,
+  "classifications_24h": 2079,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 20,
@@ -37,7 +37,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-14T16:13:14.991713+00:00"
+    "last_check": "2026-06-14T16:18:32.185012+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -45,9 +45,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 469,
-    "matched": 296,
-    "classified": 2039,
+    "news": 479,
+    "matched": 297,
+    "classified": 2079,
     "signals": 1,
     "trades": 1
   },
@@ -207,163 +207,31 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-14 16:01:19",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "How to watch most of the World Cup matches with free trials",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 16:01:17",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "How to watch most of the World Cup matches with free trials",
+      "time": "2026-06-14 16:18:34",
+      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bouts",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword"
+      "match_source": "embedding"
     },
     {
-      "time": "2026-06-14 16:01:15",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "How to watch most of the World Cup matches with free trials",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 16:01:14",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "How to watch most of the World Cup matches with free trials",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 16:01:13",
+      "time": "2026-06-14 16:18:34",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
       "headline": "How to watch most of the World Cup matches with free trials",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Will the next elected US president be a woman?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
       "action": "cached",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Will Google have the best AI Agent at the end of June 2026?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "AI wins IMO gold medal in 2026?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.58,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
+      "time": "2026-06-14 16:18:34",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "How to watch most of the World Cup matches with free trials",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -372,9 +240,9 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
+      "time": "2026-06-14 16:18:34",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "How to watch most of the World Cup matches with free trials",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -383,48 +251,15 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Will Anthropic be acquired before 2027?",
-      "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.08,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.58,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 15:28:13",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
+      "time": "2026-06-14 16:18:34",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "How to watch most of the World Cup matches with free trials",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "cached",
-      "match_source": "embedding"
+      "match_source": "keyword"
     }
   ],
   "journal": [
