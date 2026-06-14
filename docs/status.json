@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T14:35:51.049959+00:00",
+  "generated_at": "2026-06-14T14:38:22.649517+00:00",
   "dry_run": true,
   "markets_tracked": 2531,
   "classify_error_streak": 0,
@@ -18,17 +18,18 @@
       "newsapi": 14.3
     }
   },
-  "headlines_scanned_today": 216,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 226,
+  "headlines_last_cycle": 10,
   "signals_24h": 1,
-  "classifications_24h": 2111,
+  "classifications_24h": 2150,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 20,
     "capped": 0,
     "correlation_block": 0,
     "orderbook_skip": 0,
-    "needs_confirmation": 0
+    "needs_confirmation": 0,
+    "event_exposure_block": 0
   },
   "edge_types_24h": {
     "news": 0,
@@ -36,9 +37,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 476,
+    "news": 486,
     "matched": 320,
-    "classified": 2111,
+    "classified": 2150,
     "signals": 1,
     "trades": 1
   },
@@ -102,7 +103,8 @@
       "current_price": 0.45499999999999996,
       "pnl_pct": 1.87,
       "amount_usd": 9.14,
-      "edge_type": "momentum"
+      "edge_type": "momentum",
+      "event_id": null
     },
     {
       "time": "2026-06-12 21:07:20",
@@ -113,7 +115,8 @@
       "current_price": 0.9915,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
-      "edge_type": null
+      "edge_type": null,
+      "event_id": null
     },
     {
       "time": "2026-06-12 21:07:20",
@@ -124,7 +127,8 @@
       "current_price": 0.001,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
-      "edge_type": null
+      "edge_type": null,
+      "event_id": null
     }
   ],
   "closed_positions": [
@@ -136,7 +140,8 @@
       "entry_price": 0.445,
       "exit_price": 0.575,
       "realized_pnl_usd": -5.855855855855852,
-      "exit_reason": "news_decision"
+      "exit_reason": "news_decision",
+      "event_id": null
     },
     {
       "time": "2026-06-12T21:27:01.117383+00:00",
@@ -146,7 +151,8 @@
       "entry_price": 0.0295,
       "exit_price": 0.0105,
       "realized_pnl_usd": -16.101694915254235,
-      "exit_reason": "sl"
+      "exit_reason": "sl",
+      "event_id": null
     },
     {
       "time": "2026-06-12T21:27:01.116499+00:00",
@@ -156,7 +162,8 @@
       "entry_price": 0.005,
       "exit_price": 0.003,
       "realized_pnl_usd": -10.0,
-      "exit_reason": "drawdown_decision"
+      "exit_reason": "drawdown_decision",
+      "event_id": null
     },
     {
       "time": "2026-06-12T21:26:57.713796+00:00",
@@ -166,7 +173,8 @@
       "entry_price": 0.0015,
       "exit_price": 0.0005,
       "realized_pnl_usd": -16.666666666666668,
-      "exit_reason": "sl"
+      "exit_reason": "sl",
+      "event_id": null
     }
   ],
   "exit_decisions": [
@@ -191,64 +199,75 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-14 14:25:42",
-      "market_question": "Will the US federal government take a stake in Anthropic PBC?",
-      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "time": "2026-06-14 14:38:03",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
       "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 14:25:42",
-      "market_question": "Will the US federal government take a stake in Micron Technology, Inc.?",
-      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.01,
       "confidence": 0.5,
       "edge": null,
       "action": "cached",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:42",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-14 14:38:03",
+      "market_question": "Will Trump resign before 2027?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "cached",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:42",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-14 14:38:03",
+      "market_question": "Will Trump nationalize elections?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "cached",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:42",
-      "market_question": "Trump orders federal review of AI model releases by June 30?",
-      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "time": "2026-06-14 14:38:03",
+      "market_question": "Will David Sacks leave the Trump administration before 2027?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 14:38:03",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 14:38:03",
+      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "cached",
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-14 14:25:42",
-      "market_question": "Trump declassifies new UFO files by June 22?",
-      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "time": "2026-06-14 14:38:03",
+      "market_question": "Will Keith Ellison be the Democratic nominee for Senate in Minnesota?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bout",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -257,18 +276,7 @@
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-14 14:25:42",
-      "market_question": "Trump declassifies new UFO files by June 15?",
-      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Will the next elected US president be a woman?",
       "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
       "direction": "neutral",
@@ -279,7 +287,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Will Trump and Putin meet next in Belarus?",
       "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
       "direction": null,
@@ -290,7 +298,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Will Trump and Putin meet next in Ukraine?",
       "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
       "direction": null,
@@ -301,7 +309,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Will Trump and Putin meet next in Switzerland?",
       "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
       "direction": null,
@@ -312,7 +320,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Will Trump and Putin meet next in Japan?",
       "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
       "direction": null,
@@ -323,7 +331,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Will Google have the best AI Agent at the end of June 2026?",
       "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
       "direction": "neutral",
@@ -334,7 +342,7 @@
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "OpenAI announces it has achieved AGI before 2027?",
       "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
       "direction": "neutral",
@@ -345,7 +353,7 @@
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "AI wins IMO gold medal in 2026?",
       "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
       "direction": "neutral",
@@ -356,7 +364,7 @@
       "match_source": "embedding"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
       "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
       "direction": "bearish",
@@ -367,7 +375,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "OpenAI IPO before 2027?",
       "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
       "direction": "neutral",
@@ -378,7 +386,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Anthropic IPO before 2027?",
       "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
       "direction": "neutral",
@@ -389,7 +397,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Will Anthropic be acquired before 2027?",
       "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
       "direction": "bearish",
@@ -400,7 +408,7 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 14:25:41",
+      "time": "2026-06-14 14:38:02",
       "market_question": "Mistral AI IPO before 2027?",
       "headline": "Goldman Sachs Predicts AI Infrastructure Spending Could Hit More Than $1 Trillion in 2027. 3 AI Stocks to Buy. - The Motley Fool",
       "direction": "neutral",
