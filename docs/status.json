@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-14T20:38:01.645292+00:00",
+  "generated_at": "2026-06-14T20:42:30.401183+00:00",
   "dry_run": true,
-  "markets_tracked": 2499,
+  "markets_tracked": 2501,
   "classify_error_streak": 0,
   "track_record": {
     "total": 906,
@@ -18,13 +18,13 @@
       "newsapi": 13.9
     }
   },
-  "headlines_scanned_today": 477,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 487,
+  "headlines_last_cycle": 10,
   "signals_24h": 1,
-  "classifications_24h": 2626,
+  "classifications_24h": 2670,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "stale": 40,
+    "stale": 41,
     "capped": 0,
     "correlation_block": 0,
     "orderbook_skip": 0,
@@ -37,7 +37,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-14T20:32:32.076131+00:00"
+    "last_check": "2026-06-14T20:42:09.814391+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -45,9 +45,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 582,
+    "news": 592,
     "matched": 321,
-    "classified": 2626,
+    "classified": 2670,
     "signals": 1,
     "trades": 1
   },
@@ -101,6 +101,12 @@
       }
     ]
   },
+  "circuit_breaker": {
+    "triggered": true,
+    "reason": "7d drawdown 48.6% > 20% limit",
+    "drawdown_7d": 0.4862,
+    "sharpe_7d": -0.93
+  },
   "open_positions": [
     {
       "time": "2026-06-13 23:31:30",
@@ -108,7 +114,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.425,
+      "current_price": 0.42500000000000004,
       "pnl_pct": 7.48,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -207,42 +213,20 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-14 20:34:05",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "AI Learned the Rules of the Universe and That Became a Problem - SciTechDaily",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.62,
-      "edge": 0.14500000000000002,
-      "action": "low_materiality",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 20:17:49",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "How to watch most of the World Cup matches with free trials",
+      "time": "2026-06-14 20:42:12",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bouts",
       "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 20:17:49",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "How to watch most of the World Cup matches with free trials",
-      "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.01,
       "confidence": 0.5,
       "edge": null,
       "action": "cached",
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 20:17:49",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "How to watch most of the World Cup matches with free trials",
+      "time": "2026-06-14 20:42:12",
+      "market_question": "Will Trump resign before 2027?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bouts",
       "direction": "neutral",
       "materiality": 0.02,
       "confidence": 0.5,
@@ -251,11 +235,33 @@
       "match_source": "keyword"
     },
     {
-      "time": "2026-06-14 20:17:49",
-      "market_question": "Will the next elected US president be a woman?",
-      "headline": "Prediction: This Will Be the Next $1 Trillion Artificial Intelligence (AI) Chip Stock, According to Jensen Huang - The Motley Fool",
+      "time": "2026-06-14 20:42:12",
+      "market_question": "Will Trump nationalize elections?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bouts",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 20:42:12",
+      "market_question": "Will David Sacks leave the Trump administration before 2027?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bouts",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 20:42:12",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Merger Cleared, David Ellison to Join Trump at U.F.C. Bouts",
+      "direction": "neutral",
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
       "action": "cached",
