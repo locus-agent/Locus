@@ -24,21 +24,45 @@ REPO_DIR = config.PROJECT_ROOT
 STATUS_PATH = REPO_DIR / "docs" / "status.json"
 JOURNAL_PATH = REPO_DIR / "docs" / "journal.json"
 DECISIONS_PATH = REPO_DIR / "docs" / "exit_decisions.json"
+CLASSIFICATIONS_PATH = REPO_DIR / "docs" / "classifications.json"
 # All files the auto-pusher is allowed to commit.
-PUSH_PATHS = ["docs/status.json", "docs/journal.json", "docs/exit_decisions.json"]
+PUSH_PATHS = [
+    "docs/status.json", "docs/journal.json", "docs/exit_decisions.json",
+    "docs/classifications.json",
+]
+
+# Rows shown inline on the main dashboard; the rest live in the archive page.
+RECENT_CLASSIFICATIONS_LIMIT = 5
 
 _last_push_at = float("-inf")
 # Max row ids already exported — archives rewrite only when new rows exist,
 # so the 30s cycle stays cheap. No generated_at inside the archives: content
 # is byte-identical unless rows changed, keeping auto-push commits honest.
-_archive_state: dict[str, int | None] = {"journal": None, "decisions": None}
+_archive_state: dict[str, int | None] = {"journal": None, "decisions": None, "classifications": None}
+
+
+def _classification_row(c: dict) -> dict:
+    """Public shape of a classification row (shared by inline + archive)."""
+    return {
+        "time": c["created_at"],
+        "market_question": c["market_question"],
+        "headline": c["headline"],
+        "direction": c["direction"],
+        "materiality": c["materiality"],
+        "confidence": c["confidence"],
+        "edge": c["edge"],
+        "action": c["action"],
+        "match_source": c["match_source"],
+    }
 
 
 def _export_archives() -> None:
-    """Write full-history journal.json / exit_decisions.json when new rows exist."""
+    """Write full-history journal / exit_decisions / classifications archives
+    when new rows exist (byte-identical otherwise, so auto-push stays quiet)."""
     conn = logger._conn()
     journal_max = conn.execute("SELECT COALESCE(MAX(id), 0) FROM journal").fetchone()[0]
     decisions_max = conn.execute("SELECT COALESCE(MAX(id), 0) FROM exit_decisions").fetchone()[0]
+    classifications_max = conn.execute("SELECT COALESCE(MAX(id), 0) FROM classifications").fetchone()[0]
     conn.close()
 
     if journal_max != _archive_state["journal"]:
@@ -62,6 +86,16 @@ def _export_archives() -> None:
         ]
         DECISIONS_PATH.write_text(json.dumps({"decisions": decisions}, indent=1))
         _archive_state["decisions"] = decisions_max
+
+    if classifications_max != _archive_state["classifications"]:
+        classifications = [
+            _classification_row(c)
+            for c in logger.get_recent_classifications(limit=100000)
+        ]
+        CLASSIFICATIONS_PATH.write_text(
+            json.dumps({"classifications": classifications}, indent=1)
+        )
+        _archive_state["classifications"] = classifications_max
 
 
 def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0, current_prices: dict | None = None, whale_last_check: str | None = None) -> dict:
@@ -162,18 +196,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             for d in positions.get_recent_exit_decisions(limit=5)
         ],
         "recent_classifications": [
-            {
-                "time": c["created_at"],
-                "market_question": c["market_question"],
-                "headline": c["headline"],
-                "direction": c["direction"],
-                "materiality": c["materiality"],
-                "confidence": c["confidence"],
-                "edge": c["edge"],
-                "action": c["action"],
-                "match_source": c["match_source"],
-            }
-            for c in logger.get_recent_classifications(limit=20)
+            _classification_row(c)
+            for c in logger.get_recent_classifications(limit=RECENT_CLASSIFICATIONS_LIMIT)
         ],
         "journal": [
             {"date": j["date"], "entry": j["entry"]}
