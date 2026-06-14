@@ -16,6 +16,11 @@ def deterministic_config(monkeypatch):
     # detect_edge_v2 no longer enforces a materiality floor (that moved to
     # pipeline.gate_trade); only EDGE_THRESHOLD and price-room guards remain.
     monkeypatch.setattr(config, "EDGE_THRESHOLD", 0.10)
+    # Pin the dynamic win-rate factor to 1.0 (wr 0.75) so these tests validate
+    # the base Kelly math; dynamic scaling has its own test module.
+    from locus.core import edge
+    monkeypatch.setattr(edge, "get_cached_winrate", lambda: 0.75)
+    monkeypatch.setattr(config, "KELLY_MIN_BET_USD", 2.0)
 
 
 def _cls(direction, materiality, confidence=0.5):
@@ -59,12 +64,12 @@ def test_kelly_caps_at_max_bet():
     assert size_position("YES", 0.5, 0.95) == config.MAX_BET_USD
 
 
-def test_kelly_floors_at_one_when_no_edge():
-    # Fair coin at fair odds -> zero Kelly -> floored to the $1 minimum.
-    assert size_position("YES", 0.5, 0.5) == 1.0
+def test_kelly_floors_at_min_bet_when_no_edge():
+    # Fair coin at fair odds -> zero Kelly -> floored to KELLY_MIN_BET_USD.
+    assert size_position("YES", 0.5, 0.5) == config.KELLY_MIN_BET_USD
     # YES at 0.80 but only 70% confident: market implies 80%, you're below it,
-    # so Kelly is negative (don't bet) -> floored to $1, never negative.
-    assert size_position("YES", 0.8, 0.7) == 1.0
+    # so Kelly is negative (don't bet) -> floored to the min bet, never negative.
+    assert size_position("YES", 0.8, 0.7) == config.KELLY_MIN_BET_USD
 
 
 def test_kelly_favorable_odds_size_up():
@@ -78,8 +83,8 @@ def test_kelly_no_side_odds():
     # full Kelly = (0.85*4 - 0.15)/4 = 0.8125; half * 100 = 40.625 -> capped.
     assert size_position("NO", 0.8, 0.85) == config.MAX_BET_USD
     # NO at price 0.2 -> buying NO at 0.80 (b=0.25); 70% confidence is below
-    # the 80% implied, negative Kelly -> floored.
-    assert size_position("NO", 0.2, 0.7) == 1.0
+    # the 80% implied, negative Kelly -> floored to the min bet.
+    assert size_position("NO", 0.2, 0.7) == config.KELLY_MIN_BET_USD
 
 
 # --- signal integration ---

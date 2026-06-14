@@ -577,6 +577,22 @@ def log_classification(
     return classification_id
 
 
+def get_recent_closed_position_pnls(limit: int) -> list[float]:
+    """Realized PnL of the most recently closed positions (newest first).
+
+    Only fully-closed positions (status LIKE 'closed_%'); a NULL realized PnL
+    is treated as 0.0 (a break-even, non-winning close). Backs dynamic Kelly
+    win-rate sizing."""
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT realized_pnl_usd FROM positions "
+        "WHERE status LIKE 'closed_%' ORDER BY closed_at DESC LIMIT ?",
+        (limit,),
+    ).fetchall()
+    conn.close()
+    return [r["realized_pnl_usd"] or 0.0 for r in rows]
+
+
 def get_recent_classifications(limit: int = 20) -> list[dict]:
     conn = _conn()
     rows = conn.execute(

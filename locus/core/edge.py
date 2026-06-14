@@ -1,11 +1,56 @@
 from __future__ import annotations
 
+import logging
+import time
 from dataclasses import dataclass
 
 from locus import config
+from locus import memory
+from locus.memory import logger
 from locus.markets.gamma import Market
 from locus.core.classifier import Classification
 from locus.sources.news_stream import NewsEvent
+
+log = logging.getLogger(__name__)
+
+# Cached recent win rate for dynamic Kelly sizing. Refreshed at most once per
+# config.KELLY_WINRATE_CACHE_TTL seconds (the underlying closes change slowly,
+# and size_position runs on every signal). Shape: {winrate, timestamp,
+# sample_count}; None until first computed.
+_winrate_cache: dict | None = None
+
+
+def reset_winrate_cache() -> None:
+    """Drop the cached win rate so the next size_position recomputes it."""
+    global _winrate_cache
+    _winrate_cache = None
+
+
+def get_cached_winrate() -> float:
+    """Recent realized win rate (0.0-1.0), cached for KELLY_WINRATE_CACHE_TTL.
+
+    Defensive: any DB error falls back to 0.5 (neutral) without caching, so a
+    transient failure never blocks sizing or poisons the cache."""
+    global _winrate_cache
+    now = time.monotonic()
+    if (
+        _winrate_cache is not None
+        and now - _winrate_cache["timestamp"] < config.KELLY_WINRATE_CACHE_TTL
+    ):
+        return _winrate_cache["winrate"]
+
+    try:
+        pnls = logger.get_recent_closed_position_pnls(config.KELLY_WINRATE_LOOKBACK)
+    except Exception as e:
+        log.warning(f"[edge] Win-rate lookup failed, using 0.5: {e}")
+        return 0.5
+
+    winrate = memory.winrate_from_pnls(pnls)
+    _winrate_cache = {"winrate": winrate, "timestamp": now, "sample_count": len(pnls)}
+    log.info(
+        f"[edge] Win-rate cache refreshed: {winrate:.0%} over {len(pnls)} closed positions"
+    )
+    return winrate
 
 
 @dataclass
@@ -128,21 +173,38 @@ def detect_edge_v2(
     )
 
 
-def size_position(side: str, yes_price: float, confidence: float) -> float:
-    """Half-Kelly position sizing from win probability and market odds.
+def winrate_factor(recent_wr: float) -> float:
+    """Dynamic-sizing multiplier from recent win rate (clamped to the factor band).
 
-    Previously this scaled size by *materiality* — how much the news matters —
-    which is not the probability of winning. A high-materiality, low-confidence
-    call (big news, unclear direction) was sized like a sure thing. Kelly needs
-    the actual win probability, so we use `confidence` (Claude's P that the
-    market resolves in the predicted direction).
+    Linear map: win rate 0.25 -> KELLY_DYNAMIC_MIN_FACTOR, 0.75 ->
+    KELLY_DYNAMIC_MAX_FACTOR. With the defaults this is
+    factor = clamp(0.25 + (wr - 0.25) * (0.75 / 0.50), 0.25, 1.0):
+    wr 0.25 -> 0.25, wr 0.50 -> 0.625, wr 0.75 -> 1.0.
+    """
+    min_f = config.KELLY_DYNAMIC_MIN_FACTOR
+    max_f = config.KELLY_DYNAMIC_MAX_FACTOR
+    # Slope maps the 0.25..0.75 win-rate span onto the min..max factor band.
+    factor = min_f + (recent_wr - 0.25) * ((max_f - min_f) / 0.50)
+    return min(max(factor, min_f), max_f)
+
+
+def size_position(side: str, yes_price: float, confidence: float) -> float:
+    """Half-Kelly position sizing from win probability and market odds, scaled
+    by recent realized win rate.
+
+    Kelly needs the actual win probability, so we size on `confidence` (Claude's
+    P that the market resolves in the predicted direction), not materiality.
 
     Decimal-odds payoff b for a $1 stake at the current price:
       YES bought at yes_price pays (1 - yes_price)/yes_price on a win
       NO  bought at (1 - yes_price) pays yes_price/(1 - yes_price)
     With p = confidence, q = 1 - p, full Kelly fraction is (p*b - q)/b. We bet
-    HALF Kelly of KELLY_BANKROLL_USD, capped at MAX_BET_USD and floored at $1.
-    A non-positive Kelly (no edge at these odds) floors to the $1 minimum.
+    HALF Kelly of KELLY_BANKROLL_USD as the base size.
+
+    The base is then multiplied by a recent-win-rate factor (smooth linear
+    scaling — a cold streak shrinks bets, a hot streak restores them), capped at
+    MAX_BET_USD, and floored at KELLY_MIN_BET_USD. A non-positive Kelly (no edge
+    at these odds) yields a base of 0, which the floor lifts to the minimum bet.
     """
     price = min(max(yes_price, 1e-6), 1.0 - 1e-6)
     p = min(max(confidence, 0.0), 1.0)
@@ -154,5 +216,13 @@ def size_position(side: str, yes_price: float, confidence: float) -> float:
         b = price / (1.0 - price)
 
     full_kelly = (p * b - q) / b if b > 0 else 0.0
-    raw_size = config.KELLY_BANKROLL_USD * (full_kelly / 2.0)
-    return min(max(round(raw_size, 2), 1.0), config.MAX_BET_USD)
+    base_kelly_size = config.KELLY_BANKROLL_USD * (full_kelly / 2.0)
+
+    # Dynamic adjustment: scale the base by recent realized win rate.
+    factor = winrate_factor(get_cached_winrate())
+    position_size = base_kelly_size * factor
+
+    # Cap at the per-trade max, then floor at the minimum bet (so a genuine
+    # signal is never sized down to dust by the factor or a thin Kelly).
+    capped = min(round(position_size, 2), config.MAX_BET_USD)
+    return max(capped, config.KELLY_MIN_BET_USD)

@@ -92,6 +92,21 @@ DAILY_LOSS_LIMIT_USD = float(os.getenv("DAILY_LOSS_LIMIT_USD", "100"))
 EDGE_THRESHOLD = float(os.getenv("EDGE_THRESHOLD", "0.10"))
 NEWS_LOOKBACK_HOURS = 6
 
+# --- Dynamic Kelly sizing ---
+# Scale half-Kelly bets by recent realized win rate: a cold streak shrinks
+# size, a hot streak restores it. Win rate is the fraction of the last
+# KELLY_WINRATE_LOOKBACK closed positions that were profitable (0.5 until at
+# least KELLY_WINRATE_MIN_SAMPLES closes), cached for KELLY_WINRATE_CACHE_TTL
+# seconds. The factor maps win rate linearly: 0.25 -> MIN_FACTOR, 0.75 ->
+# MAX_FACTOR (clamped to that band). The final bet is floored at
+# KELLY_MIN_BET_USD so a real signal is never sized down to dust.
+KELLY_WINRATE_LOOKBACK = int(os.getenv("KELLY_WINRATE_LOOKBACK", "20"))
+KELLY_WINRATE_MIN_SAMPLES = int(os.getenv("KELLY_WINRATE_MIN_SAMPLES", "5"))
+KELLY_DYNAMIC_MIN_FACTOR = float(os.getenv("KELLY_DYNAMIC_MIN_FACTOR", "0.25"))
+KELLY_DYNAMIC_MAX_FACTOR = float(os.getenv("KELLY_DYNAMIC_MAX_FACTOR", "1.0"))
+KELLY_MIN_BET_USD = float(os.getenv("KELLY_MIN_BET_USD", "2.0"))
+KELLY_WINRATE_CACHE_TTL = float(os.getenv("KELLY_WINRATE_CACHE_TTL", "1800"))
+
 # --- V2 Settings ---
 MAX_VOLUME_USD = float(os.getenv("MAX_VOLUME_USD", "500000"))
 MIN_VOLUME_USD = float(os.getenv("MIN_VOLUME_USD", "1000"))

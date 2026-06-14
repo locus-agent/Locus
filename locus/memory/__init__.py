@@ -93,6 +93,25 @@ def get_track_record() -> dict:
     return result
 
 
+def winrate_from_pnls(pnls: list[float]) -> float:
+    """Win rate (0.0-1.0) from a list of realized PnLs, with the
+    KELLY_WINRATE_MIN_SAMPLES fallback to 0.5 when there are too few closes to
+    be meaningful. A position counts as a win when its realized PnL > 0."""
+    if len(pnls) < config.KELLY_WINRATE_MIN_SAMPLES:
+        return 0.5
+    return sum(1 for p in pnls if p > 0) / len(pnls)
+
+
+def get_recent_winrate(n: int = 20) -> float:
+    """Realized win rate over the last n closed positions (0.0-1.0).
+
+    The fraction of the most recent n fully-closed positions with positive
+    realized PnL. Returns 0.5 (no signal) when fewer than
+    KELLY_WINRATE_MIN_SAMPLES positions have closed. Backs dynamic Kelly sizing.
+    """
+    return winrate_from_pnls(logger.get_recent_closed_position_pnls(n))
+
+
 def record_lesson(trade: dict, actual_direction: str, entry_price: float, exit_price: float) -> str:
     """Generate (via Claude) and store a short lesson for an incorrect classification."""
     headlines = trade.get("headlines") or ""
