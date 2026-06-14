@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-14T10:12:03.873476+00:00",
+  "generated_at": "2026-06-14T10:37:07.007038+00:00",
   "dry_run": true,
-  "markets_tracked": 1877,
+  "markets_tracked": 1308,
   "classify_error_streak": 0,
   "track_record": {
     "total": 616,
@@ -18,10 +18,10 @@
       "newsapi": 17.6
     }
   },
-  "headlines_scanned_today": 125,
+  "headlines_scanned_today": 126,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2397,
+  "classifications_24h": 2403,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 23,
@@ -35,9 +35,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 540,
-    "matched": 379,
-    "classified": 2397,
+    "news": 541,
+    "matched": 380,
+    "classified": 2403,
     "signals": 1,
     "trades": 1
   },
@@ -50,7 +50,7 @@
     "losses": 4,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -48.62,
-    "unrealized_pnl_usd": 0.17
+    "unrealized_pnl_usd": 0.09
   },
   "live_readiness": {
     "ready": false,
@@ -98,8 +98,8 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.455,
-      "pnl_pct": 1.87,
+      "current_price": 0.45999999999999996,
+      "pnl_pct": 0.93,
       "amount_usd": 9.14,
       "edge_type": "momentum"
     },
@@ -189,6 +189,72 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-14 10:26:59",
+      "market_question": "Mahmoud Abbas out as Palestinian President by December 31?",
+      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding"
+    },
+    {
+      "time": "2026-06-14 10:26:58",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 10:26:58",
+      "market_question": "Will Trump and Putin meet next in a Gulf country?",
+      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 10:26:58",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 10:26:58",
+      "market_question": "Will the Republicans win the New Hampshire Senate race in 2026?",
+      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 10:26:58",
+      "market_question": "Will the Democrats win the New Jersey Senate race in 2026?",
+      "headline": "New federal body to lead UAE's AI and digital government agenda - Gulf News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-14 09:15:37",
       "market_question": "U.S. enacts AI safety bill before 2027?",
@@ -342,72 +408,6 @@
       "edge": null,
       "action": "skip",
       "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 07:24:15",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "The generative artificial intelligence (AI) revolution, which began with the birth of OpenAI's \"Chat.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 07:24:13",
-      "market_question": "Will OpenAI's public ticker be $LLM?",
-      "headline": "The generative artificial intelligence (AI) revolution, which began with the birth of OpenAI's \"Chat.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 07:24:10",
-      "market_question": "Will OpenAI's public ticker be $OA?",
-      "headline": "The generative artificial intelligence (AI) revolution, which began with the birth of OpenAI's \"Chat.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 07:24:08",
-      "market_question": "Will OpenAI's public ticker be $OPAI?",
-      "headline": "The generative artificial intelligence (AI) revolution, which began with the birth of OpenAI's \"Chat.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 07:24:06",
-      "market_question": "Will OpenAI's public ticker be $OAI?",
-      "headline": "The generative artificial intelligence (AI) revolution, which began with the birth of OpenAI's \"Chat.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 07:24:05",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "The generative artificial intelligence (AI) revolution, which began with the birth of OpenAI's \"Chat.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
     }
   ],
   "journal": [
