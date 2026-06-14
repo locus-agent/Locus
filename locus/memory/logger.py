@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import sqlite3
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from time import monotonic as _monotonic
 from pathlib import Path
 
@@ -160,6 +160,22 @@ def init_db():
             date TEXT NOT NULL UNIQUE,
             entry TEXT NOT NULL,
             stats_snapshot TEXT,
+            created_at TEXT NOT NULL DEFAULT (datetime('now'))
+        );
+
+        -- Markets we recently exited and keep watching for a thesis reversal
+        -- (re-entry logic). One unexpired row per market; reentry_count caps
+        -- how many times we re-enter (see core/reentry.py).
+        CREATE TABLE IF NOT EXISTS watched_closed_positions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            condition_id TEXT NOT NULL,
+            market_question TEXT,
+            original_side TEXT,
+            original_entry_price REAL,
+            close_reason TEXT,
+            closed_at TEXT NOT NULL DEFAULT (datetime('now')),
+            watch_until TEXT,
+            reentry_count INTEGER NOT NULL DEFAULT 0,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
     """)
@@ -580,6 +596,55 @@ def get_confirming_sources(condition_id: str, direction: str, since: str) -> set
     ).fetchall()
     conn.close()
     return {r["news_source"] for r in rows}
+
+
+def watch_closed_position(
+    conn,
+    condition_id: str,
+    market_question: str,
+    original_side: str,
+    original_entry_price: float | None,
+    close_reason: str,
+    watch_hours: float,
+    now: datetime | None = None,
+) -> bool:
+    """Record a just-closed position as watched for re-entry (caller commits).
+
+    Skips if an unexpired watch row already exists for this market, so one close
+    -> at most one re-entry window. Returns True if a row was inserted.
+    """
+    now = now or datetime.now(timezone.utc)
+    now_str = now.strftime("%Y-%m-%d %H:%M:%S")
+    existing = conn.execute(
+        "SELECT 1 FROM watched_closed_positions WHERE condition_id=? AND watch_until > ? LIMIT 1",
+        (condition_id, now_str),
+    ).fetchone()
+    if existing:
+        return False
+    watch_until = (now + timedelta(hours=watch_hours)).strftime("%Y-%m-%d %H:%M:%S")
+    conn.execute(
+        """INSERT INTO watched_closed_positions
+           (condition_id, market_question, original_side, original_entry_price,
+            close_reason, closed_at, watch_until, reentry_count)
+           VALUES (?, ?, ?, ?, ?, ?, ?, 0)""",
+        (condition_id, market_question, original_side, original_entry_price,
+         close_reason, now_str, watch_until),
+    )
+    return True
+
+
+def count_active_watched_markets(now: datetime | None = None) -> int:
+    """Distinct markets still in their re-entry watch window and under the cap."""
+    now = now or datetime.now(timezone.utc)
+    now_str = now.strftime("%Y-%m-%d %H:%M:%S")
+    conn = _conn()
+    row = conn.execute(
+        """SELECT COUNT(DISTINCT condition_id) AS c FROM watched_closed_positions
+           WHERE watch_until > ? AND reentry_count < ?""",
+        (now_str, config.MAX_REENTRY_PER_MARKET),
+    ).fetchone()
+    conn.close()
+    return row["c"]
 
 
 def get_earliest_classification_price(condition_id: str, lookback_hours: float) -> float | None:

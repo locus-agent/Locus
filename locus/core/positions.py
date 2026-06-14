@@ -30,6 +30,21 @@ from locus.markets import gamma
 from locus.memory import logger
 from locus.core.performance import position_pnl
 
+# Map a position's granular exit_reason to a canonical re-entry close reason.
+# 'resolution' is excluded from watching (no point watching a resolved market).
+_CLOSE_REASON_MAP = {
+    "sl": "sl",
+    "tp_decision": "tp",
+    "news_decision": "news",
+    "drawdown_decision": "sl",  # loss-driven exit -> treat as strict as a stop
+    "resolution": "resolution",
+}
+
+
+def _canonical_close_reason(exit_reason: str) -> str:
+    """Bucket an exit_reason into sl/tp/news/resolution for re-entry rules."""
+    return _CLOSE_REASON_MAP.get(exit_reason, "sl")
+
 log = logging.getLogger(__name__)
 
 EXIT_PROMPT = """You are Locus, an autonomous agent trading niche Polymarket prediction \
@@ -317,6 +332,19 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
                current_yes_price=?, unrealized_pnl_pct=0 WHERE id=?""",
             (status, yes_price, exit_reason, realized, now_iso, yes_price, position["id"]),
         )
+        # Re-entry: keep watching the market for a thesis reversal (every close
+        # type except resolution — a resolved market has nothing left to trade).
+        reason = _canonical_close_reason(exit_reason)
+        if reason != "resolution":
+            logger.watch_closed_position(
+                conn,
+                condition_id=position["condition_id"],
+                market_question=position["market_question"],
+                original_side=position["side"],
+                original_entry_price=position["entry_yes_price"],
+                close_reason=reason,
+                watch_hours=config.REENTRY_WATCH_HOURS,
+            )
     else:
         conn.execute(
             """UPDATE positions SET amount_usd=amount_usd*?,

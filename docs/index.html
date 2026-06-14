@@ -319,6 +319,7 @@
   .gate-confirm .gate-count { color: var(--cyan); }
   .gate-event .gate-count { color: var(--red); }
   .gate-whale .gate-count { color: var(--green); }
+  .gate-reentry .gate-count { color: var(--green); }
 
   /* Track record bars */
   .bar-row {
@@ -728,6 +729,10 @@
           <span class="gate-label">whale triggered — opportunity investigated</span>
           <span class="gate-count" id="gate-whale">—</span>
         </div>
+        <div class="gate-row gate-reentry">
+          <span class="gate-label">reentry triggered — re-entered after close</span>
+          <span class="gate-count" id="gate-reentry">—</span>
+        </div>
       </div>
       <div class="panel">
         <div class="panel-title">Track Record</div>
@@ -913,6 +918,7 @@
     document.getElementById('gate-confirm').textContent = g.needs_confirmation ?? '—';
     document.getElementById('gate-event').textContent = g.event_exposure_block ?? '—';
     document.getElementById('gate-whale').textContent = g.whale_triggered ?? '—';
+    document.getElementById('gate-reentry').textContent = g.reentry_triggered ?? '—';
   }
 
   function renderWhale(status) {

@@ -180,6 +180,20 @@ WHALE_MIN_TRADE_USD = float(os.getenv("WHALE_MIN_TRADE_USD", "1000"))
 WHALE_CLASSIFICATION_LOOKBACK_HOURS = float(os.getenv("WHALE_CLASSIFICATION_LOOKBACK_HOURS", "2"))
 WHALE_MIN_HOURS_TO_CLOSE = float(os.getenv("WHALE_MIN_HOURS_TO_CLOSE", "2"))
 
+# --- Re-entry logic ---
+# After a non-resolution close, keep watching the market for REENTRY_WATCH_HOURS
+# and re-enter at most MAX_REENTRY_PER_MARKET times if a new classification
+# reverses the exit thesis. The bar depends on *why* we exited (see
+# core/reentry.py): a news-driven exit re-enters when fresh news supports the
+# original side with materiality >= REENTRY_NEWS_MATERIALITY; a stop-loss exit
+# is stricter (>= REENTRY_SL_MATERIALITY and >= REENTRY_SL_MIN_SOURCES
+# confirming sources); a take-profit exit never re-enters.
+REENTRY_WATCH_HOURS = float(os.getenv("REENTRY_WATCH_HOURS", "72"))
+MAX_REENTRY_PER_MARKET = int(os.getenv("MAX_REENTRY_PER_MARKET", "1"))
+REENTRY_NEWS_MATERIALITY = float(os.getenv("REENTRY_NEWS_MATERIALITY", "0.45"))
+REENTRY_SL_MATERIALITY = float(os.getenv("REENTRY_SL_MATERIALITY", "0.55"))
+REENTRY_SL_MIN_SOURCES = int(os.getenv("REENTRY_SL_MIN_SOURCES", "2"))
+
 # --- Categories to track ---
 MARKET_CATEGORIES = [
     "ai",

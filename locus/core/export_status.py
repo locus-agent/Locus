@@ -94,9 +94,12 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
             "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
-            # An opportunity, not a block: whale-triggered investigations.
+            # Opportunities, not blocks: whale-triggered investigations and
+            # re-entries into recently closed markets.
             "whale_triggered": logger.get_classification_count_since(since_24h, action="whale_triggered"),
+            "reentry_triggered": logger.get_classification_count_since(since_24h, action="reentry_triggered"),
         },
+        "watched_markets_count": logger.count_active_watched_markets(),
         "whale": {
             "watched_wallets": len(config.WHALE_WALLETS),
             "triggered_24h": logger.get_classification_count_since(since_24h, action="whale_triggered"),

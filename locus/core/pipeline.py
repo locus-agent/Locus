@@ -29,6 +29,7 @@ from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import classify_async, classify_edge_type
 from locus.core import event_context
+from locus.core import reentry
 from locus.core import whale_tracker
 from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
 from locus.core.journal import maybe_write_journal
@@ -294,6 +295,35 @@ class PipelineV2:
                         raw_signal = detect_edge_v2(market, classification, event)
                         signal, action = gate_trade(event, raw_signal, self._traded_headlines)
 
+                        # Re-entry gate: if this market was recently closed and
+                        # is still being watched, a fresh signal only gets back
+                        # in when it clears the re-entry bar for why we exited.
+                        reentry_active = False
+                        edge_type_override = None
+                        if signal is not None:
+                            decision = await asyncio.get_event_loop().run_in_executor(
+                                None, lambda: self._check_reentry(market, classification)
+                            )
+                            if decision is not None and not decision["should_reenter"]:
+                                self.stats["reentry_blocked"] = (
+                                    self.stats.get("reentry_blocked", 0) + 1
+                                )
+                                signal, action = None, "reentry_blocked"
+                                console.print(
+                                    f"  [dim]REENTRY BLOCK: {decision['reason']} "
+                                    f"on \"{market.question[:40]}\"[/dim]"
+                                )
+                            elif decision is not None:
+                                reentry_active = True
+                                edge_type_override = "reentry"
+                                self.stats["reentry_triggered"] = (
+                                    self.stats.get("reentry_triggered", 0) + 1
+                                )
+                                console.print(
+                                    f"  [bright_green]REENTRY[/bright_green]: "
+                                    f"{decision['reason']} on \"{market.question[:40]}\""
+                                )
+
                         # Correlation gate: don't stack the book into one
                         # subject. HIGH risk blocks; MEDIUM warns but allows.
                         if signal is not None:
@@ -338,8 +368,11 @@ class PipelineV2:
                                 signal, action = None, "orderbook_skip"
 
                         # Attribute a surviving signal to an edge type, for the
-                        # trade record and per-type calibration.
-                        edge_type = classify_edge_type(market) if signal is not None else None
+                        # trade record and per-type calibration. A re-entry keeps
+                        # its 'reentry' label over the inferred news/momentum one.
+                        edge_type = edge_type_override or (
+                            classify_edge_type(market) if signal is not None else None
+                        )
                         if signal is not None:
                             signal.edge_type = edge_type
 
@@ -385,6 +418,17 @@ class PipelineV2:
                                         f"[{best['reason']}]"
                                     )
                                     signal = switched
+
+                        # A triggered re-entry is logged as the opportunity it is
+                        # (green on the dashboard), even if a later gate blocked
+                        # the trade. Only consume the re-entry budget when we
+                        # actually re-enter (the signal survived the gate chain).
+                        if reentry_active:
+                            action = "reentry_triggered"
+                            if signal is not None:
+                                await asyncio.get_event_loop().run_in_executor(
+                                    None, lambda: self._record_reentry(market.condition_id)
+                                )
 
                     logger.log_classification(
                         market_question=market.question,
@@ -434,6 +478,36 @@ class PipelineV2:
                         )
                 except Exception as e:
                     log.warning(f"[pipeline] Classification error: {e}")
+
+    def _check_reentry(self, market, classification):
+        """Re-entry decision for a watched market, or None when the market isn't
+        being watched. Read-only; runs off the event loop (own DB conn)."""
+        conn = logger._conn()
+        try:
+            watched = reentry.find_watched_market(conn, market.condition_id)
+            if watched is None:
+                return None
+            since = (
+                datetime.now(timezone.utc)
+                - timedelta(hours=config.CONFIRMATION_WINDOW_HOURS)
+            ).strftime("%Y-%m-%d %H:%M:%S")
+            sources = logger.get_confirming_sources(
+                market.condition_id, classification.direction, since
+            )
+            return reentry.check_reentry_opportunity(
+                watched, classification, confirming_source_count=len(sources)
+            )
+        finally:
+            conn.close()
+
+    def _record_reentry(self, condition_id: str):
+        """Consume one re-entry from the market's watch window."""
+        conn = logger._conn()
+        try:
+            reentry.record_reentry(conn, condition_id)
+            conn.commit()
+        finally:
+            conn.close()
 
     async def _whale_check_loop(self):
         """Periodically shadow the watched wallets and investigate the niche

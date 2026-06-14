@@ -132,6 +132,15 @@ PipelineV2._execute_signals:
   Claude `decide_investigation` call; on "investigate" the market runs the normal
   classify -> gates path and is logged with action `whale_triggered`, `edge_type='whale'`.
   Empty `WHALE_WALLETS` disables the task (clean return).
+- `core/reentry.py` — re-entry logic. Every non-resolution close writes a row to
+  `watched_closed_positions` (via `positions._close` -> `logger.watch_closed_position`),
+  watched for `REENTRY_WATCH_HOURS`. When a later classification clears the
+  direction/materiality gates on a watched market, `check_reentry_opportunity` decides by
+  close reason: `news` re-enters at materiality >= `REENTRY_NEWS_MATERIALITY` on the
+  original side, `sl` is stricter (>= `REENTRY_SL_MATERIALITY` and >=
+  `REENTRY_SL_MIN_SOURCES` sources), `tp` never. A re-entry is labeled `edge_type='reentry'`
+  / action `reentry_triggered` (and consumes one of `MAX_REENTRY_PER_MARKET`); a watched
+  market that fails the bar is suppressed (action `reentry_blocked`).
 - `core/executor.py` enforces `DAILY_LOSS_LIMIT_USD` (checked via `logger.get_daily_pnl`),
   then either logs a `dry_run` row or places a live order via `py_clob_client`
   (optional dependency, commented out in requirements.txt — install separately).
