@@ -163,6 +163,18 @@ def init_db():
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
 
+        -- Meta-prompt evolution: each weekly self-improvement of the
+        -- classification prompt is stored here (and as a versioned file under
+        -- docs/prompts/). The classifier loads the latest version at runtime.
+        CREATE TABLE IF NOT EXISTS prompt_versions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            version INTEGER NOT NULL UNIQUE,
+            prompt_text TEXT NOT NULL,
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            lessons_count INTEGER,
+            accuracy_at_creation REAL
+        );
+
         -- Markets we recently exited and keep watching for a thesis reversal
         -- (re-entry logic). One unexpired row per market; reentry_count caps
         -- how many times we re-enter (see core/reentry.py).
@@ -538,6 +550,59 @@ def get_recent_lessons(limit: int = 5) -> list[dict]:
     result = [dict(r) for r in rows]
     _lessons_cache = (_monotonic(), limit, result)
     return result
+
+
+def get_all_lessons() -> list[dict]:
+    """Every stored lesson, oldest first — for meta-prompt evolution."""
+    conn = _conn()
+    rows = conn.execute("SELECT * FROM lessons ORDER BY created_at").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_earliest_lesson_date() -> str | None:
+    """created_at of the oldest lesson, or None when there are no lessons.
+    Anchors the 'first evolution after 7 days of data' check."""
+    conn = _conn()
+    row = conn.execute("SELECT MIN(created_at) AS earliest FROM lessons").fetchone()
+    conn.close()
+    return row["earliest"] if row else None
+
+
+# --- Meta-prompt evolution ---------------------------------------------------
+
+def get_latest_prompt_version() -> dict | None:
+    """The most recent evolved classification prompt, or None when none exist."""
+    conn = _conn()
+    row = conn.execute(
+        "SELECT * FROM prompt_versions ORDER BY version DESC LIMIT 1"
+    ).fetchone()
+    conn.close()
+    return dict(row) if row else None
+
+
+def get_prompt_version_count() -> int:
+    conn = _conn()
+    n = conn.execute("SELECT COUNT(*) AS c FROM prompt_versions").fetchone()["c"]
+    conn.close()
+    return n
+
+
+def save_prompt_version(
+    version: int, prompt_text: str, lessons_count: int, accuracy_at_creation: float | None
+) -> int:
+    """Record a newly evolved prompt version. Versions are unique and monotonic."""
+    conn = _conn()
+    cur = conn.execute(
+        """INSERT INTO prompt_versions
+           (version, prompt_text, lessons_count, accuracy_at_creation)
+           VALUES (?, ?, ?, ?)""",
+        (version, prompt_text, lessons_count, accuracy_at_creation),
+    )
+    row_id = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return row_id
 
 
 def log_classification(

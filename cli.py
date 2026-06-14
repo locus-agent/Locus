@@ -16,6 +16,7 @@ Usage:
     python cli.py markets              # Browse all active markets
     python cli.py trades               # View trade log
     python cli.py stats                # Performance statistics
+    python cli.py evolve               # Manually evolve the classification prompt
 """
 
 import argparse
@@ -417,6 +418,27 @@ def cmd_stats(args):
         console.print(f"    Accuracy: {cal['accuracy']:.1f}% ({cal['total']} resolved)")
 
 
+def cmd_evolve(args):
+    """Manually trigger a meta-prompt evolution (normally weekly, after journal)."""
+    import asyncio
+    from locus.memory import meta_evolver
+
+    console.print("[cyan]Evolving classification prompt from lessons + accuracy...[/cyan]")
+    result = asyncio.run(meta_evolver.evolve_prompt())
+    if result:
+        console.print(
+            f"[green]Evolved to v{result['version']}[/green] "
+            f"({result['lessons_count']} lessons, accuracy {result['accuracy_at_creation']}%, "
+            f"{result['prev_chars']} → {result['chars']} chars)"
+        )
+        console.print(f"  Saved to [dim]{result['path']}[/dim]")
+    else:
+        console.print(
+            "[yellow]No new prompt saved[/yellow] — the model's output failed "
+            "validation or generation errored (see logs)."
+        )
+
+
 def main():
     parser = argparse.ArgumentParser(description="Polymarket Pipeline V2")
     sub = parser.add_subparsers(dest="command")
@@ -477,6 +499,10 @@ def main():
     # stats
     p_stats = sub.add_parser("stats", help="Performance statistics")
     p_stats.set_defaults(func=cmd_stats)
+
+    # evolve
+    p_evolve = sub.add_parser("evolve", help="Manually evolve the classification prompt")
+    p_evolve.set_defaults(func=cmd_evolve)
 
     args = parser.parse_args()
     if not args.command:

@@ -117,6 +117,9 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
 
     cb = compute_circuit_breaker()
 
+    # Meta-prompt evolution status (latest evolved classification prompt).
+    latest_prompt = logger.get_latest_prompt_version()
+
     # Performance + dynamic-Kelly sizing snapshot: recent realized win rate over
     # the last KELLY_WINRATE_LOOKBACK closes and the multiplier it currently maps
     # to (see edge.winrate_factor / size_position).
@@ -227,6 +230,11 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             _classification_row(c)
             for c in logger.get_recent_classifications(limit=RECENT_CLASSIFICATIONS_LIMIT)
         ],
+        "prompt": {
+            "version": latest_prompt["version"] if latest_prompt else 0,
+            "last_evolved": latest_prompt["created_at"] if latest_prompt else None,
+            "lessons_used": latest_prompt["lessons_count"] if latest_prompt else 0,
+        },
         "journal": [
             {"date": j["date"], "entry": j["entry"]}
             for j in logger.get_journal_entries(limit=3)

@@ -126,6 +126,22 @@ def _format_time_remaining(end_date: str, as_of: datetime) -> str:
     return "less than 1 hour"
 
 
+def get_active_prompt() -> str:
+    """The classification prompt currently in force.
+
+    Returns the latest evolved prompt from the prompt_versions table when one
+    exists (meta-prompt evolution, see memory/meta_evolver.py), otherwise the
+    hardcoded CLASSIFICATION_PROMPT. Any DB/load failure falls back to the
+    hardcoded prompt — classification must never break because evolution did."""
+    try:
+        latest = logger.get_latest_prompt_version()
+        if latest and latest.get("prompt_text"):
+            return latest["prompt_text"]
+    except Exception as e:
+        log.warning(f"[classifier] Active-prompt load failed, using hardcoded: {e}")
+    return CLASSIFICATION_PROMPT
+
+
 def _format_track_record() -> str:
     """Build the 'Your track record' prompt section from calibration history + past lessons."""
     record = memory.get_track_record()
@@ -275,7 +291,7 @@ def classify(
     threshold = _extract_threshold(market.question)
     threshold_line = f"Price threshold in question: {threshold}\n" if threshold else ""
 
-    prompt = CLASSIFICATION_PROMPT.format(
+    fmt_kwargs = dict(
         question=market.question,
         threshold_line=threshold_line,
         time_remaining=_format_time_remaining(market.end_date, as_of),
@@ -284,6 +300,14 @@ def classify(
         source=source,
         track_record=_format_track_record(),
     )
+    # Use the active (possibly evolved) prompt; if a stored prompt can't be
+    # formatted (a bad placeholder slipped through), fall back to hardcoded so
+    # classification keeps working.
+    try:
+        prompt = get_active_prompt().format(**fmt_kwargs)
+    except (KeyError, IndexError, ValueError) as e:
+        log.warning(f"[classifier] Evolved prompt failed to format ({e}); using hardcoded")
+        prompt = CLASSIFICATION_PROMPT.format(**fmt_kwargs)
 
     last_err: Exception | None = None
     for attempt in range(2):  # one retry with backoff, no retry storms

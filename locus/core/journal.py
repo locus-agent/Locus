@@ -204,7 +204,25 @@ def maybe_write_journal(extra: dict | None = None, now: datetime | None = None) 
     today = now.strftime("%Y-%m-%d")
     if logger.has_journal_for(today):
         return None
-    return write_journal_entry(extra, date=today)
+    entry = write_journal_entry(extra, date=today)
+
+    # Weekly meta-prompt evolution: after the journal is written, evolve the
+    # classification prompt if a week has passed since the last evolution (or if
+    # there are seven days of lessons, for the first one). Never fatal.
+    if entry is not None:
+        try:
+            from locus.memory import meta_evolver
+            if meta_evolver.should_evolve(now):
+                result = meta_evolver.evolve_prompt_sync()
+                if result:
+                    log.info(
+                        f"[journal] Meta-prompt evolved to v{result['version']} "
+                        f"({result['lessons_count']} lessons)"
+                    )
+        except Exception as e:
+            log.warning(f"[journal] Prompt evolution failed: {e}")
+
+    return entry
 
 
 if __name__ == "__main__":

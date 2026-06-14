@@ -204,6 +204,15 @@ CALIBRATION_MOVE_THRESHOLD = float(os.getenv("CALIBRATION_MOVE_THRESHOLD", "0.02
 # first pipeline cycle after 21:00 UTC; see locus/core/journal.py).
 JOURNAL_ENABLED = os.getenv("JOURNAL_ENABLED", "true").lower() == "true"
 
+# --- Meta-prompt evolution ---
+# Once every PROMPT_EVOLUTION_INTERVAL_DAYS, after the daily journal, Claude
+# (Sonnet) rewrites its own classification prompt from accumulated lessons and
+# accuracy stats (see locus/memory/meta_evolver.py). The first evolution waits
+# until there are that many days of lessons. Set PROMPT_EVOLUTION_ENABLED=false
+# to keep the hardcoded prompt.
+PROMPT_EVOLUTION_ENABLED = os.getenv("PROMPT_EVOLUTION_ENABLED", "true").lower() == "true"
+PROMPT_EVOLUTION_INTERVAL_DAYS = float(os.getenv("PROMPT_EVOLUTION_INTERVAL_DAYS", "7"))
+
 # --- Dashboard ---
 # Auto-commit and push docs/status.json after each pipeline cycle.
 AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"

@@ -183,6 +183,27 @@
     margin-top: 2px;
   }
 
+  /* Prompt evolution */
+  .prompt-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 12px;
+  }
+  .prompt-cell .prompt-label {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .prompt-cell .prompt-value { font-size: 18px; font-weight: 700; }
+  .prompt-note {
+    color: var(--muted);
+    font-size: 11px;
+    font-style: italic;
+    margin-top: 10px;
+  }
+
   td.market a {
     color: var(--text);
     text-decoration: none;
@@ -871,6 +892,27 @@
 
   <section class="block">
     <div class="panel">
+      <div class="panel-title">Prompt Evolution</div>
+      <div class="prompt-row">
+        <div class="prompt-cell">
+          <div class="prompt-label">Version</div>
+          <div class="prompt-value" id="prompt-version">v0</div>
+        </div>
+        <div class="prompt-cell">
+          <div class="prompt-label">Last Evolved</div>
+          <div class="prompt-value" id="prompt-evolved">—</div>
+        </div>
+        <div class="prompt-cell">
+          <div class="prompt-label">Lessons Used</div>
+          <div class="prompt-value" id="prompt-lessons">—</div>
+        </div>
+      </div>
+      <div class="prompt-note" id="prompt-note">Claude rewrites its own classification prompt weekly from accumulated lessons.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
       <div class="panel-title">Journal<a class="view-all" href="journal.html">view all entries →</a></div>
       <div id="journal-list">
         <div class="empty">No entries yet — Locus writes one per day at 21:00 UTC.</div>
@@ -1324,6 +1366,18 @@
     return '<span class="' + cls + '">' + Math.round(score * 100) + '%</span>';
   }
 
+  function renderPrompt(status) {
+    const p = status.prompt || {};
+    const v = p.version ?? 0;
+    document.getElementById('prompt-version').textContent = 'v' + v;
+    document.getElementById('prompt-evolved').textContent =
+      p.last_evolved ? fmtTime(p.last_evolved) : '—';
+    document.getElementById('prompt-lessons').textContent = p.lessons_used ?? '—';
+    document.getElementById('prompt-note').textContent = v === 0
+      ? 'Still on the hand-written prompt — Claude evolves it weekly once 7 days of lessons accumulate.'
+      : 'Claude rewrites its own classification prompt weekly from accumulated lessons.';
+  }
+
   function renderJournal(status) {
     const container = document.getElementById('journal-list');
     const entries = status.journal || [];
@@ -1380,6 +1434,7 @@
       renderGates(status);
       renderWhale(status);
       renderCategoryBars(status);
+      renderPrompt(status);
       renderJournal(status);
       renderClassifications(status);
       renderLessons(status);
