@@ -12,6 +12,13 @@ from locus.core.performance import (
 )
 
 
+@pytest.fixture(autouse=True)
+def _neutralize_breaker_start_date(monkeypatch):
+    """Default the circuit-breaker start-date filter off so tests don't depend
+    on the developer's local .env. Tests that exercise the filter override it."""
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_START_DATE", "")
+
+
 def test_yes_position_pnl():
     # $25 of YES at 0.50 = 50 shares; resolves YES (1.0) -> worth $50, pnl +$25
     assert position_pnl("YES", 0.50, 1.0, 25.0) == pytest.approx(25.0)
@@ -213,3 +220,59 @@ def test_circuit_breaker_empty_db(tmp_db, monkeypatch):
     assert cb["metrics"]["drawdown_7d"] == 0.0
     assert cb["metrics"]["sharpe_7d"] is None
     assert cb["metrics"]["closed_trades_7d"] == 0
+
+
+def _seed_old_loss_plus_recent_winners(tmp_db):
+    """One big legacy loss 6 days ago (within the 7-day window) plus three
+    recent winners. Included as a whole it trips the drawdown breaker; with the
+    old loss excluded only the winners remain (no trip)."""
+    _closed_position(tmp_db, "old", 25.0, -50.0, _days_ago(6))
+    _closed_position(tmp_db, "m1", 10.0, +3.0, _days_ago(3))
+    _closed_position(tmp_db, "m2", 10.0, +2.0, _days_ago(2))
+    _closed_position(tmp_db, "m3", 10.0, +4.0, _days_ago(1))
+
+
+def test_circuit_breaker_start_date_excludes_old_positions(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", True)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_DD", 0.20)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_SHARPE", -1.0)
+    _seed_old_loss_plus_recent_winners(tmp_db)
+
+    # Start date 4 days ago -> the 6-day-old loss is dropped, leaving winners.
+    start = (datetime.now(timezone.utc) - timedelta(days=4)).strftime("%Y-%m-%d %H:%M:%S")
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_START_DATE", start)
+
+    cb = compute_circuit_breaker()
+    assert cb["metrics"]["closed_trades_7d"] == 3  # old loss excluded
+    assert cb["metrics"]["drawdown_7d"] == pytest.approx(0.0)
+    assert cb["triggered"] is False
+
+
+def test_circuit_breaker_no_start_date_includes_all(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", True)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_DD", 0.20)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_SHARPE", -1.0)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_START_DATE", "")  # default: count all
+    _seed_old_loss_plus_recent_winners(tmp_db)
+
+    cb = compute_circuit_breaker()
+    assert cb["metrics"]["closed_trades_7d"] == 4  # all included
+    assert cb["metrics"]["drawdown_7d"] > 0.20     # old loss drives the drawdown
+    assert cb["triggered"] is True
+    assert "drawdown" in cb["reason"].lower()
+
+
+def test_circuit_breaker_start_date_accepts_date_only(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", True)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_DD", 0.20)
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_SHARPE", -1.0)
+    _seed_old_loss_plus_recent_winners(tmp_db)
+
+    # Date-only floor (as documented in .env.example) compares lexicographically
+    # against the full closed_at timestamps and still excludes the old loss.
+    start = (datetime.now(timezone.utc) - timedelta(days=4)).strftime("%Y-%m-%d")
+    monkeypatch.setattr(config, "CIRCUIT_BREAKER_START_DATE", start)
+
+    cb = compute_circuit_breaker()
+    assert cb["metrics"]["closed_trades_7d"] == 3
+    assert cb["triggered"] is False

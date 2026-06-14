@@ -240,6 +240,12 @@ REENTRY_SL_MIN_SOURCES = int(os.getenv("REENTRY_SL_MIN_SOURCES", "2"))
 CIRCUIT_BREAKER_ENABLED = os.getenv("CIRCUIT_BREAKER_ENABLED", "true").lower() == "true"
 CIRCUIT_BREAKER_DD = float(os.getenv("CIRCUIT_BREAKER_DD", "0.20"))
 CIRCUIT_BREAKER_SHARPE = float(os.getenv("CIRCUIT_BREAKER_SHARPE", "-1.0"))
+# Only count positions closed at/after this date in the drawdown/Sharpe
+# calculation. Empty = count all closes (within the rolling 7-day window).
+# Set to an ISO date (e.g. "2026-06-14") to ignore legacy closes from before a
+# strategy change, so old losses don't keep the breaker tripped. Read as
+# config.X at call time so env overrides are honored.
+CIRCUIT_BREAKER_START_DATE = os.getenv("CIRCUIT_BREAKER_START_DATE", "")
 
 # --- Categories to track ---
 MARKET_CATEGORIES = [

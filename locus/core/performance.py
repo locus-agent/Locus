@@ -159,16 +159,28 @@ def compute_circuit_breaker() -> dict:
     is false the metrics are still returned but triggered is always False
     (reason 'disabled').
 
+    config.CIRCUIT_BREAKER_START_DATE, when set, adds a floor on closed_at so
+    positions closed before that date (e.g. legacy losses from before a strategy
+    change) are excluded from both the drawdown and Sharpe calculation.
+
     Returns {triggered: bool, reason: str, metrics: dict}.
     """
     since = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d %H:%M:%S")
+
+    # Always within the rolling 7-day window; optionally also at/after a
+    # configured start date so old closes can't keep the breaker tripped.
+    clauses = ["status LIKE 'closed_%'", "closed_at >= ?"]
+    params: list = [since]
+    if config.CIRCUIT_BREAKER_START_DATE:
+        clauses.append("closed_at >= ?")
+        params.append(config.CIRCUIT_BREAKER_START_DATE)
 
     conn = logger._conn()
     closed = [
         dict(r) for r in conn.execute(
             "SELECT amount_usd, realized_pnl_usd, closed_at FROM positions "
-            "WHERE status LIKE 'closed_%' AND closed_at >= ? ORDER BY closed_at",
-            (since,),
+            "WHERE " + " AND ".join(clauses) + " ORDER BY closed_at",
+            params,
         ).fetchall()
     ]
     conn.close()
