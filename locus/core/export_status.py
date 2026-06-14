@@ -17,6 +17,7 @@ from locus.memory import logger
 from locus import memory
 from locus.core.performance import compute_performance, compute_live_readiness, compute_circuit_breaker
 from locus.core import positions
+from locus.core import edge
 
 log = logging.getLogger(__name__)
 
@@ -116,6 +117,15 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
 
     cb = compute_circuit_breaker()
 
+    # Performance + dynamic-Kelly sizing snapshot: recent realized win rate over
+    # the last KELLY_WINRATE_LOOKBACK closes and the multiplier it currently maps
+    # to (see edge.winrate_factor / size_position).
+    perf = compute_performance(current_prices)
+    recent_wr = memory.get_recent_winrate(config.KELLY_WINRATE_LOOKBACK)
+    perf["recent_winrate"] = round(recent_wr, 4)
+    perf["kelly_factor"] = round(edge.winrate_factor(recent_wr), 4)
+    perf["winrate_lookback"] = config.KELLY_WINRATE_LOOKBACK
+
     status = {
         "generated_at": now.isoformat(),
         "dry_run": config.DRY_RUN,
@@ -139,6 +149,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
             "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
             "low_consensus": logger.get_classification_count_since(since_24h, action="low_consensus"),
+            "circuit_breaker": logger.get_classification_count_since(since_24h, action="circuit_breaker"),
             # Opportunities, not blocks: whale-triggered investigations and
             # re-entries into recently closed markets.
             "whale_triggered": logger.get_classification_count_since(since_24h, action="whale_triggered"),
@@ -163,7 +174,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "signals": signals_24h,
             "trades": logger.get_trade_count_since(since_24h),
         },
-        "performance": compute_performance(current_prices),
+        "performance": perf,
         "live_readiness": compute_live_readiness(),
         "circuit_breaker": {
             "triggered": cb["triggered"],

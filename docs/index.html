@@ -160,7 +160,7 @@
   /* Performance */
   .perf-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 12px;
   }
 
@@ -385,11 +385,13 @@
   .gate-confirm .gate-count { color: var(--cyan); }
   .gate-consensus .gate-count { color: var(--yellow); }
   .gate-event .gate-count { color: var(--red); }
+  .gate-circuit .gate-count { color: var(--red); }
   .gate-whale .gate-count { color: var(--green); }
   .gate-reentry .gate-count { color: var(--green); }
 
   /* Consensus cell in the classification log */
   .consensus-ok { color: var(--green); font-weight: 700; }
+  .consensus-mid { color: var(--yellow); font-weight: 700; }
   .consensus-single { color: var(--muted); font-weight: 700; }
   .consensus-low { color: var(--red); font-weight: 700; }
   span.muted { color: var(--muted); }
@@ -709,8 +711,13 @@
           <div class="perf-value" id="perf-unrealized">—</div>
           <div class="perf-sub" id="perf-open">0 open</div>
         </div>
+        <div class="perf-cell">
+          <div class="perf-label">Recent Win Rate</div>
+          <div class="perf-value" id="perf-recent-wr">—</div>
+          <div class="perf-sub" id="perf-kelly">Kelly —</div>
+        </div>
       </div>
-      <div class="perf-note">simulated fills at last price, no fees/slippage</div>
+      <div class="perf-note">simulated fills at last price, no fees/slippage · Kelly size = ½-Kelly × win-rate factor</div>
     </div>
   </section>
 
@@ -803,7 +810,7 @@
           <span class="gate-count" id="gate-correlation">—</span>
         </div>
         <div class="gate-row gate-category">
-          <span class="gate-label">category limit — over-exposed in category</span>
+          <span class="gate-label">category limit — max exposure per category reached</span>
           <span class="gate-count" id="gate-category">—</span>
         </div>
         <div class="gate-row gate-orderbook">
@@ -815,12 +822,16 @@
           <span class="gate-count" id="gate-confirm">—</span>
         </div>
         <div class="gate-row gate-consensus">
-          <span class="gate-label">low consensus — models disagree</span>
+          <span class="gate-label">low consensus — Claude and Grok disagree</span>
           <span class="gate-count" id="gate-consensus">—</span>
         </div>
         <div class="gate-row gate-event">
           <span class="gate-label">event exposure — position already on event</span>
           <span class="gate-count" id="gate-event">—</span>
+        </div>
+        <div class="gate-row gate-circuit">
+          <span class="gate-label">circuit breaker — trading paused on bad performance</span>
+          <span class="gate-count" id="gate-circuit">—</span>
         </div>
         <div class="gate-row gate-whale">
           <span class="gate-label">whale triggered — opportunity investigated</span>
@@ -1038,6 +1049,7 @@
     document.getElementById('gate-confirm').textContent = g.needs_confirmation ?? '—';
     document.getElementById('gate-consensus').textContent = g.low_consensus ?? '—';
     document.getElementById('gate-event').textContent = g.event_exposure_block ?? '—';
+    document.getElementById('gate-circuit').textContent = g.circuit_breaker ?? '—';
     document.getElementById('gate-whale').textContent = g.whale_triggered ?? '—';
     document.getElementById('gate-reentry').textContent = g.reentry_triggered ?? '—';
   }
@@ -1091,6 +1103,16 @@
     uEl.textContent = uTxt;
     uEl.className = 'perf-value ' + uCls;
     document.getElementById('perf-open').textContent = (p.open_count ?? 0) + ' open';
+
+    // Dynamic-Kelly sizing: recent realized win rate and the factor it maps to.
+    const wr = p.recent_winrate;
+    const lookback = p.winrate_lookback ?? 20;
+    document.getElementById('perf-recent-wr').textContent =
+      (wr === null || wr === undefined) ? '—' : Math.round(wr * 100) + '%';
+    document.getElementById('perf-kelly').textContent =
+      (p.kelly_factor === null || p.kelly_factor === undefined)
+        ? 'Kelly —'
+        : 'Kelly ×' + p.kelly_factor.toFixed(2) + ' · last ' + lookback;
   }
 
   function edgeBadge(type) {
@@ -1293,10 +1315,13 @@
   }
 
   function consensusCell(score, ensembleUsed) {
-    if (score === null || score === undefined) return '<span class="muted">—</span>';
-    const cls = score < 0.5 ? 'consensus-low' : (ensembleUsed ? 'consensus-ok' : 'consensus-single');
-    const tag = ensembleUsed ? '' : ' <span class="muted">(1)</span>';
-    return '<span class="' + cls + '">' + Math.round(score * 100) + '%</span>' + tag;
+    // No score, or a single-model (non-ensemble) classification -> no consensus.
+    if (score === null || score === undefined || !ensembleUsed) {
+      return '<span class="consensus-single">—</span>';
+    }
+    // green > 0.7, yellow 0.5-0.7, red < 0.5.
+    const cls = score > 0.7 ? 'consensus-ok' : (score >= 0.5 ? 'consensus-mid' : 'consensus-low');
+    return '<span class="' + cls + '">' + Math.round(score * 100) + '%</span>';
   }
 
   function renderJournal(status) {
