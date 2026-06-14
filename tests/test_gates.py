@@ -1,6 +1,8 @@
 """Trade-time risk gates: freshness (incl. queue dwell + unknown dates) and headline cap."""
 from datetime import datetime, timedelta, timezone
 
+import pytest
+
 from locus import config
 from locus.core.pipeline import gate_trade, news_age_seconds
 from locus.core.edge import Signal
@@ -9,6 +11,16 @@ from locus.sources.news_stream import NewsEvent
 
 NOW = datetime(2026, 6, 12, 12, 0, 0, tzinfo=timezone.utc)
 LIMIT = config.MAX_NEWS_AGE_SECONDS
+
+
+@pytest.fixture(autouse=True)
+def _pin_materiality_thresholds(monkeypatch):
+    """Pin the direction-specific materiality floors to their standard defaults
+    so the tests don't depend on the developer's .env overrides (same pattern
+    used for other configs). The floor tests below are written against these:
+    bullish 0.3, bearish 0.4 (bearish gets a higher bar)."""
+    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BULLISH", 0.3)
+    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BEARISH", 0.4)
 
 MKT = Market("c1", "Will X happen?", "ai", 0.5, 0.5, 5000, "", True, [])
 
