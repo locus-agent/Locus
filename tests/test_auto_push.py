@@ -69,7 +69,11 @@ def test_archives_rewrite_only_on_new_rows(tmp_db, tmp_path, monkeypatch):
 
     monkeypatch.setattr(es, "JOURNAL_PATH", tmp_path / "journal.json")
     monkeypatch.setattr(es, "DECISIONS_PATH", tmp_path / "exit_decisions.json")
-    monkeypatch.setattr(es, "_archive_state", {"journal": None, "decisions": None})
+    monkeypatch.setattr(es, "CLASSIFICATIONS_PATH", tmp_path / "classifications.json")
+    monkeypatch.setattr(
+        es, "_archive_state",
+        {"journal": None, "decisions": None, "classifications": None},
+    )
 
     tmp_db.log_journal_entry("2026-06-13", "entry one", "{}")
     es._export_archives()
