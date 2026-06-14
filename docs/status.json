@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-14T21:43:12.006305+00:00",
+  "generated_at": "2026-06-14T21:44:05.110760+00:00",
   "dry_run": true,
-  "markets_tracked": 2513,
+  "markets_tracked": 2512,
   "classify_error_streak": 0,
   "track_record": {
     "total": 922,
@@ -18,10 +18,10 @@
       "newsapi": 13.9
     }
   },
-  "headlines_scanned_today": 556,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 566,
+  "headlines_last_cycle": 10,
   "signals_24h": 1,
-  "classifications_24h": 2877,
+  "classifications_24h": 2909,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 41,
@@ -32,6 +32,7 @@
     "needs_confirmation": 0,
     "event_exposure_block": 0,
     "low_consensus": 0,
+    "circuit_breaker": 0,
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
@@ -39,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-14T21:33:00.774336+00:00"
+    "last_check": "2026-06-14T21:43:52.538771+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -47,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 640,
-    "matched": 316,
-    "classified": 2877,
+    "news": 650,
+    "matched": 315,
+    "classified": 2909,
     "signals": 1,
     "trades": 1
   },
@@ -62,7 +63,10 @@
     "losses": 4,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -48.62,
-    "unrealized_pnl_usd": 0.68
+    "unrealized_pnl_usd": 0.68,
+    "recent_winrate": 0.5,
+    "kelly_factor": 0.625,
+    "winrate_lookback": 20
   },
   "live_readiness": {
     "ready": false,
@@ -116,7 +120,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42500000000000004,
+      "current_price": 0.425,
       "pnl_pct": 7.48,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -215,7 +219,7 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-14 21:33:00",
+      "time": "2026-06-14 21:43:52",
       "market_question": "U.S. enacts AI safety bill before 2027?",
       "headline": "AI Learned the Rules of the Universe and That Became a Problem - SciTechDaily",
       "direction": "bullish",
@@ -228,7 +232,7 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-14 21:33:00",
+      "time": "2026-06-14 21:43:52",
       "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
       "headline": "China may have accessed Mythos",
       "direction": "bearish",
@@ -241,7 +245,7 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-14 21:33:00",
+      "time": "2026-06-14 21:43:52",
       "market_question": "Solana Up or Down - May 20, 6AM ET",
       "headline": "China may have accessed Mythos",
       "direction": "bearish",
@@ -254,7 +258,7 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-14 21:33:00",
+      "time": "2026-06-14 21:43:52",
       "market_question": "Will Trump and Putin meet next in China?",
       "headline": "China may have accessed Mythos",
       "direction": null,
@@ -267,7 +271,7 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-14 21:33:00",
+      "time": "2026-06-14 21:43:52",
       "market_question": "Anthropic IPO before 2027?",
       "headline": "US govt's curbs on Anthropic models reignite calls for sovereign AI - Business Standard",
       "direction": "bearish",
