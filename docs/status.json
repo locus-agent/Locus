@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-14T01:35:13.441753+00:00",
+  "generated_at": "2026-06-14T01:40:15.777893+00:00",
   "dry_run": true,
-  "markets_tracked": 2526,
+  "markets_tracked": 2523,
   "classify_error_streak": 0,
   "track_record": {
     "total": 331,
@@ -18,10 +18,10 @@
       "newsapi": 14.3
     }
   },
-  "headlines_scanned_today": 16,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 17,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 2323,
+  "classifications_24h": 2185,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 20,
@@ -35,9 +35,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 528,
-    "matched": 367,
-    "classified": 2323,
+    "news": 483,
+    "matched": 335,
+    "classified": 2185,
     "signals": 1,
     "trades": 1
   },
@@ -98,7 +98,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.45499999999999996,
+      "current_price": 0.455,
       "pnl_pct": 1.87,
       "amount_usd": 9.14,
       "edge_type": "momentum"
@@ -189,6 +189,61 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-06-14 01:40:13",
+      "market_question": "Will the price of Ethereum be greater than $2,100 on June 14?",
+      "headline": "Artificial Intelligence, Wealth Creation and the Debate on State Intervention - Greater Kashmir",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 01:40:13",
+      "market_question": "Will the price of Bitcoin be greater than $72,000 on June 14?",
+      "headline": "Artificial Intelligence, Wealth Creation and the Debate on State Intervention - Greater Kashmir",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 01:40:13",
+      "market_question": "Will the price of Bitcoin be greater than $72,000 on June 15?",
+      "headline": "Artificial Intelligence, Wealth Creation and the Debate on State Intervention - Greater Kashmir",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 01:40:13",
+      "market_question": "Will the price of Solana be greater than $110 on June 15?",
+      "headline": "Artificial Intelligence, Wealth Creation and the Debate on State Intervention - Greater Kashmir",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
+    {
+      "time": "2026-06-14 01:40:13",
+      "market_question": "Will the price of Solana be greater than $110 on June 16?",
+      "headline": "Artificial Intelligence, Wealth Creation and the Debate on State Intervention - Greater Kashmir",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword"
+    },
     {
       "time": "2026-06-14 01:27:50",
       "market_question": "SCOTUS lets Trump fire FTC commissioners in Trump v. Slaughter?",
@@ -347,61 +402,6 @@
       "time": "2026-06-14 01:27:48",
       "market_question": "Will Steve Marshall be the Republican nominee for Senate in Alabama?",
       "headline": "Supreme Court rejects Alabama request for nitrogen gas execution - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 01:27:48",
-      "market_question": "Will Morgan Murphy be the Republican nominee for Senate in Alabama?",
-      "headline": "Supreme Court rejects Alabama request for nitrogen gas execution - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 01:27:47",
-      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
-      "headline": "SpaceX launches Starlink mission from Cape Canaveral as stock trades on the Nasdaq for first time - Spaceflight Now",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding"
-    },
-    {
-      "time": "2026-06-14 01:27:44",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "SpaceX launches Starlink mission from Cape Canaveral as stock trades on the Nasdaq for first time - Spaceflight Now",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 01:27:44",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "SpaceX launches Starlink mission from Cape Canaveral as stock trades on the Nasdaq for first time - Spaceflight Now",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword"
-    },
-    {
-      "time": "2026-06-14 01:27:44",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "SpaceX launches Starlink mission from Cape Canaveral as stock trades on the Nasdaq for first time - Spaceflight Now",
       "direction": null,
       "materiality": null,
       "confidence": null,
