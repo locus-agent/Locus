@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-06-15T16:50:17.596295+00:00",
+  "generated_at": "2026-06-15T16:55:20.364676+00:00",
   "dry_run": true,
-  "markets_tracked": 2584,
+  "markets_tracked": 2586,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 1122,
-    "accuracy": 16.0,
+    "total": 1156,
+    "accuracy": 15.5,
     "by_category": {
       "other": 16.2,
-      "ai": 11.7,
+      "ai": 10.9,
       "politics": 18.2,
       "technology": 20.5,
-      "crypto": 28.1
+      "crypto": 25.0
     },
     "by_source": {
-      "rss": 17.2,
+      "rss": 16.2,
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 937,
+  "headlines_scanned_today": 938,
   "headlines_last_cycle": 0,
   "signals_24h": 9,
-  "classifications_24h": 6458,
+  "classifications_24h": 6463,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 94,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1345,
-    "matched": 616,
-    "classified": 6458,
+    "news": 1346,
+    "matched": 617,
+    "classified": 6463,
     "signals": 9,
     "trades": 9
   },
@@ -63,7 +63,7 @@
     "losses": 6,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -49.86,
-    "unrealized_pnl_usd": 11.82,
+    "unrealized_pnl_usd": 10.75,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -168,8 +168,8 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.101,
-      "pnl_pct": 10.99,
+      "current_price": 0.1,
+      "pnl_pct": 9.89,
       "amount_usd": 18.77,
       "edge_type": "momentum",
       "event_id": "379876"
@@ -192,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.39,
-      "pnl_pct": 14.71,
+      "current_price": 0.37,
+      "pnl_pct": 8.82,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -204,7 +204,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42000000000000004,
+      "current_price": 0.42,
       "pnl_pct": 8.41,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -352,35 +352,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 16:48:40",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "IREN enters Europe with acquisition of Spanish AI data center developer Nostrum",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 16:48:39",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "IREN enters Europe with acquisition of Spanish AI data center developer Nostrum",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 16:48:39",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "IREN enters Europe with acquisition of Spanish AI data center developer Nostrum",
+      "time": "2026-06-15 16:52:58",
+      "market_question": "Will Trump speak to Mark Rutte in June?",
+      "headline": "Mark Hollis tells AP he\u2019s interested in Michigan State AD job after Kentucky hires J Batt - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,9 +365,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 16:48:39",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "IREN enters Europe with acquisition of Spanish AI data center developer Nostrum",
+      "time": "2026-06-15 16:52:58",
+      "market_question": "Will Trump speak to Mark Carney in June?",
+      "headline": "Mark Hollis tells AP he\u2019s interested in Michigan State AD job after Kentucky hires J Batt - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,9 +378,35 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 16:48:39",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "IREN enters Europe with acquisition of Spanish AI data center developer Nostrum",
+      "time": "2026-06-15 16:52:58",
+      "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
+      "headline": "Mark Hollis tells AP he\u2019s interested in Michigan State AD job after Kentucky hires J Batt - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 16:52:58",
+      "market_question": "Will the Republicans win the Michigan Senate race in 2026?",
+      "headline": "Mark Hollis tells AP he\u2019s interested in Michigan State AD job after Kentucky hires J Batt - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 16:52:58",
+      "market_question": "Will Mark Baisley be the Republican nominee for Senate in Colorado?",
+      "headline": "Mark Hollis tells AP he\u2019s interested in Michigan State AD job after Kentucky hires J Batt - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
