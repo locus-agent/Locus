@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T20:52:16.739007+00:00",
+  "generated_at": "2026-06-15T20:57:19.640851+00:00",
   "dry_run": true,
-  "markets_tracked": 2527,
+  "markets_tracked": 2526,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,10 +18,10 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2281,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2283,
+  "headlines_last_cycle": 2,
   "signals_24h": 13,
-  "classifications_24h": 12095,
+  "classifications_24h": 12109,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 108,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2448,
-    "matched": 691,
-    "classified": 12095,
+    "news": 2450,
+    "matched": 693,
+    "classified": 12109,
     "signals": 13,
     "trades": 13
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -4.19,
+    "unrealized_pnl_usd": -3.33,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -134,11 +134,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -204,11 +204,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.345,
-      "pnl_pct": 1.47,
+      "current_price": 0.365,
+      "pnl_pct": 7.35,
       "amount_usd": 14.68,
-      "current_value_usd": 14.9,
-      "pnl_usd": 0.22,
+      "current_value_usd": 15.76,
+      "pnl_usd": 1.08,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -330,9 +330,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 20:41:41",
-      "market_question": "Will OpenAI's valuation hit (LOW) $750B by December 31?",
-      "headline": "The tyranny of low G7 expectations - Politico",
+      "time": "2026-06-15 20:57:16",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Ukraine starts EU membership talks and faces years of reforms while fighting Russia - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 20:57:14",
+      "market_question": "Ukraine election held by December 31, 2026?",
+      "headline": "Ukraine starts EU membership talks and faces years of reforms while fighting Russia - AP News",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 20:57:14",
+      "market_question": "Ukraine election called by December 31, 2026?",
+      "headline": "Ukraine starts EU membership talks and faces years of reforms while fighting Russia - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -343,9 +369,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 20:41:41",
-      "market_question": "Will OpenAI's valuation hit (LOW) $800B by December 31?",
-      "headline": "The tyranny of low G7 expectations - Politico",
+      "time": "2026-06-15 20:57:14",
+      "market_question": "Will Donald Trump visit Russia in 2026?",
+      "headline": "Ukraine starts EU membership talks and faces years of reforms while fighting Russia - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -356,43 +382,17 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 20:41:41",
-      "market_question": "Will Anthropic's valuation hit (LOW) $800B by December 31?",
-      "headline": "The tyranny of low G7 expectations - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 20:57:12",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Ukraine starts EU membership talks and faces years of reforms while fighting Russia - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.62,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 20:41:41",
-      "market_question": "Will OpenAI's valuation hit (LOW) $700B by December 31?",
-      "headline": "The tyranny of low G7 expectations - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 20:41:41",
-      "market_question": "Will OpenAI's valuation hit (LOW) $600B by December 31?",
-      "headline": "The tyranny of low G7 expectations - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
