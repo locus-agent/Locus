@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T15:34:23.918422+00:00",
+  "generated_at": "2026-06-15T15:39:30.898642+00:00",
   "dry_run": true,
-  "markets_tracked": 2566,
+  "markets_tracked": 2564,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1122,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 806,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 812,
+  "headlines_last_cycle": 2,
   "signals_24h": 8,
-  "classifications_24h": 5898,
+  "classifications_24h": 5931,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 93,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1235,
-    "matched": 544,
-    "classified": 5898,
+    "news": 1241,
+    "matched": 550,
+    "classified": 5931,
     "signals": 8,
     "trades": 8
   },
@@ -62,8 +62,8 @@
     "wins": 0,
     "losses": 5,
     "win_rate_pct": 0.0,
-    "realized_pnl_usd": -48.62,
-    "unrealized_pnl_usd": 1.02,
+    "realized_pnl_usd": -46.24,
+    "unrealized_pnl_usd": 7.39,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -120,9 +120,9 @@
       "slug": "who-will-sign-uptspt-x-iran-deal-20260612002238373",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.315,
-      "pnl_pct": 0.0,
-      "amount_usd": 4.92,
+      "current_price": 0.905,
+      "pnl_pct": 187.3,
+      "amount_usd": 2.46,
       "edge_type": "momentum",
       "event_id": "585449"
     },
@@ -132,7 +132,7 @@
       "slug": "us-enacts-ai-safety-bill-before-2027",
       "side": "YES",
       "entry_price": 0.295,
-      "current_price": 0.295,
+      "current_price": 0.29500000000000004,
       "pnl_pct": 0.0,
       "amount_usd": 10.68,
       "edge_type": "momentum",
@@ -156,7 +156,7 @@
       "slug": "will-anthropic-make-a-deal-with-the-pentagon",
       "side": "YES",
       "entry_price": 0.09,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": -16.67,
       "amount_usd": 13.11,
       "edge_type": "momentum",
@@ -180,8 +180,8 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.275,
-      "pnl_pct": 0.0,
+      "current_price": 0.29500000000000004,
+      "pnl_pct": 7.27,
       "amount_usd": 18.32,
       "edge_type": "news",
       "event_id": "548275"
@@ -192,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.36,
+      "pnl_pct": 5.88,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -204,7 +204,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42000000000000004,
+      "current_price": 0.42,
       "pnl_pct": 8.41,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -294,6 +294,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-15 15:37:30",
+      "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
+      "side": "YES",
+      "trigger": "take_profit",
+      "decision": "close_half",
+      "reasoning": "The position has nearly doubled, capturing most of the available edge from the initial mispricing at 0.315; closing half locks in substantial realized gains while leaving exposure to further upside if a formal deal materializes before July 31. The original thesis was built on ambiguous sourcing with low baseline confidence, so reducing risk at 0.620 is prudent given uncertainty about whether the market threshold will be formally met.",
+      "pnl_pct": 96.83
+    },
+    {
       "time": "2026-06-15 14:04:10",
       "market_question": "Will Donald Trump post 160-179 Truth Social posts from June 9 to June 16, 2026?",
       "side": "YES",
@@ -323,22 +332,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 15:32:19",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "UK Announces Social Media Ban for Children Under 16",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 15:39:02",
+      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
+      "headline": "Supreme Court won't revive ex-Trump aide's suit over secret surveillance during Russia investigation - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:32:19",
+      "time": "2026-06-15 15:39:02",
       "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "UK Announces Social Media Ban for Children Under 16",
+      "headline": "'Positive' or 'unnecessary'? UK teens on social media ban",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -349,9 +358,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 15:32:19",
+      "time": "2026-06-15 15:39:02",
       "market_question": "US congress stock trading ban before 2027?",
-      "headline": "UK Announces Social Media Ban for Children Under 16",
+      "headline": "'Positive' or 'unnecessary'? UK teens on social media ban",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -362,9 +371,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 15:32:19",
+      "time": "2026-06-15 15:39:02",
       "market_question": "Will Trump post \"Crypto\" or \"Bitcoin\" on Truth Social this week?",
-      "headline": "UK Announces Social Media Ban for Children Under 16",
+      "headline": "'Positive' or 'unnecessary'? UK teens on social media ban",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -375,9 +384,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 15:32:19",
+      "time": "2026-06-15 15:39:02",
       "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
-      "headline": "UK Announces Social Media Ban for Children Under 16",
+      "headline": "'Positive' or 'unnecessary'? UK teens on social media ban",
       "direction": null,
       "materiality": null,
       "confidence": null,
