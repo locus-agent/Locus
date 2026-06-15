@@ -18,6 +18,12 @@ def deterministic_config(monkeypatch):
     monkeypatch.setattr(config, "MAX_BET_USD", 25.0)
     monkeypatch.setattr(config, "EDGE_THRESHOLD", 0.10)
     monkeypatch.setattr(config, "KELLY_MIN_BET_USD", 2.0)
+    # Pin the price-room guards to their defaults so the boundary tests don't
+    # read a tuned value out of a local .env.
+    monkeypatch.setattr(config, "BULLISH_MIN_PRICE", 0.12)
+    monkeypatch.setattr(config, "BULLISH_MAX_PRICE", 0.82)
+    monkeypatch.setattr(config, "BEARISH_MIN_PRICE", 0.18)
+    monkeypatch.setattr(config, "BEARISH_MAX_PRICE", 0.88)
     # Pin the dynamic win-rate factor to 1.0 (wr 0.75) so sizing reflects the
     # base Kelly * edge_factor * vol_adj, not the streak adjustment.
     monkeypatch.setattr(edge, "get_cached_winrate", lambda: 0.75)
