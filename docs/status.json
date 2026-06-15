@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:42:11.388279+00:00",
+  "generated_at": "2026-06-15T17:46:38.370650+00:00",
   "dry_run": true,
   "markets_tracked": 2587,
   "classify_error_streak": 0,
@@ -18,29 +18,29 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 1741,
-  "headlines_last_cycle": 158,
+  "headlines_scanned_today": 1749,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 10181,
+  "classifications_24h": 10225,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 106,
-    "capped": 17,
+    "capped": 18,
     "correlation_block": 25,
     "category_limit": 0,
     "orderbook_skip": 7,
     "needs_confirmation": 15,
-    "event_exposure_block": 1,
+    "event_exposure_block": 2,
     "low_consensus": 0,
     "circuit_breaker": 0,
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 3,
+  "watched_markets_count": 4,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T17:41:50.738827+00:00"
+    "last_check": "2026-06-15T17:36:18.999776+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -48,23 +48,23 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2074,
-    "matched": 616,
-    "classified": 10181,
+    "news": 2082,
+    "matched": 620,
+    "classified": 10225,
     "signals": 10,
     "trades": 10
   },
   "performance": {
     "trades_total": 10,
     "deployed_usd": 135.7,
-    "open_count": 7,
-    "closed_count": 3,
-    "wins": 1,
+    "open_count": 6,
+    "closed_count": 4,
+    "wins": 2,
     "losses": 2,
-    "win_rate_pct": 33.3,
-    "realized_pnl_usd": 4.03,
-    "unrealized_pnl_usd": 1.71,
-    "recent_winrate": 0.1429,
+    "win_rate_pct": 50.0,
+    "realized_pnl_usd": 6.66,
+    "unrealized_pnl_usd": 1.21,
+    "recent_winrate": 0.25,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
   },
@@ -77,7 +77,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 3,
+        "value": 4,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -85,7 +85,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 33.3,
+        "value": 50.0,
         "threshold_display": "> 55%",
         "pass": false
       },
@@ -101,7 +101,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 11.7,
+        "value": 10.0,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -110,35 +110,21 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.1169,
+    "drawdown_7d": 0.1001,
     "sharpe_7d": null
   },
   "open_positions": [
-    {
-      "time": "2026-06-15 17:41:55",
-      "market_question": "Ethereum Up or Down - June 15, 1:30PM-1:45PM ET",
-      "slug": "eth-updown-15m-1781544600",
-      "side": "YES",
-      "entry_price": 0.375,
-      "current_price": 0.425,
-      "pnl_pct": 13.33,
-      "amount_usd": 5.2,
-      "current_value_usd": 5.89,
-      "pnl_usd": 0.69,
-      "edge_type": "news",
-      "event_id": "594868"
-    },
     {
       "time": "2026-06-15 16:39:59",
       "market_question": "Will Trump say \"Greatest\" during UFC 250?",
       "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
       "side": "YES",
       "entry_price": 0.07,
-      "current_price": 0.07,
-      "pnl_pct": 0.0,
+      "current_price": 0.07499999999999996,
+      "pnl_pct": 7.14,
       "amount_usd": 8.74,
-      "current_value_usd": 8.74,
-      "pnl_usd": 0.0,
+      "current_value_usd": 9.36,
+      "pnl_usd": 0.62,
       "edge_type": "news",
       "event_id": "583905"
     },
@@ -190,7 +176,7 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.30500000000000005,
+      "current_price": 0.305,
       "pnl_pct": 10.91,
       "amount_usd": 18.32,
       "current_value_usd": 20.32,
@@ -204,16 +190,27 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.355,
-      "pnl_pct": 4.41,
+      "current_price": 0.345,
+      "pnl_pct": 1.47,
       "amount_usd": 14.68,
-      "current_value_usd": 15.33,
-      "pnl_usd": 0.65,
+      "current_value_usd": 14.9,
+      "pnl_usd": 0.22,
       "edge_type": "news",
       "event_id": "103576"
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-15T17:43:06.625402+00:00",
+      "market_question": "Ethereum Up or Down - June 15, 1:30PM-1:45PM ET",
+      "slug": "eth-updown-15m-1781544600",
+      "side": "YES",
+      "entry_price": 0.375,
+      "exit_price": 0.565,
+      "realized_pnl_usd": 2.6346666666666665,
+      "exit_reason": "tp_decision",
+      "event_id": "594868"
+    },
     {
       "time": "2026-06-15T17:40:33.628679+00:00",
       "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
@@ -250,6 +247,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-15 17:43:06",
+      "market_question": "Ethereum Up or Down - June 15, 1:30PM-1:45PM ET",
+      "side": "YES",
+      "trigger": "take_profit",
+      "decision": "close",
+      "reasoning": "The position has captured over 50% gain and the original thesis was predicated on an immediate short-term macro reaction in a tight 15-minute window\u2014that move has clearly materialized. With time remaining unknown and thin market liquidity making further upside uncertain, locking in the realized edge now is the disciplined exit.",
+      "pnl_pct": 50.67
+    },
+    {
       "time": "2026-06-15 17:40:33",
       "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
       "side": "YES",
@@ -284,35 +290,52 @@
       "decision": "close",
       "reasoning": "The new headline asking 'how will the ban work and when does it start?' suggests the ban is not yet implemented, undermining the original thesis that a ban would suppress Trump's posting activity in the June 9-16 window; with no unrealized gain to protect and the original edge now contradicted, there's no reason to hold.",
       "pnl_pct": 0.0
-    },
-    {
-      "time": "2026-06-13 11:57:15",
-      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
-      "side": "NO",
-      "trigger": "news",
-      "decision": "close",
-      "reasoning": "Trump claiming a deal was reached directly contradicts the original thesis that he viewed sanctions as beneficial and would not agree to relief; with the position already down 23.4% and a materiality-0.62 headline shifting the narrative toward YES resolution, the edge is gone and holding risks further losses.",
-      "pnl_pct": -23.42
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 17:42:08",
-      "market_question": "Trump renames Strait of Hormuz to \"Strait of Trump\" by June 30?",
-      "headline": "Scouring the Strait of Hormuz for mines could take weeks - Reuters",
+      "time": "2026-06-15 17:46:07",
+      "market_question": "Will Google Gemini score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "Big Tech\u2019s desperate last push at AI regulation",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:46:07",
+      "market_question": "Will Google Gemini score at least 55% on Humanity\u2019s Last Exam?",
+      "headline": "Big Tech\u2019s desperate last push at AI regulation",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:46:07",
+      "market_question": "Will OpenAI GPT score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "Big Tech\u2019s desperate last push at AI regulation",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "cached",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 17:42:08",
-      "market_question": "Will the US federal government take a stake in OpenAI?",
-      "headline": "Scouring the Strait of Hormuz for mines could take weeks - Reuters",
+      "time": "2026-06-15 17:46:07",
+      "market_question": "Will Google Gemini score at least 60% on Humanity\u2019s Last Exam?",
+      "headline": "Big Tech\u2019s desperate last push at AI regulation",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -323,37 +346,11 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 17:42:08",
-      "market_question": "Will the US federal government take a stake in Anthropic PBC?",
-      "headline": "Scouring the Strait of Hormuz for mines could take weeks - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:42:08",
-      "market_question": "Will the US federal government take a stake in Micron Technology, Inc.?",
-      "headline": "Scouring the Strait of Hormuz for mines could take weeks - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:42:08",
-      "market_question": "Will Trump say \"America\" during UFC 250?",
-      "headline": "A diamond, a whale bone and lots of letters: What\u2019s inside the America 250 time capsule - AP News",
+      "time": "2026-06-15 17:46:07",
+      "market_question": "Will an Anthropic Claude model score at least 45% on Humanity\u2019s Last Exam?",
+      "headline": "Big Tech\u2019s desperate last push at AI regulation",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "cached",
