@@ -108,8 +108,12 @@ def get_recent_winrate(n: int = 20) -> float:
     The fraction of the most recent n fully-closed positions with positive
     realized PnL. Returns 0.5 (no signal) when fewer than
     KELLY_WINRATE_MIN_SAMPLES positions have closed. Backs dynamic Kelly sizing.
+
+    Respects config.PERFORMANCE_START_DATE (only positions opened on or after it
+    count), so the win rate matches the other performance metrics.
     """
-    return winrate_from_pnls(logger.get_recent_closed_position_pnls(n))
+    since = config.PERFORMANCE_START_DATE or None
+    return winrate_from_pnls(logger.get_recent_closed_position_pnls(n, since=since))
 
 
 def record_lesson(trade: dict, actual_direction: str, entry_price: float, exit_price: float) -> str:

@@ -40,7 +40,13 @@ def get_cached_winrate() -> float:
         return _winrate_cache["winrate"]
 
     try:
-        pnls = logger.get_recent_closed_position_pnls(config.KELLY_WINRATE_LOOKBACK)
+        # Scope the win rate to the PERFORMANCE_START_DATE window (same filter as
+        # the other performance metrics) so the Kelly factor reflects only
+        # positions opened on or after it.
+        pnls = logger.get_recent_closed_position_pnls(
+            config.KELLY_WINRATE_LOOKBACK,
+            since=config.PERFORMANCE_START_DATE or None,
+        )
     except Exception as e:
         log.warning(f"[edge] Win-rate lookup failed, using 0.5: {e}")
         return 0.5

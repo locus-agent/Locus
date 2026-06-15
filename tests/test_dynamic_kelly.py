@@ -21,6 +21,9 @@ def _reset_and_pin(monkeypatch):
     monkeypatch.setattr(config, "KELLY_DYNAMIC_MAX_FACTOR", 1.0)
     monkeypatch.setattr(config, "KELLY_MIN_BET_USD", 2.0)
     monkeypatch.setattr(config, "KELLY_WINRATE_CACHE_TTL", 1800.0)
+    # Default the performance window off so tests don't depend on the developer's
+    # .env. The dedicated filter tests below override it.
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
     yield
     edge.reset_winrate_cache()
 
@@ -80,7 +83,8 @@ def test_floor_respects_override(monkeypatch):
 
 def test_cache_holds_within_ttl_then_refreshes(monkeypatch):
     state = {"pnls": [10.0] * 8 + [-1.0] * 2}  # 8 wins / 10 -> winrate 0.8
-    monkeypatch.setattr(logger, "get_recent_closed_position_pnls", lambda n: state["pnls"])
+    monkeypatch.setattr(logger, "get_recent_closed_position_pnls",
+                        lambda n, since=None: state["pnls"])
     clock = {"t": 1000.0}
     monkeypatch.setattr(edge.time, "monotonic", lambda: clock["t"])
 
@@ -98,7 +102,7 @@ def test_cache_holds_within_ttl_then_refreshes(monkeypatch):
 
 def test_cache_stores_sample_count(monkeypatch):
     monkeypatch.setattr(logger, "get_recent_closed_position_pnls",
-                        lambda n: [10.0, 10.0, 10.0, -1.0, -1.0, -1.0])
+                        lambda n, since=None: [10.0, 10.0, 10.0, -1.0, -1.0, -1.0])
     monkeypatch.setattr(edge.time, "monotonic", lambda: 500.0)
     edge.get_cached_winrate()
     assert edge._winrate_cache["sample_count"] == 6
@@ -106,7 +110,7 @@ def test_cache_stores_sample_count(monkeypatch):
 
 
 def test_cache_failure_falls_back_to_half_without_caching(monkeypatch):
-    def boom(n):
+    def boom(n, since=None):
         raise RuntimeError("db down")
     monkeypatch.setattr(logger, "get_recent_closed_position_pnls", boom)
     assert edge.get_cached_winrate() == 0.5
@@ -117,20 +121,20 @@ def test_cache_failure_falls_back_to_half_without_caching(monkeypatch):
 
 def test_winrate_fallback_with_too_few_samples(monkeypatch):
     monkeypatch.setattr(logger, "get_recent_closed_position_pnls",
-                        lambda n: [10.0, 10.0, -1.0])  # only 3 < min 5
+                        lambda n, since=None: [10.0, 10.0, -1.0])  # only 3 < min 5
     assert memory.get_recent_winrate(20) == 0.5
 
 
 def test_winrate_computed_with_enough_samples(monkeypatch):
     monkeypatch.setattr(logger, "get_recent_closed_position_pnls",
-                        lambda n: [10.0, 10.0, 10.0, -1.0, -1.0])  # 3/5
+                        lambda n, since=None: [10.0, 10.0, 10.0, -1.0, -1.0])  # 3/5
     assert memory.get_recent_winrate(20) == pytest.approx(0.6)
 
 
 def test_winrate_min_samples_override(monkeypatch):
     monkeypatch.setattr(config, "KELLY_WINRATE_MIN_SAMPLES", 3)
     monkeypatch.setattr(logger, "get_recent_closed_position_pnls",
-                        lambda n: [10.0, 10.0, -1.0])  # 2/3 now meets the bar
+                        lambda n, since=None: [10.0, 10.0, -1.0])  # 2/3 now meets the bar
     assert memory.get_recent_winrate(20) == pytest.approx(2 / 3)
 
 
@@ -183,3 +187,78 @@ def test_get_recent_winrate_respects_lookback_window(tmp_db, monkeypatch):
     assert memory.get_recent_winrate(5) == pytest.approx(0.0)
     # The full window sees all ten -> 5/10.
     assert memory.get_recent_winrate(10) == pytest.approx(0.5)
+
+
+# --- PERFORMANCE_START_DATE window on the win rate ---
+
+_KW_OLD = "2026-06-10 09:00:00"
+_KW_NEW = "2026-06-14 09:00:00"
+_KW_CUTOFF = "2026-06-14"
+
+
+def _close_with_opened(tmp_db, mid, pnl, opened_at, closed_at):
+    from locus.core import positions
+    from locus.markets.gamma import Market
+
+    trade_id = tmp_db.log_trade(
+        market_id=mid, market_question="Q?", claude_score=0.7, market_price=0.5,
+        edge=0.2, side="YES", amount_usd=25.0, status="dry_run",
+        classification="bullish", materiality=0.7,
+    )
+    positions.open_position(trade_id, Market(mid, "Q?", "ai", 0.5, 0.5, 5000, "", True, []),
+                            "YES", 25.0)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET status='closed_resolution', realized_pnl_usd=?, "
+        "opened_at=?, closed_at=? WHERE trade_id=?",
+        (pnl, opened_at, closed_at, trade_id),
+    )
+    conn.commit()
+    conn.close()
+
+
+def _seed_old_and_new(tmp_db):
+    # Old: three winners. New: two winners + three losers.
+    for i in range(3):
+        _close_with_opened(tmp_db, f"old{i}", +5.0, _KW_OLD, f"2026-06-10 1{i}:00:00")
+    _close_with_opened(tmp_db, "new0", +5.0, _KW_NEW, "2026-06-14 10:00:00")
+    _close_with_opened(tmp_db, "new1", +5.0, _KW_NEW, "2026-06-14 11:00:00")
+    for i, mid in enumerate(("new2", "new3", "new4")):
+        _close_with_opened(tmp_db, mid, -5.0, _KW_NEW, f"2026-06-14 1{2 + i}:00:00")
+
+
+def test_recent_pnls_filtered_by_since(tmp_db):
+    _seed_old_and_new(tmp_db)
+    # No filter -> all eight closes.
+    assert len(logger.get_recent_closed_position_pnls(20)) == 8
+    # Scoped to the cutoff -> only the five new closes (two winners).
+    new = logger.get_recent_closed_position_pnls(20, since=_KW_CUTOFF)
+    assert len(new) == 5
+    assert sum(1 for p in new if p > 0) == 2
+
+
+def test_recent_winrate_respects_performance_start_date(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "KELLY_WINRATE_MIN_SAMPLES", 5)
+    _seed_old_and_new(tmp_db)
+    # Full history: 5 winners / 8 -> 0.625.
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    assert memory.get_recent_winrate(20) == pytest.approx(0.625)
+    # New window only: 2 winners / 5 -> 0.4.
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", _KW_CUTOFF)
+    assert memory.get_recent_winrate(20) == pytest.approx(0.4)
+
+
+def test_kelly_winrate_respects_performance_start_date(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "KELLY_WINRATE_MIN_SAMPLES", 5)
+    monkeypatch.setattr(edge.time, "monotonic", lambda: 1000.0)
+    _seed_old_and_new(tmp_db)
+
+    # The cached Kelly win rate scopes to the same window: full history 0.625...
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    edge.reset_winrate_cache()
+    assert edge.get_cached_winrate() == pytest.approx(0.625)
+
+    # ...vs only positions opened after the cutoff: 0.4.
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", _KW_CUTOFF)
+    edge.reset_winrate_cache()
+    assert edge.get_cached_winrate() == pytest.approx(0.4)

@@ -655,18 +655,23 @@ def log_classification(
     return classification_id
 
 
-def get_recent_closed_position_pnls(limit: int) -> list[float]:
+def get_recent_closed_position_pnls(limit: int, since: str | None = None) -> list[float]:
     """Realized PnL of the most recently closed positions (newest first).
 
     Only fully-closed positions (status LIKE 'closed_%'); a NULL realized PnL
     is treated as 0.0 (a break-even, non-winning close). Backs dynamic Kelly
-    win-rate sizing."""
+    win-rate sizing. `since` (an ISO date/datetime) restricts to positions
+    opened on or after it — the PERFORMANCE_START_DATE window — before taking
+    the most recent `limit`; default None counts all history."""
     conn = _conn()
-    rows = conn.execute(
-        "SELECT realized_pnl_usd FROM positions "
-        "WHERE status LIKE 'closed_%' ORDER BY closed_at DESC LIMIT ?",
-        (limit,),
-    ).fetchall()
+    sql = "SELECT realized_pnl_usd FROM positions WHERE status LIKE 'closed_%'"
+    params: list = []
+    if since:
+        sql += " AND opened_at >= ?"
+        params.append(since)
+    sql += " ORDER BY closed_at DESC LIMIT ?"
+    params.append(limit)
+    rows = conn.execute(sql, params).fetchall()
     conn.close()
     return [r["realized_pnl_usd"] or 0.0 for r in rows]
 
