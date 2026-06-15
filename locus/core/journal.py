@@ -36,7 +36,9 @@ Field notes: "actions" counts your decisions per classification — "signal" mea
 gate stopped you), "capped" means a second trade on the same headline was blocked. \
 "match_sources" shows how each news-market pair was found: kw = keyword overlap, \
 sem = embedding similarity, both = both. "top_materiality" are the news-market pairs you \
-scored as most material. "resolutions" are markets that closed, grading your past calls.
+scored as most material. "closed_today" are positions you exited today, with their \
+exit_reason and realized_pnl_usd (profit/loss in dollars). "resolutions" are markets that \
+closed, grading your past calls.
 
 Write your journal entry for {date}.
 
@@ -129,6 +131,20 @@ def gather_daily_stats(extra: dict | None = None) -> dict:
         ).fetchall()
     ]
 
+    # Positions closed today (since 00:00 UTC) — so the journal can reflect on
+    # profitable exits, not just open positions. closed_at is stored via
+    # datetime.isoformat(), so a midnight-UTC ISO boundary compares as a string.
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
+    closed_today = [
+        dict(r)
+        for r in conn.execute(
+            """SELECT market_question, exit_reason, realized_pnl_usd
+               FROM positions WHERE status != 'open' AND closed_at >= ?
+               ORDER BY closed_at DESC""",
+            (today_start,),
+        ).fetchall()
+    ]
+
     news_count = conn.execute(
         "SELECT COUNT(*) FROM news_events WHERE created_at >= ?", (since,)
     ).fetchone()[0]
@@ -154,6 +170,7 @@ def gather_daily_stats(extra: dict | None = None) -> dict:
         "match_sources": match_sources,
         "top_materiality": top_materiality,
         "trades_24h": trades,
+        "closed_today": closed_today,
         "error_trades_24h": error_trades,
         "resolutions_24h": {"total": resolutions["total"], "correct": resolutions["correct"]},
         "new_lessons_24h": lessons,

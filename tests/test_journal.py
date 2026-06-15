@@ -1,5 +1,5 @@
 """Journal daily trigger: fires once, after 21:00 UTC, never twice."""
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from locus import config
 from locus.core import journal
@@ -10,6 +10,49 @@ def test_gather_daily_stats_on_empty_db(tmp_db):
     assert stats["classifications_24h"] == 0
     assert stats["news_events_24h"] == 0
     assert stats["resolutions_24h"] == {"total": 0, "correct": 0}
+    assert stats["closed_today"] == []
+
+
+def _insert_position(tmp_db, *, question, status, exit_reason, pnl, closed_at):
+    conn = tmp_db._conn()
+    conn.execute(
+        """INSERT INTO positions
+           (condition_id, market_question, side, entry_yes_price, amount_usd,
+            status, realized_pnl_usd, exit_reason, closed_at)
+           VALUES (?, ?, 'YES', 0.5, 10, ?, ?, ?, ?)""",
+        ("cond", question, status, pnl, exit_reason, closed_at),
+    )
+    conn.commit()
+    conn.close()
+
+
+def test_gather_daily_stats_includes_closed_today(tmp_db):
+    now = datetime.now(timezone.utc)
+    today_iso = now.replace(hour=1).isoformat()
+    yesterday_iso = (now - timedelta(days=1)).isoformat()
+
+    # Closed today (a profitable take-profit) — should appear.
+    _insert_position(
+        tmp_db, question="Will X win?", status="closed_tp",
+        exit_reason="take_profit", pnl=4.2, closed_at=today_iso,
+    )
+    # Closed yesterday — should be excluded by the 00:00 UTC boundary.
+    _insert_position(
+        tmp_db, question="Old market?", status="closed_sl",
+        exit_reason="stop_loss", pnl=-3.0, closed_at=yesterday_iso,
+    )
+    # Still open (no closed_at) — should be excluded.
+    _insert_position(
+        tmp_db, question="Open market?", status="open",
+        exit_reason=None, pnl=0, closed_at=None,
+    )
+
+    stats = journal.gather_daily_stats()
+    closed = stats["closed_today"]
+    assert len(closed) == 1
+    assert closed[0]["market_question"] == "Will X win?"
+    assert closed[0]["exit_reason"] == "take_profit"
+    assert closed[0]["realized_pnl_usd"] == 4.2
 
 
 def test_trigger_respects_hour_and_writes_once(tmp_db, monkeypatch):
