@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T23:26:30.406657+00:00",
+  "generated_at": "2026-06-15T23:31:39.351656+00:00",
   "dry_run": true,
-  "markets_tracked": 2547,
+  "markets_tracked": 2548,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1406,
@@ -78,10 +78,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 3173,
+  "headlines_scanned_today": 3175,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 16186,
+  "classifications_24h": 16196,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 69,
@@ -97,7 +97,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 7,
+  "watched_markets_count": 8,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
@@ -109,24 +109,24 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3173,
-    "matched": 710,
-    "classified": 16186,
+    "news": 3175,
+    "matched": 712,
+    "classified": 16196,
     "signals": 16,
     "trades": 16
   },
   "performance": {
     "trades_total": 16,
     "deployed_usd": 203.81,
-    "open_count": 9,
-    "closed_count": 7,
-    "wins": 3,
+    "open_count": 8,
+    "closed_count": 8,
+    "wins": 4,
     "losses": 4,
-    "win_rate_pct": 42.9,
-    "realized_pnl_usd": 5.82,
-    "unrealized_pnl_usd": -4.88,
-    "recent_winrate": 0.4286,
-    "kelly_factor": 0.5179,
+    "win_rate_pct": 50.0,
+    "realized_pnl_usd": 13.84,
+    "unrealized_pnl_usd": -3.58,
+    "recent_winrate": 0.5,
+    "kelly_factor": 0.625,
     "winrate_lookback": 20,
     "avg_classification_latency_ms": 1500.4
   },
@@ -139,7 +139,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 7,
+        "value": 8,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -147,7 +147,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 42.9,
+        "value": 50.0,
         "threshold_display": "> 55%",
         "pass": false
       },
@@ -163,7 +163,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 5.5,
+        "value": 4.7,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -172,7 +172,7 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0551,
+    "drawdown_7d": 0.0474,
     "sharpe_7d": null
   },
   "open_positions": [
@@ -182,7 +182,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16000000000000003,
+      "current_price": 0.16,
       "pnl_pct": 0.0,
       "amount_usd": 15.39,
       "current_value_usd": 15.39,
@@ -196,11 +196,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.41500000000000004,
-      "pnl_pct": -12.69,
+      "current_price": 0.32999999999999996,
+      "pnl_pct": 0.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.75,
-      "pnl_usd": -0.25,
+      "current_value_usd": 2.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -247,30 +247,16 @@
       "event_id": "133657"
     },
     {
-      "time": "2026-06-15 14:02:01",
-      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
-      "slug": "will-anthropic-make-a-deal-with-the-pentagon",
-      "side": "YES",
-      "entry_price": 0.09,
-      "current_price": 0.085,
-      "pnl_pct": -5.56,
-      "amount_usd": 13.11,
-      "current_value_usd": 12.38,
-      "pnl_usd": -0.73,
-      "edge_type": "momentum",
-      "event_id": "248342"
-    },
-    {
       "time": "2026-06-15 13:58:33",
       "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.108,
-      "pnl_pct": 18.68,
+      "current_price": 0.1085,
+      "pnl_pct": 19.23,
       "amount_usd": 18.77,
-      "current_value_usd": 22.28,
-      "pnl_usd": 3.51,
+      "current_value_usd": 22.38,
+      "pnl_usd": 3.61,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -294,16 +280,27 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.345,
-      "pnl_pct": 1.47,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 14.9,
-      "pnl_usd": 0.22,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-15T23:29:08.815860+00:00",
+      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
+      "slug": "will-anthropic-make-a-deal-with-the-pentagon",
+      "side": "YES",
+      "entry_price": 0.09,
+      "exit_price": 0.14500000000000002,
+      "realized_pnl_usd": 8.01166666666667,
+      "exit_reason": "tp_decision",
+      "event_id": "248342"
+    },
     {
       "time": "2026-06-15T22:17:50.708024+00:00",
       "market_question": "Ethereum Up or Down - June 15, 4:00PM-8:00PM ET",
@@ -384,6 +381,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-15 23:29:08",
+      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
+      "side": "YES",
+      "trigger": "take_profit",
+      "decision": "close",
+      "reasoning": "The position has captured 61% gain on what was originally a low-probability speculative play with no confirmed deal announcement, and the original thesis noted this required an actual signed agreement rather than just advocacy momentum. With thin market liquidity and the fundamental uncertainty unchanged, locking in the realized edge now is preferable to risking mean-reversion on a position where the core catalyst (a signed Pentagon deal) still hasn't materialized.",
+      "pnl_pct": 61.11
+    },
+    {
       "time": "2026-06-15 18:04:51",
       "market_question": "Will Trump say \"Greatest\" during UFC 250?",
       "side": "YES",
@@ -418,35 +424,13 @@
       "decision": "close",
       "reasoning": "The original thesis was weak to begin with\u2014vague speculative headline with no concrete legislative momentum\u2014and the 33.9% drawdown with price dropping from 0.295 to 0.195 suggests the market has further repriced against this outcome. With no strong catalyst to reverse the trend and an unknown time horizon, holding a loser on a thin market with a shaky original thesis is not justified.",
       "pnl_pct": -33.9
-    },
-    {
-      "time": "2026-06-15 15:37:30",
-      "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
-      "side": "YES",
-      "trigger": "take_profit",
-      "decision": "close_half",
-      "reasoning": "The position has nearly doubled, capturing most of the available edge from the initial mispricing at 0.315; closing half locks in substantial realized gains while leaving exposure to further upside if a formal deal materializes before July 31. The original thesis was built on ambiguous sourcing with low baseline confidence, so reducing risk at 0.620 is prudent given uncertainty about whether the market threshold will be formally met.",
-      "pnl_pct": 96.83
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 23:23:22",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Former Louisville police officer charged with manslaughter in fatal shooting of naked man - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 23:23:21",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Former Louisville police officer charged with manslaughter in fatal shooting of naked man - AP News",
+      "time": "2026-06-15 23:27:42",
+      "market_question": "Peru General Election invalidated by June 30?",
+      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -457,9 +441,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 23:23:21",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Former Louisville police officer charged with manslaughter in fatal shooting of naked man - AP News",
+      "time": "2026-06-15 23:27:42",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -470,9 +454,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 23:23:21",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Former Louisville police officer charged with manslaughter in fatal shooting of naked man - AP News",
+      "time": "2026-06-15 23:27:42",
+      "market_question": "Will Brent Hennrich advance to the general election for WA-03?",
+      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -483,9 +467,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 23:23:21",
-      "market_question": "Trump meets with Putin by September 30?",
-      "headline": "Former Louisville police officer charged with manslaughter in fatal shooting of naked man - AP News",
+      "time": "2026-06-15 23:27:42",
+      "market_question": "Will John Braun advance to the general election for WA-03?",
+      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 23:27:42",
+      "market_question": "Will Lawrence Kellogg advance to the general election for WA-03?",
+      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
