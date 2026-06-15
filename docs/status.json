@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T17:41:30.995692+00:00",
+  "generated_at": "2026-06-15T17:42:11.388279+00:00",
   "dry_run": true,
-  "markets_tracked": 2590,
+  "markets_tracked": 2587,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1196,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 1583,
-  "headlines_last_cycle": 0,
-  "signals_24h": 9,
-  "classifications_24h": 9382,
+  "headlines_scanned_today": 1741,
+  "headlines_last_cycle": 158,
+  "signals_24h": 10,
+  "classifications_24h": 10181,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 106,
@@ -40,30 +40,30 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T17:36:18.999776+00:00"
+    "last_check": "2026-06-15T17:41:50.738827+00:00"
   },
   "edge_types_24h": {
-    "news": 4,
+    "news": 5,
     "momentum": 5,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1916,
+    "news": 2074,
     "matched": 616,
-    "classified": 9382,
-    "signals": 9,
-    "trades": 9
+    "classified": 10181,
+    "signals": 10,
+    "trades": 10
   },
   "performance": {
-    "trades_total": 9,
-    "deployed_usd": 130.5,
-    "open_count": 6,
+    "trades_total": 10,
+    "deployed_usd": 135.7,
+    "open_count": 7,
     "closed_count": 3,
     "wins": 1,
     "losses": 2,
     "win_rate_pct": 33.3,
     "realized_pnl_usd": 4.03,
-    "unrealized_pnl_usd": 1.43,
+    "unrealized_pnl_usd": 1.71,
     "recent_winrate": 0.1429,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -115,16 +115,30 @@
   },
   "open_positions": [
     {
+      "time": "2026-06-15 17:41:55",
+      "market_question": "Ethereum Up or Down - June 15, 1:30PM-1:45PM ET",
+      "slug": "eth-updown-15m-1781544600",
+      "side": "YES",
+      "entry_price": 0.375,
+      "current_price": 0.425,
+      "pnl_pct": 13.33,
+      "amount_usd": 5.2,
+      "current_value_usd": 5.89,
+      "pnl_usd": 0.69,
+      "edge_type": "news",
+      "event_id": "594868"
+    },
+    {
       "time": "2026-06-15 16:39:59",
       "market_question": "Will Trump say \"Greatest\" during UFC 250?",
       "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
       "side": "YES",
       "entry_price": 0.07,
-      "current_price": 0.07499999999999996,
-      "pnl_pct": 7.14,
+      "current_price": 0.07,
+      "pnl_pct": 0.0,
       "amount_usd": 8.74,
-      "current_value_usd": 9.36,
-      "pnl_usd": 0.62,
+      "current_value_usd": 8.74,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "583905"
     },
@@ -190,11 +204,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.355,
+      "pnl_pct": 4.41,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 15.33,
+      "pnl_usd": 0.65,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -283,69 +297,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 17:40:31",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
+      "time": "2026-06-15 17:42:08",
+      "market_question": "Trump renames Strait of Hormuz to \"Strait of Trump\" by June 30?",
+      "headline": "Scouring the Strait of Hormuz for mines could take weeks - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 17:40:29",
-      "market_question": "Will OpenAI launch a new consumer hardware product by December 31, 2026?",
-      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 17:40:29",
-      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
-      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:40:29",
-      "market_question": "Will the Centre Party (C) win the most seats in the 2026 Swedish parliamentary election?",
-      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:40:28",
-      "market_question": "AI data center in space by December 31, 2026?",
-      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.58,
-      "edge": 0.14025,
-      "action": "low_materiality",
+      "action": "cached",
       "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:42:08",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "Scouring the Strait of Hormuz for mines could take weeks - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:42:08",
+      "market_question": "Will the US federal government take a stake in Anthropic PBC?",
+      "headline": "Scouring the Strait of Hormuz for mines could take weeks - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:42:08",
+      "market_question": "Will the US federal government take a stake in Micron Technology, Inc.?",
+      "headline": "Scouring the Strait of Hormuz for mines could take weeks - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:42:08",
+      "market_question": "Will Trump say \"America\" during UFC 250?",
+      "headline": "A diamond, a whale bone and lots of letters: What\u2019s inside the America 250 time capsule - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
