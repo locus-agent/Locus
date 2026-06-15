@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T22:31:28.060605+00:00",
+  "generated_at": "2026-06-15T22:35:17.343181+00:00",
   "dry_run": true,
-  "markets_tracked": 2550,
+  "markets_tracked": 2555,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1377,
@@ -78,12 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2644,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 2715,
+  "headlines_last_cycle": 70,
   "signals_24h": 16,
-  "classifications_24h": 13756,
+  "classifications_24h": 14146,
   "selectivity_pct": 0.1,
   "gates_24h": {
+    "prefiltered_haiku": 11,
     "stale": 115,
     "capped": 24,
     "correlation_block": 35,
@@ -100,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T22:30:58.040715+00:00"
+    "last_check": "2026-06-15T22:34:56.701058+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -108,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2740,
-    "matched": 765,
-    "classified": 13756,
+    "news": 2811,
+    "matched": 767,
+    "classified": 14146,
     "signals": 16,
     "trades": 16
   },
@@ -123,7 +124,7 @@
     "losses": 4,
     "win_rate_pct": 42.9,
     "realized_pnl_usd": 5.82,
-    "unrealized_pnl_usd": -4.51,
+    "unrealized_pnl_usd": -4.1,
     "recent_winrate": 0.4286,
     "kelly_factor": 0.5179,
     "winrate_lookback": 20
@@ -180,7 +181,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16000000000000003,
+      "current_price": 0.16,
       "pnl_pct": 0.0,
       "amount_usd": 15.39,
       "current_value_usd": 15.39,
@@ -278,11 +279,11 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.245,
-      "pnl_pct": -10.91,
+      "current_price": 0.235,
+      "pnl_pct": -14.55,
       "amount_usd": 18.32,
-      "current_value_usd": 16.32,
-      "pnl_usd": -2.0,
+      "current_value_usd": 15.66,
+      "pnl_usd": -2.66,
       "edge_type": "news",
       "event_id": "548275"
     },
@@ -292,11 +293,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -429,69 +430,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 22:31:19",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "Trump officials meet with Anthropic to discuss a truce - Politico",
+      "time": "2026-06-15 22:35:16",
+      "market_question": "Will Donald Trump post 120-139 Truth Social posts from June 9 to June 16, 2026?",
+      "headline": "Social media ban - bold and blunt, but no silver bullet",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 22:31:17",
-      "market_question": "Will Trump meet with Nicol\u00e1s Maduro in 2026?",
-      "headline": "Trump officials meet with Anthropic to discuss a truce - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-15 22:35:16",
+      "market_question": "Will Donald Trump post 200+ Truth Social posts from June 9 to June 16, 2026?",
+      "headline": "Social media ban - bold and blunt, but no silver bullet",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.62,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
       "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 22:31:16",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Trump officials meet with Anthropic to discuss a truce - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-15 22:35:16",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Fox to buy streaming pioneer Roku in a $22 billion deal - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 22:31:14",
-      "market_question": "Will Trump meet with Keir Starmer in 2026?",
-      "headline": "Trump officials meet with Anthropic to discuss a truce - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 22:31:13",
-      "market_question": "Will Trump meet with Kim Jong Un in 2026?",
-      "headline": "Trump officials meet with Anthropic to discuss a truce - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-15 22:35:16",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Fox to buy streaming pioneer Roku in a $22 billion deal - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 22:35:16",
+      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
+      "headline": "Fox to buy streaming pioneer Roku in a $22 billion deal - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
