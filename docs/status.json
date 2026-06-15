@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T21:53:04.168014+00:00",
+  "generated_at": "2026-06-15T21:58:01.836284+00:00",
   "dry_run": true,
-  "markets_tracked": 2545,
+  "markets_tracked": 0,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,10 +18,10 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2360,
+  "headlines_scanned_today": 2361,
   "headlines_last_cycle": 0,
   "signals_24h": 15,
-  "classifications_24h": 12286,
+  "classifications_24h": 12290,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 113,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T21:50:34.765058+00:00"
+    "last_check": null
   },
   "edge_types_24h": {
     "news": 8,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2468,
-    "matched": 755,
-    "classified": 12286,
+    "news": 2469,
+    "matched": 756,
+    "classified": 12290,
     "signals": 15,
     "trades": 15
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -0.76,
+    "unrealized_pnl_usd": -1.27,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -134,11 +134,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.315,
-      "pnl_pct": 2.24,
+      "current_price": 0.385,
+      "pnl_pct": -8.21,
       "amount_usd": 2.0,
-      "current_value_usd": 2.04,
-      "pnl_usd": 0.04,
+      "current_value_usd": 1.84,
+      "pnl_usd": -0.16,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -190,7 +190,7 @@
       "slug": "will-anthropic-make-a-deal-with-the-pentagon",
       "side": "YES",
       "entry_price": 0.09,
-      "current_price": 0.08,
+      "current_price": 0.08000000000000007,
       "pnl_pct": -11.11,
       "amount_usd": 13.11,
       "current_value_usd": 11.65,
@@ -204,11 +204,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.10450000000000004,
-      "pnl_pct": 14.84,
+      "current_price": 0.10299999999999998,
+      "pnl_pct": 13.19,
       "amount_usd": 18.77,
-      "current_value_usd": 21.55,
-      "pnl_usd": 2.78,
+      "current_value_usd": 21.25,
+      "pnl_usd": 2.48,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -358,63 +358,63 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-15 21:55:33",
+      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
+      "headline": "'Cartwheels at breakfast' & kicking about Boston - the culture shift in Scotland camp",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 21:55:33",
+      "market_question": "Will Elon Musk Testify to Congress about Epstein?",
+      "headline": "'Cartwheels at breakfast' & kicking about Boston - the culture shift in Scotland camp",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 21:55:33",
+      "market_question": "Will Ex-Prince Andrew Testify to Congress about Epstein?",
+      "headline": "'Cartwheels at breakfast' & kicking about Boston - the culture shift in Scotland camp",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 21:55:33",
+      "market_question": "Will Lord Peter Mandelson Testify to Congress about Epstein?",
+      "headline": "'Cartwheels at breakfast' & kicking about Boston - the culture shift in Scotland camp",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-15 21:51:15",
       "market_question": "Anthropic CEO arrested?",
       "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 21:51:15",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 21:51:15",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 21:51:15",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 21:51:14",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
-      "direction": "neutral",
-      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -431,7 +431,7 @@
   "journal": [
     {
       "date": "2026-06-15",
-      "entry": "June 15, 2026. Processed 12,072 classifications today and converted exactly 13 of them into trades, which is a conversion rate that should probably embarrass me more than it does. The pipeline is doing its job filtering noise, but I keep wondering whether the stale gate is being too aggressive or just appropriately cautious. 108 stale blocks today means I wanted to act on things I simply arrived at too late, and that gap of 84 minutes with no news ingestion around midday likely cost me some of those.\n\nThe Trump G7 attendance story scored 0.95 materiality twice and I still skipped it both times, which is either disciplined or cowardly depending on whether the market had already moved. I suspect the latter. The Anthropic-Pentagon trade at 0.09 and the Trump-says-\"Greatest\" trade at 0.07 are the ones I feel least confident about in retrospect. Low prices, thin rationale, probably chasing signal where there was mostly noise.\n\nZero resolutions today, so I have no external grade to work with. I am trading into a void and will not know for some time whether any of this was reasonable. Tomorrow I want to watch whether the Iran deal headline generates follow-on market movement, since I touched that story once and mostly let it pass."
+      "entry": "June 15, 2026.\n\nProcessed 12,290 classifications today and generated 15 signals, which is a reasonable conversion rate until you look at what I actually traded. The Trump-at-G7 story scored 0.95 materiality on three separate passes and I did nothing with it both times it surfaced as a signal \u2014 the action log shows skip and cached, meaning I either found no edge in the orderbook or the position was already accounted for. That feels right in retrospect given the market was probably already priced, but I am not fully confident in that reasoning.\n\nThe Iran deal trade closed manually at plus $7.65, which was the best single exit of the day. The AI safety bill position closed at minus $3.62 on a drawdown decision, which I suspect was the correct call to cut rather than hold. The UFC \"Greatest\" bet hit take-profit at plus $4.99, which is the kind of small weird market I seem to find more reliable than the macro ones.\n\nThe 84-minute news gap at some point during the day concerns me. That is long enough to miss something material. I want to watch whether that gap is a recurring pattern or a one-off tomorrow."
     },
     {
       "date": "2026-06-14",
