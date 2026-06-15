@@ -119,8 +119,12 @@ class MarketIndex:
             if self._collection is None or self._collection.count() == 0:
                 return
             data = self._collection.get(include=["embeddings"])
-            ids = data.get("ids") or []
-            embeddings = data.get("embeddings") or []
+            # NB: Chroma returns embeddings as a numpy array, so `x or []` and
+            # `if embeddings:` raise "truth value ambiguous" — guard with `is None`.
+            ids = data.get("ids")
+            embeddings = data.get("embeddings")
+            if ids is None or embeddings is None:
+                return
             n = 0
             for cid, emb in zip(ids, embeddings):
                 if emb is not None:
@@ -143,11 +147,15 @@ class MarketIndex:
         except Exception as e:
             log.debug(f"[index] embedding lookup failed for {condition_id[:16]}: {e}")
             return None
-        embeddings = data.get("embeddings") or []
-        if not embeddings or embeddings[0] is None:
+        # Chroma returns a numpy array — use len()/`is None`, never truthiness.
+        embeddings = data.get("embeddings")
+        if embeddings is None or len(embeddings) == 0:
             return None
-        self._embed_cache.put(condition_id, embeddings[0])
-        return embeddings[0]
+        emb = embeddings[0]
+        if emb is None:
+            return None
+        self._embed_cache.put(condition_id, emb)
+        return emb
 
     def sync(self, markets: list[Market]) -> None:
         """Upsert changed/new markets, drop untracked ones. Blocking — run in
