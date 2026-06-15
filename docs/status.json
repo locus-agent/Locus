@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T15:44:34.002895+00:00",
+  "generated_at": "2026-06-15T15:49:37.044854+00:00",
   "dry_run": true,
-  "markets_tracked": 2567,
+  "markets_tracked": 2571,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1122,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 813,
+  "headlines_scanned_today": 864,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 5939,
+  "classifications_24h": 6160,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 93,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T15:33:40.073115+00:00"
+    "last_check": "2026-06-15T15:48:40.483427+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1242,
-    "matched": 551,
-    "classified": 5939,
+    "news": 1293,
+    "matched": 571,
+    "classified": 6160,
     "signals": 8,
     "trades": 8
   },
@@ -63,7 +63,7 @@
     "losses": 5,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -46.24,
-    "unrealized_pnl_usd": 9.85,
+    "unrealized_pnl_usd": 13.59,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -156,7 +156,7 @@
       "slug": "will-anthropic-make-a-deal-with-the-pentagon",
       "side": "YES",
       "entry_price": 0.09,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": -16.67,
       "amount_usd": 13.11,
       "edge_type": "momentum",
@@ -168,8 +168,8 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.1055,
-      "pnl_pct": 15.93,
+      "current_price": 0.1065,
+      "pnl_pct": 17.03,
       "amount_usd": 18.77,
       "edge_type": "momentum",
       "event_id": "379876"
@@ -180,8 +180,8 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.315,
-      "pnl_pct": 14.55,
+      "current_price": 0.355,
+      "pnl_pct": 29.09,
       "amount_usd": 18.32,
       "edge_type": "news",
       "event_id": "548275"
@@ -192,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.37,
-      "pnl_pct": 8.82,
+      "current_price": 0.39,
+      "pnl_pct": 14.71,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -204,7 +204,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42,
+      "current_price": 0.42000000000000004,
       "pnl_pct": 8.41,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -332,9 +332,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 15:41:09",
-      "market_question": "Will DeepSeek be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
-      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
+      "time": "2026-06-15 15:47:10",
+      "market_question": "Will Anthropic have the best AI Agent at the end of June 2026?",
+      "headline": "\u2018Any industry that was built on selling intelligence or talent is essentially getting reinvented.\u2019 But that does not mean knowledge workers are finished. Wald AI's CEO and co-founder, Vinay Goel highlights the massive transition facing professionals as AI moves f - LinkedIn",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -345,9 +345,22 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:41:08",
+      "time": "2026-06-15 15:47:09",
+      "market_question": "Will Google have the best AI Agent at the end of June 2026?",
+      "headline": "\u2018Any industry that was built on selling intelligence or talent is essentially getting reinvented.\u2019 But that does not mean knowledge workers are finished. Wald AI's CEO and co-founder, Vinay Goel highlights the massive transition facing professionals as AI moves f - LinkedIn",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 15:47:05",
       "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
+      "headline": "\u2018Any industry that was built on selling intelligence or talent is essentially getting reinvented.\u2019 But that does not mean knowledge workers are finished. Wald AI's CEO and co-founder, Vinay Goel highlights the massive transition facing professionals as AI moves f - LinkedIn",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -358,22 +371,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:41:06",
-      "market_question": "Trump orders federal review of AI model releases by June 30?",
-      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 15:41:05",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
+      "time": "2026-06-15 15:47:03",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "\u2018Any industry that was built on selling intelligence or talent is essentially getting reinvented.\u2019 But that does not mean knowledge workers are finished. Wald AI's CEO and co-founder, Vinay Goel highlights the massive transition facing professionals as AI moves f - LinkedIn",
       "direction": "neutral",
       "materiality": 0.02,
       "confidence": 0.5,
@@ -384,9 +384,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:41:05",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
+      "time": "2026-06-15 15:47:03",
+      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
+      "headline": "\u2018Any industry that was built on selling intelligence or talent is essentially getting reinvented.\u2019 But that does not mean knowledge workers are finished. Wald AI's CEO and co-founder, Vinay Goel highlights the massive transition facing professionals as AI moves f - LinkedIn",
       "direction": null,
       "materiality": null,
       "confidence": null,
