@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T22:03:44.493402+00:00",
+  "generated_at": "2026-06-15T22:06:26.731218+00:00",
   "dry_run": true,
-  "markets_tracked": 2550,
+  "markets_tracked": 2549,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,15 +18,15 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2363,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2375,
+  "headlines_last_cycle": 12,
   "signals_24h": 15,
-  "classifications_24h": 12266,
+  "classifications_24h": 12327,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 113,
     "capped": 24,
-    "correlation_block": 32,
+    "correlation_block": 33,
     "category_limit": 0,
     "orderbook_skip": 8,
     "needs_confirmation": 15,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T21:50:34.765058+00:00"
+    "last_check": "2026-06-15T22:06:11.032875+00:00"
   },
   "edge_types_24h": {
     "news": 8,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2461,
-    "matched": 750,
-    "classified": 12266,
+    "news": 2473,
+    "matched": 752,
+    "classified": 12327,
     "signals": 15,
     "trades": 15
   },
@@ -204,7 +204,7 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.10450000000000004,
+      "current_price": 0.10450000000000001,
       "pnl_pct": 14.84,
       "amount_usd": 18.77,
       "current_value_usd": 21.55,
@@ -358,69 +358,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 22:02:21",
-      "market_question": "Will Jonathan Kreiss-Tomkins win the 2026 Alaska governor election?",
-      "headline": "Battleground Iowa House race takes bizarre turn with alleged RFK Jr. intervention - Politico",
+      "time": "2026-06-15 22:06:24",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "This Artificial Intelligence (AI) Infrastructure Stock Has Been Crushing Nvidia on the Market. Its Latest Deal Could Send the Stock Even Higher - Yahoo Finance",
       "direction": "neutral",
-      "materiality": 0.02,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 22:02:18",
-      "market_question": "Will Lawrence Kellogg advance to the general election for WA-03?",
-      "headline": "Battleground Iowa House race takes bizarre turn with alleged RFK Jr. intervention - Politico",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 22:02:16",
-      "market_question": "Will Matthew \"Bronco\" Williams advance from the AK-AL primary election?",
-      "headline": "Battleground Iowa House race takes bizarre turn with alleged RFK Jr. intervention - Politico",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 22:02:13",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Battleground Iowa House race takes bizarre turn with alleged RFK Jr. intervention - Politico",
+      "time": "2026-06-15 22:06:21",
+      "market_question": "Will Trump meet with Mohammed bin Salman in June 2026?",
+      "headline": "Trump celebrates 80th birthday with an Iran deal and UFC cage fights at the White House - AP News",
       "direction": "neutral",
       "materiality": 0.0,
-      "confidence": 0.5,
+      "confidence": 0.9,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 22:06:20",
+      "market_question": "Will Trump say \"Fight\" during UFC 250?",
+      "headline": "Trump celebrates 80th birthday with an Iran deal and UFC cage fights at the White House - AP News",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 22:06:19",
+      "market_question": "Will Trump say \"World\" during UFC 250?",
+      "headline": "Trump celebrates 80th birthday with an Iran deal and UFC cage fights at the White House - AP News",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 22:06:17",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Trump celebrates 80th birthday with an Iran deal and UFC cage fights at the White House - AP News",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.58,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 22:02:13",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Battleground Iowa House race takes bizarre turn with alleged RFK Jr. intervention - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
