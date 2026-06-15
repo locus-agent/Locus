@@ -1399,7 +1399,19 @@
   function renderPriceBuckets(status) {
     const tbody = document.getElementById('price-bucket-rows');
     const data = status.accuracy_by_price || {};
-    const buckets = (data.buckets || []).filter(b => b.total > 0);
+    // Coerce up front: JSON numerics can arrive as strings (and total can be
+    // absent), and a non-number reaching .toFixed() below throws, which would
+    // abort the whole map and leave the table stuck on its empty placeholder.
+    const buckets = (data.buckets || [])
+      .map(b => ({
+        name: b.name,
+        range: b.range,
+        color: b.color || 'none',
+        total: Number(b.total) || 0,
+        accuracy_pct: Number(b.accuracy_pct) || 0,
+        avg_pnl_pct: Number(b.avg_pnl_pct) || 0,
+      }))
+      .filter(b => b.total > 0);
 
     if (buckets.length === 0) {
       tbody.innerHTML = '<tr><td colspan="5" class="empty">No graded classifications yet.</td></tr>';
