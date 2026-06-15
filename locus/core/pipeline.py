@@ -23,7 +23,9 @@ from locus.supervisor import supervise
 from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
-from locus.core.classifier import classify_async, classify_fast, classify_edge_type
+from locus.core.classifier import (
+    classify_async, classify_fast, classify_edge_type, haiku_prefilter, classify,
+)
 from locus.core.multi_classifier import classify_ensemble, is_low_consensus
 from locus.core import event_context
 from locus.core import reentry
@@ -39,6 +41,13 @@ log = logging.getLogger(__name__)
 # ============================================================
 # V2: Event-Driven Pipeline
 # ============================================================
+
+def _batches(items, size):
+    """Yield successive `size`-length slices of `items` (size floored to 1)."""
+    size = max(1, size)
+    for i in range(0, len(items), size):
+        yield items[i:i + size]
+
 
 def news_age_seconds(event: NewsEvent, now: datetime | None = None) -> float | None:
     """Age of the news at this moment (publication -> now), or None when the
@@ -147,6 +156,10 @@ class PipelineV2:
         self.news_aggregator = NewsAggregator(self.news_queue)
         self.market_watcher = MarketWatcher()
         self._traded_headlines: set[str] = set()
+        # Separate concurrency limits for the two model tiers: Haiku is cheap and
+        # fast (allow many in flight), Sonnet is expensive (keep it tight).
+        self._haiku_sem = asyncio.Semaphore(config.HAIKU_SEMAPHORE_SIZE)
+        self._sonnet_sem = asyncio.Semaphore(config.SONNET_SEMAPHORE_SIZE)
         # Latest circuit-breaker read (refreshed each status cycle and whenever a
         # signal is evaluated); drives the trade-time gate and the status line.
         self._circuit_breaker: dict = {"triggered": False, "reason": "", "metrics": {}}
@@ -157,7 +170,16 @@ class PipelineV2:
             "signals_found": 0,
             "trades_executed": 0,
             "whale_last_check": None,
+            # Running totals for the average model-call latency exported to the
+            # dashboard (sum / count over classifications that hit a model).
+            "classification_latency_sum_ms": 0,
+            "classification_count": 0,
         }
+
+    def avg_classification_latency_ms(self) -> float:
+        """Mean latency of model-backed classifications so far (0.0 if none)."""
+        n = self.stats.get("classification_count", 0)
+        return self.stats["classification_latency_sum_ms"] / n if n else 0.0
 
     async def run(self):
         """Start all pipeline components concurrently."""
@@ -179,6 +201,12 @@ class PipelineV2:
         console.print()
 
         await asyncio.get_event_loop().run_in_executor(None, positions.backfill_positions)
+        # Pre-warm the market-embedding LRU cache from the persisted Chroma
+        # collection so the first headline burst doesn't pay a cold read per
+        # market. Off the event loop; safe no-op on a fresh (empty) store.
+        await asyncio.get_event_loop().run_in_executor(
+            None, self.market_watcher.index.pre_warm
+        )
 
         try:
             await asyncio.gather(
@@ -236,8 +264,12 @@ class PipelineV2:
 
             self.stats["markets_matched"] += len(matched)
 
-            # Classify against each matched market
-            for market, match_source, match_score in matched:
+            # Classify each matched market as its own coroutine, so a headline
+            # matching N markets doesn't serialize N model calls. The per-
+            # candidate gates are synchronous and never yield mid-check, so the
+            # one-position-per-headline cap in gate_trade still holds under the
+            # concurrent gather below.
+            async def process_candidate(market, match_source, match_score):
                 try:
                     # Cheap pre-classification gate: weak keyword-only matches
                     # with no topic overlap aren't worth a Claude call.
@@ -256,7 +288,7 @@ class PipelineV2:
                             yes_price=market.yes_price,
                             yes_token_id=get_token_id(market, "YES"),
                         )
-                        continue
+                        return
 
                     # Dedup memory: same headline against the same market at
                     # ~the same price was already classified — reuse it
@@ -284,25 +316,16 @@ class PipelineV2:
                             yes_token_id=get_token_id(market, "YES"),
                             confidence=prior.get("confidence"),
                         )
-                        continue
+                        return
 
-                    # Tiered classification (Haiku prefilter -> Sonnet deep)
-                    # takes precedence when enabled. Otherwise: multi-LLM
-                    # ensemble (Claude + Grok) when enabled, else single-model
-                    # Claude. Ensemble results carry a consensus_score;
-                    # single-model results leave it None.
-                    if config.TIERED_CLASSIFICATION_ENABLED:
-                        classification = await asyncio.get_event_loop().run_in_executor(
-                            None, classify_fast, event.headline, market, event.source
-                        )
-                    elif config.ENSEMBLE_ENABLED:
-                        classification = await classify_ensemble(
-                            event.headline, market, event.source
-                        )
-                    else:
-                        classification = await classify_async(
-                            event.headline, market, event.source
-                        )
+                    # Classify under the per-tier concurrency limits (Haiku
+                    # prefilter -> Sonnet deep when tiered; ensemble/single-model
+                    # otherwise). See _classify_with_semaphores.
+                    classification = await self._classify_with_semaphores(event, market)
+
+                    # Feed the dashboard's average model-call latency.
+                    self.stats["classification_latency_sum_ms"] += classification.latency_ms
+                    self.stats["classification_count"] += 1
 
                     if classification.action == "prefiltered_haiku":
                         # Haiku triaged this out before any Sonnet call — log the
@@ -575,6 +598,43 @@ class PipelineV2:
                         )
                 except Exception as e:
                     log.warning(f"[pipeline] Classification error: {e}")
+
+            # Run the candidates concurrently in batches of PARALLEL_BATCH_SIZE.
+            batch_size = max(1, config.PARALLEL_BATCH_SIZE)
+            log.info(
+                f"Processing {len(matched)} candidates in parallel (batch {batch_size})"
+            )
+            for batch in _batches(matched, batch_size):
+                await asyncio.gather(*(
+                    process_candidate(market, match_source, match_score)
+                    for market, match_source, match_score in batch
+                ))
+
+    async def _classify_with_semaphores(self, event, market):
+        """Classify one headline/market under the per-tier concurrency limits.
+
+        Tiered: the Haiku prefilter runs under the Haiku semaphore, then — for
+        survivors only — the deep Sonnet call runs under the tighter Sonnet
+        semaphore. Non-tiered ensemble/single-model calls run under the Sonnet
+        (expensive-tier) semaphore."""
+        loop = asyncio.get_event_loop()
+        if config.TIERED_CLASSIFICATION_ENABLED:
+            async with self._haiku_sem:
+                rejected = await loop.run_in_executor(
+                    None, haiku_prefilter, event.headline, market, event.source
+                )
+            if rejected is not None:
+                return rejected
+            async with self._sonnet_sem:
+                return await loop.run_in_executor(
+                    None, classify, event.headline, market, event.source, None,
+                    config.SCORING_MODEL,
+                )
+        if config.ENSEMBLE_ENABLED:
+            async with self._sonnet_sem:
+                return await classify_ensemble(event.headline, market, event.source)
+        async with self._sonnet_sem:
+            return await classify_async(event.headline, market, event.source)
 
     def _check_reentry(self, market, classification):
         """Re-entry decision for a watched market, or None when the market isn't
@@ -856,6 +916,7 @@ class PipelineV2:
                         for cid, snap in self.market_watcher.snapshots.items()
                     },
                     whale_last_check=self.stats.get("whale_last_check"),
+                    avg_classification_latency_ms=self.avg_classification_latency_ms(),
                 )
             except Exception as e:
                 log.warning(f"[pipeline] Status export error: {e}")

@@ -395,17 +395,19 @@ def classify(
     )
 
 
-def classify_fast(
-    headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None
-) -> Classification:
-    """Tiered classification: a cheap Haiku prefilter in front of the full
-    Sonnet classify(). Haiku triages relevance + rough materiality; only the
-    headlines that survive pay for the deep Sonnet analysis.
+def haiku_prefilter(
+    headline: str, market: Market, source: str = "unknown"
+) -> Classification | None:
+    """The cheap Haiku triage half of tiered classification.
 
-    # Expected cost reduction: ~55% (Haiku ~4x cheaper + filters ~60-70% of low-value headlines)
+    Returns a Classification with action='prefiltered_haiku' when Haiku rejects
+    the headline (irrelevant, or materiality below HAIKU_MATERIALITY_THRESHOLD),
+    or None when it passes and deserves the deep Sonnet analysis.
 
-    Fails OPEN: any Haiku error (API or parse) falls through to the full
-    classify() so a flaky prefilter never silently drops tradable news.
+    Fails OPEN: any Haiku error (API or parse) returns None so the caller still
+    runs the full Sonnet classify() rather than silently dropping tradable news.
+    Isolated from the Sonnet call so the pipeline can gate the two tiers with
+    separate concurrency semaphores.
     """
     start = time.time()
     user_prompt = (
@@ -430,7 +432,7 @@ def classify_fast(
             f"[classifier] Haiku prefilter failed ({type(e).__name__}: {e}); "
             f"falling through to full classify"
         )
-        return classify(headline, market, source, as_of, model=config.SCORING_MODEL)
+        return None
 
     # Reuse the universal parser for direction/materiality/reasoning, and pull
     # the prefilter-only `relevant` flag separately.
@@ -460,7 +462,24 @@ def classify_fast(
             action="prefiltered_haiku",
         )
 
-    # Survived the prefilter — spend the deep Sonnet call.
+    return None  # survived the prefilter — caller spends the deep Sonnet call
+
+
+def classify_fast(
+    headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None
+) -> Classification:
+    """Tiered classification: a cheap Haiku prefilter in front of the full
+    Sonnet classify(). Haiku triages relevance + rough materiality; only the
+    headlines that survive pay for the deep Sonnet analysis.
+
+    # Expected cost reduction: ~55% (Haiku ~4x cheaper + filters ~60-70% of low-value headlines)
+
+    Fails OPEN: any Haiku error (API or parse) falls through to the full
+    classify() so a flaky prefilter never silently drops tradable news.
+    """
+    rejected = haiku_prefilter(headline, market, source)
+    if rejected is not None:
+        return rejected
     return classify(headline, market, source, as_of, model=config.SCORING_MODEL)
 
 

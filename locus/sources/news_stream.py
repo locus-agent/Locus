@@ -6,18 +6,88 @@ Emits NewsEvent objects into an asyncio queue as breaking news arrives.
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import time
 import logging
+from collections import deque
 from datetime import datetime, timezone, timedelta
 from dataclasses import dataclass, field
 
 import httpx
+import numpy as np
 
 from locus import config
 from locus.supervisor import supervise
 from locus.sources.scraper import scrape_all, scrape_newsapi, scrape_newsapi_top_headlines, NewsItem
 
 log = logging.getLogger(__name__)
+
+# Same local embedding model the matcher/market index use.
+DEDUP_MODEL_NAME = "all-MiniLM-L6-v2"
+
+
+class SemanticDeduper:
+    """Near-duplicate headline filter using MiniLM cosine similarity.
+
+    Keeps the last `maxlen` headline embeddings with timestamps (a deque). A new
+    headline is a duplicate when its cosine similarity to any embedding seen
+    within the last `ttl_hours` exceeds `threshold` — catching reworded versions
+    of the same story that a hash check misses. An exact-hash fast path skips the
+    embedding for byte-identical repeats.
+
+    Fails OPEN: if the model can't load/encode, the headline is forwarded rather
+    than dropped (better a possible dup than a lost scoop). The model loads
+    lazily on first use so importing this module stays light.
+    """
+
+    def __init__(self, threshold: float, maxlen: int = 500, ttl_hours: float = 2.0):
+        self.threshold = threshold
+        self.ttl = timedelta(hours=ttl_hours)
+        self._recent: deque = deque(maxlen=maxlen)  # {embedding, timestamp, short_hash, headline}
+        self._model = None
+
+    def _encode(self, text: str):
+        if self._model is None:
+            from sentence_transformers import SentenceTransformer
+            self._model = SentenceTransformer(DEDUP_MODEL_NAME)
+        return self._model.encode([text], normalize_embeddings=True)[0]
+
+    @staticmethod
+    def _short_hash(headline: str) -> str:
+        return hashlib.sha1(headline.lower().strip().encode()).hexdigest()[:16]
+
+    def check(self, headline: str, now: datetime | None = None):
+        """Return (matched_entry, cosine) when `headline` duplicates a recent one,
+        else None (and record it as freshly seen)."""
+        now = now or datetime.now(timezone.utc)
+        cutoff = now - self.ttl
+        # Drop expired entries from the front (the deque is time-ordered).
+        while self._recent and self._recent[0]["timestamp"] < cutoff:
+            self._recent.popleft()
+
+        short_hash = self._short_hash(headline)
+        for entry in self._recent:
+            if entry["short_hash"] == short_hash:
+                return entry, 1.0  # exact repeat — no embedding needed
+
+        try:
+            emb = self._encode(headline)
+        except Exception as e:
+            log.debug(f"[dedup] encode failed, forwarding headline: {e}")
+            return None  # fail open
+
+        for entry in self._recent:
+            sim = float(np.dot(emb, entry["embedding"]))
+            if sim > self.threshold:
+                return entry, sim
+
+        self._recent.append({
+            "embedding": emb,
+            "timestamp": now,
+            "short_hash": short_hash,
+            "headline": headline,
+        })
+        return None
 
 
 @dataclass
@@ -372,7 +442,9 @@ class NewsAggregator:
     def __init__(self, output_queue: asyncio.Queue):
         self.output_queue = output_queue
         self._internal_queue: asyncio.Queue = asyncio.Queue()
-        self._seen = RecentKeys(max_size=10000, keep=5000)
+        # Cross-source dedup: semantic (cosine) rather than hash-only, so a story
+        # reworded by a second outlet is still caught.
+        self._deduper = SemanticDeduper(config.DEDUP_COSINE_THRESHOLD)
 
         self.twitter = TwitterStream(config.TWITTER_BEARER_TOKEN, config.TWITTER_KEYWORDS)
         self.telegram = TelegramMonitor(config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_CHANNEL_IDS)
@@ -392,12 +464,19 @@ class NewsAggregator:
         )
 
     async def _dedup_router(self):
-        """Deduplicate and forward events to output queue."""
+        """Deduplicate (semantic cosine) and forward events to the output queue.
+        Embedding blocks briefly, so it runs off the event loop."""
         while True:
             event = await self._internal_queue.get()
-            key = event.headline.lower()[:80]
-            if self._seen.seen(key):
+            dup = await asyncio.get_event_loop().run_in_executor(
+                None, self._deduper.check, event.headline
+            )
+            if dup is not None:
+                entry, sim = dup
                 self.stats["deduped"] += 1
+                log.info(
+                    f"Dedup blocked: similar to '{entry['headline'][:60]}' (cosine {sim:.2f})"
+                )
                 continue
 
             self.stats[event.source] = self.stats.get(event.source, 0) + 1

@@ -207,6 +207,21 @@ HAIKU_MODEL = os.getenv("HAIKU_MODEL", "claude-haiku-4-5-20251001")  # fallback:
 HAIKU_MATERIALITY_THRESHOLD = float(os.getenv("HAIKU_MATERIALITY_THRESHOLD", "0.25"))
 TIERED_CLASSIFICATION_ENABLED = os.getenv("TIERED_CLASSIFICATION_ENABLED", "true").lower() == "true"
 
+# --- Throughput: parallel candidate processing + concurrency limits ---
+# Each news event can match several markets; they're classified concurrently in
+# batches of PARALLEL_BATCH_SIZE. Separate semaphores cap in-flight model calls:
+# Haiku is cheap/fast (allow more), Sonnet is expensive (allow fewer).
+PARALLEL_BATCH_SIZE = int(os.getenv("PARALLEL_BATCH_SIZE", "8"))
+HAIKU_SEMAPHORE_SIZE = int(os.getenv("HAIKU_SEMAPHORE_SIZE", "16"))
+SONNET_SEMAPHORE_SIZE = int(os.getenv("SONNET_SEMAPHORE_SIZE", "8"))
+
+# --- Dedup + embedding cache ---
+# Near-duplicate headlines are dropped when their MiniLM cosine similarity to a
+# recent headline exceeds DEDUP_COSINE_THRESHOLD. EMBEDDING_CACHE_SIZE bounds the
+# in-memory LRU of market embeddings that fronts the Chroma disk lookup.
+DEDUP_COSINE_THRESHOLD = float(os.getenv("DEDUP_COSINE_THRESHOLD", "0.92"))
+EMBEDDING_CACHE_SIZE = int(os.getenv("EMBEDDING_CACHE_SIZE", "1000"))
+
 # --- Claude-call efficiency ---
 # Prefilter: skip classification for keyword-only matches whose overlap
 # score is below this AND whose headline topic mismatches the market category.

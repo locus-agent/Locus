@@ -781,6 +781,11 @@
           <div class="perf-value" id="perf-recent-wr">—</div>
           <div class="perf-sub" id="perf-kelly">Kelly —</div>
         </div>
+        <div class="perf-cell">
+          <div class="perf-label">Avg Classify Latency</div>
+          <div class="perf-value" id="perf-class-latency">—</div>
+          <div class="perf-sub">per model call, this run</div>
+        </div>
       </div>
       <div class="perf-note">simulated fills at last price, no fees/slippage · Kelly size = ½-Kelly × win-rate factor</div>
     </div>
@@ -1223,6 +1228,12 @@
       (p.kelly_factor === null || p.kelly_factor === undefined)
         ? 'Kelly —'
         : 'Kelly ×' + p.kelly_factor.toFixed(2) + ' · last ' + lookback;
+
+    const lat = p.avg_classification_latency_ms;
+    document.getElementById('perf-class-latency').textContent =
+      (lat === null || lat === undefined || lat === 0)
+        ? '—'
+        : Math.round(lat) + ' ms';
   }
 
   function edgeBadge(type) {

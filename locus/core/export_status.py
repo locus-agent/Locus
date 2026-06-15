@@ -136,7 +136,7 @@ def _export_archives() -> None:
         _archive_state["classifications"] = classifications_max
 
 
-def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0, current_prices: dict | None = None, whale_last_check: str | None = None) -> dict:
+def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0, current_prices: dict | None = None, whale_last_check: str | None = None, avg_classification_latency_ms: float = 0.0) -> dict:
     """Write a snapshot of current pipeline status to docs/status.json."""
     now = datetime.now(timezone.utc)
     today_start = now.strftime("%Y-%m-%d 00:00:00")
@@ -162,6 +162,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
     perf["recent_winrate"] = round(recent_wr, 4)
     perf["kelly_factor"] = round(edge.winrate_factor(recent_wr), 4)
     perf["winrate_lookback"] = config.KELLY_WINRATE_LOOKBACK
+    # Mean model-call latency across classifications this run (pipeline-tracked).
+    perf["avg_classification_latency_ms"] = round(avg_classification_latency_ms, 1)
 
     status = {
         "generated_at": now.isoformat(),

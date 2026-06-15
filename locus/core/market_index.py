@@ -12,6 +12,7 @@ from __future__ import annotations
 import hashlib
 import logging
 import time
+from collections import OrderedDict
 
 from locus import config
 from locus.markets.gamma import Market
@@ -22,6 +23,39 @@ CHROMA_PATH = str(config.PROJECT_ROOT / "chroma_db")
 COLLECTION = "markets"
 MODEL_NAME = "all-MiniLM-L6-v2"
 EMBED_BATCH = 128
+
+
+class LRUCache:
+    """Minimal LRU cache (OrderedDict-backed) — fronts the Chroma disk lookup
+    for per-market embeddings. No third-party dependency; tracks hits/misses so
+    the cache's effectiveness is observable. get() returns None on a miss."""
+
+    def __init__(self, maxsize: int = 1000):
+        self.maxsize = max(1, maxsize)
+        self._data: OrderedDict = OrderedDict()
+        self.hits = 0
+        self.misses = 0
+
+    def get(self, key):
+        if key in self._data:
+            self._data.move_to_end(key)
+            self.hits += 1
+            return self._data[key]
+        self.misses += 1
+        return None
+
+    def put(self, key, value) -> None:
+        if key in self._data:
+            self._data.move_to_end(key)
+        self._data[key] = value
+        if len(self._data) > self.maxsize:
+            self._data.popitem(last=False)  # evict least-recently-used
+
+    def __contains__(self, key) -> bool:
+        return key in self._data
+
+    def __len__(self) -> int:
+        return len(self._data)
 
 
 def _doc_text(market: Market) -> str:
@@ -39,6 +73,9 @@ class MarketIndex:
         self._model = None
         self._client = None
         self._collection = None
+        # In-memory LRU of {condition_id: embedding}, fronting Chroma's disk
+        # lookup for per-market embeddings (pre-warmed at startup).
+        self._embed_cache = LRUCache(config.EMBEDDING_CACHE_SIZE)
         # True once the collection is queryable (persisted from a previous run,
         # or after the first sync). Until then, matching falls back to keywords.
         self.ready = False
@@ -71,6 +108,46 @@ class MarketIndex:
             self._ensure_loaded()
         except Exception as e:
             log.warning(f"[index] Warm-up failed: {e}")
+
+    def pre_warm(self) -> None:
+        """Load every persisted market embedding into the in-memory LRU cache so
+        the first headlines don't pay a cold Chroma read per market. Blocking —
+        run in an executor at startup. Safe no-op when the collection is empty or
+        unavailable."""
+        try:
+            self._ensure_loaded()
+            if self._collection is None or self._collection.count() == 0:
+                return
+            data = self._collection.get(include=["embeddings"])
+            ids = data.get("ids") or []
+            embeddings = data.get("embeddings") or []
+            n = 0
+            for cid, emb in zip(ids, embeddings):
+                if emb is not None:
+                    self._embed_cache.put(cid, emb)
+                    n += 1
+            log.info(f"[index] Pre-warmed {n} market embeddings")
+        except Exception as e:
+            log.warning(f"[index] Pre-warm failed: {e}")
+
+    def get_market_embedding(self, condition_id: str):
+        """Embedding vector for one market, cache-first. Returns the cached
+        vector on a hit (skipping the Chroma disk lookup), else reads it from
+        Chroma, caches it, and returns it. None if the market isn't indexed."""
+        cached = self._embed_cache.get(condition_id)
+        if cached is not None:
+            return cached
+        self._ensure_loaded()
+        try:
+            data = self._collection.get(ids=[condition_id], include=["embeddings"])
+        except Exception as e:
+            log.debug(f"[index] embedding lookup failed for {condition_id[:16]}: {e}")
+            return None
+        embeddings = data.get("embeddings") or []
+        if not embeddings or embeddings[0] is None:
+            return None
+        self._embed_cache.put(condition_id, embeddings[0])
+        return embeddings[0]
 
     def sync(self, markets: list[Market]) -> None:
         """Upsert changed/new markets, drop untracked ones. Blocking — run in
@@ -116,6 +193,8 @@ class MarketIndex:
         stale = [id_ for id_ in existing_hashes if id_ not in docs]
         if stale:
             self._collection.delete(ids=stale)
+            for id_ in stale:
+                self._embed_cache._data.pop(id_, None)  # drop untracked from cache
 
         to_embed = [
             (id_, doc, h)
@@ -130,12 +209,16 @@ class MarketIndex:
                 show_progress_bar=False,
                 normalize_embeddings=True,
             )
+            emb_list = embeddings.tolist()
             self._collection.upsert(
                 ids=[id_ for id_, _, _ in batch],
-                embeddings=embeddings.tolist(),
+                embeddings=emb_list,
                 documents=[doc for _, doc, _ in batch],
                 metadatas=[{"doc_hash": h} for _, _, h in batch],
             )
+            # Keep the in-memory cache fresh with the just-embedded vectors.
+            for (id_, _, _), emb in zip(batch, emb_list):
+                self._embed_cache.put(id_, emb)
             done = min(i + EMBED_BATCH, len(to_embed))
             if len(to_embed) > EMBED_BATCH:
                 log.info(f"[index] Embedded {done}/{len(to_embed)} markets")
