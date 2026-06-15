@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T15:19:14.562089+00:00",
+  "generated_at": "2026-06-15T15:24:17.790725+00:00",
   "dry_run": true,
-  "markets_tracked": 2562,
+  "markets_tracked": 2563,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1122,
@@ -18,13 +18,13 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 799,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 803,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 5897,
+  "classifications_24h": 5922,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "stale": 92,
+    "stale": 93,
     "capped": 13,
     "correlation_block": 13,
     "category_limit": 0,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1238,
-    "matched": 539,
-    "classified": 5897,
+    "news": 1242,
+    "matched": 544,
+    "classified": 5922,
     "signals": 8,
     "trades": 8
   },
@@ -63,7 +63,7 @@
     "losses": 5,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -48.62,
-    "unrealized_pnl_usd": 2.22,
+    "unrealized_pnl_usd": 2.32,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -120,7 +120,7 @@
       "slug": "who-will-sign-uptspt-x-iran-deal-20260612002238373",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.315,
+      "current_price": 0.31499999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 4.92,
       "edge_type": "momentum",
@@ -144,8 +144,8 @@
       "slug": "will-microstrategy-announce-holding-800k-btc-by-december-31-2026",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.355,
-      "pnl_pct": 0.0,
+      "current_price": 0.35,
+      "pnl_pct": -1.41,
       "amount_usd": 23.45,
       "edge_type": "momentum",
       "event_id": "133657"
@@ -192,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.355,
-      "pnl_pct": 4.41,
+      "current_price": 0.365,
+      "pnl_pct": 7.35,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -204,7 +204,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42000000000000004,
+      "current_price": 0.42,
       "pnl_pct": 8.41,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -323,22 +323,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 15:17:05",
-      "market_question": "SCOTUS lets Trump fire FTC commissioners in Trump v. Slaughter?",
-      "headline": "US Supreme Court rejects Macy's challenge over compensating fired strikers - Reuters",
+      "time": "2026-06-15 15:23:44",
+      "market_question": "Will Bitcoin reach $90,000 in June?",
+      "headline": "\u2018Let\u2019s just put it in an ETF\u2019 is the worst outcome for bitcoin, says Trezor exec",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:17:03",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "US Supreme Court rejects Macy's challenge over compensating fired strikers - Reuters",
+      "time": "2026-06-15 15:23:44",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "China sets sights on heavy truck electrification in blow to diesel demand - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -349,43 +349,43 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 15:17:03",
-      "market_question": "Will a US court rule that the 2020 election was fradulent?",
-      "headline": "US Supreme Court rejects Macy's challenge over compensating fired strikers - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 15:23:43",
+      "market_question": "Bitcoin Up or Down on June 15?",
+      "headline": "\u2018Let\u2019s just put it in an ETF\u2019 is the worst outcome for bitcoin, says Trezor exec",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:14:52",
-      "market_question": "Will Trump visit North Korea by June 30?",
-      "headline": "Starbucks Korea to give staff history training after backlash over marketing campaign - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 15:23:41",
+      "market_question": "Will Bitcoin reach $67,500 in June?",
+      "headline": "\u2018Let\u2019s just put it in an ETF\u2019 is the worst outcome for bitcoin, says Trezor exec",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:14:52",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "Starbucks Korea to give staff history training after backlash over marketing campaign - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 15:23:39",
+      "market_question": "Will Bitcoin reach $82,500 in June?",
+      "headline": "\u2018Let\u2019s just put it in an ETF\u2019 is the worst outcome for bitcoin, says Trezor exec",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
