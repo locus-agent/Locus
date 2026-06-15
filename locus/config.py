@@ -101,6 +101,19 @@ DAILY_LOSS_LIMIT_USD = float(os.getenv("DAILY_LOSS_LIMIT_USD", "100"))
 EDGE_THRESHOLD = float(os.getenv("EDGE_THRESHOLD", "0.10"))
 NEWS_LOOKBACK_HOURS = 6
 
+# --- Price-room guards (edge.detect_edge_v2) ---
+# Skip a signal when the market is priced outside the band where its direction
+# has historically paid. Bullish (YES): min raised from 0.05 to 0.12 because
+# calibration shows markets under 0.15 grade only 5.8% accurate (longshot
+# lottery tickets), and the max tightened slightly from 0.85 to 0.82 (little
+# room left to profit above). Bearish (NO): min 0.18 because NO bets on very
+# low-priced markets are risky, max kept wide at 0.88 since good NO edge exists
+# in the 0.87-0.93 range.
+BULLISH_MIN_PRICE = float(os.getenv("BULLISH_MIN_PRICE", "0.12"))
+BULLISH_MAX_PRICE = float(os.getenv("BULLISH_MAX_PRICE", "0.82"))
+BEARISH_MIN_PRICE = float(os.getenv("BEARISH_MIN_PRICE", "0.18"))
+BEARISH_MAX_PRICE = float(os.getenv("BEARISH_MAX_PRICE", "0.88"))
+
 # --- Dynamic Kelly sizing ---
 # Scale half-Kelly bets by recent realized win rate: a cold streak shrinks
 # size, a hot streak restores it. Win rate is the fraction of the last
