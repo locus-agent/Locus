@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T13:03:46.616136+00:00",
+  "generated_at": "2026-06-15T13:08:49.660762+00:00",
   "dry_run": true,
-  "markets_tracked": 2553,
+  "markets_tracked": 2560,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1049,
@@ -18,10 +18,10 @@
       "newsapi": 14.4
     }
   },
-  "headlines_scanned_today": 204,
+  "headlines_scanned_today": 205,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3379,
+  "classifications_24h": 3387,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 66,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 732,
-    "matched": 393,
-    "classified": 3379,
+    "news": 733,
+    "matched": 394,
+    "classified": 3387,
     "signals": 0,
     "trades": 0
   },
@@ -120,7 +120,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42000000000000004,
+      "current_price": 0.42,
       "pnl_pct": 8.41,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -219,12 +219,51 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 12:39:08",
-      "market_question": "Haiti elections delayed again?",
-      "headline": "Tupac is being digitally resurrected again, this time in a video game. Not everyone likes it - CBC",
+      "time": "2026-06-15 13:06:36",
+      "market_question": "Will Anthropic have the best AI Agent at the end of June 2026?",
+      "headline": "Cedar\u2019s voice AI agent has handled nearly 400K patient calls since April 2025 launch - Fierce Healthcare",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.85,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 13:06:27",
+      "market_question": "Will Z.ai have the best AI Agent at the end of June 2026?",
+      "headline": "Cedar\u2019s voice AI agent has handled nearly 400K patient calls since April 2025 launch - Fierce Healthcare",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.8,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 13:06:17",
+      "market_question": "Will Microsoft have the best AI Agent at the end of June 2026?",
+      "headline": "Cedar\u2019s voice AI agent has handled nearly 400K patient calls since April 2025 launch - Fierce Healthcare",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.8,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 13:06:09",
+      "market_question": "Will OpenAI launch a token before 2027?",
+      "headline": "Cedar\u2019s voice AI agent has handled nearly 400K patient calls since April 2025 launch - Fierce Healthcare",
       "direction": "neutral",
       "materiality": 0.0,
-      "confidence": 1.0,
+      "confidence": 0.95,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
@@ -232,56 +271,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 12:39:08",
-      "market_question": "Will Trump flip the bird again in 2026?",
-      "headline": "Tupac is being digitally resurrected again, this time in a video game. Not everyone likes it - CBC",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 13:06:01",
+      "market_question": "Will o1 launch a token by September 30, 2026?",
+      "headline": "Cedar\u2019s voice AI agent has handled nearly 400K patient calls since April 2025 launch - Fierce Healthcare",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.95,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 12:39:08",
-      "market_question": "Will Trump praise Allah again by June 30?",
-      "headline": "Tupac is being digitally resurrected again, this time in a video game. Not everyone likes it - CBC",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 12:39:08",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "Tupac is being digitally resurrected again, this time in a video game. Not everyone likes it - CBC",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 12:39:08",
-      "market_question": "Solana all time high by June 30, 2026?",
-      "headline": "Tupac is being digitally resurrected again, this time in a video game. Not everyone likes it - CBC",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "consensus_score": 0.85,
+      "ensemble_used": false
     }
   ],
   "prompt": {
