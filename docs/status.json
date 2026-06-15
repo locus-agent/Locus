@@ -1,71 +1,71 @@
 {
-  "generated_at": "2026-06-15T14:00:49.043385+00:00",
+  "generated_at": "2026-06-15T14:05:52.506234+00:00",
   "dry_run": true,
   "markets_tracked": 2554,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 1071,
-    "accuracy": 16.2,
+    "total": 1074,
+    "accuracy": 16.4,
     "by_category": {
       "other": 16.2,
       "ai": 12.6,
       "politics": 18.0,
-      "technology": 17.6,
+      "technology": 20.5,
       "crypto": 34.6
     },
     "by_source": {
       "rss": 18.2,
-      "newsapi": 14.1
+      "newsapi": 14.6
     }
   },
-  "headlines_scanned_today": 309,
-  "headlines_last_cycle": 4,
-  "signals_24h": 3,
-  "classifications_24h": 3803,
+  "headlines_scanned_today": 406,
+  "headlines_last_cycle": 6,
+  "signals_24h": 6,
+  "classifications_24h": 4284,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "stale": 66,
-    "capped": 1,
+    "stale": 83,
+    "capped": 3,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 0,
     "needs_confirmation": 10,
-    "event_exposure_block": 0,
+    "event_exposure_block": 1,
     "low_consensus": 0,
     "circuit_breaker": 0,
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 0,
+  "watched_markets_count": 1,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
     "last_check": "2026-06-15T14:00:36.465232+00:00"
   },
   "edge_types_24h": {
-    "news": 2,
-    "momentum": 1,
+    "news": 3,
+    "momentum": 3,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 811,
-    "matched": 421,
-    "classified": 3803,
-    "signals": 3,
-    "trades": 3
+    "news": 907,
+    "matched": 471,
+    "classified": 4284,
+    "signals": 6,
+    "trades": 6
   },
   "performance": {
-    "trades_total": 10,
-    "deployed_usd": 210.91,
-    "open_count": 6,
-    "closed_count": 4,
+    "trades_total": 13,
+    "deployed_usd": 265.3,
+    "open_count": 8,
+    "closed_count": 5,
     "wins": 0,
-    "losses": 4,
+    "losses": 5,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -48.62,
-    "unrealized_pnl_usd": 2.53,
-    "recent_winrate": 0.5,
-    "kelly_factor": 0.625,
+    "unrealized_pnl_usd": 1.92,
+    "recent_winrate": 0.0,
+    "kelly_factor": 0.25,
     "winrate_lookback": 20
   },
   "live_readiness": {
@@ -77,7 +77,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 4,
+        "value": 5,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -101,7 +101,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 48.6,
+        "value": 41.3,
         "threshold_display": "< 15%",
         "pass": false
       }
@@ -115,13 +115,37 @@
   },
   "open_positions": [
     {
+      "time": "2026-06-15 14:02:20",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "slug": "will-microstrategy-announce-holding-800k-btc-by-december-31-2026",
+      "side": "YES",
+      "entry_price": 0.355,
+      "current_price": 0.355,
+      "pnl_pct": 0.0,
+      "amount_usd": 23.45,
+      "edge_type": "momentum",
+      "event_id": "133657"
+    },
+    {
+      "time": "2026-06-15 14:02:01",
+      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
+      "slug": "will-anthropic-make-a-deal-with-the-pentagon",
+      "side": "YES",
+      "entry_price": 0.09,
+      "current_price": 0.09,
+      "pnl_pct": 0.0,
+      "amount_usd": 13.11,
+      "edge_type": "momentum",
+      "event_id": "248342"
+    },
+    {
       "time": "2026-06-15 13:58:33",
       "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.091,
-      "pnl_pct": 0.0,
+      "current_price": 0.09450000000000003,
+      "pnl_pct": 3.85,
       "amount_usd": 18.77,
       "edge_type": "momentum",
       "event_id": "379876"
@@ -132,8 +156,8 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.29500000000000004,
-      "pnl_pct": 7.27,
+      "current_price": 0.275,
+      "pnl_pct": 0.0,
       "amount_usd": 18.32,
       "edge_type": "news",
       "event_id": "548275"
@@ -189,6 +213,17 @@
   ],
   "closed_positions": [
     {
+      "time": "2026-06-15T14:04:10.609019+00:00",
+      "market_question": "Will Donald Trump post 160-179 Truth Social posts from June 9 to June 16, 2026?",
+      "slug": "donald-trump-of-truth-social-posts-june-9-june-16",
+      "side": "YES",
+      "entry_price": 0.115,
+      "exit_price": 0.11499999999999999,
+      "realized_pnl_usd": -1.979527652906654e-15,
+      "exit_reason": "news_decision",
+      "event_id": "564320"
+    },
+    {
       "time": "2026-06-13T11:57:15.739323+00:00",
       "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
       "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
@@ -235,6 +270,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-15 14:04:10",
+      "market_question": "Will Donald Trump post 160-179 Truth Social posts from June 9 to June 16, 2026?",
+      "side": "YES",
+      "trigger": "news",
+      "decision": "close",
+      "reasoning": "The new headline asking 'how will the ban work and when does it start?' suggests the ban is not yet implemented, undermining the original thesis that a ban would suppress Trump's posting activity in the June 9-16 window; with no unrealized gain to protect and the original edge now contradicted, there's no reason to hold.",
+      "pnl_pct": 0.0
+    },
+    {
       "time": "2026-06-13 11:57:15",
       "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
       "side": "NO",
@@ -255,9 +299,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 14:00:47",
-      "market_question": "Will Google have the best AI Agent at the end of June 2026?",
-      "headline": "Andhra Pradesh, Google to form task force for AI and digital governance - Business Standard",
+      "time": "2026-06-15 14:05:50",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "3 things to watch as Trump strikes a deal - Politico",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.58,
+      "edge": 0.15375,
+      "action": "stale",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 14:05:48",
+      "market_question": "Will Trump nationalize elections?",
+      "headline": "3 things to watch as Trump strikes a deal - Politico",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -268,9 +325,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 14:00:46",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "Andhra Pradesh, Google to form task force for AI and digital governance - Business Standard",
+      "time": "2026-06-15 14:05:47",
+      "market_question": "Will Trump resign before 2027?",
+      "headline": "3 things to watch as Trump strikes a deal - Politico",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -281,12 +338,12 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 14:00:44",
-      "market_question": "Will Google have the top AI model at the end of June 2026?",
-      "headline": "Andhra Pradesh, Google to form task force for AI and digital governance - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-15 14:05:45",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "3 things to watch as Trump strikes a deal - Politico",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.65,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
@@ -294,27 +351,14 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 14:00:41",
-      "market_question": "Will Google have the #3 AI model at the end of July 2026?",
-      "headline": "Andhra Pradesh, Google to form task force for AI and digital governance - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 14:00:39",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "Andhra Pradesh, Google to form task force for AI and digital governance - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
+      "time": "2026-06-15 14:05:42",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "3 things to watch as Trump strikes a deal - Politico",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.58,
+      "edge": 0.10375000000000001,
+      "action": "stale",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
