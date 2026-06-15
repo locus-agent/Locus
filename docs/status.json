@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T04:12:54.096819+00:00",
+  "generated_at": "2026-06-15T04:17:56.803803+00:00",
   "dry_run": true,
-  "markets_tracked": 2566,
+  "markets_tracked": 2563,
   "classify_error_streak": 0,
   "track_record": {
     "total": 985,
@@ -18,10 +18,10 @@
       "newsapi": 13.9
     }
   },
-  "headlines_scanned_today": 71,
+  "headlines_scanned_today": 78,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3203,
+  "classifications_24h": 3232,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 44,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T03:59:32.207791+00:00"
+    "last_check": "2026-06-15T04:14:32.606202+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 700,
-    "matched": 338,
-    "classified": 3203,
+    "news": 707,
+    "matched": 342,
+    "classified": 3232,
     "signals": 0,
     "trades": 0
   },
@@ -120,7 +120,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42500000000000004,
+      "current_price": 0.425,
       "pnl_pct": 7.48,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -219,22 +219,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 04:01:11",
-      "market_question": "Will Trump meet with Pope Leo XIV in 2026?",
-      "headline": "Pope Leo XIV's flight home from Spain was grounded so the king came to his aid - NPR",
-      "direction": "bearish",
-      "materiality": 0.09,
-      "confidence": 0.728,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": 0.658,
-      "ensemble_used": true
-    },
-    {
-      "time": "2026-06-15 04:01:11",
-      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
-      "headline": "Pope Leo XIV's flight home from Spain was grounded so the king came to his aid - NPR",
+      "time": "2026-06-15 04:14:21",
+      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -245,9 +232,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 04:01:11",
-      "market_question": "Will Donald Trump publicly insult Pope Leo XIV by June 30, 2026?",
-      "headline": "Pope Leo XIV's flight home from Spain was grounded so the king came to his aid - NPR",
+      "time": "2026-06-15 04:14:21",
+      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -258,9 +245,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 04:01:11",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Pope Leo XIV's flight home from Spain was grounded so the king came to his aid - NPR",
+      "time": "2026-06-15 04:14:21",
+      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -271,17 +258,30 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 04:01:04",
-      "market_question": "Will Trump speak to Pope Leo XIV in June?",
-      "headline": "Pope Leo XIV's flight home from Spain was grounded so the king came to his aid - NPR",
-      "direction": "bearish",
-      "materiality": 0.09,
-      "confidence": 0.708,
+      "time": "2026-06-15 04:14:21",
+      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
-      "consensus_score": 0.653,
-      "ensemble_used": true
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 04:14:21",
+      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
