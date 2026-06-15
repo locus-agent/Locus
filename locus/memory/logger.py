@@ -104,6 +104,8 @@ def init_db():
             direction TEXT,
             materiality REAL,
             edge REAL,
+            expected_edge REAL,
+            vol_adj REAL,
             action TEXT NOT NULL,
             match_source TEXT,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
@@ -140,6 +142,7 @@ def init_db():
             exit_reason TEXT,
             last_reeval_at TEXT,
             last_trigger TEXT,
+            end_date TEXT,
             opened_at TEXT NOT NULL DEFAULT (datetime('now')),
             closed_at TEXT
         );
@@ -240,6 +243,10 @@ def _migrate_classification_columns(conn):
         # were actually blended for this classification.
         ("consensus_score", "REAL"),
         ("ensemble_used", "INTEGER"),
+        # Enhanced-edge sizing inputs: edge discounted by confidence, and the
+        # volatility adjustment that penalizes near-certain markets.
+        ("expected_edge", "REAL"),
+        ("vol_adj", "REAL"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -264,7 +271,10 @@ def _migrate_position_category(conn):
     columns = {row[1] for row in cursor.fetchall()}
     if "category" not in columns:
         conn.execute("ALTER TABLE positions ADD COLUMN category TEXT")
-    conn.commit()
+    # Market close time, captured at open, for the time-pressure hard exit.
+    # Legacy rows stay NULL and are skipped by the exit (unknown time-to-close).
+    if "end_date" not in columns:
+        conn.execute("ALTER TABLE positions ADD COLUMN end_date TEXT")
     conn.commit()
 
 
@@ -622,19 +632,22 @@ def log_classification(
     event_id: str | None = None,
     consensus_score: float | None = None,
     ensemble_used: bool | None = None,
+    expected_edge: float | None = None,
+    vol_adj: float | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
            (market_question, headline, news_source, direction, materiality, edge, action,
             match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
-            event_id, consensus_score, ensemble_used)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            event_id, consensus_score, ensemble_used, expected_edge, vol_adj)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_question, headline, news_source, direction, materiality, edge, action,
          match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
          event_id,
          consensus_score,
-         None if ensemble_used is None else int(ensemble_used)),
+         None if ensemble_used is None else int(ensemble_used),
+         expected_edge, vol_adj),
     )
     classification_id = cur.lastrowid
     conn.commit()

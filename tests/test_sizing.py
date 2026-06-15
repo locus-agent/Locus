@@ -90,19 +90,20 @@ def test_kelly_no_side_odds():
 # --- signal integration ---
 
 def test_signal_bet_scales_with_confidence():
+    # detect_edge_v2 returns an EdgeMetrics carrying the built Signal.
     low = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.8, confidence=0.6), EVENT)
     high = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.8, confidence=0.9), EVENT)
     assert low and high
-    assert low.bet_amount < high.bet_amount
-    assert high.confidence == 0.9  # confidence flows onto the Signal
+    assert low.signal.bet_amount < high.signal.bet_amount
+    assert high.signal.confidence == 0.9  # confidence flows onto the Signal
 
 
 def test_high_materiality_low_confidence_is_sized_small():
     # The bug this fixes: big news (materiality 0.95) but unsure of direction
     # (confidence 0.55) must NOT size like a sure thing.
-    sig = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.95, confidence=0.55), EVENT)
-    assert sig is not None
-    assert sig.bet_amount < 10.0  # small, driven by the weak confidence
+    metrics = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.95, confidence=0.55), EVENT)
+    assert metrics is not None
+    assert metrics.signal.bet_amount < 10.0  # small, driven by the weak confidence
 
 
 def test_price_room_guards_are_symmetric():

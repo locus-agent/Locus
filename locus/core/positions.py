@@ -102,13 +102,14 @@ def open_position(trade_id: int, market, side: str, amount_usd: float,
         """INSERT OR IGNORE INTO positions
            (trade_id, condition_id, market_question, slug, side,
             entry_yes_price, amount_usd, headline, reasoning,
-            current_yes_price, unrealized_pnl_pct, event_id, category)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)""",
+            current_yes_price, unrealized_pnl_pct, event_id, category, end_date)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)""",
         (trade_id, market.condition_id, market.question,
          getattr(market, "slug", "") or None, side,
          market.yes_price, amount_usd, headline, reasoning, market.yes_price,
          getattr(market, "event_id", "") or None,
-         getattr(market, "category", "") or None),
+         getattr(market, "category", "") or None,
+         getattr(market, "end_date", "") or None),
     )
     conn.commit()
     position_id = cur.lastrowid if cur.rowcount else None
@@ -347,6 +348,38 @@ def check_trigger(position: dict, current_pnl_pct: float) -> str | None:
     return None
 
 
+def hours_to_close(end_date: str | None, now: datetime | None = None) -> float | None:
+    """Hours until the market closes, or None when the close time is unknown or
+    unparseable (legacy positions without a stored end_date)."""
+    if not end_date:
+        return None
+    try:
+        dt = datetime.fromisoformat(end_date.replace("Z", "+00:00"))
+    except (ValueError, AttributeError):
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    now = now or datetime.now(timezone.utc)
+    return (dt - now).total_seconds() / 3600.0
+
+
+def check_hard_exit(position: dict, current_pnl_pct: float,
+                    now: datetime | None = None) -> str | None:
+    """Hard, model-free exit on top of the Claude re-eval path: a deep loser
+    running into market close has little time left to recover, so force it out
+    without a Claude call.
+
+    Returns 'time_pressure' when time-to-close < TIME_PRESSURE_HOURS AND
+    unrealized PnL < TIME_PRESSURE_LOSS_PCT, else None. Positions with an
+    unknown close time (no end_date) are never force-closed here."""
+    ttc = hours_to_close(position.get("end_date"), now)
+    if ttc is None:
+        return None
+    if ttc < config.TIME_PRESSURE_HOURS and current_pnl_pct < config.TIME_PRESSURE_LOSS_PCT:
+        return "time_pressure"
+    return None
+
+
 def cooldown_allows(position: dict, trigger: str, now: datetime | None = None) -> bool:
     """One re-evaluation per REEVAL_COOLDOWN_HOURS, unless the trigger TYPE
     differs from the last one (a new kind of event deserves a fresh look)."""
@@ -489,7 +522,7 @@ def update_and_manage(prices: dict[str, float]) -> dict:
     """Mark open positions to `prices`, apply the hard stop-loss, and run
     Claude re-evaluations for rule triggers (respecting the cooldown).
     Called from the pipeline's periodic cycle, off the event loop."""
-    stats = {"updated": 0, "stop_losses": 0, "reevals": 0}
+    stats = {"updated": 0, "stop_losses": 0, "time_pressure_exits": 0, "reevals": 0}
     conn = logger._conn()
     for position in get_open_positions():
         yes_price = prices.get(position["condition_id"])
@@ -510,6 +543,16 @@ def update_and_manage(prices: dict[str, float]) -> dict:
             log.warning(
                 f"[positions] STOP LOSS on \"{position['market_question'][:40]}\" "
                 f"pnl {current_pnl:+.1f}% realized ${realized:+.2f}"
+            )
+        elif check_hard_exit(position, current_pnl) == "time_pressure":
+            # Hard time-pressure exit: deep loser into market close, no Claude
+            # call. Runs before the re-eval path (like the stop loss).
+            realized = _close(conn, position, yes_price, "closed_time", "time_pressure")
+            stats["time_pressure_exits"] += 1
+            log.warning(
+                f"[positions] TIME PRESSURE exit on \"{position['market_question'][:40]}\" "
+                f"pnl {current_pnl:+.1f}% (<{config.TIME_PRESSURE_HOURS:.0f}h to close) "
+                f"realized ${realized:+.2f}"
             )
         elif trigger and cooldown_allows(position, trigger):
             conn.commit()  # persist the mark before the slow Claude call

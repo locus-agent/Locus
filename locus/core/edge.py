@@ -72,6 +72,28 @@ class Signal:
     classification_latency_ms: int = 0
     total_latency_ms: int = 0
     edge_type: str = "news"  # set by the pipeline once a signal clears the gates
+    # Enhanced-edge metrics that drove sizing (carried through for logging).
+    expected_edge: float = 0.0
+    vol_adj: float = 1.0
+
+
+@dataclass
+class EdgeMetrics:
+    """The enhanced-edge computation behind a V2 signal.
+
+    edge            — raw directional edge (materiality * distance-to-travel)
+    expected_edge   — edge discounted by Claude's win-probability (confidence):
+                      materiality * confidence * distance
+    vol_adj         — volatility adjustment that penalizes near-certain markets
+    recommended_size— the position size sizing produced from the above
+    signal          — the Signal built from this market/classification (None when
+                      no edge cleared the guards; detect_edge_v2 returns None then)
+    """
+    edge: float
+    expected_edge: float
+    vol_adj: float
+    recommended_size: float
+    signal: "Signal | None" = None
 
 
 def detect_edge(
@@ -115,12 +137,17 @@ def detect_edge_v2(
     market: Market,
     classification: Classification,
     news_event: NewsEvent,
-) -> Signal | None:
+) -> EdgeMetrics | None:
     """
     V2: Use classification direction + materiality instead of probability estimation.
     Only generates a signal when:
     - Direction is bullish or bearish (not neutral)
     - Market price has room to move in the predicted direction
+
+    Returns an EdgeMetrics (carrying the built Signal) rather than a bare
+    Signal, so the expected-edge / volatility-adjustment inputs to sizing are
+    visible to the caller for logging. Returns None when no edge clears the
+    guards.
 
     The materiality floor is direction-specific and is enforced downstream in
     pipeline.gate_trade (so every classification is still logged/calibrated);
@@ -150,11 +177,17 @@ def detect_edge_v2(
     if edge < config.EDGE_THRESHOLD:
         return None
 
-    # Size on Claude's win-probability estimate (confidence), not materiality.
-    bet_amount = size_position(side, market_price, classification.confidence)
+    # Discount the raw edge by Claude's win-probability (confidence) and the
+    # market's room to move, then size on those. Sizing still uses confidence
+    # for the Kelly fraction; edge_factor/vol_adj scale that base bet.
+    expected_edge = edge * classification.confidence
+    vol_adj = vol_adj_factor(market_price)
+    bet_amount = size_position_enhanced(
+        side, market_price, classification.confidence, expected_edge, vol_adj
+    )
     total_latency = news_event.latency_ms + classification.latency_ms
 
-    return Signal(
+    signal = Signal(
         market=market,
         claude_score=classification.materiality,
         market_price=market_price,
@@ -170,6 +203,15 @@ def detect_edge_v2(
         news_latency_ms=news_event.latency_ms,
         classification_latency_ms=classification.latency_ms,
         total_latency_ms=total_latency,
+        expected_edge=expected_edge,
+        vol_adj=vol_adj,
+    )
+    return EdgeMetrics(
+        edge=edge,
+        expected_edge=expected_edge,
+        vol_adj=vol_adj,
+        recommended_size=bet_amount,
+        signal=signal,
     )
 
 
@@ -188,9 +230,26 @@ def winrate_factor(recent_wr: float) -> float:
     return min(max(factor, min_f), max_f)
 
 
-def size_position(side: str, yes_price: float, confidence: float) -> float:
-    """Half-Kelly position sizing from win probability and market odds, scaled
-    by recent realized win rate.
+def edge_factor(expected_edge: float) -> float:
+    """Sizing boost from the expected edge: min(1.5, 0.5 + expected_edge * 5).
+
+    A stronger edge sizes up, capped at 1.5x. Key points: expected_edge 0.1 ->
+    1.0 (neutral), 0.2 -> 1.5 (cap reached), >= 0.2 stays at 1.5.
+    """
+    return min(1.5, 0.5 + expected_edge * 5)
+
+
+def vol_adj_factor(yes_price: float) -> float:
+    """Volatility adjustment: penalize near-certain markets where the price has
+    little room to move. max(0.6, 1.0 - |price - 0.5| * 0.8).
+
+    Price 0.5 -> 1.0 (full size); the extremes (0/1) floor at 0.6.
+    """
+    return max(0.6, 1.0 - abs(yes_price - 0.5) * 0.8)
+
+
+def _base_kelly_size(side: str, yes_price: float, confidence: float) -> float:
+    """Half-Kelly base bet (pre cap/floor), scaled by the recent-win-rate factor.
 
     Kelly needs the actual win probability, so we size on `confidence` (Claude's
     P that the market resolves in the predicted direction), not materiality.
@@ -199,12 +258,9 @@ def size_position(side: str, yes_price: float, confidence: float) -> float:
       YES bought at yes_price pays (1 - yes_price)/yes_price on a win
       NO  bought at (1 - yes_price) pays yes_price/(1 - yes_price)
     With p = confidence, q = 1 - p, full Kelly fraction is (p*b - q)/b. We bet
-    HALF Kelly of KELLY_BANKROLL_USD as the base size.
-
-    The base is then multiplied by a recent-win-rate factor (smooth linear
-    scaling — a cold streak shrinks bets, a hot streak restores them), capped at
-    MAX_BET_USD, and floored at KELLY_MIN_BET_USD. A non-positive Kelly (no edge
-    at these odds) yields a base of 0, which the floor lifts to the minimum bet.
+    HALF Kelly of KELLY_BANKROLL_USD, then scale by a recent-win-rate factor
+    (a cold streak shrinks bets, a hot streak restores them). A non-positive
+    Kelly (no edge at these odds) yields 0.
     """
     price = min(max(yes_price, 1e-6), 1.0 - 1e-6)
     p = min(max(confidence, 0.0), 1.0)
@@ -217,12 +273,29 @@ def size_position(side: str, yes_price: float, confidence: float) -> float:
 
     full_kelly = (p * b - q) / b if b > 0 else 0.0
     base_kelly_size = config.KELLY_BANKROLL_USD * (full_kelly / 2.0)
+    return base_kelly_size * winrate_factor(get_cached_winrate())
 
-    # Dynamic adjustment: scale the base by recent realized win rate.
-    factor = winrate_factor(get_cached_winrate())
-    position_size = base_kelly_size * factor
 
-    # Cap at the per-trade max, then floor at the minimum bet (so a genuine
-    # signal is never sized down to dust by the factor or a thin Kelly).
-    capped = min(round(position_size, 2), config.MAX_BET_USD)
+def size_position(side: str, yes_price: float, confidence: float) -> float:
+    """Half-Kelly position sizing (see _base_kelly_size), capped at MAX_BET_USD
+    and floored at KELLY_MIN_BET_USD so a genuine signal is never sized to dust.
+    """
+    capped = min(round(_base_kelly_size(side, yes_price, confidence), 2), config.MAX_BET_USD)
+    return max(capped, config.KELLY_MIN_BET_USD)
+
+
+def size_position_enhanced(
+    side: str,
+    yes_price: float,
+    confidence: float,
+    expected_edge: float,
+    vol_adj: float,
+) -> float:
+    """Enhanced sizing: the half-Kelly base (with the dynamic win-rate factor)
+    multiplied by the expected-edge boost and the volatility adjustment, then
+    capped at MAX_BET_USD and floored at KELLY_MIN_BET_USD.
+    """
+    base = _base_kelly_size(side, yes_price, confidence)
+    size = base * edge_factor(expected_edge) * vol_adj
+    capped = min(round(size, 2), config.MAX_BET_USD)
     return max(capped, config.KELLY_MIN_BET_USD)

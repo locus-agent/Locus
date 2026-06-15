@@ -310,7 +310,8 @@ class PipelineV2:
                         raw_signal, signal, action, edge_type = None, None, "error", None
                     else:
                         self.stats["classify_error_streak"] = 0
-                        raw_signal = detect_edge_v2(market, classification, event)
+                        edge_metrics = detect_edge_v2(market, classification, event)
+                        raw_signal = edge_metrics.signal if edge_metrics else None
                         signal, action = gate_trade(event, raw_signal, self._traded_headlines)
 
                         # Multi-LLM consensus gate: when the two models disagree
@@ -521,6 +522,8 @@ class PipelineV2:
                         direction=classification.direction,
                         materiality=classification.materiality,
                         edge=raw_signal.edge if raw_signal else None,
+                        expected_edge=raw_signal.expected_edge if raw_signal else None,
+                        vol_adj=raw_signal.vol_adj if raw_signal else None,
                         action=action,
                         match_source=match_source,
                         condition_id=market.condition_id,
@@ -681,7 +684,8 @@ class PipelineV2:
 
         signal = None
         if not classification.error:
-            raw_signal = detect_edge_v2(market, classification, whale_event)
+            edge_metrics = detect_edge_v2(market, classification, whale_event)
+            raw_signal = edge_metrics.signal if edge_metrics else None
             signal, _ = gate_trade(whale_event, raw_signal, self._traded_headlines)
 
             if signal is not None:
@@ -712,6 +716,8 @@ class PipelineV2:
             direction=classification.direction,
             materiality=classification.materiality,
             edge=signal.edge if signal else None,
+            expected_edge=signal.expected_edge if signal else None,
+            vol_adj=signal.vol_adj if signal else None,
             action="whale_triggered",
             match_source="whale",
             condition_id=market.condition_id,
