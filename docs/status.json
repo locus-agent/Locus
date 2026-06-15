@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T13:44:12.261701+00:00",
+  "generated_at": "2026-06-15T13:45:10.282288+00:00",
   "dry_run": true,
   "markets_tracked": 2558,
   "classify_error_streak": 0,
@@ -18,10 +18,10 @@
       "newsapi": 14.2
     }
   },
-  "headlines_scanned_today": 207,
-  "headlines_last_cycle": 0,
-  "signals_24h": 0,
-  "classifications_24h": 3336,
+  "headlines_scanned_today": 210,
+  "headlines_last_cycle": 3,
+  "signals_24h": 1,
+  "classifications_24h": 3337,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 66,
@@ -40,24 +40,24 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T13:29:49.634647+00:00"
+    "last_check": "2026-06-15T13:44:59.030156+00:00"
   },
   "edge_types_24h": {
-    "news": 0,
+    "news": 1,
     "momentum": 0,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 719,
-    "matched": 391,
-    "classified": 3336,
-    "signals": 0,
-    "trades": 0
+    "news": 722,
+    "matched": 392,
+    "classified": 3337,
+    "signals": 1,
+    "trades": 1
   },
   "performance": {
-    "trades_total": 7,
-    "deployed_usd": 159.14,
-    "open_count": 3,
+    "trades_total": 8,
+    "deployed_usd": 173.82,
+    "open_count": 4,
     "closed_count": 4,
     "wins": 0,
     "losses": 4,
@@ -115,12 +115,24 @@
   },
   "open_positions": [
     {
+      "time": "2026-06-15 13:45:07",
+      "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
+      "slug": "will-bitmine-announce-holding-eth-before-2027",
+      "side": "YES",
+      "entry_price": 0.34,
+      "current_price": 0.34,
+      "pnl_pct": 0.0,
+      "amount_usd": 14.68,
+      "edge_type": "news",
+      "event_id": "103576"
+    },
+    {
       "time": "2026-06-13 23:31:30",
       "market_question": "OpenAI $1t+ IPO before 2027?",
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42000000000000004,
+      "current_price": 0.42,
       "pnl_pct": 8.41,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -219,6 +231,19 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-15 13:45:07",
+      "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
+      "headline": "Tom Lee sees \u2018early stages of crypto spring\u2019 as Bitmine buys another 76,881 ETH",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.65,
+      "edge": 0.16499999999999998,
+      "action": "signal",
+      "match_source": "both",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-15 13:41:01",
       "market_question": "Will Eric Jones advance from the CA-04 primary election?",
       "headline": "Sovereign AI startup Sarvam raises $234 mn from HCLTech, Bessemer - Business Standard",
@@ -260,19 +285,6 @@
     {
       "time": "2026-06-15 13:41:01",
       "market_question": "Will Mandy Ghusar advance from the CA-04 primary election?",
-      "headline": "Sovereign AI startup Sarvam raises $234 mn from HCLTech, Bessemer - Business Standard",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 13:41:01",
-      "market_question": "Will Bill Hill advance from the AK-AL primary election?",
       "headline": "Sovereign AI startup Sarvam raises $234 mn from HCLTech, Bessemer - Business Standard",
       "direction": null,
       "materiality": null,
