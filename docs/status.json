@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T22:11:30.159708+00:00",
+  "generated_at": "2026-06-15T22:16:18.283116+00:00",
   "dry_run": true,
   "markets_tracked": 2549,
   "classify_error_streak": 0,
@@ -18,10 +18,70 @@
       "newsapi": 15.7
     }
   },
-  "headlines_scanned_today": 2499,
-  "headlines_last_cycle": 0,
-  "signals_24h": 15,
-  "classifications_24h": 12983,
+  "accuracy_by_price": {
+    "overall_accuracy": 15.3,
+    "overall_total": 1377,
+    "buckets": [
+      {
+        "name": "very_low",
+        "range": "0.00-0.15",
+        "total": 756,
+        "correct": 46,
+        "accuracy_pct": 6.1,
+        "avg_pnl_pct": 23.05,
+        "color": "red"
+      },
+      {
+        "name": "low",
+        "range": "0.15-0.30",
+        "total": 116,
+        "correct": 37,
+        "accuracy_pct": 31.9,
+        "avg_pnl_pct": 23.98,
+        "color": "green"
+      },
+      {
+        "name": "mid",
+        "range": "0.30-0.50",
+        "total": 147,
+        "correct": 55,
+        "accuracy_pct": 37.4,
+        "avg_pnl_pct": 0.61,
+        "color": "green"
+      },
+      {
+        "name": "fair",
+        "range": "0.50-0.70",
+        "total": 86,
+        "correct": 17,
+        "accuracy_pct": 19.8,
+        "avg_pnl_pct": -2.0,
+        "color": "yellow"
+      },
+      {
+        "name": "high",
+        "range": "0.70-0.85",
+        "total": 99,
+        "correct": 33,
+        "accuracy_pct": 33.3,
+        "avg_pnl_pct": 3.27,
+        "color": "green"
+      },
+      {
+        "name": "extreme",
+        "range": "0.85-1.00",
+        "total": 173,
+        "correct": 23,
+        "accuracy_pct": 13.3,
+        "avg_pnl_pct": -7.44,
+        "color": "yellow"
+      }
+    ]
+  },
+  "headlines_scanned_today": 2636,
+  "headlines_last_cycle": 133,
+  "signals_24h": 16,
+  "classifications_24h": 13709,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 114,
@@ -40,30 +100,30 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T22:06:11.032875+00:00"
+    "last_check": "2026-06-15T22:15:57.671875+00:00"
   },
   "edge_types_24h": {
-    "news": 8,
+    "news": 9,
     "momentum": 7,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2597,
-    "matched": 756,
-    "classified": 12983,
-    "signals": 15,
-    "trades": 15
+    "news": 2733,
+    "matched": 759,
+    "classified": 13709,
+    "signals": 16,
+    "trades": 16
   },
   "performance": {
-    "trades_total": 15,
-    "deployed_usd": 186.23,
-    "open_count": 9,
+    "trades_total": 16,
+    "deployed_usd": 203.81,
+    "open_count": 10,
     "closed_count": 6,
     "wins": 3,
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -1.09,
+    "unrealized_pnl_usd": -3.72,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -115,12 +175,26 @@
   },
   "open_positions": [
     {
+      "time": "2026-06-15 22:16:02",
+      "market_question": "Ethereum Up or Down - June 15, 4:00PM-8:00PM ET",
+      "slug": "eth-updown-4h-1781553600",
+      "side": "YES",
+      "entry_price": 0.16,
+      "current_price": 0.14500000000000002,
+      "pnl_pct": -9.37,
+      "amount_usd": 17.58,
+      "current_value_usd": 15.93,
+      "pnl_usd": -1.65,
+      "edge_type": "news",
+      "event_id": "595238"
+    },
+    {
       "time": "2026-06-15 21:27:23",
       "market_question": "Will HYPE flip SOL by December 31?",
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16000000000000003,
+      "current_price": 0.16,
       "pnl_pct": 0.0,
       "amount_usd": 15.39,
       "current_value_usd": 15.39,
@@ -204,11 +278,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.105,
-      "pnl_pct": 15.38,
+      "current_price": 0.1055,
+      "pnl_pct": 15.93,
       "amount_usd": 18.77,
-      "current_value_usd": 21.66,
-      "pnl_usd": 2.89,
+      "current_value_usd": 21.76,
+      "pnl_usd": 2.99,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -232,11 +306,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.385,
-      "pnl_pct": 13.24,
+      "current_price": 0.36,
+      "pnl_pct": 5.88,
       "amount_usd": 14.68,
-      "current_value_usd": 16.62,
-      "pnl_usd": 1.94,
+      "current_value_usd": 15.54,
+      "pnl_usd": 0.86,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -358,69 +432,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 22:09:00",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Cape Verde 40-year-old goalkeeper Vozinha turns in a 'dream' performance in his World Cup debut - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-15 22:16:11",
+      "market_question": "Will Donald Trump visit Russia in 2026?",
+      "headline": "Amateur saboteurs: the young men carrying out attacks for gangs, Russia and Iran - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 22:08:58",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Cape Verde 40-year-old goalkeeper Vozinha turns in a 'dream' performance in his World Cup debut - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-15 22:16:11",
+      "market_question": "Will Trump pardon Young Thug before 2027?",
+      "headline": "Amateur saboteurs: the young men carrying out attacks for gangs, Russia and Iran - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 22:08:57",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Cape Verde 40-year-old goalkeeper Vozinha turns in a 'dream' performance in his World Cup debut - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-15 22:16:11",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "headline": "Amateur saboteurs: the young men carrying out attacks for gangs, Russia and Iran - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 22:08:56",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Cape Verde 40-year-old goalkeeper Vozinha turns in a 'dream' performance in his World Cup debut - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-15 22:16:11",
+      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
+      "headline": "Knicks' long-awaited championship brings 'camaraderie and craziness' to NYC. Fans hope it continues - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 22:08:55",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Cape Verde 40-year-old goalkeeper Vozinha turns in a 'dream' performance in his World Cup debut - AP News",
+      "time": "2026-06-15 22:16:11",
+      "market_question": "Will Trump visit Pakistan by June 30?",
+      "headline": "AI-referred US shoppers browse longer, spend more per visit, data shows - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
