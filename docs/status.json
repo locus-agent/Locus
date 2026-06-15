@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T04:28:02.187553+00:00",
+  "generated_at": "2026-06-15T04:33:04.738506+00:00",
   "dry_run": true,
-  "markets_tracked": 2549,
+  "markets_tracked": 2555,
   "classify_error_streak": 0,
   "track_record": {
     "total": 985,
@@ -18,10 +18,10 @@
       "newsapi": 13.9
     }
   },
-  "headlines_scanned_today": 78,
+  "headlines_scanned_today": 80,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3232,
+  "classifications_24h": 3243,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 44,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T04:14:32.606202+00:00"
+    "last_check": "2026-06-15T04:29:33.018209+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 707,
-    "matched": 342,
-    "classified": 3232,
+    "news": 709,
+    "matched": 343,
+    "classified": 3243,
     "signals": 0,
     "trades": 0
   },
@@ -219,9 +219,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 04:14:21",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
+      "time": "2026-06-15 04:28:23",
+      "market_question": "Will the US federal government take a stake in Anthropic PBC?",
+      "headline": "Justice Department approves Paramount\u2019s deal to buy Warner Bros. - The Washington Post",
+      "direction": "neutral",
+      "materiality": 0.012,
+      "confidence": 0.68,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.939,
+      "ensemble_used": true
+    },
+    {
+      "time": "2026-06-15 04:28:18",
+      "market_question": "Will a dLLM be the top AI model before 2027?",
+      "headline": "China opposes US move to list top firms as military companies - AP News",
+      "direction": "neutral",
+      "materiality": 0.07,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": 0.915,
+      "ensemble_used": true
+    },
+    {
+      "time": "2026-06-15 04:28:18",
+      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
+      "headline": "China opposes US move to list top firms as military companies - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -232,9 +258,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 04:14:21",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
+      "time": "2026-06-15 04:28:18",
+      "market_question": "Will Meituan have the top AI model at the end of June 2026?",
+      "headline": "China opposes US move to list top firms as military companies - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -245,35 +271,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 04:14:21",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 04:14:21",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 04:14:21",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Call Of Duty Is Xbox's Biggest Blessing And Its Curse - Kotaku",
+      "time": "2026-06-15 04:28:18",
+      "market_question": "Will Moonshot have the top AI model at the end of June 2026?",
+      "headline": "China opposes US move to list top firms as military companies - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
