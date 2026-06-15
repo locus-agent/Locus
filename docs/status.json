@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:36:27.595952+00:00",
+  "generated_at": "2026-06-15T17:41:30.995692+00:00",
   "dry_run": true,
   "markets_tracked": 2590,
   "classify_error_streak": 0,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 1579,
-  "headlines_last_cycle": 154,
+  "headlines_scanned_today": 1583,
+  "headlines_last_cycle": 0,
   "signals_24h": 9,
-  "classifications_24h": 9362,
+  "classifications_24h": 9382,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 106,
@@ -36,7 +36,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 2,
+  "watched_markets_count": 3,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
@@ -48,23 +48,23 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1912,
-    "matched": 613,
-    "classified": 9362,
+    "news": 1916,
+    "matched": 616,
+    "classified": 9382,
     "signals": 9,
     "trades": 9
   },
   "performance": {
     "trades_total": 9,
     "deployed_usd": 130.5,
-    "open_count": 7,
-    "closed_count": 2,
-    "wins": 0,
+    "open_count": 6,
+    "closed_count": 3,
+    "wins": 1,
     "losses": 2,
-    "win_rate_pct": 0.0,
-    "realized_pnl_usd": -1.24,
-    "unrealized_pnl_usd": 7.8,
-    "recent_winrate": 0.0,
+    "win_rate_pct": 33.3,
+    "realized_pnl_usd": 4.03,
+    "unrealized_pnl_usd": 1.43,
+    "recent_winrate": 0.1429,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
   },
@@ -77,7 +77,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 2,
+        "value": 3,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -85,7 +85,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 0.0,
+        "value": 33.3,
         "threshold_display": "> 55%",
         "pass": false
       },
@@ -101,7 +101,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 12.7,
+        "value": 11.7,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -110,7 +110,7 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.127,
+    "drawdown_7d": 0.1169,
     "sharpe_7d": null
   },
   "open_positions": [
@@ -120,27 +120,13 @@
       "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
       "side": "YES",
       "entry_price": 0.07,
-      "current_price": 0.07,
-      "pnl_pct": 0.0,
+      "current_price": 0.07499999999999996,
+      "pnl_pct": 7.14,
       "amount_usd": 8.74,
-      "current_value_usd": 8.74,
-      "pnl_usd": 0.0,
+      "current_value_usd": 9.36,
+      "pnl_usd": 0.62,
       "edge_type": "news",
       "event_id": "583905"
-    },
-    {
-      "time": "2026-06-15 15:06:13",
-      "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
-      "slug": "who-will-sign-uptspt-x-iran-deal-20260612002238373",
-      "side": "YES",
-      "entry_price": 0.315,
-      "current_price": 0.9895,
-      "pnl_pct": 214.13,
-      "amount_usd": 2.46,
-      "current_value_usd": 7.73,
-      "pnl_usd": 5.27,
-      "edge_type": "momentum",
-      "event_id": "585449"
     },
     {
       "time": "2026-06-15 14:02:20",
@@ -190,7 +176,7 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.305,
+      "current_price": 0.30500000000000005,
       "pnl_pct": 10.91,
       "amount_usd": 18.32,
       "current_value_usd": 20.32,
@@ -204,16 +190,27 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.39,
-      "pnl_pct": 14.71,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 16.84,
-      "pnl_usd": 2.16,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-15T17:40:33.628679+00:00",
+      "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
+      "slug": "who-will-sign-uptspt-x-iran-deal-20260612002238373",
+      "side": "YES",
+      "entry_price": 0.315,
+      "exit_price": 0.9895,
+      "realized_pnl_usd": 7.649428571428571,
+      "exit_reason": "manual",
+      "event_id": "585449"
+    },
     {
       "time": "2026-06-15T16:27:35.147236+00:00",
       "market_question": "U.S. enacts AI safety bill before 2027?",
@@ -238,6 +235,15 @@
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-15 17:40:33",
+      "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 214.13
+    },
     {
       "time": "2026-06-15 16:27:35",
       "market_question": "U.S. enacts AI safety bill before 2027?",
@@ -273,82 +279,73 @@
       "decision": "close",
       "reasoning": "Trump claiming a deal was reached directly contradicts the original thesis that he viewed sanctions as beneficial and would not agree to relief; with the position already down 23.4% and a materiality-0.62 headline shifting the narrative toward YES resolution, the edge is gone and holding risks further losses.",
       "pnl_pct": -23.42
-    },
-    {
-      "time": "2026-06-12 21:27:01",
-      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
-      "side": "YES",
-      "trigger": "drawdown",
-      "decision": "close",
-      "reasoning": "The original thesis was based on a headline that appears to have been misread or was unreliable\u2014the price has moved further against the position to 0.003, suggesting the market disagrees strongly with the premise. With no clear catalyst to reverse the move and the position already down 40%, there is no reason beyond hope to hold; cutting losses is the rational choice.",
-      "pnl_pct": -40.0
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 17:36:26",
-      "market_question": "Will ChatGPT be #1 Free App in the US Apple App Store on June 15?",
-      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
+      "time": "2026-06-15 17:40:31",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
       "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 1.0,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:36:26",
-      "market_question": "Will Shadowrocket be #1 Paid App in the US Apple App Store on June 15?",
-      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 1.0,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:36:26",
-      "market_question": "Will Threads be #1 Free App in the US Apple App Store on June 15?",
-      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 1.0,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:36:26",
-      "market_question": "Will Google be #1 Free App in the US Apple App Store on June 15?",
-      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 1.0,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:36:26",
-      "market_question": "Will ChatGPT be #2 Free App in the US Apple App Store on June 15?",
-      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "cached",
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 17:40:29",
+      "market_question": "Will OpenAI launch a new consumer hardware product by December 31, 2026?",
+      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 17:40:29",
+      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
+      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:40:29",
+      "market_question": "Will the Centre Party (C) win the most seats in the 2026 Swedish parliamentary election?",
+      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:40:28",
+      "market_question": "AI data center in space by December 31, 2026?",
+      "headline": "Adani, Jabil to partner for AI data centre hardware manufacturing venture - Business Standard",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.58,
+      "edge": 0.14025,
+      "action": "low_materiality",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
