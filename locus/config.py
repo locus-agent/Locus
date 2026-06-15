@@ -198,6 +198,15 @@ EMBED_MAX_EXTRA_MATCHES = int(os.getenv("EMBED_MAX_EXTRA_MATCHES", "3"))
 CLASSIFICATION_MODEL = "claude-haiku-4-5-20251001"
 SCORING_MODEL = "claude-sonnet-4-6"
 
+# --- Tiered classification (Haiku prefilter -> Sonnet deep analysis) ---
+# A cheap Haiku call triages each matched headline (relevant? roughly material?)
+# before the full Sonnet (SCORING_MODEL) classification runs, so only headlines
+# worth a deep read pay for the expensive call.
+# Expected cost reduction: ~55% (Haiku ~4x cheaper + filters ~60-70% of low-value headlines)
+HAIKU_MODEL = os.getenv("HAIKU_MODEL", "claude-haiku-4-5-20251001")  # fallback: "claude-3-5-haiku-20241022"
+HAIKU_MATERIALITY_THRESHOLD = float(os.getenv("HAIKU_MATERIALITY_THRESHOLD", "0.25"))
+TIERED_CLASSIFICATION_ENABLED = os.getenv("TIERED_CLASSIFICATION_ENABLED", "true").lower() == "true"
+
 # --- Claude-call efficiency ---
 # Prefilter: skip classification for keyword-only matches whose overlap
 # score is below this AND whose headline topic mismatches the market category.

@@ -97,6 +97,14 @@ Respond with ONLY valid JSON, no other text:
 {{"direction": "bullish|bearish|neutral", "materiality": <0.0-1.0>, "confidence": <0.5-1.0>, "reasoning": "<1 sentence>"}}"""
 
 
+# Strict JSON-only prompt for the cheap Haiku prefilter tier (see classify_fast).
+# Deliberately tiny: it only triages relevance + rough materiality, not the full
+# calibrated analysis the Sonnet tier does.
+FAST_CLASSIFICATION_SYSTEM_PROMPT = """You are a fast news filter for prediction markets. Return ONLY valid JSON, no explanations.
+Example: {"relevant": true, "direction": "bullish", "materiality": 0.65, "reason": "direct positive evidence"}
+Fields: relevant (bool), direction (bullish/bearish/neutral), materiality (0.0-1.0), reason (1 sentence)"""
+
+
 # Dollar amount in the question, e.g. "$1,700" or "$0.50" — the market's price threshold.
 _THRESHOLD_RE = re.compile(r"\$\s?[\d,]+(?:\.\d+)?")
 
@@ -178,6 +186,10 @@ class Classification:
     confidence: float = 0.5  # 0.5-1.0: P(market resolves in predicted direction)
     error: bool = False  # True when classification failed (API/parse error)
     raw_response: str = ""  # The model's raw text response (for debugging/audit)
+    # Set to "prefiltered_haiku" by classify_fast when the cheap Haiku tier
+    # rejected the headline before any Sonnet call; the pipeline logs this action
+    # and skips the edge/gate chain. None for a normal full classification.
+    action: str | None = None
     # Multi-LLM ensemble fields (set by multi_classifier.classify_ensemble);
     # left at defaults for plain single-model classify() results.
     consensus_score: float | None = None  # 0.0-1.0 agreement between models
@@ -273,15 +285,43 @@ def parse_classification(text: str) -> dict:
     return {"direction": "neutral", "materiality": 0.0, "confidence": 0.5, "reasoning": ""}
 
 
+_RELEVANT_RE = re.compile(r'relevant["\s:=]+(true|false)', re.IGNORECASE)
+
+
+def _parse_relevant(text: str, default: bool = True) -> bool:
+    """Extract the Haiku prefilter's `relevant` boolean from its JSON response.
+
+    Defaults True (fail open) when the field is absent or unparseable, so a
+    missing flag leaves the relevance decision to the materiality floor rather
+    than silently dropping the headline."""
+    text = text or ""
+    m = _JSON_OBJ_RE.search(text)
+    if m:
+        try:
+            obj = json.loads(m.group(0))
+            if isinstance(obj, dict) and "relevant" in obj:
+                return bool(obj["relevant"])
+        except (ValueError, TypeError):
+            pass
+    rm = _RELEVANT_RE.search(text)
+    if rm:
+        return rm.group(1).lower() == "true"
+    return default
+
+
 def classify(
-    headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None
+    headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None,
+    model: str | None = None,
 ) -> Classification:
     """Classify a news headline against a market question. Synchronous.
 
     as_of: the moment the news broke — defaults to now. Backtests pass the
     historical headline time so time-remaining is computed as of that moment.
+    model: the Claude model to use — defaults to config.CLASSIFICATION_MODEL.
+    classify_fast passes config.SCORING_MODEL (Sonnet) for the deep tier.
     """
     start = time.time()
+    model = model or config.CLASSIFICATION_MODEL
 
     if as_of is None:
         as_of = datetime.now(timezone.utc)
@@ -313,7 +353,7 @@ def classify(
     for attempt in range(2):  # one retry with backoff, no retry storms
         try:
             response = client.messages.create(
-                model=config.CLASSIFICATION_MODEL,
+                model=model,
                 max_tokens=200,
                 temperature=0.1,
                 messages=[{"role": "user", "content": prompt}],
@@ -332,7 +372,7 @@ def classify(
                 confidence=parsed["confidence"],
                 reasoning=parsed["reasoning"],
                 latency_ms=latency,
-                model=config.CLASSIFICATION_MODEL,
+                model=model,
                 raw_response=text,
             )
 
@@ -350,9 +390,78 @@ def classify(
         materiality=0.0,
         reasoning=f"Classification error: {type(last_err).__name__}",
         latency_ms=latency,
-        model=config.CLASSIFICATION_MODEL,
+        model=model,
         error=True,
     )
+
+
+def classify_fast(
+    headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None
+) -> Classification:
+    """Tiered classification: a cheap Haiku prefilter in front of the full
+    Sonnet classify(). Haiku triages relevance + rough materiality; only the
+    headlines that survive pay for the deep Sonnet analysis.
+
+    # Expected cost reduction: ~55% (Haiku ~4x cheaper + filters ~60-70% of low-value headlines)
+
+    Fails OPEN: any Haiku error (API or parse) falls through to the full
+    classify() so a flaky prefilter never silently drops tradable news.
+    """
+    start = time.time()
+    user_prompt = (
+        f"Market question: {market.question}\n"
+        f"Current YES price: {market.yes_price:.3f}\n"
+        f"Breaking news: {headline}\n"
+        f"Source: {source}"
+    )
+
+    try:
+        response = client.messages.create(
+            model=config.HAIKU_MODEL,
+            max_tokens=150,
+            temperature=0.0,
+            system=FAST_CLASSIFICATION_SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user_prompt}],
+        )
+        text = response.content[0].text.strip()
+    except Exception as e:
+        # Fail open: let the full Sonnet tier handle it rather than drop the news.
+        log.warning(
+            f"[classifier] Haiku prefilter failed ({type(e).__name__}: {e}); "
+            f"falling through to full classify"
+        )
+        return classify(headline, market, source, as_of, model=config.SCORING_MODEL)
+
+    # Reuse the universal parser for direction/materiality/reasoning, and pull
+    # the prefilter-only `relevant` flag separately.
+    parsed = parse_classification(text)
+    relevant = _parse_relevant(text)
+    direction = parsed["direction"]
+    materiality = parsed["materiality"]
+
+    # Haiku tends to overestimate materiality; pull an inflated score back so it
+    # can't wave a marginal headline through to the expensive tier on hype.
+    if materiality > 0.85:
+        materiality = 0.75
+
+    if not relevant or materiality < config.HAIKU_MATERIALITY_THRESHOLD:
+        log.info(
+            f"haiku_prefilter: {market.slug} | relevant={relevant} | "
+            f"mat={materiality:.2f} | action=prefiltered_haiku"
+        )
+        return Classification(
+            direction=direction,
+            materiality=materiality,
+            confidence=parsed["confidence"],
+            reasoning=parsed["reasoning"],
+            latency_ms=int((time.time() - start) * 1000),
+            model=config.HAIKU_MODEL,
+            raw_response=text,
+            action="prefiltered_haiku",
+        )
+
+    # Survived the prefilter — spend the deep Sonnet call.
+    return classify(headline, market, source, as_of, model=config.SCORING_MODEL)
 
 
 # Edge types a signal can be attributed to. 'arbitrage' is defined for a

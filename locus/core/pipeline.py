@@ -23,7 +23,7 @@ from locus.supervisor import supervise
 from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
-from locus.core.classifier import classify_async, classify_edge_type
+from locus.core.classifier import classify_async, classify_fast, classify_edge_type
 from locus.core.multi_classifier import classify_ensemble, is_low_consensus
 from locus.core import event_context
 from locus.core import reentry
@@ -286,10 +286,16 @@ class PipelineV2:
                         )
                         continue
 
-                    # Multi-LLM ensemble (Claude + Grok) when enabled, else
-                    # single-model Claude. Ensemble results carry a
-                    # consensus_score; single-model results leave it None.
-                    if config.ENSEMBLE_ENABLED:
+                    # Tiered classification (Haiku prefilter -> Sonnet deep)
+                    # takes precedence when enabled. Otherwise: multi-LLM
+                    # ensemble (Claude + Grok) when enabled, else single-model
+                    # Claude. Ensemble results carry a consensus_score;
+                    # single-model results leave it None.
+                    if config.TIERED_CLASSIFICATION_ENABLED:
+                        classification = await asyncio.get_event_loop().run_in_executor(
+                            None, classify_fast, event.headline, market, event.source
+                        )
+                    elif config.ENSEMBLE_ENABLED:
                         classification = await classify_ensemble(
                             event.headline, market, event.source
                         )
@@ -298,7 +304,14 @@ class PipelineV2:
                             event.headline, market, event.source
                         )
 
-                    if classification.error:
+                    if classification.action == "prefiltered_haiku":
+                        # Haiku triaged this out before any Sonnet call — log the
+                        # action and skip the edge/gate chain entirely.
+                        self.stats["prefiltered_haiku"] = (
+                            self.stats.get("prefiltered_haiku", 0) + 1
+                        )
+                        raw_signal, signal, action, edge_type = None, None, "prefiltered_haiku", None
+                    elif classification.error:
                         self.stats["classify_error_streak"] = (
                             self.stats.get("classify_error_streak", 0) + 1
                         )

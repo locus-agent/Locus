@@ -398,6 +398,7 @@
 
   .gate-row .gate-label { color: var(--muted); }
   .gate-row .gate-count { font-weight: 700; }
+  .gate-prefilter .gate-count { color: var(--yellow); }
   .gate-stale .gate-count { color: var(--yellow); }
   .gate-capped .gate-count { color: var(--cyan); }
   .gate-correlation .gate-count { color: var(--red); }
@@ -863,6 +864,10 @@
     <div class="two-col">
       <div class="panel">
         <div class="panel-title">Gates (24h)</div>
+        <div class="gate-row gate-prefilter">
+          <span class="gate-label">prefiltered (haiku) — triaged out before deep analysis</span>
+          <span class="gate-count" id="gate-prefilter">—</span>
+        </div>
         <div class="gate-row gate-stale">
           <span class="gate-label">stale — news too old to trade</span>
           <span class="gate-count" id="gate-stale">—</span>
@@ -1145,6 +1150,7 @@
 
   function renderGates(status) {
     const g = status.gates_24h || {};
+    document.getElementById('gate-prefilter').textContent = g.prefiltered_haiku ?? '—';
     document.getElementById('gate-stale').textContent = g.stale ?? '—';
     document.getElementById('gate-capped').textContent = g.capped ?? '—';
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
