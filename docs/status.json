@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T22:35:17.343181+00:00",
+  "generated_at": "2026-06-15T22:37:19.591549+00:00",
   "dry_run": true,
-  "markets_tracked": 2555,
+  "markets_tracked": 2547,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1377,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2715,
-  "headlines_last_cycle": 70,
+  "headlines_scanned_today": 2801,
+  "headlines_last_cycle": 29,
   "signals_24h": 16,
-  "classifications_24h": 14146,
+  "classifications_24h": 14611,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 11,
+    "prefiltered_haiku": 23,
     "stale": 115,
     "capped": 24,
     "correlation_block": 35,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T22:34:56.701058+00:00"
+    "last_check": "2026-06-15T22:37:10.943010+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2811,
-    "matched": 767,
-    "classified": 14146,
+    "news": 2897,
+    "matched": 768,
+    "classified": 14611,
     "signals": 16,
     "trades": 16
   },
@@ -124,7 +124,7 @@
     "losses": 4,
     "win_rate_pct": 42.9,
     "realized_pnl_usd": 5.82,
-    "unrealized_pnl_usd": -4.1,
+    "unrealized_pnl_usd": -3.67,
     "recent_winrate": 0.4286,
     "kelly_factor": 0.5179,
     "winrate_lookback": 20
@@ -195,7 +195,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.41500000000000004,
+      "current_price": 0.415,
       "pnl_pct": -12.69,
       "amount_usd": 2.0,
       "current_value_usd": 1.75,
@@ -223,11 +223,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -293,11 +293,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.385,
+      "pnl_pct": 13.24,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 16.62,
+      "pnl_usd": 1.94,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -430,35 +430,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 22:35:16",
-      "market_question": "Will Donald Trump post 120-139 Truth Social posts from June 9 to June 16, 2026?",
-      "headline": "Social media ban - bold and blunt, but no silver bullet",
+      "time": "2026-06-15 22:37:19",
+      "market_question": "Solana Up or Down on June 16?",
+      "headline": "Xbox is closing down Hellblade creator Ninja Theory",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 22:35:16",
-      "market_question": "Will Donald Trump post 200+ Truth Social posts from June 9 to June 16, 2026?",
-      "headline": "Social media ban - bold and blunt, but no silver bullet",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.62,
+      "time": "2026-06-15 22:37:18",
+      "market_question": "Ethereum Up or Down on June 16?",
+      "headline": "Xbox is closing down Hellblade creator Ninja Theory",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "cached",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-15 22:35:16",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Fox to buy streaming pioneer Roku in a $22 billion deal - AP News",
+      "time": "2026-06-15 22:37:17",
+      "market_question": "Will Ed Markey be the Democratic nominee for Senate in Massachusetts?",
+      "headline": "Fisherman reels in white shark off Massachusetts, then snags the hook from its toothy mouth - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -469,9 +469,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 22:35:16",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "Fox to buy streaming pioneer Roku in a $22 billion deal - AP News",
+      "time": "2026-06-15 22:37:17",
+      "market_question": "Will Trump praise Dana White by June 30?",
+      "headline": "Fisherman reels in white shark off Massachusetts, then snags the hook from its toothy mouth - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -482,9 +482,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 22:35:16",
-      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
-      "headline": "Fox to buy streaming pioneer Roku in a $22 billion deal - AP News",
+      "time": "2026-06-15 22:37:17",
+      "market_question": "Will Royce White be the Republican nominee for Senate in Minnesota?",
+      "headline": "Fisherman reels in white shark off Massachusetts, then snags the hook from its toothy mouth - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
