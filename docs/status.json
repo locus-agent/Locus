@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T18:03:14.895036+00:00",
+  "generated_at": "2026-06-15T18:08:22.539099+00:00",
   "dry_run": true,
-  "markets_tracked": 2587,
+  "markets_tracked": 2588,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1229,
@@ -18,10 +18,10 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 1922,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 1926,
+  "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 10947,
+  "classifications_24h": 10916,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 101,
@@ -36,7 +36,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 5,
+  "watched_markets_count": 6,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
@@ -48,24 +48,24 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2229,
-    "matched": 618,
-    "classified": 10947,
+    "news": 2223,
+    "matched": 616,
+    "classified": 10916,
     "signals": 11,
     "trades": 11
   },
   "performance": {
     "trades_total": 11,
     "deployed_usd": 142.69,
-    "open_count": 6,
-    "closed_count": 5,
-    "wins": 2,
+    "open_count": 5,
+    "closed_count": 6,
+    "wins": 3,
     "losses": 3,
-    "win_rate_pct": 40.0,
-    "realized_pnl_usd": 5.22,
-    "unrealized_pnl_usd": 2.64,
-    "recent_winrate": 0.2222,
-    "kelly_factor": 0.25,
+    "win_rate_pct": 50.0,
+    "realized_pnl_usd": 10.22,
+    "unrealized_pnl_usd": 2.34,
+    "recent_winrate": 0.3,
+    "kelly_factor": 0.325,
     "winrate_lookback": 20
   },
   "live_readiness": {
@@ -77,7 +77,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 5,
+        "value": 6,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -85,7 +85,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 40.0,
+        "value": 50.0,
         "threshold_display": "> 55%",
         "pass": false
       },
@@ -101,7 +101,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 8.4,
+        "value": 7.0,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -110,24 +110,10 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0839,
+    "drawdown_7d": 0.0698,
     "sharpe_7d": null
   },
   "open_positions": [
-    {
-      "time": "2026-06-15 16:39:59",
-      "market_question": "Will Trump say \"Greatest\" during UFC 250?",
-      "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
-      "side": "YES",
-      "entry_price": 0.07,
-      "current_price": 0.07499999999999996,
-      "pnl_pct": 7.14,
-      "amount_usd": 8.74,
-      "current_value_usd": 9.36,
-      "pnl_usd": 0.62,
-      "edge_type": "news",
-      "event_id": "583905"
-    },
     {
       "time": "2026-06-15 14:02:20",
       "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
@@ -162,11 +148,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.098,
-      "pnl_pct": 7.69,
+      "current_price": 0.0975,
+      "pnl_pct": 7.14,
       "amount_usd": 18.77,
-      "current_value_usd": 20.21,
-      "pnl_usd": 1.44,
+      "current_value_usd": 20.11,
+      "pnl_usd": 1.34,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -190,16 +176,27 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.365,
-      "pnl_pct": 7.35,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 15.76,
-      "pnl_usd": 1.08,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-15T18:04:51.670755+00:00",
+      "market_question": "Will Trump say \"Greatest\" during UFC 250?",
+      "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
+      "side": "YES",
+      "entry_price": 0.07,
+      "exit_price": 0.10999999999999999,
+      "realized_pnl_usd": 4.994285714285712,
+      "exit_reason": "tp_decision",
+      "event_id": "583905"
+    },
     {
       "time": "2026-06-15T17:53:06.870797+00:00",
       "market_question": "Ethereum Up or Down - June 15, 12:00PM-4:00PM ET",
@@ -258,6 +255,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-15 18:04:51",
+      "market_question": "Will Trump say \"Greatest\" during UFC 250?",
+      "side": "YES",
+      "trigger": "take_profit",
+      "decision": "close",
+      "reasoning": "The position has captured +57% on a small $8.74 stake in a niche market with uncertain time to close and thin liquidity; the original thesis (Trump unlikely to attend UFC 250 given Dana White's 'never again' statement) is already priced in at 0.110, and further upside is limited while exit risk in a thin market grows the longer we hold.",
+      "pnl_pct": 57.14
+    },
+    {
       "time": "2026-06-15 17:43:06",
       "market_question": "Ethereum Up or Down - June 15, 1:30PM-1:45PM ET",
       "side": "YES",
@@ -292,35 +298,26 @@
       "decision": "close_half",
       "reasoning": "The position has nearly doubled, capturing most of the available edge from the initial mispricing at 0.315; closing half locks in substantial realized gains while leaving exposure to further upside if a formal deal materializes before July 31. The original thesis was built on ambiguous sourcing with low baseline confidence, so reducing risk at 0.620 is prudent given uncertainty about whether the market threshold will be formally met.",
       "pnl_pct": 96.83
-    },
-    {
-      "time": "2026-06-15 14:04:10",
-      "market_question": "Will Donald Trump post 160-179 Truth Social posts from June 9 to June 16, 2026?",
-      "side": "YES",
-      "trigger": "news",
-      "decision": "close",
-      "reasoning": "The new headline asking 'how will the ban work and when does it start?' suggests the ban is not yet implemented, undermining the original thesis that a ban would suppress Trump's posting activity in the June 9-16 window; with no unrealized gain to protect and the original edge now contradicted, there's no reason to hold.",
-      "pnl_pct": 0.0
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 18:03:01",
-      "market_question": "Trump renames Strait of Hormuz to \"Strait of Trump\" by June 30?",
-      "headline": "Strait of Hormuz - AP News",
+      "time": "2026-06-15 18:07:36",
+      "market_question": "Will OpenAI IPO by September 30 2026?",
+      "headline": "OpenAI wins dismissal of trade secret lawsuit by Musk's xAI - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 18:03:01",
-      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
-      "headline": "Strait of Hormuz - AP News",
+      "time": "2026-06-15 18:07:36",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "Canada's Nuvei to buy Payoneer for $2.75 billion in cross-border payments push - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -331,41 +328,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 18:03:00",
-      "market_question": "Will the next elected US president be a woman?",
-      "headline": "Under-16s to be banned from TikTok, YouTube and other social media by next spring, Starmer says",
+      "time": "2026-06-15 18:07:36",
+      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
+      "headline": "Artificial intelligence - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 18:07:36",
+      "market_question": "Trump orders federal review of AI model releases by June 30?",
+      "headline": "Artificial intelligence - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 18:03:00",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Under-16s to be banned from TikTok, YouTube and other social media by next spring, Starmer says",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "cached",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 18:03:00",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Under-16s to be banned from TikTok, YouTube and other social media by next spring, Starmer says",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 18:07:36",
+      "market_question": "AI wins IMO gold medal in 2026?",
+      "headline": "Artificial intelligence - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "cached",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": null
     }
