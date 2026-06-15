@@ -13,14 +13,15 @@ def test_gather_daily_stats_on_empty_db(tmp_db):
     assert stats["closed_today"] == []
 
 
-def _insert_position(tmp_db, *, question, status, exit_reason, pnl, closed_at):
+def _insert_position(tmp_db, *, question, status, exit_reason, pnl, closed_at,
+                     condition_id="cond"):
     conn = tmp_db._conn()
     conn.execute(
         """INSERT INTO positions
            (condition_id, market_question, side, entry_yes_price, amount_usd,
             status, realized_pnl_usd, exit_reason, closed_at)
            VALUES (?, ?, 'YES', 0.5, 10, ?, ?, ?, ?)""",
-        ("cond", question, status, pnl, exit_reason, closed_at),
+        (condition_id, question, status, pnl, exit_reason, closed_at),
     )
     conn.commit()
     conn.close()
@@ -53,6 +54,37 @@ def test_gather_daily_stats_includes_closed_today(tmp_db):
     assert closed[0]["market_question"] == "Will X win?"
     assert closed[0]["exit_reason"] == "take_profit"
     assert closed[0]["realized_pnl_usd"] == 4.2
+
+
+def test_closed_today_sums_partial_closes_per_market(tmp_db):
+    now = datetime.now(timezone.utc)
+
+    # One market closed in two parts today (close_half, then a manual close):
+    # two rows sharing a condition_id. They should collapse into one entry
+    # whose realized_pnl_usd is the sum and whose exit_reason is the last close.
+    _insert_position(
+        tmp_db, condition_id="m1", question="Partial market?",
+        status="closed_half", exit_reason="close_half", pnl=2.0,
+        closed_at=now.replace(hour=8).isoformat(),
+    )
+    _insert_position(
+        tmp_db, condition_id="m1", question="Partial market?",
+        status="closed_manual", exit_reason="manual", pnl=3.5,
+        closed_at=now.replace(hour=14).isoformat(),
+    )
+    # A separate market closed once today.
+    _insert_position(
+        tmp_db, condition_id="m2", question="Other market?",
+        status="closed_tp", exit_reason="take_profit", pnl=1.0,
+        closed_at=now.replace(hour=10).isoformat(),
+    )
+
+    closed = {c["market_question"]: c for c in journal.gather_daily_stats()["closed_today"]}
+    assert len(closed) == 2
+    assert closed["Partial market?"]["realized_pnl_usd"] == 5.5
+    # exit_reason comes from the latest close (14:00 manual, not 08:00 half).
+    assert closed["Partial market?"]["exit_reason"] == "manual"
+    assert closed["Other market?"]["realized_pnl_usd"] == 1.0
 
 
 def test_trigger_respects_hour_and_writes_once(tmp_db, monkeypatch):

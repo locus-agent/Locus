@@ -134,12 +134,24 @@ def gather_daily_stats(extra: dict | None = None) -> dict:
     # Positions closed today (since 00:00 UTC) — so the journal can reflect on
     # profitable exits, not just open positions. closed_at is stored via
     # datetime.isoformat(), so a midnight-UTC ISO boundary compares as a string.
+    # A market may close more than once in a day (a close_half/manual partial
+    # close, or a re-entry that closes again), each its own row sharing one
+    # condition_id, so group by condition_id and SUM realized_pnl_usd into one
+    # total per market. MAX(closed_at) makes SQLite's bare-column rule take
+    # market_question / exit_reason from the final close.
     today_start = now.replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
     closed_today = [
-        dict(r)
+        {
+            "market_question": r["market_question"],
+            "exit_reason": r["exit_reason"],
+            "realized_pnl_usd": r["realized_pnl_usd"],
+        }
         for r in conn.execute(
-            """SELECT market_question, exit_reason, realized_pnl_usd
+            """SELECT market_question, exit_reason,
+                      SUM(realized_pnl_usd) AS realized_pnl_usd,
+                      MAX(closed_at) AS closed_at
                FROM positions WHERE status != 'open' AND closed_at >= ?
+               GROUP BY condition_id
                ORDER BY closed_at DESC""",
             (today_start,),
         ).fetchall()
