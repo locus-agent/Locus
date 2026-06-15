@@ -168,23 +168,36 @@ def backfill_slugs() -> int:
     return updated
 
 
-def get_open_positions() -> list[dict]:
+def get_open_positions(since: str | None = None) -> list[dict]:
+    """Open positions, newest first. `since` (an ISO date/datetime) is a
+    display-only filter — when set, only positions opened on or after it are
+    returned. Default None returns every open position (used by the pipeline's
+    risk gates and internal exit management, which must see the full book)."""
     conn = logger._conn()
-    rows = conn.execute(
-        """SELECT p.*, t.edge_type FROM positions p
-           LEFT JOIN trades t ON p.trade_id = t.id
-           WHERE p.status = 'open' ORDER BY p.id DESC"""
-    ).fetchall()
+    sql = ("SELECT p.*, t.edge_type FROM positions p "
+           "LEFT JOIN trades t ON p.trade_id = t.id WHERE p.status = 'open'")
+    params: list = []
+    if since:
+        sql += " AND p.opened_at >= ?"
+        params.append(since)
+    sql += " ORDER BY p.id DESC"
+    rows = conn.execute(sql, params).fetchall()
     conn.close()
     return [dict(r) for r in rows]
 
 
-def get_closed_positions(limit: int = 10) -> list[dict]:
+def get_closed_positions(limit: int = 10, since: str | None = None) -> list[dict]:
+    """Most recently closed positions. `since` (an ISO date/datetime) is a
+    display-only filter on the open date; default None returns all."""
     conn = logger._conn()
-    rows = conn.execute(
-        "SELECT * FROM positions WHERE status != 'open' ORDER BY closed_at DESC LIMIT ?",
-        (limit,),
-    ).fetchall()
+    sql = "SELECT * FROM positions WHERE status != 'open'"
+    params: list = []
+    if since:
+        sql += " AND opened_at >= ?"
+        params.append(since)
+    sql += " ORDER BY closed_at DESC LIMIT ?"
+    params.append(limit)
+    rows = conn.execute(sql, params).fetchall()
     conn.close()
     return [dict(r) for r in rows]
 

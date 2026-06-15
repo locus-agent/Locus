@@ -141,6 +141,10 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
     today_start = now.strftime("%Y-%m-%d 00:00:00")
     since_24h = (now - timedelta(hours=24)).strftime("%Y-%m-%d %H:%M:%S")
 
+    # Display-only filter for the position tables (hides old test positions);
+    # empty config = show all. Read at call time so env/test overrides apply.
+    dash_since = config.DASHBOARD_POSITIONS_START_DATE or None
+
     signals_24h = logger.get_classification_count_since(since_24h, action="signal")
     classifications_24h = logger.get_classification_count_since(since_24h)
 
@@ -215,7 +219,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "sharpe_7d": cb["metrics"].get("sharpe_7d"),
         },
         "open_positions": [
-            _open_position_row(p) for p in positions.get_open_positions()[:10]
+            _open_position_row(p)
+            for p in positions.get_open_positions(since=dash_since)[:10]
         ],
         "closed_positions": [
             {
@@ -229,7 +234,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
                 "exit_reason": p["exit_reason"],
                 "event_id": p.get("event_id"),
             }
-            for p in positions.get_closed_positions(limit=10)
+            for p in positions.get_closed_positions(limit=10, since=dash_since)
         ],
         "exit_decisions": [
             {

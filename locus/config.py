@@ -232,6 +232,11 @@ PROMPT_EVOLUTION_INTERVAL_DAYS = float(os.getenv("PROMPT_EVOLUTION_INTERVAL_DAYS
 AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"
 # Minimum time between auto-pushes, regardless of how often cycles run.
 AUTO_PUSH_MIN_INTERVAL_SECONDS = float(os.getenv("AUTO_PUSH_MIN_INTERVAL_SECONDS", "300"))
+# Display-only filter: when set to an ISO date (e.g. "2026-06-14"), the
+# dashboard's open/closed position lists only show positions opened on or after
+# that date (hides old test positions). Empty = show all. Positions are still in
+# the DB and still count toward calibration, the circuit breaker, and performance.
+DASHBOARD_POSITIONS_START_DATE = os.getenv("DASHBOARD_POSITIONS_START_DATE", "")
 
 # --- Whale tracking ---
 # Top-performing wallets to shadow (comma-separated addresses in .env). When a
