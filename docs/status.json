@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T21:12:38.635328+00:00",
+  "generated_at": "2026-06-15T21:17:42.081745+00:00",
   "dry_run": true,
-  "markets_tracked": 2534,
+  "markets_tracked": 2527,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,13 +18,13 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2291,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 2312,
+  "headlines_last_cycle": 0,
   "signals_24h": 14,
-  "classifications_24h": 12077,
+  "classifications_24h": 12156,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "stale": 108,
+    "stale": 110,
     "capped": 24,
     "correlation_block": 30,
     "category_limit": 0,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2439,
-    "matched": 700,
-    "classified": 12077,
+    "news": 2451,
+    "matched": 718,
+    "classified": 12156,
     "signals": 14,
     "trades": 14
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -3.44,
+    "unrealized_pnl_usd": -2.03,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -120,11 +120,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.32999999999999996,
-      "pnl_pct": 0.0,
+      "current_price": 0.32499999999999996,
+      "pnl_pct": 0.75,
       "amount_usd": 2.0,
-      "current_value_usd": 2.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 2.01,
+      "pnl_usd": 0.01,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -148,11 +148,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -190,11 +190,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.1015,
-      "pnl_pct": 11.54,
+      "current_price": 0.10199999999999998,
+      "pnl_pct": 12.09,
       "amount_usd": 18.77,
-      "current_value_usd": 20.94,
-      "pnl_usd": 2.17,
+      "current_value_usd": 21.04,
+      "pnl_usd": 2.27,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -218,11 +218,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.36,
-      "pnl_pct": 5.88,
+      "current_price": 0.39,
+      "pnl_pct": 14.71,
       "amount_usd": 14.68,
-      "current_value_usd": 15.54,
-      "pnl_usd": 0.86,
+      "current_value_usd": 16.84,
+      "pnl_usd": 2.16,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -344,38 +344,12 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 21:12:21",
-      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
-      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.62,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 21:12:19",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.72,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 21:12:16",
-      "market_question": "Trump renames Strait of Hormuz to \"Strait of Trump\" by June 30?",
-      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.65,
+      "time": "2026-06-15 21:16:46",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Meet Merlin the duck, a Mexico City streetside regular turned World Cup mascot - AP News",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
@@ -383,9 +357,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 21:12:16",
-      "market_question": "Will Brent Hennrich advance to the general election for WA-03?",
-      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
+      "time": "2026-06-15 21:16:46",
+      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
+      "headline": "Greek minister calls criticism of tougher migration policies a \u2018badge of honor\u2019 - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -396,9 +370,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 21:12:16",
-      "market_question": "Will Brent Bien win the 2026 Wyoming Governor Republican primary election?",
-      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
+      "time": "2026-06-15 21:16:46",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "Greek minister calls criticism of tougher migration policies a \u2018badge of honor\u2019 - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,6 +381,32 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 21:16:46",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Greek minister calls criticism of tougher migration policies a \u2018badge of honor\u2019 - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 21:16:44",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Meet Merlin the duck, a Mexico City streetside regular turned World Cup mascot - AP News",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
