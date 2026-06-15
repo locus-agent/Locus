@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T15:59:42.901760+00:00",
+  "generated_at": "2026-06-15T16:04:46.042858+00:00",
   "dry_run": true,
   "markets_tracked": 2576,
   "classify_error_streak": 0,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 877,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 913,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 6218,
+  "classifications_24h": 6409,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 94,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T15:48:40.483427+00:00"
+    "last_check": "2026-06-15T16:03:40.843207+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1306,
-    "matched": 580,
-    "classified": 6218,
+    "news": 1341,
+    "matched": 593,
+    "classified": 6409,
     "signals": 8,
     "trades": 8
   },
@@ -63,7 +63,7 @@
     "losses": 5,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -46.24,
-    "unrealized_pnl_usd": 12.74,
+    "unrealized_pnl_usd": 7.92,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -132,8 +132,8 @@
       "slug": "us-enacts-ai-safety-bill-before-2027",
       "side": "YES",
       "entry_price": 0.295,
-      "current_price": 0.295,
-      "pnl_pct": 0.0,
+      "current_price": 0.21500000000000008,
+      "pnl_pct": -27.12,
       "amount_usd": 10.68,
       "edge_type": "momentum",
       "event_id": "79075"
@@ -156,7 +156,7 @@
       "slug": "will-anthropic-make-a-deal-with-the-pentagon",
       "side": "YES",
       "entry_price": 0.09,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": -16.67,
       "amount_usd": 13.11,
       "edge_type": "momentum",
@@ -168,8 +168,8 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.097,
-      "pnl_pct": 6.59,
+      "current_price": 0.093,
+      "pnl_pct": 2.2,
       "amount_usd": 18.77,
       "edge_type": "momentum",
       "event_id": "379876"
@@ -180,8 +180,8 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.365,
-      "pnl_pct": 32.73,
+      "current_price": 0.355,
+      "pnl_pct": 29.09,
       "amount_usd": 18.32,
       "edge_type": "news",
       "event_id": "548275"
@@ -192,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.385,
-      "pnl_pct": 13.24,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -332,48 +332,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 15:56:21",
-      "market_question": "Will Everett Wess be the Democratic nominee for Senate in Alabama?",
-      "headline": "AP Decision Notes: What to expect in Alabama\u2019s state primary runoff - AP News",
+      "time": "2026-06-15 16:03:07",
+      "market_question": "Will a dLLM be the top AI model before 2027?",
+      "headline": "Quiz: Name these top nations' leading scorers",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:56:20",
-      "market_question": "Will Rodney Walker be the Republican nominee for Senate in Alabama?",
-      "headline": "AP Decision Notes: What to expect in Alabama\u2019s state primary runoff - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 15:56:17",
-      "market_question": "Will Steve Marshall be the Republican nominee for Senate in Alabama?",
-      "headline": "AP Decision Notes: What to expect in Alabama\u2019s state primary runoff - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 15:56:16",
-      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
-      "headline": "AP Decision Notes: What to expect in Alabama\u2019s state primary runoff - AP News",
+      "time": "2026-06-15 16:03:07",
+      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
+      "headline": "Quiz: Name these top nations' leading scorers",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -384,9 +358,35 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 15:56:16",
-      "market_question": "Will Ed Gallrein win the 2026 KY-04 Republican Primary Election by 9% or more?",
-      "headline": "AP Decision Notes: What to expect in Alabama\u2019s state primary runoff - AP News",
+      "time": "2026-06-15 16:03:07",
+      "market_question": "Will Meituan have the top AI model at the end of June 2026?",
+      "headline": "Quiz: Name these top nations' leading scorers",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 16:03:07",
+      "market_question": "Will Moonshot have the top AI model at the end of June 2026?",
+      "headline": "Quiz: Name these top nations' leading scorers",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 16:03:07",
+      "market_question": "Will DeepSeek have the top AI model at the end of June 2026?",
+      "headline": "Quiz: Name these top nations' leading scorers",
       "direction": null,
       "materiality": null,
       "confidence": null,
