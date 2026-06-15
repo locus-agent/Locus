@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T16:35:08.648751+00:00",
+  "generated_at": "2026-06-15T16:40:11.550669+00:00",
   "dry_run": true,
-  "markets_tracked": 2582,
+  "markets_tracked": 2580,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1122,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 931,
-  "headlines_last_cycle": 0,
-  "signals_24h": 8,
-  "classifications_24h": 6423,
+  "headlines_scanned_today": 934,
+  "headlines_last_cycle": 2,
+  "signals_24h": 9,
+  "classifications_24h": 6442,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 94,
@@ -43,27 +43,27 @@
     "last_check": "2026-06-15T16:33:41.647745+00:00"
   },
   "edge_types_24h": {
-    "news": 3,
+    "news": 4,
     "momentum": 5,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1339,
-    "matched": 610,
-    "classified": 6423,
-    "signals": 8,
-    "trades": 8
+    "news": 1342,
+    "matched": 613,
+    "classified": 6442,
+    "signals": 9,
+    "trades": 9
   },
   "performance": {
-    "trades_total": 15,
-    "deployed_usd": 280.9,
-    "open_count": 9,
+    "trades_total": 16,
+    "deployed_usd": 289.64,
+    "open_count": 10,
     "closed_count": 6,
     "wins": 0,
     "losses": 6,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -49.86,
-    "unrealized_pnl_usd": 13.16,
+    "unrealized_pnl_usd": 11.17,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -115,6 +115,18 @@
   },
   "open_positions": [
     {
+      "time": "2026-06-15 16:39:59",
+      "market_question": "Will Trump say \"Greatest\" during UFC 250?",
+      "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
+      "side": "YES",
+      "entry_price": 0.07,
+      "current_price": 0.07000000000000006,
+      "pnl_pct": 0.0,
+      "amount_usd": 8.74,
+      "edge_type": "news",
+      "event_id": "583905"
+    },
+    {
       "time": "2026-06-15 15:06:13",
       "market_question": "Will Donald Trump sign a U.S. x Iran deal by July 31?",
       "slug": "who-will-sign-uptspt-x-iran-deal-20260612002238373",
@@ -156,8 +168,8 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.098,
-      "pnl_pct": 7.69,
+      "current_price": 0.101,
+      "pnl_pct": 10.99,
       "amount_usd": 18.77,
       "edge_type": "momentum",
       "event_id": "379876"
@@ -168,8 +180,8 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.365,
-      "pnl_pct": 32.73,
+      "current_price": 0.355,
+      "pnl_pct": 29.09,
       "amount_usd": 18.32,
       "edge_type": "news",
       "event_id": "548275"
@@ -180,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.39,
-      "pnl_pct": 14.71,
+      "current_price": 0.345,
+      "pnl_pct": 1.47,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -340,50 +352,50 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 16:31:23",
-      "market_question": "Google (GOOGL) Up or Down on June 15?",
-      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
+      "time": "2026-06-15 16:40:10",
+      "market_question": "Will Trump say \u201cThank You\u201d 5+ times during UFC 250?",
+      "headline": "Don't expect a repeat. UFC boss Dana White says 'never again' to another White House fight night - AP News",
       "direction": "bearish",
-      "materiality": 0.08,
-      "confidence": 0.52,
+      "materiality": 0.75,
+      "confidence": 0.85,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 16:31:23",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 16:40:07",
+      "market_question": "Will Trump say \"Winner\" during UFC 250?",
+      "headline": "Don't expect a repeat. UFC boss Dana White says 'never again' to another White House fight night - AP News",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.72,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-15 16:31:20",
-      "market_question": "Will Google have the #3 AI model at the end of July 2026?",
-      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
+      "time": "2026-06-15 16:40:05",
+      "market_question": "Will Trump say \u201cDana\u201d or \u201cWhite\u201d 5+ times during UFC 250?",
+      "headline": "Don't expect a repeat. UFC boss Dana White says 'never again' to another White House fight night - AP News",
       "direction": "bearish",
       "materiality": 0.15,
-      "confidence": 0.55,
+      "confidence": 0.62,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 16:31:18",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
+      "time": "2026-06-15 16:40:03",
+      "market_question": "Haiti elections delayed again?",
+      "headline": "Don't expect a repeat. UFC boss Dana White says 'never again' to another White House fight night - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -392,15 +404,15 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 16:31:16",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
-      "direction": "bullish",
+      "time": "2026-06-15 16:40:02",
+      "market_question": "Will Trump say \"UFC\" 3+ times during UFC 250?",
+      "headline": "Don't expect a repeat. UFC boss Dana White says 'never again' to another White House fight night - AP News",
+      "direction": "bearish",
       "materiality": 0.15,
-      "confidence": 0.58,
+      "confidence": 0.62,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
