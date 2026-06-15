@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T23:31:39.351656+00:00",
+  "generated_at": "2026-06-15T23:36:42.327252+00:00",
   "dry_run": true,
-  "markets_tracked": 2548,
+  "markets_tracked": 2546,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1406,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3175,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 3180,
+  "headlines_last_cycle": 3,
   "signals_24h": 16,
-  "classifications_24h": 16196,
+  "classifications_24h": 16222,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 69,
+    "prefiltered_haiku": 71,
     "stale": 110,
     "capped": 25,
     "correlation_block": 38,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T23:20:57.747216+00:00"
+    "last_check": "2026-06-15T23:35:58.109980+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3175,
-    "matched": 712,
-    "classified": 16196,
+    "news": 3180,
+    "matched": 716,
+    "classified": 16222,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 4,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 13.84,
-    "unrealized_pnl_usd": -3.58,
+    "unrealized_pnl_usd": -3.61,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1500.4
+    "avg_classification_latency_ms": 1554.6
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.32999999999999996,
-      "pnl_pct": 0.0,
+      "current_price": 0.33999999999999997,
+      "pnl_pct": -1.49,
       "amount_usd": 2.0,
-      "current_value_usd": 2.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 1.97,
+      "pnl_usd": -0.03,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -428,9 +428,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 23:27:42",
-      "market_question": "Peru General Election invalidated by June 30?",
-      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
+      "time": "2026-06-15 23:36:31",
+      "market_question": "Will Steve Hilton win the 2026 California Governor Primary Election?",
+      "headline": "California\u2019s climate dollars in limbo - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 23:36:27",
+      "market_question": "Will Tom Steyer win the 2026 California Governor Primary Election by more than 5%?",
+      "headline": "California\u2019s climate dollars in limbo - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 23:36:25",
+      "market_question": "Will Tom Steyer win the 2026 California Governor Primary Election by less than 5%?",
+      "headline": "California\u2019s climate dollars in limbo - Politico",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 23:36:23",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "'Social media firms hit back' and 'Arson attack on Starmer linked to Russia'",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -441,48 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 23:27:42",
-      "market_question": "Venezuela election scheduled by December 31, 2026?",
-      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 23:27:42",
-      "market_question": "Will Brent Hennrich advance to the general election for WA-03?",
-      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 23:27:42",
-      "market_question": "Will John Braun advance to the general election for WA-03?",
-      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 23:27:42",
-      "market_question": "Will Lawrence Kellogg advance to the general election for WA-03?",
-      "headline": "Venezuela, General Electric sign cooperation agreement on power supply - Reuters",
+      "time": "2026-06-15 23:36:23",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "'Social media firms hit back' and 'Arson attack on Starmer linked to Russia'",
       "direction": null,
       "materiality": null,
       "confidence": null,
