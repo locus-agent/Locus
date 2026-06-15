@@ -177,6 +177,10 @@ class PipelineV2:
             f"{config.MIN_CONFIRMING_SOURCES} sources)"
         )
         console.print(f"  Speed target: {config.SPEED_TARGET_SECONDS}s")
+        console.print(
+            f"  News sources: {len(config.RSS_FEEDS)} RSS feeds, "
+            f"{len(config.TWITTER_KEYWORDS)} Twitter keywords"
+        )
         console.print()
 
         await asyncio.get_event_loop().run_in_executor(None, positions.backfill_positions)

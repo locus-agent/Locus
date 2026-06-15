@@ -80,6 +80,15 @@ RSS_FEEDS = [
     "https://feeds.arstechnica.com/arstechnica/technology-lab",
     "https://www.theverge.com/rss/index.xml",
     "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+    # --- Breaking-news feeds (faster political/crypto coverage) ---
+    "http://feeds.bbci.co.uk/news/rss.xml",                              # BBC Breaking
+    "https://www.coindesk.com/arc/outboundfeeds/rss/",                   # CoinDesk
+    "https://www.theblock.co/rss.xml",                                   # The Block
+    # Reuters/AP/Politico killed their direct RSS (dead hosts / Cloudflare),
+    # so we pull their breaking headlines via Google News site-search.
+    "https://news.google.com/rss/search?q=when:24h+site:reuters.com&hl=en-US&gl=US&ceid=US:en",   # Reuters
+    "https://news.google.com/rss/search?q=when:24h+site:apnews.com&hl=en-US&gl=US&ceid=US:en",    # AP News
+    "https://news.google.com/rss/search?q=when:24h+site:politico.com&hl=en-US&gl=US&ceid=US:en",  # Politico
 ]
 
 # --- Pipeline Settings ---
@@ -311,4 +320,9 @@ TWITTER_KEYWORDS = [
     "Fed rate", "tariff", "Congress", "White House",
     "SpaceX", "Starship", "NASA",
     "Apple", "NVIDIA", "Microsoft", "Google",
+    # Expanded breaking political/crypto/AI coverage. (Stream matching is
+    # case-insensitive, so spacex/openai/anthropic/bitcoin/ethereum/congress/
+    # white house from the requested set are already covered above.)
+    "Trump", "Iran", "Fed", "Federal Reserve", "Polymarket",
+    "election", "Senate", "breaking", "just in", "developing",
 ]

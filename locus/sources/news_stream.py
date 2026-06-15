@@ -100,10 +100,13 @@ class TwitterStream:
                     timeout=10,
                 )
 
-            # Create new rules from keywords (max 25 chars per rule for Basic)
+            # Create new rules from keywords. Basic tier allows 5 rules of up
+            # to 512 chars each, so batch generously to fit all keywords —
+            # batch_size=5 overflowed past the rules[:5] cap and silently
+            # dropped keywords once the list grew beyond 25.
             rules = []
             # Batch keywords into OR groups
-            batch_size = 5
+            batch_size = 8
             for i in range(0, len(self.keywords), batch_size):
                 batch = self.keywords[i:i + batch_size]
                 value = " OR ".join(f'"{kw}"' for kw in batch)
