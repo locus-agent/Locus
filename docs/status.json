@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T20:37:07.604916+00:00",
+  "generated_at": "2026-06-15T20:42:10.737696+00:00",
   "dry_run": true,
-  "markets_tracked": 2529,
+  "markets_tracked": 2527,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,10 +18,10 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2277,
-  "headlines_last_cycle": 0,
-  "signals_24h": 12,
-  "classifications_24h": 12205,
+  "headlines_scanned_today": 2281,
+  "headlines_last_cycle": 2,
+  "signals_24h": 13,
+  "classifications_24h": 12223,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 109,
@@ -44,26 +44,26 @@
   },
   "edge_types_24h": {
     "news": 7,
-    "momentum": 5,
+    "momentum": 6,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2474,
-    "matched": 687,
-    "classified": 12205,
-    "signals": 12,
-    "trades": 12
+    "news": 2473,
+    "matched": 691,
+    "classified": 12223,
+    "signals": 13,
+    "trades": 13
   },
   "performance": {
-    "trades_total": 12,
-    "deployed_usd": 155.87,
-    "open_count": 6,
+    "trades_total": 13,
+    "deployed_usd": 168.84,
+    "open_count": 7,
     "closed_count": 6,
     "wins": 3,
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -2.26,
+    "unrealized_pnl_usd": -3.12,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -115,6 +115,20 @@
   },
   "open_positions": [
     {
+      "time": "2026-06-15 20:37:32",
+      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
+      "slug": "trump-putin-and-zelensky-meet-together-before-2027",
+      "side": "YES",
+      "entry_price": 0.115,
+      "current_price": 0.115,
+      "pnl_pct": 0.0,
+      "amount_usd": 12.97,
+      "current_value_usd": 12.97,
+      "pnl_usd": 0.0,
+      "edge_type": "momentum",
+      "event_id": "106940"
+    },
+    {
       "time": "2026-06-15 19:01:43",
       "market_question": "Will Anthropic be acquired before 2027?",
       "slug": "which-companies-will-be-acquired-before-2027",
@@ -148,11 +162,11 @@
       "slug": "will-anthropic-make-a-deal-with-the-pentagon",
       "side": "YES",
       "entry_price": 0.09,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": -16.67,
       "amount_usd": 13.11,
-      "current_value_usd": 10.92,
-      "pnl_usd": -2.19,
+      "current_value_usd": 10.93,
+      "pnl_usd": -2.18,
       "edge_type": "momentum",
       "event_id": "248342"
     },
@@ -190,11 +204,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.385,
-      "pnl_pct": 13.24,
+      "current_price": 0.365,
+      "pnl_pct": 7.35,
       "amount_usd": 14.68,
-      "current_value_usd": 16.62,
-      "pnl_usd": 1.94,
+      "current_value_usd": 15.76,
+      "pnl_usd": 1.08,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -316,22 +330,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 20:33:20",
-      "market_question": "Will Anthropic IPO by September 30, 2026?",
-      "headline": "SpaceX IPO fuels $1.4 billion trading frenzy on Hyperliquid as SPCX perp becomes HIP-3\u2019s biggest market",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 20:33:20",
-      "market_question": "Spain snap election called in 2026?",
-      "headline": "The 40-year-old keeper who inspired Cape Verde's historic debut against Spain",
+      "time": "2026-06-15 20:41:41",
+      "market_question": "Will OpenAI's valuation hit (LOW) $750B by December 31?",
+      "headline": "The tyranny of low G7 expectations - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -342,9 +343,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 20:33:20",
-      "market_question": "Spain snap election called by June 30, 2026?",
-      "headline": "The 40-year-old keeper who inspired Cape Verde's historic debut against Spain",
+      "time": "2026-06-15 20:41:41",
+      "market_question": "Will OpenAI's valuation hit (LOW) $800B by December 31?",
+      "headline": "The tyranny of low G7 expectations - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -355,9 +356,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 20:33:20",
-      "market_question": "Elon Musk wins $10b+ settlement against Altman/OpenAI?",
-      "headline": "The 40-year-old keeper who inspired Cape Verde's historic debut against Spain",
+      "time": "2026-06-15 20:41:41",
+      "market_question": "Will Anthropic's valuation hit (LOW) $800B by December 31?",
+      "headline": "The tyranny of low G7 expectations - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -368,9 +369,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 20:33:20",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be less than 5?",
-      "headline": "The 40-year-old keeper who inspired Cape Verde's historic debut against Spain",
+      "time": "2026-06-15 20:41:41",
+      "market_question": "Will OpenAI's valuation hit (LOW) $700B by December 31?",
+      "headline": "The tyranny of low G7 expectations - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 20:41:41",
+      "market_question": "Will OpenAI's valuation hit (LOW) $600B by December 31?",
+      "headline": "The tyranny of low G7 expectations - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
