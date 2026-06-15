@@ -68,11 +68,18 @@ def compute_live_readiness() -> dict:
     conn = logger._conn()
     closed = [
         dict(r) for r in conn.execute(
-            "SELECT amount_usd, realized_pnl_usd, closed_at FROM positions "
+            "SELECT amount_usd, realized_pnl_usd, closed_at, opened_at FROM positions "
             "WHERE status LIKE 'closed_%' ORDER BY closed_at"
         ).fetchall()
     ]
     conn.close()
+
+    # Display-only window: when PERFORMANCE_START_DATE is set, count only
+    # positions opened on or after it (same filter as compute_performance), so
+    # closed_trades / win_rate / sharpe / max_drawdown all scope to that window.
+    since = config.PERFORMANCE_START_DATE
+    if since:
+        closed = [p for p in closed if (p.get("opened_at") or "") >= since]
 
     closed_trades = len(closed)
 

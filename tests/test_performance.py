@@ -9,6 +9,7 @@ from locus.core.performance import (
     position_pnl,
     compute_performance,
     compute_circuit_breaker,
+    compute_live_readiness,
 )
 
 
@@ -278,3 +279,75 @@ def test_circuit_breaker_start_date_accepts_date_only(tmp_db, monkeypatch):
     cb = compute_circuit_breaker()
     assert cb["metrics"]["closed_trades_7d"] == 3
     assert cb["triggered"] is False
+
+
+# --- live readiness respects PERFORMANCE_START_DATE ------------------------
+
+def _closed_with_opened(tmp_db, mid, amount, realized_pnl, opened_at, closed_at):
+    """A fully-closed position with a chosen open AND close time."""
+    from locus.core import positions
+    from locus.markets.gamma import Market
+
+    trade_id = tmp_db.log_trade(
+        market_id=mid, market_question="Q?", claude_score=0.7,
+        market_price=0.5, edge=0.2, side="YES", amount_usd=amount,
+        status="dry_run", classification="bullish", materiality=0.7,
+    )
+    positions.open_position(trade_id, Market(mid, "Q?", "ai", 0.5, 0.5, 5000, "", True, []),
+                            "YES", amount)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET status='closed_resolution', realized_pnl_usd=?, "
+        "opened_at=?, closed_at=? WHERE trade_id=?",
+        (realized_pnl, opened_at, closed_at, trade_id),
+    )
+    conn.commit()
+    conn.close()
+
+
+_LR_OLD = "2026-06-10 09:00:00"
+_LR_NEW = "2026-06-14 09:00:00"
+_LR_CUTOFF = "2026-06-14"
+
+
+def _seed_old_and_new_closes(tmp_db):
+    # Old: two winners. New: one winner, one loser.
+    _closed_with_opened(tmp_db, "old1", 25.0, 10.0, _LR_OLD, "2026-06-10 12:00:00")
+    _closed_with_opened(tmp_db, "old2", 25.0, 10.0, _LR_OLD, "2026-06-11 12:00:00")
+    _closed_with_opened(tmp_db, "new1", 25.0, 10.0, _LR_NEW, "2026-06-14 12:00:00")
+    _closed_with_opened(tmp_db, "new2", 25.0, -10.0, _LR_NEW, "2026-06-15 12:00:00")
+
+
+def _readiness_value(result, key):
+    return next(m["value"] for m in result["metrics"] if m["key"] == key)
+
+
+def test_live_readiness_filtered_by_date(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", _LR_CUTOFF)
+    _seed_old_and_new_closes(tmp_db)
+    r = compute_live_readiness()
+    # Only the two NEW closes count.
+    assert _readiness_value(r, "closed_trades") == 2
+    assert _readiness_value(r, "win_rate") == pytest.approx(50.0)   # 1 of 2
+
+
+def test_live_readiness_unfiltered_counts_all(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    _seed_old_and_new_closes(tmp_db)
+    r = compute_live_readiness()
+    assert _readiness_value(r, "closed_trades") == 4
+    assert _readiness_value(r, "win_rate") == pytest.approx(75.0)   # 3 of 4
+
+
+def test_live_readiness_future_date_excludes_all(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "2030-01-01")
+    _seed_old_and_new_closes(tmp_db)
+    r = compute_live_readiness()
+    # No closed trades in the window -> every metric scopes to empty (N/A).
+    assert _readiness_value(r, "closed_trades") == 0
+    assert _readiness_value(r, "win_rate") is None
+    assert _readiness_value(r, "sharpe_ratio") is None
+    assert _readiness_value(r, "max_drawdown") is None
+    assert r["ready"] is False
+    assert r["criteria_met"] == 0
+    assert all(m["pass"] is None for m in r["metrics"])
