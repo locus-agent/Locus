@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T19:06:09.535846+00:00",
+  "generated_at": "2026-06-15T19:11:12.662395+00:00",
   "dry_run": true,
-  "markets_tracked": 2528,
+  "markets_tracked": 2530,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,13 +18,13 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2121,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 2122,
+  "headlines_last_cycle": 0,
   "signals_24h": 12,
-  "classifications_24h": 11884,
+  "classifications_24h": 11777,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "stale": 107,
+    "stale": 105,
     "capped": 19,
     "correlation_block": 29,
     "category_limit": 0,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2410,
-    "matched": 642,
-    "classified": 11884,
+    "news": 2388,
+    "matched": 631,
+    "classified": 11777,
     "signals": 12,
     "trades": 12
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -0.58,
+    "unrealized_pnl_usd": -0.79,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -190,11 +190,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.405,
-      "pnl_pct": 19.12,
+      "current_price": 0.4,
+      "pnl_pct": 17.65,
       "amount_usd": 14.68,
-      "current_value_usd": 17.49,
-      "pnl_usd": 2.81,
+      "current_value_usd": 17.27,
+      "pnl_usd": 2.59,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -316,50 +316,50 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 19:06:07",
-      "market_question": "Will Anthropic have the best AI model at the end of December 2026?",
-      "headline": "All the news about Anthropic&#8217;s new AI fight with the White House",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
-      "edge": 0.10125,
-      "action": "low_materiality",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 19:06:05",
-      "market_question": "Will Anthropic have the best AI Agent at the end of June 2026?",
-      "headline": "All the news about Anthropic&#8217;s new AI fight with the White House",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 19:06:02",
-      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
-      "headline": "All the news about Anthropic&#8217;s new AI fight with the White House",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.68,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 19:06:00",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "All the news about Anthropic&#8217;s new AI fight with the White House",
+      "time": "2026-06-15 19:08:19",
+      "market_question": "Will Trump talk to Mojtaba Khamenei by June 30?",
+      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 19:08:17",
+      "market_question": "Will Trump's approval rating hit 30% in 2026?",
+      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.58,
+      "edge": 0.13575,
+      "action": "low_materiality",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 19:08:16",
+      "market_question": "Will Trump's approval rating hit 35% in 2026?",
+      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 19:08:14",
+      "market_question": "SCOTUS strikes down Trump's Birthright Citizenship EO?",
+      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
+      "direction": "neutral",
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -368,17 +368,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 19:06:00",
-      "market_question": "Will Labour Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
-      "headline": "All the news about Anthropic&#8217;s new AI fight with the White House",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 19:08:12",
+      "market_question": "Trump's face on US gold coin by July 4?",
+      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
