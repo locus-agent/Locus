@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T21:07:35.444537+00:00",
+  "generated_at": "2026-06-15T21:12:38.635328+00:00",
   "dry_run": true,
-  "markets_tracked": 2528,
+  "markets_tracked": 2534,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,19 +18,19 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2285,
-  "headlines_last_cycle": 0,
-  "signals_24h": 13,
-  "classifications_24h": 12041,
+  "headlines_scanned_today": 2291,
+  "headlines_last_cycle": 1,
+  "signals_24h": 14,
+  "classifications_24h": 12077,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 108,
-    "capped": 21,
+    "capped": 24,
     "correlation_block": 30,
     "category_limit": 0,
     "orderbook_skip": 8,
     "needs_confirmation": 15,
-    "event_exposure_block": 6,
+    "event_exposure_block": 7,
     "low_consensus": 0,
     "circuit_breaker": 0,
     "whale_triggered": 0,
@@ -43,27 +43,27 @@
     "last_check": "2026-06-15T21:05:33.704582+00:00"
   },
   "edge_types_24h": {
-    "news": 7,
+    "news": 8,
     "momentum": 6,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2433,
-    "matched": 694,
-    "classified": 12041,
-    "signals": 13,
-    "trades": 13
+    "news": 2439,
+    "matched": 700,
+    "classified": 12077,
+    "signals": 14,
+    "trades": 14
   },
   "performance": {
-    "trades_total": 13,
-    "deployed_usd": 168.84,
-    "open_count": 7,
+    "trades_total": 14,
+    "deployed_usd": 170.84,
+    "open_count": 8,
     "closed_count": 6,
     "wins": 3,
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -3.98,
+    "unrealized_pnl_usd": -3.44,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -114,6 +114,20 @@
     "sharpe_7d": null
   },
   "open_positions": [
+    {
+      "time": "2026-06-15 21:12:12",
+      "market_question": "Will Click Bishop advance from the 2026 Alaska Governor primary election?",
+      "slug": "who-will-advance-from-the-alaska-governor-primary",
+      "side": "NO",
+      "entry_price": 0.33,
+      "current_price": 0.32999999999999996,
+      "pnl_pct": 0.0,
+      "amount_usd": 2.0,
+      "current_value_usd": 2.0,
+      "pnl_usd": 0.0,
+      "edge_type": "news",
+      "event_id": "101877"
+    },
     {
       "time": "2026-06-15 20:37:32",
       "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
@@ -176,11 +190,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.101,
-      "pnl_pct": 10.99,
+      "current_price": 0.1015,
+      "pnl_pct": 11.54,
       "amount_usd": 18.77,
-      "current_value_usd": 20.83,
-      "pnl_usd": 2.06,
+      "current_value_usd": 20.94,
+      "pnl_usd": 2.17,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -204,11 +218,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.36,
+      "pnl_pct": 5.88,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 15.54,
+      "pnl_usd": 0.86,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -330,12 +344,38 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 21:05:36",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "I'll keep gambling with fitness for England - Saka",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-15 21:12:21",
+      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
+      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 21:12:19",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.72,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 21:12:16",
+      "market_question": "Trump renames Strait of Hormuz to \"Strait of Trump\" by June 30?",
+      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.65,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
@@ -343,9 +383,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 21:05:36",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "I'll keep gambling with fitness for England - Saka",
+      "time": "2026-06-15 21:12:16",
+      "market_question": "Will Brent Hennrich advance to the general election for WA-03?",
+      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -356,35 +396,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 21:05:36",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "I'll keep gambling with fitness for England - Saka",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 21:05:36",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "I'll keep gambling with fitness for England - Saka",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 21:05:36",
-      "market_question": "Trump meets with Putin by September 30?",
-      "headline": "I'll keep gambling with fitness for England - Saka",
+      "time": "2026-06-15 21:12:16",
+      "market_question": "Will Brent Bien win the 2026 Wyoming Governor Republican primary election?",
+      "headline": "Citi cuts Brent forecasts as U.S.-Iran MoU points to Strait of Hormuz flow normalization - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
