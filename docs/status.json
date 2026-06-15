@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T15:39:30.898642+00:00",
+  "generated_at": "2026-06-15T15:44:34.002895+00:00",
   "dry_run": true,
-  "markets_tracked": 2564,
+  "markets_tracked": 2567,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1122,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 812,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 813,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 5931,
+  "classifications_24h": 5939,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 93,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1241,
-    "matched": 550,
-    "classified": 5931,
+    "news": 1242,
+    "matched": 551,
+    "classified": 5939,
     "signals": 8,
     "trades": 8
   },
@@ -63,7 +63,7 @@
     "losses": 5,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -46.24,
-    "unrealized_pnl_usd": 7.39,
+    "unrealized_pnl_usd": 9.85,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -120,8 +120,8 @@
       "slug": "who-will-sign-uptspt-x-iran-deal-20260612002238373",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.905,
-      "pnl_pct": 187.3,
+      "current_price": 0.995,
+      "pnl_pct": 215.87,
       "amount_usd": 2.46,
       "edge_type": "momentum",
       "event_id": "585449"
@@ -180,8 +180,8 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.29500000000000004,
-      "pnl_pct": 7.27,
+      "current_price": 0.315,
+      "pnl_pct": 14.55,
       "amount_usd": 18.32,
       "edge_type": "news",
       "event_id": "548275"
@@ -192,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.36,
-      "pnl_pct": 5.88,
+      "current_price": 0.37,
+      "pnl_pct": 8.82,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -332,11 +332,50 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 15:39:02",
-      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
-      "headline": "Supreme Court won't revive ex-Trump aide's suit over secret surveillance during Russia investigation - AP News",
+      "time": "2026-06-15 15:41:09",
+      "market_question": "Will DeepSeek be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
+      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 15:41:08",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 15:41:06",
+      "market_question": "Trump orders federal review of AI model releases by June 30?",
+      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 15:41:05",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
+      "direction": "neutral",
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -345,48 +384,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 15:39:02",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "'Positive' or 'unnecessary'? UK teens on social media ban",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 15:39:02",
-      "market_question": "US congress stock trading ban before 2027?",
-      "headline": "'Positive' or 'unnecessary'? UK teens on social media ban",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 15:39:02",
-      "market_question": "Will Trump post \"Crypto\" or \"Bitcoin\" on Truth Social this week?",
-      "headline": "'Positive' or 'unnecessary'? UK teens on social media ban",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 15:39:02",
-      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
-      "headline": "'Positive' or 'unnecessary'? UK teens on social media ban",
+      "time": "2026-06-15 15:41:05",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Salesforce deepens AI automation push with $3.6 billion Fin buyout - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
