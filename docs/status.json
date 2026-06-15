@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T16:30:05.664797+00:00",
+  "generated_at": "2026-06-15T16:35:08.648751+00:00",
   "dry_run": true,
-  "markets_tracked": 2571,
+  "markets_tracked": 2582,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1122,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 928,
+  "headlines_scanned_today": 931,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 6411,
+  "classifications_24h": 6423,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 94,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T16:18:41.254757+00:00"
+    "last_check": "2026-06-15T16:33:41.647745+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1337,
-    "matched": 607,
-    "classified": 6411,
+    "news": 1339,
+    "matched": 610,
+    "classified": 6423,
     "signals": 8,
     "trades": 8
   },
@@ -63,7 +63,7 @@
     "losses": 6,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -49.86,
-    "unrealized_pnl_usd": 10.29,
+    "unrealized_pnl_usd": 13.16,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -156,8 +156,8 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.0915,
-      "pnl_pct": 0.55,
+      "current_price": 0.098,
+      "pnl_pct": 7.69,
       "amount_usd": 18.77,
       "edge_type": "momentum",
       "event_id": "379876"
@@ -168,8 +168,8 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.355,
-      "pnl_pct": 29.09,
+      "current_price": 0.365,
+      "pnl_pct": 32.73,
       "amount_usd": 18.32,
       "edge_type": "news",
       "event_id": "548275"
@@ -180,8 +180,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.37,
-      "pnl_pct": 8.82,
+      "current_price": 0.39,
+      "pnl_pct": 14.71,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -340,11 +340,50 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 16:28:59",
-      "market_question": "Will a US court rule that the 2020 election was fradulent?",
-      "headline": "Boy was 'play hunting' before fatal stabbing, court told",
+      "time": "2026-06-15 16:31:23",
+      "market_question": "Google (GOOGL) Up or Down on June 15?",
+      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
+      "direction": "bearish",
+      "materiality": 0.08,
+      "confidence": 0.52,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 16:31:23",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 16:31:20",
+      "market_question": "Will Google have the #3 AI model at the end of July 2026?",
+      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 16:31:18",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -353,56 +392,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 16:28:59",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "Boy was 'play hunting' before fatal stabbing, court told",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 16:31:16",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.58,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 16:28:59",
-      "market_question": "Trump talks to Cuba leader Diaz-Canel by June 30?",
-      "headline": "Rwanda opposition leader Ingabire says she\u2019s physically unfit for trial - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 16:28:59",
-      "market_question": "Will Donald Trump be the next leader out before 2027?",
-      "headline": "Rwanda opposition leader Ingabire says she\u2019s physically unfit for trial - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 16:28:59",
-      "market_question": "Will Steve Daines be the next Senate Majority Leader?",
-      "headline": "Rwanda opposition leader Ingabire says she\u2019s physically unfit for trial - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
