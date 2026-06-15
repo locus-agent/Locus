@@ -12,6 +12,7 @@ Usage:
     python cli.py scrape               # Test news scraper only
     python cli.py markets              # Browse all active markets
     python cli.py trades               # View trade log
+    python cli.py close <position_id>  # Manually close an open position
     python cli.py stats                # Performance statistics
     python cli.py evolve               # Manually evolve the classification prompt
 """
@@ -356,6 +357,32 @@ def cmd_trades(args):
     console.print(table)
 
 
+def cmd_close(args):
+    """Manually close an open position at its last-marked price."""
+    from locus import config
+    from locus.core import positions
+
+    result = positions.close_manual(args.position_id)
+    if result is None:
+        console.print(
+            f"[red]Position #{args.position_id} not found or already closed.[/red]"
+        )
+        sys.exit(1)
+
+    if config.DRY_RUN:
+        console.print("[yellow]Dry-run mode — simulated close.[/yellow]")
+    else:
+        console.print(
+            "[red bold]LIVE mode[/red bold] — CLOB sell order not yet wired up; "
+            "recorded the close at the marked price."
+        )
+
+    console.print(
+        f"Closed position #{result['id']}: {result['market_question']} "
+        f"at {result['price']:.3f} (PnL: {result['pnl_pct']:+.1f}%)"
+    )
+
+
 def cmd_stats(args):
     from locus.memory import logger
 
@@ -443,6 +470,11 @@ def main():
     p_trades = sub.add_parser("trades", help="View trade log")
     p_trades.add_argument("--limit", type=int, default=20, help="Number of trades to show")
     p_trades.set_defaults(func=cmd_trades)
+
+    # close
+    p_close = sub.add_parser("close", help="Manually close an open position by id")
+    p_close.add_argument("position_id", type=int, help="Position id to close")
+    p_close.set_defaults(func=cmd_close)
 
     # stats
     p_stats = sub.add_parser("stats", help="Performance statistics")

@@ -197,3 +197,50 @@ def test_resolution_close(tmp_db):
     assert closed[0]["status"] == "resolved"
     assert closed[0]["exit_reason"] == "resolution"
     assert closed[0]["realized_pnl_usd"] == pytest.approx(25.0)
+
+
+# --- manual close (CLI `close <id>`) ---
+
+def test_manual_close_found(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "DRY_RUN", True)
+    pos = _open(tmp_db, side="YES", entry=0.50)
+    positions.update_and_manage({"cond1": 0.60})  # mark +20%, no trigger
+
+    result = positions.close_manual(pos["id"])
+    assert result is not None
+    assert result["id"] == pos["id"]
+    assert result["market_question"] == "Will X happen?"
+    assert result["side"] == "YES"
+    assert result["price"] == pytest.approx(0.60)
+    assert result["pnl_pct"] == pytest.approx(20.0)
+    assert result["realized"] == pytest.approx(5.0)  # 25 * (0.6/0.5 - 1)
+
+    closed = positions.get_closed_positions()
+    assert len(closed) == 1
+    assert closed[0]["status"] == "closed_manual"
+    assert closed[0]["exit_reason"] == "manual"
+
+    decisions = positions.get_recent_exit_decisions()
+    assert decisions[0]["trigger"] == "manual"
+    assert decisions[0]["decision"] == "close"
+    assert decisions[0]["reasoning"] == "Manual close requested by user"
+
+
+def test_manual_close_not_found(tmp_db):
+    assert positions.close_manual(99999) is None
+
+
+def test_manual_close_already_closed(tmp_db):
+    pos = _open(tmp_db, side="YES", entry=0.50)
+    assert positions.close_manual(pos["id"]) is not None
+    # A second close on the now-closed position is rejected (no double-close).
+    assert positions.close_manual(pos["id"]) is None
+    assert len(positions.get_closed_positions()) == 1
+
+
+def test_manual_close_unmarked_position_uses_entry(tmp_db):
+    # Never marked to a live price -> closes at entry, PnL 0.
+    pos = _open(tmp_db, side="YES", entry=0.50)
+    result = positions.close_manual(pos["id"])
+    assert result["price"] == pytest.approx(0.50)
+    assert result["pnl_pct"] == pytest.approx(0.0)

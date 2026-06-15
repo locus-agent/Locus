@@ -15,7 +15,7 @@ from pathlib import Path
 from locus import config
 from locus.memory import logger
 from locus import memory
-from locus.core.performance import compute_performance, compute_live_readiness, compute_circuit_breaker
+from locus.core.performance import compute_performance, compute_live_readiness, compute_circuit_breaker, position_pnl
 from locus.core import positions
 from locus.core import edge
 
@@ -61,6 +61,35 @@ def _classification_row(c: dict) -> dict:
         "match_source": c["match_source"],
         "consensus_score": c["consensus_score"],
         "ensemble_used": bool(c["ensemble_used"]) if c["ensemble_used"] is not None else None,
+    }
+
+
+def _open_position_row(p: dict) -> dict:
+    """Public shape of an open position, with marked-to-market dollar PnL.
+
+    current_value_usd is what the stake is worth now (amount * price_now /
+    price_entry on the held side); pnl_usd is that minus the stake. Both use
+    performance.position_pnl so the $ figures agree with the % the pipeline
+    marks into the table."""
+    entry = p["entry_yes_price"]
+    current = p["current_yes_price"]
+    amount = p["amount_usd"]
+    # An unmarked position (no live price yet) values at entry -> $0 PnL.
+    mark = entry if current is None else current
+    pnl_usd = position_pnl(p["side"], entry, mark, amount)
+    return {
+        "time": p["opened_at"],
+        "market_question": p["market_question"],
+        "slug": p["slug"],
+        "side": p["side"],
+        "entry_price": entry,
+        "current_price": current,
+        "pnl_pct": p["unrealized_pnl_pct"],
+        "amount_usd": amount,
+        "current_value_usd": round(amount + pnl_usd, 2),
+        "pnl_usd": round(pnl_usd, 2),
+        "edge_type": p.get("edge_type"),
+        "event_id": p.get("event_id"),
     }
 
 
@@ -186,19 +215,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "sharpe_7d": cb["metrics"].get("sharpe_7d"),
         },
         "open_positions": [
-            {
-                "time": p["opened_at"],
-                "market_question": p["market_question"],
-                "slug": p["slug"],
-                "side": p["side"],
-                "entry_price": p["entry_yes_price"],
-                "current_price": p["current_yes_price"],
-                "pnl_pct": p["unrealized_pnl_pct"],
-                "amount_usd": p["amount_usd"],
-                "edge_type": p.get("edge_type"),
-                "event_id": p.get("event_id"),
-            }
-            for p in positions.get_open_positions()[:10]
+            _open_position_row(p) for p in positions.get_open_positions()[:10]
         ],
         "closed_positions": [
             {

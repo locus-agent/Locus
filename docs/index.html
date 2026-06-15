@@ -771,10 +771,12 @@
               <th>Current</th>
               <th>PnL%</th>
               <th>Amount</th>
+              <th>Value</th>
+              <th>PnL ($)</th>
             </tr>
           </thead>
           <tbody id="position-rows">
-            <tr><td colspan="8" class="empty">No positions yet.</td></tr>
+            <tr><td colspan="10" class="empty">No positions yet.</td></tr>
           </tbody>
         </table>
       </div>
@@ -1244,7 +1246,7 @@
     const rows = status.open_positions || [];
 
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="8" class="empty">No positions yet.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="10" class="empty">No positions yet.</td></tr>';
       return;
     }
 
@@ -1253,6 +1255,7 @@
       const pnlTxt = pnl == null ? '—'
         : (pnl >= 0 ? '+' : '−') + Math.abs(pnl).toFixed(1) + '%';
       const pnlCls = pnl == null ? '' : (pnl >= 0 ? 'pnl-pos' : 'pnl-neg');
+      const [pnlUsdTxt, pnlUsdCls] = fmtPnl(t.pnl_usd);
       return `
       <tr>
         <td>${fmtTime(t.time)}</td>
@@ -1263,6 +1266,8 @@
         <td>${t.current_price == null ? '—' : t.current_price.toFixed(2)}</td>
         <td class="${pnlCls}">${pnlTxt}</td>
         <td>$${t.amount_usd == null ? '—' : t.amount_usd.toFixed(2)}</td>
+        <td>${t.current_value_usd == null ? '—' : '$' + t.current_value_usd.toFixed(2)}</td>
+        <td class="${pnlUsdCls}">${pnlUsdTxt}</td>
       </tr>`;
     }).join('');
   }

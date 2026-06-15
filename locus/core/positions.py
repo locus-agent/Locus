@@ -444,6 +444,58 @@ def close_on_resolution(trade_id: int, exit_yes_price: float) -> None:
     conn.close()
 
 
+def close_manual(position_id: int) -> dict | None:
+    """User-requested exit: close an open position at its last-marked price.
+
+    Returns a result dict (id, market_question, side, price, pnl_pct, realized)
+    on success, or None when the position doesn't exist or is already closed.
+    The close is logged to exit_decisions as an explicit user decision."""
+    conn = logger._conn()
+    row = conn.execute("SELECT * FROM positions WHERE id=?", (position_id,)).fetchone()
+    if row is None or row["status"] != "open":
+        conn.close()
+        return None
+
+    position = dict(row)
+    # Close at the last price marked into the positions table (falling back to
+    # entry if the position was never marked — leaves PnL at 0).
+    yes_price = position["current_yes_price"]
+    if yes_price is None:
+        yes_price = position["entry_yes_price"]
+    current_pnl = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+
+    if not config.DRY_RUN:
+        # TODO(live): place a CLOB sell order to flatten the position before
+        # recording the close. Until live execution is wired up we record the
+        # close at the marked price without hitting the exchange.
+        log.warning(
+            "[positions] Live manual close not yet implemented — recording the "
+            "close without placing a CLOB sell order"
+        )
+
+    realized = _close(conn, position, yes_price, "closed_manual", "manual")
+    conn.execute(
+        """INSERT INTO exit_decisions (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
+           VALUES (?, ?, ?, ?, ?, ?)""",
+        (position_id, "manual", "close", "Manual close requested by user",
+         round(current_pnl, 2), yes_price),
+    )
+    conn.commit()
+    conn.close()
+    log.info(
+        f"[positions] Manual close of position {position_id} "
+        f"pnl {current_pnl:+.1f}% realized ${realized:+.2f}"
+    )
+    return {
+        "id": position_id,
+        "market_question": position["market_question"],
+        "side": position["side"],
+        "price": yes_price,
+        "pnl_pct": current_pnl,
+        "realized": realized,
+    }
+
+
 def _format_time_remaining_for(condition_id: str) -> str:
     return "unknown"  # end date isn't stored on positions; kept simple
 
