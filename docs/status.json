@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T18:23:32.009157+00:00",
+  "generated_at": "2026-06-15T18:28:35.104408+00:00",
   "dry_run": true,
-  "markets_tracked": 2531,
+  "markets_tracked": 2530,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1229,
@@ -18,10 +18,10 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 1937,
+  "headlines_scanned_today": 1940,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 10973,
+  "classifications_24h": 10979,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 101,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2233,
-    "matched": 626,
-    "classified": 10973,
+    "news": 2236,
+    "matched": 627,
+    "classified": 10979,
     "signals": 11,
     "trades": 11
   },
@@ -302,69 +302,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 18:23:06",
-      "market_question": "Will the average monthly Ethereum gas price hit 25 Gwei before 2027?",
-      "headline": "Explainer: Middle East oil and gas output will take months to fully recover - Reuters",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
+      "time": "2026-06-15 18:26:53",
+      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
+      "headline": "Owners of Dominican club where 236 died in a collapse to stand trial - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 18:23:04",
-      "market_question": "Will the average monthly Ethereum gas price hit 15 Gwei before 2027?",
-      "headline": "Explainer: Middle East oil and gas output will take months to fully recover - Reuters",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 18:22:58",
-      "market_question": "Will the average monthly Ethereum gas price hit 40 Gwei before 2027?",
-      "headline": "Explainer: Middle East oil and gas output will take months to fully recover - Reuters",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 18:22:57",
-      "market_question": "Will the average monthly Ethereum gas price hit 20 Gwei before 2027?",
-      "headline": "Explainer: Middle East oil and gas output will take months to fully recover - Reuters",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 18:22:55",
-      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
-      "headline": "Explainer: Middle East oil and gas output will take months to fully recover - Reuters",
+      "time": "2026-06-15 18:26:53",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "World Cup racism monitor urges FIFA to remove match official over hand gesture on TV broadcast - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "cached",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 18:26:53",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "World Cup racism monitor urges FIFA to remove match official over hand gesture on TV broadcast - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.58,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 18:26:53",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "World Cup racism monitor urges FIFA to remove match official over hand gesture on TV broadcast - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 18:26:53",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "World Cup racism monitor urges FIFA to remove match official over hand gesture on TV broadcast - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
