@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T19:16:15.661205+00:00",
+  "generated_at": "2026-06-15T19:21:18.847308+00:00",
   "dry_run": true,
-  "markets_tracked": 2530,
+  "markets_tracked": 2527,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,13 +18,13 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2123,
+  "headlines_scanned_today": 2126,
   "headlines_last_cycle": 0,
   "signals_24h": 12,
-  "classifications_24h": 11782,
+  "classifications_24h": 11625,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "stale": 105,
+    "stale": 102,
     "capped": 19,
     "correlation_block": 29,
     "category_limit": 0,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T19:05:30.664352+00:00"
+    "last_check": "2026-06-15T19:20:31.032555+00:00"
   },
   "edge_types_24h": {
     "news": 7,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2389,
-    "matched": 631,
-    "classified": 11782,
+    "news": 2351,
+    "matched": 615,
+    "classified": 11625,
     "signals": 12,
     "trades": 12
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -2.52,
+    "unrealized_pnl_usd": -5.18,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -176,11 +176,11 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.31499999999999995,
-      "pnl_pct": 14.55,
+      "current_price": 0.275,
+      "pnl_pct": 0.0,
       "amount_usd": 18.32,
-      "current_value_usd": 20.98,
-      "pnl_usd": 2.66,
+      "current_value_usd": 18.32,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "548275"
     },
@@ -316,22 +316,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 19:14:41",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "time": "2026-06-15 19:16:55",
+      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
+      "headline": "Dow hits record high on US-Iran deal optimism, oil prices slide - Reuters",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 19:16:53",
+      "market_question": "Will the next elected US president be a woman?",
+      "headline": "Judge grants asylum to woman adopted by a US veteran from Iran after deportation threats - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "cached",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-15 19:14:41",
-      "market_question": "Will Base launch a token by September 30, 2026?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "time": "2026-06-15 19:16:53",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Judge grants asylum to woman adopted by a US veteran from Iran after deportation threats - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -342,9 +355,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 19:14:41",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "time": "2026-06-15 19:16:53",
+      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
+      "headline": "Judge grants asylum to woman adopted by a US veteran from Iran after deportation threats - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -355,22 +368,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 19:14:41",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 19:14:41",
-      "market_question": "Will Base launch a token by June 30, 2027?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "time": "2026-06-15 19:16:53",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Judge grants asylum to woman adopted by a US veteran from Iran after deportation threats - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
