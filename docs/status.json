@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T20:11:51.839238+00:00",
+  "generated_at": "2026-06-15T20:16:55.282367+00:00",
   "dry_run": true,
-  "markets_tracked": 2535,
+  "markets_tracked": 2536,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,17 +18,17 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2269,
+  "headlines_scanned_today": 2273,
   "headlines_last_cycle": 0,
   "signals_24h": 12,
-  "classifications_24h": 12198,
+  "classifications_24h": 12223,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 110,
     "capped": 20,
     "correlation_block": 29,
     "category_limit": 0,
-    "orderbook_skip": 7,
+    "orderbook_skip": 8,
     "needs_confirmation": 15,
     "event_exposure_block": 6,
     "low_consensus": 0,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2476,
-    "matched": 680,
-    "classified": 12198,
+    "news": 2480,
+    "matched": 683,
+    "classified": 12223,
     "signals": 12,
     "trades": 12
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -0.65,
+    "unrealized_pnl_usd": -1.72,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -162,11 +162,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.10250000000000001,
-      "pnl_pct": 12.64,
+      "current_price": 0.1015,
+      "pnl_pct": 11.54,
       "amount_usd": 18.77,
-      "current_value_usd": 21.14,
-      "pnl_usd": 2.37,
+      "current_value_usd": 20.94,
+      "pnl_usd": 2.17,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -190,11 +190,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.41999999999999993,
-      "pnl_pct": 23.53,
+      "current_price": 0.4,
+      "pnl_pct": 17.65,
       "amount_usd": 14.68,
-      "current_value_usd": 18.13,
-      "pnl_usd": 3.45,
+      "current_value_usd": 17.27,
+      "pnl_usd": 2.59,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -316,9 +316,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 20:09:20",
-      "market_question": "Will Nick Hankins be the Republican nominee for Senate in Oklahoma?",
-      "headline": "US Senate candidate with same name as incumbent Dan Sullivan ineligible for ballot, official rules - AP News",
+      "time": "2026-06-15 20:15:42",
+      "market_question": "Will Trump praise Dana White by June 30?",
+      "headline": "Donald Trump - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -329,9 +329,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 20:09:18",
-      "market_question": "Will Wayne Lonny Washington be the Republican nominee for Senate in Oklahoma?",
-      "headline": "US Senate candidate with same name as incumbent Dan Sullivan ineligible for ballot, official rules - AP News",
+      "time": "2026-06-15 20:15:40",
+      "market_question": "Will Trump speak to Ahmed al-Sharaa in June?",
+      "headline": "Donald Trump - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -342,43 +342,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 20:09:17",
-      "market_question": "Will John M. O\u2019Connor be the Republican nominee for Senate in Oklahoma?",
-      "headline": "US Senate candidate with same name as incumbent Dan Sullivan ineligible for ballot, official rules - AP News",
+      "time": "2026-06-15 20:15:38",
+      "market_question": "Will Donald Trump visit France in 2026?",
+      "headline": "Donald Trump - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 20:09:14",
-      "market_question": "Will Ed Markey be the Democratic nominee for Senate in Massachusetts?",
-      "headline": "US Senate candidate with same name as incumbent Dan Sullivan ineligible for ballot, official rules - AP News",
+      "time": "2026-06-15 20:15:38",
+      "market_question": "Trump renames Strait of Hormuz to \"Strait of Trump\" by June 30?",
+      "headline": "Donald Trump - AP News",
       "direction": "neutral",
       "materiality": 0.0,
-      "confidence": 0.5,
+      "confidence": 0.66,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
+      "action": "cached",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 20:09:13",
-      "market_question": "Will Trump endorse any candidate for President before 2027?",
-      "headline": "US Senate candidate with same name as incumbent Dan Sullivan ineligible for ballot, official rules - AP News",
+      "time": "2026-06-15 20:15:36",
+      "market_question": "Will Donald Trump attend the G7 Summit?",
+      "headline": "Donald Trump - AP News",
       "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
+      "materiality": 0.03,
+      "confidence": 0.66,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
