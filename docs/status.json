@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T21:48:01.041554+00:00",
+  "generated_at": "2026-06-15T21:53:04.168014+00:00",
   "dry_run": true,
-  "markets_tracked": 2541,
+  "markets_tracked": 2545,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,10 +18,10 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2358,
+  "headlines_scanned_today": 2360,
   "headlines_last_cycle": 0,
   "signals_24h": 15,
-  "classifications_24h": 12277,
+  "classifications_24h": 12286,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 113,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T21:35:34.473050+00:00"
+    "last_check": "2026-06-15T21:50:34.765058+00:00"
   },
   "edge_types_24h": {
     "news": 8,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2466,
-    "matched": 753,
-    "classified": 12277,
+    "news": 2468,
+    "matched": 755,
+    "classified": 12286,
     "signals": 15,
     "trades": 15
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -2.78,
+    "unrealized_pnl_usd": -0.76,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -190,11 +190,11 @@
       "slug": "will-anthropic-make-a-deal-with-the-pentagon",
       "side": "YES",
       "entry_price": 0.09,
-      "current_price": 0.07500000000000001,
-      "pnl_pct": -16.67,
+      "current_price": 0.08,
+      "pnl_pct": -11.11,
       "amount_usd": 13.11,
-      "current_value_usd": 10.93,
-      "pnl_usd": -2.18,
+      "current_value_usd": 11.65,
+      "pnl_usd": -1.46,
       "edge_type": "momentum",
       "event_id": "248342"
     },
@@ -204,7 +204,7 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.10450000000000001,
+      "current_price": 0.10450000000000004,
       "pnl_pct": 14.84,
       "amount_usd": 18.77,
       "current_value_usd": 21.55,
@@ -232,11 +232,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.36,
-      "pnl_pct": 5.88,
+      "current_price": 0.39,
+      "pnl_pct": 14.71,
       "amount_usd": 14.68,
-      "current_value_usd": 15.54,
-      "pnl_usd": 0.86,
+      "current_value_usd": 16.84,
+      "pnl_usd": 2.16,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -358,51 +358,12 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 21:44:57",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Cybersecurity executives urge the Trump administration to ease restrictions on Anthropic AI models - AP News",
-      "direction": "bearish",
-      "materiality": 0.25,
-      "confidence": 0.62,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 21:44:56",
-      "market_question": "Trump orders federal review of AI model releases by June 30?",
-      "headline": "Cybersecurity executives urge the Trump administration to ease restrictions on Anthropic AI models - AP News",
-      "direction": "bearish",
-      "materiality": 0.25,
-      "confidence": 0.58,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 21:44:53",
-      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
-      "headline": "Cybersecurity executives urge the Trump administration to ease restrictions on Anthropic AI models - AP News",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.58,
-      "edge": 0.23125,
-      "action": "correlation_block",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 21:44:51",
-      "market_question": "Will Anthropic be acquired before 2027?",
-      "headline": "Cybersecurity executives urge the Trump administration to ease restrictions on Anthropic AI models - AP News",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.58,
+      "time": "2026-06-15 21:51:15",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
@@ -410,9 +371,48 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 21:44:49",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "Cybersecurity executives urge the Trump administration to ease restrictions on Anthropic AI models - AP News",
+      "time": "2026-06-15 21:51:15",
+      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 21:51:15",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 21:51:15",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 21:51:14",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Airbus CEO criticises Europe's regulatory costs as it opens new line - Reuters",
       "direction": "neutral",
       "materiality": 0.02,
       "confidence": 0.5,
