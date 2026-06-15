@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T16:09:49.206837+00:00",
+  "generated_at": "2026-06-15T16:14:52.485586+00:00",
   "dry_run": true,
-  "markets_tracked": 2572,
+  "markets_tracked": 2575,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1122,
@@ -18,10 +18,10 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 917,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 921,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 6433,
+  "classifications_24h": 6457,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 94,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1345,
-    "matched": 597,
-    "classified": 6433,
+    "news": 1349,
+    "matched": 601,
+    "classified": 6457,
     "signals": 8,
     "trades": 8
   },
@@ -63,7 +63,7 @@
     "losses": 5,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -46.24,
-    "unrealized_pnl_usd": 9.62,
+    "unrealized_pnl_usd": 6.69,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -132,8 +132,8 @@
       "slug": "us-enacts-ai-safety-bill-before-2027",
       "side": "YES",
       "entry_price": 0.295,
-      "current_price": 0.21999999999999997,
-      "pnl_pct": -25.42,
+      "current_price": 0.22500000000000003,
+      "pnl_pct": -23.73,
       "amount_usd": 10.68,
       "edge_type": "momentum",
       "event_id": "79075"
@@ -168,8 +168,8 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.092,
-      "pnl_pct": 1.1,
+      "current_price": 0.09050000000000002,
+      "pnl_pct": -0.55,
       "amount_usd": 18.77,
       "edge_type": "momentum",
       "event_id": "379876"
@@ -192,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.41500000000000004,
-      "pnl_pct": 22.06,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -332,24 +332,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 16:09:28",
-      "market_question": "Will Donald Trump visit Israel in 2026?",
-      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
+      "time": "2026-06-15 16:14:04",
+      "market_question": "Will Bitcoin have the best performance in 2026?",
+      "headline": "Drone strikes kill over 1,000 civilians in Sudan in the first 5 months of 2026, UN rights chief says - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 16:09:26",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
-      "direction": "neutral",
-      "materiality": 0.01,
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -358,41 +345,54 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 16:09:26",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 16:14:02",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "Drone strikes kill over 1,000 civilians in Sudan in the first 5 months of 2026, UN rights chief says - AP News",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.62,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-15 16:09:26",
-      "market_question": "Will Trump pardon Elon Musk before 2027?",
-      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 16:09:24",
-      "market_question": "Will Trump meet with Elon Musk in June 2026?",
-      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
+      "time": "2026-06-15 16:14:00",
+      "market_question": "Will Bitcoin reach $180,000 by December 31, 2026?",
+      "headline": "Drone strikes kill over 1,000 civilians in Sudan in the first 5 months of 2026, UN rights chief says - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 16:13:59",
+      "market_question": "Will Trump resign by December 31, 2026?",
+      "headline": "Drone strikes kill over 1,000 civilians in Sudan in the first 5 months of 2026, UN rights chief says - AP News",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 16:13:57",
+      "market_question": "Will Grok AI beat T1 in 2026? ",
+      "headline": "Drone strikes kill over 1,000 civilians in Sudan in the first 5 months of 2026, UN rights chief says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
