@@ -99,7 +99,14 @@ and the last five lessons. Footer: details of the most recent signal. Press `q` 
 GitHub Pages site at `docs/index.html` renders with the same terminal aesthetic: the pipeline
 funnel, performance, the LIVE READINESS panel, gates (stale · capped · correlation · orderbook),
 open/closed positions with edge-type badges, the classification log (with materiality and
-confidence), and exit decisions. Two archive pages hang off it:
+confidence), and exit decisions. The Track Record panel pairs accuracy-by-category with a
+**price bucket analysis** table — every graded call bucketed by entry price (very_low 0.00-0.15
+through extreme 0.85-1.00), showing classifications, accuracy (as a progress bar), and average
+directional PnL%, with each row colored green/yellow/red against the overall accuracy. This is
+where the longshot problem is visible: the cheapest markets carry the most calls but the worst
+accuracy. The buckets are computed by `calibrator.get_accuracy_by_price_bucket()` and cached —
+recomputed only when a calibration run grades new rows, not on every export cycle. Two archive
+pages hang off the dashboard:
 
 - **`docs/journal.html`** — the full history of Locus's daily journal entries (`journal.json`).
 - **`docs/decisions.html`** — every position re-evaluation and its reasoning (`exit_decisions.json`).

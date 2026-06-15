@@ -30,6 +30,123 @@ class CalibrationReport:
     recommendation: str
 
 
+# --- Price-bucket accuracy analysis ------------------------------------------
+# Buckets graded classifications by their entry (YES) price to see where the
+# directional calls actually pay off. Lower bound inclusive, upper bound
+# exclusive, except the top bucket which includes a 1.00 price.
+PRICE_BUCKETS: list[tuple[str, float, float]] = [
+    ("very_low", 0.00, 0.15),
+    ("low", 0.15, 0.30),
+    ("mid", 0.30, 0.50),
+    ("fair", 0.50, 0.70),
+    ("high", 0.70, 0.85),
+    ("extreme", 0.85, 1.00),
+]
+
+# Accuracy this many points above/below the overall accuracy flips a bucket's
+# color (green = clearly better, red = clearly worse, yellow = in line).
+BUCKET_COLOR_MARGIN = 5.0
+
+# Cached price-bucket analysis. This scans every graded row, so it is computed
+# once and reused across the (30s) export cycles; the calibrator invalidates it
+# whenever it grades new rows. None until first computed.
+_price_bucket_cache: dict | None = None
+
+
+def invalidate_price_bucket_cache() -> None:
+    """Drop the cached price-bucket analysis so the next call recomputes it.
+    Called when the calibrator resolves/grades new rows."""
+    global _price_bucket_cache
+    _price_bucket_cache = None
+
+
+def bucket_for_price(price: float) -> str | None:
+    """Bucket name for a YES price, or None if the price is outside [0, 1].
+    Lower bound inclusive, upper exclusive; the top bucket includes 1.00."""
+    if price is None or price < 0.0 or price > 1.0:
+        return None
+    for name, lo, hi in PRICE_BUCKETS:
+        if lo <= price < hi:
+            return name
+    return PRICE_BUCKETS[-1][0]  # price == 1.00 lands in the top bucket
+
+
+def directional_pnl_pct(direction: str, entry_price: float, exit_price: float) -> float:
+    """Percent return of a $1 bet placed in the predicted direction at entry,
+    marked at exit_price. Bullish buys YES at entry_price; bearish buys NO at
+    (1 - entry_price). Degenerate 0/1 entry prices yield 0."""
+    if direction == "bullish":
+        return (exit_price - entry_price) / entry_price * 100 if entry_price > 0 else 0.0
+    if direction == "bearish":
+        return (entry_price - exit_price) / (1 - entry_price) * 100 if entry_price < 1 else 0.0
+    return 0.0
+
+
+def bucket_color(accuracy_pct: float, overall_accuracy: float) -> str:
+    """Color a bucket's accuracy relative to the overall accuracy:
+    green >= overall + margin, red <= overall - margin, yellow in between."""
+    if accuracy_pct >= overall_accuracy + BUCKET_COLOR_MARGIN:
+        return "green"
+    if accuracy_pct <= overall_accuracy - BUCKET_COLOR_MARGIN:
+        return "red"
+    return "yellow"
+
+
+def get_accuracy_by_price_bucket(use_cache: bool = True) -> dict:
+    """Accuracy and average directional PnL by entry-price bucket.
+
+    Returns {overall_accuracy, overall_total, buckets: [...]} where each bucket
+    carries name, range, total, correct, accuracy_pct, avg_pnl_pct, and a color
+    (relative to overall_accuracy). Empty buckets report zeros with color
+    "none". Cached across cycles; pass use_cache=False to force a recompute."""
+    global _price_bucket_cache
+    if use_cache and _price_bucket_cache is not None:
+        return _price_bucket_cache
+
+    rows = logger.get_graded_rows_with_prices()
+    overall_total = len(rows)
+    overall_correct = sum(r["correct"] for r in rows)
+    overall_accuracy = round(overall_correct / overall_total * 100, 1) if overall_total else 0.0
+
+    grouped: dict[str, list[dict]] = {name: [] for name, _, _ in PRICE_BUCKETS}
+    for r in rows:
+        name = bucket_for_price(r["entry_price"])
+        if name is not None:
+            grouped[name].append(r)
+
+    buckets = []
+    for name, lo, hi in PRICE_BUCKETS:
+        group = grouped[name]
+        total = len(group)
+        correct = sum(g["correct"] for g in group)
+        accuracy_pct = round(correct / total * 100, 1) if total else 0.0
+        avg_pnl_pct = (
+            round(
+                sum(directional_pnl_pct(g["direction"], g["entry_price"], g["exit_price"])
+                    for g in group) / total,
+                2,
+            )
+            if total else 0.0
+        )
+        buckets.append({
+            "name": name,
+            "range": f"{lo:.2f}-{hi:.2f}",
+            "total": total,
+            "correct": correct,
+            "accuracy_pct": accuracy_pct,
+            "avg_pnl_pct": avg_pnl_pct,
+            "color": bucket_color(accuracy_pct, overall_accuracy) if total else "none",
+        })
+
+    result = {
+        "overall_accuracy": overall_accuracy,
+        "overall_total": overall_total,
+        "buckets": buckets,
+    }
+    _price_bucket_cache = result
+    return result
+
+
 def grade_direction(entry_price: float, exit_price: float) -> str:
     """The market's actual direction between trade entry and resolution."""
     if exit_price > entry_price:
@@ -125,6 +242,7 @@ def check_resolutions():
 
     if resolved_count:
         memory.invalidate_track_record_cache()
+        invalidate_price_bucket_cache()
         log.info(f"[calibrator] Resolved {resolved_count} trades")
     return resolved_count
 
@@ -220,6 +338,7 @@ def grade_classifications(max_tokens_per_run: int = 50) -> int:
 
     if graded:
         memory.invalidate_track_record_cache()
+        invalidate_price_bucket_cache()
         log.info(f"[calibrator] Graded {graded} non-traded classifications")
     return graded
 

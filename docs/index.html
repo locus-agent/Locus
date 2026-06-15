@@ -454,6 +454,49 @@
     font-weight: 700;
   }
 
+  /* Price bucket analysis table */
+  .subpanel-title {
+    margin: 18px 0 8px;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+
+  .price-bucket-table td { vertical-align: middle; }
+  .price-bucket-table .bucket-name { text-transform: uppercase; font-weight: 700; }
+  .price-bucket-table .num { text-align: right; }
+
+  /* Inline accuracy progress bar inside a table cell */
+  .acc-cell { min-width: 150px; }
+  .acc-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .acc-track {
+    flex: 1;
+    height: 12px;
+    background: var(--bg);
+    border: 1px solid var(--row-border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .acc-fill { height: 100%; background: var(--muted); }
+  .acc-fill.acc-green { background: var(--green); }
+  .acc-fill.acc-yellow { background: var(--yellow); }
+  .acc-fill.acc-red { background: var(--red); }
+  .acc-pct { width: 44px; text-align: right; font-weight: 700; }
+
+  /* Row tint by color threshold (vs. overall accuracy) */
+  tr.bucket-green td { background: rgba(43, 212, 126, 0.07); }
+  tr.bucket-yellow td { background: rgba(217, 185, 74, 0.07); }
+  tr.bucket-red td { background: rgba(224, 90, 90, 0.07); }
+  tr.bucket-none td { color: var(--muted); }
+  .pnl-pos { color: var(--green); }
+  .pnl-neg { color: var(--red); }
+
   /* Tables */
   table {
     width: 100%;
@@ -869,6 +912,23 @@
         <div class="panel-title">Track Record</div>
         <div id="category-bars">
           <div class="empty">No resolved classifications yet.</div>
+        </div>
+        <div class="subpanel-title">Price Bucket Analysis</div>
+        <div class="table-scroll">
+          <table class="price-bucket-table">
+            <thead>
+              <tr>
+                <th>Bucket</th>
+                <th>Price Range</th>
+                <th>Classifications</th>
+                <th>Accuracy</th>
+                <th class="num">Avg PnL%</th>
+              </tr>
+            </thead>
+            <tbody id="price-bucket-rows">
+              <tr><td colspan="5" class="empty">No graded classifications yet.</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -1336,6 +1396,38 @@
     `).join('');
   }
 
+  function renderPriceBuckets(status) {
+    const tbody = document.getElementById('price-bucket-rows');
+    const data = status.accuracy_by_price || {};
+    const buckets = (data.buckets || []).filter(b => b.total > 0);
+
+    if (buckets.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty">No graded classifications yet.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = buckets.map(b => {
+      const acc = b.accuracy_pct;
+      const pnlClass = b.avg_pnl_pct > 0 ? 'pnl-pos' : (b.avg_pnl_pct < 0 ? 'pnl-neg' : '');
+      const pnlSign = b.avg_pnl_pct > 0 ? '+' : '';
+      return `
+      <tr class="bucket-${b.color}">
+        <td class="bucket-name">${escapeHtml(b.name)}</td>
+        <td>${escapeHtml(b.range)}</td>
+        <td>${b.total}</td>
+        <td class="acc-cell">
+          <div class="acc-bar">
+            <div class="acc-track">
+              <div class="acc-fill acc-${b.color}" style="width: ${Math.max(0, Math.min(100, acc))}%"></div>
+            </div>
+            <div class="acc-pct">${acc.toFixed(1)}%</div>
+          </div>
+        </td>
+        <td class="num ${pnlClass}">${pnlSign}${b.avg_pnl_pct.toFixed(2)}%</td>
+      </tr>`;
+    }).join('');
+  }
+
   function renderClassifications(status) {
     const tbody = document.getElementById('classification-rows');
     const rows = status.recent_classifications || [];
@@ -1439,6 +1531,7 @@
       renderGates(status);
       renderWhale(status);
       renderCategoryBars(status);
+      renderPriceBuckets(status);
       renderPrompt(status);
       renderJournal(status);
       renderClassifications(status);

@@ -523,6 +523,29 @@ def get_calibration_with_trades() -> list[dict]:
     return [dict(r) for r in rows]
 
 
+def get_graded_rows_with_prices() -> list[dict]:
+    """Every graded row (correct IS NOT NULL) from both grading tables, with the
+    entry price, the predicted direction, and the realized/marked exit price —
+    the raw input for price-bucket accuracy analysis.
+
+    `calibration` rows are resolved trades (exit = resolution price);
+    `classification_grades` rows are non-traded directional calls marked at the
+    CLOB price CALIBRATION_HORIZON_HOURS later. Both share the same shape:
+    (direction, entry_price, exit_price, correct)."""
+    conn = _conn()
+    rows = conn.execute("""
+        SELECT classification AS direction, entry_price, exit_price, correct
+        FROM calibration
+        WHERE correct IS NOT NULL AND entry_price IS NOT NULL AND exit_price IS NOT NULL
+        UNION ALL
+        SELECT direction, entry_price, price_after AS exit_price, correct
+        FROM classification_grades
+        WHERE correct IS NOT NULL AND entry_price IS NOT NULL AND price_after IS NOT NULL
+    """).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
 def log_lesson(trade_id: int, market_question: str, classification: str, actual_direction: str, lesson: str) -> int:
     global _lessons_cache
     _lessons_cache = None

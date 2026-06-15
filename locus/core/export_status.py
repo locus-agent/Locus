@@ -18,6 +18,7 @@ from locus import memory
 from locus.core.performance import compute_performance, compute_live_readiness, compute_circuit_breaker, position_pnl
 from locus.core import positions
 from locus.core import edge
+from locus.memory import calibrator
 
 log = logging.getLogger(__name__)
 
@@ -168,6 +169,10 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
         "markets_tracked": markets_tracked,
         "classify_error_streak": classify_error_streak,
         "track_record": memory.get_track_record(),
+        # Accuracy by entry-price bucket. Cached inside the calibrator and only
+        # recomputed when a calibration run grades new rows, so the 30s export
+        # cycle stays cheap.
+        "accuracy_by_price": calibrator.get_accuracy_by_price_bucket(),
         "headlines_scanned_today": logger.get_news_event_count_since(today_start),
         "headlines_last_cycle": headlines_last_cycle,
         "signals_24h": signals_24h,
