@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T11:16:44.871454+00:00",
+  "generated_at": "2026-06-15T11:21:48.428163+00:00",
   "dry_run": true,
-  "markets_tracked": 2553,
+  "markets_tracked": 2551,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1049,
@@ -18,13 +18,13 @@
       "newsapi": 14.4
     }
   },
-  "headlines_scanned_today": 151,
+  "headlines_scanned_today": 162,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3159,
+  "classifications_24h": 3220,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "stale": 60,
+    "stale": 65,
     "capped": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 688,
-    "matched": 352,
-    "classified": 3159,
+    "news": 699,
+    "matched": 361,
+    "classified": 3220,
     "signals": 0,
     "trades": 0
   },
@@ -219,51 +219,12 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 11:16:36",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
-      "headline": "OpenAI hit with multistate probe into possible user harm as its IPO looms - AP News",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.7,
-      "edge": 0.189,
-      "action": "stale",
-      "match_source": "keyword",
-      "consensus_score": 0.85,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 11:16:29",
-      "market_question": "Will OpenAI not IPO by December 31, 2026?",
-      "headline": "OpenAI hit with multistate probe into possible user harm as its IPO looms - AP News",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "confidence": 0.65,
-      "edge": 0.18375,
-      "action": "stale",
-      "match_source": "keyword",
-      "consensus_score": 0.85,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 11:16:19",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "OpenAI hit with multistate probe into possible user harm as its IPO looms - AP News",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.65,
-      "edge": 0.1855,
-      "action": "stale",
-      "match_source": "both",
-      "consensus_score": 0.85,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 11:16:10",
-      "market_question": "Will the price of Solana be less than $20 on June 16?",
-      "headline": "Indiana man thought he\u2019d won $100K lottery prize - but it was $20 due to \u2018error\u2019 - The Independent",
+      "time": "2026-06-15 11:21:43",
+      "market_question": "Will Bitcoin reach $87,500 in June?",
+      "headline": "Saylor to Musk: Thanks to you, 25% of 'Mag8' firms now hold bitcoin - CoinDesk",
       "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 1.0,
+      "materiality": 0.1,
+      "confidence": 0.8,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
@@ -271,17 +232,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 11:16:10",
-      "market_question": "Will Solana dip to $20 by December 31, 2026?",
-      "headline": "Indiana man thought he\u2019d won $100K lottery prize - but it was $20 due to \u2018error\u2019 - The Independent",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 11:21:34",
+      "market_question": "Will Bitcoin reach $90,000 in June?",
+      "headline": "Saylor to Musk: Thanks to you, 25% of 'Mag8' firms now hold bitcoin - CoinDesk",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.65,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 11:21:23",
+      "market_question": "Will Bitcoin reach $67,500 in June?",
+      "headline": "Saylor to Musk: Thanks to you, 25% of 'Mag8' firms now hold bitcoin - CoinDesk",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.65,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 11:21:15",
+      "market_question": "Will Bitcoin reach $82,500 in June?",
+      "headline": "Saylor to Musk: Thanks to you, 25% of 'Mag8' firms now hold bitcoin - CoinDesk",
+      "direction": "bullish",
+      "materiality": 0.2,
+      "confidence": 0.7,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 11:21:06",
+      "market_question": "Will Bitcoin reach $72,500 in June?",
+      "headline": "Saylor to Musk: Thanks to you, 25% of 'Mag8' firms now hold bitcoin - CoinDesk",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.6,
+      "edge": 0.12374999999999999,
+      "action": "stale",
+      "match_source": "keyword",
+      "consensus_score": 0.85,
+      "ensemble_used": false
     }
   ],
   "prompt": {
