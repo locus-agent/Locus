@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T19:11:12.662395+00:00",
+  "generated_at": "2026-06-15T19:16:15.661205+00:00",
   "dry_run": true,
   "markets_tracked": 2530,
   "classify_error_streak": 0,
@@ -18,10 +18,10 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2122,
+  "headlines_scanned_today": 2123,
   "headlines_last_cycle": 0,
   "signals_24h": 12,
-  "classifications_24h": 11777,
+  "classifications_24h": 11782,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 105,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2388,
+    "news": 2389,
     "matched": 631,
-    "classified": 11777,
+    "classified": 11782,
     "signals": 12,
     "trades": 12
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -0.79,
+    "unrealized_pnl_usd": -2.52,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -190,11 +190,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.4,
-      "pnl_pct": 17.65,
+      "current_price": 0.36,
+      "pnl_pct": 5.88,
       "amount_usd": 14.68,
-      "current_value_usd": 17.27,
-      "pnl_usd": 2.59,
+      "current_value_usd": 15.54,
+      "pnl_usd": 0.86,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -316,69 +316,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 19:08:19",
-      "market_question": "Will Trump talk to Mojtaba Khamenei by June 30?",
-      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
+      "time": "2026-06-15 19:14:41",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
       "direction": "neutral",
-      "materiality": 0.02,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 19:08:17",
-      "market_question": "Will Trump's approval rating hit 30% in 2026?",
-      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.58,
-      "edge": 0.13575,
-      "action": "low_materiality",
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 19:08:16",
-      "market_question": "Will Trump's approval rating hit 35% in 2026?",
-      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
+      "time": "2026-06-15 19:14:41",
+      "market_question": "Will Base launch a token by September 30, 2026?",
+      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 19:08:14",
-      "market_question": "SCOTUS strikes down Trump's Birthright Citizenship EO?",
-      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
+      "time": "2026-06-15 19:14:41",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 19:08:12",
-      "market_question": "Trump's face on US gold coin by July 4?",
-      "headline": "Gavin Newsom says Trump's DOJ is investigating him and his wife - Politico",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
+      "time": "2026-06-15 19:14:41",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 19:14:41",
+      "market_question": "Will Base launch a token by June 30, 2027?",
+      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
