@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T17:35:18.121409+00:00",
+  "generated_at": "2026-06-15T17:36:27.595952+00:00",
   "dry_run": true,
-  "markets_tracked": 2588,
+  "markets_tracked": 2590,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1196,
@@ -18,13 +18,13 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 1425,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1579,
+  "headlines_last_cycle": 154,
   "signals_24h": 9,
-  "classifications_24h": 8583,
+  "classifications_24h": 9362,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "stale": 105,
+    "stale": 106,
     "capped": 17,
     "correlation_block": 25,
     "category_limit": 0,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T17:30:06.444224+00:00"
+    "last_check": "2026-06-15T17:36:18.999776+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1758,
+    "news": 1912,
     "matched": 613,
-    "classified": 8583,
+    "classified": 9362,
     "signals": 9,
     "trades": 9
   },
@@ -63,21 +63,21 @@
     "losses": 2,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -1.24,
-    "unrealized_pnl_usd": 5.73,
+    "unrealized_pnl_usd": 7.8,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
   },
   "live_readiness": {
     "ready": false,
-    "criteria_met": 0,
+    "criteria_met": 1,
     "criteria_total": 4,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 6,
+        "value": 2,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -101,9 +101,9 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 40.7,
+        "value": 12.7,
         "threshold_display": "< 15%",
-        "pass": false
+        "pass": true
       }
     ]
   },
@@ -120,11 +120,11 @@
       "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
       "side": "YES",
       "entry_price": 0.07,
-      "current_price": 0.06499999999999995,
-      "pnl_pct": -7.14,
+      "current_price": 0.07,
+      "pnl_pct": 0.0,
       "amount_usd": 8.74,
-      "current_value_usd": 8.12,
-      "pnl_usd": -0.62,
+      "current_value_usd": 8.74,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "583905"
     },
@@ -134,11 +134,11 @@
       "slug": "who-will-sign-uptspt-x-iran-deal-20260612002238373",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.9985,
-      "pnl_pct": 216.98,
+      "current_price": 0.9895,
+      "pnl_pct": 214.13,
       "amount_usd": 2.46,
-      "current_value_usd": 7.8,
-      "pnl_usd": 5.34,
+      "current_value_usd": 7.73,
+      "pnl_usd": 5.27,
       "edge_type": "momentum",
       "event_id": "585449"
     },
@@ -204,11 +204,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.355,
-      "pnl_pct": 4.41,
+      "current_price": 0.39,
+      "pnl_pct": 14.71,
       "amount_usd": 14.68,
-      "current_value_usd": 15.33,
-      "pnl_usd": 0.65,
+      "current_value_usd": 16.84,
+      "pnl_usd": 2.16,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -286,66 +286,66 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 17:34:16",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "US Supreme Court rebuffs challenge to New York law allowing lawsuits against gun industry - Reuters",
+      "time": "2026-06-15 17:36:26",
+      "market_question": "Will ChatGPT be #1 Free App in the US Apple App Store on June 15?",
+      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
       "direction": "neutral",
-      "materiality": 0.02,
+      "materiality": 0.0,
+      "confidence": 1.0,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:36:26",
+      "market_question": "Will Shadowrocket be #1 Paid App in the US Apple App Store on June 15?",
+      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 1.0,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:36:26",
+      "market_question": "Will Threads be #1 Free App in the US Apple App Store on June 15?",
+      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 1.0,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:36:26",
+      "market_question": "Will Google be #1 Free App in the US Apple App Store on June 15?",
+      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 1.0,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 17:36:26",
+      "market_question": "Will ChatGPT be #2 Free App in the US Apple App Store on June 15?",
+      "headline": "Paradigm leads $9 million round in LatAm payments app El Dorado",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 17:34:16",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "US Supreme Court rebuffs challenge to New York law allowing lawsuits against gun industry - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:34:16",
-      "market_question": "Will David Tulley win the 2026 New York Governor Republican primary election?",
-      "headline": "US Supreme Court rebuffs challenge to New York law allowing lawsuits against gun industry - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:34:16",
-      "market_question": "Will Bruce Blakeman win the 2026 New York Governor Republican primary election?",
-      "headline": "US Supreme Court rebuffs challenge to New York law allowing lawsuits against gun industry - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:34:16",
-      "market_question": "Will Betsy McCaughey win the 2026 New York Governor Republican primary election?",
-      "headline": "US Supreme Court rebuffs challenge to New York law allowing lawsuits against gun industry - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
