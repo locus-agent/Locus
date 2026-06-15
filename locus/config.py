@@ -237,6 +237,12 @@ AUTO_PUSH_MIN_INTERVAL_SECONDS = float(os.getenv("AUTO_PUSH_MIN_INTERVAL_SECONDS
 # that date (hides old test positions). Empty = show all. Positions are still in
 # the DB and still count toward calibration, the circuit breaker, and performance.
 DASHBOARD_POSITIONS_START_DATE = os.getenv("DASHBOARD_POSITIONS_START_DATE", "")
+# Display-only filter for the dashboard performance panel: when set to an ISO
+# date, compute_performance() only counts positions opened on or after it
+# (closed_count, win rate, realized/unrealized PnL, deployed capital). Empty =
+# count all. The circuit breaker, calibration, and dynamic-Kelly win rate keep
+# using full history (they have their own date filters).
+PERFORMANCE_START_DATE = os.getenv("PERFORMANCE_START_DATE", "")
 
 # --- Whale tracking ---
 # Top-performing wallets to shadow (comma-separated addresses in .env). When a

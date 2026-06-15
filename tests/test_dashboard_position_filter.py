@@ -108,6 +108,9 @@ def test_filter_does_not_affect_performance(tmp_db, isolated_export, monkeypatch
     # The dashboard hides the old position, but performance/calibration still
     # count it — they read the positions table directly, not the filtered lists.
     monkeypatch.setattr(config, "DASHBOARD_POSITIONS_START_DATE", CUTOFF)
+    # This asserts full-history performance, so pin the separate performance-panel
+    # window off (independent of the developer's .env).
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
     _make_position(tmp_db, "oldC", OLD, closed=True, closed_at="2026-06-11 10:00:00",
                    realized=10.0)
     _make_position(tmp_db, "newC", NEW, closed=True, closed_at="2026-06-15 10:00:00",

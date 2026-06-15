@@ -283,6 +283,17 @@ def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
     rows = [dict(r) for r in conn.execute("SELECT * FROM positions").fetchall()]
     conn.close()
 
+    # Display-only window for the dashboard performance panel: when set, scope
+    # every metric below to positions opened on or after PERFORMANCE_START_DATE
+    # (and the trades behind them, so deployed/trades_total stay coherent). The
+    # circuit breaker, calibration, and dynamic-Kelly win rate are unaffected —
+    # they don't go through compute_performance.
+    since = config.PERFORMANCE_START_DATE
+    if since:
+        rows = [p for p in rows if (p.get("opened_at") or "") >= since]
+        kept_trade_ids = {p["trade_id"] for p in rows}
+        trades = [t for t in trades if t["id"] in kept_trade_ids]
+
     deployed = sum(t["amount_usd"] for t in trades)
     realized = sum(p["realized_pnl_usd"] or 0.0 for p in rows)
     closed = [p for p in rows if p["status"] != "open"]

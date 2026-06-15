@@ -14,9 +14,11 @@ from locus.core.performance import (
 
 @pytest.fixture(autouse=True)
 def _neutralize_breaker_start_date(monkeypatch):
-    """Default the circuit-breaker start-date filter off so tests don't depend
-    on the developer's local .env. Tests that exercise the filter override it."""
+    """Default the circuit-breaker and performance-panel start-date filters off
+    so tests don't depend on the developer's local .env. Tests that exercise a
+    filter override it."""
     monkeypatch.setattr(config, "CIRCUIT_BREAKER_START_DATE", "")
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
 
 
 def test_yes_position_pnl():
