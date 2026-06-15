@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T17:23:01.171316+00:00",
+  "generated_at": "2026-06-15T17:28:03.937479+00:00",
   "dry_run": true,
-  "markets_tracked": 2590,
+  "markets_tracked": 2586,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1191,
@@ -18,10 +18,10 @@
       "newsapi": 14.8
     }
   },
-  "headlines_scanned_today": 1264,
+  "headlines_scanned_today": 1266,
   "headlines_last_cycle": 0,
   "signals_24h": 9,
-  "classifications_24h": 7959,
+  "classifications_24h": 7972,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 104,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1644,
-    "matched": 616,
-    "classified": 7959,
+    "news": 1646,
+    "matched": 618,
+    "classified": 7972,
     "signals": 9,
     "trades": 9
   },
@@ -63,7 +63,7 @@
     "losses": 6,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -49.86,
-    "unrealized_pnl_usd": 7.14,
+    "unrealized_pnl_usd": 7.95,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -134,11 +134,11 @@
       "slug": "who-will-sign-uptspt-x-iran-deal-20260612002238373",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.9725,
-      "pnl_pct": 208.73,
+      "current_price": 0.9935,
+      "pnl_pct": 215.4,
       "amount_usd": 2.46,
-      "current_value_usd": 7.59,
-      "pnl_usd": 5.13,
+      "current_value_usd": 7.76,
+      "pnl_usd": 5.3,
       "edge_type": "momentum",
       "event_id": "585449"
     },
@@ -204,11 +204,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.36,
-      "pnl_pct": 5.88,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 15.54,
-      "pnl_usd": 0.86,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -286,11 +286,50 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 17:22:15",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
+      "time": "2026-06-15 17:26:41",
+      "market_question": "Will Donald Trump attend NATO Summit?",
+      "headline": "Trump says July 4 National Mall celebration will double as a 'Trump rally' - Reuters",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.58,
+      "edge": 0.12457499999999999,
+      "action": "low_materiality",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 17:26:40",
+      "market_question": "Will Trump's remarks not air?",
+      "headline": "Trump says July 4 National Mall celebration will double as a 'Trump rally' - Reuters",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.62,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 17:26:37",
+      "market_question": "Will Trump launch a coin by December 31?",
+      "headline": "Trump says July 4 National Mall celebration will double as a 'Trump rally' - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 17:26:36",
+      "market_question": "Will Trump nationalize elections?",
+      "headline": "Trump says July 4 National Mall celebration will double as a 'Trump rally' - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -299,56 +338,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 17:22:15",
-      "market_question": "Will Base launch a token by September 30, 2026?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 17:26:34",
+      "market_question": "Will Trump resign before 2027?",
+      "headline": "Trump says July 4 National Mall celebration will double as a 'Trump rally' - Reuters",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:22:15",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:22:15",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 17:22:15",
-      "market_question": "Will Base launch a token by June 30, 2027?",
-      "headline": "Utah canyon BASE jump kills 2, including extreme athlete who performed with Madonna - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
