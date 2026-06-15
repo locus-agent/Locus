@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T13:50:13.293227+00:00",
+  "generated_at": "2026-06-15T13:55:16.351641+00:00",
   "dry_run": true,
-  "markets_tracked": 2558,
+  "markets_tracked": 2556,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1071,
@@ -18,18 +18,18 @@
       "newsapi": 14.1
     }
   },
-  "headlines_scanned_today": 221,
-  "headlines_last_cycle": 0,
-  "signals_24h": 1,
-  "classifications_24h": 3399,
-  "selectivity_pct": 0.0,
+  "headlines_scanned_today": 234,
+  "headlines_last_cycle": 1,
+  "signals_24h": 2,
+  "classifications_24h": 3432,
+  "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 66,
     "capped": 1,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 0,
-    "needs_confirmation": 3,
+    "needs_confirmation": 8,
     "event_exposure_block": 0,
     "low_consensus": 0,
     "circuit_breaker": 0,
@@ -43,27 +43,27 @@
     "last_check": "2026-06-15T13:44:59.030156+00:00"
   },
   "edge_types_24h": {
-    "news": 1,
+    "news": 2,
     "momentum": 0,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 733,
-    "matched": 400,
-    "classified": 3399,
-    "signals": 1,
-    "trades": 1
+    "news": 736,
+    "matched": 409,
+    "classified": 3432,
+    "signals": 2,
+    "trades": 2
   },
   "performance": {
-    "trades_total": 8,
-    "deployed_usd": 173.82,
-    "open_count": 4,
+    "trades_total": 9,
+    "deployed_usd": 192.14,
+    "open_count": 5,
     "closed_count": 4,
     "wins": 0,
     "losses": 4,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -48.62,
-    "unrealized_pnl_usd": 1.42,
+    "unrealized_pnl_usd": 2.75,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -114,6 +114,18 @@
     "sharpe_7d": null
   },
   "open_positions": [
+    {
+      "time": "2026-06-15 13:52:25",
+      "market_question": "Will Ethereum reach $2,000 in June?",
+      "slug": "what-price-will-ethereum-hit-in-june-2026",
+      "side": "YES",
+      "entry_price": 0.275,
+      "current_price": 0.29500000000000004,
+      "pnl_pct": 7.27,
+      "amount_usd": 18.32,
+      "edge_type": "news",
+      "event_id": "548275"
+    },
     {
       "time": "2026-06-15 13:45:07",
       "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
@@ -231,9 +243,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 13:50:05",
-      "market_question": "Will Trump say \"UFC\" 3+ times during UFC 250?",
-      "headline": "Trump celebrates 80th birthday with an Iran deal and UFC cage fights at the White House - AP News",
+      "time": "2026-06-15 13:55:12",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Trump heads to G7 summit with wind at his back after announcing agreement aimed at ending Iran war - AP News",
       "direction": "neutral",
       "materiality": 0.1,
       "confidence": 0.8,
@@ -244,24 +256,11 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 13:49:56",
-      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
-      "headline": "Trump celebrates 80th birthday with an Iran deal and UFC cage fights at the White House - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.9,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": 0.85,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 13:49:48",
-      "market_question": "Will Trump say \"UFC\" this week?",
-      "headline": "Trump celebrates 80th birthday with an Iran deal and UFC cage fights at the White House - AP News",
+      "time": "2026-06-15 13:55:03",
+      "market_question": "Will Donald Trump attend the G7 Summit?",
+      "headline": "Trump heads to G7 summit with wind at his back after announcing agreement aimed at ending Iran war - AP News",
       "direction": "bullish",
-      "materiality": 0.85,
+      "materiality": 0.9,
       "confidence": 0.9,
       "edge": null,
       "action": "skip",
@@ -270,30 +269,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 13:49:37",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "The Knicks made a championship run that will be remembered in New York and in NBA history - AP News",
+      "time": "2026-06-15 13:54:59",
+      "market_question": "Will Jos\u00e9 Ignacio Garc\u00eda be the next President of Andalusia following the regional election?",
+      "headline": "Cucurella joins Real Madrid - will Fernandez follow?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 1.0,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": 0.85,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 13:49:37",
-      "market_question": "Will David Tulley win the 2026 New York Governor Republican primary election?",
-      "headline": "The Knicks made a championship run that will be remembered in New York and in NBA history - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 13:54:54",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "Cucurella joins Real Madrid - will Fernandez follow?",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 1.0,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 13:54:50",
+      "market_question": "Will Juan Grabois win the 2027 Argentina presidential election?",
+      "headline": "Cucurella joins Real Madrid - will Fernandez follow?",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 1.0,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.85,
+      "ensemble_used": false
     }
   ],
   "prompt": {
