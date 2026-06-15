@@ -1,1 +1,1 @@
-"""Backtests: synthetic replay (synthetic) and real-data pilot (real)."""
+"""Backtests: real-data pilot (real)."""

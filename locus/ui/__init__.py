@@ -1,1 +1,1 @@
-"""Terminal UIs: Textual dashboard (tui) and the legacy rich dashboard."""
+"""Terminal UI: the Textual dashboard (tui)."""

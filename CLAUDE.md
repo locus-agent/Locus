@@ -20,11 +20,9 @@ python cli.py verify         # checks deps, API keys, DB, market/news connectivi
 Everything goes through `cli.py`:
 
 ```bash
-python cli.py watch          # V2: event-driven pipeline (real-time news -> classify -> trade), runs forever
+python cli.py watch          # event-driven pipeline (real-time news -> classify -> trade), runs forever
 python cli.py watch --live   # same, with live trading enabled (DRY_RUN=false)
-python cli.py run            # V1: synchronous RSS -> score -> trade pipeline
-python cli.py dashboard       # Textual TUI (read-only; --legacy for V1 rich dashboard)
-python cli.py backtest       # replay resolved markets through the V2 classifier
+python cli.py dashboard       # Textual TUI (read-only)
 python cli.py calibrate       # classification accuracy report
 python cli.py niche           # browse markets within the volume filter
 python cli.py markets         # browse all active markets in target categories
@@ -48,13 +46,13 @@ e.g. `python -m locus.core.classifier`, `python -m locus.core.matcher`,
 ```
 locus/
   config.py     .env loading, thresholds, PROJECT_ROOT (anchors trades.db, chroma_db/, docs/)
-  core/         pipeline (+ gate_trade risk gates), classifier, scorer (V1),
+  core/         pipeline (+ gate_trade risk gates), classifier,
                 matcher, market_index, edge, executor, export_status
-  sources/      news_stream (Twitter/Telegram/RSS/NewsAPI), scraper (V1)
+  sources/      news_stream (Twitter/Telegram/RSS/NewsAPI), scraper (RSS/NewsAPI fetch helpers)
   markets/      gamma (Gamma API client + Market model), market_watcher
   memory/       __init__ (track record + lessons API), calibrator, logger (SQLite layer)
-  backtest/     synthetic (replay classifier), real (real-data pilot, currently parked)
-  ui/           tui (Textual dashboard), dashboard (legacy V1 rich dashboard)
+  backtest/     real (real-data pilot, currently parked)
+  ui/           tui (Textual dashboard)
 ```
 
 Runtime artifacts (`trades.db`, `chroma_db/`, `docs/status.json`, `.env`) stay at the
@@ -64,10 +62,10 @@ memory; memory.get_track_record()` works as before the package split.
 
 ## Architecture
 
-Two pipelines share the same infrastructure (`locus/config.py`, `locus/memory/logger.py`,
+The pipeline is built on shared infrastructure (`locus/config.py`, `locus/memory/logger.py`,
 `locus/markets/gamma.py`):
 
-### V2 — event-driven (`locus/core/pipeline.py: PipelineV2`, the recommended path)
+### Event-driven pipeline (`locus/core/pipeline.py: PipelineV2`)
 
 Everything is asyncio-based and runs as concurrent tasks under `run_pipeline_v2()`:
 
@@ -145,22 +143,16 @@ PipelineV2._execute_signals:
   then either logs a `dry_run` row or places a live order via `py_clob_client`
   (optional dependency, commented out in requirements.txt — install separately).
 
-### V1 — synchronous loop (`core/pipeline.py: run_pipeline`, preserved for backward compat)
-
-`sources/scraper.scrape_all` (RSS + NewsAPI) -> `markets/gamma.fetch_active_markets` ->
-`core/scorer.score_market` (Claude estimates a YES probability) -> `core/edge.detect_edge`
-(compares to market price) -> `core/executor.execute_trade`. Used by `cli.py run` and
-`ui/dashboard.py` (the legacy dashboard; `cli.py dashboard` launches the Textual TUI
-in `ui/tui.py`, a read-only view over `trades.db`).
+The read-only Textual dashboard (`cli.py dashboard`) lives in `ui/tui.py` and renders
+`trades.db` / `docs/status.json` without scanning, classifying, or trading.
 
 ### Shared infrastructure
 
 - `config.py` — loads `.env`, defines all thresholds/keys/categories and
-  `PROJECT_ROOT`. `DRY_RUN`, `MAX_BET_USD`, `DAILY_LOSS_LIMIT_USD`, `EDGE_THRESHOLD`
-  apply to both pipelines;
+  `PROJECT_ROOT`: `DRY_RUN`, `MAX_BET_USD`, `DAILY_LOSS_LIMIT_USD`, `EDGE_THRESHOLD`,
   `MAX_VOLUME_USD`/`MIN_VOLUME_USD`/`MATERIALITY_THRESHOLD_BULLISH`/
-  `MATERIALITY_THRESHOLD_BEARISH`/`HIGH_MATERIALITY_THRESHOLD`/`SPEED_TARGET_SECONDS` are
-  V2-only. `cli.py` mutates `config.DRY_RUN` / `config.MATERIALITY_THRESHOLD_BULLISH` +
+  `MATERIALITY_THRESHOLD_BEARISH`/`HIGH_MATERIALITY_THRESHOLD`/`SPEED_TARGET_SECONDS`, and
+  more. `cli.py` mutates `config.DRY_RUN` / `config.MATERIALITY_THRESHOLD_BULLISH` +
   `config.MATERIALITY_THRESHOLD_BEARISH` (via `--threshold`) / `config.EDGE_THRESHOLD` at
   runtime based on CLI flags — modules must read these as `config.X` (not via
   `from locus.config import X`) to see overrides.

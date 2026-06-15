@@ -67,7 +67,7 @@ python cli.py verify
 
 ## How to Use
 
-### V2: Event-Driven Pipeline (Recommended)
+### Event-Driven Pipeline
 
 ```bash
 # Start the real-time pipeline — monitors news streams, classifies, trades
@@ -79,20 +79,10 @@ python cli.py watch --live
 
 The `watch` command runs indefinitely. It connects to your configured news sources (Twitter, Telegram, RSS fallback), matches breaking headlines to niche Polymarket markets, classifies each with Claude, and executes trades when it finds edge.
 
-### V1: Synchronous Pipeline
-
-```bash
-# Single scan — scrape RSS, score markets, log signals
-python cli.py run
-
-python cli.py run --max 15 --hours 12
-```
-
 ### Live Dashboard
 
 ```bash
 python cli.py dashboard            # Textual TUI — read-only, run it next to `watch`
-python cli.py dashboard --legacy   # old rich dashboard (runs the V1 scan loop)
 ```
 
 ![Locus TUI dashboard](docs/tui.svg)
@@ -114,23 +104,12 @@ confidence), and exit decisions. Two archive pages hang off it:
 - **`docs/journal.html`** — the full history of Locus's daily journal entries (`journal.json`).
 - **`docs/decisions.html`** — every position re-evaluation and its reasoning (`exit_decisions.json`).
 
-### Backtest
-
-```bash
-# Validate the V2 strategy against resolved markets
-python cli.py backtest
-
-python cli.py backtest --limit 50 --category ai
-```
-
 ### All Commands
 
 | Command | What it does |
 |---|---|
-| `python cli.py watch` | V2: Real-time event-driven pipeline |
-| `python cli.py run` | V1: Synchronous RSS-based pipeline |
-| `python cli.py dashboard` | Live terminal dashboard |
-| `python cli.py backtest` | Backtest against resolved markets |
+| `python cli.py watch` | Real-time event-driven pipeline |
+| `python cli.py dashboard` | Live terminal dashboard (TUI) |
 | `python cli.py calibrate` | Classification accuracy report |
 | `python cli.py niche` | Browse niche markets (volume-filtered) |
 | `python cli.py verify` | Check all API keys and connections |
@@ -146,18 +125,18 @@ python cli.py backtest --limit 50 --category ai
 ### Package layout
 
 ```
-cli.py                  entry point: watch · run · dashboard · backtest · verify
+cli.py                  entry point: watch · dashboard · calibrate · verify
 locus/
   config.py             .env keys, thresholds, market categories, PROJECT_ROOT
   supervisor.py         supervises async pipeline tasks, restarts on crash
   core/                 pipeline · classifier · edge · executor · export_status
                         market_index · matcher · positions · performance
-                        journal · orderbook · scorer (V1)
-  sources/              news_stream · scraper (V1)
+                        journal · orderbook
+  sources/              news_stream · scraper
   markets/              gamma · market_watcher
   memory/               __init__ (memory) · calibrator · logger
-  backtest/             synthetic · real
-  ui/                   tui · dashboard (legacy)
+  backtest/             real
+  ui/                   tui
 ```
 
 Runtime artifacts (`trades.db`, `chroma_db/`, `docs/status.json`, `.env`) live at the
@@ -166,7 +145,7 @@ project root, resolved via `config.PROJECT_ROOT` — run everything from the rep
 ### Data flow
 
 ```
-                cli.py   (entry point: watch, run, verify, …)
+                cli.py   (entry point: watch, dashboard, verify, …)
                    │
                    ▼
               pipeline.py   (asyncio event loop)
@@ -211,9 +190,9 @@ history before classifying the next headline.
 
 | File | What it does |
 |---|---|
-| `cli.py` | Entry point — `watch`, `run`, `dashboard`, `backtest`, `verify`, and friends |
+| `cli.py` | Entry point — `watch`, `dashboard`, `calibrate`, `verify`, and friends |
 | `locus/config.py` | All settings — `.env` keys, thresholds, market categories, `PROJECT_ROOT` |
-| `locus/core/pipeline.py` | Orchestrators: V2 asyncio event loop (`watch`), V1 loop (`run`), trade risk gates |
+| `locus/core/pipeline.py` | Orchestrator: the asyncio event loop (`watch`) and the trade risk gates |
 | `locus/core/classifier.py` | Asks Claude for direction + materiality + confidence, with track record injected; tags each signal's edge type |
 | `locus/core/matcher.py` | Matches headlines to markets — keyword overlap + semantic index union |
 | `locus/core/market_index.py` | Persistent Chroma index of markets, embedded locally (MiniLM) |
@@ -224,19 +203,16 @@ history before classifying the next headline.
 | `locus/core/journal.py` | Daily retrospective — Claude writes one journal entry per day (21:00 UTC) |
 | `locus/core/executor.py` | Executes trades — dry-run log or live CLOB order; daily loss limit |
 | `locus/core/export_status.py` | Writes `docs/status.json` (+ journal/decisions archives) for the public GitHub Pages dashboard |
-| `locus/core/scorer.py` | V1 probability scoring with Claude |
 | `locus/supervisor.py` | Supervises the async pipeline tasks and restarts them on crash |
 | `locus/sources/news_stream.py` | Aggregates Twitter stream, RSS, NewsAPI, and Telegram into one deduped queue |
-| `locus/sources/scraper.py` | V1 news scraper (RSS + NewsAPI) |
+| `locus/sources/scraper.py` | RSS + NewsAPI scraper (fetch helpers used by `news_stream`) |
 | `locus/markets/gamma.py` | Polymarket Gamma API client, `Market` model, category inference |
 | `locus/markets/market_watcher.py` | Tracks niche markets — 5-min Gamma refresh, WebSocket prices, index sync |
 | `locus/memory/__init__.py` | Track record + lessons — the classifier's feedback loop |
 | `locus/memory/logger.py` | SQLite store (`trades.db`): trades, news events, classifications, calibration |
 | `locus/memory/calibrator.py` | Grades classifications once markets resolve |
-| `locus/backtest/synthetic.py` | Replays resolved markets through the V2 classifier |
 | `locus/backtest/real.py` | Backtest pilot on real data (parked: historical news coverage gap) |
 | `locus/ui/tui.py` | Textual TUI dashboard — read-only live view over `trades.db` |
-| `locus/ui/dashboard.py` | Legacy terminal dashboard (runs the V1 scan loop) |
 
 ### How a Headline Becomes a Trade Decision
 

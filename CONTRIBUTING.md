@@ -125,12 +125,12 @@ python cli.py verify
 python cli.py watch
 ```
 
-`python cli.py watch` is the recommended V2 event-driven pipeline. It runs forever,
+`python cli.py watch` is the event-driven pipeline. It runs forever,
 streaming news → classifying → sizing → logging simulated trades. Add `--live` only
 when you genuinely intend to trade real money — and never with someone else's keys.
 
 Run `python cli.py` with no arguments to see every available command (`verify`,
-`watch`, `run`, `dashboard`, `backtest`, `calibrate`, `niche`, `markets`, `trades`,
+`watch`, `dashboard`, `calibrate`, `niche`, `markets`, `trades`,
 `stats`, `evolve`, ...).
 
 ---
@@ -192,11 +192,11 @@ locus/
   config.py     .env loading, thresholds, PROJECT_ROOT (anchors trades.db, docs/, chroma_db/)
   core/         pipeline, classifier, multi_classifier, matcher, edge, executor,
                 event_context, reentry, whale_tracker, performance, export_status, journal
-  sources/      news_stream (Twitter/Telegram/RSS/NewsAPI), scraper (V1)
+  sources/      news_stream (Twitter/Telegram/RSS/NewsAPI), scraper (RSS/NewsAPI fetch helpers)
   markets/      gamma (Polymarket API client + Market model), market_watcher
   memory/       __init__ (track record + lessons), logger (SQLite), calibrator, meta_evolver
-  backtest/     synthetic + real replays
-  ui/           tui (Textual dashboard), dashboard (legacy V1)
+  backtest/     real (real-data replay, parked)
+  ui/           tui (Textual dashboard)
 ```
 
 The high-level flow:

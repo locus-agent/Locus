@@ -3,12 +3,9 @@
 Polymarket Pipeline — CLI Interface
 
 Usage:
-    python cli.py watch                # V2: Event-driven pipeline (real-time news → classify → trade)
-    python cli.py watch --live         # V2: With live trading
-    python cli.py run                  # V1: Synchronous pipeline (RSS → score → trade)
-    python cli.py run --live           # V1: With live trading
-    python cli.py dashboard            # Launch live terminal dashboard
-    python cli.py backtest             # Backtest V2 strategy against resolved markets
+    python cli.py watch                # Event-driven pipeline (real-time news → classify → trade)
+    python cli.py watch --live         # With live trading
+    python cli.py dashboard            # Launch live terminal dashboard (TUI)
     python cli.py calibrate            # Show classification accuracy report
     python cli.py niche                # Browse niche markets (< $500K volume)
     python cli.py verify               # Check all API keys and connections
@@ -44,32 +41,6 @@ def cmd_watch(args):
         config.MATERIALITY_THRESHOLD_BEARISH = args.threshold
 
     run_pipeline_v2()
-
-
-def cmd_run(args):
-    """V1: Synchronous pipeline — RSS → score → trade."""
-    from locus import config
-    from locus.core.pipeline import run_pipeline
-
-    if args.live:
-        config.DRY_RUN = False
-        console.print("[red bold]LIVE TRADING ENABLED[/red bold]\n")
-    else:
-        console.print("[yellow]Dry-run mode (use --live to trade for real)[/yellow]\n")
-
-    if args.threshold:
-        config.EDGE_THRESHOLD = args.threshold
-
-    run_pipeline(
-        max_markets=args.max,
-        lookback_hours=args.hours,
-    )
-
-
-def cmd_backtest(args):
-    """Run backtest against resolved markets."""
-    from locus.backtest.synthetic import run_backtest
-    run_backtest(limit=args.limit, category=args.category)
 
 
 def cmd_calibrate(args):
@@ -148,15 +119,10 @@ def cmd_niche(args):
 
 
 def cmd_dashboard(args):
-    if args.legacy:
-        from locus.ui.dashboard import run_dashboard
-        run_dashboard(scan_interval=args.speed)
-        return
     try:
         from locus.ui.tui import run_tui
     except ImportError:
         console.print("[red]Textual not installed — run: pip install textual[/red]")
-        console.print("(or use the old dashboard with: python cli.py dashboard --legacy)")
         return
     run_tui()
 
@@ -296,10 +262,8 @@ def cmd_verify(args):
         console.print(Panel(
             "[bright_green bold]ALL CHECKS PASSED[/bright_green bold]\n\n"
             "You're ready to go. Run:\n"
-            "  python cli.py watch             # V2: Event-driven pipeline\n"
-            "  python cli.py run               # V1: Synchronous pipeline\n"
-            "  python cli.py dashboard          # Live terminal dashboard\n"
-            "  python cli.py backtest           # Validate strategy\n"
+            "  python cli.py watch             # Event-driven pipeline\n"
+            "  python cli.py dashboard          # Live terminal dashboard (TUI)\n"
             "  python cli.py watch --live       # Real trading (careful!)",
             style="bright_green",
         ))
@@ -443,31 +407,15 @@ def main():
     parser = argparse.ArgumentParser(description="Polymarket Pipeline V2")
     sub = parser.add_subparsers(dest="command")
 
-    # watch (V2)
-    p_watch = sub.add_parser("watch", help="V2: Event-driven pipeline (real-time)")
+    # watch
+    p_watch = sub.add_parser("watch", help="Event-driven pipeline (real-time)")
     p_watch.add_argument("--live", action="store_true", help="Enable live trading")
     p_watch.add_argument("--threshold", type=float, default=None, help="Materiality threshold override")
     p_watch.set_defaults(func=cmd_watch)
 
-    # run (V1)
-    p_run = sub.add_parser("run", help="V1: Synchronous pipeline (RSS-based)")
-    p_run.add_argument("--live", action="store_true", help="Enable live trading")
-    p_run.add_argument("--max", type=int, default=10, help="Max markets to scan")
-    p_run.add_argument("--hours", type=int, default=6, help="News lookback hours")
-    p_run.add_argument("--threshold", type=float, default=None, help="Edge threshold override")
-    p_run.set_defaults(func=cmd_run)
-
     # dashboard
     p_dash = sub.add_parser("dashboard", help="Launch live terminal dashboard (TUI)")
-    p_dash.add_argument("--legacy", action="store_true", help="Old rich dashboard (runs V1 scan loop)")
-    p_dash.add_argument("--speed", type=float, default=60.0, help="Seconds between scan cycles (legacy only)")
     p_dash.set_defaults(func=cmd_dashboard)
-
-    # backtest
-    p_bt = sub.add_parser("backtest", help="Backtest V2 strategy")
-    p_bt.add_argument("--limit", type=int, default=30, help="Number of resolved markets")
-    p_bt.add_argument("--category", type=str, default=None, help="Filter by category")
-    p_bt.set_defaults(func=cmd_backtest)
 
     # calibrate
     p_cal = sub.add_parser("calibrate", help="Show classification accuracy report")
