@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T11:53:06.984206+00:00",
+  "generated_at": "2026-06-15T11:58:09.964323+00:00",
   "dry_run": true,
-  "markets_tracked": 2547,
+  "markets_tracked": 2546,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1049,
@@ -19,9 +19,9 @@
     }
   },
   "headlines_scanned_today": 180,
-  "headlines_last_cycle": 2,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3293,
+  "classifications_24h": 3300,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "stale": 66,
@@ -50,7 +50,7 @@
   "pipeline_24h": {
     "news": 715,
     "matched": 374,
-    "classified": 3293,
+    "classified": 3300,
     "signals": 0,
     "trades": 0
   },
@@ -120,7 +120,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42,
+      "current_price": 0.42000000000000004,
       "pnl_pct": 8.41,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -219,8 +219,47 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 11:53:02",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "time": "2026-06-15 11:53:36",
+      "market_question": "Will Google have the best AI Agent at the end of June 2026?",
+      "headline": "Artificial Intelligence AI Image Generator Market To Reach New Heights by 2035 Amid Surging Demand for Scalable Visual Content - News and Statistics - IndexBox",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 11:53:32",
+      "market_question": "Will another AI-generated song reach number 1 on any Billboard chart by June 30?",
+      "headline": "Artificial Intelligence AI Image Generator Market To Reach New Heights by 2035 Amid Surging Demand for Scalable Visual Content - News and Statistics - IndexBox",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 11:53:28",
+      "market_question": "AI wins IMO gold medal in 2026?",
+      "headline": "Artificial Intelligence AI Image Generator Market To Reach New Heights by 2035 Amid Surging Demand for Scalable Visual Content - News and Statistics - IndexBox",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.9,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": 0.85,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 11:53:23",
+      "market_question": "Will OpenAI\u2019s market cap be between $1T and $1.25T at market close on IPO day?",
       "headline": "Artificial Intelligence AI Image Generator Market To Reach New Heights by 2035 Amid Surging Demand for Scalable Visual Content - News and Statistics - IndexBox",
       "direction": "neutral",
       "materiality": 0.1,
@@ -232,56 +271,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 11:52:58",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "What to Know About Planned Social Media Bans in Australia, the U.K. and Beyond",
+      "time": "2026-06-15 11:53:18",
+      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
+      "headline": "Artificial Intelligence AI Image Generator Market To Reach New Heights by 2035 Amid Surging Demand for Scalable Visual Content - News and Statistics - IndexBox",
       "direction": "neutral",
       "materiality": 0.0,
-      "confidence": 0.95,
+      "confidence": 0.9,
       "edge": null,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": 0.85,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 11:52:58",
-      "market_question": "Will Trump and Putin meet next in Australia?",
-      "headline": "What to Know About Planned Social Media Bans in Australia, the U.K. and Beyond",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 11:52:58",
-      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
-      "headline": "What to Know About Planned Social Media Bans in Australia, the U.K. and Beyond",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 11:52:58",
-      "market_question": "Will Elon Musk Testify to Congress about Epstein?",
-      "headline": "What to Know About Planned Social Media Bans in Australia, the U.K. and Beyond",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
