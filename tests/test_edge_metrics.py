@@ -137,7 +137,7 @@ def test_hours_to_close_parses_and_handles_unknown():
 
 def test_hard_exit_fires_on_deep_loser_near_close():
     pos = {"end_date": "2026-06-15T15:00:00Z"}  # 3h to close (< 4h)
-    assert positions.check_hard_exit(pos, -25.0, NOW) == "time_pressure"
+    assert positions.check_hard_exit(pos, -25.0, NOW) == ("time_pressure", "time_pressure")
 
 
 def test_hard_exit_held_when_conditions_unmet():

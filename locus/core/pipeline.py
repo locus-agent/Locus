@@ -810,10 +810,14 @@ class PipelineV2:
                 pos_stats = await asyncio.get_event_loop().run_in_executor(
                     None, lambda: positions.update_and_manage(prices)
                 )
-                if pos_stats.get("stop_losses") or pos_stats.get("reevals"):
+                if (pos_stats.get("stop_losses") or pos_stats.get("reevals")
+                        or pos_stats.get("time_pressure_exits")
+                        or pos_stats.get("near_certain_exits")):
                     console.print(
                         f"  [dim]positions: {pos_stats['updated']} marked, "
                         f"{pos_stats['stop_losses']} stop-loss, "
+                        f"{pos_stats.get('time_pressure_exits', 0)} time-pressure, "
+                        f"{pos_stats.get('near_certain_exits', 0)} near-certain, "
                         f"{pos_stats['reevals']} re-evals[/dim]"
                     )
             except Exception as e:

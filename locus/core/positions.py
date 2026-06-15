@@ -376,20 +376,46 @@ def hours_to_close(end_date: str | None, now: datetime | None = None) -> float |
     return (dt - now).total_seconds() / 3600.0
 
 
-def check_hard_exit(position: dict, current_pnl_pct: float,
-                    now: datetime | None = None) -> str | None:
-    """Hard, model-free exit on top of the Claude re-eval path: a deep loser
-    running into market close has little time left to recover, so force it out
-    without a Claude call.
+# Near-certain exits are skipped inside this many hours of close: near expiry a
+# market naturally drifts to 0/1, so a 0.95+ price there isn't a signal to act on.
+NEAR_CERTAIN_MIN_HOURS_TO_CLOSE = 1.0
 
-    Returns 'time_pressure' when time-to-close < TIME_PRESSURE_HOURS AND
-    unrealized PnL < TIME_PRESSURE_LOSS_PCT, else None. Positions with an
-    unknown close time (no end_date) are never force-closed here."""
+
+def check_hard_exit(position: dict, current_pnl_pct: float,
+                    now: datetime | None = None) -> tuple[str, str] | None:
+    """Hard, model-free exits on top of the Claude re-eval path. Returns an
+    (action, reason) pair to execute without a Claude call, or None.
+
+    - ("time_pressure", "time_pressure"): a deep loser running into market close
+      (time-to-close < TIME_PRESSURE_HOURS AND PnL < TIME_PRESSURE_LOSS_PCT).
+      Needs a known close time; skipped when end_date is unknown.
+    - ("force_close", "near_certain_yes_X.XX" / "near_certain_no_X.XX"): the held
+      side is all but resolved (YES price >= NEAR_CERTAIN_THRESHOLD, or NO price
+      <= 1 - threshold), so lock it in rather than wait for resolution. Skipped
+      within NEAR_CERTAIN_MIN_HOURS_TO_CLOSE of close, where prices drift to
+      certainty on their own. Uses the position's current_yes_price mark.
+    """
     ttc = hours_to_close(position.get("end_date"), now)
-    if ttc is None:
-        return None
-    if ttc < config.TIME_PRESSURE_HOURS and current_pnl_pct < config.TIME_PRESSURE_LOSS_PCT:
-        return "time_pressure"
+
+    # Time-pressure: deep loser with little time left to recover (needs a known
+    # close time).
+    if (ttc is not None and ttc < config.TIME_PRESSURE_HOURS
+            and current_pnl_pct < config.TIME_PRESSURE_LOSS_PCT):
+        return "time_pressure", "time_pressure"
+
+    # Near-certain: the held side is essentially resolved. Skip in the final hour
+    # before close, where any market converges to 0/1 regardless.
+    price = position.get("current_yes_price")
+    side = position.get("side")
+    near_expiry = ttc is not None and ttc < NEAR_CERTAIN_MIN_HOURS_TO_CLOSE
+    if price is not None and side and not near_expiry:
+        if side == "YES" and price >= config.NEAR_CERTAIN_THRESHOLD:
+            log.info(f"[positions] NEAR CERTAIN: closing YES position at {price:.2f}")
+            return "force_close", f"near_certain_yes_{price:.2f}"
+        if side == "NO" and price <= (1.0 - config.NEAR_CERTAIN_THRESHOLD):
+            log.info(f"[positions] NEAR CERTAIN: closing NO position at {price:.2f}")
+            return "force_close", f"near_certain_no_{price:.2f}"
+
     return None
 
 
@@ -587,7 +613,8 @@ def update_and_manage(prices: dict[str, float]) -> dict:
     """Mark open positions to `prices`, apply the hard stop-loss, and run
     Claude re-evaluations for rule triggers (respecting the cooldown).
     Called from the pipeline's periodic cycle, off the event loop."""
-    stats = {"updated": 0, "stop_losses": 0, "time_pressure_exits": 0, "reevals": 0}
+    stats = {"updated": 0, "stop_losses": 0, "time_pressure_exits": 0,
+             "near_certain_exits": 0, "reevals": 0}
     conn = logger._conn()
     for position in get_open_positions():
         yes_price = prices.get(position["condition_id"])
@@ -598,9 +625,13 @@ def update_and_manage(prices: dict[str, float]) -> dict:
             "UPDATE positions SET current_yes_price=?, unrealized_pnl_pct=? WHERE id=?",
             (yes_price, round(current_pnl, 2), position["id"]),
         )
+        # Keep the in-memory mark fresh so the near-certain hard exit sees the
+        # live price, not the stale stored one.
+        position["current_yes_price"] = yes_price
         stats["updated"] += 1
 
         trigger = check_trigger(position, current_pnl)
+        hard = check_hard_exit(position, current_pnl)
         if trigger == "stop_loss":
             # Hard stop: unconditional, never waits on a model call.
             realized = _close(conn, position, yes_price, "closed_sl", "sl")
@@ -609,16 +640,25 @@ def update_and_manage(prices: dict[str, float]) -> dict:
                 f"[positions] STOP LOSS on \"{position['market_question'][:40]}\" "
                 f"pnl {current_pnl:+.1f}% realized ${realized:+.2f}"
             )
-        elif check_hard_exit(position, current_pnl) == "time_pressure":
-            # Hard time-pressure exit: deep loser into market close, no Claude
-            # call. Runs before the re-eval path (like the stop loss).
-            realized = _close(conn, position, yes_price, "closed_time", "time_pressure")
-            stats["time_pressure_exits"] += 1
-            log.warning(
-                f"[positions] TIME PRESSURE exit on \"{position['market_question'][:40]}\" "
-                f"pnl {current_pnl:+.1f}% (<{config.TIME_PRESSURE_HOURS:.0f}h to close) "
-                f"realized ${realized:+.2f}"
-            )
+        elif hard is not None:
+            # Hard, model-free exit (time-pressure or near-certain). Runs before
+            # the re-eval path, like the stop loss.
+            action, reason = hard
+            if action == "time_pressure":
+                realized = _close(conn, position, yes_price, "closed_time", "time_pressure")
+                stats["time_pressure_exits"] += 1
+                log.warning(
+                    f"[positions] TIME PRESSURE exit on \"{position['market_question'][:40]}\" "
+                    f"pnl {current_pnl:+.1f}% (<{config.TIME_PRESSURE_HOURS:.0f}h to close) "
+                    f"realized ${realized:+.2f}"
+                )
+            else:  # "force_close" — near-certain
+                realized = _close(conn, position, yes_price, "closed_near_certain", reason)
+                stats["near_certain_exits"] += 1
+                log.warning(
+                    f"[positions] NEAR CERTAIN exit on \"{position['market_question'][:40]}\" "
+                    f"at {yes_price:.2f} ({reason}) realized ${realized:+.2f}"
+                )
         elif trigger and cooldown_allows(position, trigger):
             conn.commit()  # persist the mark before the slow Claude call
             stats["reevals"] += 1

@@ -17,6 +17,7 @@ def exit_config(monkeypatch):
     monkeypatch.setattr(config, "STOP_LOSS_PCT", -50.0)
     monkeypatch.setattr(config, "REEVAL_COOLDOWN_HOURS", 6.0)
     monkeypatch.setattr(config, "NEWS_REEVAL_MATERIALITY", 0.4)
+    monkeypatch.setattr(config, "NEAR_CERTAIN_THRESHOLD", 0.95)
 
 
 MKT = Market("cond1", "Will X happen?", "ai", 0.50, 0.50, 5000, "", True, [],
@@ -244,3 +245,53 @@ def test_manual_close_unmarked_position_uses_entry(tmp_db):
     result = positions.close_manual(pos["id"])
     assert result["price"] == pytest.approx(0.50)
     assert result["pnl_pct"] == pytest.approx(0.0)
+
+
+# --- near-certain hard exit ---
+
+_NC_NOW = datetime(2026, 6, 15, 12, 0, 0, tzinfo=timezone.utc)
+
+
+def test_near_certain_yes_force_closes():
+    # No end_date -> unknown close time, still applies (not within the last hour).
+    pos = {"side": "YES", "current_yes_price": 0.96, "end_date": None}
+    assert positions.check_hard_exit(pos, 50.0, _NC_NOW) == ("force_close", "near_certain_yes_0.96")
+
+
+def test_near_certain_yes_below_threshold_holds():
+    pos = {"side": "YES", "current_yes_price": 0.94, "end_date": None}
+    assert positions.check_hard_exit(pos, 50.0, _NC_NOW) is None
+
+
+def test_near_certain_no_force_closes():
+    pos = {"side": "NO", "current_yes_price": 0.04, "end_date": None}
+    assert positions.check_hard_exit(pos, 50.0, _NC_NOW) == ("force_close", "near_certain_no_0.04")
+
+
+def test_near_certain_no_above_threshold_holds():
+    pos = {"side": "NO", "current_yes_price": 0.06, "end_date": None}
+    assert positions.check_hard_exit(pos, 50.0, _NC_NOW) is None
+
+
+def test_near_certain_skipped_within_last_hour():
+    # YES @ 0.96 but only 0.5h to close -> the market is naturally converging.
+    pos = {"side": "YES", "current_yes_price": 0.96, "end_date": "2026-06-15T12:30:00Z"}
+    assert positions.check_hard_exit(pos, 50.0, _NC_NOW) is None
+    # Comfortably more than an hour out -> the rule applies.
+    pos["end_date"] = "2026-06-15T14:00:00Z"  # 2h out
+    assert positions.check_hard_exit(pos, 50.0, _NC_NOW) == ("force_close", "near_certain_yes_0.96")
+
+
+def test_near_certain_periodic_close_without_news(tmp_db):
+    # Purely price-driven, no news/classification — mirrors the periodic
+    # update_and_manage sweep the pipeline runs every cycle. Near-certain
+    # preempts the take-profit re-eval, so no Claude call is made.
+    _open(tmp_db, side="YES", entry=0.50)
+    stats = positions.update_and_manage({"cond1": 0.97})
+
+    assert stats["near_certain_exits"] == 1
+    assert stats["reevals"] == 0
+    closed = positions.get_closed_positions()
+    assert len(closed) == 1
+    assert closed[0]["status"] == "closed_near_certain"
+    assert closed[0]["exit_reason"] == "near_certain_yes_0.97"
