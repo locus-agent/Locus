@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:33:38.367884+00:00",
+  "generated_at": "2026-06-15T18:35:50.589007+00:00",
   "dry_run": true,
   "markets_tracked": 2529,
   "classify_error_streak": 0,
@@ -18,15 +18,15 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 1942,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1966,
+  "headlines_last_cycle": 24,
   "signals_24h": 11,
-  "classifications_24h": 10989,
+  "classifications_24h": 11109,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 101,
-    "capped": 18,
-    "correlation_block": 27,
+    "capped": 19,
+    "correlation_block": 29,
     "category_limit": 0,
     "orderbook_skip": 7,
     "needs_confirmation": 15,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T18:32:44.474116+00:00"
+    "last_check": "2026-06-15T18:35:29.994895+00:00"
   },
   "edge_types_24h": {
     "news": 6,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2237,
-    "matched": 629,
-    "classified": 10989,
+    "news": 2261,
+    "matched": 630,
+    "classified": 11109,
     "signals": 11,
     "trades": 11
   },
@@ -64,8 +64,8 @@
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
     "unrealized_pnl_usd": 2.75,
-    "recent_winrate": 0.3,
-    "kelly_factor": 0.325,
+    "recent_winrate": 0.5,
+    "kelly_factor": 0.625,
     "winrate_lookback": 20
   },
   "live_readiness": {
@@ -120,7 +120,7 @@
       "slug": "will-microstrategy-announce-holding-800k-btc-by-december-31-2026",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.33999999999999997,
+      "current_price": 0.34,
       "pnl_pct": -4.23,
       "amount_usd": 23.45,
       "current_value_usd": 22.46,
@@ -302,69 +302,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 18:33:37",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Mexican president says FIFA should reflect on high World Cup ticket prices - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
+      "time": "2026-06-15 18:35:50",
+      "market_question": "Ethereum Up or Down - June 15, 12:00PM-4:00PM ET",
+      "headline": "Stocks leap worldwide, and oil prices drop after the US and Iran reach a tentative deal on their war - AP News",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.62,
+      "edge": 0.30624999999999997,
+      "action": "capped",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 18:33:35",
-      "market_question": "Will Donald Trump visit Mexico in 2026?",
-      "headline": "Mexican president says FIFA should reflect on high World Cup ticket prices - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-15 18:35:50",
+      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
+      "headline": "Owners of Dominican club where 236 died in a collapse to stand trial - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 18:33:33",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Mexican president says FIFA should reflect on high World Cup ticket prices - AP News",
+      "time": "2026-06-15 18:35:50",
+      "market_question": "Trump renames Strait of Hormuz to \"Strait of Trump\" by June 30?",
+      "headline": "Trump is urging tankers to sail through Hormuz. Vessels aren\u2019t so sure yet. - Politico",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "cached",
       "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 18:33:31",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Mexican president says FIFA should reflect on high World Cup ticket prices - AP News",
+      "time": "2026-06-15 18:35:50",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Trump is urging tankers to sail through Hormuz. Vessels aren\u2019t so sure yet. - Politico",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "cached",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 18:33:30",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Mexican president says FIFA should reflect on high World Cup ticket prices - AP News",
+      "time": "2026-06-15 18:35:50",
+      "market_question": "Will Trump resign before 2027?",
+      "headline": "Trump is urging tankers to sail through Hormuz. Vessels aren\u2019t so sure yet. - Politico",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "cached",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
