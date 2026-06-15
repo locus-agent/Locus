@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T16:04:46.042858+00:00",
+  "generated_at": "2026-06-15T16:09:49.206837+00:00",
   "dry_run": true,
-  "markets_tracked": 2576,
+  "markets_tracked": 2572,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1122,
@@ -18,15 +18,15 @@
       "newsapi": 14.7
     }
   },
-  "headlines_scanned_today": 913,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 917,
+  "headlines_last_cycle": 2,
   "signals_24h": 8,
-  "classifications_24h": 6409,
+  "classifications_24h": 6433,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "stale": 94,
     "capped": 13,
-    "correlation_block": 13,
+    "correlation_block": 14,
     "category_limit": 0,
     "orderbook_skip": 7,
     "needs_confirmation": 15,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1341,
-    "matched": 593,
-    "classified": 6409,
+    "news": 1345,
+    "matched": 597,
+    "classified": 6433,
     "signals": 8,
     "trades": 8
   },
@@ -63,7 +63,7 @@
     "losses": 5,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -46.24,
-    "unrealized_pnl_usd": 7.92,
+    "unrealized_pnl_usd": 9.62,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -132,8 +132,8 @@
       "slug": "us-enacts-ai-safety-bill-before-2027",
       "side": "YES",
       "entry_price": 0.295,
-      "current_price": 0.21500000000000008,
-      "pnl_pct": -27.12,
+      "current_price": 0.21999999999999997,
+      "pnl_pct": -25.42,
       "amount_usd": 10.68,
       "edge_type": "momentum",
       "event_id": "79075"
@@ -156,7 +156,7 @@
       "slug": "will-anthropic-make-a-deal-with-the-pentagon",
       "side": "YES",
       "entry_price": 0.09,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": -16.67,
       "amount_usd": 13.11,
       "edge_type": "momentum",
@@ -168,8 +168,8 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.093,
-      "pnl_pct": 2.2,
+      "current_price": 0.092,
+      "pnl_pct": 1.1,
       "amount_usd": 18.77,
       "edge_type": "momentum",
       "event_id": "379876"
@@ -192,8 +192,8 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.41500000000000004,
+      "pnl_pct": 22.06,
       "amount_usd": 14.68,
       "edge_type": "news",
       "event_id": "103576"
@@ -204,7 +204,7 @@
       "slug": "openai-1t-ipo-before-2027",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.42000000000000004,
+      "current_price": 0.42,
       "pnl_pct": 8.41,
       "amount_usd": 9.14,
       "edge_type": "momentum",
@@ -332,11 +332,24 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 16:03:07",
-      "market_question": "Will a dLLM be the top AI model before 2027?",
-      "headline": "Quiz: Name these top nations' leading scorers",
+      "time": "2026-06-15 16:09:28",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 16:09:26",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
+      "direction": "neutral",
+      "materiality": 0.01,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -345,9 +358,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 16:03:07",
-      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
-      "headline": "Quiz: Name these top nations' leading scorers",
+      "time": "2026-06-15 16:09:26",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -358,9 +371,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 16:03:07",
-      "market_question": "Will Meituan have the top AI model at the end of June 2026?",
-      "headline": "Quiz: Name these top nations' leading scorers",
+      "time": "2026-06-15 16:09:26",
+      "market_question": "Will Trump pardon Elon Musk before 2027?",
+      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -371,30 +384,17 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-15 16:03:07",
-      "market_question": "Will Moonshot have the top AI model at the end of June 2026?",
-      "headline": "Quiz: Name these top nations' leading scorers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-15 16:09:24",
+      "market_question": "Will Trump meet with Elon Musk in June 2026?",
+      "headline": "Israel's El Al Airlines signs internet deal with Elon Musk's Starlink - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-15 16:03:07",
-      "market_question": "Will DeepSeek have the top AI model at the end of June 2026?",
-      "headline": "Quiz: Name these top nations' leading scorers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
