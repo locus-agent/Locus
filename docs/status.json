@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T14:15:58.720243+00:00",
+  "generated_at": "2026-06-15T14:21:01.851359+00:00",
   "dry_run": true,
-  "markets_tracked": 2557,
+  "markets_tracked": 2560,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1074,
@@ -18,15 +18,15 @@
       "newsapi": 14.6
     }
   },
-  "headlines_scanned_today": 461,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 464,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 4400,
+  "classifications_24h": 4409,
   "selectivity_pct": 0.2,
   "gates_24h": {
     "stale": 82,
-    "capped": 4,
-    "correlation_block": 1,
+    "capped": 5,
+    "correlation_block": 2,
     "category_limit": 0,
     "orderbook_skip": 1,
     "needs_confirmation": 12,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 932,
-    "matched": 508,
-    "classified": 4400,
+    "news": 934,
+    "matched": 511,
+    "classified": 4409,
     "signals": 7,
     "trades": 7
   },
@@ -63,7 +63,7 @@
     "losses": 5,
     "win_rate_pct": 0.0,
     "realized_pnl_usd": -48.62,
-    "unrealized_pnl_usd": 1.42,
+    "unrealized_pnl_usd": 2.75,
     "recent_winrate": 0.0,
     "kelly_factor": 0.25,
     "winrate_lookback": 20
@@ -156,7 +156,7 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.091,
+      "current_price": 0.09099999999999997,
       "pnl_pct": 0.0,
       "amount_usd": 18.77,
       "edge_type": "momentum",
@@ -168,8 +168,8 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.275,
-      "pnl_pct": 0.0,
+      "current_price": 0.295,
+      "pnl_pct": 7.27,
       "amount_usd": 18.32,
       "edge_type": "news",
       "event_id": "548275"
@@ -311,9 +311,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 14:15:49",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Happy birthday to the Trump phone",
+      "time": "2026-06-15 14:20:09",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "False nines? 4-4-2? The tactical trends defining World Cup so far",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 14:20:07",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "False nines? 4-4-2? The tactical trends defining World Cup so far",
+      "direction": "neutral",
+      "materiality": 0.02,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-15 14:20:06",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "False nines? 4-4-2? The tactical trends defining World Cup so far",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -324,9 +350,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 14:15:47",
-      "market_question": "Will Trump nationalize elections?",
-      "headline": "Happy birthday to the Trump phone",
+      "time": "2026-06-15 14:20:04",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "False nines? 4-4-2? The tactical trends defining World Cup so far",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -337,37 +363,11 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 14:15:45",
-      "market_question": "Will Trump resign before 2027?",
-      "headline": "Happy birthday to the Trump phone",
+      "time": "2026-06-15 14:20:03",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "False nines? 4-4-2? The tactical trends defining World Cup so far",
       "direction": "neutral",
-      "materiality": 0.01,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 14:15:44",
-      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
-      "headline": "Happy birthday to the Trump phone",
-      "direction": "bullish",
-      "materiality": 0.65,
-      "confidence": 0.72,
-      "edge": 0.546,
-      "action": "correlation_block",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 14:15:42",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Happy birthday to the Trump phone",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
