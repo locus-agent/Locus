@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-15T19:31:24.800807+00:00",
+  "generated_at": "2026-06-15T19:36:28.242122+00:00",
   "dry_run": true,
-  "markets_tracked": 2533,
+  "markets_tracked": 2532,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1243,
@@ -18,13 +18,13 @@
       "newsapi": 15.1
     }
   },
-  "headlines_scanned_today": 2129,
+  "headlines_scanned_today": 2170,
   "headlines_last_cycle": 0,
   "signals_24h": 12,
-  "classifications_24h": 11619,
+  "classifications_24h": 11751,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "stale": 101,
+    "stale": 107,
     "capped": 19,
     "correlation_block": 29,
     "category_limit": 0,
@@ -40,7 +40,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-15T19:20:31.032555+00:00"
+    "last_check": "2026-06-15T19:35:31.439782+00:00"
   },
   "edge_types_24h": {
     "news": 7,
@@ -48,9 +48,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2349,
-    "matched": 613,
-    "classified": 11619,
+    "news": 2377,
+    "matched": 639,
+    "classified": 11751,
     "signals": 12,
     "trades": 12
   },
@@ -63,7 +63,7 @@
     "losses": 3,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -4.75,
+    "unrealized_pnl_usd": -4.32,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20
@@ -120,11 +120,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -134,11 +134,11 @@
       "slug": "will-microstrategy-announce-holding-800k-btc-by-december-31-2026",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.275,
-      "pnl_pct": -22.54,
+      "current_price": 0.28,
+      "pnl_pct": -21.13,
       "amount_usd": 23.45,
-      "current_value_usd": 18.17,
-      "pnl_usd": -5.28,
+      "current_value_usd": 18.5,
+      "pnl_usd": -4.95,
       "edge_type": "momentum",
       "event_id": "133657"
     },
@@ -162,11 +162,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.1,
-      "pnl_pct": 9.89,
+      "current_price": 0.1005,
+      "pnl_pct": 10.44,
       "amount_usd": 18.77,
-      "current_value_usd": 20.63,
-      "pnl_usd": 1.86,
+      "current_value_usd": 20.73,
+      "pnl_usd": 1.96,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -316,9 +316,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-15 19:30:13",
+      "time": "2026-06-15 19:35:12",
       "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "World Cup teams face major travel demands in tournament spread across US, Canada and Mexico - AP News",
+      "headline": "It\u2019s not Ebola you need to be worried about with the World Cup. These are the real health risks. - NJ.com",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -329,56 +329,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-15 19:30:12",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "World Cup teams face major travel demands in tournament spread across US, Canada and Mexico - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-15 19:35:12",
+      "market_question": "Will OpenAI release a social network in 2026?",
+      "headline": "'Real-life Project Hail Mary': Scientists discover a hidden fungal network beneath Earth stretching 110 q - The Times of India",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 19:30:10",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World Cup teams face major travel demands in tournament spread across US, Canada and Mexico - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-15 19:35:12",
+      "market_question": "Will Donald Trump visit India in 2026?",
+      "headline": "'Real-life Project Hail Mary': Scientists discover a hidden fungal network beneath Earth stretching 110 q - The Times of India",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-15 19:30:08",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World Cup teams face major travel demands in tournament spread across US, Canada and Mexico - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-15 19:30:06",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World Cup teams face major travel demands in tournament spread across US, Canada and Mexico - AP News",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.58,
+      "time": "2026-06-15 19:35:12",
+      "market_question": "Will Trump say \"UFC\" 3+ times during UFC 250?",
+      "headline": "'Real-life Project Hail Mary': Scientists discover a hidden fungal network beneath Earth stretching 110 q - The Times of India",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-15 19:35:12",
+      "market_question": "Will Trump say \u201cCrazy\u201d or \u201cAmazing\u201d 5+ times during UFC 250?",
+      "headline": "'Real-life Project Hail Mary': Scientists discover a hidden fungal network beneath Earth stretching 110 q - The Times of India",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
