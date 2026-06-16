@@ -1,54 +1,54 @@
 {
-  "generated_at": "2026-06-16T21:24:21.199739+00:00",
-  "last_heartbeat": "2026-06-16T21:24:21.199739+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-16T21:29:25.458564+00:00",
+  "last_heartbeat": "2026-06-16T21:29:25.458564+00:00",
+  "uptime_seconds": 342,
   "dry_run": true,
   "markets_tracked": 2516,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 2821,
-    "accuracy": 18.0,
+    "total": 3007,
+    "accuracy": 18.5,
     "by_category": {
       "other": 16.2,
-      "ai": 9.0,
-      "politics": 27.5,
+      "ai": 8.9,
+      "politics": 27.8,
       "technology": 10.6,
-      "crypto": 16.7
+      "crypto": 16.2
     },
     "by_source": {
-      "rss": 18.8,
+      "rss": 19.4,
       "newsapi": 16.2
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 18.0,
-    "overall_total": 2821,
+    "overall_accuracy": 18.5,
+    "overall_total": 3007,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 1580,
-        "correct": 97,
-        "accuracy_pct": 6.1,
-        "avg_pnl_pct": 16.79,
+        "total": 1687,
+        "correct": 126,
+        "accuracy_pct": 7.5,
+        "avg_pnl_pct": 14.59,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 231,
-        "correct": 80,
-        "accuracy_pct": 34.6,
-        "avg_pnl_pct": 25.81,
+        "total": 237,
+        "correct": 81,
+        "accuracy_pct": 34.2,
+        "avg_pnl_pct": 25.24,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 249,
+        "total": 253,
         "correct": 91,
-        "accuracy_pct": 36.5,
-        "avg_pnl_pct": -0.2,
+        "accuracy_pct": 36.0,
+        "avg_pnl_pct": -0.26,
         "color": "green"
       },
       {
@@ -63,30 +63,30 @@
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 238,
-        "correct": 129,
-        "accuracy_pct": 54.2,
-        "avg_pnl_pct": 3.87,
+        "total": 258,
+        "correct": 140,
+        "accuracy_pct": 54.3,
+        "avg_pnl_pct": 2.7,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 368,
-        "correct": 75,
-        "accuracy_pct": 20.4,
+        "total": 417,
+        "correct": 80,
+        "accuracy_pct": 19.2,
         "avg_pnl_pct": -6.94,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 2169,
-  "headlines_last_cycle": 24,
-  "signals_24h": 3,
-  "classifications_24h": 15094,
+  "headlines_scanned_today": 2300,
+  "headlines_last_cycle": 0,
+  "signals_24h": 2,
+  "classifications_24h": 15679,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2814,
+    "prefiltered_haiku": 3050,
     "stale": 43,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -110,15 +110,15 @@
   },
   "edge_types_24h": {
     "news": 1,
-    "momentum": 2,
+    "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3038,
-    "matched": 1062,
-    "classified": 15094,
-    "signals": 3,
-    "trades": 3
+    "news": 3156,
+    "matched": 1060,
+    "classified": 15679,
+    "signals": 2,
+    "trades": 2
   },
   "performance": {
     "trades_total": 17,
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 2.36,
+    "unrealized_pnl_usd": 1.44,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1206.9
+    "avg_classification_latency_ms": 1296.2
   },
   "live_readiness": {
     "ready": false,
@@ -215,11 +215,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.155,
-      "pnl_pct": 34.78,
+      "current_price": 0.145,
+      "pnl_pct": 26.09,
       "amount_usd": 12.97,
-      "current_value_usd": 17.48,
-      "pnl_usd": 4.51,
+      "current_value_usd": 16.35,
+      "pnl_usd": 3.38,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -257,11 +257,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.37,
-      "pnl_pct": 8.82,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 15.98,
-      "pnl_usd": 1.3,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -437,9 +437,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 21:24:20",
+      "time": "2026-06-16 21:26:46",
       "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Federal prosecutors charge 15 people with impeding agents during Minnesota immigration crackdown - AP News",
+      "headline": "El Nino is here and scientists fear it\u2019ll be big, bad and costly with heat, floods, droughts, fires - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -450,35 +450,35 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 21:24:20",
-      "market_question": "Hyperliquid listed on Binance in 2026?",
-      "headline": "Hyperliquid, Uniswap and Worldcoin buck crypto slump as traders chase AI, DeFi trends",
-      "direction": "bullish",
-      "materiality": 0.05,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "cached",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 21:24:20",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Hyperliquid, Uniswap and Worldcoin buck crypto slump as traders chase AI, DeFi trends",
+      "time": "2026-06-16 21:26:44",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Gazans displaced by war watch World Cup from the ruins - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "cached",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 21:24:20",
-      "market_question": "Over $1B crypto hack value in 2026?",
-      "headline": "Hyperliquid, Uniswap and Worldcoin buck crypto slump as traders chase AI, DeFi trends",
+      "time": "2026-06-16 21:26:44",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Gazans displaced by war watch World Cup from the ruins - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 21:26:44",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "El Nino is here and scientists fear it\u2019ll be big, bad and costly with heat, floods, droughts, fires - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -489,15 +489,15 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 21:24:20",
-      "market_question": "Hyperliquid listed on Binance by June 30, 2026?",
-      "headline": "Hyperliquid, Uniswap and Worldcoin buck crypto slump as traders chase AI, DeFi trends",
-      "direction": "neutral",
-      "materiality": 0.03,
-      "confidence": 0.5,
+      "time": "2026-06-16 21:26:44",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "El Nino is here and scientists fear it\u2019ll be big, bad and costly with heat, floods, droughts, fires - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "cached",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     }
