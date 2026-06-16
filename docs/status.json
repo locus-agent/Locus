@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T10:33:40.551990+00:00",
+  "generated_at": "2026-06-16T10:38:43.876043+00:00",
   "dry_run": true,
-  "markets_tracked": 2531,
+  "markets_tracked": 2530,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1460,
@@ -78,10 +78,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 445,
+  "headlines_scanned_today": 447,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17744,
+  "classifications_24h": 17752,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 729,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T10:21:15.535414+00:00"
+    "last_check": "2026-06-16T10:36:15.977742+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3505,
-    "matched": 936,
-    "classified": 17744,
+    "news": 3507,
+    "matched": 938,
+    "classified": 17752,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -2.89,
+    "unrealized_pnl_usd": -0.08,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1972.1
+    "avg_classification_latency_ms": 1978.1
   },
   "live_readiness": {
     "ready": false,
@@ -224,11 +224,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.11499999999999999,
+      "current_price": 0.115,
       "pnl_pct": 0.0,
       "amount_usd": 12.97,
       "current_value_usd": 12.97,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.36,
-      "pnl_pct": 5.88,
+      "current_price": 0.42500000000000004,
+      "pnl_pct": 25.0,
       "amount_usd": 14.68,
-      "current_value_usd": 15.54,
-      "pnl_usd": 0.86,
+      "current_value_usd": 18.35,
+      "pnl_usd": 3.67,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,64 +436,64 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 10:30:29",
-      "market_question": "Will Bitcoin reach $67,500 in June?",
-      "headline": "Bitcoin rallies after Japan rate increase with XLM, INJ, UNI advancing",
+      "time": "2026-06-16 10:36:55",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "Ghana challenges Partey's visa denial in court",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 10:36:55",
+      "market_question": "Will a US court rule that the 2020 election was fradulent?",
+      "headline": "Ghana challenges Partey's visa denial in court",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 10:34:52",
+      "market_question": "Will Donald Trump visit Ukraine in 2026?",
+      "headline": "G7 allies scramble to put Ukraine back atop Trump\u2019s agenda as war drags on - AP News",
       "direction": "bullish",
-      "materiality": 0.1,
+      "materiality": 0.08,
+      "confidence": 0.52,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 10:34:50",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "G7 allies scramble to put Ukraine back atop Trump\u2019s agenda as war drags on - AP News",
+      "direction": "bearish",
+      "materiality": 0.05,
       "confidence": 0.55,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 10:30:29",
-      "market_question": "Will Bitcoin reach $90,000 in June?",
-      "headline": "Bitcoin rallies after Japan rate increase with XLM, INJ, UNI advancing",
-      "direction": "bullish",
+      "time": "2026-06-16 10:34:50",
+      "market_question": "Ukraine election called by December 31, 2026?",
+      "headline": "G7 allies scramble to put Ukraine back atop Trump\u2019s agenda as war drags on - AP News",
+      "direction": "neutral",
       "materiality": 0.05,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 10:30:29",
-      "market_question": "Will Bitcoin reach $82,500 in June?",
-      "headline": "Bitcoin rallies after Japan rate increase with XLM, INJ, UNI advancing",
-      "direction": "bullish",
-      "materiality": 0.05,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 10:30:28",
-      "market_question": "Will Bitcoin reach $87,500 in June?",
-      "headline": "Bitcoin rallies after Japan rate increase with XLM, INJ, UNI advancing",
-      "direction": "bullish",
-      "materiality": 0.05,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 10:30:28",
-      "market_question": "Will Bitcoin reach $92,500 in June?",
-      "headline": "Bitcoin rallies after Japan rate increase with XLM, INJ, UNI advancing",
-      "direction": "bullish",
-      "materiality": 0.05,
-      "confidence": 0.52,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
