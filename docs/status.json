@@ -1,87 +1,87 @@
 {
-  "generated_at": "2026-06-16T13:54:14.230410+00:00",
+  "generated_at": "2026-06-16T13:59:17.526921+00:00",
   "dry_run": true,
-  "markets_tracked": 2524,
+  "markets_tracked": 2527,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 1511,
-    "accuracy": 15.4,
+    "total": 1607,
+    "accuracy": 16.1,
     "by_category": {
       "other": 16.2,
-      "ai": 10.8,
-      "politics": 19.5,
-      "technology": 18.3,
-      "crypto": 17.4
+      "ai": 11.0,
+      "politics": 20.8,
+      "technology": 18.5,
+      "crypto": 18.7
     },
     "by_source": {
-      "rss": 14.8,
-      "newsapi": 16.0
+      "rss": 15.9,
+      "newsapi": 16.2
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 15.4,
-    "overall_total": 1511,
+    "overall_accuracy": 16.1,
+    "overall_total": 1607,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 826,
-        "correct": 52,
-        "accuracy_pct": 6.3,
-        "avg_pnl_pct": 21.87,
+        "total": 867,
+        "correct": 54,
+        "accuracy_pct": 6.2,
+        "avg_pnl_pct": 21.43,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 137,
-        "correct": 41,
-        "accuracy_pct": 29.9,
-        "avg_pnl_pct": 18.36,
+        "total": 147,
+        "correct": 48,
+        "accuracy_pct": 32.7,
+        "avg_pnl_pct": 26.69,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 162,
-        "correct": 61,
-        "accuracy_pct": 37.7,
-        "avg_pnl_pct": 2.63,
+        "total": 169,
+        "correct": 64,
+        "accuracy_pct": 37.9,
+        "avg_pnl_pct": 2.81,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 94,
-        "correct": 18,
-        "accuracy_pct": 19.1,
-        "avg_pnl_pct": -2.82,
+        "total": 102,
+        "correct": 19,
+        "accuracy_pct": 18.6,
+        "avg_pnl_pct": -4.51,
         "color": "yellow"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 108,
-        "correct": 38,
-        "accuracy_pct": 35.2,
-        "avg_pnl_pct": 3.74,
+        "total": 119,
+        "correct": 47,
+        "accuracy_pct": 39.5,
+        "avg_pnl_pct": 3.83,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 184,
-        "correct": 23,
-        "accuracy_pct": 12.5,
-        "avg_pnl_pct": -7.94,
+        "total": 203,
+        "correct": 26,
+        "accuracy_pct": 12.8,
+        "avg_pnl_pct": -6.36,
         "color": "yellow"
       }
     ]
   },
   "headlines_scanned_today": 676,
-  "headlines_last_cycle": 27,
-  "signals_24h": 15,
-  "classifications_24h": 18292,
+  "headlines_last_cycle": 0,
+  "signals_24h": 14,
+  "classifications_24h": 18107,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1121,
@@ -92,7 +92,7 @@
     "correlation_block": 38,
     "category_limit": 0,
     "orderbook_skip": 9,
-    "needs_confirmation": 7,
+    "needs_confirmation": 5,
     "event_exposure_block": 8,
     "low_consensus": 0,
     "circuit_breaker": 0,
@@ -107,15 +107,15 @@
   },
   "edge_types_24h": {
     "news": 7,
-    "momentum": 8,
+    "momentum": 7,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3630,
+    "news": 3594,
     "matched": 1078,
-    "classified": 18292,
-    "signals": 15,
-    "trades": 15
+    "classified": 18107,
+    "signals": 14,
+    "trades": 14
   },
   "performance": {
     "trades_total": 17,
@@ -126,7 +126,7 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 5.34,
-    "unrealized_pnl_usd": 4.48,
+    "unrealized_pnl_usd": 3.78,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
@@ -198,11 +198,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.265,
-      "pnl_pct": 65.62,
+      "current_price": 0.255,
+      "pnl_pct": 59.38,
       "amount_usd": 7.695,
-      "current_value_usd": 12.74,
-      "pnl_usd": 5.05,
+      "current_value_usd": 12.26,
+      "pnl_usd": 4.57,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -268,11 +268,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.365,
-      "pnl_pct": 7.35,
+      "current_price": 0.36,
+      "pnl_pct": 5.88,
       "amount_usd": 14.68,
-      "current_value_usd": 15.76,
-      "pnl_usd": 1.08,
+      "current_value_usd": 15.54,
+      "pnl_usd": 0.86,
       "edge_type": "news",
       "event_id": "103576"
     }
