@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T09:17:50.396293+00:00",
+  "generated_at": "2026-06-16T09:22:53.732946+00:00",
   "dry_run": true,
-  "markets_tracked": 2542,
+  "markets_tracked": 2541,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1460,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 409,
+  "headlines_scanned_today": 411,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17626,
+  "classifications_24h": 17631,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 648,
+    "prefiltered_haiku": 659,
     "stale": 118,
     "capped": 25,
     "correlation_block": 38,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T09:06:13.522250+00:00"
+    "last_check": "2026-06-16T09:21:13.874761+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3479,
-    "matched": 908,
-    "classified": 17626,
+    "news": 3480,
+    "matched": 910,
+    "classified": 17631,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -1.3,
+    "unrealized_pnl_usd": -2.93,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1962.2
+    "avg_classification_latency_ms": 1956.1
   },
   "live_readiness": {
     "ready": false,
@@ -182,11 +182,11 @@
       "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.365,
-      "pnl_pct": 15.87,
+      "current_price": 0.36,
+      "pnl_pct": 14.29,
       "amount_usd": 7.39,
-      "current_value_usd": 8.56,
-      "pnl_usd": 1.17,
+      "current_value_usd": 8.45,
+      "pnl_usd": 1.06,
       "edge_type": "momentum",
       "event_id": "509893"
     },
@@ -210,7 +210,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.31000000000000005,
+      "current_price": 0.31,
       "pnl_pct": 2.99,
       "amount_usd": 2.0,
       "current_value_usd": 2.06,
@@ -238,11 +238,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.385,
-      "pnl_pct": 13.24,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 16.62,
-      "pnl_usd": 1.94,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,67 +436,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 09:14:28",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "G7 leaders open summit talks on Ukraine and the Middle East as Zelenskyy joins in France - AP News",
+      "time": "2026-06-16 09:20:53",
+      "market_question": "Will Bitcoin have the best performance in 2026?",
+      "headline": "The dawn of \u2018Tokenmaxxing\u2019 and the 2026 AI hangover - roger montgomery",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 09:20:48",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "The dawn of \u2018Tokenmaxxing\u2019 and the 2026 AI hangover - roger montgomery",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.03,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 09:14:26",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "G7 leaders open summit talks on Ukraine and the Middle East as Zelenskyy joins in France - AP News",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.85,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 09:14:26",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "G7 leaders open summit talks on Ukraine and the Middle East as Zelenskyy joins in France - AP News",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 09:14:25",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "G7 leaders open summit talks on Ukraine and the Middle East as Zelenskyy joins in France - AP News",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 09:14:22",
-      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
-      "headline": "G7 leaders open summit talks on Ukraine and the Middle East as Zelenskyy joins in France - AP News",
-      "direction": "bearish",
+      "time": "2026-06-16 09:20:46",
+      "market_question": "AI wins IMO gold medal in 2026?",
+      "headline": "The dawn of \u2018Tokenmaxxing\u2019 and the 2026 AI hangover - roger montgomery",
+      "direction": "neutral",
       "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 09:20:46",
+      "market_question": "Will Bitcoin reach $180,000 by December 31, 2026?",
+      "headline": "The dawn of \u2018Tokenmaxxing\u2019 and the 2026 AI hangover - roger montgomery",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 09:20:46",
+      "market_question": "Will Grok AI beat T1 in 2026? ",
+      "headline": "The dawn of \u2018Tokenmaxxing\u2019 and the 2026 AI hangover - roger montgomery",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
