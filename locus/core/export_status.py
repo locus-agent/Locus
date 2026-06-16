@@ -37,10 +37,11 @@ PUSH_PATHS = [
 RECENT_CLASSIFICATIONS_LIMIT = 5
 # Cap the full-history archive (classifications.json) to the newest N rows.
 # Classifications accrue continuously, so an uncapped archive would grow without
-# bound and get re-committed on every push — bloating git history. 1000 rows
-# keeps the archive page rich while keeping the file (~400KB) well within
-# GitHub Pages limits; 5000 rows (~2MB) was tripping Pages deploy failures.
-CLASSIFICATIONS_ARCHIVE_LIMIT = 1000
+# bound and get re-committed on every push — bloating git history. 5000 rows
+# keeps the archive page rich while keeping the file (and each diff) modest.
+# (Data pushes no longer trigger a Pages deploy — see .github/workflows/pages.yml
+# — so the archive size is back to not gating deploys.)
+CLASSIFICATIONS_ARCHIVE_LIMIT = 5000
 
 _last_push_at = float("-inf")
 # Max row ids already exported — archives rewrite only when new rows exist,

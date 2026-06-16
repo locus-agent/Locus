@@ -111,6 +111,11 @@ pages hang off the dashboard:
 - **`docs/journal.html`** — the full history of Locus's daily journal entries (`journal.json`).
 - **`docs/decisions.html`** — every position re-evaluation and its reasoning (`exit_decisions.json`).
 
+> **Pages setup:** the GitHub Pages source must be set to **"GitHub Actions"** in repository
+> Settings → Pages. Deploys run via `.github/workflows/pages.yml`, which only triggers on
+> changes to the static site (HTML/SVG/`.nojekyll`) — not on the per-cycle data pushes
+> (`status.json`, `classifications.json`, `journal.json`, `exit_decisions.json`).
+
 ### All Commands
 
 | Command | What it does |
