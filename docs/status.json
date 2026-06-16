@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T06:36:06.497326+00:00",
+  "generated_at": "2026-06-16T06:41:09.706448+00:00",
   "dry_run": true,
-  "markets_tracked": 2560,
+  "markets_tracked": 2557,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1451,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 331,
+  "headlines_scanned_today": 334,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17429,
+  "classifications_24h": 17437,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 512,
+    "prefiltered_haiku": 519,
     "stale": 124,
     "capped": 25,
     "correlation_block": 38,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T06:21:08.178305+00:00"
+    "last_check": "2026-06-16T06:36:09.011483+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3434,
-    "matched": 866,
-    "classified": 17429,
+    "news": 3436,
+    "matched": 867,
+    "classified": 17437,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -2.28,
+    "unrealized_pnl_usd": -3.15,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1891.7
+    "avg_classification_latency_ms": 1887.9
   },
   "live_readiness": {
     "ready": false,
@@ -224,11 +224,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -252,11 +252,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.39,
-      "pnl_pct": 14.71,
+      "current_price": 0.37,
+      "pnl_pct": 8.82,
       "amount_usd": 14.68,
-      "current_value_usd": 16.84,
-      "pnl_usd": 2.16,
+      "current_value_usd": 15.98,
+      "pnl_usd": 1.3,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -422,22 +422,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 06:31:24",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
+      "time": "2026-06-16 06:37:56",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Exclusive: Ukraine aims to align banks, insurers with EU rules by 2028, central banker says - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 06:31:22",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
+      "time": "2026-06-16 06:37:54",
+      "market_question": "Ukraine election held by December 31, 2026?",
+      "headline": "Exclusive: Ukraine aims to align banks, insurers with EU rules by 2028, central banker says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 06:37:54",
+      "market_question": "Will Donald Trump visit Ukraine in 2026?",
+      "headline": "Exclusive: Ukraine aims to align banks, insurers with EU rules by 2028, central banker says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 06:37:54",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Exclusive: Ukraine aims to align banks, insurers with EU rules by 2028, central banker says - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,41 +474,15 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 06:31:22",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
+      "time": "2026-06-16 06:37:54",
+      "market_question": "Ukraine election called by June 30, 2026?",
+      "headline": "Exclusive: Ukraine aims to align banks, insurers with EU rules by 2028, central banker says - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 06:31:21",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 06:31:21",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
