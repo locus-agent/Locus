@@ -1,79 +1,79 @@
 {
-  "generated_at": "2026-06-16T11:09:03.370624+00:00",
+  "generated_at": "2026-06-16T11:14:06.458454+00:00",
   "dry_run": true,
-  "markets_tracked": 2531,
+  "markets_tracked": 2530,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 1460,
+    "total": 1511,
     "accuracy": 15.4,
     "by_category": {
       "other": 16.2,
       "ai": 10.8,
-      "politics": 19.4,
-      "technology": 18.8,
-      "crypto": 18.2
+      "politics": 19.5,
+      "technology": 18.3,
+      "crypto": 17.4
     },
     "by_source": {
-      "rss": 14.9,
-      "newsapi": 15.9
+      "rss": 14.8,
+      "newsapi": 16.0
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 15.4,
-    "overall_total": 1460,
+    "overall_total": 1511,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 802,
-        "correct": 50,
-        "accuracy_pct": 6.2,
-        "avg_pnl_pct": 22.69,
+        "total": 826,
+        "correct": 52,
+        "accuracy_pct": 6.3,
+        "avg_pnl_pct": 21.87,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 127,
-        "correct": 39,
-        "accuracy_pct": 30.7,
-        "avg_pnl_pct": 21.6,
+        "total": 137,
+        "correct": 41,
+        "accuracy_pct": 29.9,
+        "avg_pnl_pct": 18.36,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 157,
-        "correct": 60,
-        "accuracy_pct": 38.2,
-        "avg_pnl_pct": 2.53,
+        "total": 162,
+        "correct": 61,
+        "accuracy_pct": 37.7,
+        "avg_pnl_pct": 2.63,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 91,
-        "correct": 17,
-        "accuracy_pct": 18.7,
-        "avg_pnl_pct": -3.04,
+        "total": 94,
+        "correct": 18,
+        "accuracy_pct": 19.1,
+        "avg_pnl_pct": -2.82,
         "color": "yellow"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 102,
-        "correct": 36,
-        "accuracy_pct": 35.3,
-        "avg_pnl_pct": 5.59,
+        "total": 108,
+        "correct": 38,
+        "accuracy_pct": 35.2,
+        "avg_pnl_pct": 3.74,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 181,
+        "total": 184,
         "correct": 23,
-        "accuracy_pct": 12.7,
-        "avg_pnl_pct": -8.06,
+        "accuracy_pct": 12.5,
+        "avg_pnl_pct": -7.94,
         "color": "yellow"
       }
     ]
@@ -81,7 +81,7 @@
   "headlines_scanned_today": 468,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17796,
+  "classifications_24h": 17770,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 763,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3517,
+    "news": 3511,
     "matched": 947,
-    "classified": 17796,
+    "classified": 17770,
     "signals": 17,
     "trades": 17
   },
@@ -124,7 +124,7 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -2.89,
+    "unrealized_pnl_usd": -2.46,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
@@ -196,8 +196,8 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.165,
-      "pnl_pct": 3.12,
+      "current_price": 0.16500000000000004,
+      "pnl_pct": 3.13,
       "amount_usd": 15.39,
       "current_value_usd": 15.87,
       "pnl_usd": 0.48,
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.36,
-      "pnl_pct": 5.88,
+      "current_price": 0.37,
+      "pnl_pct": 8.82,
       "amount_usd": 14.68,
-      "current_value_usd": 15.54,
-      "pnl_usd": 0.86,
+      "current_value_usd": 15.98,
+      "pnl_usd": 1.3,
       "edge_type": "news",
       "event_id": "103576"
     }
