@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T11:39:22.814890+00:00",
+  "generated_at": "2026-06-16T11:44:26.080475+00:00",
   "dry_run": true,
   "markets_tracked": 2534,
   "classify_error_streak": 0,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 481,
+  "headlines_scanned_today": 485,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17646,
+  "classifications_24h": 17669,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 782,
+    "prefiltered_haiku": 792,
     "stale": 100,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3489,
-    "matched": 942,
-    "classified": 17646,
+    "news": 3493,
+    "matched": 946,
+    "classified": 17669,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -3.11,
+    "unrealized_pnl_usd": -2.68,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1985.4
+    "avg_classification_latency_ms": 1996.0
   },
   "live_readiness": {
     "ready": false,
@@ -196,8 +196,8 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16500000000000004,
-      "pnl_pct": 3.13,
+      "current_price": 0.165,
+      "pnl_pct": 3.12,
       "amount_usd": 15.39,
       "current_value_usd": 15.87,
       "pnl_usd": 0.48,
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.355,
-      "pnl_pct": 4.41,
+      "current_price": 0.365,
+      "pnl_pct": 7.35,
       "amount_usd": 14.68,
-      "current_value_usd": 15.33,
-      "pnl_usd": 0.65,
+      "current_value_usd": 15.76,
+      "pnl_usd": 1.08,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,9 +436,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 11:37:57",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "China mine disaster, Indonesia policy changes upend global coal market - Reuters",
+      "time": "2026-06-16 11:42:32",
+      "market_question": "Congress passes Iran war powers resolution by June 30?",
+      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
+      "direction": "bearish",
+      "materiality": 0.1,
+      "confidence": 0.6,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 11:42:29",
+      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
+      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
+      "direction": "bearish",
+      "materiality": 0.2,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 11:42:28",
+      "market_question": "Joseph Aoun out as President of Lebanon by December 31?",
+      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 11:42:27",
+      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
+      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 11:42:26",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -447,58 +499,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 11:37:57",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "China mine disaster, Indonesia policy changes upend global coal market - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 11:37:56",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "Magnitude 6.3 earthquake strikes Qinghai, northwest China - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 11:37:56",
-      "market_question": "SCOTUS strikes down Trump's Birthright Citizenship EO?",
-      "headline": "Magnitude 6.3 earthquake strikes Qinghai, northwest China - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 11:37:56",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "China mine disaster, Indonesia policy changes upend global coal market - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
