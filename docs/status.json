@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-16T21:34:29.709650+00:00",
-  "last_heartbeat": "2026-06-16T21:34:29.709650+00:00",
-  "uptime_seconds": 646,
+  "generated_at": "2026-06-16T21:35:01.676953+00:00",
+  "last_heartbeat": "2026-06-16T21:35:01.676953+00:00",
+  "uptime_seconds": 678,
   "dry_run": true,
-  "markets_tracked": 2526,
+  "markets_tracked": 2530,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3007,
@@ -80,10 +80,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 2303,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2304,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 15689,
+  "classifications_24h": 15693,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3057,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3158,
-    "matched": 1063,
-    "classified": 15689,
+    "news": 3159,
+    "matched": 1064,
+    "classified": 15693,
     "signals": 2,
     "trades": 2
   },
@@ -129,7 +129,7 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 3.39,
+    "unrealized_pnl_usd": 1.44,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
@@ -257,11 +257,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.42,
-      "pnl_pct": 23.53,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 18.13,
-      "pnl_usd": 3.45,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -437,22 +437,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 21:32:42",
-      "market_question": "AI data center in space by December 31, 2026?",
-      "headline": "France to ditch Palantir\u2019s AI data tools in favour of domestic provider - The Guardian",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 21:32:41",
-      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
-      "headline": "France to ditch Palantir\u2019s AI data tools in favour of domestic provider - The Guardian",
+      "time": "2026-06-16 21:34:50",
+      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
+      "headline": "'Very, very special' - Mbappe scores two superb goals against Senegal",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -463,41 +450,54 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 21:30:36",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "DOJ accuses New York of unlawful Medicaid home care \u2018scheme\u2019 - Politico",
+      "time": "2026-06-16 21:34:50",
+      "market_question": "Elon Musk wins $10b+ settlement against Altman/OpenAI?",
+      "headline": "'Very, very special' - Mbappe scores two superb goals against Senegal",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 21:34:50",
+      "market_question": "Will Democratic Senate incumbents not win in exactly two nominating elections in the 2026 cycle?",
+      "headline": "'Very, very special' - Mbappe scores two superb goals against Senegal",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 21:34:50",
+      "market_question": "Will Republican Senate incumbents not win in exactly two nominating elections in the 2026 cycle?",
+      "headline": "'Very, very special' - Mbappe scores two superb goals against Senegal",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 21:32:42",
+      "market_question": "AI data center in space by December 31, 2026?",
+      "headline": "France to ditch Palantir\u2019s AI data tools in favour of domestic provider - The Guardian",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 21:30:35",
-      "market_question": "Will Trump hug an Iranian official by June 20?",
-      "headline": "European allies say they\u2019ll be ready to help in Iran. Trump has to show he has a solid deal. - Politico",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 21:30:35",
-      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
-      "headline": "European allies say they\u2019ll be ready to help in Iran. Trump has to show he has a solid deal. - Politico",
-      "direction": "bullish",
-      "materiality": 0.1,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
