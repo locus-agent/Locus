@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T15:25:27.046333+00:00",
+  "generated_at": "2026-06-16T15:30:30.967244+00:00",
   "dry_run": true,
-  "markets_tracked": 2524,
+  "markets_tracked": 2528,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1787,
@@ -78,20 +78,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1017,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1069,
+  "headlines_last_cycle": 3,
   "signals_24h": 9,
-  "classifications_24h": 17186,
+  "classifications_24h": 17388,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1300,
+    "prefiltered_haiku": 1364,
     "stale": 76,
     "capped": 12,
     "too_close_to_resolution": 0,
     "price_target_market": 0,
     "correlation_block": 25,
     "category_limit": 0,
-    "orderbook_skip": 3,
+    "orderbook_skip": 2,
     "already_priced_in": 0,
     "needs_confirmation": 0,
     "event_exposure_block": 8,
@@ -104,7 +104,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T15:14:15.637267+00:00"
+    "last_check": "2026-06-16T15:29:16.053521+00:00"
   },
   "edge_types_24h": {
     "news": 6,
@@ -112,9 +112,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3399,
-    "matched": 1065,
-    "classified": 17186,
+    "news": 3449,
+    "matched": 1089,
+    "classified": 17388,
     "signals": 9,
     "trades": 9
   },
@@ -127,11 +127,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 5.34,
-    "unrealized_pnl_usd": 2.76,
+    "unrealized_pnl_usd": 4.34,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1979.1
+    "avg_classification_latency_ms": 1947.0
   },
   "live_readiness": {
     "ready": false,
@@ -199,11 +199,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.22999999999999998,
-      "pnl_pct": 43.75,
+      "current_price": 0.245,
+      "pnl_pct": 53.12,
       "amount_usd": 7.695,
-      "current_value_usd": 11.06,
-      "pnl_usd": 3.37,
+      "current_value_usd": 11.78,
+      "pnl_usd": 4.09,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -213,7 +213,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.31,
+      "current_price": 0.31000000000000005,
       "pnl_pct": 2.99,
       "amount_usd": 2.0,
       "current_value_usd": 2.06,
@@ -241,11 +241,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -269,11 +269,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.37,
+      "pnl_pct": 8.82,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 15.98,
+      "pnl_usd": 1.3,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -449,22 +449,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 15:24:01",
-      "market_question": "Will Solana dip to $40 by December 31, 2026?",
-      "headline": "Forward Solana treasury stock jumps 8% as smaller DATs reject acquisition bids",
+      "time": "2026-06-16 15:30:30",
+      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
+      "headline": "Wells Fargo raises year-end S&P 500 target on stronger earnings outlook - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 15:24:01",
+      "time": "2026-06-16 15:30:28",
+      "market_question": "Anthropic acquired before 2027?",
+      "headline": "MANTRA to be acquired by Inveniam, backer that invested $20 million last year",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 15:30:28",
       "market_question": "Will Bill Hill advance from the AK-AL primary election?",
-      "headline": "Row over potential cull of Dartmoor hill ponies",
+      "headline": "From YouTube to Hollywood: Digital creators are remaking the movie business - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -475,43 +488,30 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 15:23:56",
-      "market_question": "Will Solana dip to $60 by December 31, 2026?",
-      "headline": "Forward Solana treasury stock jumps 8% as smaller DATs reject acquisition bids",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-16 15:30:28",
+      "market_question": "Will Gavin Solomon advance from the AK-AL primary election?",
+      "headline": "From YouTube to Hollywood: Digital creators are remaking the movie business - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 15:23:54",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Forward Solana treasury stock jumps 8% as smaller DATs reject acquisition bids",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 15:23:53",
-      "market_question": "Will Solana reach $140 in June?",
-      "headline": "Forward Solana treasury stock jumps 8% as smaller DATs reject acquisition bids",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 15:30:28",
+      "market_question": "Will John Williams advance from the AK-AL primary election?",
+      "headline": "From YouTube to Hollywood: Digital creators are remaking the movie business - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
