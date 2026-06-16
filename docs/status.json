@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T05:40:28.766392+00:00",
+  "generated_at": "2026-06-16T05:45:31.866768+00:00",
   "dry_run": true,
   "markets_tracked": 2548,
   "classify_error_streak": 0,
@@ -78,10 +78,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 315,
+  "headlines_scanned_today": 318,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17362,
+  "classifications_24h": 17378,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 484,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3418,
-    "matched": 853,
-    "classified": 17362,
+    "news": 3421,
+    "matched": 856,
+    "classified": 17378,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 5,
     "win_rate_pct": 44.4,
     "realized_pnl_usd": 7.51,
-    "unrealized_pnl_usd": 0.54,
+    "unrealized_pnl_usd": -0.11,
     "recent_winrate": 0.4444,
     "kelly_factor": 0.5417,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1865.9
+    "avg_classification_latency_ms": 1884.0
   },
   "live_readiness": {
     "ready": false,
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.355,
-      "pnl_pct": 4.41,
+      "current_price": 0.33999999999999997,
+      "pnl_pct": 0.0,
       "amount_usd": 14.68,
-      "current_value_usd": 15.33,
-      "pnl_usd": 0.65,
+      "current_value_usd": 14.68,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -425,51 +425,12 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 05:39:30",
-      "market_question": "Will Free Patriotic Movement win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Travelodge sorry for 'Free Palestine' greeting on room TV",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 05:39:30",
-      "market_question": "Will the announcers say \"Trump\" during the England vs Croatia FIFA World Cup Match?",
-      "headline": "I might have avoided ovarian cancer if I lived in England not Wales",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 05:39:30",
-      "market_question": "Will the announcers say \"President\" during the England vs Croatia FIFA World Cup Match?",
-      "headline": "I might have avoided ovarian cancer if I lived in England not Wales",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 05:35:17",
-      "market_question": "Will Z.ai have the best Chinese AI model at the end of June 2026?",
-      "headline": "\u2018AI is the key to global power status\u2019: Inside China's race to militarise artificial intelligence - Euronews",
-      "direction": "neutral",
-      "materiality": 0.03,
-      "confidence": 0.5,
+      "time": "2026-06-16 05:43:59",
+      "market_question": "Ethereum Up or Down - June 16, 12:00AM-4:00AM ET",
+      "headline": "Live markets: Bitcoin ETFs bled cash Monday while every other crypto ETF gained",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
       "edge": null,
       "action": "skip",
       "match_source": "embedding",
@@ -477,15 +438,54 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 05:35:13",
-      "market_question": "Will Moonshot have the best Chinese AI model at the end of June 2026?",
-      "headline": "\u2018AI is the key to global power status\u2019: Inside China's race to militarise artificial intelligence - Euronews",
-      "direction": "neutral",
-      "materiality": 0.03,
-      "confidence": 0.5,
+      "time": "2026-06-16 05:43:56",
+      "market_question": "Will Bitcoin reach $67,500 in June?",
+      "headline": "Live markets: Bitcoin ETFs bled cash Monday while every other crypto ETF gained",
+      "direction": "bearish",
+      "materiality": 0.1,
+      "confidence": 0.52,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 05:43:55",
+      "market_question": "Will Bitcoin reach $90,000 in June?",
+      "headline": "Live markets: Bitcoin ETFs bled cash Monday while every other crypto ETF gained",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 05:43:55",
+      "market_question": "Bitcoin ETF Flows on June 15?",
+      "headline": "Live markets: Bitcoin ETFs bled cash Monday while every other crypto ETF gained",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 05:43:55",
+      "market_question": "Will Bitcoin reach $82,500 in June?",
+      "headline": "Live markets: Bitcoin ETFs bled cash Monday while every other crypto ETF gained",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
