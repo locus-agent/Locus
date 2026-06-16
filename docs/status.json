@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T10:58:56.442171+00:00",
+  "generated_at": "2026-06-16T11:03:59.782748+00:00",
   "dry_run": true,
-  "markets_tracked": 2530,
+  "markets_tracked": 2529,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1460,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 455,
+  "headlines_scanned_today": 459,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17751,
+  "classifications_24h": 17771,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 740,
+    "prefiltered_haiku": 751,
     "stale": 109,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3507,
-    "matched": 936,
-    "classified": 17751,
+    "news": 3510,
+    "matched": 940,
+    "classified": 17771,
     "signals": 17,
     "trades": 17
   },
@@ -128,7 +128,7 @@
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1983.5
+    "avg_classification_latency_ms": 1979.6
   },
   "live_readiness": {
     "ready": false,
@@ -210,7 +210,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.325,
+      "current_price": 0.32499999999999996,
       "pnl_pct": 0.75,
       "amount_usd": 2.0,
       "current_value_usd": 2.01,
@@ -224,11 +224,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.11499999999999999,
+      "current_price": 0.115,
       "pnl_pct": 0.0,
       "amount_usd": 12.97,
       "current_value_usd": 12.97,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -238,11 +238,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -436,22 +436,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 10:50:03",
-      "market_question": "OpenAI acquired before 2027?",
-      "headline": "Japan\u2019s tech business SoftBank rolls out OpenAI \u2018patches\u2019 against cyberattacks - AP News",
+      "time": "2026-06-16 11:03:06",
+      "market_question": "Will the next elected US president be a woman?",
+      "headline": "Lenovo\u2019s next tablet has a thick speaker bump and an upgraded kickstand",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 10:50:03",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "South Africa marks 50 years since Soweto uprising by students, but challenges linger for its youth - AP News",
+      "time": "2026-06-16 11:03:06",
+      "market_question": "Will OpenAI announce a tablet in 2026?",
+      "headline": "Lenovo\u2019s next tablet has a thick speaker bump and an upgraded kickstand",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 11:03:05",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "Lenovo\u2019s next tablet has a thick speaker bump and an upgraded kickstand",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -462,9 +475,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 10:50:03",
-      "market_question": "Will Donald Trump visit South Carolina in 2026?",
-      "headline": "South Africa marks 50 years since Soweto uprising by students, but challenges linger for its youth - AP News",
+      "time": "2026-06-16 11:03:05",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Lenovo\u2019s next tablet has a thick speaker bump and an upgraded kickstand",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -475,22 +488,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 10:50:03",
-      "market_question": "Will Donald Trump visit South Korea in 2026?",
-      "headline": "South Africa marks 50 years since Soweto uprising by students, but challenges linger for its youth - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 10:50:03",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "South Africa marks 50 years since Soweto uprising by students, but challenges linger for its youth - AP News",
+      "time": "2026-06-16 11:03:05",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Lenovo\u2019s next tablet has a thick speaker bump and an upgraded kickstand",
       "direction": null,
       "materiality": null,
       "confidence": null,
