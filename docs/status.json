@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-16T19:57:04.443426+00:00",
-  "last_heartbeat": "2026-06-16T19:57:04.443426+00:00",
-  "uptime_seconds": 5806,
+  "generated_at": "2026-06-16T20:02:08.055122+00:00",
+  "last_heartbeat": "2026-06-16T20:02:08.055122+00:00",
+  "uptime_seconds": 6109,
   "dry_run": true,
-  "markets_tracked": 2494,
+  "markets_tracked": 2495,
   "classify_error_streak": 0,
   "track_record": {
     "total": 2654,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1737,
+  "headlines_scanned_today": 1741,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 13505,
+  "classifications_24h": 13458,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2070,
+    "prefiltered_haiku": 2072,
     "stale": 43,
     "capped": 6,
     "too_close_to_resolution": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2691,
-    "matched": 1041,
-    "classified": 13505,
+    "news": 2679,
+    "matched": 1040,
+    "classified": 13458,
     "signals": 5,
     "trades": 5
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 7.33,
-    "unrealized_pnl_usd": 7.57,
+    "unrealized_pnl_usd": 8.86,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1671.9
+    "avg_classification_latency_ms": 1673.4
   },
   "live_readiness": {
     "ready": false,
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.4,
-      "pnl_pct": 17.65,
+      "current_price": 0.42999999999999994,
+      "pnl_pct": 26.47,
       "amount_usd": 14.68,
-      "current_value_usd": 17.27,
-      "pnl_usd": 2.59,
+      "current_value_usd": 18.57,
+      "pnl_usd": 3.89,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,12 +451,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 19:56:24",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "AI is scaling human exploitation. Here\u2019s why we must act now - The World Economic Forum",
-      "direction": "bullish",
-      "materiality": 0.05,
-      "confidence": 0.52,
+      "time": "2026-06-16 20:00:46",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Snap CEO Spiegel defends Specs as long-term bet, pushes back against activist pressure - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 20:00:45",
+      "market_question": "Apple Vision Pro 2 released before 2027?",
+      "headline": "Snap bets on life beyond smartphones with $2,195 Specs augmented-reality glasses - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
       "match_source": "embedding",
@@ -464,35 +477,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 19:56:21",
-      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
-      "headline": "AI is scaling human exploitation. Here\u2019s why we must act now - The World Economic Forum",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 19:56:21",
-      "market_question": "AI wins IMO gold medal in 2026?",
-      "headline": "AI is scaling human exploitation. Here\u2019s why we must act now - The World Economic Forum",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 19:56:19",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "AI is scaling human exploitation. Here\u2019s why we must act now - The World Economic Forum",
+      "time": "2026-06-16 20:00:45",
+      "market_question": "Spain snap election called in 2026?",
+      "headline": "Snap CEO Spiegel defends Specs as long-term bet, pushes back against activist pressure - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -503,9 +490,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 19:56:19",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "AI is scaling human exploitation. Here\u2019s why we must act now - The World Economic Forum",
+      "time": "2026-06-16 20:00:45",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Snap CEO Spiegel defends Specs as long-term bet, pushes back against activist pressure - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 20:00:45",
+      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
+      "headline": "Snap CEO Spiegel defends Specs as long-term bet, pushes back against activist pressure - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
