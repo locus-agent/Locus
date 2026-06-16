@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T14:11:52.312759+00:00",
+  "generated_at": "2026-06-16T14:14:33.575614+00:00",
   "dry_run": true,
   "markets_tracked": 2525,
   "classify_error_streak": 0,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 817,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 851,
+  "headlines_last_cycle": 34,
   "signals_24h": 10,
-  "classifications_24h": 17873,
+  "classifications_24h": 18020,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1172,
+    "prefiltered_haiku": 1177,
     "stale": 85,
     "capped": 21,
     "too_close_to_resolution": 0,
@@ -92,6 +92,7 @@
     "correlation_block": 38,
     "category_limit": 0,
     "orderbook_skip": 8,
+    "already_priced_in": 0,
     "needs_confirmation": 3,
     "event_exposure_block": 8,
     "low_consensus": 0,
@@ -103,7 +104,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T14:01:23.538059+00:00"
+    "last_check": "2026-06-16T14:14:14.006532+00:00"
   },
   "edge_types_24h": {
     "news": 6,
@@ -111,9 +112,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3545,
+    "news": 3576,
     "matched": 1085,
-    "classified": 17873,
+    "classified": 18020,
     "signals": 10,
     "trades": 10
   },
@@ -126,11 +127,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 5.34,
-    "unrealized_pnl_usd": 3.71,
+    "unrealized_pnl_usd": 3.29,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2128.6
+    "avg_classification_latency_ms": 1859.0
   },
   "live_readiness": {
     "ready": false,
@@ -198,11 +199,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.255,
-      "pnl_pct": 59.38,
+      "current_price": 0.26,
+      "pnl_pct": 62.5,
       "amount_usd": 7.695,
-      "current_value_usd": 12.26,
-      "pnl_usd": 4.57,
+      "current_value_usd": 12.5,
+      "pnl_usd": 4.81,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -212,11 +213,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.35,
-      "pnl_pct": -2.99,
+      "current_price": 0.355,
+      "pnl_pct": -3.73,
       "amount_usd": 2.0,
-      "current_value_usd": 1.94,
-      "pnl_usd": -0.06,
+      "current_value_usd": 1.93,
+      "pnl_usd": -0.07,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -268,11 +269,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.36,
-      "pnl_pct": 5.88,
+      "current_price": 0.345,
+      "pnl_pct": 1.47,
       "amount_usd": 14.68,
-      "current_value_usd": 15.54,
-      "pnl_usd": 0.86,
+      "current_value_usd": 14.9,
+      "pnl_usd": 0.22,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -448,11 +449,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 14:10:11",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "Turkey told Russia to avoid steps threatening security, interests in Black Sea - Reuters",
-      "direction": "bearish",
-      "materiality": 0.05,
+      "time": "2026-06-16 14:14:29",
+      "market_question": "Will Trump say \"UFC\" this week?",
+      "headline": "Multiple arrests as FBI disrupts 'planned attacks' targeting White House UFC show, director says - AP News",
+      "direction": "bullish",
+      "materiality": 0.1,
       "confidence": 0.55,
       "edge": null,
       "action": "skip",
@@ -461,54 +462,54 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 14:10:06",
-      "market_question": "Will Donald Trump visit Turkey in 2026?",
-      "headline": "Turkey told Russia to avoid steps threatening security, interests in Black Sea - Reuters",
+      "time": "2026-06-16 14:14:29",
+      "market_question": "Will Bitcoin have the best performance in 2026?",
+      "headline": "CoinDesk 20 performance update: Uniswap (UNI) gains 12.9% while index trades lower",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.03,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "action": "cached",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-16 14:10:05",
-      "market_question": "Congress passes Iran war powers resolution by June 30?",
-      "headline": "Iran war is a wake-up call for Southeast Asia\u2019s energy sector, IEA report says - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 14:10:05",
-      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
-      "headline": "Iran war is a wake-up call for Southeast Asia\u2019s energy sector, IEA report says - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 14:10:05",
-      "market_question": "Will Donald Trump visit Russia in 2026?",
-      "headline": "Turkey told Russia to avoid steps threatening security, interests in Black Sea - Reuters",
+      "time": "2026-06-16 14:14:29",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "CoinDesk 20 performance update: Uniswap (UNI) gains 12.9% while index trades lower",
       "direction": null,
       "materiality": null,
       "confidence": null,
       "edge": null,
       "action": "prefiltered",
       "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 14:14:29",
+      "market_question": "Will Trump cut long term capital gains tax before 2027?",
+      "headline": "CoinDesk 20 performance update: Uniswap (UNI) gains 12.9% while index trades lower",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 14:14:29",
+      "market_question": "Will the price of Ethereum be above $1,900 on June 18?",
+      "headline": "CoinDesk 20 performance update: Uniswap (UNI) gains 12.9% while index trades lower",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": null
     }
