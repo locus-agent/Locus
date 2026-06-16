@@ -94,6 +94,85 @@ def _open_position_row(p: dict) -> dict:
     }
 
 
+def _fmt_pct(v: float | None) -> str:
+    """Signed whole-percent label, or '?' when the percent is unknown."""
+    return f"{v:+.0f}%" if v is not None else "?"
+
+
+def _full_closed_row(p: dict) -> dict:
+    """Public shape of a fully-closed position row."""
+    return {
+        "time": p["closed_at"],
+        "market_question": p["market_question"],
+        "slug": p["slug"],
+        "side": p["side"],
+        "entry_price": p["entry_yes_price"],
+        "exit_price": p["exit_yes_price"],
+        "realized_pnl_usd": p["realized_pnl_usd"],
+        "exit_reason": p["exit_reason"],
+        "event_id": p.get("event_id"),
+        "partial": False,
+    }
+
+
+def _closed_positions_display(dash_since: str | None) -> list[dict]:
+    """Closed-positions rows for the dashboard, merging full closes with
+    close_half partial realizations.
+
+    A close_half realizes half the stake but leaves the position open, so it's
+    invisible in the positions table's closed view. We surface it here:
+      - a still-open position that was half-closed -> a partial row
+        ("½ closed at +X%")
+      - a position half-closed and *later* fully closed -> its full-close row,
+        relabeled in place ("UPD: ½ closed +X% → fully closed +Y%")
+    Each underlying position appears at most once (no duplication)."""
+    closed = positions.get_closed_positions(limit=10, since=dash_since)
+    # Latest close_half per position (get_partial_closes is decision-id DESC).
+    partial_by_pos: dict[int, dict] = {}
+    for d in positions.get_partial_closes(since=dash_since):
+        partial_by_pos.setdefault(d["position_id"], d)
+
+    rows: list[dict] = []
+    closed_ids: set[int] = set()
+    for p in closed:
+        closed_ids.add(p["id"])
+        row = _full_closed_row(p)
+        half = partial_by_pos.get(p["id"])
+        if half is not None:
+            # Half-closed earlier, now fully closed: relabel the single row
+            # rather than emit a second one.
+            full_pct = (
+                positions.pnl_pct(p["side"], p["entry_yes_price"], p["exit_yes_price"])
+                if p["exit_yes_price"] is not None else None
+            )
+            row["exit_reason"] = (
+                f"UPD: ½ closed {_fmt_pct(half['pnl_pct'])} → "
+                f"fully closed {_fmt_pct(full_pct)}"
+            )
+            row["partial"] = True
+        rows.append(row)
+
+    # Still-open positions that were half-closed get a synthetic partial row.
+    for pid, half in partial_by_pos.items():
+        if pid in closed_ids or half["status"] != "open":
+            continue
+        rows.append({
+            "time": half["created_at"],
+            "market_question": half["market_question"],
+            "slug": half["slug"],
+            "side": half["side"],
+            "entry_price": half["entry_yes_price"],
+            "exit_price": half["yes_price"],
+            "realized_pnl_usd": half["realized_pnl_usd"],
+            "exit_reason": f"½ closed at {_fmt_pct(half['pnl_pct'])}",
+            "event_id": half.get("event_id"),
+            "partial": True,
+        })
+
+    rows.sort(key=lambda r: r["time"] or "", reverse=True)
+    return rows[:10]
+
+
 def _export_archives() -> None:
     """Write full-history journal / exit_decisions / classifications archives
     when new rows exist (byte-identical otherwise, so auto-push stays quiet)."""
@@ -232,20 +311,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             _open_position_row(p)
             for p in positions.get_open_positions(since=dash_since)[:10]
         ],
-        "closed_positions": [
-            {
-                "time": p["closed_at"],
-                "market_question": p["market_question"],
-                "slug": p["slug"],
-                "side": p["side"],
-                "entry_price": p["entry_yes_price"],
-                "exit_price": p["exit_yes_price"],
-                "realized_pnl_usd": p["realized_pnl_usd"],
-                "exit_reason": p["exit_reason"],
-                "event_id": p.get("event_id"),
-            }
-            for p in positions.get_closed_positions(limit=10, since=dash_since)
-        ],
+        "closed_positions": _closed_positions_display(dash_since),
         "exit_decisions": [
             {
                 "time": d["created_at"],

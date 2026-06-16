@@ -396,6 +396,10 @@
     padding: 2px 0;
   }
 
+  /* Partial (½ closed) rows in the Closed Positions table: muted + italic
+     to distinguish a half realization from a full close. */
+  tr.partial-close td { color: var(--muted); font-style: italic; }
+
   .gate-row .gate-label { color: var(--muted); }
   .gate-row .gate-count { font-weight: 700; }
   .gate-prefilter .gate-count { color: var(--yellow); }
@@ -1373,7 +1377,7 @@
     tbody.innerHTML = rows.map(t => {
       const [pnlTxt, pnlCls] = fmtPnl(t.realized_pnl_usd);
       return `
-      <tr>
+      <tr class="${t.partial ? 'partial-close' : ''}">
         <td>${fmtTime(t.time)}</td>
         <td class="market">${marketCell(t.market_question, t.slug)}</td>
         <td class="${t.side === 'YES' ? 'side-yes' : 'side-no'}">${escapeHtml(t.side)}</td>

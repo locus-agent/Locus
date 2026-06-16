@@ -214,6 +214,30 @@ def get_recent_exit_decisions(limit: int = 5) -> list[dict]:
     return [dict(r) for r in rows]
 
 
+def get_partial_closes(since: str | None = None) -> list[dict]:
+    """close_half exit decisions joined with their position, newest first.
+
+    A close_half realizes half the stake but leaves the position open, so it
+    never lands in get_closed_positions. The dashboard's closed-positions
+    display merges these in (see export_status). `since` filters on the
+    position's open date, matching get_closed_positions."""
+    conn = logger._conn()
+    sql = """SELECT d.id AS decision_id, d.created_at, d.pnl_pct, d.yes_price,
+                    p.id AS position_id, p.market_question, p.slug, p.side,
+                    p.entry_yes_price, p.exit_yes_price, p.status,
+                    p.realized_pnl_usd, p.event_id, p.opened_at, p.closed_at
+             FROM exit_decisions d JOIN positions p ON d.position_id = p.id
+             WHERE d.decision = 'close_half'"""
+    params: list = []
+    if since:
+        sql += " AND p.opened_at >= ?"
+        params.append(since)
+    sql += " ORDER BY d.id DESC"
+    rows = conn.execute(sql, params).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
 # --- Correlation risk ---------------------------------------------------------
 #
 # One headline can only open one position (the pipeline's headline cap), but
