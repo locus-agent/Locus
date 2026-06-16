@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T15:30:30.967244+00:00",
+  "generated_at": "2026-06-16T15:35:34.888690+00:00",
   "dry_run": true,
-  "markets_tracked": 2528,
+  "markets_tracked": 2526,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1787,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1069,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 1073,
+  "headlines_last_cycle": 0,
   "signals_24h": 9,
-  "classifications_24h": 17388,
+  "classifications_24h": 17398,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1364,
+    "prefiltered_haiku": 1370,
     "stale": 76,
     "capped": 12,
     "too_close_to_resolution": 0,
@@ -112,9 +112,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3449,
-    "matched": 1089,
-    "classified": 17388,
+    "news": 3451,
+    "matched": 1093,
+    "classified": 17398,
     "signals": 9,
     "trades": 9
   },
@@ -127,11 +127,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 5.34,
-    "unrealized_pnl_usd": 4.34,
+    "unrealized_pnl_usd": 5.04,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1947.0
+    "avg_classification_latency_ms": 1939.7
   },
   "live_readiness": {
     "ready": false,
@@ -199,11 +199,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.245,
-      "pnl_pct": 53.12,
+      "current_price": 0.255,
+      "pnl_pct": 59.38,
       "amount_usd": 7.695,
-      "current_value_usd": 11.78,
-      "pnl_usd": 4.09,
+      "current_value_usd": 12.26,
+      "pnl_usd": 4.57,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -213,7 +213,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.31000000000000005,
+      "current_price": 0.31,
       "pnl_pct": 2.99,
       "amount_usd": 2.0,
       "current_value_usd": 2.06,
@@ -269,11 +269,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.37,
-      "pnl_pct": 8.82,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 15.98,
-      "pnl_usd": 1.3,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -449,22 +449,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 15:30:30",
-      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
-      "headline": "Wells Fargo raises year-end S&P 500 target on stronger earnings outlook - Reuters",
+      "time": "2026-06-16 15:34:50",
+      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
+      "headline": "DC braces for change \u2014 and a collision with Trump - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 15:34:49",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "DC braces for change \u2014 and a collision with Trump - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 15:30:28",
-      "market_question": "Anthropic acquired before 2027?",
-      "headline": "MANTRA to be acquired by Inveniam, backer that invested $20 million last year",
+      "time": "2026-06-16 15:34:48",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "DC braces for change \u2014 and a collision with Trump - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -475,43 +488,30 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 15:30:28",
-      "market_question": "Will Bill Hill advance from the AK-AL primary election?",
-      "headline": "From YouTube to Hollywood: Digital creators are remaking the movie business - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 15:34:47",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "DC braces for change \u2014 and a collision with Trump - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 15:30:28",
-      "market_question": "Will Gavin Solomon advance from the AK-AL primary election?",
-      "headline": "From YouTube to Hollywood: Digital creators are remaking the movie business - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 15:34:47",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "DC braces for change \u2014 and a collision with Trump - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 15:30:28",
-      "market_question": "Will John Williams advance from the AK-AL primary election?",
-      "headline": "From YouTube to Hollywood: Digital creators are remaking the movie business - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
