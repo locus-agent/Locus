@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T15:40:38.366613+00:00",
+  "generated_at": "2026-06-16T15:45:42.156223+00:00",
   "dry_run": true,
-  "markets_tracked": 2526,
+  "markets_tracked": 2528,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1787,
@@ -78,14 +78,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1078,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 1101,
+  "headlines_last_cycle": 0,
   "signals_24h": 9,
-  "classifications_24h": 17394,
+  "classifications_24h": 17450,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1376,
-    "stale": 77,
+    "prefiltered_haiku": 1403,
+    "stale": 78,
     "capped": 12,
     "too_close_to_resolution": 0,
     "price_target_market": 0,
@@ -104,7 +104,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T15:29:16.053521+00:00"
+    "last_check": "2026-06-16T15:44:16.527105+00:00"
   },
   "edge_types_24h": {
     "news": 6,
@@ -112,9 +112,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3451,
-    "matched": 1098,
-    "classified": 17394,
+    "news": 3459,
+    "matched": 1105,
+    "classified": 17450,
     "signals": 9,
     "trades": 9
   },
@@ -127,11 +127,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 5.34,
-    "unrealized_pnl_usd": 4.15,
+    "unrealized_pnl_usd": 5.26,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1961.0
+    "avg_classification_latency_ms": 1975.1
   },
   "live_readiness": {
     "ready": false,
@@ -199,11 +199,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.21999999999999997,
-      "pnl_pct": 37.5,
+      "current_price": 0.255,
+      "pnl_pct": 59.38,
       "amount_usd": 7.695,
-      "current_value_usd": 10.58,
-      "pnl_usd": 2.89,
+      "current_value_usd": 12.26,
+      "pnl_usd": 4.57,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -213,11 +213,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.31,
-      "pnl_pct": 2.99,
+      "current_price": 0.31499999999999995,
+      "pnl_pct": 2.24,
       "amount_usd": 2.0,
-      "current_value_usd": 2.06,
-      "pnl_usd": 0.06,
+      "current_value_usd": 2.04,
+      "pnl_usd": 0.04,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -227,11 +227,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.14500000000000002,
-      "pnl_pct": 26.09,
+      "current_price": 0.14,
+      "pnl_pct": 21.74,
       "amount_usd": 12.97,
-      "current_value_usd": 16.35,
-      "pnl_usd": 3.38,
+      "current_value_usd": 15.79,
+      "pnl_usd": 2.82,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -449,35 +449,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 15:40:35",
-      "market_question": "Trump orders federal review of AI model releases by June 30?",
-      "headline": "How a 90-minute White House deadline sparked Silicon Valley\u2019s biggest AI fight - The Washington Post",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.52,
-      "edge": 0.10725000000000001,
-      "action": "stale",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 15:40:32",
-      "market_question": "Will Trump say \"White House\" during UFC 250?",
-      "headline": "How a 90-minute White House deadline sparked Silicon Valley\u2019s biggest AI fight - The Washington Post",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 15:40:31",
-      "market_question": "Will OpenAI launch a new consumer hardware product by December 31, 2026?",
-      "headline": "Salesforce acquires AI customer service platform Fin for $3.6 billion - TechCrunch",
+      "time": "2026-06-16 15:41:23",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "As AI companies race to go public, who else is along for the ride? - TechCrunch",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -488,9 +462,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 15:40:31",
-      "market_question": "Will Trump praise Dana White by June 30?",
-      "headline": "How a 90-minute White House deadline sparked Silicon Valley\u2019s biggest AI fight - The Washington Post",
+      "time": "2026-06-16 15:41:23",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "He was an early SpaceX employee. Here's how his equity helped him. - Business Insider",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -501,9 +475,35 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 15:40:31",
-      "market_question": "Will Donald Trump visit Washington in 2026?",
-      "headline": "How a 90-minute White House deadline sparked Silicon Valley\u2019s biggest AI fight - The Washington Post",
+      "time": "2026-06-16 15:41:23",
+      "market_question": "Will a US court rule that the 2020 election was fradulent?",
+      "headline": "He was an early SpaceX employee. Here's how his equity helped him. - Business Insider",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 15:41:23",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "He was an early SpaceX employee. Here's how his equity helped him. - Business Insider",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 15:41:23",
+      "market_question": "Will Sam Altman get OpenAI equity by June 30?",
+      "headline": "He was an early SpaceX employee. Here's how his equity helped him. - Business Insider",
       "direction": null,
       "materiality": null,
       "confidence": null,
