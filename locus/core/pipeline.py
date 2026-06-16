@@ -24,7 +24,7 @@ from locus.sources.news_stream import NewsAggregator, NewsEvent
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import (
-    classify_async, classify_fast, classify_edge_type, haiku_prefilter, classify,
+    classify_fast, classify_edge_type, haiku_prefilter, classify,
     verify_novelty,
 )
 from locus.core.multi_classifier import classify_ensemble, is_low_consensus
@@ -880,34 +880,74 @@ class PipelineV2:
             received_at=now, published_at=now, latency_ms=0,
         )
 
-        classification = await classify_async(headline, market, "whale")
+        # Tiered Haiku->Sonnet, same as the main pipeline (was a single Haiku
+        # classify_async). classify_fast is synchronous -> run off the loop.
+        classification = await loop.run_in_executor(
+            None, classify_fast, headline, market, "whale"
+        )
 
         signal = None
-        if not classification.error:
-            edge_metrics = detect_edge_v2(market, classification, whale_event)
-            raw_signal = edge_metrics.signal if edge_metrics else None
-            signal, _ = gate_trade(whale_event, raw_signal, self._traded_headlines)
-
-            if signal is not None:
-                open_positions = await loop.run_in_executor(None, positions.get_open_positions)
-                corr = positions.check_correlation_risk(
-                    market.question, signal.side, open_positions
+        # WHALE_TRADING_ENABLED is the master safety switch: investigations still
+        # run and are logged below, but no trade is queued when it's off.
+        if config.WHALE_TRADING_ENABLED and not classification.error:
+            # Circuit breaker first: if recent realized performance has
+            # deteriorated, hold whale trades too — and skip the rest of the
+            # gate work entirely.
+            breaker = await loop.run_in_executor(None, compute_circuit_breaker)
+            self._circuit_breaker = breaker
+            if breaker["triggered"]:
+                console.print(
+                    f"  [red]CIRCUIT BREAKER ACTIVE[/red]: {breaker['reason']} — "
+                    f"holding whale trade on \"{market.question[:40]}\""
                 )
-                if corr["risk_level"] == "high":
-                    signal = None
-                else:
-                    imbalance = await loop.run_in_executor(
-                        None, fetch_orderbook_imbalance, get_token_id(market, "YES")
+            else:
+                edge_metrics = detect_edge_v2(market, classification, whale_event)
+                raw_signal = edge_metrics.signal if edge_metrics else None
+                signal, _ = gate_trade(whale_event, raw_signal, self._traded_headlines)
+
+                if signal is not None:
+                    open_positions = await loop.run_in_executor(None, positions.get_open_positions)
+                    # Correlation + category-exposure gates (category exposure
+                    # was previously missing on the whale path).
+                    corr = positions.check_correlation_risk(
+                        market.question, signal.side, open_positions
                     )
-                    if not orderbook_allows(signal.side, imbalance):
+                    cat_exp = positions.check_category_exposure(
+                        getattr(market, "category", "") or "other", open_positions
+                    )
+                    if corr["risk_level"] == "high":
+                        signal = None
+                    elif not cat_exp["allowed"]:
                         signal = None
                     else:
-                        event_id = getattr(market, "event_id", "") or ""
-                        exposure = event_context.get_event_exposure(event_id, open_positions)
-                        if event_id and exposure["position_count"] >= config.MAX_POSITIONS_PER_EVENT:
+                        # CoV novelty + orderbook imbalance in parallel (same
+                        # pattern as the main pipeline). CoV was missing here.
+                        run_cov = should_verify_novelty(
+                            classification.materiality, market.yes_price
+                        )
+
+                        async def _orderbook():
+                            return await loop.run_in_executor(
+                                None, fetch_orderbook_imbalance, get_token_id(market, "YES")
+                            )
+
+                        async def _cov():
+                            if not run_cov:
+                                return None
+                            return await loop.run_in_executor(
+                                None, verify_novelty, headline, market, market.yes_price
+                            )
+
+                        imbalance, cov = await asyncio.gather(_orderbook(), _cov())
+                        if not orderbook_allows(signal.side, imbalance) or cov_blocks(cov):
                             signal = None
                         else:
-                            signal.edge_type = "whale"
+                            event_id = getattr(market, "event_id", "") or ""
+                            exposure = event_context.get_event_exposure(event_id, open_positions)
+                            if event_id and exposure["position_count"] >= config.MAX_POSITIONS_PER_EVENT:
+                                signal = None
+                            else:
+                                signal.edge_type = "whale"
 
         logger.log_classification(
             market_question=market.question,

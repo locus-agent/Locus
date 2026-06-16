@@ -221,6 +221,13 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
     today_start = now.strftime("%Y-%m-%d 00:00:00")
     since_24h = (now - timedelta(hours=24)).strftime("%Y-%m-%d %H:%M:%S")
 
+    # Pipeline uptime, if `cli.py watch` stamped a start time (None for a
+    # standalone export). last_heartbeat lets the dashboard show "Xs ago".
+    uptime_seconds = (
+        (now - config.WATCH_START_TIME).total_seconds()
+        if config.WATCH_START_TIME else None
+    )
+
     # Display-only filter for the position tables (hides old test positions);
     # empty config = show all. Read at call time so env/test overrides apply.
     dash_since = config.DASHBOARD_POSITIONS_START_DATE or None
@@ -246,6 +253,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
 
     status = {
         "generated_at": now.isoformat(),
+        "last_heartbeat": now.isoformat(),
+        "uptime_seconds": round(uptime_seconds) if uptime_seconds is not None else None,
         "dry_run": config.DRY_RUN,
         "markets_tracked": markets_tracked,
         "classify_error_streak": classify_error_streak,

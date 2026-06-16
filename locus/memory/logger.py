@@ -405,16 +405,6 @@ def get_trades_for_performance() -> list[dict]:
     return [dict(r) for r in rows]
 
 
-def get_calibration_exits() -> dict[int, float]:
-    """{trade_id: exit YES price} for resolved trades."""
-    conn = _conn()
-    rows = conn.execute(
-        "SELECT trade_id, exit_price FROM calibration WHERE exit_price IS NOT NULL"
-    ).fetchall()
-    conn.close()
-    return {r["trade_id"]: r["exit_price"] for r in rows}
-
-
 def get_calibrated_trade_ids() -> set[int]:
     """Trade ids already graded — used to resolve each trade exactly once."""
     conn = _conn()
@@ -438,7 +428,8 @@ def find_recent_classification(
         """SELECT direction, materiality, confidence, yes_price, created_at
            FROM classifications
            WHERE headline = ? AND condition_id = ?
-             AND action NOT IN ('prefiltered', 'cached', 'error')
+             -- prefiltered_haiku excluded — Haiku triage should not suppress full Sonnet re-classification
+             AND action NOT IN ('prefiltered', 'prefiltered_haiku', 'cached', 'error')
              AND direction IS NOT NULL
              AND yes_price IS NOT NULL
              AND ABS(yes_price - ?) <= ?
@@ -902,15 +893,6 @@ def get_recent_trades(limit: int = 20, unresolved_only: bool = False) -> list[di
         rows = conn.execute(
             "SELECT * FROM trades ORDER BY created_at DESC LIMIT ?", (limit,)
         ).fetchall()
-    conn.close()
-    return [dict(r) for r in rows]
-
-
-def get_recent_news_events(limit: int = 20) -> list[dict]:
-    conn = _conn()
-    rows = conn.execute(
-        "SELECT * FROM news_events ORDER BY created_at DESC LIMIT ?", (limit,)
-    ).fetchall()
     conn.close()
     return [dict(r) for r in rows]
 

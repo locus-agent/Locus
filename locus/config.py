@@ -304,6 +304,9 @@ PROMPT_EVOLUTION_ENABLED = os.getenv("PROMPT_EVOLUTION_ENABLED", "true").lower()
 PROMPT_EVOLUTION_INTERVAL_DAYS = float(os.getenv("PROMPT_EVOLUTION_INTERVAL_DAYS", "7"))
 
 # --- Dashboard ---
+# Pipeline start time (UTC), set by `cli.py watch` at launch so export_status
+# can publish uptime. None when nothing set it (standalone export, dashboard).
+WATCH_START_TIME = None
 # Auto-commit and push docs/status.json after each pipeline cycle.
 AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"
 # Minimum time between auto-pushes, regardless of how often cycles run.
@@ -321,6 +324,9 @@ DASHBOARD_POSITIONS_START_DATE = os.getenv("DASHBOARD_POSITIONS_START_DATE", "")
 PERFORMANCE_START_DATE = os.getenv("PERFORMANCE_START_DATE", "")
 
 # --- Whale tracking ---
+# Master switch for opening whale-triggered trades. Investigations still run and
+# are logged either way; when false, a whale signal is never queued for a trade.
+WHALE_TRADING_ENABLED = os.getenv("WHALE_TRADING_ENABLED", "true").lower() == "true"  # Set to false if you want extra safety
 # Top-performing wallets to shadow (comma-separated addresses in .env). When a
 # whale opens a position on a niche market we hadn't acted on, the pipeline
 # investigates it. Empty list disables whale tracking entirely.

@@ -334,14 +334,6 @@ class MarketWatcher:
             return_exceptions=True,
         )
 
-    def get_market_by_question(self, question_fragment: str) -> Market | None:
-        """Find a tracked market by partial question match."""
-        frag = question_fragment.lower()
-        for m in self.tracked_markets:
-            if frag in m.question.lower():
-                return m
-        return None
-
     def get_snapshot(self, condition_id: str) -> MarketSnapshot | None:
         return self.snapshots.get(condition_id)
 

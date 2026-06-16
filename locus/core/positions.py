@@ -144,30 +144,6 @@ def backfill_positions() -> int:
     return len(rows)
 
 
-def backfill_slugs() -> int:
-    """Populate slug for existing positions that lack one (idempotent).
-
-    Positions opened before slug capture have a NULL slug, so the dashboard
-    can't link them. Look each up by condition_id and fill it in. Markets no
-    longer known to Gamma (e.g. retired test markets) are left untouched.
-    """
-    conn = logger._conn()
-    rows = conn.execute(
-        "SELECT id, condition_id FROM positions WHERE slug IS NULL OR slug = ''"
-    ).fetchall()
-    updated = 0
-    for r in rows:
-        slug = gamma.fetch_slug_by_condition_id(r["condition_id"])
-        if slug:
-            conn.execute("UPDATE positions SET slug = ? WHERE id = ?", (slug, r["id"]))
-            updated += 1
-    conn.commit()
-    conn.close()
-    if updated:
-        log.info(f"[positions] Backfilled slugs for {updated} positions")
-    return updated
-
-
 def get_open_positions(since: str | None = None) -> list[dict]:
     """Open positions, newest first. `since` (an ISO date/datetime) is a
     display-only filter — when set, only positions opened on or after it are

@@ -28,8 +28,13 @@ console = Console()
 
 def cmd_watch(args):
     """V2: Event-driven pipeline — real-time news → classify → trade."""
+    from datetime import datetime, timezone
     from locus import config
     from locus.core.pipeline import run_pipeline_v2
+
+    # Stamp the launch time so export_status can publish uptime on the dashboard.
+    watch_start_time = datetime.now(timezone.utc)
+    config.WATCH_START_TIME = watch_start_time
 
     if args.live:
         config.DRY_RUN = False
@@ -145,7 +150,7 @@ def cmd_verify(args):
 
     # 2. Dependencies
     deps_ok = True
-    for mod in ["anthropic", "feedparser", "httpx", "rich", "dotenv", "websockets", "tweepy", "aiohttp"]:
+    for mod in ["anthropic", "feedparser", "httpx", "rich", "dotenv", "websockets"]:
         try:
             __import__(mod)
         except ImportError:

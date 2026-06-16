@@ -45,3 +45,10 @@ def test_most_recent_real_row_wins(tmp_db):
     _log(tmp_db, direction="bullish")
     _log(tmp_db, direction="bearish")
     assert find()["direction"] == "bearish"
+
+
+def test_prefiltered_haiku_is_not_reused(tmp_db):
+    # Haiku triage rows carry a direction + price but must NOT seed a cache hit
+    # that suppresses a full Sonnet re-classification.
+    _log(tmp_db, action="prefiltered_haiku", direction="bullish")
+    assert find() is None

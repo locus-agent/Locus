@@ -65,10 +65,17 @@
   .topbar .mode.live .dot { color: #ffb3b3; }
 
   .topbar .last-cycle {
-    margin-left: auto;
     color: #d8d4f2;
     font-size: 12px;
   }
+
+  /* Right-aligned topbar stats (uptime / last update / last cycle). #uptime
+     carries margin-left:auto so the whole group floats right as one block. */
+  .topbar .topbar-stat {
+    color: #d8d4f2;
+    font-size: 12px;
+  }
+  .topbar #uptime { margin-left: auto; }
 
   .wrap {
     max-width: 1400px;
@@ -532,6 +539,12 @@
 
   tr:last-child td { border-bottom: none; }
 
+  /* Sortable column headers (Open Positions / Classification Log). */
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { color: var(--purple); }
+  th.sort-asc::after { content: " \25B2"; font-size: 9px; }
+  th.sort-desc::after { content: " \25BC"; font-size: 9px; }
+
   td.market, td.headline {
     white-space: normal;
     max-width: 260px;
@@ -682,6 +695,8 @@
     <span class="subtitle">· crypto research agent</span>
     <span id="mode-badge" class="mode"><span class="dot">●</span> DRY RUN</span>
     <span id="cb-badge" class="cb-badge" style="display: none;">⚠ CIRCUIT BREAKER</span>
+    <span id="uptime" class="topbar-stat">Uptime: —</span>
+    <span id="last-update" class="topbar-stat">Last update: —</span>
     <span id="last-cycle" class="last-cycle">last cycle: —</span>
   </div>
 </div>
@@ -820,16 +835,16 @@
         <table>
           <thead>
             <tr>
-              <th>Time</th>
-              <th>Market</th>
-              <th>Side</th>
-              <th>Edge</th>
-              <th>Entry</th>
-              <th>Current</th>
-              <th>PnL%</th>
-              <th>Amount</th>
-              <th>Value</th>
-              <th>PnL ($)</th>
+              <th data-sort-type="date">Time</th>
+              <th data-sort-type="text">Market</th>
+              <th data-sort-type="text">Side</th>
+              <th data-sort-type="text">Edge</th>
+              <th data-sort-type="number">Entry</th>
+              <th data-sort-type="number">Current</th>
+              <th data-sort-type="number">PnL%</th>
+              <th data-sort-type="number">Amount</th>
+              <th data-sort-type="number">Value</th>
+              <th data-sort-type="number">PnL ($)</th>
             </tr>
           </thead>
           <tbody id="position-rows">
@@ -1019,16 +1034,16 @@
         <table>
           <thead>
             <tr>
-              <th>Time</th>
-              <th>Market</th>
-              <th>Headline</th>
-              <th>Match</th>
-              <th>Direction</th>
-              <th>Materiality</th>
-              <th>Confidence</th>
-              <th>Consensus</th>
-              <th>Edge</th>
-              <th>Action</th>
+              <th data-sort-type="date">Time</th>
+              <th data-sort-type="text">Market</th>
+              <th data-sort-type="text">Headline</th>
+              <th data-sort-type="text">Match</th>
+              <th data-sort-type="text">Direction</th>
+              <th data-sort-type="number">Materiality</th>
+              <th data-sort-type="number">Confidence</th>
+              <th data-sort-type="number">Consensus</th>
+              <th data-sort-type="number">Edge</th>
+              <th data-sort-type="text">Action</th>
             </tr>
           </thead>
           <tbody id="classification-rows">
@@ -1358,18 +1373,19 @@
       const [pnlUsdTxt, pnlUsdCls] = fmtPnl(t.pnl_usd);
       return `
       <tr>
-        <td>${fmtTime(t.time)}</td>
+        <td data-sort-value="${t.time || ''}">${fmtTime(t.time)}</td>
         <td class="market">${marketCell(t.market_question, t.slug)}</td>
         <td class="${t.side === 'YES' ? 'side-yes' : 'side-no'}">${escapeHtml(t.side)}</td>
         <td>${edgeBadge(t.edge_type)}</td>
-        <td>${t.entry_price == null ? '—' : t.entry_price.toFixed(2)}</td>
-        <td>${t.current_price == null ? '—' : t.current_price.toFixed(2)}</td>
-        <td class="${pnlCls}">${pnlTxt}</td>
-        <td>$${t.amount_usd == null ? '—' : t.amount_usd.toFixed(2)}</td>
-        <td>${t.current_value_usd == null ? '—' : '$' + t.current_value_usd.toFixed(2)}</td>
-        <td class="${pnlUsdCls}">${pnlUsdTxt}</td>
+        <td data-sort-value="${t.entry_price ?? ''}">${t.entry_price == null ? '—' : t.entry_price.toFixed(2)}</td>
+        <td data-sort-value="${t.current_price ?? ''}">${t.current_price == null ? '—' : t.current_price.toFixed(2)}</td>
+        <td class="${pnlCls}" data-sort-value="${pnl ?? ''}">${pnlTxt}</td>
+        <td data-sort-value="${t.amount_usd ?? ''}">$${t.amount_usd == null ? '—' : t.amount_usd.toFixed(2)}</td>
+        <td data-sort-value="${t.current_value_usd ?? ''}">${t.current_value_usd == null ? '—' : '$' + t.current_value_usd.toFixed(2)}</td>
+        <td class="${pnlUsdCls}" data-sort-value="${t.pnl_usd ?? ''}">${pnlUsdTxt}</td>
       </tr>`;
     }).join('');
+    reapplySort(document.getElementById('position-rows').closest('table'));
   }
 
   function renderClosed(status) {
@@ -1491,18 +1507,19 @@
 
     tbody.innerHTML = rows.map(c => `
       <tr>
-        <td>${fmtTime(c.time)}</td>
+        <td data-sort-value="${c.time || ''}">${fmtTime(c.time)}</td>
         <td class="market">${escapeHtml(c.market_question)}</td>
         <td class="headline">${escapeHtml(c.headline)}</td>
         <td>${matchBadge(c.match_source)}</td>
         <td class="${directionClass(c.direction)}">${directionArrow(c.direction)}</td>
-        <td>${fmtPct(c.materiality)}</td>
-        <td>${fmtPct(c.confidence)}</td>
-        <td>${consensusCell(c.consensus_score, c.ensemble_used)}</td>
-        <td>${fmtPct(c.edge)}</td>
+        <td data-sort-value="${c.materiality ?? ''}">${fmtPct(c.materiality)}</td>
+        <td data-sort-value="${c.confidence ?? ''}">${fmtPct(c.confidence)}</td>
+        <td data-sort-value="${(c.ensemble_used && c.consensus_score != null) ? c.consensus_score : ''}">${consensusCell(c.consensus_score, c.ensemble_used)}</td>
+        <td data-sort-value="${c.edge ?? ''}">${fmtPct(c.edge)}</td>
         <td class="${actionClass(c.action)}">${escapeHtml(c.action)}</td>
       </tr>
     `).join('');
+    reapplySort(document.getElementById('classification-rows').closest('table'));
   }
 
   function consensusCell(score, ensembleUsed) {
@@ -1565,11 +1582,112 @@
     `).join('');
   }
 
+  // --- Live topbar clock (uptime + last-update), ticks every 10s ----------
+  let uptimeBaseSec = null;     // uptime_seconds from the last status snapshot
+  let statusFetchedAt = null;   // ms timestamp when we received that snapshot
+  let heartbeatTime = null;     // Date of status.last_heartbeat
+
+  function fmtUptime(sec) {
+    if (sec == null || sec < 0) return '—';
+    const d = Math.floor(sec / 86400);
+    const h = Math.floor((sec % 86400) / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    return d > 0 ? `${d}d ${h}h` : `${h}h ${m}m`;
+  }
+
+  function fmtAgo(date) {
+    if (!date) return '—';
+    const s = Math.max(0, Math.round((Date.now() - date.getTime()) / 1000));
+    if (s < 90) return s + 's ago';
+    const m = Math.round(s / 60);
+    return m < 90 ? m + 'm ago' : Math.round(m / 60) + 'h ago';
+  }
+
+  function updateTopbarClock() {
+    const up = uptimeBaseSec == null ? null
+      : uptimeBaseSec + (Date.now() - statusFetchedAt) / 1000;
+    document.getElementById('uptime').textContent = 'Uptime: ' + fmtUptime(up);
+    document.getElementById('last-update').textContent = 'Last update: ' + fmtAgo(heartbeatTime);
+  }
+
+  // --- Sortable tables (pure JS, no library) ------------------------------
+  const _sortState = new WeakMap();   // table -> {index, dir, type}
+
+  function _cellValue(row, index, type) {
+    const cell = row.children[index];
+    if (!cell) return type === 'text' ? '' : -Infinity;
+    let raw = cell.getAttribute('data-sort-value');
+    if (raw == null) raw = cell.textContent;
+    raw = (raw || '').trim();
+    if (type === 'number') {
+      const n = parseFloat(raw.replace(/−/g, '-').replace(/[^0-9.\-]/g, ''));
+      return isNaN(n) ? -Infinity : n;
+    }
+    if (type === 'date') {
+      const t = Date.parse(raw);
+      return isNaN(t) ? -Infinity : t;
+    }
+    return raw.toLowerCase();
+  }
+
+  function _applySort(table) {
+    const st = _sortState.get(table);
+    if (!st || !table.tBodies[0]) return;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows).filter(r => !r.querySelector('.empty'));
+    if (rows.length < 2) return;
+    rows.sort((a, b) => {
+      const va = _cellValue(a, st.index, st.type);
+      const vb = _cellValue(b, st.index, st.type);
+      if (va < vb) return st.dir === 'asc' ? -1 : 1;
+      if (va > vb) return st.dir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    rows.forEach(r => tbody.appendChild(r));
+  }
+
+  function _updateSortIndicators(table) {
+    const st = _sortState.get(table);
+    Array.from(table.tHead.querySelectorAll('th')).forEach((th, i) => {
+      th.classList.remove('sort-asc', 'sort-desc');
+      if (st && st.index === i) th.classList.add(st.dir === 'asc' ? 'sort-asc' : 'sort-desc');
+    });
+  }
+
+  function makeSortable(table) {
+    if (!table || !table.tHead) return;
+    Array.from(table.tHead.querySelectorAll('th')).forEach((th, index) => {
+      const type = th.getAttribute('data-sort-type');
+      if (!type) return;
+      th.classList.add('sortable');
+      th.addEventListener('click', () => {
+        const st = _sortState.get(table);
+        const dir = (st && st.index === index && st.dir === 'asc') ? 'desc' : 'asc';
+        _sortState.set(table, { index, dir, type });
+        _applySort(table);
+        _updateSortIndicators(table);
+      });
+    });
+  }
+
+  // Re-apply the active sort after a tbody re-render (sort stays sticky across
+  // the periodic refresh). No-op until a header has been clicked.
+  function reapplySort(table) {
+    if (!table || !_sortState.get(table)) return;
+    _applySort(table);
+    _updateSortIndicators(table);
+  }
+
   async function refresh() {
     try {
       const resp = await fetch('status.json?_=' + Date.now());
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       const status = await resp.json();
+
+      uptimeBaseSec = status.uptime_seconds ?? null;
+      statusFetchedAt = Date.now();
+      heartbeatTime = status.last_heartbeat ? new Date(status.last_heartbeat) : null;
+      updateTopbarClock();
 
       renderHeader(status);
       renderCircuitBreaker(status);
@@ -1594,8 +1712,13 @@
     }
   }
 
+  // Wire up sortable headers once (thead persists across tbody re-renders).
+  makeSortable(document.getElementById('position-rows').closest('table'));
+  makeSortable(document.getElementById('classification-rows').closest('table'));
+
   refresh();
   setInterval(refresh, REFRESH_MS);
+  setInterval(updateTopbarClock, 10000);   // tick uptime / "Xs ago" between refreshes
 </script>
 </body>
 </html>

@@ -146,45 +146,6 @@ def match_news_to_markets_hybrid(
     return [(market, sources[cid], scores[cid]) for cid, market in matched.items()]
 
 
-def match_news_to_markets_broad(
-    headline: str,
-    summary: str,
-    markets: list[Market],
-    max_matches: int = 5,
-) -> list[Market]:
-    """
-    Broader matching using headline + summary text.
-    Falls back to category matching if keyword matching returns nothing.
-    """
-    # Try keyword matching first
-    matches = match_news_to_markets(headline, markets, max_matches)
-    if matches:
-        return matches
-
-    # Fallback: match on category keywords in the headline
-    combined = f"{headline} {summary}".lower()
-    category_keywords = {
-        "ai": ["ai", "openai", "gpt", "anthropic", "claude", "llm", "chatgpt", "gemini", "artificial intelligence"],
-        "crypto": ["bitcoin", "btc", "ethereum", "eth", "solana", "sol", "crypto", "blockchain", "defi",
-                   "nft", "token", "coinbase", "binance", "stablecoin", "usdc", "usdt", "web3", "altcoin",
-                   "memecoin", "polymarket"],
-        "politics": ["trump", "biden", "congress", "senate", "election", "tariff", "fed", "white house"],
-        "technology": ["apple", "google", "microsoft", "nvidia", "tech", "software", "startup"],
-    }
-
-    matched_categories = set()
-    for cat, kws in category_keywords.items():
-        if any(kw in combined for kw in kws):
-            matched_categories.add(cat)
-
-    if not matched_categories:
-        return []
-
-    # Return markets in matching categories
-    category_matches = [m for m in markets if m.category in matched_categories]
-    return category_matches[:max_matches]
-
-
 if __name__ == "__main__":
     from locus.markets.gamma import fetch_active_markets, filter_by_categories
     from locus import config
