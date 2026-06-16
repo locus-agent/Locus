@@ -18,6 +18,12 @@ on:
   # Allow manual redeploys from the Actions tab.
   workflow_dispatch:
 
+# Force the bundled JavaScript actions onto the Node.js 24 runtime (the Node.js
+# 20 runner is being retired; this opts every JS action in this workflow into
+# Node 24 without bumping each action's major version).
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 # Standard GitHub Pages permissions.
 permissions:
   contents: read
