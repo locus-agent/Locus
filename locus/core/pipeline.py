@@ -123,7 +123,12 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
                              distinct sources within CONFIRMATION_WINDOW_HOURS;
                              obvious news is the least accurate, so hold until
                              a second source agrees
-      "signal"             — trade approved; headline recorded against the cap
+      "signal"             — approved by these gates. The headline is NOT
+                             recorded here: the one-position-per-headline cap is
+                             consumed only after the remaining gates pass and the
+                             trade is opened (see consume_headline), so a late
+                             gate (CoV, orderbook, ...) blocking this match
+                             doesn't waste the headline for other markets.
     """
     if signal is None:
         return None, "skip"
@@ -172,8 +177,23 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         if len(sources) < config.MIN_CONFIRMING_SOURCES:
             return None, "needs_confirmation"
 
-    traded_headlines.add(event.headline)
     return signal, "signal"
+
+
+def consume_headline(traded_headlines: set[str], headline: str, signal) -> bool:
+    """Record a headline against the one-position-per-headline cap, but only
+    once a signal has cleared EVERY gate and is being opened (signal is not
+    None at the terminal step — the confirmed trade-open state, distinct from
+    the earlier "signal" gate_trade returns).
+
+    A would-be signal that a late gate (CoV, orderbook, correlation, category,
+    event exposure, circuit breaker) blocked leaves the headline free, so other
+    markets matched to the same headline can still be evaluated. Returns True
+    when the headline was newly recorded."""
+    if signal is None:
+        return False
+    traded_headlines.add(headline)
+    return True
 
 
 CALIBRATION_STARTUP_DELAY_SECONDS = 300.0
@@ -684,6 +704,11 @@ class PipelineV2:
                         )
 
                     if signal:
+                        # Headline marked used only after all gates pass — earlier
+                        # marking prevents other markets from being evaluated on the
+                        # same headline when a late gate (CoV, orderbook) blocks the
+                        # first match.
+                        consume_headline(self._traded_headlines, event.headline, signal)
                         self.stats["signals_found"] += 1
                         await self.signal_queue.put(signal)
                         console.print(

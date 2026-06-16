@@ -114,3 +114,100 @@ def test_refresh_closes_stale_ws_subscription(monkeypatch):
     closed, mapping = asyncio.run(run())
     assert closed is True
     assert set(mapping) == {"tokYES", "tokNO"}
+
+
+# --- MarketSnapshot.update_price (polling-fallback price staleness fix) -------
+
+def _snap(last=0.50, prev=0.50, age_s=60):
+    return MarketSnapshot(
+        market=MKT, last_price=last, prev_price=prev,
+        last_update=datetime.now(timezone.utc) - timedelta(seconds=age_s),
+    )
+
+
+def test_update_price_changes_and_rolls_prev():
+    snap = _snap(last=0.50, prev=0.50)
+    assert snap.update_price(0.65) is True
+    assert snap.last_price == 0.65
+    assert snap.prev_price == 0.50            # prev rolled forward from old last
+    # a second move rolls prev forward again
+    assert snap.update_price(0.70) is True
+    assert (snap.last_price, snap.prev_price) == (0.70, 0.65)
+
+
+def test_update_price_noop_within_noise_band():
+    t0 = datetime.now(timezone.utc) - timedelta(minutes=1)
+    snap = MarketSnapshot(market=MKT, last_price=0.50, prev_price=0.40, last_update=t0)
+    assert snap.update_price(0.50) is False        # identical
+    assert snap.update_price(0.50005) is False     # diff 0.00005 <= 0.0001 noise
+    assert snap.update_price(0.5001) is False       # diff exactly 0.0001 -> still no-op
+    assert snap.last_price == 0.50                  # unchanged
+    assert snap.prev_price == 0.40                  # prev untouched
+    assert snap.last_update == t0                   # last_update not restamped
+    # Just past the band updates.
+    assert snap.update_price(0.5002) is True        # diff 0.0002 > 0.0001
+
+
+def test_update_price_stamps_shared_now():
+    now = datetime.now(timezone.utc)
+    snap = _snap(age_s=60)
+    assert snap.update_price(0.60, now=now) is True
+    assert snap.last_update == now
+
+
+def test_update_price_logs_only_on_change(caplog):
+    import logging
+    snap = _snap(last=0.50, prev=0.50)
+    with caplog.at_level(logging.DEBUG, logger="locus.markets.market_watcher"):
+        assert snap.update_price(0.50) is False
+        assert "price update" not in caplog.text   # no log on a no-op
+        assert snap.update_price(0.65) is True
+        assert "price update" in caplog.text        # debug log only on real change
+
+
+def test_refresh_updates_existing_snapshot_price(monkeypatch):
+    """The polling-fallback bug: refresh_markets must roll fresh prices into
+    EXISTING snapshots, not only newly tracked ones."""
+    import asyncio
+
+    w = MarketWatcher()
+    w.snapshots["cond1"] = _snap(last=0.50, prev=0.50, age_s=300)
+
+    moved = Market("cond1", "Will X happen?", "ai", 0.65, 0.35, 5000, "", True,
+                   tokens=MKT.tokens)
+    monkeypatch.setattr(
+        "locus.markets.market_watcher.fetch_active_markets", lambda **kw: [moved]
+    )
+    monkeypatch.setattr(
+        "locus.markets.market_watcher.filter_by_categories", lambda ms: ms
+    )
+    w._schedule_index_sync = lambda: None
+
+    before = w.stats["price_updates"]
+    asyncio.run(w.refresh_markets())
+
+    snap = w.snapshots["cond1"]
+    assert snap.last_price == 0.65               # rolled to the fresh price
+    assert snap.prev_price == 0.50               # prev preserved
+    assert w.stats["price_updates"] == before + 1
+
+
+def test_refresh_does_not_recount_unchanged_price(monkeypatch):
+    # An existing snapshot already at the fetched price must not inflate the
+    # price_updates counter on refresh.
+    import asyncio
+
+    w = MarketWatcher()
+    w.snapshots["cond1"] = _snap(last=0.50, prev=0.50, age_s=300)
+    monkeypatch.setattr(
+        "locus.markets.market_watcher.fetch_active_markets", lambda **kw: [MKT]  # 0.50
+    )
+    monkeypatch.setattr(
+        "locus.markets.market_watcher.filter_by_categories", lambda ms: ms
+    )
+    w._schedule_index_sync = lambda: None
+
+    before = w.stats["price_updates"]
+    asyncio.run(w.refresh_markets())
+    assert w.snapshots["cond1"].last_price == 0.50
+    assert w.stats["price_updates"] == before    # unchanged -> not counted

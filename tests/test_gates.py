@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 import pytest
 
 from locus import config
-from locus.core.pipeline import gate_trade, news_age_seconds
+from locus.core.pipeline import gate_trade, news_age_seconds, consume_headline
 from locus.core.edge import Signal
 from locus.markets.gamma import Market
 from locus.sources.news_stream import NewsEvent
@@ -119,9 +119,19 @@ def test_unknown_source_falls_back_to_15min():
     assert s is None and a == "stale"
 
 
-def test_headline_cap_allows_one_trade():
+def test_gate_trade_approves_without_consuming_headline():
+    # gate_trade approves ("signal") but no longer records the headline — the
+    # cap is consumed later, after every gate, in consume_headline.
     traded = set()
-    assert gate_trade(ev("Hilton expands", 60), SIG, traded, now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("Hilton expands", 60), SIG, traded, now=NOW)
+    assert s is SIG and a == "signal"
+    assert "Hilton expands" not in traded
+
+
+def test_capped_when_headline_already_consumed():
+    # A headline already recorded (a prior open consumed it) makes the next
+    # match on the same headline capped.
+    traded = {"Hilton expands"}
     s, a = gate_trade(ev("Hilton expands", 60), SIG, traded, now=NOW)
     assert s is None and a == "capped"
 
@@ -130,6 +140,41 @@ def test_stale_does_not_consume_headline_cap():
     traded = set()
     gate_trade(ev("old story", 26 * 3600), SIG, traded, now=NOW)
     assert "old story" not in traded
+
+
+# --- consume_headline: cap consumed only at the confirmed open ------------
+# "open" == a signal that cleared EVERY gate and is being opened (signal is not
+# None at the terminal step), distinct from the earlier "signal" gate_trade
+# returns before the late gates (CoV, orderbook, ...) run.
+
+def test_consume_headline_marks_on_open():
+    traded = set()
+    assert consume_headline(traded, "big news", SIG) is True
+    assert "big news" in traded
+
+
+def test_consume_headline_skips_when_late_gate_blocked():
+    # CoV / orderbook (and every other late gate) null the signal -> the
+    # headline must stay free for other markets matched to the same headline.
+    traded = set()
+    assert consume_headline(traded, "big news", None) is False
+    assert "big news" not in traded
+
+
+def test_late_gate_block_leaves_headline_for_next_market():
+    # End-to-end of the timing fix. Market A is approved by gate_trade (no
+    # consume), then a late gate blocks it (signal None). Market B on the SAME
+    # headline must therefore still pass gate_trade and be able to open.
+    traded = set()
+    sA, aA = gate_trade(ev("shared headline", 60), SIG, traded, now=NOW)
+    assert aA == "signal" and "shared headline" not in traded   # not consumed yet
+    consume_headline(traded, "shared headline", None)            # A blocked late
+    assert "shared headline" not in traded                       # still free
+
+    sB, aB = gate_trade(ev("shared headline", 60), SIG, traded, now=NOW)
+    assert aB == "signal"                                        # B not capped
+    consume_headline(traded, "shared headline", sB)              # B opens
+    assert "shared headline" in traded                           # now consumed
 
 
 def test_no_edge_is_plain_skip():

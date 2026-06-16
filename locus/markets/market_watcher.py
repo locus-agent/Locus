@@ -33,6 +33,25 @@ class MarketSnapshot:
     def price_change(self) -> float:
         return self.last_price - self.prev_price
 
+    def update_price(self, new_price: float, now: datetime | None = None) -> bool:
+        """Roll a fresh price into the snapshot, guarding against sub-tick noise.
+
+        Stamps prev_price/last_price/last_update and returns True only when the
+        price actually moved (> 0.0001); an unchanged price is a silent no-op
+        (no stamp, no log) so a quiet poll doesn't churn last_update or spam the
+        debug log. `now` is shared by the caller so a refresh can count exactly
+        which snapshots it touched this cycle."""
+        if abs(self.last_price - new_price) <= 0.0001:
+            return False
+        self.prev_price = self.last_price
+        self.last_price = new_price
+        self.last_update = now or datetime.now(timezone.utc)
+        log.debug(
+            f"[watcher] price update {self.market.condition_id[:12]} "
+            f"{self.prev_price:.4f} -> {self.last_price:.4f}"
+        )
+        return True
+
 
 class MarketWatcher:
     """Watches niche Polymarket markets via WebSocket + periodic Gamma API refresh."""
@@ -98,10 +117,22 @@ class MarketWatcher:
                 else:
                     snap = self.snapshots[m.condition_id]
                     snap.market = m  # update metadata
+                    # Roll the freshly fetched price into the EXISTING snapshot.
+                    # Previously only brand-new snapshots got a price, so during
+                    # a WebSocket outage the polling refresh left existing marks
+                    # stale (positions marked at the last WS tick, not live).
+                    snap.update_price(m.yes_price, now)
 
             # Remove stale snapshots
             for stale_id in existing_ids - new_ids:
                 del self.snapshots[stale_id]
+
+            # Markets refreshed this cycle (new or price-moved) carry this
+            # refresh's `now` stamp; unchanged snapshots keep their older stamp.
+            refreshed = sum(
+                1 for snap in self.snapshots.values() if snap.last_update == now
+            )
+            self.stats["price_updates"] += refreshed
 
             # O(1) lookup for WS price ticks (was an O(markets) scan per tick)
             self._token_index = {
@@ -270,12 +301,19 @@ class MarketWatcher:
         self.stats["price_updates"] += 1
 
     async def _polling_fallback(self):
-        """Poll Gamma API for price updates when WebSocket unavailable."""
+        """Poll Gamma API for price updates when WebSocket unavailable.
+
+        refresh_markets() now rolls fresh prices into existing snapshots (not
+        just newly tracked markets), so positions stay marked at live prices
+        during a WS outage instead of freezing at the last WS tick."""
         while True:
             await asyncio.sleep(30)
             if self._ws_connected:
                 continue
+            before = self.stats["price_updates"]
             await self.refresh_markets()
+            refreshed = self.stats["price_updates"] - before
+            log.info(f"Polling fallback: refreshed {refreshed} market prices")
 
     async def run(self):
         """Start the market watcher — refresh + WebSocket + polling fallback."""
