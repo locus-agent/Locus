@@ -1,63 +1,63 @@
 {
-  "generated_at": "2026-06-16T20:54:17.176289+00:00",
-  "last_heartbeat": "2026-06-16T20:54:17.176289+00:00",
-  "uptime_seconds": 43,
+  "generated_at": "2026-06-16T20:59:21.418574+00:00",
+  "last_heartbeat": "2026-06-16T20:59:21.418574+00:00",
+  "uptime_seconds": 347,
   "dry_run": true,
   "markets_tracked": 2494,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 2744,
-    "accuracy": 18.2,
+    "total": 2821,
+    "accuracy": 18.0,
     "by_category": {
       "other": 16.2,
-      "ai": 9.3,
+      "ai": 9.0,
       "politics": 27.5,
       "technology": 10.6,
-      "crypto": 17.3
+      "crypto": 16.7
     },
     "by_source": {
-      "rss": 19.2,
-      "newsapi": 16.0
+      "rss": 18.8,
+      "newsapi": 16.2
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 18.2,
-    "overall_total": 2744,
+    "overall_accuracy": 18.0,
+    "overall_total": 2821,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 1527,
-        "correct": 94,
-        "accuracy_pct": 6.2,
-        "avg_pnl_pct": 17.31,
+        "total": 1580,
+        "correct": 97,
+        "accuracy_pct": 6.1,
+        "avg_pnl_pct": 16.79,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 221,
-        "correct": 76,
-        "accuracy_pct": 34.4,
-        "avg_pnl_pct": 26.97,
+        "total": 231,
+        "correct": 80,
+        "accuracy_pct": 34.6,
+        "avg_pnl_pct": 25.81,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 242,
-        "correct": 89,
-        "accuracy_pct": 36.8,
+        "total": 249,
+        "correct": 91,
+        "accuracy_pct": 36.5,
         "avg_pnl_pct": -0.2,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 151,
+        "total": 155,
         "correct": 37,
-        "accuracy_pct": 24.5,
-        "avg_pnl_pct": -1.85,
+        "accuracy_pct": 23.9,
+        "avg_pnl_pct": -2.51,
         "color": "green"
       },
       {
@@ -72,22 +72,22 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 365,
-        "correct": 74,
-        "accuracy_pct": 20.3,
-        "avg_pnl_pct": -6.72,
+        "total": 368,
+        "correct": 75,
+        "accuracy_pct": 20.4,
+        "avg_pnl_pct": -6.94,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 1920,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 2072,
+  "headlines_last_cycle": 14,
   "signals_24h": 4,
-  "classifications_24h": 14104,
+  "classifications_24h": 14827,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2393,
-    "stale": 44,
+    "prefiltered_haiku": 2668,
+    "stale": 45,
     "capped": 4,
     "too_close_to_resolution": 1,
     "price_target_market": 0,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2824,
-    "matched": 1059,
-    "classified": 14104,
+    "news": 2973,
+    "matched": 1061,
+    "classified": 14827,
     "signals": 4,
     "trades": 4
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 1.87,
+    "unrealized_pnl_usd": 1.0,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2372.3
+    "avg_classification_latency_ms": 2016.6
   },
   "live_readiness": {
     "ready": false,
@@ -243,7 +243,7 @@
       "slug": "will-microstrategy-announce-holding-800k-btc-by-december-31-2026",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.285,
+      "current_price": 0.28500000000000003,
       "pnl_pct": -19.72,
       "amount_usd": 23.45,
       "current_value_usd": 18.83,
@@ -257,11 +257,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.37,
-      "pnl_pct": 8.82,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 15.98,
-      "pnl_usd": 1.3,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -437,35 +437,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 20:54:16",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 20:54:16",
-      "market_question": "Will Micron Technology, Inc. (MU) hit (HIGH) $1,140 Week of June 15 2026?",
-      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 20:54:16",
-      "market_question": "Will Solana dip to $60 in June?",
-      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
+      "time": "2026-06-16 20:59:02",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Federal prosecutors charge 15 people with impeding agents during Minnesota immigration crackdown - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -476,9 +450,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 20:54:14",
-      "market_question": "Will Solana dip to $60 by December 31, 2026?",
-      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
+      "time": "2026-06-16 20:59:02",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Briton on around-the-world walk since 1998 refused access to Channel Tunnel for final leg",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -489,14 +463,40 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 20:54:14",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 20:59:01",
+      "market_question": "Hyperliquid listed on Binance by June 30, 2026?",
+      "headline": "Binance says its European regulatory application is compliant despite report of Greek rejection",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 20:59:01",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Federal prosecutors charge 15 people with impeding agents during Minnesota immigration crackdown - AP News",
+      "direction": "bullish",
+      "materiality": 0.03,
+      "confidence": 0.52,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 20:59:01",
+      "market_question": "Will Trump deport 700-800k people?",
+      "headline": "Federal prosecutors charge 15 people with impeding agents during Minnesota immigration crackdown - AP News",
+      "direction": "neutral",
+      "materiality": 0.03,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
