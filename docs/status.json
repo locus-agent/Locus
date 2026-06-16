@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T19:01:25.259094+00:00",
-  "last_heartbeat": "2026-06-16T19:01:25.259094+00:00",
-  "uptime_seconds": 2466,
+  "generated_at": "2026-06-16T19:06:28.657463+00:00",
+  "last_heartbeat": "2026-06-16T19:06:28.657463+00:00",
+  "uptime_seconds": 2770,
   "dry_run": true,
   "markets_tracked": 2501,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1683,
+  "headlines_scanned_today": 1686,
   "headlines_last_cycle": 0,
-  "signals_24h": 6,
-  "classifications_24h": 13773,
+  "signals_24h": 5,
+  "classifications_24h": 13751,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1980,
+    "prefiltered_haiku": 1981,
     "stale": 49,
     "capped": 6,
     "too_close_to_resolution": 1,
@@ -106,19 +106,19 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T18:50:36.443811+00:00"
+    "last_check": "2026-06-16T19:05:36.846028+00:00"
   },
   "edge_types_24h": {
-    "news": 3,
+    "news": 2,
     "momentum": 3,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2753,
-    "matched": 1049,
-    "classified": 13773,
-    "signals": 6,
-    "trades": 6
+    "news": 2750,
+    "matched": 1051,
+    "classified": 13751,
+    "signals": 5,
+    "trades": 5
   },
   "performance": {
     "trades_total": 17,
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 7.33,
-    "unrealized_pnl_usd": 5.36,
+    "unrealized_pnl_usd": 4.13,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1611.8
+    "avg_classification_latency_ms": 1677.1
   },
   "live_readiness": {
     "ready": false,
@@ -187,11 +187,11 @@
       "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.685,
-      "pnl_pct": 117.46,
+      "current_price": 0.635,
+      "pnl_pct": 101.59,
       "amount_usd": 3.695,
-      "current_value_usd": 8.04,
-      "pnl_usd": 4.34,
+      "current_value_usd": 7.45,
+      "pnl_usd": 3.75,
       "edge_type": "momentum",
       "event_id": "509893"
     },
@@ -201,7 +201,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.17999999999999994,
+      "current_price": 0.18,
       "pnl_pct": 12.5,
       "amount_usd": 7.695,
       "current_value_usd": 8.66,
@@ -243,11 +243,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.36,
+      "pnl_pct": 5.88,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 15.54,
+      "pnl_usd": 0.86,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,9 +451,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 18:57:36",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Swedish court imprisons man convicted of pressuring his wife to sell sexual services - AP News",
+      "time": "2026-06-16 19:02:13",
+      "market_question": "Will Trump say \"UFC\" this week?",
+      "headline": "FBI says it thwarted plot to use drones, snipers to attack White House UFC event - Reuters",
+      "direction": "bullish",
+      "materiality": 0.2,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 19:02:13",
+      "market_question": "Will Trump say \"White House\" during UFC 250?",
+      "headline": "FBI says it thwarted plot to use drones, snipers to attack White House UFC event - Reuters",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.52,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 19:02:08",
+      "market_question": "Over $800M raised on Coinbase in 2026?",
+      "headline": "Coinbase unveils \u2018System Update\u2019 unlocking an AI advisor, global unified liquidity, options trading and more",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.54,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 19:02:08",
+      "market_question": "Will Trump dance during UFC Freedom 250?",
+      "headline": "FBI says it thwarted plot to use drones, snipers to attack White House UFC event - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,48 +503,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 18:57:36",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "Swedish court imprisons man convicted of pressuring his wife to sell sexual services - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 18:57:36",
-      "market_question": "Will the Swedish Social Democratic Party (S) win the most seats in the 2026 Swedish parliamentary election?",
-      "headline": "Swedish court imprisons man convicted of pressuring his wife to sell sexual services - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 18:57:36",
-      "market_question": "Will Trump sell 10k-25k Gold Cards in 2026?",
-      "headline": "Swedish court imprisons man convicted of pressuring his wife to sell sexual services - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 18:57:36",
-      "market_question": "Will Trump sell 101-1k Gold Cards in 2026?",
-      "headline": "Swedish court imprisons man convicted of pressuring his wife to sell sexual services - AP News",
+      "time": "2026-06-16 19:02:08",
+      "market_question": "Will Trump praise Dana White by June 30?",
+      "headline": "FBI says it thwarted plot to use drones, snipers to attack White House UFC event - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
