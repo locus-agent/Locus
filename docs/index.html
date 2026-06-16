@@ -1678,38 +1678,54 @@
     _updateSortIndicators(table);
   }
 
+  // Render one panel in isolation. The dashboard previously rendered every
+  // panel inside one try{}, so a single render error (or one transient bad
+  // field) blanked the WHOLE page back to its "—"/empty placeholders. Isolating
+  // each panel means one failure degrades only that panel; the rest still show.
+  function safeRender(name, fn, status) {
+    try {
+      fn(status);
+    } catch (e) {
+      console.error('[dashboard] render failed: ' + name, e);
+    }
+  }
+
   async function refresh() {
+    let status;
+    // Only a genuine fetch/parse failure should blank the dashboard into the
+    // explicit "status unavailable" state.
     try {
       const resp = await fetch('status.json?_=' + Date.now());
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
-      const status = await resp.json();
-
-      uptimeBaseSec = status.uptime_seconds ?? null;
-      statusFetchedAt = Date.now();
-      heartbeatTime = status.last_heartbeat ? new Date(status.last_heartbeat) : null;
-      updateTopbarClock();
-
-      renderHeader(status);
-      renderCircuitBreaker(status);
-      renderPipeline(status);
-      renderStats(status);
-      renderPerformance(status);
-      renderReadiness(status);
-      renderPositions(status);
-      renderClosed(status);
-      renderExitDecisions(status);
-      renderGates(status);
-      renderWhale(status);
-      renderCategoryBars(status);
-      renderPriceBuckets(status);
-      renderPrompt(status);
-      renderJournal(status);
-      renderClassifications(status);
-      renderLessons(status);
+      status = await resp.json();
     } catch (e) {
       document.getElementById('last-cycle').textContent = 'status unavailable';
-      console.error('Failed to load status.json', e);
+      console.error('[dashboard] failed to load status.json', e);
+      return;
     }
+
+    uptimeBaseSec = status.uptime_seconds ?? null;
+    statusFetchedAt = Date.now();
+    heartbeatTime = status.last_heartbeat ? new Date(status.last_heartbeat) : null;
+
+    safeRender('topbarClock', updateTopbarClock, status);
+    safeRender('header', renderHeader, status);
+    safeRender('circuitBreaker', renderCircuitBreaker, status);
+    safeRender('pipeline', renderPipeline, status);
+    safeRender('stats', renderStats, status);
+    safeRender('performance', renderPerformance, status);
+    safeRender('readiness', renderReadiness, status);
+    safeRender('positions', renderPositions, status);
+    safeRender('closed', renderClosed, status);
+    safeRender('exitDecisions', renderExitDecisions, status);
+    safeRender('gates', renderGates, status);
+    safeRender('whale', renderWhale, status);
+    safeRender('categoryBars', renderCategoryBars, status);
+    safeRender('priceBuckets', renderPriceBuckets, status);
+    safeRender('prompt', renderPrompt, status);
+    safeRender('journal', renderJournal, status);
+    safeRender('classifications', renderClassifications, status);
+    safeRender('lessons', renderLessons, status);
   }
 
   // Wire up sortable headers once (thead persists across tbody re-renders).
