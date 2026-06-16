@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T09:58:16.889103+00:00",
+  "generated_at": "2026-06-16T10:03:20.670081+00:00",
   "dry_run": true,
-  "markets_tracked": 2545,
+  "markets_tracked": 2541,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1460,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 426,
+  "headlines_scanned_today": 429,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17669,
+  "classifications_24h": 17679,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 695,
+    "prefiltered_haiku": 699,
     "stale": 116,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3489,
-    "matched": 920,
-    "classified": 17669,
+    "news": 3492,
+    "matched": 923,
+    "classified": 17679,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -2.87,
+    "unrealized_pnl_usd": -1.79,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1962.7
+    "avg_classification_latency_ms": 1961.6
   },
   "live_readiness": {
     "ready": false,
@@ -196,8 +196,8 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16500000000000004,
-      "pnl_pct": 3.13,
+      "current_price": 0.165,
+      "pnl_pct": 3.12,
       "amount_usd": 15.39,
       "current_value_usd": 15.87,
       "pnl_usd": 0.48,
@@ -210,7 +210,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.32499999999999996,
+      "current_price": 0.325,
       "pnl_pct": 0.75,
       "amount_usd": 2.0,
       "current_value_usd": 2.01,
@@ -238,11 +238,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.355,
-      "pnl_pct": 4.41,
+      "current_price": 0.38,
+      "pnl_pct": 11.76,
       "amount_usd": 14.68,
-      "current_value_usd": 15.33,
-      "pnl_usd": 0.65,
+      "current_value_usd": 16.41,
+      "pnl_usd": 1.73,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,9 +436,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 09:53:24",
-      "market_question": "Will Microsoft be the largest company in the world by market cap on December 31?",
-      "headline": "Ukrainian drone hits Moscow region's largest refinery - Reuters",
+      "time": "2026-06-16 10:02:06",
+      "market_question": "Will Donald Trump visit India in 2026?",
+      "headline": "India File: Searing El Ni\u00f1o tests crop buffers, exposes workers - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +449,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 09:53:24",
-      "market_question": "Will Apple be the largest company in the world by market cap on December 31?",
-      "headline": "Ukrainian drone hits Moscow region's largest refinery - Reuters",
+      "time": "2026-06-16 10:02:06",
+      "market_question": "Will the Workers' Party nominate Lula for President of Brazil by August 15?",
+      "headline": "India File: Searing El Ni\u00f1o tests crop buffers, exposes workers - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -462,9 +462,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 09:53:23",
-      "market_question": "Will Kash Patel leave the Trump administration before 2027?",
-      "headline": "Newsreader Tina Daheley to leave Radio 2 breakfast show",
+      "time": "2026-06-16 10:00:00",
+      "market_question": "Will Trump praise Dana White by June 30?",
+      "headline": "Olympic organizers working with White House on Trump golf tournament - Politico",
+      "direction": "bullish",
+      "materiality": 0.05,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 10:00:00",
+      "market_question": "Will Trump try to acquire part of Alberta?",
+      "headline": "6.7-magnitude earthquake shakes part of Indonesia, causing damage and injuries - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -475,22 +488,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 09:53:23",
-      "market_question": "Will Kristi Noem leave the Trump administration before 2027?",
-      "headline": "Newsreader Tina Daheley to leave Radio 2 breakfast show",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 09:53:23",
-      "market_question": "Will Pete Hegseth leave the Trump administration before 2027?",
-      "headline": "Newsreader Tina Daheley to leave Radio 2 breakfast show",
+      "time": "2026-06-16 10:00:00",
+      "market_question": "Will Prabowo Subianto cease to be President of Indonesia by June 30, 2026?",
+      "headline": "6.7-magnitude earthquake shakes part of Indonesia, causing damage and injuries - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
