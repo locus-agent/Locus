@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T08:32:20.732419+00:00",
+  "generated_at": "2026-06-16T08:37:24.213414+00:00",
   "dry_run": true,
-  "markets_tracked": 2543,
+  "markets_tracked": 2541,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1460,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 382,
+  "headlines_scanned_today": 385,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17532,
+  "classifications_24h": 17553,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 603,
+    "prefiltered_haiku": 615,
     "stale": 119,
     "capped": 25,
     "correlation_block": 38,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T08:21:11.779932+00:00"
+    "last_check": "2026-06-16T08:36:12.222140+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3457,
-    "matched": 887,
-    "classified": 17532,
+    "news": 3460,
+    "matched": 890,
+    "classified": 17553,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -2.79,
+    "unrealized_pnl_usd": -1.61,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1926.5
+    "avg_classification_latency_ms": 1928.7
   },
   "live_readiness": {
     "ready": false,
@@ -182,11 +182,11 @@
       "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.375,
-      "pnl_pct": 19.05,
+      "current_price": 0.37,
+      "pnl_pct": 17.46,
       "amount_usd": 7.39,
-      "current_value_usd": 8.8,
-      "pnl_usd": 1.41,
+      "current_value_usd": 8.68,
+      "pnl_usd": 1.29,
       "edge_type": "momentum",
       "event_id": "509893"
     },
@@ -238,11 +238,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.345,
-      "pnl_pct": 1.47,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 14.9,
-      "pnl_usd": 0.22,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,69 +436,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 08:28:16",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Destiny 2 Players Find Quick Farm For New Tier 5 Armor Sets - GameRant",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 08:35:54",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "headline": "Zelenskiy seeks to convince Trump at G7 that Russia now on the defensive - Reuters",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.55,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 08:28:16",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Destiny 2 Players Find Quick Farm For New Tier 5 Armor Sets - GameRant",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 08:35:52",
+      "market_question": "Will Donald Trump visit Russia in 2026?",
+      "headline": "Zelenskiy seeks to convince Trump at G7 that Russia now on the defensive - Reuters",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 08:28:16",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Destiny 2 Players Find Quick Farm For New Tier 5 Armor Sets - GameRant",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 08:35:52",
+      "market_question": "Will Trump resign before 2027?",
+      "headline": "Zelenskiy seeks to convince Trump at G7 that Russia now on the defensive - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 08:28:16",
-      "market_question": "Trump declassifies new UFO files by June 15?",
-      "headline": "Destiny 2 Players Find Quick Farm For New Tier 5 Armor Sets - GameRant",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 08:35:52",
+      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
+      "headline": "Zelenskiy seeks to convince Trump at G7 that Russia now on the defensive - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 08:28:16",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Destiny 2 Players Find Quick Farm For New Tier 5 Armor Sets - GameRant",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 08:35:52",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Zelenskiy seeks to convince Trump at G7 that Russia now on the defensive - Reuters",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.82,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
