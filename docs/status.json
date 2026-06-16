@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T06:31:03.292456+00:00",
+  "generated_at": "2026-06-16T06:36:06.497326+00:00",
   "dry_run": true,
   "markets_tracked": 2560,
   "classify_error_streak": 0,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 330,
+  "headlines_scanned_today": 331,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17424,
+  "classifications_24h": 17429,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 508,
+    "prefiltered_haiku": 512,
     "stale": 124,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3433,
-    "matched": 865,
-    "classified": 17424,
+    "news": 3434,
+    "matched": 866,
+    "classified": 17429,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -2.5,
+    "unrealized_pnl_usd": -2.28,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1892.6
+    "avg_classification_latency_ms": 1891.7
   },
   "live_readiness": {
     "ready": false,
@@ -224,11 +224,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -252,11 +252,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.385,
-      "pnl_pct": 13.24,
+      "current_price": 0.39,
+      "pnl_pct": 14.71,
       "amount_usd": 14.68,
-      "current_value_usd": 16.62,
-      "pnl_usd": 1.94,
+      "current_value_usd": 16.84,
+      "pnl_usd": 2.16,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -422,9 +422,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 06:29:11",
-      "market_question": "Will Trump say \"Memory\" this week?",
-      "headline": "As demand for high-bandwidth memory (HBM) for artificial intelligence (AI) servers has soared, the p.. - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-06-16 06:31:24",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 06:31:22",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -435,56 +448,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 06:22:38",
-      "market_question": "Will Donald Trump be confirmed to have visited Epstein\u2019s island?",
-      "headline": "Magnitude 6.7 quake hits Indonesia's Sulawesi island, agency says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 06:31:22",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 06:22:38",
-      "market_question": "Will Allen Waters be the Republican nominee for Senate in Rhode Island?",
-      "headline": "Magnitude 6.7 quake hits Indonesia's Sulawesi island, agency says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 06:31:21",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 06:22:38",
-      "market_question": "Will Jack Reed be the Democratic nominee for Senate in Rhode Island?",
-      "headline": "Magnitude 6.7 quake hits Indonesia's Sulawesi island, agency says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 06:31:21",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Iran coach says team ordered out of US right after 2-2 draw with New Zealand in World Cup opener - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 06:22:38",
-      "market_question": "Will the Democrats win the Rhode Island Senate race in 2026?",
-      "headline": "Magnitude 6.7 quake hits Indonesia's Sulawesi island, agency says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
