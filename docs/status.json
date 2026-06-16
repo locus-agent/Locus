@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T03:18:58.887053+00:00",
+  "generated_at": "2026-06-16T03:24:04.993682+00:00",
   "dry_run": true,
-  "markets_tracked": 2557,
+  "markets_tracked": 2560,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1451,
@@ -97,11 +97,11 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 8,
+  "watched_markets_count": 9,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T03:06:03.244348+00:00"
+    "last_check": "2026-06-16T03:21:03.609814+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -118,15 +118,15 @@
   "performance": {
     "trades_total": 16,
     "deployed_usd": 203.81,
-    "open_count": 8,
-    "closed_count": 8,
+    "open_count": 7,
+    "closed_count": 9,
     "wins": 4,
-    "losses": 4,
-    "win_rate_pct": 50.0,
-    "realized_pnl_usd": 13.84,
-    "unrealized_pnl_usd": -4.17,
-    "recent_winrate": 0.5,
-    "kelly_factor": 0.625,
+    "losses": 5,
+    "win_rate_pct": 44.4,
+    "realized_pnl_usd": 7.51,
+    "unrealized_pnl_usd": 0.92,
+    "recent_winrate": 0.4444,
+    "kelly_factor": 0.5417,
     "winrate_lookback": 20,
     "avg_classification_latency_ms": 1688.4
   },
@@ -139,7 +139,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 8,
+        "value": 9,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -147,7 +147,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 50.0,
+        "value": 44.4,
         "threshold_display": "> 55%",
         "pass": false
       },
@@ -163,7 +163,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 4.7,
+        "value": 5.5,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -172,8 +172,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0474,
-    "sharpe_7d": null
+    "drawdown_7d": 0.0552,
+    "sharpe_7d": 0.26
   },
   "open_positions": [
     {
@@ -210,11 +210,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.11499999999999999,
+      "current_price": 0.115,
       "pnl_pct": 0.0,
       "amount_usd": 12.97,
       "current_value_usd": 12.97,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -224,11 +224,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -252,7 +252,7 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.11,
+      "current_price": 0.10999999999999999,
       "pnl_pct": 20.88,
       "amount_usd": 18.77,
       "current_value_usd": 22.69,
@@ -261,35 +261,32 @@
       "event_id": "379876"
     },
     {
-      "time": "2026-06-15 13:52:25",
-      "market_question": "Will Ethereum reach $2,000 in June?",
-      "slug": "what-price-will-ethereum-hit-in-june-2026",
-      "side": "YES",
-      "entry_price": 0.275,
-      "current_price": 0.20499999999999996,
-      "pnl_pct": -25.45,
-      "amount_usd": 18.32,
-      "current_value_usd": 13.66,
-      "pnl_usd": -4.66,
-      "edge_type": "news",
-      "event_id": "548275"
-    },
-    {
       "time": "2026-06-15 13:45:07",
       "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.385,
+      "pnl_pct": 13.24,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 16.62,
+      "pnl_usd": 1.94,
       "edge_type": "news",
       "event_id": "103576"
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-16T03:21:34.461765+00:00",
+      "market_question": "Will Ethereum reach $2,000 in June?",
+      "slug": "what-price-will-ethereum-hit-in-june-2026",
+      "side": "YES",
+      "entry_price": 0.275,
+      "exit_price": 0.18,
+      "realized_pnl_usd": -6.328727272727275,
+      "exit_reason": "drawdown_decision",
+      "event_id": "548275"
+    },
     {
       "time": "2026-06-15T23:29:08.815860+00:00",
       "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
@@ -381,6 +378,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-16 03:21:34",
+      "market_question": "Will Ethereum reach $2,000 in June?",
+      "side": "YES",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The original thesis\u2014that a single corporate accumulation event would drive ETH to $2,000 in June\u2014was always thin, and the 34.5% drawdown with the current price at 0.180 suggests the market has substantially repriced this outcome. There is no new catalyst to justify holding a loser beyond hope, and cutting losses preserves capital for higher-conviction opportunities.",
+      "pnl_pct": -34.55
+    },
+    {
       "time": "2026-06-15 23:29:08",
       "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
       "side": "YES",
@@ -415,15 +421,6 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 214.13
-    },
-    {
-      "time": "2026-06-15 16:27:35",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "side": "YES",
-      "trigger": "drawdown",
-      "decision": "close",
-      "reasoning": "The original thesis was weak to begin with\u2014vague speculative headline with no concrete legislative momentum\u2014and the 33.9% drawdown with price dropping from 0.295 to 0.195 suggests the market has further repriced against this outcome. With no strong catalyst to reverse the trend and an unknown time horizon, holding a loser on a thin market with a shaky original thesis is not justified.",
-      "pnl_pct": -33.9
     }
   ],
   "recent_classifications": [
