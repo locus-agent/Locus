@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T13:45:53.791561+00:00",
+  "generated_at": "2026-06-16T13:50:57.603854+00:00",
   "dry_run": true,
-  "markets_tracked": 2526,
+  "markets_tracked": 2523,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1511,
@@ -78,19 +78,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 642,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 647,
+  "headlines_last_cycle": 1,
   "signals_24h": 16,
-  "classifications_24h": 18268,
+  "classifications_24h": 18217,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1094,
+    "prefiltered_haiku": 1105,
     "stale": 104,
     "capped": 24,
     "correlation_block": 38,
     "category_limit": 0,
     "orderbook_skip": 9,
-    "needs_confirmation": 15,
+    "needs_confirmation": 11,
     "event_exposure_block": 8,
     "low_consensus": 0,
     "circuit_breaker": 0,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3617,
-    "matched": 1070,
-    "classified": 18268,
+    "news": 3609,
+    "matched": 1073,
+    "classified": 18217,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 5.34,
-    "unrealized_pnl_usd": 5.31,
+    "unrealized_pnl_usd": 3.66,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1979.8
+    "avg_classification_latency_ms": 1977.1
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.28,
-      "pnl_pct": 75.0,
+      "current_price": 0.255,
+      "pnl_pct": 59.38,
       "amount_usd": 7.695,
-      "current_value_usd": 13.47,
-      "pnl_usd": 5.77,
+      "current_value_usd": 12.26,
+      "pnl_usd": 4.57,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -210,11 +210,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.4,
-      "pnl_pct": -10.45,
+      "current_price": 0.405,
+      "pnl_pct": -11.19,
       "amount_usd": 2.0,
-      "current_value_usd": 1.79,
-      "pnl_usd": -0.21,
+      "current_value_usd": 1.78,
+      "pnl_usd": -0.22,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.365,
+      "pnl_pct": 7.35,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 15.76,
+      "pnl_usd": 1.08,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,22 +436,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 13:45:09",
-      "market_question": "Will Apple release a foldable iPhone before 2027?",
-      "headline": "Samsung's iPhone Ultra rival reportedly more crease-free than the Galaxy Z Fold8 Ultra thanks to thicker UTG - Notebookcheck",
-      "direction": "neutral",
-      "materiality": 0.03,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 13:45:02",
-      "market_question": "Will Apple release iPhone 18 in 2026?",
-      "headline": "Samsung's iPhone Ultra rival reportedly more crease-free than the Galaxy Z Fold8 Ultra thanks to thicker UTG - Notebookcheck",
+      "time": "2026-06-16 13:46:35",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Chalobah replaces injured Livramento for World Cup",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -462,9 +449,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 13:45:01",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Microsoft's new Outlook takes 10 seconds to do what Outlook Classic does instantly on Windows - Windows Latest",
+      "time": "2026-06-16 13:46:34",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Chalobah replaces injured Livramento for World Cup",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -475,30 +462,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 13:45:01",
-      "market_question": "Will Phantom launch a token by December 31, 2026?",
-      "headline": "Persona 5: The Phantom X (Global) Hatsune Miku Trailer Released - Persona Central",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 13:46:34",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Chalobah replaces injured Livramento for World Cup",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 13:45:01",
-      "market_question": "Will Phantom launch a token by December 31, 2027?",
-      "headline": "Persona 5: The Phantom X (Global) Hatsune Miku Trailer Released - Persona Central",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 13:46:34",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Chalobah replaces injured Livramento for World Cup",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 13:46:34",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Chalobah replaces injured Livramento for World Cup",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
