@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T14:44:55.137071+00:00",
+  "generated_at": "2026-06-16T14:49:58.829610+00:00",
   "dry_run": true,
-  "markets_tracked": 2527,
+  "markets_tracked": 2526,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1787,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 962,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 963,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
   "classifications_24h": 17038,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1211,
+    "prefiltered_haiku": 1216,
     "stale": 76,
     "capped": 13,
     "too_close_to_resolution": 0,
@@ -113,7 +113,7 @@
   },
   "pipeline_24h": {
     "news": 3369,
-    "matched": 1039,
+    "matched": 1040,
     "classified": 17038,
     "signals": 10,
     "trades": 10
@@ -127,11 +127,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 5.34,
-    "unrealized_pnl_usd": 3.0,
+    "unrealized_pnl_usd": 4.42,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2082.3
+    "avg_classification_latency_ms": 2159.9
   },
   "live_readiness": {
     "ready": false,
@@ -199,11 +199,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.225,
-      "pnl_pct": 40.62,
+      "current_price": 0.25,
+      "pnl_pct": 56.25,
       "amount_usd": 7.695,
-      "current_value_usd": 10.82,
-      "pnl_usd": 3.13,
+      "current_value_usd": 12.02,
+      "pnl_usd": 4.33,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -269,11 +269,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.38,
+      "pnl_pct": 11.76,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 16.41,
+      "pnl_usd": 1.73,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -449,69 +449,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 14:44:38",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during G7 events?",
-      "headline": "IITM Pravartak Announces Batch 03 of Applied Artificial Intelligence and Deep Learning Programme to Build Enterprise-Ready AI Talent - ANI News",
+      "time": "2026-06-16 14:49:04",
+      "market_question": "Will Trump say \u201cDana\u201d or \u201cWhite\u201d 5+ times during UFC 250?",
+      "headline": "Federal agents thwarted attack on Trump\u2019s UFC event, FBI says - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "cached",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 14:44:38",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "IITM Pravartak Announces Batch 03 of Applied Artificial Intelligence and Deep Learning Programme to Build Enterprise-Ready AI Talent - ANI News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 14:44:38",
-      "market_question": "Will DeepSeek have the best Chinese AI model at the end of June 2026?",
-      "headline": "IITM Pravartak Announces Batch 03 of Applied Artificial Intelligence and Deep Learning Programme to Build Enterprise-Ready AI Talent - ANI News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 14:44:38",
-      "market_question": "Will DeepSeek have the best AI model at the end of July 2026?",
-      "headline": "IITM Pravartak Announces Batch 03 of Applied Artificial Intelligence and Deep Learning Programme to Build Enterprise-Ready AI Talent - ANI News",
+      "time": "2026-06-16 14:49:04",
+      "market_question": "Will Trump say \"UFC\" this week?",
+      "headline": "Federal agents thwarted attack on Trump\u2019s UFC event, FBI says - Politico",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 14:49:04",
+      "market_question": "Will Trump say \"Miami\" during UFC 250?",
+      "headline": "Federal agents thwarted attack on Trump\u2019s UFC event, FBI says - Politico",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 14:49:04",
+      "market_question": "Will Trump say \"UFC\" this week?",
+      "headline": "Federal agents thwarted attack on Trump\u2019s UFC event, FBI says - Politico",
+      "direction": "bullish",
+      "materiality": 0.05,
+      "confidence": 0.95,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 14:49:01",
+      "market_question": "Will Trump dance during UFC Freedom 250?",
+      "headline": "Federal agents thwarted attack on Trump\u2019s UFC event, FBI says - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "cached",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 14:44:38",
-      "market_question": "Will DeepSeek be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
-      "headline": "IITM Pravartak Announces Batch 03 of Applied Artificial Intelligence and Deep Learning Programme to Build Enterprise-Ready AI Talent - ANI News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
