@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T11:44:26.080475+00:00",
+  "generated_at": "2026-06-16T11:49:29.476153+00:00",
   "dry_run": true,
-  "markets_tracked": 2534,
+  "markets_tracked": 2532,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1511,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 485,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 488,
+  "headlines_last_cycle": 1,
   "signals_24h": 17,
-  "classifications_24h": 17669,
+  "classifications_24h": 17686,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 792,
+    "prefiltered_haiku": 802,
     "stale": 100,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3493,
-    "matched": 946,
-    "classified": 17669,
+    "news": 3495,
+    "matched": 949,
+    "classified": 17686,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -2.68,
+    "unrealized_pnl_usd": -1.16,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1996.0
+    "avg_classification_latency_ms": 1996.9
   },
   "live_readiness": {
     "ready": false,
@@ -196,8 +196,8 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.165,
-      "pnl_pct": 3.12,
+      "current_price": 0.16500000000000004,
+      "pnl_pct": 3.13,
       "amount_usd": 15.39,
       "current_value_usd": 15.87,
       "pnl_usd": 0.48,
@@ -210,7 +210,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.325,
+      "current_price": 0.32499999999999996,
       "pnl_pct": 0.75,
       "amount_usd": 2.0,
       "current_value_usd": 2.01,
@@ -224,11 +224,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.115,
+      "current_price": 0.11499999999999999,
       "pnl_pct": 0.0,
       "amount_usd": 12.97,
       "current_value_usd": 12.97,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -238,11 +238,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.365,
-      "pnl_pct": 7.35,
+      "current_price": 0.4,
+      "pnl_pct": 17.65,
       "amount_usd": 14.68,
-      "current_value_usd": 15.76,
-      "pnl_usd": 1.08,
+      "current_value_usd": 17.27,
+      "pnl_usd": 2.59,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,22 +436,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 11:42:32",
-      "market_question": "Congress passes Iran war powers resolution by June 30?",
-      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
-      "direction": "bearish",
-      "materiality": 0.1,
-      "confidence": 0.6,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 11:42:29",
+      "time": "2026-06-16 11:49:25",
       "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
-      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
+      "headline": "U.S.-Iran deal updates: Israel says no Lebanon withdrawal, Iran says funds expected before final talks - CBS News",
       "direction": "bearish",
       "materiality": 0.2,
       "confidence": 0.55,
@@ -462,12 +449,12 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 11:42:28",
-      "market_question": "Joseph Aoun out as President of Lebanon by December 31?",
-      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
-      "direction": "neutral",
+      "time": "2026-06-16 11:49:25",
+      "market_question": "Congress passes Iran war powers resolution by June 30?",
+      "headline": "U.S.-Iran deal updates: Israel says no Lebanon withdrawal, Iran says funds expected before final talks - CBS News",
+      "direction": "bearish",
       "materiality": 0.05,
-      "confidence": 0.5,
+      "confidence": 0.55,
       "edge": null,
       "action": "skip",
       "match_source": "embedding",
@@ -475,9 +462,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 11:42:27",
-      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
-      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
+      "time": "2026-06-16 11:49:24",
+      "market_question": "Will Donald Trump visit Lebanon in 2026?",
+      "headline": "U.S.-Iran deal updates: Israel says no Lebanon withdrawal, Iran says funds expected before final talks - CBS News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -488,15 +475,28 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 11:42:26",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon - AP News",
+      "time": "2026-06-16 11:49:24",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "U.S.-Iran deal updates: Israel says no Lebanon withdrawal, Iran says funds expected before final talks - CBS News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 11:49:24",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "U.S.-Iran deal updates: Israel says no Lebanon withdrawal, Iran says funds expected before final talks - CBS News",
+      "direction": "bearish",
+      "materiality": 0.03,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
