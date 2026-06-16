@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T04:29:44.575871+00:00",
+  "generated_at": "2026-06-16T04:34:47.594992+00:00",
   "dry_run": true,
-  "markets_tracked": 2544,
+  "markets_tracked": 2541,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1451,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 269,
+  "headlines_scanned_today": 273,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17146,
+  "classifications_24h": 17167,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 428,
+    "prefiltered_haiku": 439,
     "stale": 122,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3374,
-    "matched": 813,
-    "classified": 17146,
+    "news": 3378,
+    "matched": 817,
+    "classified": 17167,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 5,
     "win_rate_pct": 44.4,
     "realized_pnl_usd": 7.51,
-    "unrealized_pnl_usd": 0.69,
+    "unrealized_pnl_usd": 0.76,
     "recent_winrate": 0.4444,
     "kelly_factor": 0.5417,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1801.9
+    "avg_classification_latency_ms": 1818.8
   },
   "live_readiness": {
     "ready": false,
@@ -252,11 +252,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.11,
-      "pnl_pct": 20.88,
+      "current_price": 0.11449999999999999,
+      "pnl_pct": 25.82,
       "amount_usd": 18.77,
-      "current_value_usd": 22.69,
-      "pnl_usd": 3.92,
+      "current_value_usd": 23.62,
+      "pnl_usd": 4.85,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.38,
-      "pnl_pct": 11.76,
+      "current_price": 0.36,
+      "pnl_pct": 5.88,
       "amount_usd": 14.68,
-      "current_value_usd": 16.41,
-      "pnl_usd": 1.73,
+      "current_value_usd": 15.54,
+      "pnl_usd": 0.86,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -425,69 +425,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 04:12:30",
-      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
-      "headline": "Paris Hilton returns to Utah \u2018troubled teen\u2019 facility to support others who allege mistreatment - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 04:32:16",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Iranian-Americans protest against Iran team at World Cup",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 04:12:30",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be less than 5?",
-      "headline": "Paris Hilton returns to Utah \u2018troubled teen\u2019 facility to support others who allege mistreatment - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 04:32:16",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Iranian-Americans protest against Iran team at World Cup",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 04:12:30",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
-      "headline": "Paris Hilton returns to Utah \u2018troubled teen\u2019 facility to support others who allege mistreatment - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 04:32:16",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Iranian-Americans protest against Iran team at World Cup",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 04:12:30",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be exactly 6?",
-      "headline": "Paris Hilton returns to Utah \u2018troubled teen\u2019 facility to support others who allege mistreatment - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 04:32:16",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Iranian-Americans protest against Iran team at World Cup",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 04:12:30",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be exactly 5?",
-      "headline": "Paris Hilton returns to Utah \u2018troubled teen\u2019 facility to support others who allege mistreatment - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 04:32:16",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Iranian-Americans protest against Iran team at World Cup",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
