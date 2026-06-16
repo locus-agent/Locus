@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T02:58:46.666767+00:00",
+  "generated_at": "2026-06-16T03:03:50.076498+00:00",
   "dry_run": true,
-  "markets_tracked": 2552,
+  "markets_tracked": 2554,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1406,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 219,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 221,
+  "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 16957,
+  "classifications_24h": 16965,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 339,
+    "prefiltered_haiku": 340,
     "stale": 111,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3341,
-    "matched": 784,
-    "classified": 16957,
+    "news": 3343,
+    "matched": 786,
+    "classified": 16965,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 4,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 13.84,
-    "unrealized_pnl_usd": -5.25,
+    "unrealized_pnl_usd": -4.17,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1689.6
+    "avg_classification_latency_ms": 1688.4
   },
   "live_readiness": {
     "ready": false,
@@ -182,7 +182,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16,
+      "current_price": 0.16000000000000003,
       "pnl_pct": 0.0,
       "amount_usd": 15.39,
       "current_value_usd": 15.39,
@@ -280,11 +280,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -428,9 +428,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 02:58:35",
-      "market_question": "Will Labour Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
-      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
+      "time": "2026-06-16 03:02:54",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "U.S. gasoline slips below $4 a gallon for first time since April - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -441,22 +441,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 02:58:34",
-      "market_question": "Will National Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
-      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 02:58:33",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
+      "time": "2026-06-16 03:02:53",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "U.S. gasoline slips below $4 a gallon for first time since April - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -467,9 +454,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 02:58:33",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
+      "time": "2026-06-16 03:02:53",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "U.S. gasoline slips below $4 a gallon for first time since April - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +467,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 02:58:33",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
+      "time": "2026-06-16 03:02:53",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "U.S. gasoline slips below $4 a gallon for first time since April - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 03:02:53",
+      "market_question": "Will April be the best month for Bitcoin in 2026?",
+      "headline": "U.S. gasoline slips below $4 a gallon for first time since April - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
