@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T03:54:22.704080+00:00",
+  "generated_at": "2026-06-16T03:59:26.080568+00:00",
   "dry_run": true,
   "markets_tracked": 2562,
   "classify_error_streak": 0,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 254,
-  "headlines_last_cycle": 5,
+  "headlines_scanned_today": 264,
+  "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17142,
+  "classifications_24h": 17196,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 407,
+    "prefiltered_haiku": 419,
     "stale": 122,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3376,
-    "matched": 817,
-    "classified": 17142,
+    "news": 3385,
+    "matched": 821,
+    "classified": 17196,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 5,
     "win_rate_pct": 44.4,
     "realized_pnl_usd": 7.51,
-    "unrealized_pnl_usd": 1.23,
+    "unrealized_pnl_usd": 1.66,
     "recent_winrate": 0.4444,
     "kelly_factor": 0.5417,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1801.6
+    "avg_classification_latency_ms": 1810.8
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.32499999999999996,
+      "current_price": 0.325,
       "pnl_pct": 0.75,
       "amount_usd": 2.0,
       "current_value_usd": 2.01,
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.385,
-      "pnl_pct": 13.24,
+      "current_price": 0.395,
+      "pnl_pct": 16.18,
       "amount_usd": 14.68,
-      "current_value_usd": 16.62,
-      "pnl_usd": 1.94,
+      "current_value_usd": 17.05,
+      "pnl_usd": 2.37,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -425,69 +425,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 03:54:19",
-      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
-      "headline": "SpaceX and OpenAI Are Ending Wall Street\u2019s Era of Stock Scarcity - Bloomberg.com",
-      "direction": "bullish",
-      "materiality": 0.05,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 03:54:18",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "SpaceX and OpenAI Are Ending Wall Street\u2019s Era of Stock Scarcity - Bloomberg.com",
-      "direction": "bullish",
-      "materiality": 0.1,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 03:54:18",
-      "market_question": "Will OpenAI\u2019s market cap be between $500B and $750B at market close on IPO day by December 31, 2027?",
-      "headline": "SpaceX and OpenAI Are Ending Wall Street\u2019s Era of Stock Scarcity - Bloomberg.com",
-      "direction": "bullish",
-      "materiality": 0.1,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 03:54:18",
-      "market_question": "Will OpenAI not IPO by December 31, 2026?",
-      "headline": "SpaceX and OpenAI Are Ending Wall Street\u2019s Era of Stock Scarcity - Bloomberg.com",
-      "direction": "bearish",
-      "materiality": 0.25,
-      "confidence": 0.55,
-      "edge": 0.13,
-      "action": "stale",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 03:54:14",
-      "market_question": "OpenAI acquired before 2027?",
-      "headline": "SpaceX and OpenAI Are Ending Wall Street\u2019s Era of Stock Scarcity - Bloomberg.com",
+      "time": "2026-06-16 03:55:06",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "Sorsby won't play for Texas Tech after unprecedented legal fight over his eligibility for gambling - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 03:55:05",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Sorsby won't play for Texas Tech after unprecedented legal fight over his eligibility for gambling - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 03:55:05",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "Sorsby won't play for Texas Tech after unprecedented legal fight over his eligibility for gambling - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 03:55:05",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "Sorsby won't play for Texas Tech after unprecedented legal fight over his eligibility for gambling - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 03:55:05",
+      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
+      "headline": "Sorsby won't play for Texas Tech after unprecedented legal fight over his eligibility for gambling - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
