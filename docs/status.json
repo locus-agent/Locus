@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T00:32:16.059178+00:00",
+  "generated_at": "2026-06-16T00:37:19.412033+00:00",
   "dry_run": true,
-  "markets_tracked": 2550,
+  "markets_tracked": 2548,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1406,
@@ -78,14 +78,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 96,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 143,
+  "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 16668,
+  "classifications_24h": 16914,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 163,
-    "stale": 113,
+    "prefiltered_haiku": 220,
+    "stale": 114,
     "capped": 25,
     "correlation_block": 38,
     "category_limit": 0,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T00:20:59.191298+00:00"
+    "last_check": "2026-06-16T00:35:59.597955+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3280,
-    "matched": 754,
-    "classified": 16668,
+    "news": 3327,
+    "matched": 770,
+    "classified": 16914,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 4,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 13.84,
-    "unrealized_pnl_usd": -2.12,
+    "unrealized_pnl_usd": -3.96,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1775.3
+    "avg_classification_latency_ms": 1715.4
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.3899999999999999,
-      "pnl_pct": -8.96,
+      "current_price": 0.32000000000000006,
+      "pnl_pct": 1.49,
       "amount_usd": 2.0,
-      "current_value_usd": 1.82,
-      "pnl_usd": -0.18,
+      "current_value_usd": 2.03,
+      "pnl_usd": 0.03,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -224,11 +224,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -252,11 +252,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.107,
-      "pnl_pct": 17.58,
+      "current_price": 0.1065,
+      "pnl_pct": 17.03,
       "amount_usd": 18.77,
-      "current_value_usd": 22.07,
-      "pnl_usd": 3.3,
+      "current_value_usd": 21.97,
+      "pnl_usd": 3.2,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -280,11 +280,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.395,
-      "pnl_pct": 16.18,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 17.05,
-      "pnl_usd": 2.37,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -428,69 +428,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 00:32:16",
-      "market_question": "Will Trump pardon Martin Shkreli before 2027?",
-      "headline": "Startup CEO Charlie Javice is reportedly angling for a Trump pardon - TechCrunch",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-16 00:35:02",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Bank of Japan set to raise rates to 31-year high, vow further increases - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 00:32:16",
-      "market_question": "Will Trump pardon Diddy before 2027?",
-      "headline": "Startup CEO Charlie Javice is reportedly angling for a Trump pardon - TechCrunch",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-16 00:32:16",
-      "market_question": "Will Trump pardon Sam Bankman-Fried before 2027?",
-      "headline": "Startup CEO Charlie Javice is reportedly angling for a Trump pardon - TechCrunch",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-16 00:35:02",
+      "market_question": "Will Donald Trump visit Japan in 2026?",
+      "headline": "Bank of Japan set to raise rates to 31-year high, vow further increases - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-16 00:32:15",
-      "market_question": "Will Trump pardon Steve Bannon before 2027?",
-      "headline": "Startup CEO Charlie Javice is reportedly angling for a Trump pardon - TechCrunch",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-16 00:35:02",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Bank of Japan set to raise rates to 31-year high, vow further increases - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-16 00:32:15",
-      "market_question": "Will Trump pardon SBF by July 31?",
-      "headline": "Startup CEO Charlie Javice is reportedly angling for a Trump pardon - TechCrunch",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-16 00:35:02",
+      "market_question": "Ethereum all time high by June 30, 2026?",
+      "headline": "Bank of Japan set to raise rates to 31-year high, vow further increases - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 00:35:02",
+      "market_question": "Solana all time high by June 30, 2026?",
+      "headline": "Bank of Japan set to raise rates to 31-year high, vow further increases - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
