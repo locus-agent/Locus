@@ -711,10 +711,14 @@ class PipelineV2:
     async def _classify_with_semaphores(self, event, market):
         """Classify one headline/market under the per-tier concurrency limits.
 
-        Tiered: the Haiku prefilter runs under the Haiku semaphore, then — for
-        survivors only — the deep Sonnet call runs under the tighter Sonnet
-        semaphore. Non-tiered ensemble/single-model calls run under the Sonnet
-        (expensive-tier) semaphore."""
+        Default (TIERED_CLASSIFICATION_ENABLED): the Haiku prefilter runs under
+        the Haiku semaphore, then — for survivors only — the deep Sonnet call
+        runs under the tighter Sonnet semaphore.
+
+        With tiering off, a single Sonnet classify() runs under the Sonnet
+        semaphore. The Claude+Grok ensemble path only runs if ENSEMBLE_ENABLED
+        is explicitly turned on (off by default — Grok is parked; see
+        multi_classifier)."""
         loop = asyncio.get_event_loop()
         if config.TIERED_CLASSIFICATION_ENABLED:
             async with self._haiku_sem:
@@ -728,11 +732,16 @@ class PipelineV2:
                     None, classify, event.headline, market, event.source, None,
                     config.SCORING_MODEL,
                 )
+        # Tiering off: ensemble only when explicitly enabled (parked), else a
+        # single deep classify() under the expensive-tier semaphore.
         if config.ENSEMBLE_ENABLED:
             async with self._sonnet_sem:
                 return await classify_ensemble(event.headline, market, event.source)
         async with self._sonnet_sem:
-            return await classify_async(event.headline, market, event.source)
+            return await loop.run_in_executor(
+                None, classify, event.headline, market, event.source, None,
+                config.SCORING_MODEL,
+            )
 
     def _check_reentry(self, market, classification):
         """Re-entry decision for a watched market, or None when the market isn't

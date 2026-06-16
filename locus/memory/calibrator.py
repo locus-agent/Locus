@@ -163,7 +163,7 @@ def check_resolutions():
     (present in the calibration table) are skipped, so each trade is
     resolved — and its lesson generated — exactly once.
     """
-    trades = logger.get_recent_trades(limit=100)
+    trades = logger.get_recent_trades(limit=2000, unresolved_only=True)
     already_calibrated = logger.get_calibrated_trade_ids()
     unresolved = [
         t for t in trades

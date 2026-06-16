@@ -13,18 +13,18 @@ load_dotenv(PROJECT_ROOT / ".env")
 # --- Anthropic ---
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 
-# --- Grok (xAI) — second opinion for ensemble classification ---
-# OpenAI-compatible API. Empty key disables Grok: the ensemble cleanly falls
-# back to Claude-only (consensus_score 0.85). Read as config.X at call time.
+# --- Grok (xAI) — PARKED (kept only for future multi-LLM experiments) ---
+# OpenAI-compatible API config for the parked Grok ensemble path. Not used by
+# the default pipeline (tiered Haiku->Sonnet). See multi_classifier.py.
 GROK_API_KEY = os.getenv("GROK_API_KEY", "")
 GROK_MODEL = os.getenv("GROK_MODEL", "grok-4")
 
-# --- Multi-LLM consensus classification ---
-# When enabled, headlines are classified by Claude (weight 0.6) and Grok
-# (weight 0.4) in parallel, blended into one Classification with a
-# consensus_score measuring agreement. Trades are gated when the two models
-# disagree (consensus_score < ENSEMBLE_MIN_CONSENSUS -> action 'low_consensus').
-ENSEMBLE_ENABLED = os.getenv("ENSEMBLE_ENABLED", "true").lower() == "true"
+# --- Multi-LLM consensus classification — DISABLED by default ---
+# Parked experiment: when ENSEMBLE_ENABLED is true AND tiered classification is
+# off, headlines are classified by Claude + Grok and blended with a
+# consensus_score. The default pipeline uses tiered Haiku->Sonnet, so this never
+# runs unless explicitly turned on. Off by default — Grok is parked.
+ENSEMBLE_ENABLED = os.getenv("ENSEMBLE_ENABLED", "false").lower() == "true"
 ENSEMBLE_MIN_CONSENSUS = float(os.getenv("ENSEMBLE_MIN_CONSENSUS", "0.5"))
 
 # --- Polymarket CLOB ---

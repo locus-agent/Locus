@@ -884,11 +884,24 @@ def get_daily_pnl() -> float:
     return row["spent"]
 
 
-def get_recent_trades(limit: int = 20) -> list[dict]:
+def get_recent_trades(limit: int = 20, unresolved_only: bool = False) -> list[dict]:
+    """Most recent trades, newest first. With unresolved_only=True, return only
+    trades not yet graded in the calibration table (LEFT JOIN ... IS NULL) — so
+    the calibrator scans only what's still open, not a fixed slice of all-time
+    trades that fills up with already-resolved rows."""
     conn = _conn()
-    rows = conn.execute(
-        "SELECT * FROM trades ORDER BY created_at DESC LIMIT ?", (limit,)
-    ).fetchall()
+    if unresolved_only:
+        rows = conn.execute(
+            """SELECT t.* FROM trades t
+               LEFT JOIN calibration c ON c.trade_id = t.id
+               WHERE c.trade_id IS NULL
+               ORDER BY t.created_at DESC LIMIT ?""",
+            (limit,),
+        ).fetchall()
+    else:
+        rows = conn.execute(
+            "SELECT * FROM trades ORDER BY created_at DESC LIMIT ?", (limit,)
+        ).fetchall()
     conn.close()
     return [dict(r) for r in rows]
 

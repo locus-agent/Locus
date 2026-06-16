@@ -46,6 +46,62 @@ def test_event_grouping_empty_event_id_returns_nothing():
     assert event_context.get_event_markets("", tracked) == []
 
 
+# --- _has_room price guards (must read config, not hardcoded bands) ------
+
+@pytest.fixture
+def pinned_price_bands(monkeypatch):
+    """Pin the price-room bands to the documented edge.detect_edge_v2 defaults."""
+    monkeypatch.setattr(config, "BULLISH_MIN_PRICE", 0.12)
+    monkeypatch.setattr(config, "BULLISH_MAX_PRICE", 0.82)
+    monkeypatch.setattr(config, "BEARISH_MIN_PRICE", 0.18)
+    monkeypatch.setattr(config, "BEARISH_MAX_PRICE", 0.88)
+
+
+def test_has_room_uses_config_bullish_band(pinned_price_bands):
+    # The old hardcoded YES band was 0.05-0.85; with the config band (0.12-0.82)
+    # a 0.10 longshot and a 0.84 favourite are now correctly rejected.
+    assert event_context._has_room("YES", 0.10) is False   # was allowed under 0.05
+    assert event_context._has_room("YES", 0.12) is True    # at config min
+    assert event_context._has_room("YES", 0.82) is True    # at config max
+    assert event_context._has_room("YES", 0.84) is False   # was allowed under 0.85
+
+
+def test_has_room_uses_config_bearish_band(pinned_price_bands):
+    # The old hardcoded NO band was 0.15-0.95; config band is 0.18-0.88.
+    assert event_context._has_room("NO", 0.16) is False    # was allowed under 0.15
+    assert event_context._has_room("NO", 0.18) is True     # at config min
+    assert event_context._has_room("NO", 0.88) is True     # at config max
+    assert event_context._has_room("NO", 0.92) is False    # was allowed under 0.95
+
+
+def test_has_room_tracks_config_overrides(monkeypatch):
+    # Proves the guard reads config at call time rather than hardcoded numbers.
+    monkeypatch.setattr(config, "BULLISH_MIN_PRICE", 0.30)
+    monkeypatch.setattr(config, "BULLISH_MAX_PRICE", 0.70)
+    assert event_context._has_room("YES", 0.25) is False
+    assert event_context._has_room("YES", 0.50) is True
+    assert event_context._has_room("YES", 0.75) is False
+
+
+def test_find_best_outcome_respects_config_band(monkeypatch):
+    # A sibling priced just outside the bullish band must not be recommended as
+    # an implied NO/YES play, even with strong materiality.
+    monkeypatch.setattr(config, "EDGE_THRESHOLD", 0.05)
+    monkeypatch.setattr(config, "BEARISH_MIN_PRICE", 0.18)
+    monkeypatch.setattr(config, "BEARISH_MAX_PRICE", 0.88)
+    # Bearish on A implies a YES play on its siblings. Give the sibling a price
+    # below the bullish band so the implied YES has no room.
+    monkeypatch.setattr(config, "BULLISH_MIN_PRICE", 0.12)
+    monkeypatch.setattr(config, "BULLISH_MAX_PRICE", 0.82)
+    a = mkt("a", 0.6, q="Will A win?")
+    sibling = mkt("b", 0.08, q="Will B win?")  # 0.08 < BULLISH_MIN_PRICE
+    rec = event_context.find_best_outcome(
+        sig(a, side="NO", direction="bearish", materiality=0.9), [a, sibling], []
+    )
+    # The only candidate that can clear is the direct signal (not the sibling).
+    assert rec is None or rec["recommended_market"].condition_id == "a"
+
+
 # --- is_categorical ------------------------------------------------------
 
 def test_categorical_when_prices_sum_to_one():

@@ -93,3 +93,74 @@ def test_sonnet_semaphore_caps_parallel_deep_calls(monkeypatch):
     results = asyncio.run(main())
     assert all(r.model == "sonnet" for r in results)
     assert state["max"] <= 2     # Sonnet concurrency never exceeded its semaphore
+
+
+# --- classification path selection (ensemble precedence / parking) -----------
+
+def _calls_tracker(monkeypatch):
+    """Patch the three classification entrypoints with markers and record which
+    one ran. classify()/haiku_prefilter are sync (run in executor); ensemble is
+    async (awaited directly)."""
+    calls = {"haiku": 0, "classify": 0, "ensemble": 0}
+
+    def haiku(*a, **k):
+        calls["haiku"] += 1
+        return None  # pass the prefilter so the deep call is reached
+
+    def classify(headline, market, source, as_of=None, model=None):
+        calls["classify"] += 1
+        return Classification(direction="bullish", materiality=0.7, reasoning="",
+                              latency_ms=1, model=model or "default")
+
+    async def ensemble(*a, **k):
+        calls["ensemble"] += 1
+        return Classification(direction="bullish", materiality=0.7, reasoning="",
+                              latency_ms=1, model="ensemble", ensemble_used=True)
+
+    monkeypatch.setattr(pl, "haiku_prefilter", haiku)
+    monkeypatch.setattr(pl, "classify", classify)
+    monkeypatch.setattr(pl, "classify_ensemble", ensemble)
+    return calls
+
+
+def _run_classify(p):
+    return asyncio.run(p._classify_with_semaphores(_event(), _mkt(1)))
+
+
+def test_tiered_always_uses_haiku_then_sonnet_even_with_ensemble_on(monkeypatch):
+    # Tiered wins outright: the ensemble must never run while tiering is on,
+    # even if ENSEMBLE_ENABLED is (mistakenly) left true.
+    monkeypatch.setattr(config, "TIERED_CLASSIFICATION_ENABLED", True)
+    monkeypatch.setattr(config, "ENSEMBLE_ENABLED", True)
+    calls = _calls_tracker(monkeypatch)
+    result = _run_classify(pl.PipelineV2())
+    assert calls == {"haiku": 1, "classify": 1, "ensemble": 0}
+    assert result.model != "ensemble"
+
+
+def test_tiering_off_ensemble_off_uses_single_classify(monkeypatch):
+    # Default-style fallback (ensemble parked): a single deep classify(), Sonnet
+    # model, no ensemble.
+    monkeypatch.setattr(config, "TIERED_CLASSIFICATION_ENABLED", False)
+    monkeypatch.setattr(config, "ENSEMBLE_ENABLED", False)
+    monkeypatch.setattr(config, "SCORING_MODEL", "claude-sonnet-test")
+    calls = _calls_tracker(monkeypatch)
+    result = _run_classify(pl.PipelineV2())
+    assert calls == {"haiku": 0, "classify": 1, "ensemble": 0}
+    assert result.model == "claude-sonnet-test"  # deep classify uses SCORING_MODEL
+
+
+def test_tiering_off_ensemble_on_uses_ensemble(monkeypatch):
+    # The only way to reach the parked ensemble: tiering off AND ensemble on.
+    monkeypatch.setattr(config, "TIERED_CLASSIFICATION_ENABLED", False)
+    monkeypatch.setattr(config, "ENSEMBLE_ENABLED", True)
+    calls = _calls_tracker(monkeypatch)
+    result = _run_classify(pl.PipelineV2())
+    assert calls == {"haiku": 0, "classify": 0, "ensemble": 1}
+    assert result.ensemble_used is True
+
+
+def test_ensemble_disabled_by_default_in_config():
+    # The shipped config must keep the parked Grok ensemble off; flipping it back
+    # on (in code or env) should trip this guard.
+    assert config.ENSEMBLE_ENABLED is False

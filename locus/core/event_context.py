@@ -47,10 +47,12 @@ def is_categorical(event_markets: list[Market]) -> bool:
 
 def _has_room(side: str, yes_price: float) -> bool:
     """Symmetric price-room guards, mirroring edge.detect_edge_v2: skip a YES
-    longshot / priced-in favourite, and the bearish mirror for NO."""
+    longshot / priced-in favourite, and the bearish mirror for NO. Uses the same
+    configurable bands as detect_edge_v2 so a switched sibling outcome respects
+    the exact price-room guard the primary signal did."""
     if side == "YES":
-        return 0.05 <= yes_price <= 0.85
-    return 0.15 <= yes_price <= 0.95
+        return config.BULLISH_MIN_PRICE <= yes_price <= config.BULLISH_MAX_PRICE
+    return config.BEARISH_MIN_PRICE <= yes_price <= config.BEARISH_MAX_PRICE
 
 
 def _edge_for(side: str, yes_price: float, materiality: float) -> float:

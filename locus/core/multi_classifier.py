@@ -1,3 +1,4 @@
+# DISABLED — Grok is turned off. This module is kept only for future multi-LLM experiments.
 """
 Multi-LLM consensus classification.
 
