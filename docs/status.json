@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T02:48:40.533614+00:00",
+  "generated_at": "2026-06-16T02:53:43.559787+00:00",
   "dry_run": true,
-  "markets_tracked": 2552,
+  "markets_tracked": 2549,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1406,
@@ -78,10 +78,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 217,
+  "headlines_scanned_today": 218,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 16947,
+  "classifications_24h": 16952,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 337,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T02:36:02.521190+00:00"
+    "last_check": "2026-06-16T02:51:02.878072+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3339,
-    "matched": 782,
-    "classified": 16947,
+    "news": 3340,
+    "matched": 783,
+    "classified": 16952,
     "signals": 16,
     "trades": 16
   },
@@ -124,7 +124,7 @@
     "losses": 4,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 13.84,
-    "unrealized_pnl_usd": -4.17,
+    "unrealized_pnl_usd": -5.47,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20,
@@ -182,7 +182,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16000000000000003,
+      "current_price": 0.16,
       "pnl_pct": 0.0,
       "amount_usd": 15.39,
       "current_value_usd": 15.39,
@@ -280,11 +280,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.345,
+      "pnl_pct": 1.47,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 14.9,
+      "pnl_usd": 0.22,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -428,48 +428,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 02:43:23",
-      "market_question": "Will Trump agree to Iranian oil sanction relief by June 30?",
-      "headline": "Asia markets temper Iran deal optimism, BOJ decision in view - Reuters",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 02:43:22",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Asia markets temper Iran deal optimism, BOJ decision in view - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 02:43:20",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Asia markets temper Iran deal optimism, BOJ decision in view - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 02:43:18",
-      "market_question": "Will Warsh say \"Trump\" during June Press Conference?",
-      "headline": "Associated Press News: Breaking News | Latest News Today - AP News",
+      "time": "2026-06-16 02:52:01",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +441,48 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 02:43:18",
-      "market_question": "Will Trump say \"Fake News\" during UFC 250?",
-      "headline": "Associated Press News: Breaking News | Latest News Today - AP News",
+      "time": "2026-06-16 02:52:01",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 02:52:01",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 02:52:01",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 02:52:01",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
