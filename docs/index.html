@@ -720,63 +720,6 @@
 
   <section class="block">
     <div class="panel">
-      <div class="panel-title">Pipeline (24h)</div>
-      <div class="pipeline-row" id="pipeline-strip">
-        <div class="pipe-step"><div class="pipe-label">News</div><div class="pipe-count" id="pipe-news">—</div></div>
-        <div class="pipe-arrow">→</div>
-        <div class="pipe-step"><div class="pipe-label">Matched</div><div class="pipe-count" id="pipe-matched">—</div></div>
-        <div class="pipe-arrow">→</div>
-        <div class="pipe-step"><div class="pipe-label">Classified</div><div class="pipe-count" id="pipe-classified">—</div></div>
-        <div class="pipe-arrow">→</div>
-        <div class="pipe-step"><div class="pipe-label">Signals</div><div class="pipe-count" id="pipe-signals">—</div></div>
-        <div class="pipe-arrow">→</div>
-        <div class="pipe-step"><div class="pipe-label">Trades</div><div class="pipe-count" id="pipe-trades">—</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="stats">
-      <div class="panel stat-card">
-        <div class="stat-label">Overall Accuracy</div>
-        <div class="stat-value" id="stat-accuracy">—</div>
-        <div class="stat-sub" id="stat-resolved">0 resolved</div>
-      </div>
-      <div class="panel stat-card">
-        <div class="stat-label">Headlines Today</div>
-        <div class="stat-value" id="stat-headlines">—</div>
-        <div class="stat-sub" id="stat-headlines-cycle">0 last cycle</div>
-      </div>
-      <div class="panel stat-card">
-        <div class="stat-label">Classifications (24h)</div>
-        <div class="stat-value" id="stat-classifications">—</div>
-        <div class="stat-sub">claude calls</div>
-      </div>
-      <div class="panel stat-card">
-        <div class="stat-label">Signals (24h)</div>
-        <div class="stat-value" id="stat-signals">—</div>
-        <div class="stat-sub">edge &gt; threshold</div>
-      </div>
-      <div class="panel stat-card">
-        <div class="stat-label">Selectivity</div>
-        <div class="stat-value" id="stat-selectivity">—</div>
-        <div class="stat-sub">signals / classifications</div>
-      </div>
-      <div class="panel stat-card">
-        <div class="stat-label">Realized PnL</div>
-        <div class="stat-value" id="stat-realized">—</div>
-        <div class="stat-sub">cumulative, simulated</div>
-      </div>
-      <div class="panel stat-card">
-        <div class="stat-label">Lessons Learned</div>
-        <div class="stat-value" id="stat-lessons">—</div>
-        <div class="stat-sub">from past mistakes</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="panel">
       <div class="panel-title" id="perf-title">Performance (dry run)</div>
       <div class="perf-grid">
         <div class="perf-cell">
@@ -979,7 +922,7 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="block" id="whale-section">
     <div class="panel">
       <div class="panel-title">Whale Activity</div>
       <div class="gate-row">
@@ -997,7 +940,7 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="block" id="prompt-section">
     <div class="panel">
       <div class="panel-title">Prompt Evolution</div>
       <div class="prompt-row">
@@ -1051,13 +994,6 @@
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="panel-title">Lessons Learned</div>
-    <div id="lessons-list">
-      <div class="panel"><div class="empty">No lessons recorded yet.</div></div>
     </div>
   </section>
 
@@ -1150,44 +1086,6 @@
     }
   }
 
-  function renderPipeline(status) {
-    const p = status.pipeline_24h || {};
-    for (const step of ['news', 'matched', 'classified', 'signals', 'trades']) {
-      document.getElementById('pipe-' + step).textContent = p[step] ?? '—';
-    }
-  }
-
-  function renderStats(status) {
-    const tr = status.track_record || {};
-    document.getElementById('stat-accuracy').textContent =
-      tr.total ? tr.accuracy.toFixed(1) + '%' : '—';
-    document.getElementById('stat-resolved').textContent =
-      (tr.total || 0) + ' resolved';
-
-    document.getElementById('stat-headlines').textContent =
-      status.headlines_scanned_today ?? 0;
-    document.getElementById('stat-headlines-cycle').textContent =
-      (status.headlines_last_cycle ?? 0) + ' last cycle';
-
-    document.getElementById('stat-signals').textContent =
-      status.signals_24h ?? 0;
-
-    document.getElementById('stat-classifications').textContent =
-      status.classifications_24h ?? 0;
-
-    document.getElementById('stat-selectivity').textContent =
-      status.selectivity_pct == null ? '—' : status.selectivity_pct.toFixed(1) + '%';
-
-    document.getElementById('stat-lessons').textContent =
-      (status.lessons || []).length;
-
-    const perf = status.performance || {};
-    const [rTxt, rCls] = fmtPnl(perf.realized_pnl_usd);
-    const rStat = document.getElementById('stat-realized');
-    rStat.textContent = rTxt;
-    rStat.className = 'stat-value ' + rCls;
-  }
-
   function renderGates(status) {
     const g = status.gates_24h || {};
     document.getElementById('gate-prefilter').textContent = g.prefiltered_haiku ?? '—';
@@ -1210,6 +1108,16 @@
   function renderWhale(status) {
     const w = status.whale || {};
     const g = status.gates_24h || {};
+    // Hide the whole panel when the whale tracker is inactive (no wallets
+    // watched) and nothing has triggered in the last 24h.
+    const triggered = g.whale_triggered ?? w.triggered_24h ?? 0;
+    const watched = w.watched_wallets ?? 0;
+    const section = document.getElementById('whale-section');
+    if (!triggered && !watched) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
     document.getElementById('whale-wallets').textContent = w.watched_wallets ?? '—';
     document.getElementById('whale-triggered').textContent =
       g.whale_triggered ?? w.triggered_24h ?? '—';
@@ -1535,6 +1443,13 @@
   function renderPrompt(status) {
     const p = status.prompt || {};
     const v = p.version ?? 0;
+    // Hide the panel until the prompt has actually evolved at least once.
+    const section = document.getElementById('prompt-section');
+    if (v === 0 && (p.last_evolved == null)) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
     document.getElementById('prompt-version').textContent = 'v' + v;
     document.getElementById('prompt-evolved').textContent =
       p.last_evolved ? fmtTime(p.last_evolved) : '—';
@@ -1557,27 +1472,6 @@
       <div class="journal-entry">
         <div class="journal-date">${escapeHtml(j.date)}</div>
         <div class="journal-text">${escapeHtml(j.entry)}</div>
-      </div>
-    `).join('');
-  }
-
-  function renderLessons(status) {
-    const container = document.getElementById('lessons-list');
-    const lessons = status.lessons || [];
-
-    if (lessons.length === 0) {
-      container.innerHTML = '<div class="panel"><div class="empty">No lessons recorded yet.</div></div>';
-      return;
-    }
-
-    container.innerHTML = lessons.map(l => `
-      <div class="lesson-card">
-        <div class="lesson-meta">
-          ${fmtTime(l.time)} · ${escapeHtml(l.market_question)} ·
-          predicted <span class="purple">${escapeHtml(l.classification)}</span>,
-          actual <span class="purple">${escapeHtml(l.actual_direction)}</span>
-        </div>
-        <div class="lesson-text">${escapeHtml(l.lesson)}</div>
       </div>
     `).join('');
   }
@@ -1711,8 +1605,6 @@
     safeRender('topbarClock', updateTopbarClock, status);
     safeRender('header', renderHeader, status);
     safeRender('circuitBreaker', renderCircuitBreaker, status);
-    safeRender('pipeline', renderPipeline, status);
-    safeRender('stats', renderStats, status);
     safeRender('performance', renderPerformance, status);
     safeRender('readiness', renderReadiness, status);
     safeRender('positions', renderPositions, status);
@@ -1725,7 +1617,6 @@
     safeRender('prompt', renderPrompt, status);
     safeRender('journal', renderJournal, status);
     safeRender('classifications', renderClassifications, status);
-    safeRender('lessons', renderLessons, status);
   }
 
   // Wire up sortable headers once (thead persists across tbody re-renders).

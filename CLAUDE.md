@@ -139,7 +139,8 @@ PipelineV2._execute_signals:
   `REENTRY_SL_MIN_SOURCES` sources), `tp` never. A re-entry is labeled `edge_type='reentry'`
   / action `reentry_triggered` (and consumes one of `MAX_REENTRY_PER_MARKET`); a watched
   market that fails the bar is suppressed (action `reentry_blocked`).
-- `core/executor.py` enforces `DAILY_LOSS_LIMIT_USD` (checked via `logger.get_daily_pnl`),
+- `core/executor.py` enforces `DAILY_SPEND_LIMIT_USD` (total notional deployed per day,
+  not realized losses; checked via `logger.get_daily_pnl`, which counts `dry_run` rows too),
   then either logs a `dry_run` row or places a live order via `py_clob_client`
   (optional dependency, commented out in requirements.txt — install separately).
 
@@ -149,7 +150,7 @@ The read-only Textual dashboard (`cli.py dashboard`) lives in `ui/tui.py` and re
 ### Shared infrastructure
 
 - `config.py` — loads `.env`, defines all thresholds/keys/categories and
-  `PROJECT_ROOT`: `DRY_RUN`, `MAX_BET_USD`, `DAILY_LOSS_LIMIT_USD`, `EDGE_THRESHOLD`,
+  `PROJECT_ROOT`: `DRY_RUN`, `MAX_BET_USD`, `DAILY_SPEND_LIMIT_USD`, `EDGE_THRESHOLD`,
   `MAX_VOLUME_USD`/`MIN_VOLUME_USD`/`MATERIALITY_THRESHOLD_BULLISH`/
   `MATERIALITY_THRESHOLD_BEARISH`/`HIGH_MATERIALITY_THRESHOLD`/`SPEED_TARGET_SECONDS`, and
   more. `cli.py` mutates `config.DRY_RUN` / `config.MATERIALITY_THRESHOLD_BULLISH` +

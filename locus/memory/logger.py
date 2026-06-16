@@ -864,9 +864,11 @@ def log_run_end(run_id: int, markets_scanned: int, signals_found: int, trades_pl
 def get_daily_pnl() -> float:
     conn = _conn()
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    # Notional deployed today. 'dry_run' is counted so DAILY_SPEND_LIMIT_USD
+    # is enforced in dry-run mode too (where no order ever reaches 'filled').
     row = conn.execute(
         """SELECT COALESCE(SUM(
-               CASE WHEN status IN ('filled','executed') THEN -amount_usd ELSE 0 END
+               CASE WHEN status IN ('filled','executed','dry_run') THEN -amount_usd ELSE 0 END
            ), 0) as spent
            FROM trades WHERE created_at LIKE ?""",
         (f"{today}%",),

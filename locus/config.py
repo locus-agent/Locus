@@ -97,7 +97,8 @@ MAX_BET_USD = float(os.getenv("MAX_BET_USD", "25"))
 # Notional bankroll for quarter-Kelly sizing (size = bankroll * kelly / 4,
 # capped at MAX_BET_USD). With the defaults, materiality 1.0 hits the cap.
 KELLY_BANKROLL_USD = float(os.getenv("KELLY_BANKROLL_USD", "100"))
-DAILY_LOSS_LIMIT_USD = float(os.getenv("DAILY_LOSS_LIMIT_USD", "100"))
+# Caps total notional deployed per day, not realized losses
+DAILY_SPEND_LIMIT_USD = float(os.getenv("DAILY_SPEND_LIMIT_USD", "100"))
 EDGE_THRESHOLD = float(os.getenv("EDGE_THRESHOLD", "0.10"))
 NEWS_LOOKBACK_HOURS = 6
 

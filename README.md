@@ -259,7 +259,7 @@ computed yet (e.g. Sharpe before 7 days) show as N/A rather than failing.
 |---|---|---|
 | `DRY_RUN` | `true` | Set to `false` for live trading |
 | `MAX_BET_USD` | `25` | Maximum single bet |
-| `DAILY_LOSS_LIMIT_USD` | `100` | Pipeline halts if breached |
+| `DAILY_SPEND_LIMIT_USD` | `100` | Caps total notional deployed per day (not realized losses) |
 | `EDGE_THRESHOLD` | `0.10` | Minimum edge to trigger trade |
 | `MAX_VOLUME_USD` | `500000` | Only trade markets below this volume |
 | `MIN_VOLUME_USD` | `1000` | Skip dead markets |
