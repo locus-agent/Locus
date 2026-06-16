@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T06:26:00.091539+00:00",
+  "generated_at": "2026-06-16T06:31:03.292456+00:00",
   "dry_run": true,
-  "markets_tracked": 2556,
+  "markets_tracked": 2560,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1451,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 329,
+  "headlines_scanned_today": 330,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17423,
+  "classifications_24h": 17424,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 507,
+    "prefiltered_haiku": 508,
     "stale": 124,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3432,
-    "matched": 864,
-    "classified": 17423,
+    "news": 3433,
+    "matched": 865,
+    "classified": 17424,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -2.93,
+    "unrealized_pnl_usd": -2.5,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1893.7
+    "avg_classification_latency_ms": 1892.6
   },
   "live_readiness": {
     "ready": false,
@@ -182,8 +182,8 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16500000000000004,
-      "pnl_pct": 3.13,
+      "current_price": 0.165,
+      "pnl_pct": 3.12,
       "amount_usd": 15.39,
       "current_value_usd": 15.87,
       "pnl_usd": 0.48,
@@ -252,11 +252,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.385,
+      "pnl_pct": 13.24,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 16.62,
+      "pnl_usd": 1.94,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -422,6 +422,19 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-16 06:29:11",
+      "market_question": "Will Trump say \"Memory\" this week?",
+      "headline": "As demand for high-bandwidth memory (HBM) for artificial intelligence (AI) servers has soared, the p.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-16 06:22:38",
       "market_question": "Will Donald Trump be confirmed to have visited Epstein\u2019s island?",
       "headline": "Magnitude 6.7 quake hits Indonesia's Sulawesi island, agency says - Reuters",
@@ -463,19 +476,6 @@
     {
       "time": "2026-06-16 06:22:38",
       "market_question": "Will the Democrats win the Rhode Island Senate race in 2026?",
-      "headline": "Magnitude 6.7 quake hits Indonesia's Sulawesi island, agency says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 06:22:38",
-      "market_question": "Will Raymond McKay be the Republican nominee for Senate in Rhode Island?",
       "headline": "Magnitude 6.7 quake hits Indonesia's Sulawesi island, agency says - Reuters",
       "direction": null,
       "materiality": null,
