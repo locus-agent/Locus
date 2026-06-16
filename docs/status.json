@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T07:11:28.810689+00:00",
+  "generated_at": "2026-06-16T07:16:32.112412+00:00",
   "dry_run": true,
-  "markets_tracked": 2553,
+  "markets_tracked": 2551,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1460,
@@ -78,14 +78,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 345,
+  "headlines_scanned_today": 354,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17476,
+  "classifications_24h": 17526,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 534,
-    "stale": 124,
+    "prefiltered_haiku": 554,
+    "stale": 125,
     "capped": 25,
     "correlation_block": 38,
     "category_limit": 0,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3447,
-    "matched": 874,
-    "classified": 17476,
+    "news": 3456,
+    "matched": 882,
+    "classified": 17526,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -4.43,
+    "unrealized_pnl_usd": -2.92,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1892.8
+    "avg_classification_latency_ms": 1889.3
   },
   "live_readiness": {
     "ready": false,
@@ -224,11 +224,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -252,11 +252,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.33999999999999997,
-      "pnl_pct": 0.0,
+      "current_price": 0.375,
+      "pnl_pct": 10.29,
       "amount_usd": 14.68,
-      "current_value_usd": 14.68,
-      "pnl_usd": -0.0,
+      "current_value_usd": 16.19,
+      "pnl_usd": 1.51,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -422,48 +422,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 07:10:31",
-      "market_question": "Will Google be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
-      "headline": "France to invest \u20ac655 mln in AI, set up common chatbot for all state services - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 07:10:31",
-      "market_question": "Will Z.ai be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
-      "headline": "France to invest \u20ac655 mln in AI, set up common chatbot for all state services - Reuters",
+      "time": "2026-06-16 07:15:55",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "When it may make sense to claim Social Security at 62 - CNN",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 07:10:31",
-      "market_question": "Will DeepSeek be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
-      "headline": "France to invest \u20ac655 mln in AI, set up common chatbot for all state services - Reuters",
+      "time": "2026-06-16 07:15:55",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "When it may make sense to claim Social Security at 62 - CNN",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 07:10:29",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "France to invest \u20ac655 mln in AI, set up common chatbot for all state services - Reuters",
+      "time": "2026-06-16 07:15:54",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Stanford Graduates Walk Out on Google CEO as Commencement Speech Sidesteps AI - Yahoo",
+      "direction": "neutral",
+      "materiality": 0.03,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 07:15:54",
+      "market_question": "Will OpenAI release a social network in 2026?",
+      "headline": "When it may make sense to claim Social Security at 62 - CNN",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,9 +474,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 07:10:29",
-      "market_question": "Solana all time high by June 30, 2026?",
-      "headline": "France to invest \u20ac655 mln in AI, set up common chatbot for all state services - Reuters",
+      "time": "2026-06-16 07:15:54",
+      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
+      "headline": "When it may make sense to claim Social Security at 62 - CNN",
       "direction": null,
       "materiality": null,
       "confidence": null,
