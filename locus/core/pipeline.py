@@ -25,6 +25,7 @@ from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import (
     classify_async, classify_fast, classify_edge_type, haiku_prefilter, classify,
+    verify_novelty,
 )
 from locus.core.multi_classifier import classify_ensemble, is_low_consensus
 from locus.core import event_context
@@ -68,6 +69,30 @@ def is_price_target_market(question: str) -> bool:
         return False
     q = (question or "").lower()
     return any(kw.lower() in q for kw in config.PRICE_TARGET_KEYWORDS)
+
+
+def should_verify_novelty(materiality: float, yes_price: float) -> bool:
+    """Whether a signal warrants a Chain-of-Verification novelty check: only
+    high-materiality calls (>= COV_MATERIALITY_THRESHOLD) at non-extreme prices
+    (0.15 < price < 0.85). Extreme prices are skipped — there the move is
+    structural, not a question of whether the news is already priced in.
+    Disabled wholesale when COV_ENABLED is false."""
+    return (
+        config.COV_ENABLED
+        and materiality >= config.COV_MATERIALITY_THRESHOLD
+        and 0.15 < yes_price < 0.85
+    )
+
+
+def cov_blocks(cov: dict | None) -> bool:
+    """True when a CoV result confidently says the news is already priced in
+    (already_priced AND confidence >= COV_CONFIDENCE_THRESHOLD). A None result
+    (skipped or failed open) never blocks."""
+    return bool(
+        cov is not None
+        and cov.get("already_priced")
+        and cov.get("confidence", 0.0) >= config.COV_CONFIDENCE_THRESHOLD
+    )
 
 
 def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: datetime | None = None):
@@ -478,13 +503,35 @@ class PipelineV2:
                                     f"on \"{market.question[:40]}\" (allowed)"
                                 )
 
-                        # Orderbook imbalance gate: don't trade into strong
-                        # opposing flow on the live YES book. Fails open when
-                        # the CLOB is unreachable (imbalance is None -> allowed).
+                        # Orderbook imbalance gate + Chain-of-Verification (CoV).
+                        # Both are independent network calls, so fetch them
+                        # concurrently. Orderbook: don't trade into strong
+                        # opposing flow on the live YES book (fails open when the
+                        # CLOB is unreachable -> imbalance None -> allowed). CoV:
+                        # for high-materiality signals at non-extreme prices, a
+                        # cheap Haiku call verifies the news is genuinely new and
+                        # not already reflected in the price (else no edge left);
+                        # skipped (cov None) otherwise, and fails open on error.
                         if signal is not None:
-                            imbalance = await asyncio.get_event_loop().run_in_executor(
-                                None, fetch_orderbook_imbalance, get_token_id(market, "YES")
+                            loop = asyncio.get_event_loop()
+                            run_cov = should_verify_novelty(
+                                classification.materiality, market.yes_price
                             )
+
+                            async def _orderbook():
+                                return await loop.run_in_executor(
+                                    None, fetch_orderbook_imbalance, get_token_id(market, "YES")
+                                )
+
+                            async def _cov():
+                                if not run_cov:
+                                    return None
+                                return await loop.run_in_executor(
+                                    None, verify_novelty, event.headline, market, market.yes_price
+                                )
+
+                            imbalance, cov = await asyncio.gather(_orderbook(), _cov())
+
                             if not orderbook_allows(signal.side, imbalance):
                                 self.stats["orderbook_skips"] = (
                                     self.stats.get("orderbook_skips", 0) + 1
@@ -495,6 +542,22 @@ class PipelineV2:
                                     f"on \"{market.question[:40]}\""
                                 )
                                 signal, action = None, "orderbook_skip"
+
+                            # CoV: confidently-already-priced news has no edge.
+                            if signal is not None and cov_blocks(cov):
+                                self.stats["already_priced_in"] = (
+                                    self.stats.get("already_priced_in", 0) + 1
+                                )
+                                log.info(
+                                    f"CoV blocked: already priced in | {market.slug} | "
+                                    f"price={market.yes_price:.3f} | {cov.get('reason', '')}"
+                                )
+                                console.print(
+                                    f"  [orange3]CoV BLOCKED[/orange3]: already priced in "
+                                    f"(conf {cov.get('confidence', 0.0):.2f}) "
+                                    f"on \"{market.question[:40]}\""
+                                )
+                                signal, action = None, "already_priced_in"
 
                         # Attribute a surviving signal to an edge type, for the
                         # trade record and per-type calibration. A re-entry keeps

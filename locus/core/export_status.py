@@ -271,6 +271,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "correlation_block": logger.get_classification_count_since(since_24h, action="correlation_block"),
             "category_limit": logger.get_classification_count_since(since_24h, action="category_limit"),
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
+            "already_priced_in": logger.get_classification_count_since(since_24h, action="already_priced_in"),
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
             "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
             "low_consensus": logger.get_classification_count_since(since_24h, action="low_consensus"),

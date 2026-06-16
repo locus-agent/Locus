@@ -12,6 +12,7 @@
     --green: #2bd47e;
     --red: #e05a5a;
     --yellow: #d9b94a;
+    --orange: #e08a3a;
     --cyan: #56c8d8;
     --text: #e2e2e2;
     --muted: #888888;
@@ -410,6 +411,7 @@
   .gate-correlation .gate-count { color: var(--red); }
   .gate-category .gate-count { color: var(--red); }
   .gate-orderbook .gate-count { color: var(--yellow); }
+  .gate-priced .gate-count { color: var(--orange); }
   .gate-confirm .gate-count { color: var(--cyan); }
   .gate-consensus .gate-count { color: var(--yellow); }
   .gate-event .gate-count { color: var(--red); }
@@ -907,6 +909,10 @@
           <span class="gate-label">orderbook — strong opposing flow</span>
           <span class="gate-count" id="gate-orderbook">—</span>
         </div>
+        <div class="gate-row gate-priced">
+          <span class="gate-label">already priced in — CoV says news not novel</span>
+          <span class="gate-count" id="gate-priced">—</span>
+        </div>
         <div class="gate-row gate-confirm">
           <span class="gate-label">needs confirmation — awaiting 2nd source</span>
           <span class="gate-count" id="gate-confirm">—</span>
@@ -1177,6 +1183,7 @@
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
     document.getElementById('gate-category').textContent = g.category_limit ?? '—';
     document.getElementById('gate-orderbook').textContent = g.orderbook_skip ?? '—';
+    document.getElementById('gate-priced').textContent = g.already_priced_in ?? '—';
     document.getElementById('gate-confirm').textContent = g.needs_confirmation ?? '—';
     document.getElementById('gate-consensus').textContent = g.low_consensus ?? '—';
     document.getElementById('gate-event').textContent = g.event_exposure_block ?? '—';

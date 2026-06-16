@@ -465,6 +465,52 @@ def haiku_prefilter(
     return None  # survived the prefilter — caller spends the deep Sonnet call
 
 
+FAST_COV_SYSTEM_PROMPT = """You are a strict market novelty verifier.
+Answer ONLY with valid JSON. No explanations.
+Example: {"already_priced": false, "confidence": 0.82, "reason": "deal not yet confirmed by official sources"}
+"""
+
+
+def verify_novelty(headline: str, market: Market, current_price: float) -> dict | None:
+    """Chain-of-Verification novelty check: a cheap Haiku call that asks whether
+    the news is genuinely NEW information not yet reflected in the price.
+
+    Returns {"already_priced": bool, "confidence": float, "reason": str}, or
+    None on any error/parse failure. Fails OPEN (None) so a flaky verifier never
+    silently drops a tradable signal — the caller treats None as "don't block"."""
+    user_prompt = (
+        f"Market: {market.question}\n"
+        f"Current Yes price: {current_price:.3f}\n"
+        f"News: {headline}\n"
+        f"Is this news genuinely NEW information not yet reflected in the current price?"
+    )
+
+    try:
+        response = client.messages.create(
+            model=config.COV_MODEL,
+            max_tokens=200,
+            temperature=0.0,
+            system=FAST_COV_SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user_prompt}],
+        )
+        text = response.content[0].text.strip()
+        m = _JSON_OBJ_RE.search(text)
+        if not m:
+            return None
+        obj = json.loads(m.group(0))
+        if not isinstance(obj, dict):
+            return None
+        return {
+            "already_priced": bool(obj.get("already_priced", False)),
+            "confidence": _clamp(obj.get("confidence", 0.0), 0.0, 1.0),
+            "reason": str(obj.get("reason", "")),
+        }
+    except Exception as e:
+        # Fail open: a verifier outage must not block trading.
+        log.warning(f"[classifier] CoV verify_novelty failed ({type(e).__name__}: {e})")
+        return None
+
+
 def classify_fast(
     headline: str, market: Market, source: str = "unknown", as_of: datetime | None = None
 ) -> Classification:

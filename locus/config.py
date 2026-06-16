@@ -228,6 +228,18 @@ HAIKU_MODEL = os.getenv("HAIKU_MODEL", "claude-haiku-4-5-20251001")  # fallback:
 HAIKU_MATERIALITY_THRESHOLD = float(os.getenv("HAIKU_MATERIALITY_THRESHOLD", "0.25"))
 TIERED_CLASSIFICATION_ENABLED = os.getenv("TIERED_CLASSIFICATION_ENABLED", "true").lower() == "true"
 
+# --- Chain-of-Verification (CoV) novelty check ---
+# The most obvious, high-materiality news is often already reflected in the
+# price (no edge left). Before trading a high-materiality signal at a
+# non-extreme price, a cheap Haiku call asks whether the news is genuinely NEW
+# information not yet priced in; if it is confidently already priced, the
+# signal is suppressed (action 'already_priced_in'). Read as config.X at call
+# time so env overrides are honored.
+COV_ENABLED = os.getenv("COV_ENABLED", "true").lower() == "true"
+COV_MATERIALITY_THRESHOLD = float(os.getenv("COV_MATERIALITY_THRESHOLD", "0.65"))
+COV_CONFIDENCE_THRESHOLD = float(os.getenv("COV_CONFIDENCE_THRESHOLD", "0.75"))
+COV_MODEL = os.getenv("COV_MODEL", "claude-haiku-4-5-20251001")  # fallback: "claude-3-5-haiku-20241022"
+
 # --- Throughput: parallel candidate processing + concurrency limits ---
 # Each news event can match several markets; they're classified concurrently in
 # batches of PARALLEL_BATCH_SIZE. Separate semaphores cap in-flight model calls:
