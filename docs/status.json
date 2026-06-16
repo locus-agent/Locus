@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-16T19:46:57.416633+00:00",
-  "last_heartbeat": "2026-06-16T19:46:57.416633+00:00",
-  "uptime_seconds": 5199,
+  "generated_at": "2026-06-16T19:52:00.663959+00:00",
+  "last_heartbeat": "2026-06-16T19:52:00.663959+00:00",
+  "uptime_seconds": 5502,
   "dry_run": true,
-  "markets_tracked": 2493,
+  "markets_tracked": 2490,
   "classify_error_streak": 0,
   "track_record": {
     "total": 2654,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1732,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1736,
+  "headlines_last_cycle": 4,
   "signals_24h": 5,
-  "classifications_24h": 13700,
+  "classifications_24h": 13505,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2066,
-    "stale": 44,
+    "prefiltered_haiku": 2068,
+    "stale": 43,
     "capped": 6,
     "too_close_to_resolution": 1,
     "price_target_market": 0,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T19:35:38.770514+00:00"
+    "last_check": "2026-06-16T19:50:39.192881+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2740,
-    "matched": 1055,
-    "classified": 13700,
+    "news": 2692,
+    "matched": 1041,
+    "classified": 13505,
     "signals": 5,
     "trades": 5
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 7.33,
-    "unrealized_pnl_usd": 7.05,
+    "unrealized_pnl_usd": 4.86,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1671.2
+    "avg_classification_latency_ms": 1670.6
   },
   "live_readiness": {
     "ready": false,
@@ -187,11 +187,11 @@
       "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.575,
-      "pnl_pct": 82.54,
+      "current_price": 0.625,
+      "pnl_pct": 98.41,
       "amount_usd": 3.695,
-      "current_value_usd": 6.74,
-      "pnl_usd": 3.05,
+      "current_value_usd": 7.33,
+      "pnl_usd": 3.64,
       "edge_type": "momentum",
       "event_id": "509893"
     },
@@ -201,11 +201,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.185,
-      "pnl_pct": 15.62,
+      "current_price": 0.19,
+      "pnl_pct": 18.75,
       "amount_usd": 7.695,
-      "current_value_usd": 8.9,
-      "pnl_usd": 1.2,
+      "current_value_usd": 9.14,
+      "pnl_usd": 1.44,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.42500000000000004,
-      "pnl_pct": 25.0,
+      "current_price": 0.355,
+      "pnl_pct": 4.41,
       "amount_usd": 14.68,
-      "current_value_usd": 18.35,
-      "pnl_usd": 3.67,
+      "current_value_usd": 15.33,
+      "pnl_usd": 0.65,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,9 +451,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 19:45:31",
-      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
-      "headline": "Nasdaq, S&P 500 slip while Dow hits record high - Reuters",
+      "time": "2026-06-16 19:52:00",
+      "market_question": "Will Joe Biden be arrested before 2027?",
+      "headline": "Three arrested after record-breaking \u00a3139m cannabis seizure",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,35 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 19:45:29",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Nasdaq, S&P 500 slip while Dow hits record high - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 19:45:28",
-      "market_question": "AI data center in space by December 31, 2026?",
-      "headline": "Inside the data center debate at POLITICO's Energy Summit - Politico",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 19:45:28",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "Nasdaq, S&P 500 slip while Dow hits record high - Reuters",
+      "time": "2026-06-16 19:52:00",
+      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
+      "headline": "MLB warns players about altering uniforms after Giants pitchers add Bible verses on Pride Night - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -503,9 +477,35 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 19:45:28",
-      "market_question": "Solana all time high by June 30, 2026?",
-      "headline": "Nasdaq, S&P 500 slip while Dow hits record high - Reuters",
+      "time": "2026-06-16 19:52:00",
+      "market_question": "Will Elon Musk Testify to Congress about Epstein?",
+      "headline": "MLB warns players about altering uniforms after Giants pitchers add Bible verses on Pride Night - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 19:52:00",
+      "market_question": "Will Ex-Prince Andrew Testify to Congress about Epstein?",
+      "headline": "MLB warns players about altering uniforms after Giants pitchers add Bible verses on Pride Night - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 19:52:00",
+      "market_question": "Will Lord Peter Mandelson Testify to Congress about Epstein?",
+      "headline": "MLB warns players about altering uniforms after Giants pitchers add Bible verses on Pride Night - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
