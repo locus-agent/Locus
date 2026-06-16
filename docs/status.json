@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T12:09:43.933976+00:00",
+  "generated_at": "2026-06-16T12:14:47.203057+00:00",
   "dry_run": true,
-  "markets_tracked": 2530,
+  "markets_tracked": 2533,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1511,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 540,
+  "headlines_scanned_today": 541,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17893,
+  "classifications_24h": 17897,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 880,
+    "prefiltered_haiku": 882,
     "stale": 102,
     "capped": 25,
     "correlation_block": 38,
@@ -110,8 +110,8 @@
   },
   "pipeline_24h": {
     "news": 3545,
-    "matched": 990,
-    "classified": 17893,
+    "matched": 991,
+    "classified": 17897,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -3.54,
+    "unrealized_pnl_usd": -1.07,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1999.7
+    "avg_classification_latency_ms": 1998.7
   },
   "live_readiness": {
     "ready": false,
@@ -224,11 +224,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.115,
-      "pnl_pct": 0.0,
+      "current_price": 0.135,
+      "pnl_pct": 17.39,
       "amount_usd": 12.97,
-      "current_value_usd": 12.97,
-      "pnl_usd": 0.0,
+      "current_value_usd": 15.23,
+      "pnl_usd": 2.26,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.345,
-      "pnl_pct": 1.47,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 14.9,
-      "pnl_usd": 0.22,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,35 +436,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 12:08:29",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "SpaceX set to vault past Amazon in market value as shares extend IPO surge - Reuters",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.6,
+      "time": "2026-06-16 12:12:47",
+      "market_question": "Will Solana dip to $60 in June?",
+      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 12:08:29",
-      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
-      "headline": "SpaceX set to vault past Amazon in market value as shares extend IPO surge - Reuters",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 12:08:29",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Iran 'most oppressed' team in tournament, head coach says",
+      "time": "2026-06-16 12:12:46",
+      "market_question": "Will the price of Solana be above $60 on June 16?",
+      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 12:12:45",
+      "market_question": "Will Solana dip to $60 by December 31, 2026?",
+      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -475,9 +475,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 12:08:29",
-      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Iran 'most oppressed' team in tournament, head coach says",
+      "time": "2026-06-16 12:12:45",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -488,9 +488,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 12:08:29",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Iran 'most oppressed' team in tournament, head coach says",
+      "time": "2026-06-16 12:12:45",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
