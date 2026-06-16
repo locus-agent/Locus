@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T19:31:46.400531+00:00",
-  "last_heartbeat": "2026-06-16T19:31:46.400531+00:00",
-  "uptime_seconds": 4288,
+  "generated_at": "2026-06-16T19:36:50.200053+00:00",
+  "last_heartbeat": "2026-06-16T19:36:50.200053+00:00",
+  "uptime_seconds": 4591,
   "dry_run": true,
   "markets_tracked": 2495,
   "classify_error_streak": 0,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1722,
+  "headlines_scanned_today": 1725,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 13899,
+  "classifications_24h": 13714,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2058,
-    "stale": 51,
+    "prefiltered_haiku": 2060,
+    "stale": 45,
     "capped": 6,
     "too_close_to_resolution": 1,
     "price_target_market": 0,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T19:20:38.361676+00:00"
+    "last_check": "2026-06-16T19:35:38.770514+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2778,
-    "matched": 1071,
-    "classified": 13899,
+    "news": 2740,
+    "matched": 1050,
+    "classified": 13714,
     "signals": 5,
     "trades": 5
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 7.33,
-    "unrealized_pnl_usd": 4.32,
+    "unrealized_pnl_usd": 4.46,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1675.1
+    "avg_classification_latency_ms": 1673.1
   },
   "live_readiness": {
     "ready": false,
@@ -201,7 +201,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.18,
+      "current_price": 0.17999999999999994,
       "pnl_pct": 12.5,
       "amount_usd": 7.695,
       "current_value_usd": 8.66,
@@ -229,11 +229,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.145,
-      "pnl_pct": 26.09,
+      "current_price": 0.15000000000000002,
+      "pnl_pct": 30.43,
       "amount_usd": 12.97,
-      "current_value_usd": 16.35,
-      "pnl_usd": 3.38,
+      "current_value_usd": 16.92,
+      "pnl_usd": 3.95,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.365,
+      "pnl_pct": 7.35,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 15.76,
+      "pnl_usd": 1.08,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,22 +451,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 19:30:13",
-      "market_question": "AI data center in space by December 31, 2026?",
-      "headline": "Gavin Newsom\u2019s data center gamble - Politico",
+      "time": "2026-06-16 19:34:32",
+      "market_question": "Elon Musk wins $10b+ settlement against Altman/OpenAI?",
+      "headline": "Cape Verde - Scotland's template against Morocco?",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 19:32:23",
+      "market_question": "Congress passes Iran war powers resolution by June 30?",
+      "headline": "Iran war is a wake-up call for Southeast Asia\u2019s energy sector, IEA report says - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 19:30:11",
-      "market_question": "Will Gavin Solomon advance from the AK-AL primary election?",
-      "headline": "Gavin Newsom\u2019s data center gamble - Politico",
+      "time": "2026-06-16 19:32:23",
+      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
+      "headline": "Iran war is a wake-up call for Southeast Asia\u2019s energy sector, IEA report says - AP News",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 19:32:23",
+      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
+      "headline": "Three AI-Focused UK Software Companies Worth Following - Kalkine Media",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,35 +503,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 19:30:11",
-      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
-      "headline": "Gavin Newsom\u2019s data center gamble - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 19:19:18",
-      "market_question": "US congress stock trading ban before 2027?",
-      "headline": "Naomi Campbell tells tribunal she was \u2018deceived\u2019 as she appeals charity trustee ban - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 19:19:18",
-      "market_question": "Will a US court rule that the 2020 election was fradulent?",
-      "headline": "Naomi Campbell tells tribunal she was \u2018deceived\u2019 as she appeals charity trustee ban - AP News",
+      "time": "2026-06-16 19:32:23",
+      "market_question": "Will Antonio Ma\u00edllo be the next President of Andalusia following the regional election?",
+      "headline": "Three AI-Focused UK Software Companies Worth Following - Kalkine Media",
       "direction": null,
       "materiality": null,
       "confidence": null,
