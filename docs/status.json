@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T03:39:14.132501+00:00",
+  "generated_at": "2026-06-16T03:44:16.920155+00:00",
   "dry_run": true,
   "markets_tracked": 2562,
   "classify_error_streak": 0,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 241,
+  "headlines_scanned_today": 248,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17067,
+  "classifications_24h": 17099,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 378,
+    "prefiltered_haiku": 389,
     "stale": 117,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3363,
-    "matched": 804,
-    "classified": 17067,
+    "news": 3370,
+    "matched": 811,
+    "classified": 17099,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 5,
     "win_rate_pct": 44.4,
     "realized_pnl_usd": 7.51,
-    "unrealized_pnl_usd": -0.35,
+    "unrealized_pnl_usd": -0.06,
     "recent_winrate": 0.4444,
     "kelly_factor": 0.5417,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1780.6
+    "avg_classification_latency_ms": 1766.4
   },
   "live_readiness": {
     "ready": false,
@@ -182,7 +182,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.16000000000000003,
+      "current_price": 0.16,
       "pnl_pct": 0.0,
       "amount_usd": 15.39,
       "current_value_usd": 15.39,
@@ -196,11 +196,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.315,
-      "pnl_pct": 2.24,
+      "current_price": 0.32499999999999996,
+      "pnl_pct": 0.75,
       "amount_usd": 2.0,
-      "current_value_usd": 2.04,
-      "pnl_usd": 0.04,
+      "current_value_usd": 2.01,
+      "pnl_usd": 0.01,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -224,11 +224,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -252,11 +252,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.111,
-      "pnl_pct": 21.98,
+      "current_price": 0.11149999999999993,
+      "pnl_pct": 22.53,
       "amount_usd": 18.77,
-      "current_value_usd": 22.9,
-      "pnl_usd": 4.13,
+      "current_value_usd": 23.0,
+      "pnl_usd": 4.23,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.355,
+      "pnl_pct": 4.41,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 15.33,
+      "pnl_usd": 0.65,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -425,9 +425,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 03:33:20",
-      "market_question": "Will Republicans lose a seat in the US Senate for any state Trump won in 2024?",
-      "headline": "US closes probe into 2024 Delta Air Lines meltdown sparked by CrowdStrike outage - Reuters",
+      "time": "2026-06-16 03:39:37",
+      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
+      "headline": "Microsoft hides these secret Windows 11 performance boost settings available on every PC - Neowin",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 03:39:37",
+      "market_question": "Will Microsoft acquire TikTok?",
+      "headline": "Microsoft hides these secret Windows 11 performance boost settings available on every PC - Neowin",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 03:39:37",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "I let Android Routines take over my morning, and I'm never going back to my phone's alarm app - Android Police",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 03:33:20",
-      "market_question": "Will Republicans lose a seat in the House of Representatives in any state Trump won in 2024?",
-      "headline": "US closes probe into 2024 Delta Air Lines meltdown sparked by CrowdStrike outage - Reuters",
+      "time": "2026-06-16 03:39:37",
+      "market_question": "Will the US federal government take a stake in Anthropic PBC?",
+      "headline": "I let Android Routines take over my morning, and I'm never going back to my phone's alarm app - Android Police",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -451,43 +477,17 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 03:26:13",
-      "market_question": "Will Ethereum reach $3,000 in June?",
-      "headline": "Game 6 Hurricanes vs. Golden Knights: NHL Expert Picks and Player Props for Sunday, June 14 - VSiN",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-16 03:39:37",
+      "market_question": "Will the US federal government take a stake in Micron Technology, Inc.?",
+      "headline": "I let Android Routines take over my morning, and I'm never going back to my phone's alarm app - Android Police",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 03:26:13",
-      "market_question": "Will Bitcoin reach $82,500 in June?",
-      "headline": "Game 6 Hurricanes vs. Golden Knights: NHL Expert Picks and Player Props for Sunday, June 14 - VSiN",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 03:26:13",
-      "market_question": "Will Bitcoin reach $67,500 in June?",
-      "headline": "Game 6 Hurricanes vs. Golden Knights: NHL Expert Picks and Player Props for Sunday, June 14 - VSiN",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
