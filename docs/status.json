@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-16T23:38:31.842839+00:00",
-  "last_heartbeat": "2026-06-16T23:38:31.842839+00:00",
-  "uptime_seconds": 8088,
+  "generated_at": "2026-06-16T23:43:35.159604+00:00",
+  "last_heartbeat": "2026-06-16T23:43:35.159604+00:00",
+  "uptime_seconds": 8392,
   "dry_run": true,
-  "markets_tracked": 2606,
+  "markets_tracked": 2609,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3007,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2444,
+  "headlines_scanned_today": 2447,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 11732,
+  "classifications_24h": 11743,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3305,
+    "prefiltered_haiku": 3319,
     "stale": 39,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T23:24:03.665867+00:00"
+    "last_check": "2026-06-16T23:39:04.046940+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2449,
-    "matched": 986,
-    "classified": 11732,
+    "news": 2451,
+    "matched": 988,
+    "classified": 11743,
     "signals": 2,
     "trades": 2
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 2.01,
+    "unrealized_pnl_usd": 1.87,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1422.6
+    "avg_classification_latency_ms": 1418.2
   },
   "live_readiness": {
     "ready": false,
@@ -187,11 +187,11 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.355,
-      "pnl_pct": 0.0,
+      "current_price": 0.35,
+      "pnl_pct": -1.41,
       "amount_usd": 25.0,
-      "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 24.65,
+      "pnl_usd": -0.35,
       "edge_type": "news",
       "event_id": "528020"
     },
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.38,
-      "pnl_pct": 11.76,
+      "current_price": 0.385,
+      "pnl_pct": 13.24,
       "amount_usd": 14.68,
-      "current_value_usd": 16.41,
-      "pnl_usd": 1.73,
+      "current_value_usd": 16.62,
+      "pnl_usd": 1.94,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,69 +451,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 23:36:35",
-      "market_question": "Will Kash Patel leave the Trump administration before 2027?",
-      "headline": "'We fear for our lives' - deadline for migrants to leave South Africa looms",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 23:41:00",
+      "market_question": "Will the Republicans win the Montana Senate race in 2026?",
+      "headline": "Senate Republicans want assurances from Todd Blanche. So far it's working. - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 23:36:35",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "'We fear for our lives' - deadline for migrants to leave South Africa looms",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 23:41:00",
+      "market_question": "Will Vinson Watkins be the Republican nominee for Senate in Georgia?",
+      "headline": "Senate Republicans want assurances from Todd Blanche. So far it's working. - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 23:36:35",
-      "market_question": "Will Kristi Noem leave the Trump administration before 2027?",
-      "headline": "'We fear for our lives' - deadline for migrants to leave South Africa looms",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 23:41:00",
+      "market_question": "Will Christoph La'Flare Chapman be the Republican nominee for Senate in Georgia?",
+      "headline": "Senate Republicans want assurances from Todd Blanche. So far it's working. - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 23:36:35",
-      "market_question": "Will Pete Hegseth leave the Trump administration before 2027?",
-      "headline": "'We fear for our lives' - deadline for migrants to leave South Africa looms",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 23:40:59",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "headline": "Senate Republicans want assurances from Todd Blanche. So far it's working. - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 23:36:35",
-      "market_question": "Will Howard Lutnick leave the Trump administration before 2027?",
-      "headline": "'We fear for our lives' - deadline for migrants to leave South Africa looms",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 23:40:59",
+      "market_question": "Will Christina Loren Clement be the Republican nominee for Senate in Georgia?",
+      "headline": "Senate Republicans want assurances from Todd Blanche. So far it's working. - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
