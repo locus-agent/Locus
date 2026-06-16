@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T22:12:33.812774+00:00",
-  "last_heartbeat": "2026-06-16T22:12:33.812774+00:00",
-  "uptime_seconds": 2930,
+  "generated_at": "2026-06-16T22:17:37.325609+00:00",
+  "last_heartbeat": "2026-06-16T22:17:37.325609+00:00",
+  "uptime_seconds": 3234,
   "dry_run": true,
   "markets_tracked": 2553,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2323,
+  "headlines_scanned_today": 2324,
   "headlines_last_cycle": 0,
-  "signals_24h": 3,
-  "classifications_24h": 14890,
+  "signals_24h": 2,
+  "classifications_24h": 14162,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3103,
+    "prefiltered_haiku": 3107,
     "stale": 39,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -109,16 +109,16 @@
     "last_check": "2026-06-16T22:09:01.562688+00:00"
   },
   "edge_types_24h": {
-    "news": 2,
+    "news": 1,
     "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3009,
-    "matched": 1067,
-    "classified": 14890,
-    "signals": 3,
-    "trades": 3
+    "news": 2873,
+    "matched": 1057,
+    "classified": 14162,
+    "signals": 2,
+    "trades": 2
   },
   "performance": {
     "trades_total": 18,
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 1.37,
+    "unrealized_pnl_usd": 2.45,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1388.4
+    "avg_classification_latency_ms": 1393.9
   },
   "live_readiness": {
     "ready": false,
@@ -201,7 +201,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.195,
+      "current_price": 0.19500000000000006,
       "pnl_pct": 21.88,
       "amount_usd": 7.695,
       "current_value_usd": 9.38,
@@ -229,7 +229,7 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.145,
+      "current_price": 0.14500000000000002,
       "pnl_pct": 26.09,
       "amount_usd": 12.97,
       "current_value_usd": 16.35,
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.365,
-      "pnl_pct": 7.35,
+      "current_price": 0.39,
+      "pnl_pct": 14.71,
       "amount_usd": 14.68,
-      "current_value_usd": 15.76,
-      "pnl_usd": 1.08,
+      "current_value_usd": 16.84,
+      "pnl_usd": 2.16,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,9 +451,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 22:11:49",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Kansas City barbecue meets Argentine asado as World Cup fans arrive - Reuters",
+      "time": "2026-06-16 22:16:12",
+      "market_question": "Congress passes Iran war powers resolution by June 30?",
+      "headline": "Senate fails to advance war powers resolution to halt US action against Iran - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.85,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 22:16:12",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Senate fails to advance war powers resolution to halt US action against Iran - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 22:16:09",
+      "market_question": "Italy Senate approves Nuclear Power Bill by August 31?",
+      "headline": "Senate fails to advance war powers resolution to halt US action against Iran - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 22:16:09",
+      "market_question": "Will Ed Markey be the Democratic nominee for Senate in Massachusetts?",
+      "headline": "Senate fails to advance war powers resolution to halt US action against Iran - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,48 +503,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 22:11:49",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Kansas City barbecue meets Argentine asado as World Cup fans arrive - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 22:11:49",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Kansas City barbecue meets Argentine asado as World Cup fans arrive - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 22:11:49",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Kansas City barbecue meets Argentine asado as World Cup fans arrive - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 22:11:49",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Kansas City barbecue meets Argentine asado as World Cup fans arrive - Reuters",
+      "time": "2026-06-16 22:16:09",
+      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
+      "headline": "Senate fails to advance war powers resolution to halt US action against Iran - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
