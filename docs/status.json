@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T05:35:25.576211+00:00",
+  "generated_at": "2026-06-16T05:40:28.766392+00:00",
   "dry_run": true,
-  "markets_tracked": 2550,
+  "markets_tracked": 2548,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1451,
@@ -78,10 +78,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 313,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 315,
+  "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 17359,
+  "classifications_24h": 17362,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 484,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T05:21:06.497842+00:00"
+    "last_check": "2026-06-16T05:36:06.997169+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3416,
-    "matched": 851,
-    "classified": 17359,
+    "news": 3418,
+    "matched": 853,
+    "classified": 17362,
     "signals": 16,
     "trades": 16
   },
@@ -124,7 +124,7 @@
     "losses": 5,
     "win_rate_pct": 44.4,
     "realized_pnl_usd": 7.51,
-    "unrealized_pnl_usd": 1.16,
+    "unrealized_pnl_usd": 0.54,
     "recent_winrate": 0.4444,
     "kelly_factor": 0.5417,
     "winrate_lookback": 20,
@@ -196,11 +196,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.33499999999999996,
-      "pnl_pct": -0.75,
+      "current_price": 0.33,
+      "pnl_pct": 0.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.99,
-      "pnl_usd": -0.01,
+      "current_value_usd": 2.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -252,11 +252,11 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.11549999999999999,
-      "pnl_pct": 26.92,
+      "current_price": 0.11449999999999999,
+      "pnl_pct": 25.82,
       "amount_usd": 18.77,
-      "current_value_usd": 23.82,
-      "pnl_usd": 5.05,
+      "current_value_usd": 23.62,
+      "pnl_usd": 4.85,
       "edge_type": "momentum",
       "event_id": "379876"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.365,
-      "pnl_pct": 7.35,
+      "current_price": 0.355,
+      "pnl_pct": 4.41,
       "amount_usd": 14.68,
-      "current_value_usd": 15.76,
-      "pnl_usd": 1.08,
+      "current_value_usd": 15.33,
+      "pnl_usd": 0.65,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -425,6 +425,45 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-16 05:39:30",
+      "market_question": "Will Free Patriotic Movement win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "Travelodge sorry for 'Free Palestine' greeting on room TV",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 05:39:30",
+      "market_question": "Will the announcers say \"Trump\" during the England vs Croatia FIFA World Cup Match?",
+      "headline": "I might have avoided ovarian cancer if I lived in England not Wales",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 05:39:30",
+      "market_question": "Will the announcers say \"President\" during the England vs Croatia FIFA World Cup Match?",
+      "headline": "I might have avoided ovarian cancer if I lived in England not Wales",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-16 05:35:17",
       "market_question": "Will Z.ai have the best Chinese AI model at the end of June 2026?",
       "headline": "\u2018AI is the key to global power status\u2019: Inside China's race to militarise artificial intelligence - Euronews",
@@ -449,45 +488,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 05:35:13",
-      "market_question": "Will Xiaomi have the best Chinese AI model at the end of June 2026?",
-      "headline": "\u2018AI is the key to global power status\u2019: Inside China's race to militarise artificial intelligence - Euronews",
-      "direction": "neutral",
-      "materiality": 0.02,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 05:35:09",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "\u2018AI is the key to global power status\u2019: Inside China's race to militarise artificial intelligence - Euronews",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 05:35:09",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "\u2018AI is the key to global power status\u2019: Inside China's race to militarise artificial intelligence - Euronews",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
