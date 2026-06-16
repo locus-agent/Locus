@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T13:20:32.546600+00:00",
+  "generated_at": "2026-06-16T13:25:39.106516+00:00",
   "dry_run": true,
   "markets_tracked": 2534,
   "classify_error_streak": 0,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 593,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 594,
+  "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 18057,
+  "classifications_24h": 18062,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 990,
+    "prefiltered_haiku": 995,
     "stale": 102,
     "capped": 25,
     "correlation_block": 38,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T13:06:20.021646+00:00"
+    "last_check": "2026-06-16T13:21:20.476523+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3572,
-    "matched": 1026,
-    "classified": 18057,
+    "news": 3573,
+    "matched": 1027,
+    "classified": 18062,
     "signals": 17,
     "trades": 17
   },
@@ -123,12 +123,12 @@
     "wins": 4,
     "losses": 6,
     "win_rate_pct": 40.0,
-    "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": 1.5,
+    "realized_pnl_usd": 5.34,
+    "unrealized_pnl_usd": 4.61,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2009.7
+    "avg_classification_latency_ms": 2006.8
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.185,
-      "pnl_pct": 15.62,
-      "amount_usd": 15.39,
-      "current_value_usd": 17.79,
-      "pnl_usd": 2.4,
+      "current_price": 0.27,
+      "pnl_pct": 68.75,
+      "amount_usd": 7.695,
+      "current_value_usd": 12.99,
+      "pnl_usd": 5.29,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.365,
-      "pnl_pct": 7.35,
+      "current_price": 0.37,
+      "pnl_pct": 8.82,
       "amount_usd": 14.68,
-      "current_value_usd": 15.76,
-      "pnl_usd": 1.08,
+      "current_value_usd": 15.98,
+      "pnl_usd": 1.3,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -389,6 +389,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-16 13:24:08",
+      "market_question": "Will HYPE flip SOL by December 31?",
+      "side": "YES",
+      "trigger": "take_profit",
+      "decision": "close_half",
+      "reasoning": "The position has captured significant alpha (+56.2%) from the institutional ETF narrative, but the original thesis was weak (generic demand commentary, low crypto category accuracy at 27.3%), so locking in half the gains is prudent while letting the remainder ride in case institutional momentum continues to push HYPE toward SOL's market cap.",
+      "pnl_pct": 56.25
+    },
+    {
       "time": "2026-06-16 06:23:29",
       "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
       "side": "YES",
@@ -423,82 +432,73 @@
       "decision": "close",
       "reasoning": "The position has captured +57% on a small $8.74 stake in a niche market with uncertain time to close and thin liquidity; the original thesis (Trump unlikely to attend UFC 250 given Dana White's 'never again' statement) is already priced in at 0.110, and further upside is limited while exit risk in a thin market grows the longer we hold.",
       "pnl_pct": 57.14
-    },
-    {
-      "time": "2026-06-15 17:43:06",
-      "market_question": "Ethereum Up or Down - June 15, 1:30PM-1:45PM ET",
-      "side": "YES",
-      "trigger": "take_profit",
-      "decision": "close",
-      "reasoning": "The position has captured over 50% gain and the original thesis was predicated on an immediate short-term macro reaction in a tight 15-minute window\u2014that move has clearly materialized. With time remaining unknown and thin market liquidity making further upside uncertain, locking in the realized edge now is the disciplined exit.",
-      "pnl_pct": 50.67
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 13:20:21",
-      "market_question": "Will Trump say \"UFC\" this week?",
-      "headline": "FBI thwarted plot targeting White House UFC event, Patel says",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.55,
+      "time": "2026-06-16 13:24:40",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Gazans displaced by war watch World Cup from the ruins - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 13:20:21",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Turkey opposes Iraq pipeline deal extension under current conditions, official says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 13:24:40",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Gazans displaced by war watch World Cup from the ruins - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 13:20:21",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "Turkey opposes Iraq pipeline deal extension under current conditions, official says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 13:24:39",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Gazans displaced by war watch World Cup from the ruins - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 13:20:21",
-      "market_question": "Will Donald Trump visit Turkey in 2026?",
-      "headline": "Turkey opposes Iraq pipeline deal extension under current conditions, official says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 13:24:39",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Gazans displaced by war watch World Cup from the ruins - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-16 13:20:21",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "Turkey opposes Iraq pipeline deal extension under current conditions, official says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 13:24:39",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Gazans displaced by war watch World Cup from the ruins - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
