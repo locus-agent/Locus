@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-16T19:36:50.200053+00:00",
-  "last_heartbeat": "2026-06-16T19:36:50.200053+00:00",
-  "uptime_seconds": 4591,
+  "generated_at": "2026-06-16T19:41:53.904173+00:00",
+  "last_heartbeat": "2026-06-16T19:41:53.904173+00:00",
+  "uptime_seconds": 4895,
   "dry_run": true,
-  "markets_tracked": 2495,
+  "markets_tracked": 2493,
   "classify_error_streak": 0,
   "track_record": {
     "total": 2654,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1725,
+  "headlines_scanned_today": 1728,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 13714,
+  "classifications_24h": 13710,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2060,
+    "prefiltered_haiku": 2062,
     "stale": 45,
     "capped": 6,
     "too_close_to_resolution": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2740,
-    "matched": 1050,
-    "classified": 13714,
+    "news": 2741,
+    "matched": 1052,
+    "classified": 13710,
     "signals": 5,
     "trades": 5
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 7.33,
-    "unrealized_pnl_usd": 4.46,
+    "unrealized_pnl_usd": 5.97,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1673.1
+    "avg_classification_latency_ms": 1671.0
   },
   "live_readiness": {
     "ready": false,
@@ -201,7 +201,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.17999999999999994,
+      "current_price": 0.18,
       "pnl_pct": 12.5,
       "amount_usd": 7.695,
       "current_value_usd": 8.66,
@@ -229,7 +229,7 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.15000000000000002,
+      "current_price": 0.15,
       "pnl_pct": 30.43,
       "amount_usd": 12.97,
       "current_value_usd": 16.92,
@@ -243,11 +243,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.365,
-      "pnl_pct": 7.35,
+      "current_price": 0.4,
+      "pnl_pct": 17.65,
       "amount_usd": 14.68,
-      "current_value_usd": 15.76,
-      "pnl_usd": 1.08,
+      "current_value_usd": 17.27,
+      "pnl_usd": 2.59,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,9 +451,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 19:34:32",
-      "market_question": "Elon Musk wins $10b+ settlement against Altman/OpenAI?",
-      "headline": "Cape Verde - Scotland's template against Morocco?",
+      "time": "2026-06-16 19:38:55",
+      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
+      "headline": "Spurs agree \u00a352m Van Hecke deal with Brighton",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 19:38:55",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Spurs agree \u00a352m Van Hecke deal with Brighton",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 19:38:55",
+      "market_question": "Will the announcers say \"President\" during the England vs Croatia FIFA World Cup Match?",
+      "headline": "Spectre of Stokes hangs over England at The Oval",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,35 +490,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 19:32:23",
-      "market_question": "Congress passes Iran war powers resolution by June 30?",
-      "headline": "Iran war is a wake-up call for Southeast Asia\u2019s energy sector, IEA report says - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 19:32:23",
-      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
-      "headline": "Iran war is a wake-up call for Southeast Asia\u2019s energy sector, IEA report says - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 19:32:23",
-      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
-      "headline": "Three AI-Focused UK Software Companies Worth Following - Kalkine Media",
+      "time": "2026-06-16 19:38:54",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Spurs agree \u00a352m Van Hecke deal with Brighton",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -503,9 +503,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 19:32:23",
-      "market_question": "Will Antonio Ma\u00edllo be the next President of Andalusia following the regional election?",
-      "headline": "Three AI-Focused UK Software Companies Worth Following - Kalkine Media",
+      "time": "2026-06-16 19:38:54",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Spurs agree \u00a352m Van Hecke deal with Brighton",
       "direction": null,
       "materiality": null,
       "confidence": null,
