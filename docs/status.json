@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T13:15:29.147698+00:00",
+  "generated_at": "2026-06-16T13:20:32.546600+00:00",
   "dry_run": true,
-  "markets_tracked": 2531,
+  "markets_tracked": 2534,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1511,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 590,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 593,
+  "headlines_last_cycle": 2,
   "signals_24h": 17,
-  "classifications_24h": 18041,
+  "classifications_24h": 18057,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 987,
+    "prefiltered_haiku": 990,
     "stale": 102,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3569,
-    "matched": 1023,
-    "classified": 18041,
+    "news": 3572,
+    "matched": 1026,
+    "classified": 18057,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": 1.07,
+    "unrealized_pnl_usd": 1.5,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2009.1
+    "avg_classification_latency_ms": 2009.7
   },
   "live_readiness": {
     "ready": false,
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.355,
-      "pnl_pct": 4.41,
+      "current_price": 0.365,
+      "pnl_pct": 7.35,
       "amount_usd": 14.68,
-      "current_value_usd": 15.33,
-      "pnl_usd": 0.65,
+      "current_value_usd": 15.76,
+      "pnl_usd": 1.08,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,24 +436,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 13:11:40",
-      "market_question": "Will Anthropic have the best AI Agent at the end of June 2026?",
-      "headline": "Y Combinator reveals a new AI agent that can build and run an entire business just from a text message",
-      "direction": "bearish",
-      "materiality": 0.1,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 13:11:39",
-      "market_question": "Will Meta have the best AI Agent at the end of June 2026?",
-      "headline": "Y Combinator reveals a new AI agent that can build and run an entire business just from a text message",
-      "direction": "bearish",
-      "materiality": 0.05,
+      "time": "2026-06-16 13:20:21",
+      "market_question": "Will Trump say \"UFC\" this week?",
+      "headline": "FBI thwarted plot targeting White House UFC event, Patel says",
+      "direction": "bullish",
+      "materiality": 0.15,
       "confidence": 0.55,
       "edge": null,
       "action": "skip",
@@ -462,43 +449,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 13:11:39",
-      "market_question": "Will OpenAI have the best AI Agent at the end of June 2026?",
-      "headline": "Y Combinator reveals a new AI agent that can build and run an entire business just from a text message",
-      "direction": "bearish",
-      "materiality": 0.08,
-      "confidence": 0.52,
+      "time": "2026-06-16 13:20:21",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Turkey opposes Iraq pipeline deal extension under current conditions, official says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-16 13:11:38",
-      "market_question": "Will Google have the best AI Agent at the end of June 2026?",
-      "headline": "Y Combinator reveals a new AI agent that can build and run an entire business just from a text message",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.55,
+      "time": "2026-06-16 13:20:21",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Turkey opposes Iraq pipeline deal extension under current conditions, official says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-16 13:11:38",
-      "market_question": "Will Microsoft have the best AI Agent at the end of June 2026?",
-      "headline": "Y Combinator reveals a new AI agent that can build and run an entire business just from a text message",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.55,
+      "time": "2026-06-16 13:20:21",
+      "market_question": "Will Donald Trump visit Turkey in 2026?",
+      "headline": "Turkey opposes Iraq pipeline deal extension under current conditions, official says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 13:20:21",
+      "market_question": "Will Trump and Putin meet next in Turkey?",
+      "headline": "Turkey opposes Iraq pipeline deal extension under current conditions, official says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
