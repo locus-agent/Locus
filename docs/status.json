@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T01:17:44.595801+00:00",
+  "generated_at": "2026-06-16T01:22:47.693024+00:00",
   "dry_run": true,
-  "markets_tracked": 2545,
+  "markets_tracked": 2543,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1406,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 158,
+  "headlines_scanned_today": 159,
   "headlines_last_cycle": 0,
   "signals_24h": 16,
-  "classifications_24h": 16845,
+  "classifications_24h": 16853,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 235,
+    "prefiltered_haiku": 238,
     "stale": 111,
     "capped": 25,
     "correlation_block": 38,
@@ -101,7 +101,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T01:06:00.250201+00:00"
+    "last_check": "2026-06-16T01:21:00.594772+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3317,
-    "matched": 763,
-    "classified": 16845,
+    "news": 3318,
+    "matched": 764,
+    "classified": 16853,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 4,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 13.84,
-    "unrealized_pnl_usd": -1.12,
+    "unrealized_pnl_usd": -3.28,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1709.5
+    "avg_classification_latency_ms": 1702.0
   },
   "live_readiness": {
     "ready": false,
@@ -252,7 +252,7 @@
       "slug": "who-will-attend-the-next-us-x-iran-diplomatic-meeting",
       "side": "YES",
       "entry_price": 0.091,
-      "current_price": 0.10650000000000004,
+      "current_price": 0.1065,
       "pnl_pct": 17.03,
       "amount_usd": 18.77,
       "current_value_usd": 21.97,
@@ -280,11 +280,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.405,
-      "pnl_pct": 19.12,
+      "current_price": 0.355,
+      "pnl_pct": 4.41,
       "amount_usd": 14.68,
-      "current_value_usd": 17.49,
-      "pnl_usd": 2.81,
+      "current_value_usd": 15.33,
+      "pnl_usd": 0.65,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -428,9 +428,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 01:16:19",
-      "market_question": "Will an independent win the Nebraska Senate race in 2026?",
-      "headline": "Climate crisis is changing when plants flower, artificial intelligence study finds - The Independent",
+      "time": "2026-06-16 01:20:41",
+      "market_question": "Will Theo launch a token by June 30 2026?",
+      "headline": "Ackman teases four new stock bets in new fund - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 01:20:41",
+      "market_question": "Will Theo launch a token by December 31 2026?",
+      "headline": "Ackman teases four new stock bets in new fund - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 01:20:41",
+      "market_question": "Will Theo launch a token by September 30 2026?",
+      "headline": "Ackman teases four new stock bets in new fund - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 01:20:40",
+      "market_question": "US congress stock trading ban before 2027?",
+      "headline": "Ackman teases four new stock bets in new fund - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -441,48 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 01:16:19",
-      "market_question": "Will an independent win the Montana Senate race in 2026?",
-      "headline": "Climate crisis is changing when plants flower, artificial intelligence study finds - The Independent",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 01:16:19",
-      "market_question": "Will Trump speak to Mark Rutte in June?",
-      "headline": "Mark Hollis tells AP he\u2019s interested in Michigan State job after Kentucky hires J Batt - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 01:16:19",
-      "market_question": "Will Trump speak to Mark Carney in June?",
-      "headline": "Mark Hollis tells AP he\u2019s interested in Michigan State job after Kentucky hires J Batt - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 01:16:19",
-      "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
-      "headline": "Mark Hollis tells AP he\u2019s interested in Michigan State job after Kentucky hires J Batt - AP News",
+      "time": "2026-06-16 01:20:40",
+      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Ackman teases four new stock bets in new fund - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
