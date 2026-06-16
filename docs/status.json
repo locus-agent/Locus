@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-16T20:47:23.788137+00:00",
-  "last_heartbeat": "2026-06-16T20:47:23.788137+00:00",
-  "uptime_seconds": 1557,
+  "generated_at": "2026-06-16T20:54:17.176289+00:00",
+  "last_heartbeat": "2026-06-16T20:54:17.176289+00:00",
+  "uptime_seconds": 43,
   "dry_run": true,
-  "markets_tracked": 2488,
+  "markets_tracked": 2494,
   "classify_error_streak": 0,
   "track_record": {
     "total": 2744,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1915,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1920,
+  "headlines_last_cycle": 3,
   "signals_24h": 4,
-  "classifications_24h": 14083,
+  "classifications_24h": 14104,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2381,
+    "prefiltered_haiku": 2393,
     "stale": 44,
     "capped": 4,
     "too_close_to_resolution": 1,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-16T20:36:44.670064+00:00"
+    "last_check": "2026-06-16T20:54:10.748387+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2819,
-    "matched": 1057,
-    "classified": 14083,
+    "news": 2824,
+    "matched": 1059,
+    "classified": 14104,
     "signals": 4,
     "trades": 4
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 2.52,
+    "unrealized_pnl_usd": 1.87,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2098.2
+    "avg_classification_latency_ms": 2372.3
   },
   "live_readiness": {
     "ready": false,
@@ -243,7 +243,7 @@
       "slug": "will-microstrategy-announce-holding-800k-btc-by-december-31-2026",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.28500000000000003,
+      "current_price": 0.285,
       "pnl_pct": -19.72,
       "amount_usd": 23.45,
       "current_value_usd": 18.83,
@@ -257,11 +257,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.385,
-      "pnl_pct": 13.24,
+      "current_price": 0.37,
+      "pnl_pct": 8.82,
       "amount_usd": 14.68,
-      "current_value_usd": 16.62,
-      "pnl_usd": 1.94,
+      "current_value_usd": 15.98,
+      "pnl_usd": 1.3,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -437,9 +437,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 20:41:14",
-      "market_question": "Will Trump's approval rating hit 35% in 2026?",
-      "headline": "Dutch transportation minister defends Tesla FSD approval - Reuters",
+      "time": "2026-06-16 20:54:16",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 20:54:16",
+      "market_question": "Will Micron Technology, Inc. (MU) hit (HIGH) $1,140 Week of June 15 2026?",
+      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 20:54:16",
+      "market_question": "Will Solana dip to $60 in June?",
+      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 20:54:14",
+      "market_question": "Will Solana dip to $60 by December 31, 2026?",
+      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -450,48 +489,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 20:41:14",
-      "market_question": "Will Trump's approval rating hit 30% in 2026?",
-      "headline": "Dutch transportation minister defends Tesla FSD approval - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 20:41:14",
-      "market_question": "Will Trump's approval rating hit 20% in 2026?",
-      "headline": "Dutch transportation minister defends Tesla FSD approval - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 20:41:14",
-      "market_question": "Will Trump's approval rating hit 44% in 2026?",
-      "headline": "Dutch transportation minister defends Tesla FSD approval - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 20:41:14",
-      "market_question": "Will Trump's approval rating hit 25% in 2026?",
-      "headline": "Dutch transportation minister defends Tesla FSD approval - Reuters",
+      "time": "2026-06-16 20:54:14",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Riding High After I.P.O., SpaceX Will Buy A.I. Start-Up for $60 Billion",
       "direction": null,
       "materiality": null,
       "confidence": null,
