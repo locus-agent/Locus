@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T16:36:18.566222+00:00",
+  "generated_at": "2026-06-16T16:41:25.059622+00:00",
   "dry_run": true,
-  "markets_tracked": 2535,
+  "markets_tracked": 2537,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1787,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1133,
+  "headlines_scanned_today": 1137,
   "headlines_last_cycle": 0,
-  "signals_24h": 9,
-  "classifications_24h": 17107,
-  "selectivity_pct": 0.1,
+  "signals_24h": 8,
+  "classifications_24h": 17114,
+  "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1450,
+    "prefiltered_haiku": 1460,
     "stale": 77,
     "capped": 12,
     "too_close_to_resolution": 1,
@@ -107,16 +107,16 @@
     "last_check": "2026-06-16T16:29:17.733044+00:00"
   },
   "edge_types_24h": {
-    "news": 6,
+    "news": 5,
     "momentum": 3,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3386,
-    "matched": 1105,
-    "classified": 17107,
-    "signals": 9,
-    "trades": 9
+    "news": 3388,
+    "matched": 1109,
+    "classified": 17114,
+    "signals": 8,
+    "trades": 8
   },
   "performance": {
     "trades_total": 17,
@@ -126,12 +126,12 @@
     "wins": 4,
     "losses": 6,
     "win_rate_pct": 40.0,
-    "realized_pnl_usd": 5.34,
-    "unrealized_pnl_usd": 3.99,
+    "realized_pnl_usd": 7.33,
+    "unrealized_pnl_usd": 4.72,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2005.2
+    "avg_classification_latency_ms": 2009.1
   },
   "live_readiness": {
     "ready": false,
@@ -185,10 +185,10 @@
       "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
       "side": "YES",
       "entry_price": 0.315,
-      "current_price": 0.395,
-      "pnl_pct": 25.4,
-      "amount_usd": 7.39,
-      "current_value_usd": 9.27,
+      "current_price": 0.475,
+      "pnl_pct": 50.79,
+      "amount_usd": 3.695,
+      "current_value_usd": 5.57,
       "pnl_usd": 1.88,
       "edge_type": "momentum",
       "event_id": "509893"
@@ -227,11 +227,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.15,
-      "pnl_pct": 30.43,
+      "current_price": 0.145,
+      "pnl_pct": 26.09,
       "amount_usd": 12.97,
-      "current_value_usd": 16.92,
-      "pnl_usd": 3.95,
+      "current_value_usd": 16.35,
+      "pnl_usd": 3.38,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -241,11 +241,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -269,11 +269,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.365,
-      "pnl_pct": 7.35,
+      "current_price": 0.395,
+      "pnl_pct": 16.18,
       "amount_usd": 14.68,
-      "current_value_usd": 15.76,
-      "pnl_usd": 1.08,
+      "current_value_usd": 17.05,
+      "pnl_usd": 2.37,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -302,6 +302,18 @@
       "exit_reason": "drawdown_decision",
       "event_id": "548275",
       "partial": false
+    },
+    {
+      "time": "2026-06-16 16:39:24",
+      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
+      "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
+      "side": "YES",
+      "entry_price": 0.315,
+      "exit_price": 0.485,
+      "realized_pnl_usd": 1.9941269841269835,
+      "exit_reason": "\u00bd closed at +54%",
+      "event_id": "509893",
+      "partial": true
     },
     {
       "time": "2026-06-16 13:24:08",
@@ -386,21 +398,18 @@
       "exit_reason": "UPD: \u00bd closed +97% \u2192 fully closed +214%",
       "event_id": "585449",
       "partial": true
-    },
-    {
-      "time": "2026-06-15T16:27:35.147236+00:00",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "slug": "us-enacts-ai-safety-bill-before-2027",
-      "side": "YES",
-      "entry_price": 0.295,
-      "exit_price": 0.19500000000000006,
-      "realized_pnl_usd": -3.620338983050845,
-      "exit_reason": "drawdown_decision",
-      "event_id": "79075",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-16 16:39:24",
+      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
+      "side": "YES",
+      "trigger": "take_profit",
+      "decision": "close_half",
+      "reasoning": "The position has captured significant alpha (+54%) from the initial deal headline, but with the market now at 0.485 and resolution still uncertain ('unclear how it will work'), locking in half the gains protects against reversal while leaving exposure if concrete withdrawal steps materialize before close.",
+      "pnl_pct": 53.97
+    },
     {
       "time": "2026-06-16 13:24:08",
       "market_question": "Will HYPE flip SOL by December 31?",
@@ -436,61 +445,52 @@
       "decision": "close",
       "reasoning": "The position has captured 61% gain on what was originally a low-probability speculative play with no confirmed deal announcement, and the original thesis noted this required an actual signed agreement rather than just advocacy momentum. With thin market liquidity and the fundamental uncertainty unchanged, locking in the realized edge now is preferable to risking mean-reversion on a position where the core catalyst (a signed Pentagon deal) still hasn't materialized.",
       "pnl_pct": 61.11
-    },
-    {
-      "time": "2026-06-15 18:04:51",
-      "market_question": "Will Trump say \"Greatest\" during UFC 250?",
-      "side": "YES",
-      "trigger": "take_profit",
-      "decision": "close",
-      "reasoning": "The position has captured +57% on a small $8.74 stake in a niche market with uncertain time to close and thin liquidity; the original thesis (Trump unlikely to attend UFC 250 given Dana White's 'never again' statement) is already priced in at 0.110, and further upside is limited while exit risk in a thin market grows the longer we hold.",
-      "pnl_pct": 57.14
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 16:33:35",
-      "market_question": "Will Christina Loren Clement be the Republican nominee for Senate in Georgia?",
-      "headline": "Judge recuses herself in Georgia voter rolls case - Politico",
+      "time": "2026-06-16 16:40:17",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "Congo Ebola outbreak may be worst ever, Africa CDC says - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 16:40:17",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "Congo Ebola outbreak may be worst ever, Africa CDC says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 16:40:16",
+      "market_question": "Will the price of Bitcoin be above $60,000 on June 16?",
+      "headline": "Exclusive: Binance set to lose permission to operate in EU, sources say - Reuters",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
+      "edge": null,
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-16 16:33:34",
-      "market_question": "Will Bitcoin reach $180,000 by December 31, 2026?",
-      "headline": "Everything you need to know about Prime Day 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 16:33:34",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Everything you need to know about Prime Day 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 16:33:34",
-      "market_question": "Will Derek Dooley be the Republican nominee for Senate in Georgia?",
-      "headline": "Judge recuses herself in Georgia voter rolls case - Politico",
+      "time": "2026-06-16 16:40:16",
+      "market_question": "Nguesso out as President of the Republic of the Congo by December 31, 2026?",
+      "headline": "Congo Ebola outbreak may be worst ever, Africa CDC says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -501,17 +501,17 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 16:33:34",
-      "market_question": "Will Earl Carter be the Republican nominee for Senate in Georgia?",
-      "headline": "Judge recuses herself in Georgia voter rolls case - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-16 16:40:15",
+      "market_question": "Hyperliquid listed on Binance in 2026?",
+      "headline": "Exclusive: Binance set to lose permission to operate in EU, sources say - Reuters",
+      "direction": "bearish",
+      "materiality": 0.08,
+      "confidence": 0.52,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
