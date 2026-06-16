@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T12:14:47.203057+00:00",
+  "generated_at": "2026-06-16T12:19:51.030819+00:00",
   "dry_run": true,
-  "markets_tracked": 2533,
+  "markets_tracked": 2529,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1511,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 541,
+  "headlines_scanned_today": 551,
   "headlines_last_cycle": 0,
   "signals_24h": 17,
-  "classifications_24h": 17897,
+  "classifications_24h": 17951,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 882,
+    "prefiltered_haiku": 902,
     "stale": 102,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3545,
-    "matched": 991,
-    "classified": 17897,
+    "news": 3554,
+    "matched": 1000,
+    "classified": 17951,
     "signals": 17,
     "trades": 17
   },
@@ -124,11 +124,11 @@
     "losses": 6,
     "win_rate_pct": 40.0,
     "realized_pnl_usd": 1.01,
-    "unrealized_pnl_usd": -1.07,
+    "unrealized_pnl_usd": -0.2,
     "recent_winrate": 0.4,
     "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1998.7
+    "avg_classification_latency_ms": 1995.7
   },
   "live_readiness": {
     "ready": false,
@@ -210,7 +210,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.325,
+      "current_price": 0.32499999999999996,
       "pnl_pct": 0.75,
       "amount_usd": 2.0,
       "current_value_usd": 2.01,
@@ -266,11 +266,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.37,
+      "pnl_pct": 8.82,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 15.98,
+      "pnl_usd": 1.3,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -436,35 +436,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 12:12:47",
-      "market_question": "Will Solana dip to $60 in June?",
-      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 12:12:46",
-      "market_question": "Will the price of Solana be above $60 on June 16?",
-      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-16 12:12:45",
-      "market_question": "Will Solana dip to $60 by December 31, 2026?",
-      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
+      "time": "2026-06-16 12:19:17",
+      "market_question": "Will Titan launch a token by June 30, 2026?",
+      "headline": "AI startup backed by Nocera lets campaigns test messages before spending - Stock Titan",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -475,9 +449,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 12:12:45",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
+      "time": "2026-06-16 12:19:17",
+      "market_question": "Will Titan launch a token by December 31, 2026?",
+      "headline": "AI startup backed by Nocera lets campaigns test messages before spending - Stock Titan",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -488,9 +462,35 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 12:12:45",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "SpaceX locks in $60 billion Cursor deal to power AI coding push - Reuters",
+      "time": "2026-06-16 12:19:17",
+      "market_question": "US congress stock trading ban before 2027?",
+      "headline": "AI startup backed by Nocera lets campaigns test messages before spending - Stock Titan",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 12:19:17",
+      "market_question": "Will Titan launch a token by September 30, 2026?",
+      "headline": "AI startup backed by Nocera lets campaigns test messages before spending - Stock Titan",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-16 12:19:17",
+      "market_question": "Will Titan launch a token by December 31, 2027?",
+      "headline": "AI startup backed by Nocera lets campaigns test messages before spending - Stock Titan",
       "direction": null,
       "materiality": null,
       "confidence": null,
