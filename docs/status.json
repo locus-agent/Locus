@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T02:53:43.559787+00:00",
+  "generated_at": "2026-06-16T02:58:46.666767+00:00",
   "dry_run": true,
-  "markets_tracked": 2549,
+  "markets_tracked": 2552,
   "classify_error_streak": 0,
   "track_record": {
     "total": 1406,
@@ -78,13 +78,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 218,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 219,
+  "headlines_last_cycle": 1,
   "signals_24h": 16,
-  "classifications_24h": 16952,
+  "classifications_24h": 16957,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 337,
+    "prefiltered_haiku": 339,
     "stale": 111,
     "capped": 25,
     "correlation_block": 38,
@@ -109,9 +109,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3340,
-    "matched": 783,
-    "classified": 16952,
+    "news": 3341,
+    "matched": 784,
+    "classified": 16957,
     "signals": 16,
     "trades": 16
   },
@@ -124,11 +124,11 @@
     "losses": 4,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 13.84,
-    "unrealized_pnl_usd": -5.47,
+    "unrealized_pnl_usd": -5.25,
     "recent_winrate": 0.5,
     "kelly_factor": 0.625,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1690.0
+    "avg_classification_latency_ms": 1689.6
   },
   "live_readiness": {
     "ready": false,
@@ -266,7 +266,7 @@
       "slug": "what-price-will-ethereum-hit-in-june-2026",
       "side": "YES",
       "entry_price": 0.275,
-      "current_price": 0.20499999999999996,
+      "current_price": 0.20500000000000002,
       "pnl_pct": -25.45,
       "amount_usd": 18.32,
       "current_value_usd": 13.66,
@@ -280,11 +280,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.345,
-      "pnl_pct": 1.47,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 14.9,
-      "pnl_usd": 0.22,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -428,9 +428,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-16 02:52:01",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
+      "time": "2026-06-16 02:58:35",
+      "market_question": "Will Labour Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
+      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 02:58:34",
+      "market_question": "Will National Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
+      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-16 02:58:33",
+      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -441,9 +467,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 02:52:01",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
+      "time": "2026-06-16 02:58:33",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -454,35 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-16 02:52:01",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 02:52:01",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-16 02:52:01",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Photos show the resurfaced remains of World War II\u2019s \u2018Death Railway\u2019 in Thailand - AP News",
+      "time": "2026-06-16 02:58:33",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "'Sensational!' - Wood and Just combine twice for New Zealand goals",
       "direction": null,
       "materiality": null,
       "confidence": null,
