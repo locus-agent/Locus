@@ -187,6 +187,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "prefiltered_haiku": logger.get_classification_count_since(since_24h, action="prefiltered_haiku"),
             "stale": logger.get_classification_count_since(since_24h, action="stale"),
             "capped": logger.get_classification_count_since(since_24h, action="capped"),
+            "too_close_to_resolution": logger.get_classification_count_since(since_24h, action="too_close_to_resolution"),
+            "price_target_market": logger.get_classification_count_since(since_24h, action="price_target_market"),
             "correlation_block": logger.get_classification_count_since(since_24h, action="correlation_block"),
             "category_limit": logger.get_classification_count_since(since_24h, action="category_limit"),
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),

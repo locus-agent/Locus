@@ -401,6 +401,8 @@
   .gate-prefilter .gate-count { color: var(--yellow); }
   .gate-stale .gate-count { color: var(--yellow); }
   .gate-capped .gate-count { color: var(--cyan); }
+  .gate-tooclose .gate-count { color: var(--red); }
+  .gate-pricetarget .gate-count { color: var(--yellow); }
   .gate-correlation .gate-count { color: var(--red); }
   .gate-category .gate-count { color: var(--red); }
   .gate-orderbook .gate-count { color: var(--yellow); }
@@ -881,6 +883,14 @@
           <span class="gate-label">capped — headline already traded</span>
           <span class="gate-count" id="gate-capped">—</span>
         </div>
+        <div class="gate-row gate-tooclose">
+          <span class="gate-label">too close to resolution — market resolves too soon</span>
+          <span class="gate-count" id="gate-tooclose">—</span>
+        </div>
+        <div class="gate-row gate-pricetarget">
+          <span class="gate-label">price target — excluded price-threshold market</span>
+          <span class="gate-count" id="gate-pricetarget">—</span>
+        </div>
         <div class="gate-row gate-correlation">
           <span class="gate-label">correlation — over-concentrated in topic</span>
           <span class="gate-count" id="gate-correlation">—</span>
@@ -1158,6 +1168,8 @@
     document.getElementById('gate-prefilter').textContent = g.prefiltered_haiku ?? '—';
     document.getElementById('gate-stale').textContent = g.stale ?? '—';
     document.getElementById('gate-capped').textContent = g.capped ?? '—';
+    document.getElementById('gate-tooclose').textContent = g.too_close_to_resolution ?? '—';
+    document.getElementById('gate-pricetarget').textContent = g.price_target_market ?? '—';
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';
     document.getElementById('gate-category').textContent = g.category_limit ?? '—';
     document.getElementById('gate-orderbook').textContent = g.orderbook_skip ?? '—';

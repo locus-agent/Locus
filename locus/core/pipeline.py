@@ -59,6 +59,17 @@ def news_age_seconds(event: NewsEvent, now: datetime | None = None) -> float | N
     return (now - event.published_at).total_seconds()
 
 
+def is_price_target_market(question: str) -> bool:
+    """True when a market question is a price-target market (e.g. "Will Bitcoin
+    reach $100k") — these resolve on a price threshold that news rarely moves
+    cleanly in our favor, so they're excluded when EXCLUDE_PRICE_TARGET_MARKETS
+    is set. Matched case-insensitively against config.PRICE_TARGET_KEYWORDS."""
+    if not config.EXCLUDE_PRICE_TARGET_MARKETS:
+        return False
+    q = (question or "").lower()
+    return any(kw.lower() in q for kw in config.PRICE_TARGET_KEYWORDS)
+
+
 def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: datetime | None = None):
     """Trade-time risk gates, applied after classification so every
     classification is still logged and calibrated.
@@ -74,6 +85,12 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
       "capped"             — this headline already produced a trade; one
                              headline matching N markets must not open N
                              correlated positions
+      "too_close_to_resolution" — market resolves within
+                             config.MIN_HOURS_TO_RESOLUTION hours; the thesis
+                             has too little time to play out
+      "price_target_market" — market is a price-target market (e.g. "Will
+                             Bitcoin reach $100k"); excluded when
+                             config.EXCLUDE_PRICE_TARGET_MARKETS is set
       "low_materiality"    — materiality below the direction-specific floor
                              (bearish calls need a higher bar than bullish)
       "needs_confirmation" — high-materiality (>= HIGH_MATERIALITY_THRESHOLD)
@@ -90,6 +107,24 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         return None, "stale"
     if event.headline in traded_headlines:
         return None, "capped"
+
+    # Market-structure gates (independent of the news): never open a position
+    # in a market about to resolve (no time for the thesis to play out) or a
+    # price-target market (resolves on a price threshold news rarely moves
+    # cleanly). Neither consumes the headline cap.
+    market = signal.market
+    hours_left = positions.hours_to_close(market.end_date, now)
+    if hours_left is not None and hours_left < config.MIN_HOURS_TO_RESOLUTION:
+        log.info(
+            f"Filtered: too_close_to_resolution | {market.slug} | {hours_left:.1f}h left"
+        )
+        return None, "too_close_to_resolution"
+    if is_price_target_market(market.question):
+        log.info(
+            f"Filtered: price_target_market | {market.slug} | "
+            f"question: {market.question[:70]}..."
+        )
+        return None, "price_target_market"
 
     # Direction-specific materiality floor (calibration: bearish accuracy is
     # far worse than bullish, so bearish needs a higher bar).

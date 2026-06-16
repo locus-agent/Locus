@@ -156,6 +156,27 @@ MIN_CONFIRMING_SOURCES = int(os.getenv("MIN_CONFIRMING_SOURCES", "2"))
 # highly correlated). Default 1 = one position per event.
 MAX_POSITIONS_PER_EVENT = int(os.getenv("MAX_POSITIONS_PER_EVENT", "1"))
 
+# --- Market-structure filters (applied in pipeline.gate_trade) ---
+# Never open a position in a market resolving within this many hours: the
+# thesis has too little time to play out (action 'too_close_to_resolution').
+MIN_HOURS_TO_RESOLUTION = float(os.getenv("MIN_HOURS_TO_RESOLUTION", "4"))
+# Skip "price-target" markets (e.g. "Will Bitcoin reach $100k") — they resolve
+# on a price threshold that news rarely moves cleanly in our favor (action
+# 'price_target_market'). Matched case-insensitively against the keyword list
+# below; override the list with a PRICE_TARGET_KEYWORDS JSON array in .env.
+EXCLUDE_PRICE_TARGET_MARKETS = os.getenv("EXCLUDE_PRICE_TARGET_MARKETS", "true").lower() == "true"
+PRICE_TARGET_KEYWORDS = [
+    "reach $", "hit $", "above $", "below $", "exceed $", "surpass $",
+    "new all-time high", "new ath", "all time high",
+    "will bitcoin reach", "will ethereum hit",
+]
+_price_target_keywords_override = os.getenv("PRICE_TARGET_KEYWORDS", "")
+if _price_target_keywords_override:
+    try:
+        PRICE_TARGET_KEYWORDS = json.loads(_price_target_keywords_override)
+    except (ValueError, TypeError):
+        pass  # malformed override -> keep the defaults above
+
 
 def materiality_threshold(direction: str) -> float:
     """Direction-specific materiality floor for a would-be signal."""
