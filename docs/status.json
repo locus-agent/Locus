@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T21:04:26.638220+00:00",
-  "last_heartbeat": "2026-06-17T21:04:26.638220+00:00",
-  "uptime_seconds": 2785,
+  "generated_at": "2026-06-17T21:09:30.454550+00:00",
+  "last_heartbeat": "2026-06-17T21:09:30.454550+00:00",
+  "uptime_seconds": 3089,
   "dry_run": true,
-  "markets_tracked": 3702,
+  "markets_tracked": 3698,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5586,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2582,
+  "headlines_scanned_today": 2584,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 14892,
+  "classifications_24h": 14883,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3320,
+    "prefiltered_haiku": 3323,
     "stale": 55,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2958,
-    "matched": 1025,
-    "classified": 14892,
+    "news": 2956,
+    "matched": 1027,
+    "classified": 14883,
     "signals": 3,
     "trades": 3
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1381.4
+    "avg_classification_latency_ms": 1403.8
   },
   "live_readiness": {
     "ready": false,
@@ -428,9 +428,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 21:01:10",
-      "market_question": "Will Microsoft (MSFT) close above $380 on June 17?",
-      "headline": "Strategy\u2019s STRC preferred stock closes day 11% under par at $89",
+      "time": "2026-06-17 21:07:50",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Nvidia CEO: Society needs to change with advent of AI - The Hill",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 21:07:50",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Nvidia CEO: Society needs to change with advent of AI - The Hill",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 21:07:50",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Nvidia CEO: Society needs to change with advent of AI - The Hill",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -441,54 +467,28 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 21:01:10",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Strategy\u2019s STRC preferred stock closes day 11% under par at $89",
+      "time": "2026-06-17 21:07:50",
+      "market_question": "Will Nvidia have a #1 AI model by June 30?",
+      "headline": "Nvidia CEO: Society needs to change with advent of AI - The Hill",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 21:01:08",
-      "market_question": "Will Microsoft Corporation (MSFT) hit (LOW) $375 Week of June 15 2026?",
-      "headline": "Strategy\u2019s STRC preferred stock closes day 11% under par at $89",
+      "time": "2026-06-17 21:07:50",
+      "market_question": "Will Google have the best AI Agent at the end of June 2026?",
+      "headline": "Nvidia CEO: Society needs to change with advent of AI - The Hill",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 21:01:08",
-      "market_question": "Will Microsoft Corporation (MSFT) hit (LOW) $367.50 Week of June 15 2026?",
-      "headline": "Strategy\u2019s STRC preferred stock closes day 11% under par at $89",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 21:01:08",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "Strategy\u2019s STRC preferred stock closes day 11% under par at $89",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
