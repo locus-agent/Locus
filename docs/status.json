@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T09:39:12.277249+00:00",
-  "last_heartbeat": "2026-06-17T09:39:12.277249+00:00",
-  "uptime_seconds": 44129,
+  "generated_at": "2026-06-17T09:44:15.618986+00:00",
+  "last_heartbeat": "2026-06-17T09:44:15.618986+00:00",
+  "uptime_seconds": 44432,
   "dry_run": true,
-  "markets_tracked": 2459,
+  "markets_tracked": 2458,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3808,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 297,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 301,
+  "headlines_last_cycle": 3,
   "signals_24h": 2,
-  "classifications_24h": 11269,
+  "classifications_24h": 11264,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3360,
+    "prefiltered_haiku": 3351,
     "stale": 45,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T09:24:22.421170+00:00"
+    "last_check": "2026-06-17T09:39:22.925184+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2333,
-    "matched": 900,
-    "classified": 11269,
+    "news": 2334,
+    "matched": 902,
+    "classified": 11264,
     "signals": 2,
     "trades": 2
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -5.93,
+    "unrealized_pnl_usd": -5.96,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1759.2
+    "avg_classification_latency_ms": 1759.6
   },
   "live_readiness": {
     "ready": false,
@@ -229,11 +229,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.35,
-      "pnl_pct": -2.99,
+      "current_price": 0.3600000000000001,
+      "pnl_pct": -4.48,
       "amount_usd": 2.0,
-      "current_value_usd": 1.94,
-      "pnl_usd": -0.06,
+      "current_value_usd": 1.91,
+      "pnl_usd": -0.09,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -257,11 +257,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -465,9 +465,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 09:22:28",
-      "market_question": "Will Donald Trump be the next leader out before 2027?",
-      "headline": "How a fired FEMA leader got a second chance from Trump - Politico",
+      "time": "2026-06-17 09:44:03",
+      "market_question": "Congress passes Iran war powers resolution by June 30?",
+      "headline": "BMW shares hit 2020 lows after China weakness and Iran war prompt profit warning - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 09:43:59",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Man charged over Golders Green memorial fire",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,48 +491,35 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 09:22:28",
+      "time": "2026-06-17 09:43:59",
+      "market_question": "Will Jeremy Matlow win the Tallahassee mayoral election?",
+      "headline": "British presenter Jeremy Clarkson reveals he has cancer on TV show - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 09:43:59",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "BMW shares hit 2020 lows after China weakness and Iran war prompt profit warning - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 09:43:59",
       "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Oil slides on Iran supply hopes; bond yields pushed lower before Warsh debut - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 09:22:28",
-      "market_question": "Will Trump physically sign US x Iran deal?",
-      "headline": "Oil slides on Iran supply hopes; bond yields pushed lower before Warsh debut - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 09:22:28",
-      "market_question": "Will Warsh say \"Trump\" during June Press Conference?",
-      "headline": "Oil slides on Iran supply hopes; bond yields pushed lower before Warsh debut - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 09:22:28",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Oil slides on Iran supply hopes; bond yields pushed lower before Warsh debut - Reuters",
+      "headline": "BMW shares hit 2020 lows after China weakness and Iran war prompt profit warning - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
