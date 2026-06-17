@@ -743,6 +743,7 @@ class PipelineV2:
                             lambda: positions.trigger_news_reeval(
                                 market.condition_id, classification.direction,
                                 classification.materiality, event.headline,
+                                event.source,
                             ),
                         )
 

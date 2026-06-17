@@ -296,6 +296,10 @@ REEVAL_LOSS_PCT = float(os.getenv("REEVAL_LOSS_PCT", "-30"))
 STOP_LOSS_PCT = float(os.getenv("STOP_LOSS_PCT", "-50"))
 REEVAL_COOLDOWN_HOURS = float(os.getenv("REEVAL_COOLDOWN_HOURS", "6"))
 NEWS_REEVAL_MATERIALITY = float(os.getenv("NEWS_REEVAL_MATERIALITY", "0.4"))
+# A Truth Social post (direct from Trump) that contradicts a held side at this
+# materiality or higher forces an immediate re-evaluation, bypassing the
+# per-position re-eval cooldown (don't wait for the -30% drawdown trigger).
+TRUTHSOCIAL_REEVAL_MATERIALITY = float(os.getenv("TRUTHSOCIAL_REEVAL_MATERIALITY", "0.6"))
 
 # Hard, model-free time-pressure exit: a deep loser running into market close
 # has little time left to recover, so force it out without a Claude call.

@@ -17,6 +17,7 @@ def exit_config(monkeypatch):
     monkeypatch.setattr(config, "STOP_LOSS_PCT", -50.0)
     monkeypatch.setattr(config, "REEVAL_COOLDOWN_HOURS", 6.0)
     monkeypatch.setattr(config, "NEWS_REEVAL_MATERIALITY", 0.4)
+    monkeypatch.setattr(config, "TRUTHSOCIAL_REEVAL_MATERIALITY", 0.6)
     monkeypatch.setattr(config, "NEAR_CERTAIN_THRESHOLD", 0.95)
 
 
@@ -189,6 +190,46 @@ def test_news_trigger_contradiction_only(tmp_db, monkeypatch):
     # bearish and material: re-eval fires
     assert positions.trigger_news_reeval("cond1", "bearish", 0.8, "bad news") is True
     assert len(calls) == 1
+
+
+def test_truthsocial_contra_forces_reeval_bypassing_cooldown(tmp_db, monkeypatch):
+    calls = _fake_claude(monkeypatch, decision="hold", calls=[])
+    _open(tmp_db, side="YES")
+    positions.update_and_manage({"cond1": 0.55})  # marks the price, no trigger
+
+    # First contra-news re-eval fires and sets the news cooldown.
+    assert positions.trigger_news_reeval("cond1", "bearish", 0.8, "n1", "rss") is True
+    assert len(calls) == 1
+    # A second contra-news from a normal source within the window is blocked.
+    assert positions.trigger_news_reeval("cond1", "bearish", 0.8, "n2", "rss") is False
+    assert len(calls) == 1
+    # But a high-materiality Truth Social contra-post forces an immediate re-eval.
+    assert positions.trigger_news_reeval(
+        "cond1", "bearish", 0.8, "Trump: the deal is off", "truthsocial") is True
+    assert len(calls) == 2
+
+
+def test_truthsocial_below_force_threshold_respects_cooldown(tmp_db, monkeypatch):
+    calls = _fake_claude(monkeypatch, decision="hold", calls=[])
+    _open(tmp_db, side="YES")
+    positions.update_and_manage({"cond1": 0.55})
+
+    assert positions.trigger_news_reeval("cond1", "bearish", 0.8, "n1", "rss") is True
+    assert len(calls) == 1
+    # Truth Social, but materiality below the 0.6 force floor -> no bypass, cooldown holds.
+    assert positions.trigger_news_reeval(
+        "cond1", "bearish", 0.5, "weak ts post", "truthsocial") is False
+    assert len(calls) == 1
+
+
+def test_truthsocial_force_still_requires_contradiction(tmp_db, monkeypatch):
+    calls = _fake_claude(monkeypatch, decision="hold", calls=[])
+    _open(tmp_db, side="YES")
+    positions.update_and_manage({"cond1": 0.55})
+    # Agreeing direction (bullish on a YES side) never re-evals, even from Truth Social.
+    assert positions.trigger_news_reeval(
+        "cond1", "bullish", 0.9, "Trump: I will sign it", "truthsocial") is False
+    assert calls == []
 
 
 def test_resolution_close(tmp_db):

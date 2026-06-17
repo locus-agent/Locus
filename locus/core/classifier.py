@@ -72,6 +72,10 @@ TRUTH SOCIAL BOOST: If news_source is 'truthsocial', this is a direct statement 
 First-person statements ('I will', 'I am', 'We have', 'I signed', 'I am announcing') are DIRECT EVIDENCE and should
 receive materiality boost of +0.15 compared to equivalent third-party reporting.
 Example: Trump posting 'I will sign the Iran deal tomorrow' → materiality 0.80+ for Iran deal markets.
+REVERSE (denials/cancellations): A first-person denial or cancellation ('I will NOT', 'deal is off',
+'no deal', 'cancelled', 'terminated') is equally DIRECT EVIDENCE — for markets the post would have
+resolved YES, this is a BEARISH signal with the same +0.15 boost.
+Example: Trump posting 'The Iran deal is off, no deal' → bearish, materiality 0.80+ for 'Will the Iran deal be signed?' markets.
 
 Also rate the MATERIALITY — how much should this move the price? 0.0 means no impact, 1.0 means this is definitive evidence.
 

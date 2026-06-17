@@ -69,3 +69,10 @@ def test_boost_rule_present_in_prompt():
     assert "TRUTH SOCIAL BOOST" in CLASSIFICATION_PROMPT
     assert "truthsocial" in CLASSIFICATION_PROMPT
     assert "+0.15" in CLASSIFICATION_PROMPT
+
+
+def test_reverse_denial_rule_present_in_prompt():
+    # Reverse rule: first-person denials/cancellations are bearish direct evidence.
+    assert "deal is off" in CLASSIFICATION_PROMPT
+    assert "cancelled" in CLASSIFICATION_PROMPT
+    assert "BEARISH" in CLASSIFICATION_PROMPT

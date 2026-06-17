@@ -683,18 +683,29 @@ def update_and_manage(prices: dict[str, float]) -> dict:
 
 
 def trigger_news_reeval(condition_id: str, direction: str, materiality: float,
-                        headline: str) -> bool:
-    """Pipeline hook: a fresh material headline contradicts a held side."""
+                        headline: str, news_source: str = "") -> bool:
+    """Pipeline hook: a fresh material headline contradicts a held side.
+
+    A high-materiality Truth Social post (direct from Trump, e.g. a first-person
+    denial or cancellation) that contradicts the held side FORCES an immediate
+    re-evaluation, bypassing the per-position cooldown — we don't wait for the
+    drawdown trigger when the principal himself just contradicted the thesis."""
     if materiality < config.NEWS_REEVAL_MATERIALITY:
         return False
+    force = (
+        (news_source or "").lower() == "truthsocial"
+        and materiality >= config.TRUTHSOCIAL_REEVAL_MATERIALITY
+    )
     for position in get_open_positions():
         if position["condition_id"] != condition_id:
             continue
         contradicts = (position["side"] == "YES" and direction == "bearish") or (
             position["side"] == "NO" and direction == "bullish"
         )
-        if contradicts and cooldown_allows(position, "news"):
+        if contradicts and (force or cooldown_allows(position, "news")):
             detail = f'"{headline[:120]}" ({direction}, materiality {materiality:.2f})'
+            if force:
+                detail = "Truth Social contra-post (forced) — " + detail
             reevaluate(position, "news", trigger_detail=detail)
             return True
     return False
