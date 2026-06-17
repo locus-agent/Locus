@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T13:06:41.594443+00:00",
-  "last_heartbeat": "2026-06-17T13:06:41.594443+00:00",
-  "uptime_seconds": 56578,
+  "generated_at": "2026-06-17T13:11:45.779966+00:00",
+  "last_heartbeat": "2026-06-17T13:11:45.779966+00:00",
+  "uptime_seconds": 56882,
   "dry_run": true,
-  "markets_tracked": 2457,
+  "markets_tracked": 2461,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3808,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 459,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 461,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 11182,
+  "classifications_24h": 11170,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3296,
+    "prefiltered_haiku": 3293,
     "stale": 53,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T12:54:30.360750+00:00"
+    "last_check": "2026-06-17T13:09:30.812710+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2326,
-    "matched": 977,
-    "classified": 11182,
+    "news": 2324,
+    "matched": 978,
+    "classified": 11170,
     "signals": 2,
     "trades": 2
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -5.72,
+    "unrealized_pnl_usd": -6.38,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1804.4
+    "avg_classification_latency_ms": 1804.1
   },
   "live_readiness": {
     "ready": false,
@@ -215,7 +215,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.19500000000000006,
+      "current_price": 0.195,
       "pnl_pct": 21.88,
       "amount_usd": 7.695,
       "current_value_usd": 9.38,
@@ -229,11 +229,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.335,
-      "pnl_pct": -0.75,
+      "current_price": 0.34,
+      "pnl_pct": -1.49,
       "amount_usd": 2.0,
-      "current_value_usd": 1.99,
-      "pnl_usd": -0.01,
+      "current_value_usd": 1.97,
+      "pnl_usd": -0.03,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -243,7 +243,7 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.10500000000000001,
+      "current_price": 0.10499999999999998,
       "pnl_pct": -8.7,
       "amount_usd": 12.97,
       "current_value_usd": 11.84,
@@ -285,11 +285,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.33499999999999996,
+      "pnl_pct": -1.47,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 14.46,
+      "pnl_usd": -0.22,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -465,6 +465,19 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-17 13:08:50",
+      "market_question": "Will Microsoft have the best AI Agent at the end of June 2026?",
+      "headline": "AI set to influence home and motor insurance renewals as consumers turn to digital agents, Accenture finds - Reinsurance News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-17 13:06:40",
       "market_question": "Will OpenAI announce a ring in 2026?",
       "headline": "Police rescue more than 400 cats from being eaten in Vietnam in a bust of a major animal theft ring - AP News",
@@ -506,19 +519,6 @@
     {
       "time": "2026-06-17 13:06:38",
       "market_question": "Will Bill Hill advance from the AK-AL primary election?",
-      "headline": "Police rescue more than 400 cats from being eaten in Vietnam in a bust of a major animal theft ring - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 13:06:38",
-      "market_question": "Will Gavin Solomon advance from the AK-AL primary election?",
       "headline": "Police rescue more than 400 cats from being eaten in Vietnam in a bust of a major animal theft ring - AP News",
       "direction": null,
       "materiality": null,
