@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T05:02:13.877942+00:00",
-  "last_heartbeat": "2026-06-17T05:02:13.877942+00:00",
-  "uptime_seconds": 27510,
+  "generated_at": "2026-06-17T05:07:17.206901+00:00",
+  "last_heartbeat": "2026-06-17T05:07:17.206901+00:00",
+  "uptime_seconds": 27814,
   "dry_run": true,
-  "markets_tracked": 2479,
+  "markets_tracked": 2473,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3416,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 187,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 203,
+  "headlines_last_cycle": 2,
   "signals_24h": 3,
-  "classifications_24h": 11339,
+  "classifications_24h": 11377,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3338,
-    "stale": 41,
+    "prefiltered_haiku": 3359,
+    "stale": 40,
     "capped": 0,
     "too_close_to_resolution": 2,
     "price_target_market": 0,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2360,
-    "matched": 900,
-    "classified": 11339,
+    "news": 2366,
+    "matched": 908,
+    "classified": 11377,
     "signals": 3,
     "trades": 3
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -0.67,
+    "unrealized_pnl_usd": -0.37,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1654.5
+    "avg_classification_latency_ms": 1674.4
   },
   "live_readiness": {
     "ready": false,
@@ -187,11 +187,11 @@
       "slug": "labour-leadership-election-scheduled-by",
       "side": "YES",
       "entry_price": 0.36,
-      "current_price": 0.36,
-      "pnl_pct": 0.0,
+      "current_price": 0.365,
+      "pnl_pct": 1.39,
       "amount_usd": 25.0,
-      "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 25.35,
+      "pnl_usd": 0.35,
       "edge_type": "momentum",
       "event_id": "89548"
     },
@@ -215,7 +215,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.2,
+      "current_price": 0.19999999999999996,
       "pnl_pct": 25.0,
       "amount_usd": 7.695,
       "current_value_usd": 9.62,
@@ -229,11 +229,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.3999999999999999,
-      "pnl_pct": -10.45,
+      "current_price": 0.415,
+      "pnl_pct": -12.69,
       "amount_usd": 2.0,
-      "current_value_usd": 1.79,
-      "pnl_usd": -0.21,
+      "current_value_usd": 1.75,
+      "pnl_usd": -0.25,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -243,7 +243,7 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.14500000000000002,
+      "current_price": 0.145,
       "pnl_pct": 26.09,
       "amount_usd": 12.97,
       "current_value_usd": 16.35,
@@ -465,9 +465,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 04:53:54",
-      "market_question": "Will Trump say \"UFC\" this week?",
-      "headline": "Social media has risks but has given us opportunities too, teen influencers say",
+      "time": "2026-06-17 05:06:59",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Messi hat-trick equals scoring record as Argentina dazzle against Algeria - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,22 +478,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 04:53:54",
-      "market_question": "Will Trump say \"Maduro\" this week?",
-      "headline": "Social media has risks but has given us opportunities too, teen influencers say",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 04:53:53",
-      "market_question": "Will John Shulli be the Republican nominee for Senate in Delaware?",
-      "headline": "Suspect in fatal shooting inside Delaware hospital taken into custody - AP News",
+      "time": "2026-06-17 05:06:59",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Cape Verde's Vozinha becomes an Instagram sensation thanks to his saves and a streamer's push - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -504,9 +491,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 04:53:53",
-      "market_question": "Will the Democrats win the Delaware Senate race in 2026?",
-      "headline": "Suspect in fatal shooting inside Delaware hospital taken into custody - AP News",
+      "time": "2026-06-17 05:06:59",
+      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
+      "headline": "Cape Verde's Vozinha becomes an Instagram sensation thanks to his saves and a streamer's push - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -517,9 +504,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 04:53:53",
-      "market_question": "Will Chris Coons be the Democratic nominee for Senate in Delaware?",
-      "headline": "Suspect in fatal shooting inside Delaware hospital taken into custody - AP News",
+      "time": "2026-06-17 05:06:57",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Messi hat-trick equals scoring record as Argentina dazzle against Algeria - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 05:06:57",
+      "market_question": "Will Trump praise Lionel Messi by June 30?",
+      "headline": "Messi hat-trick equals scoring record as Argentina dazzle against Algeria - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
