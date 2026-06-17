@@ -95,6 +95,8 @@ RSS_FEEDS = [
     "https://news.google.com/rss/search?q=when:24h+site:reuters.com&hl=en-US&gl=US&ceid=US:en",   # Reuters
     "https://news.google.com/rss/search?q=when:24h+site:apnews.com&hl=en-US&gl=US&ceid=US:en",    # AP News
     "https://news.google.com/rss/search?q=when:24h+site:politico.com&hl=en-US&gl=US&ceid=US:en",  # Politico
+    # Trump's Truth Social posts — often break policy decisions ahead of the wires.
+    "https://www.trumpstruth.org/feed",                                  # truthsocial
 ]
 
 # --- Pipeline Settings ---
@@ -459,4 +461,6 @@ TWITTER_KEYWORDS = [
     # white house from the requested set are already covered above.)
     "Trump", "Iran", "Fed", "Federal Reserve", "Polymarket",
     "election", "Senate", "breaking", "just in", "developing",
+    # Catch chatter about Trump's Truth Social posts.
+    "truth social", "truthsocial",
 ]
