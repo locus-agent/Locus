@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-17T20:15:07.948885+00:00",
-  "last_heartbeat": "2026-06-17T20:15:07.948885+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-17T20:16:29.170013+00:00",
+  "last_heartbeat": "2026-06-17T20:16:29.170013+00:00",
+  "uptime_seconds": 38,
   "dry_run": true,
   "markets_tracked": 3692,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2242,
-  "headlines_last_cycle": 14,
+  "headlines_scanned_today": 2301,
+  "headlines_last_cycle": 21,
   "signals_24h": 3,
-  "classifications_24h": 14618,
+  "classifications_24h": 14936,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3179,
+    "prefiltered_haiku": 3306,
     "stale": 57,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T20:14:54.343677+00:00"
+    "last_check": "2026-06-17T20:16:08.487659+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2949,
+    "news": 3007,
     "matched": 1028,
-    "classified": 14618,
+    "classified": 14936,
     "signals": 3,
     "trades": 3
   },
@@ -132,12 +132,12 @@
     "losses": 7,
     "win_rate_pct": 56.2,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -3.1,
-    "total_pnl_usd": 7.12,
+    "unrealized_pnl_usd": -2.75,
+    "total_pnl_usd": 7.47,
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2330.2
+    "avg_classification_latency_ms": 1285.5
   },
   "live_readiness": {
     "ready": false,
@@ -206,11 +206,11 @@
       "slug": "labour-leadership-election-scheduled-by",
       "side": "YES",
       "entry_price": 0.36,
-      "current_price": 0.36,
-      "pnl_pct": 0.0,
+      "current_price": 0.365,
+      "pnl_pct": 1.39,
       "amount_usd": 25.0,
-      "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 25.35,
+      "pnl_usd": 0.35,
       "edge_type": "momentum",
       "event_id": "89548"
     },
@@ -428,11 +428,24 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 20:15:07",
-      "market_question": "Will a player representing DR Congo be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Ronaldo, Portugal frustrated in Congo DR draw",
+      "time": "2026-06-17 20:16:29",
+      "market_question": "Trump on $250 bill this year?",
+      "headline": "Federal Reserve keeps rate unchanged, but nearly half of policymakers would support hike this year - AP News",
       "direction": "neutral",
       "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 20:16:27",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Use of Artificial Intelligence in Employment and the legal implications - The National Law Review",
+      "direction": "neutral",
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
@@ -441,56 +454,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:15:07",
-      "market_question": "Will Cincinnati Bengals win the 2027 NFL AFC Championship?",
-      "headline": "Burrow: Bengals have same vibes as LSU title team",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 20:16:27",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "Use of Artificial Intelligence in Employment and the legal implications - The National Law Review",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:15:07",
-      "market_question": "World Cup: Any Team to Score 10+ Goals in the Group Stage?",
-      "headline": "Burrow: Bengals have same vibes as LSU title team",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 20:16:27",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "Use of Artificial Intelligence in Employment and the legal implications - The National Law Review",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:15:07",
-      "market_question": "Will T\u00fcrkiye be the highest-scoring team in Group D during the Group Stage of the 2026 FIFA World Cup?",
-      "headline": "Burrow: Bengals have same vibes as LSU title team",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 20:16:27",
+      "market_question": "Trump orders federal review of AI model releases by June 30?",
+      "headline": "Use of Artificial Intelligence in Employment and the legal implications - The National Law Review",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 20:15:07",
-      "market_question": "Will Cristiano Ronaldo's national team advance the furthest at the 2026 FIFA World Cup?",
-      "headline": "Burrow: Bengals have same vibes as LSU title team",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
