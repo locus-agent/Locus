@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T06:13:03.199744+00:00",
-  "last_heartbeat": "2026-06-17T06:13:03.199744+00:00",
-  "uptime_seconds": 31760,
+  "generated_at": "2026-06-17T06:18:06.998327+00:00",
+  "last_heartbeat": "2026-06-17T06:18:06.998327+00:00",
+  "uptime_seconds": 32064,
   "dry_run": true,
-  "markets_tracked": 2471,
+  "markets_tracked": 2473,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3673,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 229,
+  "headlines_scanned_today": 231,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 11350,
+  "classifications_24h": 11360,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3394,
+    "prefiltered_haiku": 3395,
     "stale": 44,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2354,
-    "matched": 900,
-    "classified": 11350,
+    "news": 2356,
+    "matched": 902,
+    "classified": 11360,
     "signals": 3,
     "trades": 3
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -3.55,
+    "unrealized_pnl_usd": -4.46,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1684.4
+    "avg_classification_latency_ms": 1685.1
   },
   "live_readiness": {
     "ready": false,
@@ -187,11 +187,11 @@
       "slug": "labour-leadership-election-scheduled-by",
       "side": "YES",
       "entry_price": 0.36,
-      "current_price": 0.365,
-      "pnl_pct": 1.39,
+      "current_price": 0.355,
+      "pnl_pct": -1.39,
       "amount_usd": 25.0,
-      "current_value_usd": 25.35,
-      "pnl_usd": 0.35,
+      "current_value_usd": 24.65,
+      "pnl_usd": -0.35,
       "edge_type": "momentum",
       "event_id": "89548"
     },
@@ -285,11 +285,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.37,
-      "pnl_pct": 8.82,
+      "current_price": 0.365,
+      "pnl_pct": 7.35,
       "amount_usd": 14.68,
-      "current_value_usd": 15.98,
-      "pnl_usd": 1.3,
+      "current_value_usd": 15.76,
+      "pnl_usd": 1.08,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -465,48 +465,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 06:07:53",
-      "market_question": "Will ByteDance have the best AI Agent at the end of June 2026?",
-      "headline": "Why Is SK hynix\u2019s Nasdaq Move Becoming A Key AI Infrastructure Story? - Kalkine Media",
+      "time": "2026-06-17 06:16:39",
+      "market_question": "Will Trump\u2019s approval rating be less than 38.0 on June 19, 2026?",
+      "headline": "Trump\u2019s endorsement power just met its $100M limit - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.02,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "action": "skip",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 06:07:53",
-      "market_question": "Will Amazon have the best AI model at the end of December 2026?",
-      "headline": "Why Is SK hynix\u2019s Nasdaq Move Becoming A Key AI Infrastructure Story? - Kalkine Media",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 06:07:53",
-      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
-      "headline": "Why Is SK hynix\u2019s Nasdaq Move Becoming A Key AI Infrastructure Story? - Kalkine Media",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 06:07:52",
-      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
-      "headline": "Why Is SK hynix\u2019s Nasdaq Move Becoming A Key AI Infrastructure Story? - Kalkine Media",
+      "time": "2026-06-17 06:16:39",
+      "market_question": "Trump talks to Cuba leader Diaz-Canel by June 30?",
+      "headline": "Jamaica in talks to accept third-country migrants deported from US - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -517,17 +491,43 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 06:05:43",
-      "market_question": "Will Meta have a #1 AI model by June 30?",
-      "headline": "Italian mother takes on Meta, TikTok after daughter's death - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-17 06:16:39",
+      "market_question": "Will Bill Hill advance from the AK-AL primary election?",
+      "headline": "Jamaica in talks to accept third-country migrants deported from US - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 06:16:39",
+      "market_question": "Will Gavin Solomon advance from the AK-AL primary election?",
+      "headline": "Jamaica in talks to accept third-country migrants deported from US - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 06:16:39",
+      "market_question": "Will John Williams advance from the AK-AL primary election?",
+      "headline": "Jamaica in talks to accept third-country migrants deported from US - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
