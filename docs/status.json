@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T22:26:01.708251+00:00",
-  "last_heartbeat": "2026-06-17T22:26:01.708251+00:00",
-  "uptime_seconds": 1873,
+  "generated_at": "2026-06-17T22:31:05.916075+00:00",
+  "last_heartbeat": "2026-06-17T22:31:05.916075+00:00",
+  "uptime_seconds": 2177,
   "dry_run": true,
-  "markets_tracked": 3721,
+  "markets_tracked": 3725,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5748,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2938,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2944,
+  "headlines_last_cycle": 2,
   "signals_24h": 2,
-  "classifications_24h": 15391,
+  "classifications_24h": 15411,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3549,
+    "prefiltered_haiku": 3557,
     "stale": 66,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3031,
-    "matched": 972,
-    "classified": 15391,
+    "news": 3036,
+    "matched": 977,
+    "classified": 15411,
     "signals": 2,
     "trades": 2
   },
@@ -132,12 +132,12 @@
     "losses": 7,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 73.23,
-    "unrealized_pnl_usd": -5.29,
-    "total_pnl_usd": 67.94,
+    "unrealized_pnl_usd": -4.73,
+    "total_pnl_usd": 68.51,
     "recent_winrate": 0.5882,
     "kelly_factor": 0.7574,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1485.3
+    "avg_classification_latency_ms": 1478.5
   },
   "live_readiness": {
     "ready": false,
@@ -220,11 +220,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.09,
-      "pnl_pct": -21.74,
+      "current_price": 0.09499999999999997,
+      "pnl_pct": -17.39,
       "amount_usd": 12.97,
-      "current_value_usd": 10.15,
-      "pnl_usd": -2.82,
+      "current_value_usd": 10.71,
+      "pnl_usd": -2.26,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -234,11 +234,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     }
@@ -414,22 +414,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 22:24:17",
-      "market_question": "Harry Kane: 3+ goals",
-      "headline": "Kane leads England to statement win over Croatia",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 22:24:17",
-      "market_question": "Will Bill Hill advance from the AK-AL primary election?",
-      "headline": "Archaeologists find musket balls and fort linked to the Battle of Bunker Hill - AP News",
+      "time": "2026-06-17 22:30:52",
+      "market_question": "Will Cincinnati Bengals win the 2027 NFL AFC Championship?",
+      "headline": "Cincinnati denies claim it knew of Sorsby's bettin...",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -440,41 +427,54 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 22:24:16",
-      "market_question": "Will England win Group L in the 2026 FIFA World Cup?",
-      "headline": "Kane leads England to statement win over Croatia",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.72,
+      "time": "2026-06-17 22:30:52",
+      "market_question": "Will the Cincinnati Reds have the longest winning streak during the 2026 MLB regular season?",
+      "headline": "Cincinnati denies claim it knew of Sorsby's bettin...",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-17 22:24:16",
-      "market_question": "Will Croatia win Group L in the 2026 FIFA World Cup?",
-      "headline": "Kane leads England to statement win over Croatia",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.62,
+      "time": "2026-06-17 22:30:52",
+      "market_question": "Will Ron DeSantis join the Trump administration by June 30?",
+      "headline": "Spurs join clubs interested in Newcastle's Tonali",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-17 22:24:16",
-      "market_question": "Will Harry Kane be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Kane leads England to statement win over Croatia",
+      "time": "2026-06-17 22:30:52",
+      "market_question": "Will San Antonio Spurs win the 2027 NBA Finals?",
+      "headline": "Spurs join clubs interested in Newcastle's Tonali",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 22:28:39",
+      "market_question": "Google x SpaceX agree to put data centers in space by June 30?",
+      "headline": "Democrats \u2018read the damn room\u2019 on data centers - Politico",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
