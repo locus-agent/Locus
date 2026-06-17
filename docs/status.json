@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T18:12:47.460303+00:00",
-  "last_heartbeat": "2026-06-17T18:12:47.460303+00:00",
-  "uptime_seconds": 3377,
+  "generated_at": "2026-06-17T18:17:51.103871+00:00",
+  "last_heartbeat": "2026-06-17T18:17:51.103871+00:00",
+  "uptime_seconds": 3681,
   "dry_run": true,
-  "markets_tracked": 2432,
-  "classify_error_streak": 287,
+  "markets_tracked": 2428,
+  "classify_error_streak": 365,
   "track_record": {
     "total": 4955,
     "accuracy": 17.0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1165,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1197,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 10236,
+  "classifications_24h": 10381,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2803,
+    "prefiltered_haiku": 2795,
     "stale": 46,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -107,7 +107,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T18:01:47.907199+00:00"
+    "last_check": "2026-06-17T18:16:48.290958+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -115,9 +115,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2118,
-    "matched": 935,
-    "classified": 10236,
+    "news": 2148,
+    "matched": 953,
+    "classified": 10381,
     "signals": 2,
     "trades": 2
   },
@@ -130,11 +130,11 @@
     "losses": 7,
     "win_rate_pct": 41.7,
     "realized_pnl_usd": 5.28,
-    "unrealized_pnl_usd": -1.94,
+    "unrealized_pnl_usd": -2.06,
     "recent_winrate": 0.4167,
     "kelly_factor": 0.5,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2539.5
+    "avg_classification_latency_ms": 2536.0
   },
   "live_readiness": {
     "ready": false,
@@ -202,11 +202,11 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.31499999999999995,
-      "pnl_pct": -11.27,
+      "current_price": 0.32,
+      "pnl_pct": -9.86,
       "amount_usd": 25.0,
-      "current_value_usd": 22.18,
-      "pnl_usd": -2.82,
+      "current_value_usd": 22.54,
+      "pnl_usd": -2.46,
       "edge_type": "news",
       "event_id": "528020"
     },
@@ -216,11 +216,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.19999999999999996,
-      "pnl_pct": 25.0,
+      "current_price": 0.195,
+      "pnl_pct": 21.88,
       "amount_usd": 7.695,
-      "current_value_usd": 9.62,
-      "pnl_usd": 1.92,
+      "current_value_usd": 9.38,
+      "pnl_usd": 1.68,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -230,11 +230,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.42000000000000004,
-      "pnl_pct": -13.43,
+      "current_price": 0.42500000000000004,
+      "pnl_pct": -14.18,
       "amount_usd": 2.0,
-      "current_value_usd": 1.73,
-      "pnl_usd": -0.27,
+      "current_value_usd": 1.72,
+      "pnl_usd": -0.28,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -258,11 +258,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -272,11 +272,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.33999999999999997,
-      "pnl_pct": 0.0,
+      "current_price": 0.33499999999999996,
+      "pnl_pct": -1.47,
       "amount_usd": 14.68,
-      "current_value_usd": 14.68,
-      "pnl_usd": -0.0,
+      "current_value_usd": 14.46,
+      "pnl_usd": -0.22,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -452,22 +452,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 18:04:44",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "India's GenAI boom hits talent wall with 83% skills gap: Quess Corp - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 18:04:42",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "India's GenAI boom hits talent wall with 83% skills gap: Quess Corp - Business Standard",
+      "time": "2026-06-17 18:17:46",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "Investigators seek clues in small jet crash that killed 1 in Texas, where bystanders rushed to help - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -478,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 18:04:42",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "India's GenAI boom hits talent wall with 83% skills gap: Quess Corp - Business Standard",
+      "time": "2026-06-17 18:17:46",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "Investigators seek clues in small jet crash that killed 1 in Texas, where bystanders rushed to help - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -491,9 +478,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 18:04:42",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "India's GenAI boom hits talent wall with 83% skills gap: Quess Corp - Business Standard",
+      "time": "2026-06-17 18:17:46",
+      "market_question": "Will Texas use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Investigators seek clues in small jet crash that killed 1 in Texas, where bystanders rushed to help - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -504,9 +491,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 18:04:42",
-      "market_question": "Trump meets with Putin by September 30?",
-      "headline": "India's GenAI boom hits talent wall with 83% skills gap: Quess Corp - Business Standard",
+      "time": "2026-06-17 18:15:35",
+      "market_question": "Will the announcers say \"Trump\" during the England vs Croatia FIFA World Cup Match?",
+      "headline": "England made good start despite Stokes' absence",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 18:15:35",
+      "market_question": "Will the announcers say \"President\" during the England vs Croatia FIFA World Cup Match?",
+      "headline": "England made good start despite Stokes' absence",
       "direction": null,
       "materiality": null,
       "confidence": null,
