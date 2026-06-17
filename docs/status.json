@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-17T22:10:49.896283+00:00",
-  "last_heartbeat": "2026-06-17T22:10:49.896283+00:00",
-  "uptime_seconds": 961,
+  "generated_at": "2026-06-17T22:15:54.204413+00:00",
+  "last_heartbeat": "2026-06-17T22:15:54.204413+00:00",
+  "uptime_seconds": 1265,
   "dry_run": true,
   "markets_tracked": 3719,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2929,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 2933,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 15510,
+  "classifications_24h": 15531,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3607,
+    "prefiltered_haiku": 3610,
     "stale": 68,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3061,
-    "matched": 995,
-    "classified": 15510,
+    "news": 3063,
+    "matched": 998,
+    "classified": 15531,
     "signals": 2,
     "trades": 2
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5882,
     "kelly_factor": 0.7574,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1462.2
+    "avg_classification_latency_ms": 1475.8
   },
   "live_readiness": {
     "ready": false,
@@ -414,9 +414,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 22:10:48",
-      "market_question": "FDA approves Arcalyst technology transfer?",
-      "headline": "Man who died in Texas plane crash was a key figure in seeding Austin\u2019s technology boom - AP News",
+      "time": "2026-06-17 22:15:19",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "Gold falls 1% after Fed holds rates steady, signals rate hike this year - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 22:15:18",
+      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
+      "headline": "Gold falls 1% after Fed holds rates steady, signals rate hike this year - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 22:15:16",
+      "market_question": "Trump on $250 bill this year?",
+      "headline": "Gold falls 1% after Fed holds rates steady, signals rate hike this year - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -427,9 +453,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 22:10:47",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "Man who died in Texas plane crash was a key figure in seeding Austin\u2019s technology boom - AP News",
+      "time": "2026-06-17 22:15:15",
+      "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
+      "headline": "Gold falls 1% after Fed holds rates steady, signals rate hike this year - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -440,35 +466,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 22:10:47",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "Man who died in Texas plane crash was a key figure in seeding Austin\u2019s technology boom - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 22:10:47",
-      "market_question": "Will a US court rule that the 2020 election was fradulent?",
-      "headline": "Man who died in Texas plane crash was a key figure in seeding Austin\u2019s technology boom - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 22:10:47",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be less than 5?",
-      "headline": "Man who died in Texas plane crash was a key figure in seeding Austin\u2019s technology boom - AP News",
+      "time": "2026-06-17 22:15:15",
+      "market_question": "Trump's face on US gold coin by July 4?",
+      "headline": "Gold falls 1% after Fed holds rates steady, signals rate hike this year - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
