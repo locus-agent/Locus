@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T21:14:34.450108+00:00",
-  "last_heartbeat": "2026-06-17T21:14:34.450108+00:00",
-  "uptime_seconds": 3393,
+  "generated_at": "2026-06-17T21:19:38.842727+00:00",
+  "last_heartbeat": "2026-06-17T21:19:38.842727+00:00",
+  "uptime_seconds": 3698,
   "dry_run": true,
-  "markets_tracked": 3701,
+  "markets_tracked": 3699,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5586,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2590,
-  "headlines_last_cycle": 4,
+  "headlines_scanned_today": 2630,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 14897,
+  "classifications_24h": 15087,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3341,
+    "prefiltered_haiku": 3387,
     "stale": 55,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T21:03:18.972088+00:00"
+    "last_check": "2026-06-17T21:18:19.389851+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2958,
-    "matched": 1032,
-    "classified": 14897,
+    "news": 2996,
+    "matched": 1061,
+    "classified": 15087,
     "signals": 3,
     "trades": 3
   },
@@ -132,12 +132,12 @@
     "losses": 7,
     "win_rate_pct": 56.2,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -1.94,
-    "total_pnl_usd": 8.29,
+    "unrealized_pnl_usd": -1.81,
+    "total_pnl_usd": 8.41,
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1397.1
+    "avg_classification_latency_ms": 1473.9
   },
   "live_readiness": {
     "ready": false,
@@ -192,11 +192,11 @@
       "slug": "will-trump-physically-sign-us-x-iran-deal-20260615192526331",
       "side": "YES",
       "entry_price": 0.135,
-      "current_price": 0.14100000000000001,
-      "pnl_pct": 4.44,
+      "current_price": 0.14150000000000001,
+      "pnl_pct": 4.81,
       "amount_usd": 32.53,
-      "current_value_usd": 33.98,
-      "pnl_usd": 1.45,
+      "current_value_usd": 34.1,
+      "pnl_usd": 1.57,
       "edge_type": "momentum",
       "event_id": "601512"
     },
@@ -220,7 +220,7 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.315,
+      "current_price": 0.31499999999999995,
       "pnl_pct": -11.27,
       "amount_usd": 25.0,
       "current_value_usd": 22.18,
@@ -428,9 +428,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 21:14:33",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "MLB warned players about altering Pride Night caps, and Republicans took notice. Here's what to know - AP News",
+      "time": "2026-06-17 21:19:01",
+      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
+      "headline": "2026 World Cup schedule and results - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 21:19:01",
+      "market_question": "Will Qatar reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "2026 World Cup schedule and results - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 21:19:00",
+      "market_question": "Will Argentina reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "2026 World Cup schedule and results - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -441,9 +467,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 21:14:33",
-      "market_question": "Will Christian Yelich be on the cover of MLB The Show 27?",
-      "headline": "MLB warned players about altering Pride Night caps, and Republicans took notice. Here's what to know - AP News",
+      "time": "2026-06-17 21:18:59",
+      "market_question": "Will France reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "2026 World Cup schedule and results - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -454,41 +480,15 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 21:14:33",
-      "market_question": "Will Bryan Woo be on the cover of MLB The Show 27?",
-      "headline": "MLB warned players about altering Pride Night caps, and Republicans took notice. Here's what to know - AP News",
+      "time": "2026-06-17 21:18:59",
+      "market_question": "Will United States win the Fair Play Award for the 2026 FIFA World Cup?",
+      "headline": "2026 World Cup schedule and results - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 21:14:33",
-      "market_question": "Will Shohei Ohtani be on the cover of MLB The Show 27?",
-      "headline": "MLB warned players about altering Pride Night caps, and Republicans took notice. Here's what to know - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 21:14:33",
-      "market_question": "Will Jazz Chisholm be on the cover of MLB The Show 27?",
-      "headline": "MLB warned players about altering Pride Night caps, and Republicans took notice. Here's what to know - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
