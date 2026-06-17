@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T13:37:04.872553+00:00",
-  "last_heartbeat": "2026-06-17T13:37:04.872553+00:00",
-  "uptime_seconds": 58401,
+  "generated_at": "2026-06-17T13:42:08.413984+00:00",
+  "last_heartbeat": "2026-06-17T13:42:08.413984+00:00",
+  "uptime_seconds": 58705,
   "dry_run": true,
-  "markets_tracked": 2452,
+  "markets_tracked": 2455,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3974,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 471,
+  "headlines_scanned_today": 473,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 11090,
+  "classifications_24h": 11082,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3273,
+    "prefiltered_haiku": 3269,
     "stale": 52,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T13:24:31.220790+00:00"
+    "last_check": "2026-06-17T13:39:31.636812+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2306,
-    "matched": 977,
-    "classified": 11090,
+    "news": 2305,
+    "matched": 979,
+    "classified": 11082,
     "signals": 2,
     "trades": 2
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -5.49,
+    "unrealized_pnl_usd": -5.5,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1802.1
+    "avg_classification_latency_ms": 1801.3
   },
   "live_readiness": {
     "ready": false,
@@ -229,11 +229,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.33,
-      "pnl_pct": 0.0,
+      "current_price": 0.335,
+      "pnl_pct": -0.75,
       "amount_usd": 2.0,
-      "current_value_usd": 2.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 1.99,
+      "pnl_usd": -0.01,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -257,11 +257,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -465,69 +465,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 13:30:38",
-      "market_question": "Will Donald Trump post 0-19 Truth Social posts from June 19 to June 26, 2026?",
-      "headline": "AI search grounded in Facebook posts? What could go wrong?",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 13:41:35",
+      "market_question": "Will Trump and Putin meet next in another EU country?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 13:30:38",
-      "market_question": "Will Donald Trump post 200+ Truth Social posts from June 12 to June 19, 2026?",
-      "headline": "AI search grounded in Facebook posts? What could go wrong?",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 13:41:32",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 13:30:38",
-      "market_question": "Will Donald Trump post 20-39 Truth Social posts from June 16 to June 23, 2026?",
-      "headline": "AI search grounded in Facebook posts? What could go wrong?",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 13:41:32",
+      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 13:30:38",
-      "market_question": "Will Donald Trump post 120-139 Truth Social posts from June 12 to June 19, 2026?",
-      "headline": "AI search grounded in Facebook posts? What could go wrong?",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 13:41:32",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 13:28:27",
-      "market_question": "Will the announcers say \"Trump\" during the England vs Croatia FIFA World Cup Match?",
-      "headline": "The Croatia players England should look out for",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 13:41:32",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
