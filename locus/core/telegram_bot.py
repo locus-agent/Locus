@@ -173,13 +173,23 @@ def _build_balance():
     """(text, InlineKeyboardMarkup) for the balance view: summary stats only —
     no per-position Close buttons — with [⬅️ Back to Portfolio] [🔄 Refresh]."""
     from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+    from locus.core import positions
     from locus.core.performance import compute_performance
 
     perf = compute_performance()
+    # Deployed capital and open count must reflect only positions still open
+    # within the dashboard's performance window. perf['deployed_usd'] sums every
+    # trade in the window — closed ones included — so it double-counts capital
+    # already returned (the $261-vs-$100 bug). Recompute from the live open book
+    # under the same PERFORMANCE_START_DATE filter the dashboard panel uses.
+    since = config.PERFORMANCE_START_DATE or None
+    open_pos = positions.get_open_positions(since=since)
+    open_count = len(open_pos)
+    deployed = sum(p.get("amount_usd") or 0.0 for p in open_pos)
     text = (
         "💰 BALANCE\n"
-        f"Open: {perf['open_count']} | Closed: {perf['closed_count']}\n"
-        f"Deployed: ${perf['deployed_usd']:.2f}\n"
+        f"Open: {open_count} | Closed: {perf['closed_count']}\n"
+        f"Deployed: ${deployed:.2f}\n"
         f"Realized: {perf['realized_pnl_usd']:+.2f}\n"
         f"Unrealized: {perf['unrealized_pnl_usd']:+.2f}"
     )

@@ -175,6 +175,37 @@ def test_balance_view_has_no_close_buttons(tmp_db):
     assert btns == [("⬅️ Back to Portfolio", "portfolio"), ("🔄 Refresh", "balance")]
 
 
+def test_balance_deployed_counts_only_open_positions(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    # Two open positions = $100 currently deployed.
+    _open(1, "c1", "A", amount=50.0)
+    _open(2, "c2", "B", amount=50.0)
+    # A closed position whose $161 must NOT inflate deployed (capital returned).
+    pid = _open(3, "c3", "C", amount=161.0)
+    positions_mod.close_manual(pid)
+
+    text, _ = telegram_bot._build_balance()
+    assert "Deployed: $100.00" in text
+    assert "Open: 2 |" in text
+    assert "Closed: 1" in text
+
+
+def test_balance_respects_performance_start_date(tmp_db, monkeypatch):
+    # An open position from before the window must be excluded.
+    old = _open(1, "c1", "OLD", amount=80.0)
+    conn = tmp_db._conn()
+    conn.execute("UPDATE positions SET opened_at='2020-01-01 00:00:00' WHERE id=?", (old,))
+    conn.commit()
+    conn.close()
+    # An open position within the window.
+    _open(2, "c2", "NEW", amount=30.0)
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "2026-01-01")
+
+    text, _ = telegram_bot._build_balance()
+    assert "Deployed: $30.00" in text
+    assert "Open: 1 |" in text
+
+
 def test_portfolio_view_has_refresh_and_balance(tmp_db):
     pid = _open(1, "c1", "Will A happen?")
     text, markup = telegram_bot._build_portfolio()
