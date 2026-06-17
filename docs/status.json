@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T17:01:28.174305+00:00",
-  "last_heartbeat": "2026-06-17T17:01:28.174305+00:00",
-  "uptime_seconds": 4292,
+  "generated_at": "2026-06-17T17:03:15.751717+00:00",
+  "last_heartbeat": "2026-06-17T17:03:15.751717+00:00",
+  "uptime_seconds": 38,
   "dry_run": true,
   "markets_tracked": 2436,
-  "classify_error_streak": 383,
+  "classify_error_streak": 28,
   "track_record": {
     "total": 4417,
     "accuracy": 17.6,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 824,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 847,
+  "headlines_last_cycle": 12,
   "signals_24h": 2,
-  "classifications_24h": 10262,
+  "classifications_24h": 10346,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2960,
+    "prefiltered_haiku": 2958,
     "stale": 48,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -107,7 +107,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T16:50:33.547430+00:00"
+    "last_check": "2026-06-17T17:02:55.046052+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -115,9 +115,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2133,
-    "matched": 948,
-    "classified": 10262,
+    "news": 2154,
+    "matched": 950,
+    "classified": 10346,
     "signals": 2,
     "trades": 2
   },
@@ -130,11 +130,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -7.44,
+    "unrealized_pnl_usd": -6.43,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2555.8
+    "avg_classification_latency_ms": 2611.3
   },
   "live_readiness": {
     "ready": false,
@@ -216,7 +216,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.19500000000000006,
+      "current_price": 0.195,
       "pnl_pct": 21.88,
       "amount_usd": 7.695,
       "current_value_usd": 9.38,
@@ -230,11 +230,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.43,
-      "pnl_pct": -14.93,
+      "current_price": 0.425,
+      "pnl_pct": -14.18,
       "amount_usd": 2.0,
-      "current_value_usd": 1.7,
-      "pnl_usd": -0.3,
+      "current_value_usd": 1.72,
+      "pnl_usd": -0.28,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -244,11 +244,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.10999999999999999,
-      "pnl_pct": -4.35,
+      "current_price": 0.115,
+      "pnl_pct": 0.0,
       "amount_usd": 12.97,
-      "current_value_usd": 12.41,
-      "pnl_usd": -0.56,
+      "current_value_usd": 12.97,
+      "pnl_usd": 0.0,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -258,11 +258,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -286,11 +286,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.33499999999999996,
-      "pnl_pct": -1.47,
+      "current_price": 0.345,
+      "pnl_pct": 1.47,
       "amount_usd": 14.68,
-      "current_value_usd": 14.46,
-      "pnl_usd": -0.22,
+      "current_value_usd": 14.9,
+      "pnl_usd": 0.22,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -466,9 +466,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 16:57:42",
-      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
-      "headline": "ChatGPT market share slips below 50% as Gemini, Claude gain ground: Report - Business Standard",
+      "time": "2026-06-17 17:03:15",
+      "market_question": "Ethereum Up or Down on June 18?",
+      "headline": "Polychain and Coinbase-backed Satori Finance DEX winds down citing \u2018unfavorable market conditions\u2019",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -479,22 +479,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 16:57:42",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "ChatGPT market share slips below 50% as Gemini, Claude gain ground: Report - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 16:57:42",
+      "time": "2026-06-17 17:03:15",
       "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "ChatGPT market share slips below 50% as Gemini, Claude gain ground: Report - Business Standard",
+      "headline": "Polychain and Coinbase-backed Satori Finance DEX winds down citing \u2018unfavorable market conditions\u2019",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -505,9 +492,22 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 16:57:42",
-      "market_question": "Will Bitcoin dip to $60,000 June 15-21?",
-      "headline": "ChatGPT market share slips below 50% as Gemini, Claude gain ground: Report - Business Standard",
+      "time": "2026-06-17 17:03:15",
+      "market_question": "Bitcoin Up or Down on June 18?",
+      "headline": "Polychain and Coinbase-backed Satori Finance DEX winds down citing \u2018unfavorable market conditions\u2019",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 17:03:15",
+      "market_question": "Will Coinbase Global, Inc. (COIN) hit (LOW) $157.50 Week of June 15 2026?",
+      "headline": "Polychain and Coinbase-backed Satori Finance DEX winds down citing \u2018unfavorable market conditions\u2019",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -518,15 +518,15 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 16:57:42",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "ChatGPT market share slips below 50% as Gemini, Claude gain ground: Report - Business Standard",
+      "time": "2026-06-17 17:03:15",
+      "market_question": "Will Coinbase Global, Inc. (COIN) hit (LOW) $155 Week of June 15 2026?",
+      "headline": "Polychain and Coinbase-backed Satori Finance DEX winds down citing \u2018unfavorable market conditions\u2019",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
