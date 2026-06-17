@@ -27,10 +27,11 @@ STATUS_PATH = REPO_DIR / "docs" / "status.json"
 JOURNAL_PATH = REPO_DIR / "docs" / "journal.json"
 DECISIONS_PATH = REPO_DIR / "docs" / "exit_decisions.json"
 CLASSIFICATIONS_PATH = REPO_DIR / "docs" / "classifications.json"
+MISSED_PATH = REPO_DIR / "docs" / "missed.json"
 # All files the auto-pusher is allowed to commit.
 PUSH_PATHS = [
     "docs/status.json", "docs/journal.json", "docs/exit_decisions.json",
-    "docs/classifications.json",
+    "docs/classifications.json", "docs/missed.json",
 ]
 
 # Rows shown inline on the main dashboard; the rest live in the archive page.
@@ -47,7 +48,7 @@ _last_push_at = float("-inf")
 # Max row ids already exported — archives rewrite only when new rows exist,
 # so the 30s cycle stays cheap. No generated_at inside the archives: content
 # is byte-identical unless rows changed, keeping auto-push commits honest.
-_archive_state: dict[str, int | None] = {"journal": None, "decisions": None, "classifications": None}
+_archive_state: dict[str, int | None] = {"journal": None, "decisions": None, "classifications": None, "missed": None}
 
 
 def _classification_row(c: dict) -> dict:
@@ -64,6 +65,21 @@ def _classification_row(c: dict) -> dict:
         "match_source": c["match_source"],
         "consensus_score": c["consensus_score"],
         "ensemble_used": bool(c["ensemble_used"]) if c["ensemble_used"] is not None else None,
+    }
+
+
+def _missed_opportunity_row(l: dict) -> dict:
+    """Public shape of a missed-opportunity reflection (shared by inline + archive).
+    `slug` lets the dashboard link the market to polymarket.com/event/<slug>."""
+    return {
+        "time": l["created_at"],
+        "market_question": l["market_question"],
+        "slug": l.get("slug") or "",
+        "direction": l["classification"],
+        "materiality": l.get("materiality"),
+        "action": l.get("action"),
+        "pct_move": l.get("pct_move"),
+        "reflection": l.get("reflection") or "",
     }
 
 
@@ -182,6 +198,9 @@ def _export_archives() -> None:
     journal_max = conn.execute("SELECT COALESCE(MAX(id), 0) FROM journal").fetchone()[0]
     decisions_max = conn.execute("SELECT COALESCE(MAX(id), 0) FROM exit_decisions").fetchone()[0]
     classifications_max = conn.execute("SELECT COALESCE(MAX(id), 0) FROM classifications").fetchone()[0]
+    missed_max = conn.execute(
+        "SELECT COALESCE(MAX(id), 0) FROM lessons WHERE reflection IS NOT NULL"
+    ).fetchone()[0]
     conn.close()
 
     if journal_max != _archive_state["journal"]:
@@ -215,6 +234,14 @@ def _export_archives() -> None:
             json.dumps({"classifications": classifications}, indent=1)
         )
         _archive_state["classifications"] = classifications_max
+
+    if missed_max != _archive_state["missed"]:
+        missed = [
+            _missed_opportunity_row(l)
+            for l in logger.get_missed_opportunity_lessons(limit=100000)
+        ]
+        MISSED_PATH.write_text(json.dumps({"missed": missed}, indent=1))
+        _archive_state["missed"] = missed_max
 
 
 def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, classify_error_streak: int = 0, current_prices: dict | None = None, whale_last_check: str | None = None, avg_classification_latency_ms: float = 0.0) -> dict:
@@ -363,6 +390,10 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
                 "lesson": l["lesson"],
             }
             for l in logger.get_recent_lessons(limit=5)
+        ],
+        "missed_opportunities": [
+            _missed_opportunity_row(l)
+            for l in logger.get_missed_opportunity_lessons(limit=5)
         ],
     }
 

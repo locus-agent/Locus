@@ -199,6 +199,7 @@ def init_db():
     _migrate_classification_columns(conn)
     _migrate_event_columns(conn)
     _migrate_position_category(conn)
+    _migrate_lesson_columns(conn)
     conn.close()
 
 
@@ -262,6 +263,26 @@ def _migrate_event_columns(conn):
         columns = {row[1] for row in cursor.fetchall()}
         if "event_id" not in columns:
             conn.execute(f"ALTER TABLE {table} ADD COLUMN event_id TEXT")
+
+
+def _migrate_lesson_columns(conn):
+    """Add missed-opportunity columns to the lessons table. Regular calibration
+    lessons leave these NULL; a populated `reflection` marks a missed-opportunity
+    reflection (first-person narrative the agent writes after the market moved on
+    a signal it declined)."""
+    cursor = conn.execute("PRAGMA table_info(lessons)")
+    columns = {row[1] for row in cursor.fetchall()}
+    new_cols = [
+        ("reflection", "TEXT"),      # first-person narrative reflection
+        ("materiality", "REAL"),     # materiality of the skipped signal
+        ("action", "TEXT"),          # why it was skipped (gate action)
+        ("pct_move", "REAL"),        # how far the price moved (percent)
+        ("slug", "TEXT"),            # polymarket event slug for linking
+    ]
+    for col_name, col_type in new_cols:
+        if col_name not in columns:
+            conn.execute(f"ALTER TABLE lessons ADD COLUMN {col_name} {col_type}")
+    conn.commit()
 
 
 def _migrate_position_category(conn):
@@ -576,14 +597,22 @@ def get_graded_rows_with_prices() -> list[dict]:
     return [dict(r) for r in rows]
 
 
-def log_lesson(trade_id: int, market_question: str, classification: str, actual_direction: str, lesson: str) -> int:
+def log_lesson(trade_id: int, market_question: str, classification: str, actual_direction: str,
+               lesson: str, reflection: str | None = None, materiality: float | None = None,
+               action: str | None = None, pct_move: float | None = None,
+               slug: str | None = None) -> int:
+    """Store a lesson. The optional missed-opportunity fields (reflection,
+    materiality, action, pct_move, slug) are populated by the calibrator's
+    missed-opportunity reflections and stay NULL for ordinary lessons."""
     global _lessons_cache
     _lessons_cache = None
     conn = _conn()
     cur = conn.execute(
-        """INSERT INTO lessons (trade_id, market_question, classification, actual_direction, lesson)
-           VALUES (?, ?, ?, ?, ?)""",
-        (trade_id, market_question, classification, actual_direction, lesson),
+        """INSERT INTO lessons (trade_id, market_question, classification, actual_direction,
+                                lesson, reflection, materiality, action, pct_move, slug)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        (trade_id, market_question, classification, actual_direction, lesson,
+         reflection, materiality, action, pct_move, slug),
     )
     lesson_id = cur.lastrowid
     conn.commit()
@@ -619,6 +648,19 @@ def get_all_lessons() -> list[dict]:
     """Every stored lesson, oldest first — for meta-prompt evolution."""
     conn = _conn()
     rows = conn.execute("SELECT * FROM lessons ORDER BY created_at").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_missed_opportunity_lessons(limit: int = 100000) -> list[dict]:
+    """Missed-opportunity reflections (lessons with a narrative reflection),
+    newest first — for the dashboard panel and the missed.html archive."""
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT * FROM lessons WHERE reflection IS NOT NULL "
+        "ORDER BY created_at DESC LIMIT ?",
+        (limit,),
+    ).fetchall()
     conn.close()
     return [dict(r) for r in rows]
 

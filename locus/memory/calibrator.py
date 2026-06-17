@@ -21,6 +21,33 @@ log = logging.getLogger(__name__)
 
 GAMMA_API = "https://gamma-api.polymarket.com"
 
+REFLECTION_PROMPT = """You are Locus, an AI trading agent. You skipped this signal and the market moved significantly.
+Write a 2-3 sentence reflection in first person:
+Market: {question}
+Your signal: {direction} (materiality {mat:.2f})
+Why you skipped: {action}
+What happened: price moved {pct:.0f}% in predicted direction
+Write honestly about what you missed and why."""
+
+
+def _generate_reflection(question: str, direction: str, mat: float, action: str, pct: float) -> str:
+    """One Haiku call: a first-person reflection on a missed opportunity. Never
+    raises — a failed call returns a short placeholder so the lesson still logs."""
+    prompt = REFLECTION_PROMPT.format(
+        question=question, direction=direction, mat=mat, action=action, pct=pct * 100
+    )
+    try:
+        response = memory.client.messages.create(
+            model=config.HAIKU_MODEL,
+            max_tokens=200,
+            temperature=0.5,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return response.content[0].text.strip()
+    except Exception as e:
+        log.warning(f"[calibrator] Reflection generation error: {e}")
+        return f"(reflection generation failed: {type(e).__name__})"
+
 
 @dataclass
 class CalibrationReport:
@@ -399,12 +426,22 @@ def check_missed_opportunities() -> int:
             f"'{r['market_question'][:50]}' — price moved +{pct * 100:.0f}%. "
             f"Consider lowering min_materiality for {category} category."
         )
+        # One Haiku call per missed opportunity: a first-person reflection stored
+        # alongside the lesson, surfaced on the dashboard's Missed Opportunities panel.
+        reflection = _generate_reflection(
+            r["market_question"], direction, r["materiality"], r["action"], pct
+        )
         logger.log_lesson(
             trade_id=None,
             market_question=r["market_question"],
             classification=direction,
             actual_direction=direction,
             lesson=lesson,
+            reflection=reflection,
+            materiality=r["materiality"],
+            action=r["action"],
+            pct_move=round(pct * 100, 1),
+            slug=market.get("slug", ""),
         )
         logged += 1
 

@@ -3,8 +3,34 @@ top-50 cap, single batched price fetch, resolved-market exclusion, lessons."""
 import sqlite3
 from datetime import datetime, timedelta, timezone
 
+import pytest
+
 from locus import config
 from locus.memory import calibrator
+
+
+class _FakeMessages:
+    def __init__(self, text):
+        self._text = text
+        self.calls = []
+
+    def create(self, **kwargs):
+        self.calls.append(kwargs)
+        return type("R", (), {"content": [type("C", (), {"text": self._text})()]})()
+
+
+class _FakeClient:
+    def __init__(self, text):
+        self.messages = _FakeMessages(text)
+
+
+@pytest.fixture(autouse=True)
+def _stub_reflection_client(monkeypatch):
+    """Stub the Anthropic client so check_missed_opportunities never touches the
+    network: _generate_reflection runs for real but the model call is faked."""
+    fake = _FakeClient("I saw the signal but held back; I should have trusted it.")
+    monkeypatch.setattr(calibrator.memory, "client", fake)
+    return fake
 
 
 def _insert(
@@ -62,6 +88,7 @@ def _fake_markets(monkeypatch, prices, closed=None):
                 "yes_price": prices[cid],
                 "closed": closed.get(cid, False),
                 "question": "",
+                "slug": f"{cid}-slug",
             }
             for cid in ids
             if cid in prices
@@ -180,3 +207,73 @@ def test_disabled_is_noop(tmp_db, monkeypatch):
 
     monkeypatch.setattr(calibrator.gamma, "fetch_markets_by_condition_ids", boom)
     assert calibrator.check_missed_opportunities() == 0
+
+
+# --- Narrative reflections ---------------------------------------------------
+
+def _missed_rows(db):
+    conn = sqlite3.connect(db.DB_PATH)
+    conn.row_factory = sqlite3.Row
+    rows = [dict(r) for r in conn.execute(
+        "SELECT * FROM lessons WHERE reflection IS NOT NULL ORDER BY id"
+    ).fetchall()]
+    conn.close()
+    return rows
+
+
+def test_reflection_generated(tmp_db, monkeypatch, _stub_reflection_client):
+    """One Haiku call per missed opportunity; the returned text is the reflection."""
+    monkeypatch.setattr(config, "MISSED_OPPORTUNITY_ENABLED", True)
+    monkeypatch.setattr(config, "MISSED_OPPORTUNITY_THRESHOLD", 0.12)
+    _insert(tmp_db, direction="bullish", condition_id="ai1", yes_price=0.20,
+            question="Will Acme launch AI model?")
+    _fake_markets(monkeypatch, {"ai1": 0.24})  # +20%
+
+    assert calibrator.check_missed_opportunities() == 1
+    # Exactly one model call, made with the Haiku model.
+    assert len(_stub_reflection_client.messages.calls) == 1
+    assert _stub_reflection_client.messages.calls[0]["model"] == config.HAIKU_MODEL
+
+
+def test_reflection_stored_with_metadata(tmp_db, monkeypatch):
+    """Reflection + skip metadata land in the lessons table alongside the lesson."""
+    monkeypatch.setattr(config, "MISSED_OPPORTUNITY_ENABLED", True)
+    monkeypatch.setattr(config, "MISSED_OPPORTUNITY_THRESHOLD", 0.12)
+    _insert(tmp_db, direction="bullish", action="low_materiality", materiality=0.70,
+            condition_id="ai1", yes_price=0.20, question="Will Acme launch AI model?")
+    _fake_markets(monkeypatch, {"ai1": 0.24})  # +20%
+
+    assert calibrator.check_missed_opportunities() == 1
+    rows = _missed_rows(tmp_db)
+    assert len(rows) == 1
+    r = rows[0]
+    assert r["reflection"] == "I saw the signal but held back; I should have trusted it."
+    assert r["classification"] == "bullish"
+    assert r["materiality"] == 0.70
+    assert r["action"] == "low_materiality"
+    assert r["pct_move"] == pytest.approx(20.0)
+    assert r["slug"] == "ai1-slug"
+
+
+def test_reflection_exported_shape(tmp_db, monkeypatch):
+    """get_missed_opportunity_lessons + _missed_opportunity_row -> dashboard shape."""
+    from locus.core import export_status
+
+    monkeypatch.setattr(config, "MISSED_OPPORTUNITY_ENABLED", True)
+    monkeypatch.setattr(config, "MISSED_OPPORTUNITY_THRESHOLD", 0.12)
+    _insert(tmp_db, direction="bullish", action="skip", materiality=0.70,
+            condition_id="ai1", yes_price=0.20, question="Will Acme launch AI model?")
+    _fake_markets(monkeypatch, {"ai1": 0.24})  # +20%
+    assert calibrator.check_missed_opportunities() == 1
+
+    lessons = tmp_db.get_missed_opportunity_lessons(limit=5)
+    assert len(lessons) == 1
+    row = export_status._missed_opportunity_row(lessons[0])
+    assert row["market_question"] == "Will Acme launch AI model?"
+    assert row["slug"] == "ai1-slug"
+    assert row["direction"] == "bullish"
+    assert row["action"] == "skip"
+    assert row["materiality"] == 0.70
+    assert row["pct_move"] == pytest.approx(20.0)
+    assert row["reflection"] == "I saw the signal but held back; I should have trusted it."
+    assert "time" in row

@@ -254,6 +254,7 @@ def fetch_markets_by_condition_ids(condition_ids: list[str]) -> dict[str, dict]:
                         "yes_price": _parse_yes_price(m),
                         "closed": bool(m.get("closed", False)),
                         "question": m.get("question", ""),
+                        "slug": (m.get("events") or [{}])[0].get("slug", "") or m.get("slug", ""),
                     }
     except (httpx.HTTPError, ValueError):
         # Network/parse failure: return whatever we collected. Missing ids are

@@ -654,6 +654,33 @@
     white-space: pre-wrap;
   }
 
+  /* Missed opportunities */
+  .missed-entry {
+    border-bottom: 1px solid var(--row-border);
+    padding: 12px 0;
+  }
+  .missed-entry:first-child { padding-top: 2px; }
+  .missed-entry:last-child { border-bottom: none; padding-bottom: 2px; }
+
+  .missed-entry .missed-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .missed-entry .missed-time {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+  .missed-entry .missed-market { font-size: 13px; font-weight: 700; }
+  .missed-entry .missed-market a { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--muted); }
+  .missed-entry .missed-market a:hover { color: var(--green); border-color: var(--green); }
+  .missed-entry .missed-meta { color: var(--muted); font-size: 12px; margin: 2px 0; }
+  .missed-entry .missed-move { color: var(--green); font-weight: 700; }
+  .missed-entry .missed-reflection { font-size: 13px; font-style: italic; margin-top: 6px; }
+
   .empty {
     color: var(--muted);
     font-style: italic;
@@ -992,6 +1019,15 @@
       <div class="panel-title">Journal<a class="view-all" href="journal.html">view all entries →</a></div>
       <div id="journal-list">
         <div class="empty">No entries yet — Locus writes one per day at 21:00 UTC.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="panel">
+      <div class="panel-title">Missed Opportunities<a class="view-all" href="missed.html">view all →</a></div>
+      <div id="missed-list">
+        <div class="empty">No missed opportunities flagged yet.</div>
       </div>
     </div>
   </section>
@@ -1522,6 +1558,33 @@
     `).join('');
   }
 
+  function missedEntryHtml(m) {
+    const move = (m.pct_move == null) ? '' :
+      `<span class="missed-move">+${Number(m.pct_move).toFixed(0)}%</span>`;
+    const mat = (m.materiality == null) ? '' :
+      ` · materiality ${Number(m.materiality).toFixed(2)}`;
+    return `
+      <div class="missed-entry">
+        <div class="missed-head">
+          <span class="missed-market">${marketCell(m.market_question, m.slug)}</span>
+          <span class="missed-time">${escapeHtml(m.time)}</span>
+        </div>
+        <div class="missed-meta">Skipped because: ${escapeHtml(m.action || '—')} · ${escapeHtml((m.direction || '').toUpperCase())}${mat}</div>
+        <div class="missed-meta">Price moved: ${move}</div>
+        <div class="missed-reflection">${escapeHtml(m.reflection)}</div>
+      </div>`;
+  }
+
+  function renderMissed(status) {
+    const container = document.getElementById('missed-list');
+    const entries = status.missed_opportunities || [];
+    if (entries.length === 0) {
+      container.innerHTML = '<div class="empty">No missed opportunities flagged yet.</div>';
+      return;
+    }
+    container.innerHTML = entries.map(missedEntryHtml).join('');
+  }
+
   // --- Live topbar clock (uptime + last-update), ticks every 10s ----------
   let uptimeBaseSec = null;     // uptime_seconds from the last status snapshot
   let statusFetchedAt = null;   // ms timestamp when we received that snapshot
@@ -1662,6 +1725,7 @@
     safeRender('priceBuckets', renderPriceBuckets, status);
     safeRender('prompt', renderPrompt, status);
     safeRender('journal', renderJournal, status);
+    safeRender('missed', renderMissed, status);
     safeRender('classifications', renderClassifications, status);
   }
 
