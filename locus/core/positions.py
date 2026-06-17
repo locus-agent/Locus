@@ -29,6 +29,7 @@ from locus import config
 from locus.markets import gamma
 from locus.memory import logger
 from locus.core.performance import position_pnl
+from locus.core import telegram_bot
 
 # Map a position's granular exit_reason to a canonical re-entry close reason.
 # 'resolution' is excluded from watching (no point watching a resolved market).
@@ -467,6 +468,14 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
                current_yes_price=? WHERE id=?""",
             (1.0 - fraction, realized, yes_price, position["id"]),
         )
+
+    # Real-time notification — single choke point for every close path (manual,
+    # resolution, stop, hard exit, re-eval, half close).
+    realized_pct = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+    if fraction >= 1.0:
+        telegram_bot.notify_position_closed(position, realized_pct, realized, exit_reason)
+    else:
+        telegram_bot.notify_half_closed(position, realized_pct, realized)
     return realized
 
 
@@ -629,6 +638,11 @@ def update_and_manage(prices: dict[str, float]) -> dict:
         # live price, not the stale stored one.
         position["current_yes_price"] = yes_price
         stats["updated"] += 1
+
+        # Drawdown alert (config is a fraction; current_pnl is in percent), sent
+        # at most once per position by the bot's own dedup.
+        if current_pnl <= -config.TELEGRAM_DRAWDOWN_ALERT_PCT * 100:
+            telegram_bot.notify_drawdown_alert(position, current_pnl)
 
         trigger = check_trigger(position, current_pnl)
         hard = check_hard_exit(position, current_pnl)

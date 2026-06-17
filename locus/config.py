@@ -54,6 +54,12 @@ TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHANNEL_IDS = [
     c.strip() for c in os.getenv("TELEGRAM_CHANNEL_IDS", "").split(",") if c.strip()
 ]
+# Chat the trading-notification bot posts to (and accepts /portfolio from). When
+# empty, locus/core/telegram_bot.py is fully disabled (all notifications no-op).
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+# Send a drawdown alert once an open position's unrealized loss exceeds this
+# fraction (0.25 = -25%). See positions.update_and_manage.
+TELEGRAM_DRAWDOWN_ALERT_PCT = float(os.getenv("TELEGRAM_DRAWDOWN_ALERT_PCT", "0.25"))
 
 # --- NewsAPI (optional, broader news coverage) ---
 NEWSAPI_KEY = os.getenv("NEWSAPI_KEY", "")

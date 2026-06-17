@@ -46,6 +46,12 @@ def cmd_watch(args):
         config.MATERIALITY_THRESHOLD_BULLISH = args.threshold
         config.MATERIALITY_THRESHOLD_BEARISH = args.threshold
 
+    # Real-time Telegram notifications + interactive /portfolio bot (no-op when
+    # TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID are unset). Runs in a daemon thread.
+    from locus.core import telegram_bot
+    if telegram_bot.start_bot_polling() is not None:
+        console.print("[dim]Telegram interactive bot polling started[/dim]")
+
     run_pipeline_v2()
 
 

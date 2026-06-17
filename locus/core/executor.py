@@ -5,6 +5,7 @@ import asyncio
 from locus import config
 from locus.memory import logger
 from locus.core.edge import Signal
+from locus.core import telegram_bot
 from locus.markets.gamma import get_token_id
 
 
@@ -142,6 +143,17 @@ def _log_and_return(signal: Signal, status: str, order_id: str | None) -> dict:
         confidence=signal.confidence,
         event_id=getattr(signal.market, "event_id", "") or None,
     )
+
+    # Real-time notification on a position actually being taken (dry-run or live).
+    if status in ("dry_run", "executed"):
+        telegram_bot.notify_position_opened({
+            "market_question": signal.market.question,
+            "side": signal.side,
+            "entry_yes_price": signal.market_price,
+            "amount_usd": signal.bet_amount,
+            "edge": signal.edge,
+            "confidence": signal.confidence,
+        })
 
     return {
         "trade_id": trade_id,

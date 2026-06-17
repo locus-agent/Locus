@@ -223,6 +223,37 @@ def write_journal_entry(extra: dict | None = None, date: str | None = None) -> s
     return entry
 
 
+def _daily_summary_stats(now: datetime | None = None) -> dict:
+    """Numbers for the Telegram daily summary: positions opened/closed and
+    realized PnL since 00:00 UTC, plus the portfolio's current unrealized PnL
+    and win rate."""
+    now = now or datetime.now(timezone.utc)
+    today_start = now.strftime("%Y-%m-%d 00:00:00")
+    conn = logger._conn()
+    opened = conn.execute(
+        "SELECT COUNT(*) FROM positions WHERE opened_at >= ?", (today_start,)
+    ).fetchone()[0]
+    closed = conn.execute(
+        "SELECT COUNT(*) FROM positions WHERE status != 'open' AND closed_at >= ?",
+        (today_start,),
+    ).fetchone()[0]
+    realized = conn.execute(
+        "SELECT COALESCE(SUM(realized_pnl_usd), 0) FROM positions WHERE closed_at >= ?",
+        (today_start,),
+    ).fetchone()[0]
+    conn.close()
+
+    from locus.core.performance import compute_performance
+    perf = compute_performance()
+    return {
+        "opened": opened,
+        "closed": closed,
+        "realized": realized,
+        "unrealized": perf["unrealized_pnl_usd"],
+        "win_rate": perf["win_rate_pct"],
+    }
+
+
 def maybe_write_journal(extra: dict | None = None, now: datetime | None = None) -> str | None:
     """Daily trigger: write today's entry on the first call after
     JOURNAL_HOUR_UTC. Idempotent — the journal table's UNIQUE date plus this
@@ -236,6 +267,14 @@ def maybe_write_journal(extra: dict | None = None, now: datetime | None = None) 
     if logger.has_journal_for(today):
         return None
     entry = write_journal_entry(extra, date=today)
+
+    # Push a daily summary to Telegram once the entry is written (best-effort).
+    if entry is not None:
+        try:
+            from locus.core import telegram_bot
+            telegram_bot.notify_daily_summary(_daily_summary_stats(now))
+        except Exception as e:
+            log.warning(f"[journal] Daily summary notification failed: {e}")
 
     # Weekly meta-prompt evolution: after the journal is written, evolve the
     # classification prompt if a week has passed since the last evolution (or if
