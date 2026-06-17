@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T06:56:43.872644+00:00",
-  "last_heartbeat": "2026-06-17T06:56:43.872644+00:00",
-  "uptime_seconds": 34380,
+  "generated_at": "2026-06-17T07:02:11.803530+00:00",
+  "last_heartbeat": "2026-06-17T07:02:11.803530+00:00",
+  "uptime_seconds": 34708,
   "dry_run": true,
-  "markets_tracked": 29,
+  "markets_tracked": 531,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3673,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 239,
+  "headlines_scanned_today": 240,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 11353,
+  "classifications_24h": 11361,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3395,
+    "prefiltered_haiku": 3401,
     "stale": 44,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -115,8 +115,8 @@
   },
   "pipeline_24h": {
     "news": 2352,
-    "matched": 902,
-    "classified": 11353,
+    "matched": 903,
+    "classified": 11361,
     "signals": 3,
     "trades": 3
   },
@@ -133,7 +133,7 @@
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1681.4
+    "avg_classification_latency_ms": 1723.5
   },
   "live_readiness": {
     "ready": false,
@@ -465,37 +465,24 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 06:42:49",
-      "market_question": "Will Alibaba have the best Chinese AI model at the end of June 2026?",
-      "headline": "Breakingviews - China's job-first policy risks blunting AI gains - Reuters",
+      "time": "2026-06-17 07:00:38",
+      "market_question": "Will the Democrats win the Mississippi Senate race in 2026?",
+      "headline": "Trump-backed Moore wins GOP runoff for US Senate in Alabama, as Democrats focus on rising costs - AP News",
       "direction": "bearish",
       "materiality": 0.05,
       "confidence": 0.52,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 06:42:48",
-      "market_question": "Will Alibaba have the best Chinese AI model at the end of July 2026?",
-      "headline": "Breakingviews - China's job-first policy risks blunting AI gains - Reuters",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.52,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 06:42:46",
-      "market_question": "Will Z.ai have the best Chinese AI model at the end of June 2026?",
-      "headline": "Breakingviews - China's job-first policy risks blunting AI gains - Reuters",
+      "time": "2026-06-17 07:00:37",
+      "market_question": "Will the Democrats win the Massachusetts Senate race in 2026?",
+      "headline": "Trump-backed Moore wins GOP runoff for US Senate in Alabama, as Democrats focus on rising costs - AP News",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
@@ -504,30 +491,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 06:42:44",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "Breakingviews - China's job-first policy risks blunting AI gains - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 07:00:33",
+      "market_question": "Will the Republicans win the Alabama Senate race in 2026?",
+      "headline": "Trump-backed Moore wins GOP runoff for US Senate in Alabama, as Democrats focus on rising costs - AP News",
+      "direction": "bullish",
+      "materiality": 0.1,
+      "confidence": 0.85,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 06:42:44",
-      "market_question": "Will Trump cut long term capital gains tax before 2027?",
-      "headline": "Breakingviews - China's job-first policy risks blunting AI gains - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 07:00:30",
+      "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
+      "headline": "Trump-backed Moore wins GOP runoff for US Senate in Alabama, as Democrats focus on rising costs - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 07:00:27",
+      "market_question": "Will Seth Moulton be the Democratic nominee for Senate in Massachusetts?",
+      "headline": "Trump-backed Moore wins GOP runoff for US Senate in Alabama, as Democrats focus on rising costs - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
