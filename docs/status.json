@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T18:58:21.181403+00:00",
-  "last_heartbeat": "2026-06-17T18:58:21.181403+00:00",
-  "uptime_seconds": 6111,
+  "generated_at": "2026-06-17T19:03:24.874343+00:00",
+  "last_heartbeat": "2026-06-17T19:03:24.874343+00:00",
+  "uptime_seconds": 6415,
   "dry_run": true,
-  "markets_tracked": 2442,
-  "classify_error_streak": 540,
+  "markets_tracked": 2440,
+  "classify_error_streak": 545,
   "track_record": {
     "total": 4955,
     "accuracy": 17.0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1284,
+  "headlines_scanned_today": 1286,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 9900,
+  "classifications_24h": 9890,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2446,
+    "prefiltered_haiku": 2445,
     "stale": 45,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -107,7 +107,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T18:46:49.098832+00:00"
+    "last_check": "2026-06-17T19:01:49.550615+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -115,9 +115,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2054,
-    "matched": 943,
-    "classified": 9900,
+    "news": 2053,
+    "matched": 945,
+    "classified": 9890,
     "signals": 2,
     "trades": 2
   },
@@ -130,11 +130,11 @@
     "losses": 7,
     "win_rate_pct": 41.7,
     "realized_pnl_usd": 5.28,
-    "unrealized_pnl_usd": -0.42,
+    "unrealized_pnl_usd": 3.13,
     "recent_winrate": 0.4167,
     "kelly_factor": 0.5,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2553.2
+    "avg_classification_latency_ms": 2552.6
   },
   "live_readiness": {
     "ready": false,
@@ -216,7 +216,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.195,
+      "current_price": 0.19500000000000006,
       "pnl_pct": 21.88,
       "amount_usd": 7.695,
       "current_value_usd": 9.38,
@@ -230,11 +230,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.335,
-      "pnl_pct": -0.75,
+      "current_price": 0.32,
+      "pnl_pct": 1.49,
       "amount_usd": 2.0,
-      "current_value_usd": 1.99,
-      "pnl_usd": -0.01,
+      "current_value_usd": 2.03,
+      "pnl_usd": 0.03,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -244,11 +244,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.10500000000000001,
-      "pnl_pct": -8.7,
+      "current_price": 0.115,
+      "pnl_pct": 0.0,
       "amount_usd": 12.97,
-      "current_value_usd": 11.84,
-      "pnl_usd": -1.13,
+      "current_value_usd": 12.97,
+      "pnl_usd": 0.0,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -258,11 +258,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -272,11 +272,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.42999999999999994,
+      "pnl_pct": 26.47,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 18.57,
+      "pnl_usd": 3.89,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -452,9 +452,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 18:56:58",
-      "market_question": "Will Trump praise Allah again by June 30?",
-      "headline": "Trump again slams Netanyahu\u2019s campaign in Lebanon - Politico",
+      "time": "2026-06-17 19:01:21",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Fed holds US interest rates steady as uncertainty over Trump's Iran deal remains",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -465,35 +465,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 18:56:58",
-      "market_question": "Will Donald Trump publicly insult Benjamin Netanyahu by June 30, 2026?",
-      "headline": "Trump again slams Netanyahu\u2019s campaign in Lebanon - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 18:56:58",
-      "market_question": "Netanyahu drops out of Israel election by July 31?",
-      "headline": "Trump again slams Netanyahu\u2019s campaign in Lebanon - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 18:56:58",
-      "market_question": "Will Trump resign before 2027?",
-      "headline": "Trump again slams Netanyahu\u2019s campaign in Lebanon - Politico",
+      "time": "2026-06-17 19:01:21",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Fed holds US interest rates steady as uncertainty over Trump's Iran deal remains",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -504,15 +478,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 18:56:58",
-      "market_question": "Will Donald Trump visit Lebanon in 2026?",
-      "headline": "Trump again slams Netanyahu\u2019s campaign in Lebanon - Politico",
+      "time": "2026-06-17 19:01:21",
+      "market_question": "Will Trump physically sign US x Iran deal?",
+      "headline": "Fed holds US interest rates steady as uncertainty over Trump's Iran deal remains",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 19:01:21",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Fed holds US interest rates steady as uncertainty over Trump's Iran deal remains",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 19:01:20",
+      "market_question": "Will Meta launch a USD stablecoin in 2026?",
+      "headline": "Fed holds US interest rates steady as uncertainty over Trump's Iran deal remains",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
