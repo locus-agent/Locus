@@ -239,7 +239,13 @@ async def _button_cmd(update, context):
     else:
         return
 
-    await query.edit_message_text(text, reply_markup=markup)
+    try:
+        await query.edit_message_text(text, reply_markup=markup)
+    except Exception as e:
+        # Telegram rejects an edit that doesn't change anything (e.g. tapping
+        # Refresh when nothing moved). That's a no-op, not an error.
+        if "not modified" not in str(e).lower():
+            raise
 
 
 def _run_polling():

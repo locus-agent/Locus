@@ -217,3 +217,31 @@ def test_button_close_auto_refreshes_portfolio(tmp_db):
 def test_button_close_missing_position(tmp_db):
     text, _ = _run_button("close:999")
     assert "not found or already closed" in text
+
+
+def _run_button_with_edit(data, edit):
+    async def answer():
+        pass
+
+    query = types.SimpleNamespace(data=data, answer=answer, edit_message_text=edit)
+    asyncio.run(telegram_bot._button_cmd(types.SimpleNamespace(callback_query=query), None))
+
+
+def test_refresh_swallows_not_modified_error(tmp_db):
+    _open(1, "c1", "Will A happen?")
+
+    async def edit(text, reply_markup=None):
+        raise RuntimeError("Message is not modified: same content and markup")
+
+    # Tapping Refresh on an unchanged view must be a no-op, not an error.
+    _run_button_with_edit("refresh", edit)
+
+
+def test_other_edit_errors_propagate(tmp_db):
+    _open(1, "c1", "Will A happen?")
+
+    async def edit(text, reply_markup=None):
+        raise RuntimeError("network down")
+
+    with pytest.raises(RuntimeError, match="network down"):
+        _run_button_with_edit("refresh", edit)
