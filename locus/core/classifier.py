@@ -61,6 +61,13 @@ Examples of VALID direct evidence:
 If you need more than one logical step to connect the headline to the market resolution → direction MUST be neutral.
 Ask yourself: Does this headline alone almost prove the market outcome? If not — neutral.
 
+SPORTS MARKETS — Extra Strict Rules:
+For any sports market, ADDITIONALLY require:
+- NO rumors, speculation, or unnamed sources ('rumored', 'expected', 'might', 'could', 'according to sources', 'insider says')
+- Only CONFIRMED facts: official announcements, verified injuries, actual match results
+- No pre-game predictions or lineup speculation
+- If news contains uncertainty words → direction MUST be neutral
+
 Also rate the MATERIALITY — how much should this move the price? 0.0 means no impact, 1.0 means this is definitive evidence.
 
 Judge materiality for THIS SPECIFIC market: does the news materially change the probability that

@@ -10,6 +10,16 @@ import httpx
 from locus import config
 
 
+# Sports-specific feeds, scraped only when config.SPORTS_ENABLED is set (see
+# scrape_all). Kept separate from config.RSS_FEEDS so toggling the sports
+# feature also toggles its news sources.
+SPORTS_RSS_FEEDS = [
+    "http://feeds.bbci.co.uk/sport/rss.xml",        # BBC Sport
+    "https://www.espn.com/espn/rss/news",           # ESPN
+    "https://www.goal.com/feeds/en/news",           # Goal.com
+]
+
+
 @dataclass
 class NewsItem:
     headline: str
@@ -193,7 +203,10 @@ def scrape_all(lookback_hours: int | None = None) -> list[NewsItem]:
     hours = lookback_hours or config.NEWS_LOOKBACK_HOURS
     all_items = []
 
-    for feed_url in config.RSS_FEEDS:
+    feeds = list(config.RSS_FEEDS)
+    if config.SPORTS_ENABLED:
+        feeds += SPORTS_RSS_FEEDS
+    for feed_url in feeds:
         all_items.extend(scrape_rss(feed_url, hours))
         time.sleep(0.5)  # polite crawling
 

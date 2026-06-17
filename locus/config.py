@@ -185,6 +185,18 @@ if _price_target_keywords_override:
         pass  # malformed override -> keep the defaults above
 
 
+# --- Sports markets (extra-strict; see classifier SPORTS block + pipeline gates) ---
+# Sports headlines are noisy (rumors, lineup speculation, pre-game punditry), so
+# sports markets get a higher materiality bar, a tighter resolution-time floor,
+# and a per-event headline cap. SPORTS_ENABLED=false skips them entirely
+# (action 'sports_disabled') and drops 'sports' from the tracked categories.
+SPORTS_ENABLED = os.getenv("SPORTS_ENABLED", "true").lower() == "true"
+SPORTS_MATERIALITY_THRESHOLD = float(os.getenv("SPORTS_MATERIALITY_THRESHOLD", "0.48"))
+SPORTS_MAX_EXPOSURE = float(os.getenv("SPORTS_MAX_EXPOSURE", "50"))
+SPORTS_MIN_HOURS_TO_RESOLUTION = float(os.getenv("SPORTS_MIN_HOURS_TO_RESOLUTION", "4"))
+MAX_HEADLINES_PER_SPORTS_EVENT = int(os.getenv("MAX_HEADLINES_PER_SPORTS_EVENT", "2"))
+
+
 def materiality_threshold(direction: str) -> float:
     """Direction-specific materiality floor for a would-be signal."""
     return (
@@ -405,6 +417,10 @@ MARKET_CATEGORIES = [
     "crypto",
     "politics",
 ]
+# Only track sports markets when the sports feature is on (otherwise the
+# market_watcher never tracks them and the sports gates never fire).
+if SPORTS_ENABLED:
+    MARKET_CATEGORIES.append("sports")
 
 # --- Per-category exposure limits ---
 # Hard cap (USD) on combined open-position exposure per inferred market
@@ -419,6 +435,7 @@ MAX_EXPOSURE_PER_CATEGORY = {
     "crypto": 75,
     "ai": 50,
     "technology": 50,
+    "sports": SPORTS_MAX_EXPOSURE,
     "other": 25,
 }
 _category_exposure_override = os.getenv("CATEGORY_EXPOSURE_LIMITS", "")

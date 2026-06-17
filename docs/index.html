@@ -865,6 +865,14 @@
           <span class="gate-label">capped — headline already traded</span>
           <span class="gate-count" id="gate-capped">—</span>
         </div>
+        <div class="gate-row gate-sports-disabled">
+          <span class="gate-label">sports disabled — sports markets turned off</span>
+          <span class="gate-count" id="gate-sports-disabled">—</span>
+        </div>
+        <div class="gate-row gate-sports-cap">
+          <span class="gate-label">sports event cap — max headlines per sports event</span>
+          <span class="gate-count" id="gate-sports-cap">—</span>
+        </div>
         <div class="gate-row gate-tooclose">
           <span class="gate-label">too close to resolution — market resolves too soon</span>
           <span class="gate-count" id="gate-tooclose">—</span>
@@ -1109,6 +1117,8 @@
     document.getElementById('gate-prefilter').textContent = g.prefiltered_haiku ?? '—';
     document.getElementById('gate-stale').textContent = g.stale ?? '—';
     document.getElementById('gate-capped').textContent = g.capped ?? '—';
+    document.getElementById('gate-sports-disabled').textContent = g.sports_disabled ?? '—';
+    document.getElementById('gate-sports-cap').textContent = g.sports_event_cap ?? '—';
     document.getElementById('gate-tooclose').textContent = g.too_close_to_resolution ?? '—';
     document.getElementById('gate-pricetarget').textContent = g.price_target_market ?? '—';
     document.getElementById('gate-correlation').textContent = g.correlation_block ?? '—';

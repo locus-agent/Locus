@@ -336,6 +336,18 @@ _CATEGORY_KEYWORDS = [
                 "usdt", "web3", "altcoin", "memecoin", "polymarket"]),
     ("politics", ["election", "president", "congress", "senate", "trump", "biden", "political"]),
     ("technology", ["tech", "technology", "apple", "google", "microsoft", "software", "startup"]),
+    ("sports", [
+        # NFL/NBA/NHL/MLB
+        "nfl", "nba", "nhl", "mlb", "quarterback", "touchdown", "super bowl",
+        "basketball", "hockey", "baseball", "stanley cup", "world series",
+        # Football (soccer)
+        "premier league", "champions league", "la liga", "bundesliga", "serie a",
+        "fifa", "soccer", "arsenal", "chelsea", "barcelona", "real madrid",
+        "manchester", "liverpool", "goal", "transfer",
+        # Tennis
+        "tennis", "wimbledon", "us open", "french open", "australian open",
+        "atp", "wta", "grand slam",
+    ]),
 ]
 _CATEGORY_PATTERNS = [
     (cat, re.compile(r"\b(?:" + "|".join(re.escape(kw) + r"s?" for kw in kws) + r")\b"))

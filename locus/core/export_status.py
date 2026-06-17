@@ -278,6 +278,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "stale": logger.get_classification_count_since(since_24h, action="stale"),
             "capped": logger.get_classification_count_since(since_24h, action="capped"),
             "too_close_to_resolution": logger.get_classification_count_since(since_24h, action="too_close_to_resolution"),
+            "sports_disabled": logger.get_classification_count_since(since_24h, action="sports_disabled"),
+            "sports_event_cap": logger.get_classification_count_since(since_24h, action="sports_event_cap"),
             "price_target_market": logger.get_classification_count_since(since_24h, action="price_target_market"),
             "correlation_block": logger.get_classification_count_since(since_24h, action="correlation_block"),
             "category_limit": logger.get_classification_count_since(since_24h, action="category_limit"),

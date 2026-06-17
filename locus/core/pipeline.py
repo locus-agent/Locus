@@ -95,12 +95,24 @@ def cov_blocks(cov: dict | None) -> bool:
     )
 
 
-def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: datetime | None = None):
+def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: datetime | None = None,
+               sports_event_counts: dict[str, int] | None = None):
     """Trade-time risk gates, applied after classification so every
     classification is still logged and calibrated.
 
+    Sports markets are gated extra strictly: when config.SPORTS_ENABLED is
+    false they are dropped entirely (action 'sports_disabled'); otherwise they
+    use config.SPORTS_MATERIALITY_THRESHOLD (not the direction-specific floor),
+    config.SPORTS_MIN_HOURS_TO_RESOLUTION (not MIN_HOURS_TO_RESOLUTION), and a
+    per-event headline cap — once sports_event_counts[event_id] reaches
+    config.MAX_HEADLINES_PER_SPORTS_EVENT the market is skipped (action
+    'sports_event_cap').
+
     Returns (signal_or_none, action):
       "skip"               — no edge detected
+      "sports_disabled"    — a sports market while config.SPORTS_ENABLED is off
+      "sports_event_cap"   — sports market whose event already hit
+                             config.MAX_HEADLINES_PER_SPORTS_EVENT traded headlines
       "stale"              — would-be signal, but the headline is older than
                              the source-specific freshness limit
                              (config.get_max_age_seconds) as of *now*
@@ -143,8 +155,28 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     # price-target market (resolves on a price threshold news rarely moves
     # cleanly). Neither consumes the headline cap.
     market = signal.market
+    is_sports = (getattr(market, "category", "") or "") == "sports"
+
+    # Sports markets are off entirely unless the feature is enabled.
+    if is_sports and not config.SPORTS_ENABLED:
+        return None, "sports_disabled"
+
+    # Per-event headline cap for sports: one event (e.g. a single match) can
+    # spawn many headlines; only trade the first MAX_HEADLINES_PER_SPORTS_EVENT.
+    if is_sports:
+        event_id = getattr(market, "event_id", "") or ""
+        counts = sports_event_counts or {}
+        if event_id and counts.get(event_id, 0) >= config.MAX_HEADLINES_PER_SPORTS_EVENT:
+            log.info(f"Filtered: sports_event_cap | {market.slug} | event {event_id}")
+            return None, "sports_event_cap"
+
+    # Sports get a tighter resolution-time floor than the standard one.
+    min_hours = (
+        config.SPORTS_MIN_HOURS_TO_RESOLUTION if is_sports
+        else config.MIN_HOURS_TO_RESOLUTION
+    )
     hours_left = positions.hours_to_close(market.end_date, now)
-    if hours_left is not None and hours_left < config.MIN_HOURS_TO_RESOLUTION:
+    if hours_left is not None and hours_left < min_hours:
         log.info(
             f"Filtered: too_close_to_resolution | {market.slug} | {hours_left:.1f}h left"
         )
@@ -156,10 +188,15 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         )
         return None, "price_target_market"
 
-    # Direction-specific materiality floor (calibration: bearish accuracy is
-    # far worse than bullish, so bearish needs a higher bar).
+    # Materiality floor. Sports use a single higher bar (noisier signal);
+    # everything else uses the direction-specific floor (calibration: bearish
+    # accuracy is far worse than bullish, so bearish needs a higher bar).
     direction = signal.classification
-    if signal.materiality < config.materiality_threshold(direction):
+    floor = (
+        config.SPORTS_MATERIALITY_THRESHOLD if is_sports
+        else config.materiality_threshold(direction)
+    )
+    if signal.materiality < floor:
         return None, "low_materiality"
 
     # High-materiality confirmation gate: the most "obvious" news grades worst
@@ -236,6 +273,9 @@ class PipelineV2:
         self.news_aggregator = NewsAggregator(self.news_queue)
         self.market_watcher = MarketWatcher()
         self._traded_headlines: set[str] = set()
+        # Per-event traded-headline counts for sports markets, enforcing
+        # config.MAX_HEADLINES_PER_SPORTS_EVENT (event_id -> count).
+        self._sports_event_counts: dict[str, int] = {}
         # Separate concurrency limits for the two model tiers: Haiku is cheap and
         # fast (allow many in flight), Sonnet is expensive (keep it tight).
         self._haiku_sem = asyncio.Semaphore(config.HAIKU_SEMAPHORE_SIZE)
@@ -423,7 +463,10 @@ class PipelineV2:
                         self.stats["classify_error_streak"] = 0
                         edge_metrics = detect_edge_v2(market, classification, event)
                         raw_signal = edge_metrics.signal if edge_metrics else None
-                        signal, action = gate_trade(event, raw_signal, self._traded_headlines)
+                        signal, action = gate_trade(
+                            event, raw_signal, self._traded_headlines,
+                            sports_event_counts=self._sports_event_counts,
+                        )
 
                         # Multi-LLM consensus gate: when the two models disagree
                         # (consensus below the floor), don't trust the call —
@@ -709,6 +752,14 @@ class PipelineV2:
                         # same headline when a late gate (CoV, orderbook) blocks the
                         # first match.
                         consume_headline(self._traded_headlines, event.headline, signal)
+                        # Count this traded headline against the sports per-event
+                        # cap (the switched signal's market is the one we open).
+                        if (getattr(signal.market, "category", "") or "") == "sports":
+                            ev_id = getattr(signal.market, "event_id", "") or ""
+                            if ev_id:
+                                self._sports_event_counts[ev_id] = (
+                                    self._sports_event_counts.get(ev_id, 0) + 1
+                                )
                         self.stats["signals_found"] += 1
                         await self.signal_queue.put(signal)
                         console.print(
