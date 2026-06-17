@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T23:42:03.308749+00:00",
-  "last_heartbeat": "2026-06-17T23:42:03.308749+00:00",
-  "uptime_seconds": 6434,
+  "generated_at": "2026-06-17T23:47:11.962113+00:00",
+  "last_heartbeat": "2026-06-17T23:47:11.962113+00:00",
+  "uptime_seconds": 6743,
   "dry_run": true,
-  "markets_tracked": 3725,
+  "markets_tracked": 3731,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5748,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2993,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 3001,
+  "headlines_last_cycle": 4,
   "signals_24h": 3,
-  "classifications_24h": 15273,
+  "classifications_24h": 15308,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3444,
+    "prefiltered_haiku": 3458,
     "stale": 74,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -104,7 +104,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 19,
+  "watched_markets_count": 20,
   "missed_opportunities_24h": 3,
   "whale": {
     "watched_wallets": 4,
@@ -117,27 +117,27 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2999,
-    "matched": 950,
-    "classified": 15273,
+    "news": 3006,
+    "matched": 956,
+    "classified": 15308,
     "signals": 3,
     "trades": 3
   },
   "performance": {
     "trades_total": 22,
     "deployed_usd": 342.87,
-    "open_count": 5,
-    "closed_count": 17,
+    "open_count": 4,
+    "closed_count": 18,
     "wins": 10,
-    "losses": 7,
-    "win_rate_pct": 58.8,
-    "realized_pnl_usd": 73.23,
-    "unrealized_pnl_usd": -10.65,
-    "total_pnl_usd": 62.58,
-    "recent_winrate": 0.5882,
-    "kelly_factor": 0.7574,
+    "losses": 8,
+    "win_rate_pct": 55.6,
+    "realized_pnl_usd": 58.42,
+    "unrealized_pnl_usd": -4.73,
+    "total_pnl_usd": 53.69,
+    "recent_winrate": 0.5556,
+    "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1558.9
+    "avg_classification_latency_ms": 1554.0
   },
   "live_readiness": {
     "ready": false,
@@ -149,7 +149,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 17,
+        "value": 18,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -157,7 +157,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 58.8,
+        "value": 55.6,
         "threshold_display": "> 55%",
         "pass": true
       },
@@ -165,7 +165,7 @@
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio (preliminary)",
         "unit": "ratio",
-        "value": 12.45,
+        "value": 12.69,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -173,7 +173,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 6.1,
+        "value": 5.1,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -182,24 +182,10 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0612,
-    "sharpe_7d": 0.65
+    "drawdown_7d": 0.0514,
+    "sharpe_7d": 0.66
   },
   "open_positions": [
-    {
-      "time": "2026-06-17 22:37:44",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "slug": "who-will-attend-us-iran-signing-ceremony-20260615232202457",
-      "side": "YES",
-      "entry_price": 0.135,
-      "current_price": 0.115,
-      "pnl_pct": -14.81,
-      "amount_usd": 40.0,
-      "current_value_usd": 34.07,
-      "pnl_usd": -5.93,
-      "edge_type": "momentum",
-      "event_id": "601528"
-    },
     {
       "time": "2026-06-17 01:44:54",
       "market_question": "Labour leadership election scheduled by June 30?",
@@ -234,7 +220,7 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.09499999999999997,
+      "current_price": 0.095,
       "pnl_pct": -17.39,
       "amount_usd": 12.97,
       "current_value_usd": 10.71,
@@ -258,6 +244,18 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-17T23:46:41.567706+00:00",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "slug": "who-will-attend-us-iran-signing-ceremony-20260615232202457",
+      "side": "YES",
+      "entry_price": 0.135,
+      "exit_price": 0.085,
+      "realized_pnl_usd": -14.814814814814813,
+      "exit_reason": "drawdown_decision",
+      "event_id": "601528",
+      "partial": false
+    },
     {
       "time": "2026-06-17T21:48:06.810361+00:00",
       "market_question": "Will Trump physically sign US x Iran deal?",
@@ -365,21 +363,18 @@
       "exit_reason": "drawdown_decision",
       "event_id": "548275",
       "partial": false
-    },
-    {
-      "time": "2026-06-15T23:29:08.815860+00:00",
-      "market_question": "Will Anthropic make a deal with the Pentagon by June 30?",
-      "slug": "will-anthropic-make-a-deal-with-the-pentagon",
-      "side": "YES",
-      "entry_price": 0.09,
-      "exit_price": 0.14500000000000002,
-      "realized_pnl_usd": 8.01166666666667,
-      "exit_reason": "tp_decision",
-      "event_id": "248342",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-17 23:46:41",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "side": "YES",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The original thesis was speculative and based on ambiguous headline interpretation \u2014 a US-Iran agreement being 'in effect' does not reliably imply Trump attended a signing ceremony, and the price action moving from 0.135 to 0.085 suggests the market disagrees. With no clear catalyst to reverse the trend and the position already down 37%, holding further requires a reason beyond hope.",
+      "pnl_pct": -37.04
+    },
     {
       "time": "2026-06-17 21:48:07",
       "market_question": "Will Trump physically sign US x Iran deal?",
@@ -415,74 +410,65 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 3.73
-    },
-    {
-      "time": "2026-06-17 19:23:38",
-      "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": 14.71
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 23:40:04",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "I knew stuttered run-up might get keeper off line - Kane",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 23:46:50",
+      "market_question": "Will there be 4 or more ChatGPT outages in June 2026?",
+      "headline": "ChatGPT can be made to generate sexualised and violent images, researchers find",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 23:40:04",
-      "market_question": "Will Sam Altman get OpenAI equity by June 30?",
-      "headline": "I knew stuttered run-up might get keeper off line - Kane",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 23:46:50",
+      "market_question": "Will there be exactly 2 ChatGPT outages in June 2026?",
+      "headline": "ChatGPT can be made to generate sexualised and violent images, researchers find",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 23:40:04",
-      "market_question": "World Cup Goals H2H: Mbappe vs. Kane",
-      "headline": "I knew stuttered run-up might get keeper off line - Kane",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 23:46:50",
+      "market_question": "Will there be fewer than 2 ChatGPT outages in June 2026?",
+      "headline": "ChatGPT can be made to generate sexualised and violent images, researchers find",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 23:40:04",
-      "market_question": "Will Harry Kane be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "I knew stuttered run-up might get keeper off line - Kane",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 23:46:50",
+      "market_question": "Will there be exactly 3 ChatGPT outages in June 2026?",
+      "headline": "ChatGPT can be made to generate sexualised and violent images, researchers find",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 23:40:04",
-      "market_question": "Will Harry Kane score 4+ goals during the 2026 FIFA World Cup?",
-      "headline": "I knew stuttered run-up might get keeper off line - Kane",
+      "time": "2026-06-17 23:46:50",
+      "market_question": "Will Donald Trump attend NATO Summit?",
+      "headline": "Photo highlights from the G7 summit in France - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
