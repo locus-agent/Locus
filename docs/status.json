@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T06:23:10.445491+00:00",
-  "last_heartbeat": "2026-06-17T06:23:10.445491+00:00",
-  "uptime_seconds": 32367,
+  "generated_at": "2026-06-17T06:28:14.010581+00:00",
+  "last_heartbeat": "2026-06-17T06:28:14.010581+00:00",
+  "uptime_seconds": 32671,
   "dry_run": true,
-  "markets_tracked": 2476,
+  "markets_tracked": 2475,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3673,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 234,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 235,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 11361,
+  "classifications_24h": 11369,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3395,
+    "prefiltered_haiku": 3403,
     "stale": 44,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T06:09:13.930309+00:00"
+    "last_check": "2026-06-17T06:24:14.299913+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2358,
-    "matched": 904,
-    "classified": 11361,
+    "news": 2359,
+    "matched": 905,
+    "classified": 11369,
     "signals": 3,
     "trades": 3
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -4.54,
+    "unrealized_pnl_usd": -3.03,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1685.1
+    "avg_classification_latency_ms": 1682.5
   },
   "live_readiness": {
     "ready": false,
@@ -215,7 +215,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.19999999999999996,
+      "current_price": 0.2,
       "pnl_pct": 25.0,
       "amount_usd": 7.695,
       "current_value_usd": 9.62,
@@ -285,11 +285,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.355,
-      "pnl_pct": 4.41,
+      "current_price": 0.39,
+      "pnl_pct": 14.71,
       "amount_usd": 14.68,
-      "current_value_usd": 15.33,
-      "pnl_usd": 0.65,
+      "current_value_usd": 16.84,
+      "pnl_usd": 2.16,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -465,69 +465,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 06:23:05",
-      "market_question": "Will Warsh say \"Trump\" during June Press Conference?",
-      "headline": "Oil extends fall, stocks steady as traders wait on Warsh - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 06:25:17",
+      "market_question": "Ukraine election held by December 31, 2026?",
+      "headline": "California 14th Congressional District Special Election Live Results 2026 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 06:23:05",
-      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
-      "headline": "Oil extends fall, stocks steady as traders wait on Warsh - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 06:25:17",
+      "market_question": "Will Matt Mahan finish first in the 2026 California Governor primary election in Los Angeles County?",
+      "headline": "California 14th Congressional District Special Election Live Results 2026 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 06:23:05",
-      "market_question": "Will Warsh say \"Crypto\" or \"Bitcoin\" during June Press Conference?",
-      "headline": "Oil extends fall, stocks steady as traders wait on Warsh - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 06:25:17",
+      "market_question": "Will Oliver Ma win the California Lieutenant Governor Election in 2026?",
+      "headline": "California 14th Congressional District Special Election Live Results 2026 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 06:20:55",
-      "market_question": "Will the announcers say \"Trump\" during the England vs Croatia FIFA World Cup Match?",
-      "headline": "'It's very Bond': Fashion experts on the England squad's off-pitch look",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 06:25:17",
+      "market_question": "Will Katie Porter finish first in the 2026 California Governor primary election in Los Angeles County?",
+      "headline": "California 14th Congressional District Special Election Live Results 2026 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 06:20:55",
-      "market_question": "Will the announcers say \"President\" during the England vs Croatia FIFA World Cup Match?",
-      "headline": "'It's very Bond': Fashion experts on the England squad's off-pitch look",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 06:25:17",
+      "market_question": "Will Matt Mahan finish first in the 2026 California Governor primary election in Santa Clara County?",
+      "headline": "California 14th Congressional District Special Election Live Results 2026 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
