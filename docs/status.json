@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-17T19:56:07.176229+00:00",
-  "last_heartbeat": "2026-06-17T19:56:07.176229+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-17T20:01:12.368096+00:00",
+  "last_heartbeat": "2026-06-17T20:01:12.368096+00:00",
+  "uptime_seconds": 343,
   "dry_run": true,
-  "markets_tracked": 3687,
+  "markets_tracked": 3689,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 5540,
+    "total": 5541,
     "accuracy": 17.8,
     "by_category": {
       "other": 16.2,
@@ -22,7 +22,7 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.8,
-    "overall_total": 5540,
+    "overall_total": 5541,
     "buckets": [
       {
         "name": "very_low",
@@ -36,10 +36,10 @@
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 480,
+        "total": 481,
         "correct": 186,
-        "accuracy_pct": 38.8,
-        "avg_pnl_pct": 42.84,
+        "accuracy_pct": 38.7,
+        "avg_pnl_pct": 42.75,
         "color": "green"
       },
       {
@@ -80,20 +80,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1902,
-  "headlines_last_cycle": 14,
-  "signals_24h": 2,
-  "classifications_24h": 12817,
+  "headlines_scanned_today": 2044,
+  "headlines_last_cycle": 27,
+  "signals_24h": 3,
+  "classifications_24h": 13581,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2450,
-    "stale": 46,
+    "prefiltered_haiku": 2770,
+    "stale": 48,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 0,
-    "correlation_block": 1,
+    "correlation_block": 4,
     "category_limit": 0,
     "orderbook_skip": 2,
     "already_priced_in": 0,
@@ -113,31 +113,31 @@
   },
   "edge_types_24h": {
     "news": 1,
-    "momentum": 1,
+    "momentum": 2,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2619,
-    "matched": 1003,
-    "classified": 12817,
-    "signals": 2,
-    "trades": 2
+    "news": 2756,
+    "matched": 1006,
+    "classified": 13581,
+    "signals": 3,
+    "trades": 3
   },
   "performance": {
-    "trades_total": 20,
-    "deployed_usd": 270.34,
-    "open_count": 4,
+    "trades_total": 21,
+    "deployed_usd": 302.87,
+    "open_count": 5,
     "closed_count": 16,
     "wins": 9,
     "losses": 7,
     "win_rate_pct": 56.2,
     "realized_pnl_usd": 10.22,
-    "unrealized_pnl_usd": -3.6,
-    "total_pnl_usd": 6.62,
+    "unrealized_pnl_usd": -3.03,
+    "total_pnl_usd": 7.19,
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2116.6
+    "avg_classification_latency_ms": 1789.1
   },
   "live_readiness": {
     "ready": false,
@@ -187,6 +187,20 @@
   },
   "open_positions": [
     {
+      "time": "2026-06-17 19:57:39",
+      "market_question": "Will Trump physically sign US x Iran deal?",
+      "slug": "will-trump-physically-sign-us-x-iran-deal-20260615192526331",
+      "side": "YES",
+      "entry_price": 0.135,
+      "current_price": 0.135,
+      "pnl_pct": 0.0,
+      "amount_usd": 32.53,
+      "current_value_usd": 32.53,
+      "pnl_usd": 0.0,
+      "edge_type": "momentum",
+      "event_id": "601512"
+    },
+    {
       "time": "2026-06-17 01:44:54",
       "market_question": "Labour leadership election scheduled by June 30?",
       "slug": "labour-leadership-election-scheduled-by",
@@ -220,11 +234,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.10500000000000001,
-      "pnl_pct": -8.7,
+      "current_price": 0.11,
+      "pnl_pct": -4.35,
       "amount_usd": 12.97,
-      "current_value_usd": 11.84,
-      "pnl_usd": -1.13,
+      "current_value_usd": 12.41,
+      "pnl_usd": -0.56,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -234,11 +248,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     }
@@ -414,9 +428,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 19:56:06",
-      "market_question": "US national Ethereum reserve before 2027?",
-      "headline": "Federal Reserve keeps rate unchanged, but nearly half of policymakers would support hike this year - AP News",
+      "time": "2026-06-17 20:01:11",
+      "market_question": "Will Uzbekistan reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "'Nearly men of Asian football' - Uzbekistan's rise to the World Cup",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 20:01:11",
+      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
+      "headline": "'Nearly men of Asian football' - Uzbekistan's rise to the World Cup",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -427,48 +454,35 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:56:06",
-      "market_question": "Trump on $250 bill this year?",
-      "headline": "Federal Reserve keeps rate unchanged, but nearly half of policymakers would support hike this year - AP News",
+      "time": "2026-06-17 20:01:10",
+      "market_question": "Will Uzbekistan advance to the knockout stages at the 2026 FIFA World Cup?",
+      "headline": "'Nearly men of Asian football' - Uzbekistan's rise to the World Cup",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:56:05",
-      "market_question": "Will Apple be the second-largest company in the world by market cap on June 30?",
-      "headline": "This Nvidia-Backed Company Is Bringing Artificial Intelligence (AI) Into the Physical World. Its Stock Could Jump 3x - The Motley Fool",
+      "time": "2026-06-17 20:01:10",
+      "market_question": "Will Uzbekistan win Group K in the 2026 FIFA World Cup?",
+      "headline": "'Nearly men of Asian football' - Uzbekistan's rise to the World Cup",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:56:05",
-      "market_question": "Will Apple be the largest company in the world by market cap on December 31?",
-      "headline": "This Nvidia-Backed Company Is Bringing Artificial Intelligence (AI) Into the Physical World. Its Stock Could Jump 3x - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 19:56:05",
-      "market_question": "Will Apple be the third-largest company in the world by market cap on June 30?",
-      "headline": "This Nvidia-Backed Company Is Bringing Artificial Intelligence (AI) Into the Physical World. Its Stock Could Jump 3x - The Motley Fool",
+      "time": "2026-06-17 20:01:07",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "'Nearly men of Asian football' - Uzbekistan's rise to the World Cup",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
