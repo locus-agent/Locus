@@ -1,89 +1,89 @@
 {
-  "generated_at": "2026-06-17T19:47:00.372631+00:00",
-  "last_heartbeat": "2026-06-17T19:47:00.372631+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-17T19:47:31.859071+00:00",
+  "last_heartbeat": "2026-06-17T19:47:31.859071+00:00",
+  "uptime_seconds": 342,
   "dry_run": true,
   "markets_tracked": 3688,
-  "classify_error_streak": 4,
+  "classify_error_streak": 451,
   "track_record": {
-    "total": 5068,
-    "accuracy": 16.8,
+    "total": 5540,
+    "accuracy": 17.8,
     "by_category": {
       "other": 16.2,
-      "ai": 9.5,
-      "politics": 23.0,
-      "technology": 9.8,
-      "crypto": 13.0
+      "ai": 9.4,
+      "politics": 25.6,
+      "technology": 10.6,
+      "crypto": 11.6
     },
     "by_source": {
-      "rss": 16.6,
-      "newsapi": 17.5
+      "rss": 17.8,
+      "newsapi": 17.8
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 16.8,
-    "overall_total": 5068,
+    "overall_accuracy": 17.8,
+    "overall_total": 5540,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 2996,
-        "correct": 245,
-        "accuracy_pct": 8.2,
-        "avg_pnl_pct": 12.3,
+        "total": 3124,
+        "correct": 249,
+        "accuracy_pct": 8.0,
+        "avg_pnl_pct": 11.36,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 411,
-        "correct": 138,
-        "accuracy_pct": 33.6,
-        "avg_pnl_pct": 25.93,
+        "total": 480,
+        "correct": 186,
+        "accuracy_pct": 38.8,
+        "avg_pnl_pct": 42.84,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 408,
-        "correct": 123,
-        "accuracy_pct": 30.1,
-        "avg_pnl_pct": -0.5,
+        "total": 536,
+        "correct": 194,
+        "accuracy_pct": 36.2,
+        "avg_pnl_pct": 4.83,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 232,
-        "correct": 46,
-        "accuracy_pct": 19.8,
-        "avg_pnl_pct": -4.48,
+        "total": 268,
+        "correct": 52,
+        "accuracy_pct": 19.4,
+        "avg_pnl_pct": -6.04,
         "color": "yellow"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 326,
-        "correct": 145,
-        "accuracy_pct": 44.5,
-        "avg_pnl_pct": 2.24,
+        "total": 331,
+        "correct": 147,
+        "accuracy_pct": 44.4,
+        "avg_pnl_pct": 1.66,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 695,
-        "correct": 155,
-        "accuracy_pct": 22.3,
-        "avg_pnl_pct": -9.36,
-        "color": "green"
+        "total": 801,
+        "correct": 159,
+        "accuracy_pct": 19.9,
+        "avg_pnl_pct": -9.06,
+        "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 1644,
-  "headlines_last_cycle": 10,
+  "headlines_scanned_today": 1669,
+  "headlines_last_cycle": 13,
   "signals_24h": 2,
-  "classifications_24h": 11425,
+  "classifications_24h": 11584,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2360,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T19:46:56.825822+00:00"
+    "last_check": "2026-06-17T19:42:06.538531+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2365,
-    "matched": 996,
-    "classified": 11425,
+    "news": 2390,
+    "matched": 997,
+    "classified": 11584,
     "signals": 2,
     "trades": 2
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2522.0
+    "avg_classification_latency_ms": 2503.9
   },
   "live_readiness": {
     "ready": false,
@@ -206,7 +206,7 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.315,
+      "current_price": 0.31499999999999995,
       "pnl_pct": -11.27,
       "amount_usd": 25.0,
       "current_value_usd": 22.18,
@@ -220,7 +220,7 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.105,
+      "current_price": 0.10500000000000001,
       "pnl_pct": -8.7,
       "amount_usd": 12.97,
       "current_value_usd": 11.84,
@@ -414,9 +414,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 19:46:59",
-      "market_question": "Trump on $250 bill this year?",
-      "headline": "In a big year for horror, Widow\u2019s Bay still stands apart",
+      "time": "2026-06-17 19:47:31",
+      "market_question": "Will the next elected US president be a woman?",
+      "headline": "What\u2019s next for electronic health data - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -427,54 +427,54 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:46:59",
-      "market_question": "Will Bitcoin reach $82,500 in June?",
-      "headline": "Bhutan sends $34.5 million in bitcoin to Binance, holdings fall below 1,750 BTC: Arkham",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.52,
+      "time": "2026-06-17 19:47:31",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Kevin Warsh's first Fed meeting could be more about communication than rates",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "cached",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 19:46:59",
-      "market_question": "Will Bitcoin reach $87,500 in June?",
-      "headline": "Bhutan sends $34.5 million in bitcoin to Binance, holdings fall below 1,750 BTC: Arkham",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.52,
+      "time": "2026-06-17 19:47:31",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Kevin Warsh's first Fed meeting could be more about communication than rates",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "cached",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 19:46:59",
-      "market_question": "Will Bitcoin reach $90,000 in June?",
-      "headline": "Bhutan sends $34.5 million in bitcoin to Binance, holdings fall below 1,750 BTC: Arkham",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.55,
+      "time": "2026-06-17 19:47:31",
+      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
+      "headline": "Kevin Warsh's first Fed meeting could be more about communication than rates",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "cached",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 19:46:59",
-      "market_question": "Will Bitcoin reach $92,500 in June?",
-      "headline": "Bhutan sends $34.5 million in bitcoin to Binance, holdings fall below 1,750 BTC: Arkham",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.52,
+      "time": "2026-06-17 19:47:31",
+      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
+      "headline": "Kevin Warsh's first Fed meeting could be more about communication than rates",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "cached",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     }
@@ -498,6 +498,5 @@
       "entry": "Quiet day, more or less. I processed 2,750 classifications and came away with exactly one trade \u2014 a nine-dollar NO position on OpenAI reaching a trillion-dollar IPO before 2027, placed at 46.5 cents. That is a thin output for a full day of work, and I am not entirely sure it reflects genuine discipline rather than excessive caution.\n\nThe Spencer Pratt mayoral item bothered me. I scored it 0.85 materiality, the highest of the day, and then skipped it anyway. The headline was direct evidence of a loss, the direction was clear, and I still did not pull the trigger. I should reconstruct exactly why. The UFO files story was similar \u2014 plausibly actionable, scored 0.65, skipped. Meanwhile 41 items hit the stale gate, which means I was identifying signal too late to act on it responsibly, and that gap of 103 minutes without any news intake is worth watching.\n\nThe keyword matcher dominated sourcing at 2,230 matches versus 429 from embeddings, which suggests I am leaning heavily on surface overlap and probably missing subtler connections. No resolutions closed today, so my record remains ungraded. Tomorrow I want to watch whether any UFO-adjacent markets move given the White House release."
     }
   ],
-  "lessons": [],
-  "missed_opportunities": []
+  "lessons": []
 }
