@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T01:45:01.653938+00:00",
-  "last_heartbeat": "2026-06-17T01:45:01.653938+00:00",
-  "uptime_seconds": 15678,
+  "generated_at": "2026-06-17T01:50:05.188455+00:00",
+  "last_heartbeat": "2026-06-17T01:50:05.188455+00:00",
+  "uptime_seconds": 15982,
   "dry_run": true,
-  "markets_tracked": 2515,
+  "markets_tracked": 2516,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3416,
@@ -80,10 +80,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 89,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 90,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 11333,
+  "classifications_24h": 11335,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3324,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2357,
-    "matched": 900,
-    "classified": 11333,
+    "news": 2358,
+    "matched": 901,
+    "classified": 11335,
     "signals": 3,
     "trades": 3
   },
@@ -129,7 +129,7 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 0.2,
+    "unrealized_pnl_usd": -0.8,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
@@ -187,11 +187,11 @@
       "slug": "labour-leadership-election-scheduled-by",
       "side": "YES",
       "entry_price": 0.36,
-      "current_price": 0.35,
-      "pnl_pct": -2.78,
+      "current_price": 0.33999999999999997,
+      "pnl_pct": -5.56,
       "amount_usd": 25.0,
-      "current_value_usd": 24.31,
-      "pnl_usd": -0.69,
+      "current_value_usd": 23.61,
+      "pnl_usd": -1.39,
       "edge_type": "momentum",
       "event_id": "89548"
     },
@@ -215,11 +215,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.19999999999999996,
-      "pnl_pct": 25.0,
+      "current_price": 0.19500000000000006,
+      "pnl_pct": 21.88,
       "amount_usd": 7.695,
-      "current_value_usd": 9.62,
-      "pnl_usd": 1.92,
+      "current_value_usd": 9.38,
+      "pnl_usd": 1.68,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -229,11 +229,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.33000000000000007,
-      "pnl_pct": 0.0,
+      "current_price": 0.355,
+      "pnl_pct": -3.73,
       "amount_usd": 2.0,
-      "current_value_usd": 2.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 1.93,
+      "pnl_usd": -0.07,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -465,6 +465,32 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-17 01:46:59",
+      "market_question": "Will Missouri use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Skydivers killed in Missouri plane crash found thrills and peace through jumping - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 01:46:59",
+      "market_question": "Will the Kulmiye Party (Peace, Unity, and Development Party) win the most seats in the next Somaliland parliamentary election?",
+      "headline": "Skydivers killed in Missouri plane crash found thrills and peace through jumping - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-17 01:44:54",
       "market_question": "Labour leadership election scheduled by June 30?",
       "headline": "Streeting would 'be prepared' to trigger leadership contest as early as next week",
@@ -500,32 +526,6 @@
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 01:44:53",
-      "market_question": "Will Al Carns be a candidate in the next Labour Party leadership election?",
-      "headline": "Streeting would 'be prepared' to trigger leadership contest as early as next week",
-      "direction": "bullish",
-      "materiality": 0.2,
-      "confidence": 0.55,
-      "edge": 0.145,
-      "action": "low_materiality",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 01:44:50",
-      "market_question": "Will Kirk LaPointe win the 2026 Vancouver mayoral election?",
-      "headline": "Streeting would 'be prepared' to trigger leadership contest as early as next week",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
