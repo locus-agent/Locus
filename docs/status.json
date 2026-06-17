@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T22:00:41.323698+00:00",
-  "last_heartbeat": "2026-06-17T22:00:41.323698+00:00",
-  "uptime_seconds": 352,
+  "generated_at": "2026-06-17T22:05:45.821412+00:00",
+  "last_heartbeat": "2026-06-17T22:05:45.821412+00:00",
+  "uptime_seconds": 657,
   "dry_run": true,
-  "markets_tracked": 3716,
+  "markets_tracked": 3712,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5748,
@@ -80,16 +80,16 @@
       }
     ]
   },
-  "headlines_scanned_today": 2906,
+  "headlines_scanned_today": 2917,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 15394,
+  "classifications_24h": 15453,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3576,
+    "prefiltered_haiku": 3592,
     "stale": 68,
     "capped": 0,
-    "too_close_to_resolution": 1,
+    "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3040,
-    "matched": 977,
-    "classified": 15394,
+    "news": 3051,
+    "matched": 986,
+    "classified": 15453,
     "signals": 2,
     "trades": 2
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5882,
     "kelly_factor": 0.7574,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1395.9
+    "avg_classification_latency_ms": 1426.0
   },
   "live_readiness": {
     "ready": false,
@@ -234,11 +234,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     }
@@ -414,9 +414,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 21:59:53",
-      "market_question": "Will United States win the Fair Play Award for the 2026 FIFA World Cup?",
-      "headline": "2026 World Cup schedule and results - AP News",
+      "time": "2026-06-17 22:04:20",
+      "market_question": "New MLB CBA by Dec. 1?",
+      "headline": "Diageo new CEO tells executives to cut jobs and costs, FT reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 22:04:19",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Diageo new CEO tells executives to cut jobs and costs, FT reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 22:04:19",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Diageo new CEO tells executives to cut jobs and costs, FT reports - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -427,54 +453,28 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 21:59:52",
-      "market_question": "Will Spain reach the Quarterfinals at the 2026 FIFA World Cup?",
-      "headline": "2026 World Cup schedule and results - AP News",
+      "time": "2026-06-17 22:04:19",
+      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
+      "headline": "Diageo new CEO tells executives to cut jobs and costs, FT reports - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 21:59:52",
-      "market_question": "Will France reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "2026 World Cup schedule and results - AP News",
+      "time": "2026-06-17 22:04:18",
+      "market_question": "Will Donald Trump have a diplomatic meeting with Iran by June 30?",
+      "headline": "What do Iran and the US stand to gain from their deal? Here\u2019s what to know - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.1,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 21:59:52",
-      "market_question": "Will Argentina reach the Quarterfinals at the 2026 FIFA World Cup?",
-      "headline": "2026 World Cup schedule and results - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 21:59:52",
-      "market_question": "Will Portugal reach the Quarterfinals at the 2026 FIFA World Cup?",
-      "headline": "2026 World Cup schedule and results - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
