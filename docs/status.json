@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T01:55:08.739313+00:00",
-  "last_heartbeat": "2026-06-17T01:55:08.739313+00:00",
-  "uptime_seconds": 16285,
+  "generated_at": "2026-06-17T02:00:12.730053+00:00",
+  "last_heartbeat": "2026-06-17T02:00:12.730053+00:00",
+  "uptime_seconds": 16589,
   "dry_run": true,
-  "markets_tracked": 2519,
+  "markets_tracked": 2524,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3416,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 93,
+  "headlines_scanned_today": 103,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 11350,
+  "classifications_24h": 11359,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3329,
+    "prefiltered_haiku": 3345,
     "stale": 42,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2361,
-    "matched": 904,
-    "classified": 11350,
+    "news": 2362,
+    "matched": 903,
+    "classified": 11359,
     "signals": 3,
     "trades": 3
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 0.19,
+    "unrealized_pnl_usd": -0.19,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1548.3
+    "avg_classification_latency_ms": 1543.7
   },
   "live_readiness": {
     "ready": false,
@@ -187,11 +187,11 @@
       "slug": "labour-leadership-election-scheduled-by",
       "side": "YES",
       "entry_price": 0.36,
-      "current_price": 0.36,
-      "pnl_pct": 0.0,
+      "current_price": 0.355,
+      "pnl_pct": -1.39,
       "amount_usd": 25.0,
-      "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 24.65,
+      "pnl_usd": -0.35,
       "edge_type": "momentum",
       "event_id": "89548"
     },
@@ -229,11 +229,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.37,
-      "pnl_pct": -5.97,
+      "current_price": 0.38,
+      "pnl_pct": -7.46,
       "amount_usd": 2.0,
-      "current_value_usd": 1.88,
-      "pnl_usd": -0.12,
+      "current_value_usd": 1.85,
+      "pnl_usd": -0.15,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -465,9 +465,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 01:51:31",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Senegal takes on World Cup favorite France, and other Tuesday game highlights, in photos - AP News",
+      "time": "2026-06-17 01:57:54",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Gorham Public Schools launches AI handbook for students - fox23maine.com",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 01:57:53",
+      "market_question": "Will Anthropic's public ticker be $ANT?",
+      "headline": "Gorham Public Schools launches AI handbook for students - fox23maine.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,9 +491,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 01:51:31",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Senegal takes on World Cup favorite France, and other Tuesday game highlights, in photos - AP News",
+      "time": "2026-06-17 01:57:52",
+      "market_question": "Will Anthropic's public ticker be $CLAU?",
+      "headline": "Gorham Public Schools launches AI handbook for students - fox23maine.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -491,9 +504,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 01:51:30",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Senegal takes on World Cup favorite France, and other Tuesday game highlights, in photos - AP News",
+      "time": "2026-06-17 01:57:52",
+      "market_question": "Will Anthropic's public ticker be $ANTH?",
+      "headline": "Gorham Public Schools launches AI handbook for students - fox23maine.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -504,22 +517,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 01:51:30",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Senegal takes on World Cup favorite France, and other Tuesday game highlights, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 01:51:30",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Senegal takes on World Cup favorite France, and other Tuesday game highlights, in photos - AP News",
+      "time": "2026-06-17 01:57:52",
+      "market_question": "Will Anthropic's public ticker be $ANAI?",
+      "headline": "Gorham Public Schools launches AI handbook for students - fox23maine.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
