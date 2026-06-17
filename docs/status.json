@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T23:21:47.982698+00:00",
-  "last_heartbeat": "2026-06-17T23:21:47.982698+00:00",
-  "uptime_seconds": 5219,
+  "generated_at": "2026-06-17T23:26:51.699329+00:00",
+  "last_heartbeat": "2026-06-17T23:26:51.699329+00:00",
+  "uptime_seconds": 5523,
   "dry_run": true,
-  "markets_tracked": 3723,
+  "markets_tracked": 3726,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5748,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2980,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2982,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 15258,
+  "classifications_24h": 15254,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3458,
+    "prefiltered_haiku": 3453,
     "stale": 69,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T23:10:22.913580+00:00"
+    "last_check": "2026-06-17T23:25:23.334374+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2998,
+    "news": 2997,
     "matched": 948,
-    "classified": 15258,
+    "classified": 15254,
     "signals": 3,
     "trades": 3
   },
@@ -428,6 +428,19 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-17 23:26:40",
+      "market_question": "Will New York Knicks win the 2027 NBA Finals?",
+      "headline": "NYPD to deploy 10K officers for Knicks title parad...",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-17 23:20:00",
       "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
       "headline": "Brazil's Eneva eyes options for deals in Venezuela, says CEO - Reuters",
@@ -476,19 +489,6 @@
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 23:19:59",
-      "market_question": "US national Bitcoin reserve before 2027?",
-      "headline": "US stocks sink on worries about a possible hike to interest rates this year by the Federal Reserve - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
