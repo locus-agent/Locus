@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T20:28:46.782237+00:00",
-  "last_heartbeat": "2026-06-17T20:28:46.782237+00:00",
-  "uptime_seconds": 646,
+  "generated_at": "2026-06-17T20:33:51.144774+00:00",
+  "last_heartbeat": "2026-06-17T20:33:51.144774+00:00",
+  "uptime_seconds": 950,
   "dry_run": true,
-  "markets_tracked": 3690,
+  "markets_tracked": 3693,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5586,
@@ -80,10 +80,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 2561,
+  "headlines_scanned_today": 2564,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 15594,
+  "classifications_24h": 15602,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3576,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T20:18:17.617161+00:00"
+    "last_check": "2026-06-17T20:33:18.090323+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3107,
-    "matched": 1021,
-    "classified": 15594,
+    "news": 3108,
+    "matched": 1024,
+    "classified": 15602,
     "signals": 3,
     "trades": 3
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1278.2
+    "avg_classification_latency_ms": 1287.4
   },
   "live_readiness": {
     "ready": false,
@@ -248,11 +248,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     }
@@ -428,61 +428,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 20:27:37",
-      "market_question": "Will Warsh say \"Trump\" during June Press Conference?",
-      "headline": "Fed chief Warsh appears to forgo a 'dot' indicating his rate-path view - Reuters",
+      "time": "2026-06-17 20:32:05",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "Federal Reserve policymakers show support for rate hikes as Warsh reins in guidance - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 20:32:04",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "Federal Reserve policymakers show support for rate hikes as Warsh reins in guidance - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:27:36",
-      "market_question": "Will the Republicans win the Michigan Senate race in 2026?",
-      "headline": "Michigan pollster accuses McMorrow campaign of killing unfavorable Senate poll - Politico",
-      "direction": "bullish",
-      "materiality": 0.12,
-      "confidence": 0.52,
+      "time": "2026-06-17 20:32:03",
+      "market_question": "Will Revolut launch a USD stablecoin in 2026?",
+      "headline": "Fidelity joins Wall Street's race to manage stablecoin reserves",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:27:36",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Fed chief Warsh appears to forgo a 'dot' indicating his rate-path view - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 20:32:03",
+      "market_question": "Will Meta launch a USD stablecoin in 2026?",
+      "headline": "Fidelity joins Wall Street's race to manage stablecoin reserves",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:27:36",
-      "market_question": "Will Warsh say \"Crypto\" or \"Bitcoin\" during June Press Conference?",
-      "headline": "Fed chief Warsh appears to forgo a 'dot' indicating his rate-path view - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 20:27:36",
-      "market_question": "Will Warsh say \"Artificial Intelligence\" or \"AI\" during June Press Conference?",
-      "headline": "Fed chief Warsh appears to forgo a 'dot' indicating his rate-path view - Reuters",
+      "time": "2026-06-17 20:32:03",
+      "market_question": "Will Jazz Chisholm be on the cover of MLB The Show 27?",
+      "headline": "Federal Reserve policymakers show support for rate hikes as Warsh reins in guidance - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
