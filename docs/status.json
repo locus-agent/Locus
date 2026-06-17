@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T22:20:57.954727+00:00",
-  "last_heartbeat": "2026-06-17T22:20:57.954727+00:00",
-  "uptime_seconds": 1569,
+  "generated_at": "2026-06-17T22:26:01.708251+00:00",
+  "last_heartbeat": "2026-06-17T22:26:01.708251+00:00",
+  "uptime_seconds": 1873,
   "dry_run": true,
-  "markets_tracked": 3727,
+  "markets_tracked": 3721,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5748,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 2936,
+  "headlines_scanned_today": 2938,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 15548,
+  "classifications_24h": 15391,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3619,
-    "stale": 68,
+    "prefiltered_haiku": 3549,
+    "stale": 66,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T22:10:21.308231+00:00"
+    "last_check": "2026-06-17T22:25:21.683822+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3065,
-    "matched": 998,
-    "classified": 15548,
+    "news": 3031,
+    "matched": 972,
+    "classified": 15391,
     "signals": 2,
     "trades": 2
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5882,
     "kelly_factor": 0.7574,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1468.5
+    "avg_classification_latency_ms": 1485.3
   },
   "live_readiness": {
     "ready": false,
@@ -414,67 +414,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 22:19:45",
-      "market_question": "Will Oklahoma win the 2026 College World Series?",
-      "headline": "Latest rosters for 85 key college basketball teams...",
+      "time": "2026-06-17 22:24:17",
+      "market_question": "Harry Kane: 3+ goals",
+      "headline": "Kane leads England to statement win over Croatia",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 22:24:17",
+      "market_question": "Will Bill Hill advance from the AK-AL primary election?",
+      "headline": "Archaeologists find musket balls and fort linked to the Battle of Bunker Hill - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 22:24:16",
+      "market_question": "Will England win Group L in the 2026 FIFA World Cup?",
+      "headline": "Kane leads England to statement win over Croatia",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.72,
+      "edge": null,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 22:19:45",
-      "market_question": "Paris Basketball vs. Monaco",
-      "headline": "Latest rosters for 85 key college basketball teams...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-17 22:24:16",
+      "market_question": "Will Croatia win Group L in the 2026 FIFA World Cup?",
+      "headline": "Kane leads England to statement win over Croatia",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.62,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 22:19:45",
-      "market_question": "Will West Virginia win the 2026 College World Series?",
-      "headline": "Latest rosters for 85 key college basketball teams...",
+      "time": "2026-06-17 22:24:16",
+      "market_question": "Will Harry Kane be the top goalscorer at the 2026 FIFA World Cup?",
+      "headline": "Kane leads England to statement win over Croatia",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 22:19:45",
-      "market_question": "Will North Carolina win the 2026 College World Series?",
-      "headline": "Latest rosters for 85 key college basketball teams...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 22:19:45",
-      "market_question": "Will Georgia win the 2026 College World Series?",
-      "headline": "Latest rosters for 85 key college basketball teams...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
