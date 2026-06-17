@@ -43,6 +43,24 @@ Source: {source}
 ## Task
 Does this news make the market question MORE likely to resolve YES, MORE likely to resolve NO, or is it NOT RELEVANT?
 
+CRITICAL RULE — Direct Evidence Only:
+Only classify as bullish or bearish if the news provides DIRECT, immediate evidence that the market will resolve YES or NO.
+
+- One logical step maximum.
+- No implied consequences, second-order effects, or chains of inference.
+
+Examples of INVALID (must be neutral):
+- News: 'Iran deal signed' → Market: 'Will Trump personally attend the next Iran meeting?' (indirect)
+- News: 'Company bought 5000 ETH' → Market: 'Will ETH reach $2500 by July?' (implied price target)
+- News: 'Diplomat said positive things' → Market: 'Will country X do action Y before date Z?' (inference chain)
+
+Examples of VALID direct evidence:
+- News: 'Trump just announced he will attend the Iran meeting on March 15' → Market: 'Will Trump attend next Iran meeting?' → bullish
+- News: 'SEC officially approved ETH ETF' → Market: 'Will ETH ETF be approved before June?' → bullish
+
+If you need more than one logical step to connect the headline to the market resolution → direction MUST be neutral.
+Ask yourself: Does this headline alone almost prove the market outcome? If not — neutral.
+
 Also rate the MATERIALITY — how much should this move the price? 0.0 means no impact, 1.0 means this is definitive evidence.
 
 Judge materiality for THIS SPECIFIC market: does the news materially change the probability that

@@ -102,6 +102,8 @@ PipelineV2._execute_signals:
   call injects a "Your track record" section (via `memory.get_track_record()` +
   `logger.get_recent_lessons()`) so Claude can see its historical accuracy and recent
   mistakes before classifying.
+  Direct Evidence Rule: We deliberately sacrifice some recall to dramatically increase
+  precision. Indirect/implied connections are the #1 source of losing trades.
 - `core/edge.py: detect_edge_v2` only signals when direction is non-neutral and the
   market price has room to move in that direction (skips YES if price > 0.85, skips NO
   if price < 0.15). The materiality floor is direction-specific and enforced downstream
