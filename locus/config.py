@@ -295,6 +295,9 @@ TAKE_PROFIT_TRIGGER_PCT = float(os.getenv("TAKE_PROFIT_TRIGGER_PCT", "50"))
 REEVAL_LOSS_PCT = float(os.getenv("REEVAL_LOSS_PCT", "-30"))
 STOP_LOSS_PCT = float(os.getenv("STOP_LOSS_PCT", "-50"))
 REEVAL_COOLDOWN_HOURS = float(os.getenv("REEVAL_COOLDOWN_HOURS", "6"))
+# A position sitting on a big unrealized gain deserves a fresh look even inside
+# the cooldown window — at/above this PnL%, re-eval bypasses the cooldown.
+REEVAL_FORCE_PCT = float(os.getenv("REEVAL_FORCE_PCT", "150.0"))
 NEWS_REEVAL_MATERIALITY = float(os.getenv("NEWS_REEVAL_MATERIALITY", "0.4"))
 # A Truth Social post (direct from Trump) that contradicts a held side at this
 # materiality or higher forces an immediate re-evaluation, bypassing the

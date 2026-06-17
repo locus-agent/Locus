@@ -673,10 +673,19 @@ def update_and_manage(prices: dict[str, float]) -> dict:
                     f"[positions] NEAR CERTAIN exit on \"{position['market_question'][:40]}\" "
                     f"at {yes_price:.2f} ({reason}) realized ${realized:+.2f}"
                 )
-        elif trigger and cooldown_allows(position, trigger):
-            conn.commit()  # persist the mark before the slow Claude call
-            stats["reevals"] += 1
-            reevaluate(position, trigger, yes_price=yes_price)
+        elif trigger:
+            # A big unrealized winner forces a re-eval even inside the cooldown:
+            # we don't want a runaway gain locked out of review by a recent look.
+            force = current_pnl >= config.REEVAL_FORCE_PCT
+            if trigger and (force or cooldown_allows(position, trigger)):
+                if force and not cooldown_allows(position, trigger):
+                    log.info(
+                        f"[positions] Force re-eval: PnL {current_pnl:.0f}% exceeds "
+                        f"force threshold, bypassing cooldown"
+                    )
+                conn.commit()  # persist the mark before the slow Claude call
+                stats["reevals"] += 1
+                reevaluate(position, trigger, yes_price=yes_price)
     conn.commit()
     conn.close()
     return stats

@@ -16,6 +16,7 @@ def exit_config(monkeypatch):
     monkeypatch.setattr(config, "REEVAL_LOSS_PCT", -30.0)
     monkeypatch.setattr(config, "STOP_LOSS_PCT", -50.0)
     monkeypatch.setattr(config, "REEVAL_COOLDOWN_HOURS", 6.0)
+    monkeypatch.setattr(config, "REEVAL_FORCE_PCT", 150.0)
     monkeypatch.setattr(config, "NEWS_REEVAL_MATERIALITY", 0.4)
     monkeypatch.setattr(config, "TRUTHSOCIAL_REEVAL_MATERIALITY", 0.6)
     monkeypatch.setattr(config, "NEAR_CERTAIN_THRESHOLD", 0.95)
@@ -164,6 +165,34 @@ def test_hold_decision_keeps_position_and_sets_cooldown(tmp_db, monkeypatch):
     calls = _fake_claude(monkeypatch, decision="close", calls=[])
     stats = positions.update_and_manage({"cond1": 0.85})
     assert stats["reevals"] == 0 and calls == []
+
+
+def test_high_profit_forces_reeval_bypassing_cooldown(tmp_db, monkeypatch):
+    # Low entry price so a big winner can clear the +150% force floor.
+    mkt = Market("cond1", "Will X happen?", "ai", 0.20, 0.80, 5000, "", True, [],
+                 slug="will-x-happen")
+    trade_id = tmp_db.log_trade(
+        market_id="cond1", market_question="Will X happen?", claude_score=0.7,
+        market_price=0.20, edge=0.2, side="YES", amount_usd=25.0,
+        status="dry_run", classification="bullish", materiality=0.7,
+    )
+    positions.open_position(trade_id, mkt, "YES", 25.0,
+                            headline="h", reasoning="r")
+
+    # A take-profit re-eval fires and sets the cooldown.
+    _fake_claude(monkeypatch, decision="hold", reasoning="let it ride")
+    positions.update_and_manage({"cond1": 0.31})  # +55% -> take_profit, holds
+    assert positions.get_open_positions()[0]["last_reeval_at"] is not None
+
+    # Inside the cooldown window, a modest gain is still blocked...
+    calls = _fake_claude(monkeypatch, decision="hold", calls=[])
+    stats = positions.update_and_manage({"cond1": 0.40})  # +100%, under force floor
+    assert stats["reevals"] == 0 and calls == []
+
+    # ...but a gain at/above REEVAL_FORCE_PCT bypasses the cooldown.
+    calls = _fake_claude(monkeypatch, decision="hold", calls=[])
+    stats = positions.update_and_manage({"cond1": 0.55})  # +175% -> force re-eval
+    assert stats["reevals"] == 1 and len(calls) == 1
 
 
 def test_close_half_realizes_half_keeps_rest(tmp_db, monkeypatch):
