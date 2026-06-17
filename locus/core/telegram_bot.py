@@ -142,9 +142,9 @@ def notify_drawdown_alert(position: dict, pnl_pct: float) -> bool:
 # --- Interactive command bot (/portfolio) ------------------------------------
 
 def _build_portfolio():
-    """(text, InlineKeyboardMarkup) for the portfolio view: each open position,
-    its live PnL, a [🔴 Close #id] button, plus [📈 Refresh] [💰 Balance].
-    Imports telegram lazily — only called from the polling thread's handlers."""
+    """(text, InlineKeyboardMarkup) for the portfolio view: each open position
+    with live PnL and a [🔴 Close #id] button, then a [📈 Refresh] [💰 Balance]
+    row. Imports telegram lazily — only called from the polling thread."""
     from telegram import InlineKeyboardButton, InlineKeyboardMarkup
     from locus.core import positions
 
@@ -169,16 +169,38 @@ def _build_portfolio():
     return text, InlineKeyboardMarkup(rows)
 
 
-def _balance_text() -> str:
+def _build_balance():
+    """(text, InlineKeyboardMarkup) for the balance view: summary stats only —
+    no per-position Close buttons — with [⬅️ Back to Portfolio] [🔄 Refresh]."""
+    from telegram import InlineKeyboardButton, InlineKeyboardMarkup
     from locus.core.performance import compute_performance
+
     perf = compute_performance()
-    return (
+    text = (
         "💰 BALANCE\n"
         f"Open: {perf['open_count']} | Closed: {perf['closed_count']}\n"
         f"Deployed: ${perf['deployed_usd']:.2f}\n"
         f"Realized: {perf['realized_pnl_usd']:+.2f}\n"
         f"Unrealized: {perf['unrealized_pnl_usd']:+.2f}"
     )
+    markup = InlineKeyboardMarkup([[
+        InlineKeyboardButton("⬅️ Back to Portfolio", callback_data="portfolio"),
+        InlineKeyboardButton("🔄 Refresh", callback_data="balance"),
+    ]])
+    return text, markup
+
+
+def _build_close_confirmation(header: str):
+    """(text, InlineKeyboardMarkup) shown after a Close tap: a confirmation
+    header above the freshly-refreshed portfolio list, with a [📊 Portfolio]
+    button on top to dismiss the header and go back."""
+    from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+
+    text, portfolio_markup = _build_portfolio()
+    text = f"{header}\n\n{text}"
+    rows = [[InlineKeyboardButton("📊 Portfolio", callback_data="portfolio")]]
+    rows.extend(portfolio_markup.inline_keyboard)
+    return text, InlineKeyboardMarkup(rows)
 
 
 async def _portfolio_cmd(update, context):
@@ -188,17 +210,15 @@ async def _portfolio_cmd(update, context):
 
 
 async def _button_cmd(update, context):
-    """Inline-button taps: close / refresh / balance."""
+    """Inline-button taps: navigate (portfolio/refresh/balance) or close a position."""
     query = update.callback_query
     await query.answer()
     data = query.data or ""
 
-    if data == "refresh":
+    if data in ("portfolio", "refresh"):
         text, markup = _build_portfolio()
-        await query.edit_message_text(text, reply_markup=markup)
     elif data == "balance":
-        _, markup = _build_portfolio()
-        await query.edit_message_text(_balance_text(), reply_markup=markup)
+        text, markup = _build_balance()
     elif data.startswith("close:"):
         from locus.core import positions
         try:
@@ -207,16 +227,19 @@ async def _button_cmd(update, context):
             return
         result = positions.close_manual(pid)
         if result:
-            text = (
-                f"✅ Closed #{pid}\n"
-                f"{result['market_question'][:50]}\n"
+            header = (
+                f"✅ Closed #{pid} — {result['market_question'][:50]}\n"
                 f"{result['side']} @ {result['price']:.3f} "
                 f"({result['pnl_pct']:+.1f}%, ${result['realized']:+.2f})"
             )
         else:
-            text = f"⚠️ Position #{pid} not found or already closed."
-        _, markup = _build_portfolio()
-        await query.edit_message_text(text, reply_markup=markup)
+            header = f"⚠️ Position #{pid} not found or already closed."
+        # Auto-refresh: the confirmation embeds the updated portfolio list.
+        text, markup = _build_close_confirmation(header)
+    else:
+        return
+
+    await query.edit_message_text(text, reply_markup=markup)
 
 
 def _run_polling():

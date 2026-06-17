@@ -1,8 +1,44 @@
-"""Telegram bot: graceful no-op when unconfigured, and exact message formats."""
+"""Telegram bot: graceful no-op when unconfigured, exact message formats, and
+the interactive portfolio / balance / close-and-refresh UX."""
+import asyncio
+import types
+
 import pytest
 
 from locus import config
 from locus.core import telegram_bot
+from locus.core import positions as positions_mod
+
+
+def _btns(markup):
+    """Flatten an InlineKeyboardMarkup to a list of (text, callback_data)."""
+    return [(b.text, b.callback_data) for row in markup.inline_keyboard for b in row]
+
+
+def _open(trade_id, cid, question, side="YES", amount=10.0, yes=0.5):
+    """Insert an open position into the tmp_db and return its id."""
+    market = types.SimpleNamespace(
+        condition_id=cid, question=question, slug="", yes_price=yes,
+        event_id="", category="crypto", end_date="",
+    )
+    return positions_mod.open_position(trade_id, market, side, amount)
+
+
+def _run_button(data):
+    """Drive _button_cmd with a fake callback query; return (text, markup) of the
+    single edit_message_text call it makes."""
+    edits = []
+
+    async def edit(text, reply_markup=None):
+        edits.append((text, reply_markup))
+
+    async def answer():
+        pass
+
+    query = types.SimpleNamespace(data=data, answer=answer, edit_message_text=edit)
+    update = types.SimpleNamespace(callback_query=query)
+    asyncio.run(telegram_bot._button_cmd(update, None))
+    return edits[0] if edits else (None, None)
 
 
 @pytest.fixture
@@ -124,3 +160,60 @@ def test_notify_drawdown_alert_format_and_dedup(enabled):
     # Closing it clears the dedup, so a future drawdown can alert again.
     telegram_bot.notify_position_closed(pos, -35.0, -5.0, "sl")
     assert telegram_bot.notify_drawdown_alert(pos, -40.0) is True
+
+
+# --- Interactive views -------------------------------------------------------
+
+def test_balance_view_has_no_close_buttons(tmp_db):
+    _open(1, "c1", "Will A happen?")
+    _open(2, "c2", "Will B happen?")
+    text, markup = telegram_bot._build_balance()
+    assert text.startswith("💰 BALANCE")
+    btns = _btns(markup)
+    # Summary only — no per-position Close buttons.
+    assert all(not cb.startswith("close:") for _, cb in btns)
+    assert btns == [("⬅️ Back to Portfolio", "portfolio"), ("🔄 Refresh", "balance")]
+
+
+def test_portfolio_view_has_refresh_and_balance(tmp_db):
+    pid = _open(1, "c1", "Will A happen?")
+    text, markup = telegram_bot._build_portfolio()
+    assert text.startswith("💼 PORTFOLIO")
+    btns = _btns(markup)
+    assert (f"🔴 Close #{pid}", f"close:{pid}") in btns
+    assert ("📈 Refresh", "refresh") in btns
+    assert ("💰 Balance", "balance") in btns
+
+
+def test_close_confirmation_has_back_to_portfolio_button(tmp_db):
+    text, markup = telegram_bot._build_close_confirmation("✅ Closed #5 — Foo")
+    assert text.startswith("✅ Closed #5 — Foo")
+    assert "💼 PORTFOLIO" in text  # embeds the refreshed portfolio list
+    btns = _btns(markup)
+    assert btns[0] == ("📊 Portfolio", "portfolio")  # back button on top
+
+
+def test_button_navigation_between_portfolio_and_balance(tmp_db):
+    _open(1, "c1", "Will A happen?")
+    btext, bmarkup = _run_button("balance")
+    assert btext.startswith("💰 BALANCE")
+    assert all(not cb.startswith("close:") for _, cb in _btns(bmarkup))
+    ptext, pmarkup = _run_button("portfolio")
+    assert ptext.startswith("💼 PORTFOLIO")
+    assert ("💰 Balance", "balance") in _btns(pmarkup)
+
+
+def test_button_close_auto_refreshes_portfolio(tmp_db):
+    pid = _open(1, "c1", "Will A happen?")
+    text, markup = _run_button(f"close:{pid}")
+    # Confirmation header + the refreshed (now empty) portfolio list.
+    assert "✅ Closed" in text
+    assert "No open positions" in text
+    assert _btns(markup)[0] == ("📊 Portfolio", "portfolio")
+    # The position is actually closed in the DB.
+    assert positions_mod.get_open_positions() == []
+
+
+def test_button_close_missing_position(tmp_db):
+    text, _ = _run_button("close:999")
+    assert "not found or already closed" in text
