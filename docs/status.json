@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T18:38:06.474979+00:00",
-  "last_heartbeat": "2026-06-17T18:38:06.474979+00:00",
-  "uptime_seconds": 4896,
+  "generated_at": "2026-06-17T18:43:09.982944+00:00",
+  "last_heartbeat": "2026-06-17T18:43:09.982944+00:00",
+  "uptime_seconds": 5200,
   "dry_run": true,
-  "markets_tracked": 2426,
-  "classify_error_streak": 448,
+  "markets_tracked": 2430,
+  "classify_error_streak": 457,
   "track_record": {
     "total": 4955,
     "accuracy": 17.0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1249,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1254,
+  "headlines_last_cycle": 4,
   "signals_24h": 2,
-  "classifications_24h": 9764,
+  "classifications_24h": 9772,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2471,
+    "prefiltered_haiku": 2460,
     "stale": 45,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -115,9 +115,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2028,
-    "matched": 922,
-    "classified": 9764,
+    "news": 2030,
+    "matched": 926,
+    "classified": 9772,
     "signals": 2,
     "trades": 2
   },
@@ -130,11 +130,11 @@
     "losses": 7,
     "win_rate_pct": 41.7,
     "realized_pnl_usd": 5.28,
-    "unrealized_pnl_usd": -0.55,
+    "unrealized_pnl_usd": -1.63,
     "recent_winrate": 0.4167,
     "kelly_factor": 0.5,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2535.3
+    "avg_classification_latency_ms": 2535.2
   },
   "live_readiness": {
     "ready": false,
@@ -230,7 +230,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.32499999999999996,
+      "current_price": 0.325,
       "pnl_pct": 0.75,
       "amount_usd": 2.0,
       "current_value_usd": 2.01,
@@ -272,11 +272,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.32499999999999996,
+      "pnl_pct": -4.41,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 14.03,
+      "pnl_usd": -0.65,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -452,9 +452,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 18:37:19",
-      "market_question": "Elon Musk wins $10b+ settlement against Altman/OpenAI?",
-      "headline": "Verhoeven says appeal against loss to Usyk dismissed",
+      "time": "2026-06-17 18:43:07",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "SpaceX announces $60 billion Cursor deal to boost AI coding - Yahoo Finance",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 18:43:07",
+      "market_question": "Quantum breaks Bitcoin by December 31, 2027?",
+      "headline": "Verizon breaks industry mold | About Verizon - Verizon",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,9 +478,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 18:37:19",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be less than 5?",
-      "headline": "Africa\u2019s Ebola outbreaks complicated by victims who prefer traditional healers over hospitals - AP News",
+      "time": "2026-06-17 18:43:07",
+      "market_question": "Quantum breaks Bitcoin by December 31, 2026?",
+      "headline": "Verizon breaks industry mold | About Verizon - Verizon",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -478,9 +491,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 18:37:19",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
-      "headline": "Africa\u2019s Ebola outbreaks complicated by victims who prefer traditional healers over hospitals - AP News",
+      "time": "2026-06-17 18:43:07",
+      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
+      "headline": "Verizon breaks industry mold | About Verizon - Verizon",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -491,22 +504,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 18:37:19",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be exactly 6?",
-      "headline": "Africa\u2019s Ebola outbreaks complicated by victims who prefer traditional healers over hospitals - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 18:37:19",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be exactly 5?",
-      "headline": "Africa\u2019s Ebola outbreaks complicated by victims who prefer traditional healers over hospitals - AP News",
+      "time": "2026-06-17 18:43:07",
+      "market_question": "Will Elon Musk Testify to Congress about Epstein?",
+      "headline": "Verizon breaks industry mold | About Verizon - Verizon",
       "direction": null,
       "materiality": null,
       "confidence": null,
