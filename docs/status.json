@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T17:47:29.544386+00:00",
-  "last_heartbeat": "2026-06-17T17:47:29.544386+00:00",
-  "uptime_seconds": 1859,
+  "generated_at": "2026-06-17T17:52:33.185558+00:00",
+  "last_heartbeat": "2026-06-17T17:52:33.185558+00:00",
+  "uptime_seconds": 2163,
   "dry_run": true,
-  "markets_tracked": 2426,
-  "classify_error_streak": 278,
+  "markets_tracked": 2427,
+  "classify_error_streak": 279,
   "track_record": {
     "total": 4955,
     "accuracy": 17.0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1161,
+  "headlines_scanned_today": 1162,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 11039,
+  "classifications_24h": 11032,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2858,
+    "prefiltered_haiku": 2852,
     "stale": 48,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -115,9 +115,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2288,
-    "matched": 938,
-    "classified": 11039,
+    "news": 2287,
+    "matched": 939,
+    "classified": 11032,
     "signals": 2,
     "trades": 2
   },
@@ -130,11 +130,11 @@
     "losses": 7,
     "win_rate_pct": 41.7,
     "realized_pnl_usd": 5.28,
-    "unrealized_pnl_usd": -1.47,
+    "unrealized_pnl_usd": -1.31,
     "recent_winrate": 0.4167,
     "kelly_factor": 0.5,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2540.0
+    "avg_classification_latency_ms": 2539.8
   },
   "live_readiness": {
     "ready": false,
@@ -202,7 +202,7 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.305,
+      "current_price": 0.30500000000000005,
       "pnl_pct": -14.08,
       "amount_usd": 25.0,
       "current_value_usd": 21.48,
@@ -230,11 +230,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.425,
-      "pnl_pct": -14.18,
+      "current_price": 0.41500000000000004,
+      "pnl_pct": -12.69,
       "amount_usd": 2.0,
-      "current_value_usd": 1.72,
-      "pnl_usd": -0.28,
+      "current_value_usd": 1.75,
+      "pnl_usd": -0.25,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -244,11 +244,11 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.10999999999999999,
-      "pnl_pct": -4.35,
+      "current_price": 0.11499999999999999,
+      "pnl_pct": 0.0,
       "amount_usd": 12.97,
-      "current_value_usd": 12.41,
-      "pnl_usd": -0.56,
+      "current_value_usd": 12.97,
+      "pnl_usd": -0.0,
       "edge_type": "momentum",
       "event_id": "106940"
     },
@@ -272,11 +272,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.36,
-      "pnl_pct": 5.88,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 15.54,
-      "pnl_usd": 0.86,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -452,9 +452,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 17:45:05",
-      "market_question": "Labour leadership election scheduled by June 30?",
-      "headline": "Mason: Starmer remains defiant as leadership challenge inches closer",
+      "time": "2026-06-17 17:49:30",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Legal AI startup Eve hit with patent infringement lawsuit - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 17:49:27",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Legal AI startup Eve hit with patent infringement lawsuit - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,9 +478,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 17:45:05",
-      "market_question": "Will Al Carns be a candidate in the next Labour Party leadership election?",
-      "headline": "Mason: Starmer remains defiant as leadership challenge inches closer",
+      "time": "2026-06-17 17:49:27",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Legal AI startup Eve hit with patent infringement lawsuit - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -478,9 +491,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 17:45:05",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "headline": "Mason: Starmer remains defiant as leadership challenge inches closer",
+      "time": "2026-06-17 17:49:27",
+      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
+      "headline": "Legal AI startup Eve hit with patent infringement lawsuit - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -491,22 +504,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 17:45:05",
-      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
-      "headline": "Mason: Starmer remains defiant as leadership challenge inches closer",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 17:45:05",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "headline": "Mason: Starmer remains defiant as leadership challenge inches closer",
+      "time": "2026-06-17 17:49:27",
+      "market_question": "Will Polymarket mindshare hit 90% by June 30?",
+      "headline": "Legal AI startup Eve hit with patent infringement lawsuit - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
