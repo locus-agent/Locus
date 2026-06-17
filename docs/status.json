@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T12:31:16.318479+00:00",
-  "last_heartbeat": "2026-06-17T12:31:16.318479+00:00",
-  "uptime_seconds": 54453,
+  "generated_at": "2026-06-17T12:36:19.910411+00:00",
+  "last_heartbeat": "2026-06-17T12:36:19.910411+00:00",
+  "uptime_seconds": 54756,
   "dry_run": true,
-  "markets_tracked": 2450,
+  "markets_tracked": 2457,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3808,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 446,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 448,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 11292,
+  "classifications_24h": 11273,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3350,
+    "prefiltered_haiku": 3343,
     "stale": 53,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2342,
+    "news": 2340,
     "matched": 973,
-    "classified": 11292,
+    "classified": 11273,
     "signals": 2,
     "trades": 2
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -5.55,
+    "unrealized_pnl_usd": -4.88,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1804.4
+    "avg_classification_latency_ms": 1804.6
   },
   "live_readiness": {
     "ready": false,
@@ -187,11 +187,11 @@
       "slug": "labour-leadership-election-scheduled-by",
       "side": "YES",
       "entry_price": 0.36,
-      "current_price": 0.35,
-      "pnl_pct": -2.78,
+      "current_price": 0.36,
+      "pnl_pct": 0.0,
       "amount_usd": 25.0,
-      "current_value_usd": 24.31,
-      "pnl_usd": -0.69,
+      "current_value_usd": 25.0,
+      "pnl_usd": 0.0,
       "edge_type": "momentum",
       "event_id": "89548"
     },
@@ -229,11 +229,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.305,
-      "pnl_pct": 3.73,
+      "current_price": 0.315,
+      "pnl_pct": 2.24,
       "amount_usd": 2.0,
-      "current_value_usd": 2.07,
-      "pnl_usd": 0.07,
+      "current_value_usd": 2.04,
+      "pnl_usd": 0.04,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -465,6 +465,45 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-17 12:34:03",
+      "market_question": "Will OpenAI announce glasses in 2026?",
+      "headline": "Snap unveils \u00a31,995 smart glasses after previous flops",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 12:33:59",
+      "market_question": "Spain snap election called in 2026?",
+      "headline": "Snap unveils \u00a31,995 smart glasses after previous flops",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 12:33:59",
+      "market_question": "Spain snap election called by June 30, 2026?",
+      "headline": "Snap unveils \u00a31,995 smart glasses after previous flops",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-17 12:29:55",
       "market_question": "Will Warsh say \"Trump\" during June Press Conference?",
       "headline": "Trump is demanding rate cuts. Kevin Warsh\u2019s first challenge may be saying no. - Politico",
@@ -487,45 +526,6 @@
       "edge": null,
       "action": "skip",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 12:29:48",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump is demanding rate cuts. Kevin Warsh\u2019s first challenge may be saying no. - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 12:29:48",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump is demanding rate cuts. Kevin Warsh\u2019s first challenge may be saying no. - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 12:29:48",
-      "market_question": "Will Trump resign before 2027?",
-      "headline": "Trump is demanding rate cuts. Kevin Warsh\u2019s first challenge may be saying no. - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
