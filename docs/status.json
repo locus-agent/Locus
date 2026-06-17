@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T17:27:15.059377+00:00",
-  "last_heartbeat": "2026-06-17T17:27:15.059377+00:00",
-  "uptime_seconds": 645,
+  "generated_at": "2026-06-17T17:32:18.522433+00:00",
+  "last_heartbeat": "2026-06-17T17:32:18.522433+00:00",
+  "uptime_seconds": 948,
   "dry_run": true,
-  "markets_tracked": 2433,
-  "classify_error_streak": 268,
+  "markets_tracked": 2432,
+  "classify_error_streak": 274,
   "track_record": {
     "total": 4955,
     "accuracy": 17.0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1157,
+  "headlines_scanned_today": 1159,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 11104,
+  "classifications_24h": 11075,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2885,
+    "prefiltered_haiku": 2875,
     "stale": 48,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -96,7 +96,7 @@
     "orderbook_skip": 3,
     "already_priced_in": 0,
     "needs_confirmation": 0,
-    "event_exposure_block": 2,
+    "event_exposure_block": 1,
     "low_consensus": 0,
     "circuit_breaker": 0,
     "whale_triggered": 0,
@@ -107,7 +107,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T17:16:46.756935+00:00"
+    "last_check": "2026-06-17T17:31:47.151048+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -115,9 +115,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2302,
-    "matched": 936,
-    "classified": 11104,
+    "news": 2295,
+    "matched": 937,
+    "classified": 11075,
     "signals": 2,
     "trades": 2
   },
@@ -130,11 +130,11 @@
     "losses": 7,
     "win_rate_pct": 41.7,
     "realized_pnl_usd": 5.28,
-    "unrealized_pnl_usd": 0.25,
+    "unrealized_pnl_usd": 1.03,
     "recent_winrate": 0.4167,
     "kelly_factor": 0.5,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2541.2
+    "avg_classification_latency_ms": 2540.5
   },
   "live_readiness": {
     "ready": false,
@@ -216,11 +216,11 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.19,
-      "pnl_pct": 18.75,
+      "current_price": 0.19999999999999996,
+      "pnl_pct": 25.0,
       "amount_usd": 7.695,
-      "current_value_usd": 9.14,
-      "pnl_usd": 1.44,
+      "current_value_usd": 9.62,
+      "pnl_usd": 1.92,
       "edge_type": "momentum",
       "event_id": "428484"
     },
@@ -230,11 +230,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.42,
-      "pnl_pct": -13.43,
+      "current_price": 0.39,
+      "pnl_pct": -8.96,
       "amount_usd": 2.0,
-      "current_value_usd": 1.73,
-      "pnl_usd": -0.27,
+      "current_value_usd": 1.82,
+      "pnl_usd": -0.18,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -258,11 +258,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
+      "current_price": 0.07499999999999996,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "86832"
     },
@@ -272,11 +272,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.41000000000000003,
-      "pnl_pct": 20.59,
+      "current_price": 0.41500000000000004,
+      "pnl_pct": 22.06,
       "amount_usd": 14.68,
-      "current_value_usd": 17.7,
-      "pnl_usd": 3.02,
+      "current_value_usd": 17.92,
+      "pnl_usd": 3.24,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -452,69 +452,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 17:21:09",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be less than 5?",
-      "headline": "Toronto lawyer who filed AI \u2018gibberish\u2019 must pay $31K in costs - Toronto Star",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 17:29:58",
+      "market_question": "Will Amazon have a #1 AI model by December 31, 2026?",
+      "headline": "Context intelligence for your data and AI agents at scale - Amazon Web Services (AWS)",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 17:21:09",
-      "market_question": "Will Olivia Chow win the 2026 Toronto mayoral election?",
-      "headline": "Toronto lawyer who filed AI \u2018gibberish\u2019 must pay $31K in costs - Toronto Star",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 17:29:54",
+      "market_question": "Will Amazon have the best AI model at the end of December 2026?",
+      "headline": "Context intelligence for your data and AI agents at scale - Amazon Web Services (AWS)",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 17:21:09",
-      "market_question": "Will Brad Bradford win the 2026 Toronto mayoral election?",
-      "headline": "Toronto lawyer who filed AI \u2018gibberish\u2019 must pay $31K in costs - Toronto Star",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 17:29:54",
+      "market_question": "AI data center in space by December 31, 2026?",
+      "headline": "Context intelligence for your data and AI agents at scale - Amazon Web Services (AWS)",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 17:21:09",
-      "market_question": "Will Marco Mendicino win the 2026 Toronto mayoral election?",
-      "headline": "Toronto lawyer who filed AI \u2018gibberish\u2019 must pay $31K in costs - Toronto Star",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 17:29:54",
+      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
+      "headline": "Context intelligence for your data and AI agents at scale - Amazon Web Services (AWS)",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 17:21:09",
-      "market_question": "Will Ana Bail\u00e3o win the 2026 Toronto mayoral election?",
-      "headline": "Toronto lawyer who filed AI \u2018gibberish\u2019 must pay $31K in costs - Toronto Star",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 17:29:54",
+      "market_question": "Will Amazon have the top AI model at the end of June 2026?",
+      "headline": "Context intelligence for your data and AI agents at scale - Amazon Web Services (AWS)",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
