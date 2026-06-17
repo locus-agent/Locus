@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-17T23:31:55.636212+00:00",
-  "last_heartbeat": "2026-06-17T23:31:55.636212+00:00",
-  "uptime_seconds": 5827,
+  "generated_at": "2026-06-17T23:36:59.513370+00:00",
+  "last_heartbeat": "2026-06-17T23:36:59.513370+00:00",
+  "uptime_seconds": 6130,
   "dry_run": true,
   "markets_tracked": 3723,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2985,
+  "headlines_scanned_today": 2988,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 15271,
+  "classifications_24h": 15259,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3457,
+    "prefiltered_haiku": 3448,
     "stale": 72,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3000,
-    "matched": 951,
-    "classified": 15271,
+    "news": 2997,
+    "matched": 948,
+    "classified": 15259,
     "signals": 3,
     "trades": 3
   },
@@ -132,12 +132,12 @@
     "losses": 7,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 73.23,
-    "unrealized_pnl_usd": -13.61,
-    "total_pnl_usd": 59.62,
+    "unrealized_pnl_usd": -12.13,
+    "total_pnl_usd": 61.1,
     "recent_winrate": 0.5882,
     "kelly_factor": 0.7574,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1554.1
+    "avg_classification_latency_ms": 1554.7
   },
   "live_readiness": {
     "ready": false,
@@ -192,11 +192,11 @@
       "slug": "who-will-attend-us-iran-signing-ceremony-20260615232202457",
       "side": "YES",
       "entry_price": 0.135,
-      "current_price": 0.105,
-      "pnl_pct": -22.22,
+      "current_price": 0.11,
+      "pnl_pct": -18.52,
       "amount_usd": 40.0,
-      "current_value_usd": 31.11,
-      "pnl_usd": -8.89,
+      "current_value_usd": 32.59,
+      "pnl_usd": -7.41,
       "edge_type": "momentum",
       "event_id": "601528"
     },
@@ -428,9 +428,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 23:31:13",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "Fed's Warsh flags new tasks forces to study Fed operations - Reuters",
+      "time": "2026-06-17 23:35:37",
+      "market_question": "Will X launch a USD stablecoin in 2026?",
+      "headline": "Dollar jumps as Fed holds rates but projects one hike later this year - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 23:35:37",
+      "market_question": "Will Meta launch a USD stablecoin in 2026?",
+      "headline": "Dollar jumps as Fed holds rates but projects one hike later this year - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 23:35:37",
+      "market_question": "Trump on $250 bill this year?",
+      "headline": "Dollar jumps as Fed holds rates but projects one hike later this year - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -441,22 +467,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 23:31:12",
-      "market_question": "Will OpenAI have the best Coding AI model at the end of June 2026?",
-      "headline": "Hugging Face, known as the global open-source artificial intelligence (AI) platform, will hold its f.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 23:31:12",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Fed's Warsh flags new tasks forces to study Fed operations - Reuters",
+      "time": "2026-06-17 23:35:36",
+      "market_question": "Quantum breaks Bitcoin by December 31, 2027?",
+      "headline": "A Central Park carriage horse breaks free and critically injures a passenger - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -467,22 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 23:31:12",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Fed's Warsh flags new tasks forces to study Fed operations - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-17 23:31:12",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Fed's Warsh flags new tasks forces to study Fed operations - Reuters",
+      "time": "2026-06-17 23:35:36",
+      "market_question": "Quantum breaks Bitcoin by December 31, 2026?",
+      "headline": "A Central Park carriage horse breaks free and critically injures a passenger - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
