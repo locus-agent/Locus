@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T05:47:45.595296+00:00",
-  "last_heartbeat": "2026-06-17T05:47:45.595296+00:00",
-  "uptime_seconds": 30242,
+  "generated_at": "2026-06-17T05:52:48.832282+00:00",
+  "last_heartbeat": "2026-06-17T05:52:48.832282+00:00",
+  "uptime_seconds": 30545,
   "dry_run": true,
-  "markets_tracked": 2469,
+  "markets_tracked": 2471,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3673,
@@ -80,10 +80,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 221,
+  "headlines_scanned_today": 222,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 11352,
+  "classifications_24h": 11348,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3390,
@@ -116,7 +116,7 @@
   "pipeline_24h": {
     "news": 2356,
     "matched": 898,
-    "classified": 11352,
+    "classified": 11348,
     "signals": 3,
     "trades": 3
   },
@@ -129,7 +129,7 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": -4.07,
+    "unrealized_pnl_usd": -4.97,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
@@ -187,11 +187,11 @@
       "slug": "labour-leadership-election-scheduled-by",
       "side": "YES",
       "entry_price": 0.36,
-      "current_price": 0.355,
-      "pnl_pct": -1.39,
+      "current_price": 0.36,
+      "pnl_pct": 0.0,
       "amount_usd": 25.0,
-      "current_value_usd": 24.65,
-      "pnl_usd": -0.35,
+      "current_value_usd": 25.0,
+      "pnl_usd": 0.0,
       "edge_type": "momentum",
       "event_id": "89548"
     },
@@ -229,11 +229,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.41500000000000004,
-      "pnl_pct": -12.69,
+      "current_price": 0.3999999999999999,
+      "pnl_pct": -10.45,
       "amount_usd": 2.0,
-      "current_value_usd": 1.75,
-      "pnl_usd": -0.25,
+      "current_value_usd": 1.79,
+      "pnl_usd": -0.21,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -285,11 +285,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.375,
-      "pnl_pct": 10.29,
+      "current_price": 0.345,
+      "pnl_pct": 1.47,
       "amount_usd": 14.68,
-      "current_value_usd": 16.19,
-      "pnl_usd": 1.51,
+      "current_value_usd": 14.9,
+      "pnl_usd": 0.22,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -465,6 +465,19 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-17 05:48:18",
+      "market_question": "Will Jeremy Matlow win the Tallahassee mayoral election?",
+      "headline": "Jeremy Clarkson reveals cancer diagnosis in show",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-17 05:41:52",
       "market_question": "Will Trump praise Lionel Messi by June 30?",
       "headline": "Lionel Messi has World Cup hat trick and Kylian Mbapp\u00e9 stars for France, in photos - AP News",
@@ -513,19 +526,6 @@
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 05:41:47",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Lionel Messi has World Cup hat trick and Kylian Mbapp\u00e9 stars for France, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
