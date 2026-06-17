@@ -463,6 +463,45 @@ def get_ungraded_directional_classifications(min_age_hours: float, limit: int = 
     return [dict(r) for r in rows]
 
 
+def get_missed_opportunity_candidates(
+    min_materiality: float, min_entry_price: float, limit: int = 50
+) -> list[dict]:
+    """Directional classifications we declined to trade that might have been
+    missed opportunities: skip/low_materiality/stale/prefiltered_haiku actions,
+    material enough, with a tradeable entry price, aged 6-72h (old enough to
+    have moved, recent enough to still be actionable signal). Strongest first."""
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT id, market_question, direction, materiality, condition_id,
+                  yes_price, action, created_at
+           FROM classifications
+           WHERE action IN ('skip', 'low_materiality', 'stale', 'prefiltered_haiku')
+             AND direction IN ('bullish', 'bearish')
+             AND materiality >= ?
+             AND condition_id IS NOT NULL
+             AND yes_price >= ?
+             AND created_at BETWEEN datetime('now', '-72 hours')
+                                AND datetime('now', '-6 hours')
+           ORDER BY materiality DESC
+           LIMIT ?""",
+        (min_materiality, min_entry_price, limit),
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_missed_opportunity_count_since(since: str) -> int:
+    """Count missed-opportunity lessons logged at/after `since` (lessons whose
+    text the calibrator prefixes with 'Missed strong')."""
+    conn = _conn()
+    n = conn.execute(
+        "SELECT COUNT(*) FROM lessons WHERE created_at >= ? AND lesson LIKE 'Missed strong%'",
+        (since,),
+    ).fetchone()[0]
+    conn.close()
+    return n
+
+
 def log_classification_grade(
     classification_id: int,
     direction: str,

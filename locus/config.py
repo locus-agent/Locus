@@ -295,6 +295,18 @@ CALIBRATION_MOVE_THRESHOLD = float(os.getenv("CALIBRATION_MOVE_THRESHOLD", "0.02
 # first pipeline cycle after 21:00 UTC; see locus/core/journal.py).
 JOURNAL_ENABLED = os.getenv("JOURNAL_ENABLED", "true").lower() == "true"
 
+# --- Missed-opportunity tracking ---
+# Once a day the calibrator looks back at directional classifications we did NOT
+# trade (skip/low_materiality/stale/prefiltered_haiku) and checks whether the
+# market moved our way anyway. A relative move of MISSED_OPPORTUNITY_THRESHOLD
+# (12%) in the predicted direction logs a lesson suggesting we lower the
+# materiality bar for that category. Candidates are restricted to a tradeable
+# entry price (>= MISSED_MIN_ENTRY_PRICE) so dust longshots don't dominate.
+# Set MISSED_OPPORTUNITY_ENABLED=false to skip the daily check.
+MISSED_OPPORTUNITY_ENABLED = os.getenv("MISSED_OPPORTUNITY_ENABLED", "true").lower() == "true"
+MISSED_OPPORTUNITY_THRESHOLD = float(os.getenv("MISSED_OPPORTUNITY_THRESHOLD", "0.12"))
+MISSED_MIN_ENTRY_PRICE = float(os.getenv("MISSED_MIN_ENTRY_PRICE", "0.08"))
+
 # --- Meta-prompt evolution ---
 # Once every PROMPT_EVOLUTION_INTERVAL_DAYS, after the daily journal, Claude
 # (Sonnet) rewrites its own classification prompt from accumulated lessons and

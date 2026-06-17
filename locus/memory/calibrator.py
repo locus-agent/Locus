@@ -15,6 +15,7 @@ from locus import config
 from locus.memory import logger
 from locus import memory
 from locus.core import positions
+from locus.markets import gamma
 
 log = logging.getLogger(__name__)
 
@@ -341,6 +342,75 @@ def grade_classifications(max_tokens_per_run: int = 50) -> int:
         invalidate_price_bucket_cache()
         log.info(f"[calibrator] Graded {graded} non-traded classifications")
     return graded
+
+
+# Minimum materiality for a declined classification to count as a candidate
+# missed opportunity (a directional read weak enough below this wasn't a real
+# signal we "missed").
+MISSED_MIN_MATERIALITY = 0.35
+
+
+def check_missed_opportunities() -> int:
+    """Look back at directional classifications we declined to trade and flag
+    the ones where the market moved our way anyway, as missed opportunities.
+
+    Pulls the top candidates (by materiality), batch-fetches their current
+    prices in one Gamma call, drops resolved markets, and for any whose price
+    moved at least MISSED_OPPORTUNITY_THRESHOLD in the predicted direction
+    (relative to entry) logs a lesson nudging the materiality bar lower for that
+    category. Returns the number of lessons logged."""
+    if not config.MISSED_OPPORTUNITY_ENABLED:
+        return 0
+
+    rows = logger.get_missed_opportunity_candidates(
+        min_materiality=MISSED_MIN_MATERIALITY,
+        min_entry_price=config.MISSED_MIN_ENTRY_PRICE,
+        limit=50,
+    )
+    if not rows:
+        return 0
+
+    # One batched price fetch covers every candidate (not N single-market calls).
+    markets = gamma.fetch_markets_by_condition_ids([r["condition_id"] for r in rows])
+
+    logged = 0
+    for r in rows:
+        market = markets.get(r["condition_id"])
+        # Missing from Gamma or resolved -> can't (or needn't) grade the move.
+        if not market or market.get("closed"):
+            continue
+        current = market.get("yes_price")
+        entry = r["yes_price"]
+        if current is None or entry is None or entry <= 0:
+            continue
+
+        direction = r["direction"]
+        if direction == "bullish":
+            pct = (current - entry) / entry
+        else:  # bearish — a profitable NO move is the price falling
+            pct = (entry - current) / entry
+
+        if pct < config.MISSED_OPPORTUNITY_THRESHOLD:
+            continue
+
+        category = gamma._infer_category(r["market_question"], [])
+        lesson = (
+            f"Missed strong {direction} signal (mat={r['materiality']:.2f}) on "
+            f"'{r['market_question'][:50]}' — price moved +{pct * 100:.0f}%. "
+            f"Consider lowering min_materiality for {category} category."
+        )
+        logger.log_lesson(
+            trade_id=None,
+            market_question=r["market_question"],
+            classification=direction,
+            actual_direction=direction,
+            lesson=lesson,
+        )
+        logged += 1
+
+    if logged:
+        log.info(f"[calibrator] Logged {logged} missed-opportunity lessons")
+    return logged
 
 
 def run_cycle() -> dict:

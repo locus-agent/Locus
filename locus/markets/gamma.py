@@ -222,6 +222,62 @@ def fetch_slug_by_condition_id(condition_id: str) -> str:
     return (m.get("events") or [{}])[0].get("slug", "") or m.get("slug", "")
 
 
+def fetch_markets_by_condition_ids(condition_ids: list[str]) -> dict[str, dict]:
+    """Batch-fetch current state for a list of condition_ids in as few Gamma
+    requests as possible (one per 100-id chunk), instead of N single-market
+    calls. Returns a mapping condition_id -> {condition_id, yes_price, closed,
+    question}. condition_ids Gamma doesn't return are simply absent from the
+    map; callers should treat a missing id as resolved/unknown.
+    """
+    ids = [c for c in dict.fromkeys(condition_ids) if c]  # dedupe, drop blanks
+    if not ids:
+        return {}
+
+    out: dict[str, dict] = {}
+    try:
+        with httpx.Client(timeout=15) as client:
+            for start in range(0, len(ids), _GAMMA_PAGE_SIZE):
+                chunk = ids[start:start + _GAMMA_PAGE_SIZE]
+                resp = client.get(
+                    f"{GAMMA_API}/markets",
+                    params={"condition_ids": chunk, "limit": len(chunk)},
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                batch = data if isinstance(data, list) else data.get("data", [])
+                for m in batch:
+                    cid = m.get("conditionId", m.get("condition_id", "")) or ""
+                    if not cid:
+                        continue
+                    out[cid] = {
+                        "condition_id": cid,
+                        "yes_price": _parse_yes_price(m),
+                        "closed": bool(m.get("closed", False)),
+                        "question": m.get("question", ""),
+                    }
+    except (httpx.HTTPError, ValueError):
+        # Network/parse failure: return whatever we collected. Missing ids are
+        # treated as resolved/unknown by the caller, so a partial result is safe.
+        pass
+    return out
+
+
+def _parse_yes_price(m: dict) -> float | None:
+    """Extract the YES price from a Gamma market dict (outcomePrices is a JSON
+    string of [yes, no]). Returns None when it can't be parsed."""
+    outcome_prices = m.get("outcomePrices", "")
+    if not outcome_prices:
+        return None
+    import json
+    try:
+        prices = json.loads(outcome_prices) if isinstance(outcome_prices, str) else outcome_prices
+        if prices and len(prices) >= 1:
+            return float(prices[0])
+    except (json.JSONDecodeError, ValueError, TypeError):
+        return None
+    return None
+
+
 def _fetch_from_clob(limit: int) -> list[Market]:
     """Fallback: fetch from CLOB API directly."""
     markets = []

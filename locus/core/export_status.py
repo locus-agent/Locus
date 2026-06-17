@@ -293,6 +293,9 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "reentry_triggered": logger.get_classification_count_since(since_24h, action="reentry_triggered"),
         },
         "watched_markets_count": logger.count_active_watched_markets(),
+        # Missed-opportunity lessons logged in the last 24h (declined signals
+        # the market then moved our way on — see calibrator.check_missed_opportunities).
+        "missed_opportunities_24h": logger.get_missed_opportunity_count_since(since_24h),
         "whale": {
             "watched_wallets": len(config.WHALE_WALLETS),
             "triggered_24h": logger.get_classification_count_since(since_24h, action="whale_triggered"),

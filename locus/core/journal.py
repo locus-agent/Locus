@@ -22,6 +22,8 @@ from locus.memory import logger
 log = logging.getLogger(__name__)
 
 JOURNAL_HOUR_UTC = 21
+# The daily missed-opportunity sweep runs an hour after the journal, once a day.
+MISSED_OPPORTUNITY_HOUR_UTC = 22
 
 JOURNAL_PROMPT = """You are Locus, an autonomous agent that reads breaking news and trades \
 niche Polymarket prediction markets (dry-run mode unless stated otherwise). Once a day you \
@@ -252,6 +254,31 @@ def maybe_write_journal(extra: dict | None = None, now: datetime | None = None) 
             log.warning(f"[journal] Prompt evolution failed: {e}")
 
     return entry
+
+
+# Restart-safe daily guard: the UTC date the missed-opportunity sweep last ran.
+# Runs the journal's sibling daily check at most once per day (a process restart
+# inside the trigger window can rerun it once — harmless, lessons just refresh).
+_last_missed_opportunity_date: str | None = None
+
+
+def maybe_check_missed_opportunities(now: datetime | None = None) -> int:
+    """Daily trigger: run the calibrator's missed-opportunity sweep on the first
+    call at/after MISSED_OPPORTUNITY_HOUR_UTC each day. Scheduled after the daily
+    journal entry and before the weekly meta_evolver check. Returns the number
+    of lessons logged (0 when it didn't run or found nothing)."""
+    global _last_missed_opportunity_date
+    if not config.MISSED_OPPORTUNITY_ENABLED:
+        return 0
+    now = now or datetime.now(timezone.utc)
+    if now.hour < MISSED_OPPORTUNITY_HOUR_UTC:
+        return 0
+    today = now.strftime("%Y-%m-%d")
+    if _last_missed_opportunity_date == today:
+        return 0
+    _last_missed_opportunity_date = today
+    from locus.memory import calibrator
+    return calibrator.check_missed_opportunities()
 
 
 if __name__ == "__main__":

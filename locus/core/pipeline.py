@@ -32,7 +32,7 @@ from locus.core import event_context
 from locus.core import reentry
 from locus.core import whale_tracker
 from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
-from locus.core.journal import maybe_write_journal
+from locus.core.journal import maybe_write_journal, maybe_check_missed_opportunities
 from locus.core import positions
 
 console = Console()
@@ -1077,6 +1077,16 @@ class PipelineV2:
                     console.print(f"  [dim]journal entry written ({len(entry.split())} words)[/dim]")
             except Exception as e:
                 log.warning(f"[pipeline] Journal error: {e}")
+
+            # Daily missed-opportunity sweep: first cycle after 22:00 UTC.
+            try:
+                missed = await asyncio.get_event_loop().run_in_executor(
+                    None, maybe_check_missed_opportunities
+                )
+                if missed:
+                    console.print(f"  [dim]{missed} missed-opportunity lesson(s) logged[/dim]")
+            except Exception as e:
+                log.warning(f"[pipeline] Missed-opportunity check error: {e}")
 
             try:
                 export_status(
