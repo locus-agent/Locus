@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T00:34:14.274908+00:00",
-  "last_heartbeat": "2026-06-17T00:34:14.274908+00:00",
-  "uptime_seconds": 11431,
+  "generated_at": "2026-06-17T00:39:17.585434+00:00",
+  "last_heartbeat": "2026-06-17T00:39:17.585434+00:00",
+  "uptime_seconds": 11734,
   "dry_run": true,
-  "markets_tracked": 2610,
+  "markets_tracked": 2612,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3007,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 39,
+  "headlines_scanned_today": 41,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 11276,
+  "classifications_24h": 11284,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3280,
+    "prefiltered_haiku": 3285,
     "stale": 40,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -106,7 +106,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T00:24:05.094500+00:00"
+    "last_check": "2026-06-17T00:39:05.482784+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2350,
-    "matched": 893,
-    "classified": 11276,
+    "news": 2351,
+    "matched": 894,
+    "classified": 11284,
     "signals": 2,
     "trades": 2
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 2.79,
+    "unrealized_pnl_usd": 0.7,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1436.6
+    "avg_classification_latency_ms": 1442.3
   },
   "live_readiness": {
     "ready": false,
@@ -215,11 +215,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.4099999999999999,
-      "pnl_pct": -11.94,
+      "current_price": 0.39,
+      "pnl_pct": -8.96,
       "amount_usd": 2.0,
-      "current_value_usd": 1.76,
-      "pnl_usd": -0.24,
+      "current_value_usd": 1.82,
+      "pnl_usd": -0.18,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.4,
-      "pnl_pct": 17.65,
+      "current_price": 0.35,
+      "pnl_pct": 2.94,
       "amount_usd": 14.68,
-      "current_value_usd": 17.27,
-      "pnl_usd": 2.59,
+      "current_value_usd": 15.11,
+      "pnl_usd": 0.43,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,11 +451,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 00:33:07",
-      "market_question": "Will a dLLM be the top AI model before 2027?",
-      "headline": "World News: Top & Breaking World News Today - AP News",
+      "time": "2026-06-17 00:37:33",
+      "market_question": "Congress passes Iran war powers resolution by June 30?",
+      "headline": "Iran war is straining African airlines, industry body warns - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 00:33:07",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "\u2018Hockey Night in Canada\u2019 NHL broadcasts won\u2019t return to CBC next fall - AP News",
+      "time": "2026-06-17 00:37:32",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Iran war is straining African airlines, industry body warns - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 00:33:07",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "\u2018Hockey Night in Canada\u2019 NHL broadcasts won\u2019t return to CBC next fall - AP News",
+      "time": "2026-06-17 00:37:32",
+      "market_question": "Will Trump physically sign US x Iran deal?",
+      "headline": "Iran war is straining African airlines, industry body warns - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,9 +490,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 00:33:07",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "\u2018Hockey Night in Canada\u2019 NHL broadcasts won\u2019t return to CBC next fall - AP News",
+      "time": "2026-06-17 00:37:32",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Iran war is straining African airlines, industry body warns - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -503,9 +503,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 00:33:07",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "\u2018Hockey Night in Canada\u2019 NHL broadcasts won\u2019t return to CBC next fall - AP News",
+      "time": "2026-06-17 00:37:32",
+      "market_question": "Will the Union for Central African Renewal win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Iran war is straining African airlines, industry body warns - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
