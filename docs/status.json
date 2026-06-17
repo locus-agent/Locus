@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T19:38:32.404977+00:00",
-  "last_heartbeat": "2026-06-17T19:38:32.404977+00:00",
-  "uptime_seconds": 950,
+  "generated_at": "2026-06-17T19:42:27.209159+00:00",
+  "last_heartbeat": "2026-06-17T19:42:27.209159+00:00",
+  "uptime_seconds": 38,
   "dry_run": true,
-  "markets_tracked": 2459,
-  "classify_error_streak": 286,
+  "markets_tracked": 3689,
+  "classify_error_streak": 26,
   "track_record": {
     "total": 5068,
     "accuracy": 16.8,
@@ -80,16 +80,18 @@
       }
     ]
   },
-  "headlines_scanned_today": 1499,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1513,
+  "headlines_last_cycle": 14,
   "signals_24h": 2,
-  "classifications_24h": 10710,
+  "classifications_24h": 10762,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2366,
+    "prefiltered_haiku": 2364,
     "stale": 43,
     "capped": 0,
     "too_close_to_resolution": 1,
+    "sports_disabled": 0,
+    "sports_event_cap": 0,
     "price_target_market": 0,
     "correlation_block": 1,
     "category_limit": 0,
@@ -107,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T19:38:15.033726+00:00"
+    "last_check": "2026-06-17T19:42:06.538531+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -115,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2227,
-    "matched": 948,
-    "classified": 10710,
+    "news": 2238,
+    "matched": 958,
+    "classified": 10762,
     "signals": 2,
     "trades": 2
   },
@@ -131,10 +133,11 @@
     "win_rate_pct": 56.2,
     "realized_pnl_usd": 10.22,
     "unrealized_pnl_usd": -3.6,
+    "total_pnl_usd": 6.62,
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2548.0
+    "avg_classification_latency_ms": 2491.0
   },
   "live_readiness": {
     "ready": false,
@@ -203,7 +206,7 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.31499999999999995,
+      "current_price": 0.315,
       "pnl_pct": -11.27,
       "amount_usd": 25.0,
       "current_value_usd": 22.18,
@@ -411,69 +414,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 19:31:40",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "Teen accused of girl's murder expelled from school hours before her death, court hears",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 19:42:26",
+      "market_question": "Will LaBaron Philon be the 3rd overall pick in the 2026 NBA Draft?",
+      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:31:40",
-      "market_question": "Will a US court rule that the 2020 election was fradulent?",
-      "headline": "Teen accused of girl's murder expelled from school hours before her death, court hears",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 19:42:25",
+      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
+      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:31:40",
-      "market_question": "Will Bill Hill advance from the AK-AL primary election?",
-      "headline": "Teen accused of girl's murder expelled from school hours before her death, court hears",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 19:42:25",
+      "market_question": "Will LaBaron Philon be the 4th overall pick in the 2026 NBA Draft?",
+      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:31:40",
-      "market_question": "Will Gavin Solomon advance from the AK-AL primary election?",
-      "headline": "Teen accused of girl's murder expelled from school hours before her death, court hears",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 19:42:25",
+      "market_question": "Will Mikel Brown Jr. be the first pick in the 2026 NBA draft?",
+      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:31:40",
-      "market_question": "Will John Williams advance from the AK-AL primary election?",
-      "headline": "Teen accused of girl's murder expelled from school hours before her death, court hears",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-17 19:42:25",
+      "market_question": "Will Jalen Brunson be on the cover of NBA 2K27?",
+      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
