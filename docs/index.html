@@ -756,6 +756,11 @@
           <div class="perf-sub" id="perf-open">0 open</div>
         </div>
         <div class="perf-cell">
+          <div class="perf-label">Total PnL</div>
+          <div class="perf-value" id="perf-total">—</div>
+          <div class="perf-sub">realized + unrealized</div>
+        </div>
+        <div class="perf-cell">
           <div class="perf-label">Recent Win Rate</div>
           <div class="perf-value" id="perf-recent-wr">—</div>
           <div class="perf-sub" id="perf-kelly">Kelly —</div>
@@ -1177,6 +1182,18 @@
     uEl.textContent = uTxt;
     uEl.className = 'perf-value ' + uCls;
     document.getElementById('perf-open').textContent = (p.open_count ?? 0) + ' open';
+
+    // Total PnL: realized + unrealized combined (fall back to summing the two
+    // when the backend hasn't supplied the rolled-up value).
+    const total = p.total_pnl_usd ?? (
+      (p.realized_pnl_usd == null && p.unrealized_pnl_usd == null)
+        ? null
+        : (p.realized_pnl_usd ?? 0) + (p.unrealized_pnl_usd ?? 0)
+    );
+    const [tTxt, tCls] = fmtPnl(total);
+    const tEl = document.getElementById('perf-total');
+    tEl.textContent = tTxt;
+    tEl.className = 'perf-value ' + tCls;
 
     // Dynamic-Kelly sizing: recent realized win rate and the factor it maps to.
     const wr = p.recent_winrate;

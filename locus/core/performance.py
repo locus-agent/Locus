@@ -339,4 +339,5 @@ def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
         "win_rate_pct": round(wins / len(closed) * 100, 1) if closed else None,
         "realized_pnl_usd": round(realized, 2),
         "unrealized_pnl_usd": round(unrealized, 2),
+        "total_pnl_usd": round(realized + unrealized, 2),
     }
