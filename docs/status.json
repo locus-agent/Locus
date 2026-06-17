@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T20:54:09.318916+00:00",
-  "last_heartbeat": "2026-06-17T20:54:09.318916+00:00",
-  "uptime_seconds": 2168,
+  "generated_at": "2026-06-17T20:59:13.368119+00:00",
+  "last_heartbeat": "2026-06-17T20:59:13.368119+00:00",
+  "uptime_seconds": 2472,
   "dry_run": true,
-  "markets_tracked": 3694,
+  "markets_tracked": 3705,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5586,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 2577,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2581,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 15637,
+  "classifications_24h": 14905,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3588,
-    "stale": 56,
+    "prefiltered_haiku": 3323,
+    "stale": 55,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3113,
-    "matched": 1036,
-    "classified": 15637,
+    "news": 2962,
+    "matched": 1024,
+    "classified": 14905,
     "signals": 3,
     "trades": 3
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1365.6
+    "avg_classification_latency_ms": 1376.1
   },
   "live_readiness": {
     "ready": false,
@@ -220,7 +220,7 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.315,
+      "current_price": 0.31499999999999995,
       "pnl_pct": -11.27,
       "amount_usd": 25.0,
       "current_value_usd": 22.18,
@@ -428,25 +428,12 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 20:50:01",
-      "market_question": "Harry Kane: 3+ goals",
-      "headline": "Follow live: Kane's second goal restores England's...",
-      "direction": "bullish",
-      "materiality": 0.75,
-      "confidence": 0.72,
-      "edge": 0.51,
-      "action": "stale",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 20:50:01",
-      "market_question": "Harry Kane: 2+ goals",
-      "headline": "Follow live: Kane's second goal restores England's...",
-      "direction": "bullish",
-      "materiality": 0.1,
-      "confidence": 0.99,
+      "time": "2026-06-17 20:58:57",
+      "market_question": "Ivan Toney: 1+ goals",
+      "headline": "Rate the players in England's World Cup opener against Croatia",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
       "match_source": "embedding",
@@ -454,12 +441,12 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:50:00",
-      "market_question": "Harry Kane: 1+ goals",
-      "headline": "Follow live: Kane's second goal restores England's...",
-      "direction": "bullish",
-      "materiality": 0.1,
-      "confidence": 0.99,
+      "time": "2026-06-17 20:58:56",
+      "market_question": "Andrej Kramari\u0107: 1+ goals",
+      "headline": "Rate the players in England's World Cup opener against Croatia",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
       "match_source": "embedding",
@@ -467,30 +454,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:49:56",
-      "market_question": "Will DeepSeek have the second best AI model at the end of June 2026?",
-      "headline": "Follow live: Kane's second goal restores England's...",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 20:58:54",
+      "market_question": "Will Croatia reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "Rate the players in England's World Cup opener against Croatia",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-17 20:49:56",
-      "market_question": "Will OpenAI have the second best AI model at the end of June 2026?",
-      "headline": "Follow live: Kane's second goal restores England's...",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-17 20:58:54",
+      "market_question": "Will Croatia reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Rate the players in England's World Cup opener against Croatia",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-17 20:58:54",
+      "market_question": "Will Croatia reach the 2026 FIFA World Cup final?",
+      "headline": "Rate the players in England's World Cup opener against Croatia",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
