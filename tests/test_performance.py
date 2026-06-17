@@ -339,6 +339,47 @@ def test_live_readiness_unfiltered_counts_all(tmp_db, monkeypatch):
     assert _readiness_value(r, "win_rate") == pytest.approx(75.0)   # 3 of 4
 
 
+def _readiness_metric(result, key):
+    return next(m for m in result["metrics"] if m["key"] == key)
+
+
+def test_live_readiness_sharpe_with_three_days(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    # Three distinct close-days with non-zero variance -> Sharpe is computable.
+    _closed_position(tmp_db, "m1", 100.0, +10.0, _days_ago(3))
+    _closed_position(tmp_db, "m2", 100.0, +12.0, _days_ago(2))
+    _closed_position(tmp_db, "m3", 100.0, +8.0, _days_ago(1))
+    r = compute_live_readiness()
+    assert r["sharpe_days_count"] == 3
+    assert _readiness_value(r, "sharpe_ratio") is not None
+    # Below 7 days -> flagged preliminary in the metric label.
+    assert _readiness_metric(r, "sharpe_ratio")["label"].endswith("(preliminary)")
+
+
+def test_live_readiness_sharpe_na_with_two_days(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    # Only two distinct close-days -> below the 3-day minimum, Sharpe stays N/A.
+    _closed_position(tmp_db, "m1", 100.0, +10.0, _days_ago(2))
+    _closed_position(tmp_db, "m2", 100.0, +12.0, _days_ago(1))
+    r = compute_live_readiness()
+    assert r["sharpe_days_count"] == 2
+    assert _readiness_value(r, "sharpe_ratio") is None
+    # Not computable -> no preliminary suffix on the label.
+    assert _readiness_metric(r, "sharpe_ratio")["label"] == "Sharpe Ratio"
+
+
+def test_live_readiness_sharpe_not_preliminary_at_seven_days(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    # Seven distinct close-days -> full sample, no preliminary label.
+    pnls = [10.0, 12.0, 8.0, 11.0, 9.0, 13.0, 7.0]
+    for i, pnl in enumerate(pnls):
+        _closed_position(tmp_db, f"m{i}", 100.0, pnl, _days_ago(7 - i))
+    r = compute_live_readiness()
+    assert r["sharpe_days_count"] == 7
+    assert _readiness_value(r, "sharpe_ratio") is not None
+    assert _readiness_metric(r, "sharpe_ratio")["label"] == "Sharpe Ratio"
+
+
 def test_live_readiness_future_date_excludes_all(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "2030-01-01")
     _seed_old_and_new_closes(tmp_db)

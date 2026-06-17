@@ -59,7 +59,9 @@ def compute_live_readiness() -> dict:
     - closed_trades: how many closed positions exist.
     - win_rate: % of them with positive realized PnL.
     - sharpe_ratio: annualized (×√365) ratio of mean to std of realized PnL
-      grouped by close date; null until at least 7 distinct days of data.
+      grouped by close date; null until at least 3 distinct days of data. Below
+      7 distinct days the metric label is suffixed "(preliminary)" to flag the
+      thin sample; sharpe_days_count is exported so the dashboard can do the same.
     - max_drawdown: deepest peak-to-trough drop of the realized-PnL equity
       curve, as a % of the running peak. The curve is seeded with the capital
       deployed across closed positions so the percentage stays well-defined
@@ -96,7 +98,8 @@ def compute_live_readiness() -> dict:
         if day:
             daily[day] += p["realized_pnl_usd"] or 0.0
     sharpe = None
-    if len(daily) >= 7:
+    sharpe_days_count = len(daily)
+    if sharpe_days_count >= 3:
         vals = list(daily.values())
         mean = sum(vals) / len(vals)
         std = math.sqrt(sum((x - mean) ** 2 for x in vals) / (len(vals) - 1))
@@ -123,15 +126,22 @@ def compute_live_readiness() -> dict:
         "max_drawdown": max_drawdown,
     }
 
+    # Below 7 distinct close-days the Sharpe is computable (>= 3 days) but the
+    # sample is thin — flag it so the dashboard reads "Sharpe Ratio (preliminary)".
+    sharpe_preliminary = sharpe is not None and sharpe_days_count < 7
+
     metrics = []
     for c in LIVE_READINESS_CRITERIA:
         value = values[c["key"]]
         # With zero closed trades nothing is real yet — mark every criterion
         # N/A (not FAIL) so the dashboard reads "accumulating data".
         passed = None if closed_trades == 0 else _passes(c["cmp"], value, c["threshold"])
+        label = c["label"]
+        if c["key"] == "sharpe_ratio" and sharpe_preliminary:
+            label += " (preliminary)"
         metrics.append({
             "key": c["key"],
-            "label": c["label"],
+            "label": label,
             "unit": c["unit"],
             "value": value,
             "threshold_display": c["threshold_display"],
@@ -143,6 +153,7 @@ def compute_live_readiness() -> dict:
         "ready": all(m["pass"] is True for m in metrics),
         "criteria_met": criteria_met,
         "criteria_total": len(metrics),
+        "sharpe_days_count": sharpe_days_count,
         "metrics": metrics,
     }
 

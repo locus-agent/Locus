@@ -357,6 +357,19 @@
     letter-spacing: 0.05em;
   }
 
+  .prelim-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: var(--row-border);
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+  }
+
   .crit-value { font-weight: 700; font-size: 15px; }
 
   .crit-threshold { color: var(--muted); font-size: 12px; }
@@ -1234,14 +1247,20 @@
       badge.className = 'readiness-badge not-ready';
     }
 
+    const prelim = m => m.key === 'sharpe_ratio' && m.value !== null
+      && (r.sharpe_days_count ?? 7) < 7;
     rows.innerHTML = metrics.map(m => {
       let statusTxt, statusCls;
       if (m.pass === null) { statusTxt = 'N/A'; statusCls = 'na'; }
       else if (m.pass) { statusTxt = 'PASS'; statusCls = 'pass'; }
       else { statusTxt = 'FAIL'; statusCls = 'fail'; }
+      // Backend suffixes the label "(preliminary)" with a thin Sharpe sample;
+      // strip it here and show a styled badge instead so it reads cleanly.
+      const label = m.label.replace(/ \(preliminary\)$/, '');
+      const badge = prelim(m) ? ' <span class="prelim-badge">PRELIMINARY</span>' : '';
       return `
       <div class="crit-row">
-        <div class="crit-name">${escapeHtml(m.label)}</div>
+        <div class="crit-name">${escapeHtml(label)}${badge}</div>
         <div class="crit-value">${fmtMetric(m.value, m.unit)}</div>
         <div class="crit-threshold">${escapeHtml(m.threshold_display)}</div>
         <div class="crit-status ${statusCls}">${statusTxt}</div>
