@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T01:14:41.479540+00:00",
-  "last_heartbeat": "2026-06-17T01:14:41.479540+00:00",
-  "uptime_seconds": 13858,
+  "generated_at": "2026-06-17T01:19:45.090096+00:00",
+  "last_heartbeat": "2026-06-17T01:19:45.090096+00:00",
+  "uptime_seconds": 14162,
   "dry_run": true,
-  "markets_tracked": 2606,
+  "markets_tracked": 2603,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3007,
@@ -80,10 +80,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 59,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 60,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 11331,
+  "classifications_24h": 11325,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3313,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2356,
-    "matched": 901,
-    "classified": 11331,
+    "news": 2355,
+    "matched": 900,
+    "classified": 11325,
     "signals": 2,
     "trades": 2
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 0.79,
+    "unrealized_pnl_usd": 0.2,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1506.8
+    "avg_classification_latency_ms": 1509.6
   },
   "live_readiness": {
     "ready": false,
@@ -201,7 +201,7 @@
       "slug": "will-hype-flip-sol-by-december-31",
       "side": "YES",
       "entry_price": 0.16,
-      "current_price": 0.19500000000000006,
+      "current_price": 0.195,
       "pnl_pct": 21.88,
       "amount_usd": 7.695,
       "current_value_usd": 9.38,
@@ -215,11 +215,11 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.36,
-      "pnl_pct": -4.48,
+      "current_price": 0.33999999999999997,
+      "pnl_pct": -1.49,
       "amount_usd": 2.0,
-      "current_value_usd": 1.91,
-      "pnl_usd": -0.09,
+      "current_value_usd": 1.97,
+      "pnl_usd": -0.03,
       "edge_type": "news",
       "event_id": "101877"
     },
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.35,
-      "pnl_pct": 2.94,
+      "current_price": 0.33499999999999996,
+      "pnl_pct": -1.47,
       "amount_usd": 14.68,
-      "current_value_usd": 15.11,
-      "pnl_usd": 0.43,
+      "current_value_usd": 14.46,
+      "pnl_usd": -0.22,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,6 +451,19 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-17 01:16:40",
+      "market_question": "Haiti elections delayed again?",
+      "headline": "UN Secretary-General visits Haiti as gang violence soars - AP News",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-17 01:14:31",
       "market_question": "SCOTUS lets Trump fire FTC commissioners in Trump v. Slaughter?",
       "headline": "Ex-Citi exec alleges she was fired after raising Trump-related compliance concerns, FT reports - Reuters",
@@ -495,19 +508,6 @@
       "headline": "Trump is shifting special ed, civil rights out of Education Department. Here\u2019s what we know - AP News",
       "direction": "neutral",
       "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 01:14:26",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump is shifting special ed, civil rights out of Education Department. Here\u2019s what we know - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
