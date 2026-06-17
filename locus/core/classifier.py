@@ -68,6 +68,11 @@ For any sports market, ADDITIONALLY require:
 - No pre-game predictions or lineup speculation
 - If news contains uncertainty words → direction MUST be neutral
 
+TRUTH SOCIAL BOOST: If news_source is 'truthsocial', this is a direct statement from President Trump himself.
+First-person statements ('I will', 'I am', 'We have', 'I signed', 'I am announcing') are DIRECT EVIDENCE and should
+receive materiality boost of +0.15 compared to equivalent third-party reporting.
+Example: Trump posting 'I will sign the Iran deal tomorrow' → materiality 0.80+ for Iran deal markets.
+
 Also rate the MATERIALITY — how much should this move the price? 0.0 means no impact, 1.0 means this is definitive evidence.
 
 Judge materiality for THIS SPECIFIC market: does the news materially change the probability that

@@ -338,9 +338,11 @@ class RSSFallback:
                         if item.date_known else -1
                     )
 
+                    # Truth Social is tagged as its own fast source upstream
+                    # (scraper.scrape_rss); every other feed flattens to "rss".
                     event = NewsEvent(
                         headline=item.headline,
-                        source="rss",
+                        source="truthsocial" if item.source == "truthsocial" else "rss",
                         url=item.url,
                         received_at=now,
                         published_at=item.published_at,

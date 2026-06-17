@@ -218,6 +218,9 @@ MAX_NEWS_AGE_SECONDS_TWITTER = float(os.getenv("MAX_NEWS_AGE_SECONDS_TWITTER", "
 MAX_NEWS_AGE_SECONDS_RSS = float(os.getenv("MAX_NEWS_AGE_SECONDS_RSS", "7200"))
 MAX_NEWS_AGE_SECONDS_NEWSAPI = float(os.getenv("MAX_NEWS_AGE_SECONDS_NEWSAPI", "14400"))
 MAX_NEWS_AGE_SECONDS_TELEGRAM = float(os.getenv("MAX_NEWS_AGE_SECONDS_TELEGRAM", "1800"))
+# Truth Social posts are breaking news straight from the source — treat them
+# as nearly as time-sensitive as Twitter (30 min), not slow RSS (2h).
+MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL = float(os.getenv("MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL", "1800"))
 
 
 def get_max_age_seconds(news_source: str) -> float:
@@ -229,6 +232,7 @@ def get_max_age_seconds(news_source: str) -> float:
         "rss": MAX_NEWS_AGE_SECONDS_RSS,
         "newsapi": MAX_NEWS_AGE_SECONDS_NEWSAPI,
         "telegram": MAX_NEWS_AGE_SECONDS_TELEGRAM,
+        "truthsocial": MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL,
     }.get((news_source or "").lower(), MAX_NEWS_AGE_SECONDS)
 
 # --- Semantic matching (V2) ---

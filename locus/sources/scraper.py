@@ -48,7 +48,13 @@ def scrape_rss(feed_url: str, lookback_hours: int) -> list[NewsItem]:
         return items
 
     cutoff = datetime.now(timezone.utc) - timedelta(hours=lookback_hours)
-    source_name = feed.feed.get("title", feed_url)
+    # Truth Social is a first-class fast source (direct from Trump), tagged by
+    # URL so the pipeline can apply its tighter freshness window + materiality
+    # boost. Everything else keeps the feed's own title.
+    if "trumpstruth.org" in feed_url:
+        source_name = "truthsocial"
+    else:
+        source_name = feed.feed.get("title", feed_url)
 
     for entry in feed.entries:
         date_known = True
