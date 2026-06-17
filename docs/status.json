@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T00:29:10.824915+00:00",
-  "last_heartbeat": "2026-06-17T00:29:10.824915+00:00",
-  "uptime_seconds": 11127,
+  "generated_at": "2026-06-17T00:34:14.274908+00:00",
+  "last_heartbeat": "2026-06-17T00:34:14.274908+00:00",
+  "uptime_seconds": 11431,
   "dry_run": true,
-  "markets_tracked": 2615,
+  "markets_tracked": 2610,
   "classify_error_streak": 0,
   "track_record": {
     "total": 3007,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 33,
+  "headlines_scanned_today": 39,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 11503,
+  "classifications_24h": 11276,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3332,
+    "prefiltered_haiku": 3280,
     "stale": 40,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -114,9 +114,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2393,
-    "matched": 932,
-    "classified": 11503,
+    "news": 2350,
+    "matched": 893,
+    "classified": 11276,
     "signals": 2,
     "trades": 2
   },
@@ -129,11 +129,11 @@
     "losses": 6,
     "win_rate_pct": 45.5,
     "realized_pnl_usd": 11.55,
-    "unrealized_pnl_usd": 2.15,
+    "unrealized_pnl_usd": 2.79,
     "recent_winrate": 0.4545,
     "kelly_factor": 0.5568,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1430.5
+    "avg_classification_latency_ms": 1436.6
   },
   "live_readiness": {
     "ready": false,
@@ -215,7 +215,7 @@
       "slug": "who-will-advance-from-the-alaska-governor-primary",
       "side": "NO",
       "entry_price": 0.33,
-      "current_price": 0.41000000000000003,
+      "current_price": 0.4099999999999999,
       "pnl_pct": -11.94,
       "amount_usd": 2.0,
       "current_value_usd": 1.76,
@@ -271,11 +271,11 @@
       "slug": "will-bitmine-announce-holding-eth-before-2027",
       "side": "YES",
       "entry_price": 0.34,
-      "current_price": 0.385,
-      "pnl_pct": 13.24,
+      "current_price": 0.4,
+      "pnl_pct": 17.65,
       "amount_usd": 14.68,
-      "current_value_usd": 16.62,
-      "pnl_usd": 1.94,
+      "current_value_usd": 17.27,
+      "pnl_usd": 2.59,
       "edge_type": "news",
       "event_id": "103576"
     }
@@ -451,9 +451,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 00:26:36",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "US asset managers file for first ETFs targeting Wall Street's new obsession, AI and the 'MANGOS' - Reuters",
+      "time": "2026-06-17 00:33:07",
+      "market_question": "Will a dLLM be the top AI model before 2027?",
+      "headline": "World News: Top & Breaking World News Today - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,22 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 00:26:36",
-      "market_question": "Will the US federal government take a stake in OpenAI?",
-      "headline": "US asset managers file for first ETFs targeting Wall Street's new obsession, AI and the 'MANGOS' - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 00:26:34",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "US asset managers file for first ETFs targeting Wall Street's new obsession, AI and the 'MANGOS' - Reuters",
+      "time": "2026-06-17 00:33:07",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "\u2018Hockey Night in Canada\u2019 NHL broadcasts won\u2019t return to CBC next fall - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 00:26:34",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "US asset managers file for first ETFs targeting Wall Street's new obsession, AI and the 'MANGOS' - Reuters",
+      "time": "2026-06-17 00:33:07",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "\u2018Hockey Night in Canada\u2019 NHL broadcasts won\u2019t return to CBC next fall - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -503,9 +490,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-17 00:26:34",
-      "market_question": "Will New York use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "US asset managers file for first ETFs targeting Wall Street's new obsession, AI and the 'MANGOS' - Reuters",
+      "time": "2026-06-17 00:33:07",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "\u2018Hockey Night in Canada\u2019 NHL broadcasts won\u2019t return to CBC next fall - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 00:33:07",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "\u2018Hockey Night in Canada\u2019 NHL broadcasts won\u2019t return to CBC next fall - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
