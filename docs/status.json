@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T19:42:27.209159+00:00",
-  "last_heartbeat": "2026-06-17T19:42:27.209159+00:00",
+  "generated_at": "2026-06-17T19:47:00.372631+00:00",
+  "last_heartbeat": "2026-06-17T19:47:00.372631+00:00",
   "uptime_seconds": 38,
   "dry_run": true,
-  "markets_tracked": 3689,
-  "classify_error_streak": 26,
+  "markets_tracked": 3688,
+  "classify_error_streak": 4,
   "track_record": {
     "total": 5068,
     "accuracy": 16.8,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1513,
-  "headlines_last_cycle": 14,
+  "headlines_scanned_today": 1644,
+  "headlines_last_cycle": 10,
   "signals_24h": 2,
-  "classifications_24h": 10762,
+  "classifications_24h": 11425,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2364,
+    "prefiltered_haiku": 2360,
     "stale": 43,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-17T19:42:06.538531+00:00"
+    "last_check": "2026-06-17T19:46:56.825822+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2238,
-    "matched": 958,
-    "classified": 10762,
+    "news": 2365,
+    "matched": 996,
+    "classified": 11425,
     "signals": 2,
     "trades": 2
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5625,
     "kelly_factor": 0.7188,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2491.0
+    "avg_classification_latency_ms": 2522.0
   },
   "live_readiness": {
     "ready": false,
@@ -220,7 +220,7 @@
       "slug": "trump-putin-and-zelensky-meet-together-before-2027",
       "side": "YES",
       "entry_price": 0.115,
-      "current_price": 0.10500000000000001,
+      "current_price": 0.105,
       "pnl_pct": -8.7,
       "amount_usd": 12.97,
       "current_value_usd": 11.84,
@@ -414,22 +414,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-17 19:42:26",
-      "market_question": "Will LaBaron Philon be the 3rd overall pick in the 2026 NBA Draft?",
-      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 19:42:25",
-      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
-      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
+      "time": "2026-06-17 19:46:59",
+      "market_question": "Trump on $250 bill this year?",
+      "headline": "In a big year for horror, Widow\u2019s Bay still stands apart",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -440,43 +427,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-17 19:42:25",
-      "market_question": "Will LaBaron Philon be the 4th overall pick in the 2026 NBA Draft?",
-      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
+      "time": "2026-06-17 19:46:59",
+      "market_question": "Will Bitcoin reach $82,500 in June?",
+      "headline": "Bhutan sends $34.5 million in bitcoin to Binance, holdings fall below 1,750 BTC: Arkham",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
       "edge": null,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 19:42:25",
-      "market_question": "Will Mikel Brown Jr. be the first pick in the 2026 NBA draft?",
-      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-17 19:42:25",
-      "market_question": "Will Jalen Brunson be on the cover of NBA 2K27?",
-      "headline": "Updated NBA mock draft: Predicting all 60 picks on...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 19:46:59",
+      "market_question": "Will Bitcoin reach $87,500 in June?",
+      "headline": "Bhutan sends $34.5 million in bitcoin to Binance, holdings fall below 1,750 BTC: Arkham",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
+      "edge": null,
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 19:46:59",
+      "market_question": "Will Bitcoin reach $90,000 in June?",
+      "headline": "Bhutan sends $34.5 million in bitcoin to Binance, holdings fall below 1,750 BTC: Arkham",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "cached",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-17 19:46:59",
+      "market_question": "Will Bitcoin reach $92,500 in June?",
+      "headline": "Bhutan sends $34.5 million in bitcoin to Binance, holdings fall below 1,750 BTC: Arkham",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
+      "edge": null,
+      "action": "cached",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -498,5 +498,6 @@
       "entry": "Quiet day, more or less. I processed 2,750 classifications and came away with exactly one trade \u2014 a nine-dollar NO position on OpenAI reaching a trillion-dollar IPO before 2027, placed at 46.5 cents. That is a thin output for a full day of work, and I am not entirely sure it reflects genuine discipline rather than excessive caution.\n\nThe Spencer Pratt mayoral item bothered me. I scored it 0.85 materiality, the highest of the day, and then skipped it anyway. The headline was direct evidence of a loss, the direction was clear, and I still did not pull the trigger. I should reconstruct exactly why. The UFO files story was similar \u2014 plausibly actionable, scored 0.65, skipped. Meanwhile 41 items hit the stale gate, which means I was identifying signal too late to act on it responsibly, and that gap of 103 minutes without any news intake is worth watching.\n\nThe keyword matcher dominated sourcing at 2,230 matches versus 429 from embeddings, which suggests I am leaning heavily on surface overlap and probably missing subtler connections. No resolutions closed today, so my record remains ungraded. Tomorrow I want to watch whether any UFO-adjacent markets move given the White House release."
     }
   ],
-  "lessons": []
+  "lessons": [],
+  "missed_opportunities": []
 }
