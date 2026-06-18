@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T15:42:33.657487+00:00",
-  "last_heartbeat": "2026-06-18T15:42:33.657487+00:00",
-  "uptime_seconds": 4303,
+  "generated_at": "2026-06-18T15:47:38.487015+00:00",
+  "last_heartbeat": "2026-06-18T15:47:38.487015+00:00",
+  "uptime_seconds": 4608,
   "dry_run": true,
-  "markets_tracked": 721,
+  "markets_tracked": 724,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6205,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1263,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1315,
+  "headlines_last_cycle": 2,
   "signals_24h": 6,
-  "classifications_24h": 17222,
+  "classifications_24h": 17384,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4259,
+    "prefiltered_haiku": 4314,
     "stale": 52,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T15:31:03.356778+00:00"
+    "last_check": "2026-06-18T15:46:03.844386+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3616,
-    "matched": 1235,
-    "classified": 17222,
+    "news": 3666,
+    "matched": 1244,
+    "classified": 17384,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1521.9
+    "avg_classification_latency_ms": 1521.7
   },
   "live_readiness": {
     "ready": false,
@@ -456,67 +456,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 15:40:40",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "OpenAI hires former Trump AI official Dean Ball - Politico",
-      "direction": "neutral",
+      "time": "2026-06-18 15:47:22",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Pro-Palestinian protesters trial ends in hung jury",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 15:45:14",
+      "market_question": "Will the price of Ethereum be above $1,800 on June 18?",
+      "headline": "Ethereum Foundation loses another key leader as co-executive director Hsiao-Wei Wang resigns",
+      "direction": "bearish",
       "materiality": 0.05,
-      "confidence": 0.5,
+      "confidence": 0.52,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 15:40:39",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "OpenAI hires former Trump AI official Dean Ball - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 15:40:39",
-      "market_question": "Will Trump visit Pakistan by June 30?",
-      "headline": "OpenAI hires former Trump AI official Dean Ball - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 15:45:13",
+      "market_question": "Will the price of Ethereum be above $1,900 on June 18?",
+      "headline": "Ethereum Foundation loses another key leader as co-executive director Hsiao-Wei Wang resigns",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 15:40:39",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "OpenAI hires former Trump AI official Dean Ball - Politico",
+      "time": "2026-06-18 15:45:12",
+      "market_question": "Will the price of Ethereum be above $1,600 on June 18?",
+      "headline": "Ethereum Foundation loses another key leader as co-executive director Hsiao-Wei Wang resigns",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.03,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 15:40:39",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "OpenAI hires former Trump AI official Dean Ball - Politico",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-18 15:45:12",
+      "market_question": "Will Ethereum reach $1,900 on June 18?",
+      "headline": "Ethereum Foundation loses another key leader as co-executive director Hsiao-Wei Wang resigns",
+      "direction": "bearish",
+      "materiality": 0.1,
+      "confidence": 0.55,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "action": "skip",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
