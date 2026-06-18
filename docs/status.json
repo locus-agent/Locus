@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T18:11:34.339924+00:00",
-  "last_heartbeat": "2026-06-18T18:11:34.339924+00:00",
-  "uptime_seconds": 1257,
+  "generated_at": "2026-06-18T18:16:39.137937+00:00",
+  "last_heartbeat": "2026-06-18T18:16:39.137937+00:00",
+  "uptime_seconds": 1561,
   "dry_run": true,
-  "markets_tracked": 1653,
+  "markets_tracked": 1670,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2388,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 2396,
+  "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 18985,
+  "classifications_24h": 18868,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5761,
+    "prefiltered_haiku": 5769,
     "stale": 65,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4236,
-    "matched": 1253,
-    "classified": 18985,
+    "news": 4213,
+    "matched": 1240,
+    "classified": 18868,
     "signals": 6,
     "trades": 6
   },
@@ -132,12 +132,12 @@
     "losses": 11,
     "win_rate_pct": 50.0,
     "realized_pnl_usd": 56.16,
-    "unrealized_pnl_usd": 0.7,
-    "total_pnl_usd": 56.87,
+    "unrealized_pnl_usd": 1.06,
+    "total_pnl_usd": 57.22,
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1287.2
+    "avg_classification_latency_ms": 1287.1
   },
   "live_readiness": {
     "ready": false,
@@ -206,11 +206,11 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.365,
-      "pnl_pct": 2.82,
+      "current_price": 0.37,
+      "pnl_pct": 4.23,
       "amount_usd": 25.0,
-      "current_value_usd": 25.7,
-      "pnl_usd": 0.7,
+      "current_value_usd": 26.06,
+      "pnl_usd": 1.06,
       "edge_type": "news",
       "event_id": "528020"
     },
@@ -400,9 +400,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 18:11:10",
+      "time": "2026-06-18 18:15:36",
+      "market_question": "Will New Orleans Pelicans win the 2027 NBA Finals?",
+      "headline": "New York Knicks revel in their NBA victory parade as joyous fans and celebs fill the streets - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:15:36",
+      "market_question": "Will New York Giants win the 2027 NFL NFC Championship?",
+      "headline": "New York Knicks revel in their NBA victory parade as joyous fans and celebs fill the streets - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:15:35",
       "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "Beever-Jones set to sign new deal at Chelsea",
+      "headline": "New York Knicks revel in their NBA victory parade as joyous fans and celebs fill the streets - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -413,35 +439,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 18:11:09",
-      "market_question": "Will William Moses win the 2026 Colorado Governor Democratic primary election?",
-      "headline": "It seems as though the Great State of Utah, which I won each time, and handily, is going to the All Mail In Ballot format of Colorado, and the rest, that always head LEFT, as soon as the move is made. We should stop Utah from doing this. All Mail In Ballots, dishonestly handled, are a big advantage for the Dumocrats, whose only Road to Victory, because their Policies are so insane, is CHEATING. Does the Republican Party have any idea what is happening to it? Step by step, State by State, the Democrats are smiling all the way to the \u201cBank.\u201d Stop the onslaught by either immediately terminating the Filibuster and/or pass THE SAVE AMERICA ACT! President DONALD J. TRUMP",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 18:11:09",
-      "market_question": "Will Robert Moore win the 2026 Colorado Governor Republican primary election?",
-      "headline": "It seems as though the Great State of Utah, which I won each time, and handily, is going to the All Mail In Ballot format of Colorado, and the rest, that always head LEFT, as soon as the move is made. We should stop Utah from doing this. All Mail In Ballots, dishonestly handled, are a big advantage for the Dumocrats, whose only Road to Victory, because their Policies are so insane, is CHEATING. Does the Republican Party have any idea what is happening to it? Step by step, State by State, the Democrats are smiling all the way to the \u201cBank.\u201d Stop the onslaught by either immediately terminating the Filibuster and/or pass THE SAVE AMERICA ACT! President DONALD J. TRUMP",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 18:11:09",
-      "market_question": "Will Donald Trump visit Taiwan in 2026?",
-      "headline": "It seems as though the Great State of Utah, which I won each time, and handily, is going to the All Mail In Ballot format of Colorado, and the rest, that always head LEFT, as soon as the move is made. We should stop Utah from doing this. All Mail In Ballots, dishonestly handled, are a big advantage for the Dumocrats, whose only Road to Victory, because their Policies are so insane, is CHEATING. Does the Republican Party have any idea what is happening to it? Step by step, State by State, the Democrats are smiling all the way to the \u201cBank.\u201d Stop the onslaught by either immediately terminating the Filibuster and/or pass THE SAVE AMERICA ACT! President DONALD J. TRUMP",
+      "time": "2026-06-18 18:15:35",
+      "market_question": "Will New York Jets win the 2027 NFL AFC Championship?",
+      "headline": "New York Knicks revel in their NBA victory parade as joyous fans and celebs fill the streets - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,17 +452,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 18:11:09",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Beever-Jones set to sign new deal at Chelsea",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 18:15:35",
+      "market_question": "Will the New York Yankees win the 2026 World Series?",
+      "headline": "New York Knicks revel in their NBA victory parade as joyous fans and celebs fill the streets - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
