@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T22:52:50.740053+00:00",
-  "last_heartbeat": "2026-06-18T22:52:50.740053+00:00",
-  "uptime_seconds": 369,
+  "generated_at": "2026-06-18T22:57:55.536987+00:00",
+  "last_heartbeat": "2026-06-18T22:57:55.536987+00:00",
+  "uptime_seconds": 674,
   "dry_run": true,
-  "markets_tracked": 1668,
+  "markets_tracked": 1670,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6967,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3747,
+  "headlines_scanned_today": 3749,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15750,
+  "classifications_24h": 15734,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4195,
+    "prefiltered_haiku": 4193,
     "stale": 49,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3803,
-    "matched": 1141,
-    "classified": 15750,
+    "news": 3801,
+    "matched": 1137,
+    "classified": 15734,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1439.5
+    "avg_classification_latency_ms": 1439.8
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 22:51:40",
-      "market_question": "Will South Africa win Group A in the 2026 FIFA World Cup?",
-      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
+      "time": "2026-06-18 22:55:59",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "\u2018It\u2019s a vulnerability\u2019: Vance makes a political gamble with public-facing Iran role - Politico",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -386,48 +386,48 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:51:38",
-      "market_question": "Will the announcers say \"Red Card\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 22:51:38",
-      "market_question": "Will the announcers say \"Ankle\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
+      "time": "2026-06-18 22:55:56",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "\u2018It\u2019s a vulnerability\u2019: Vance makes a political gamble with public-facing Iran role - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 22:51:38",
-      "market_question": "Will South Korea win Group A in the 2026 FIFA World Cup?",
-      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:51:38",
-      "market_question": "Will the announcers say \"Trump\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
+      "time": "2026-06-18 22:55:56",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "\u2018It\u2019s a vulnerability\u2019: Vance makes a political gamble with public-facing Iran role - Politico",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:55:56",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "\u2018It\u2019s a vulnerability\u2019: Vance makes a political gamble with public-facing Iran role - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:55:56",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "\u2018It\u2019s a vulnerability\u2019: Vance makes a political gamble with public-facing Iran role - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
