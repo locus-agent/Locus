@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T21:10:16.101142+00:00",
-  "last_heartbeat": "2026-06-18T21:10:16.101142+00:00",
-  "uptime_seconds": 1267,
+  "generated_at": "2026-06-18T21:15:24.388673+00:00",
+  "last_heartbeat": "2026-06-18T21:15:24.388673+00:00",
+  "uptime_seconds": 1575,
   "dry_run": true,
   "markets_tracked": 1659,
-  "classify_error_streak": 408,
+  "classify_error_streak": 414,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3373,
+  "headlines_scanned_today": 3376,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 15955,
+  "classifications_24h": 15933,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4576,
+    "prefiltered_haiku": 4556,
     "stale": 61,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3802,
-    "matched": 1292,
-    "classified": 15955,
+    "news": 3799,
+    "matched": 1294,
+    "classified": 15933,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2524.5
+    "avg_classification_latency_ms": 2523.8
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 21:09:36",
-      "market_question": "Will Bitcoin reach $87,500 in June?",
-      "headline": "CryptoQuant says bitcoin microtransactions now make up 80% of daily transactions",
+      "time": "2026-06-18 21:14:04",
+      "market_question": "Peru Presidential Election Invalidated?",
+      "headline": "'Living celebration of community': Obamas host star-studded opening of Chicago presidential centre",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -386,56 +386,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 21:09:36",
-      "market_question": "MicroStrategy announces >1000 BTC purchase June 16-22?",
-      "headline": "CryptoQuant says bitcoin microtransactions now make up 80% of daily transactions",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 21:14:01",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Manzambi volleys Switzerland into lead against Bosnia",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 21:09:36",
-      "market_question": "Will Bitcoin reach $85,000 in June?",
-      "headline": "CryptoQuant says bitcoin microtransactions now make up 80% of daily transactions",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 21:09:36",
-      "market_question": "Will Bitcoin reach $90,000 in June?",
-      "headline": "CryptoQuant says bitcoin microtransactions now make up 80% of daily transactions",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 21:14:01",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Manzambi volleys Switzerland into lead against Bosnia",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 21:09:36",
-      "market_question": "Will Bitcoin reach $92,500 in June?",
-      "headline": "CryptoQuant says bitcoin microtransactions now make up 80% of daily transactions",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 21:14:01",
+      "market_question": "Will Switzerland reach the Semifinals at the 2026 FIFA World Cup?",
+      "headline": "Manzambi volleys Switzerland into lead against Bosnia",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 21:14:01",
+      "market_question": "Will Switzerland win Group B in the 2026 FIFA World Cup?",
+      "headline": "Manzambi volleys Switzerland into lead against Bosnia",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
