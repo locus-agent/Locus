@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T20:45:41.704097+00:00",
-  "last_heartbeat": "2026-06-18T20:45:41.704097+00:00",
+  "generated_at": "2026-06-18T20:49:46.763515+00:00",
+  "last_heartbeat": "2026-06-18T20:49:46.763515+00:00",
   "uptime_seconds": 37,
   "dry_run": true,
-  "markets_tracked": 1667,
+  "markets_tracked": 1666,
   "classify_error_streak": 25,
   "track_record": {
     "total": 6889,
@@ -81,10 +81,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 3051,
+  "headlines_scanned_today": 3170,
   "headlines_last_cycle": 14,
   "signals_24h": 8,
-  "classifications_24h": 14535,
+  "classifications_24h": 15084,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 4606,
@@ -110,7 +110,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T20:45:17.068600+00:00"
+    "last_check": "2026-06-18T20:49:25.020433+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3489,
+    "news": 3607,
     "matched": 1281,
-    "classified": 14535,
+    "classified": 15084,
     "signals": 8,
     "trades": 5
   },
@@ -128,21 +128,21 @@
     "trades_total": 25,
     "deployed_usd": 440.58,
     "open_count": 1,
-    "closed_count": 24,
+    "closed_count": 22,
     "wins": 13,
-    "losses": 11,
-    "win_rate_pct": 54.2,
+    "losses": 9,
+    "win_rate_pct": 59.1,
     "realized_pnl_usd": 56.87,
     "unrealized_pnl_usd": 0.0,
     "total_pnl_usd": 56.87,
-    "recent_winrate": 0.55,
-    "kelly_factor": 0.7,
+    "recent_winrate": 0.65,
+    "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2527.9
+    "avg_classification_latency_ms": 2517.2
   },
   "live_readiness": {
-    "ready": false,
-    "criteria_met": 3,
+    "ready": true,
+    "criteria_met": 4,
     "criteria_total": 4,
     "sharpe_days_count": 4,
     "metrics": [
@@ -150,7 +150,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 24,
+        "value": 22,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -158,9 +158,9 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 54.2,
+        "value": 59.1,
         "threshold_display": "> 55%",
-        "pass": false
+        "pass": true
       },
       {
         "key": "sharpe_ratio",
@@ -174,7 +174,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 3.7,
+        "value": 4.3,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -373,20 +373,7 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 20:45:40",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Arsenal's first bid for Monga rejected - Friday's gossip",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:45:40",
+      "time": "2026-06-18 20:49:45",
       "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
       "headline": "Arsenal's first bid for Monga rejected - Friday's gossip",
       "direction": "neutral",
@@ -399,7 +386,7 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:45:40",
+      "time": "2026-06-18 20:49:45",
       "market_question": "Will Darryn Peterson be the first pick in the 2026 NBA draft?",
       "headline": "Arsenal's first bid for Monga rejected - Friday's gossip",
       "direction": "neutral",
@@ -412,7 +399,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:45:40",
+      "time": "2026-06-18 20:49:45",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Arsenal's first bid for Monga rejected - Friday's gossip",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:49:45",
       "market_question": "Will Donald Trump enter Iran by June 30?",
       "headline": "White House AI talks enter new phase - Politico",
       "direction": null,
@@ -425,7 +425,7 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 20:45:40",
+      "time": "2026-06-18 20:49:45",
       "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
       "headline": "White House AI talks enter new phase - Politico",
       "direction": null,
