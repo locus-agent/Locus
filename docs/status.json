@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T01:03:11.622996+00:00",
-  "last_heartbeat": "2026-06-18T01:03:11.622996+00:00",
-  "uptime_seconds": 11303,
+  "generated_at": "2026-06-18T01:08:15.373436+00:00",
+  "last_heartbeat": "2026-06-18T01:08:15.373436+00:00",
+  "uptime_seconds": 11606,
   "dry_run": true,
   "markets_tracked": 3637,
   "classify_error_streak": 0,
@@ -80,16 +80,16 @@
       }
     ]
   },
-  "headlines_scanned_today": 26,
+  "headlines_scanned_today": 30,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 15212,
+  "classifications_24h": 15217,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3382,
     "stale": 69,
     "capped": 0,
-    "too_close_to_resolution": 2,
+    "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2988,
+    "news": 2989,
     "matched": 937,
-    "classified": 15212,
+    "classified": 15217,
     "signals": 3,
     "trades": 3
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1592.4
+    "avg_classification_latency_ms": 1599.0
   },
   "live_readiness": {
     "ready": false,
@@ -414,69 +414,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 00:56:06",
-      "market_question": "Will Donald Trump post 0-19 Truth Social posts from June 19 to June 26, 2026?",
-      "headline": "[No Title] - Post from June 18, 2026",
+      "time": "2026-06-18 01:07:14",
+      "market_question": "Will Cape Verde finish last in Group H in the 2026 FIFA World Cup Group Stage?",
+      "headline": "Fans in Cape Verde party into the night after historic World Cup debut - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 00:56:05",
-      "market_question": "Will Donald Trump post 200+ Truth Social posts from June 12 to June 19, 2026?",
-      "headline": "[No Title] - Post from June 18, 2026",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 00:56:05",
-      "market_question": "Will o1 launch a token by June 30, 2026?",
-      "headline": "[No Title] - Post from June 18, 2026",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 00:56:02",
-      "market_question": "Will Betmoar launch a token by March 31, 2027?",
-      "headline": "[No Title] - Post from June 18, 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 00:56:02",
-      "market_question": "Will Anthropic not IPO by June 30, 2026?",
-      "headline": "[No Title] - Post from June 18, 2026",
+      "time": "2026-06-18 01:07:14",
+      "market_question": "Will Cape Verde reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "Fans in Cape Verde party into the night after historic World Cup debut - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 01:07:14",
+      "market_question": "Will Cape Verde advance to the knockout stages at the 2026 FIFA World Cup?",
+      "headline": "Fans in Cape Verde party into the night after historic World Cup debut - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 01:07:14",
+      "market_question": "Will Cape Verde reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Fans in Cape Verde party into the night after historic World Cup debut - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 01:07:14",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "At Hong Kong auto show, China automakers to target wealthy in right-hand-drive markets - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
