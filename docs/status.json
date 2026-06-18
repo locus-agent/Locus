@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-06-18T17:09:13.292574+00:00",
-  "last_heartbeat": "2026-06-18T17:09:13.292574+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-18T17:14:19.611743+00:00",
+  "last_heartbeat": "2026-06-18T17:14:19.611743+00:00",
+  "uptime_seconds": 344,
   "dry_run": true,
-  "markets_tracked": 726,
+  "markets_tracked": 727,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 6393,
+    "total": 6424,
     "accuracy": 17.3,
     "by_category": {
       "other": 16.2,
       "ai": 9.8,
       "politics": 24.3,
       "technology": 10.9,
-      "crypto": 11.4
+      "crypto": 11.8
     },
     "by_source": {
-      "rss": 17.0,
-      "newsapi": 18.3
+      "rss": 17.1,
+      "newsapi": 18.2
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.3,
-    "overall_total": 6393,
+    "overall_total": 6424,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 3679,
+        "total": 3695,
         "correct": 298,
         "accuracy_pct": 8.1,
-        "avg_pnl_pct": 15.17,
+        "avg_pnl_pct": 15.08,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 543,
+        "total": 544,
         "correct": 201,
-        "accuracy_pct": 37.0,
-        "avg_pnl_pct": 37.79,
+        "accuracy_pct": 36.9,
+        "avg_pnl_pct": 37.72,
         "color": "green"
       },
       {
@@ -54,39 +54,39 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 339,
-        "correct": 65,
-        "accuracy_pct": 19.2,
-        "avg_pnl_pct": -5.33,
+        "total": 340,
+        "correct": 66,
+        "accuracy_pct": 19.4,
+        "avg_pnl_pct": -5.25,
         "color": "yellow"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 354,
-        "correct": 152,
-        "accuracy_pct": 42.9,
-        "avg_pnl_pct": 1.42,
+        "total": 362,
+        "correct": 159,
+        "accuracy_pct": 43.9,
+        "avg_pnl_pct": 2.12,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 852,
+        "total": 857,
         "correct": 166,
-        "accuracy_pct": 19.5,
-        "avg_pnl_pct": -7.67,
+        "accuracy_pct": 19.4,
+        "avg_pnl_pct": -7.63,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 1664,
-  "headlines_last_cycle": 27,
+  "headlines_scanned_today": 1853,
+  "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 17248,
+  "classifications_24h": 17648,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4750,
+    "prefiltered_haiku": 4964,
     "stale": 57,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3739,
-    "matched": 1245,
-    "classified": 17248,
+    "news": 3876,
+    "matched": 1249,
+    "classified": 17648,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1188.7
+    "avg_classification_latency_ms": 1276.7
   },
   "live_readiness": {
     "ready": false,
@@ -400,22 +400,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 17:09:12",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "RT @realDonaldTrumpFormer Trump economist says Iran deal means big economic boom for US:",
+      "time": "2026-06-18 17:13:27",
+      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
+      "headline": "California billionaire tax proposal is slated to qualify for the November ballot - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 17:09:12",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "RT @realDonaldTrumpFormer Trump economist says Iran deal means big economic boom for US:",
+      "time": "2026-06-18 17:13:24",
+      "market_question": "Will Nicki Minaj finish first in the 2026 California Governor primary election?",
+      "headline": "California billionaire tax proposal is slated to qualify for the November ballot - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -426,22 +426,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 17:09:12",
-      "market_question": "Will Trump hug an Iranian official by June 20?",
-      "headline": "RT @realDonaldTrumpFormer Trump economist says Iran deal means big economic boom for US:",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 17:09:12",
-      "market_question": "Will voter turnout be 60-64% in the second round of the 2026 Colombian presidential election?",
-      "headline": "RT @realDonaldTrumpUS attorney in California suspects voter fraud investigation will result in charges:",
+      "time": "2026-06-18 17:13:23",
+      "market_question": "Will USA finish last in Group D in the 2026 FIFA World Cup Group Stage?",
+      "headline": "CME Group sues CFTC over perpetual futures in US, accusing the agency of \u2018suddenly\u2019 changing course",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,9 +439,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 17:09:12",
-      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
-      "headline": "RT @realDonaldTrumpUS attorney in California suspects voter fraud investigation will result in charges:",
+      "time": "2026-06-18 17:13:23",
+      "market_question": "Will Australia finish second in Group D in the 2026 FIFA World Cup Group Stage?",
+      "headline": "CME Group sues CFTC over perpetual futures in US, accusing the agency of \u2018suddenly\u2019 changing course",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 17:13:23",
+      "market_question": "Will Croatia finish last in Group L in the 2026 FIFA World Cup Group Stage?",
+      "headline": "CME Group sues CFTC over perpetual futures in US, accusing the agency of \u2018suddenly\u2019 changing course",
       "direction": null,
       "materiality": null,
       "confidence": null,
