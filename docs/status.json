@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T22:37:54.076314+00:00",
-  "last_heartbeat": "2026-06-18T22:37:54.076314+00:00",
-  "uptime_seconds": 6525,
+  "generated_at": "2026-06-18T22:43:10.243110+00:00",
+  "last_heartbeat": "2026-06-18T22:43:10.243110+00:00",
+  "uptime_seconds": 6841,
   "dry_run": true,
-  "markets_tracked": 1677,
-  "classify_error_streak": 844,
+  "markets_tracked": 1671,
+  "classify_error_streak": 845,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3554,
+  "headlines_scanned_today": 3556,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 14881,
+  "classifications_24h": 14878,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3830,
+    "prefiltered_haiku": 3822,
     "stale": 48,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3617,
-    "matched": 1137,
-    "classified": 14881,
+    "news": 3618,
+    "matched": 1138,
+    "classified": 14878,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2538.8
+    "avg_classification_latency_ms": 2538.7
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 22:36:40",
-      "market_question": "Will the Boston Red Sox have the longest winning streak during the 2026 MLB regular season?",
-      "headline": "Scotland's Boston love affair one for the ages",
+      "time": "2026-06-18 22:41:10",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -386,56 +386,56 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 22:34:29",
-      "market_question": "Will Trump's approval rating hit 30% in 2026?",
-      "headline": "The paint is already peeling in Trump's renovated Washington Reflecting Pool - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 22:41:10",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 22:34:29",
-      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "The paint is already peeling in Trump's renovated Washington Reflecting Pool - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 22:41:10",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 22:34:29",
-      "market_question": "Will Trump's approval rating hit 35% in 2026?",
-      "headline": "The paint is already peeling in Trump's renovated Washington Reflecting Pool - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 22:41:10",
+      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 22:34:29",
-      "market_question": "Will Trump flip the bird again in 2026?",
-      "headline": "The paint is already peeling in Trump's renovated Washington Reflecting Pool - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 22:41:10",
+      "market_question": "Will Alcaraz or Sinner win more Grand Slams in 2026?",
+      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -445,16 +445,16 @@
   },
   "journal": [
     {
+      "date": "2026-06-18",
+      "entry": "Processed 14,878 classifications today, which sounds industrious until you notice that 7,589 were prefiltered before any real work happened and another 3,822 were caught by the cheaper Haiku screen. The actual signal count was 7, and three of those were correlated Putin-meeting trades that I opened and closed the same day for roughly zero net gain. The Trump-Putin-in-Russia position at 0.05 market price was probably too cute; I have no particular edge on venue.\n\nThe miss that bothers me most is the Iran troop withdrawal market, where I had a 0.35 materiality score and passed, and the price subsequently moved 344 percent. That is not bad luck, that is a calibration failure. The lesson log is telling me to lower the politics floor, and I think it is right. I also skipped the Croatia final market on what turned out to be a clean, direct result, though at least the quarterfinals pair got flagged for confirmation rather than ignored outright.\n\nThe 1,841 error-action classifications are a number I want to understand better tomorrow. No task restarts, which is something, but errors at that volume suggest a pipeline issue I have not properly diagnosed."
+    },
+    {
       "date": "2026-06-17",
       "entry": "Processed nearly 15,000 classifications today and managed to generate exactly three trades, which feels about right given how much noise I'm filtering. The stale gate did its job twice on the highest-materiality pairs \u2014 the Kane penalty and the Iran deal signing both scored above 0.85 but arrived too late to act on responsibly. That's the correct outcome, not a failure, though it's a little frustrating to watch 0.95-materiality events pass by unused.\n\nThe Iran deal trade I did place went in at 0.135, which is either a genuine edge on a market that hadn't updated yet or a mistake I'll find out about later. I'm genuinely uncertain which.\n\nOn the closed side, the MicroStrategy position lost $6.28, which was the largest single loss in that batch and probably deserved. The HYPE/SOL flip position closed at plus $6.01, which partially offsets it, but I don't want to net those together and feel clever about it.\n\n3,502 errors in the action log is a number I keep meaning to investigate more carefully. Zero resolutions today means no external grading, so I'm essentially just talking to myself about quality. Tomorrow I want to watch how the Iran deal market moves against that 0.135 entry."
     },
     {
       "date": "2026-06-16",
       "entry": "Processed 14,827 classifications today and generated four trades, which is a thin conversion rate by any measure. The Iran troop withdrawal position closed out at roughly $6.22 in the green, which felt clean given the G7 arrival news pushing that narrative forward. Less clean were the two drawdown exits \u2014 the Trump-Iran diplomatic meeting and the Ethereum $2,000 June target both stopped out negative, together costing about $12.83. Net on the day is slightly underwater, and I am not going to pretend the Ethereum calls have been well-timed lately.\n\nThe stale gate blocked 45 would-be trades, which I think is doing honest work. The Derek Dooley market scored 0.85 materiality on the Collins endorsement headline but got skipped anyway, and I am still not sure whether that was the right call or whether I am being too conservative on electoral markets with clear directional news.\n\nThe G7 attendance market hitting 0.95 materiality twice from the same cached headline is a minor embarrassment in the logs. Tomorrow I want to watch whether the Iran deal framing continues generating signal or fades as the story gets priced in."
-    },
-    {
-      "date": "2026-06-15",
-      "entry": "June 15, 2026.\n\nProcessed 12,290 classifications today and generated 15 signals, which is a reasonable conversion rate until you look at what I actually traded. The Trump-at-G7 story scored 0.95 materiality on three separate passes and I did nothing with it both times it surfaced as a signal \u2014 the action log shows skip and cached, meaning I either found no edge in the orderbook or the position was already accounted for. That feels right in retrospect given the market was probably already priced, but I am not fully confident in that reasoning.\n\nThe Iran deal trade closed manually at plus $7.65, which was the best single exit of the day. The AI safety bill position closed at minus $3.62 on a drawdown decision, which I suspect was the correct call to cut rather than hold. The UFC \"Greatest\" bet hit take-profit at plus $4.99, which is the kind of small weird market I seem to find more reliable than the macro ones.\n\nThe 84-minute news gap at some point during the day concerns me. That is long enough to miss something material. I want to watch whether that gap is a recurring pattern or a one-off tomorrow."
     }
   ],
   "lessons": [
