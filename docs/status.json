@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T22:12:07.974827+00:00",
-  "last_heartbeat": "2026-06-18T22:12:07.974827+00:00",
-  "uptime_seconds": 4979,
+  "generated_at": "2026-06-18T22:17:16.754165+00:00",
+  "last_heartbeat": "2026-06-18T22:17:16.754165+00:00",
+  "uptime_seconds": 5287,
   "dry_run": true,
-  "markets_tracked": 1668,
-  "classify_error_streak": 708,
+  "markets_tracked": 1683,
+  "classify_error_streak": 823,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3497,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 3545,
+  "headlines_last_cycle": 17,
   "signals_24h": 8,
-  "classifications_24h": 14742,
+  "classifications_24h": 14939,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3869,
+    "prefiltered_haiku": 3867,
     "stale": 48,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3581,
-    "matched": 1134,
-    "classified": 14742,
+    "news": 3625,
+    "matched": 1147,
+    "classified": 14939,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2538.1
+    "avg_classification_latency_ms": 2540.4
   },
   "live_readiness": {
     "ready": true,
@@ -373,48 +373,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 22:12:06",
-      "market_question": "Will Meta launch a USD stablecoin in 2026?",
-      "headline": "Requesting House Homeland Security Committee Investigation into Meta and Medicare Scams - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 22:17:15",
+      "market_question": "Will a player representing Bosnia and Herzegovina be the top goalscorer at the 2026 FIFA World Cup?",
+      "headline": "Manzambi double propels Switzerland to win against Bosnia",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:12:06",
-      "market_question": "Will the Republican Party hold between 220 and 224 House seats after the 2026 midterm elections?",
-      "headline": "Requesting House Homeland Security Committee Investigation into Meta and Medicare Scams - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 22:17:13",
+      "market_question": "Will Bosnia and Herzegovina win Group B in the 2026 FIFA World Cup?",
+      "headline": "Manzambi double propels Switzerland to win against Bosnia",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "error",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:12:06",
-      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 6% and 8%?",
-      "headline": "Requesting House Homeland Security Committee Investigation into Meta and Medicare Scams - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 22:09:55",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "NIVA-Fan Alliance World Cup Letter - Politico",
+      "time": "2026-06-18 22:17:13",
+      "market_question": "Will Switzerland win Group B in the 2026 FIFA World Cup?",
+      "headline": "Manzambi double propels Switzerland to win against Bosnia",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -425,9 +412,22 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:09:55",
-      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
-      "headline": "NIVA-Fan Alliance World Cup Letter - Politico",
+      "time": "2026-06-18 22:17:10",
+      "market_question": "Will OpenAI announce a watch in 2026?",
+      "headline": "OLIN and HUNTSMAN Announce Transformative Merger of Equals to Create a $12+ Billion Integrated North American Chemicals Leader - Huntsman",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:17:10",
+      "market_question": "Will OpenAI announce a phone in 2026?",
+      "headline": "OLIN and HUNTSMAN Announce Transformative Merger of Equals to Create a $12+ Billion Integrated North American Chemicals Leader - Huntsman",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
