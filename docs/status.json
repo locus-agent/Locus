@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T00:02:24.043049+00:00",
-  "last_heartbeat": "2026-06-18T00:02:24.043049+00:00",
-  "uptime_seconds": 7655,
+  "generated_at": "2026-06-18T00:07:28.143945+00:00",
+  "last_heartbeat": "2026-06-18T00:07:28.143945+00:00",
+  "uptime_seconds": 7959,
   "dry_run": true,
-  "markets_tracked": 3727,
+  "markets_tracked": 3723,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5748,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 4,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 15342,
+  "classifications_24h": 15270,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3453,
-    "stale": 74,
+    "prefiltered_haiku": 3417,
+    "stale": 71,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3013,
-    "matched": 962,
-    "classified": 15342,
+    "news": 2998,
+    "matched": 947,
+    "classified": 15270,
     "signals": 3,
     "trades": 3
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1559.1
+    "avg_classification_latency_ms": 1566.0
   },
   "live_readiness": {
     "ready": false,
@@ -206,7 +206,7 @@
       "slug": "who-will-trump-publicly-insult-by-june-30",
       "side": "YES",
       "entry_price": 0.355,
-      "current_price": 0.315,
+      "current_price": 0.31499999999999995,
       "pnl_pct": -11.27,
       "amount_usd": 25.0,
       "current_value_usd": 22.18,
@@ -414,9 +414,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 00:00:10",
-      "market_question": "Peru General Election invalidated by June 30?",
-      "headline": "US Air Force awards production contracts to General Atomics, Anduril for drone wingmen - Reuters",
+      "time": "2026-06-18 00:06:59",
+      "market_question": "Will Trump hug an Iranian official by June 20?",
+      "headline": "US-Iran deal takes \u2018immediate effect\u2019 after both sides sign, Pakistan premier says - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 00:06:59",
+      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
+      "headline": "Most Read - Politico - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -427,9 +440,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 00:00:10",
-      "market_question": "Will Brent Hennrich advance to the general election for WA-03?",
-      "headline": "US Air Force awards production contracts to General Atomics, Anduril for drone wingmen - Reuters",
+      "time": "2026-06-18 00:06:59",
+      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
+      "headline": "Most Read - Politico - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -440,9 +453,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 00:00:10",
-      "market_question": "Will John Braun advance to the general election for WA-03?",
-      "headline": "US Air Force awards production contracts to General Atomics, Anduril for drone wingmen - Reuters",
+      "time": "2026-06-18 00:06:59",
+      "market_question": "Will CDU win the most seats in the 2026 Sachsen-Anhalt parliamentary elections?",
+      "headline": "Most Read - Politico - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -453,22 +466,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 00:00:10",
-      "market_question": "Will Lawrence Kellogg advance to the general election for WA-03?",
-      "headline": "US Air Force awards production contracts to General Atomics, Anduril for drone wingmen - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 00:00:10",
-      "market_question": "Will Eric Vaughan advance to the general election for WA-03?",
-      "headline": "US Air Force awards production contracts to General Atomics, Anduril for drone wingmen - Reuters",
+      "time": "2026-06-18 00:06:59",
+      "market_question": "Will SPD win the most seats in the 2026 Berlin state elections?",
+      "headline": "Most Read - Politico - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
