@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T22:32:45.799789+00:00",
-  "last_heartbeat": "2026-06-18T22:32:45.799789+00:00",
-  "uptime_seconds": 6216,
+  "generated_at": "2026-06-18T22:37:54.076314+00:00",
+  "last_heartbeat": "2026-06-18T22:37:54.076314+00:00",
+  "uptime_seconds": 6525,
   "dry_run": true,
-  "markets_tracked": 1678,
-  "classify_error_streak": 840,
+  "markets_tracked": 1677,
+  "classify_error_streak": 844,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3552,
+  "headlines_scanned_today": 3554,
   "headlines_last_cycle": 0,
-  "signals_24h": 8,
-  "classifications_24h": 14910,
-  "selectivity_pct": 0.1,
+  "signals_24h": 7,
+  "classifications_24h": 14881,
+  "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3839,
+    "prefiltered_haiku": 3830,
     "stale": 48,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -110,19 +110,19 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T22:19:27.343827+00:00"
+    "last_check": "2026-06-18T22:34:27.719743+00:00"
   },
   "edge_types_24h": {
     "news": 5,
-    "momentum": 3,
+    "momentum": 2,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3621,
-    "matched": 1140,
-    "classified": 14910,
-    "signals": 8,
-    "trades": 5
+    "news": 3617,
+    "matched": 1137,
+    "classified": 14881,
+    "signals": 7,
+    "trades": 4
   },
   "performance": {
     "trades_total": 25,
@@ -373,9 +373,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 22:32:12",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Times Square gunfire sends bystanders scrambling to safety - AP News",
+      "time": "2026-06-18 22:36:40",
+      "market_question": "Will the Boston Red Sox have the longest winning streak during the 2026 MLB regular season?",
+      "headline": "Scotland's Boston love affair one for the ages",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -386,35 +386,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 22:32:12",
-      "market_question": "Will the announcers say \"Shot\" 20+ times during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Times Square gunfire sends bystanders scrambling to safety - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 22:32:12",
-      "market_question": "Will the announcers say \"Goal\" 20+ times during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Times Square gunfire sends bystanders scrambling to safety - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 22:30:01",
-      "market_question": "MLB: Scorigami in 2026?",
-      "headline": "2026 MLB mock draft: Who every team SHOULD take wi...",
+      "time": "2026-06-18 22:34:29",
+      "market_question": "Will Trump's approval rating hit 30% in 2026?",
+      "headline": "The paint is already peeling in Trump's renovated Washington Reflecting Pool - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -425,15 +399,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:30:01",
-      "market_question": "Will Bo Bichette lead the MLB in doubles for the 2026 regular season?",
-      "headline": "2026 MLB mock draft: Who every team SHOULD take wi...",
+      "time": "2026-06-18 22:34:29",
+      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "The paint is already peeling in Trump's renovated Washington Reflecting Pool - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "action": "error",
       "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:34:29",
+      "market_question": "Will Trump's approval rating hit 35% in 2026?",
+      "headline": "The paint is already peeling in Trump's renovated Washington Reflecting Pool - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:34:29",
+      "market_question": "Will Trump flip the bird again in 2026?",
+      "headline": "The paint is already peeling in Trump's renovated Washington Reflecting Pool - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
