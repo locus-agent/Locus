@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T04:20:48.970540+00:00",
-  "last_heartbeat": "2026-06-18T04:20:48.970540+00:00",
-  "uptime_seconds": 23160,
+  "generated_at": "2026-06-18T04:25:53.056751+00:00",
+  "last_heartbeat": "2026-06-18T04:25:53.056751+00:00",
+  "uptime_seconds": 23464,
   "dry_run": true,
-  "markets_tracked": 733,
+  "markets_tracked": 731,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5818,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 240,
+  "headlines_scanned_today": 254,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15626,
+  "classifications_24h": 15676,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3522,
+    "prefiltered_haiku": 3541,
     "stale": 59,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T04:10:31.343238+00:00"
+    "last_check": "2026-06-18T04:25:31.778078+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3080,
-    "matched": 984,
-    "classified": 15626,
+    "news": 3092,
+    "matched": 991,
+    "classified": 15676,
     "signals": 5,
     "trades": 5
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1700.1
+    "avg_classification_latency_ms": 1691.4
   },
   "live_readiness": {
     "ready": false,
@@ -456,69 +456,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 04:19:22",
-      "market_question": "Will Jim Priest be the Democratic nominee for Senate in Oklahoma?",
-      "headline": "Oklahoma Primary Results 2026: Senate, House and Governor - AP News",
-      "direction": "bearish",
-      "materiality": 0.75,
-      "confidence": 0.72,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 04:19:19",
-      "market_question": "Will Rebekah LaVann be the Democratic nominee for Senate in Oklahoma?",
-      "headline": "Oklahoma Primary Results 2026: Senate, House and Governor - AP News",
-      "direction": "bearish",
-      "materiality": 0.6,
-      "confidence": 0.72,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 04:19:19",
-      "market_question": "Will Ryan Walters win the 2026 Oklahoma Governor Republican primary election?",
-      "headline": "Oklahoma Primary Results 2026: Senate, House and Governor - AP News",
-      "direction": "bearish",
-      "materiality": 0.7,
-      "confidence": 0.85,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 04:19:19",
-      "market_question": "Will Troy Green be the Democratic nominee for Senate in Oklahoma?",
-      "headline": "Oklahoma Primary Results 2026: Senate, House and Governor - AP News",
-      "direction": "bearish",
-      "materiality": 0.6,
-      "confidence": 0.75,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 04:19:18",
-      "market_question": "Will the Democrats win the Oklahoma Senate race in 2026?",
-      "headline": "Oklahoma Primary Results 2026: Senate, House and Governor - AP News",
+      "time": "2026-06-18 04:24:09",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Republicans hopeful Iran deal could stop the pain at the pump \u2014 but it may be too late - Politico",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 04:24:06",
+      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Republicans hopeful Iran deal could stop the pain at the pump \u2014 but it may be too late - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 04:24:06",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "Republicans hopeful Iran deal could stop the pain at the pump \u2014 but it may be too late - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 04:24:05",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Different Prices for the Same Ride: How Uber and Lyft Use AI to Get More Money Out of You - Consumer Reports",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 04:24:05",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Republicans hopeful Iran deal could stop the pain at the pump \u2014 but it may be too late - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
