@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T18:26:47.261497+00:00",
-  "last_heartbeat": "2026-06-18T18:26:47.261497+00:00",
-  "uptime_seconds": 2170,
+  "generated_at": "2026-06-18T18:31:51.592535+00:00",
+  "last_heartbeat": "2026-06-18T18:31:51.592535+00:00",
+  "uptime_seconds": 2474,
   "dry_run": true,
-  "markets_tracked": 1678,
+  "markets_tracked": 1671,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2402,
-  "headlines_last_cycle": 1,
-  "signals_24h": 6,
-  "classifications_24h": 18895,
+  "headlines_scanned_today": 2404,
+  "headlines_last_cycle": 0,
+  "signals_24h": 7,
+  "classifications_24h": 18697,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5790,
+    "prefiltered_haiku": 5796,
     "stale": 65,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -112,15 +112,15 @@
     "last_check": "2026-06-18T18:20:52.725781+00:00"
   },
   "edge_types_24h": {
-    "news": 4,
+    "news": 5,
     "momentum": 2,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4218,
-    "matched": 1246,
-    "classified": 18895,
-    "signals": 6,
+    "news": 4172,
+    "matched": 1221,
+    "classified": 18697,
+    "signals": 7,
     "trades": 6
   },
   "performance": {
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1296.1
+    "avg_classification_latency_ms": 1314.6
   },
   "live_readiness": {
     "ready": false,
@@ -400,22 +400,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 18:26:44",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
-      "headline": "Anybody who doesn\u2019t want to Terminate the Filibuster is a FOOL, a very stupid one, at that! The Dumocrats will end it within minutes of taking office, and then rapidly proceed to destroy our Country, adding 2 Radical Left States, 4 Dumocrat Senators, many Congressmen/women, their dream of 21 Supreme Court Justices (Not just 13, an unlucky number!), an impossible to beat number of Electoral College Votes (and that\u2019s the Ballgame!), \u201cPopular\u201d Vote Landslides, and so much else. The Republican Party will never win another Election. I will, sadly, be the last Republican President. Senate Majority Leader John Thune, and the Republican Senate, must not let this \u201ccarnage\u201d happen. They will go down on the wrong side of History, as will all Republicans who just stood by and watched. The Republican Party isn\u2019t at stake, our Country is. TERMINATE THE FILIBUSTER, AND IMMEDIATELY APPROVE THE SAVE AMERICA ACT. GOD BLESS THE U.S.A. President DONALD J. TRUMP",
+      "time": "2026-06-18 18:29:01",
+      "market_question": "Will the announcers say \"Qatar\" during the Canada vs Qatar FIFA World Cup Match?",
+      "headline": "FIFA World Cup - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 18:26:44",
-      "market_question": "Will John Fleming be the republican nominee for Senate in Louisiana?",
-      "headline": "Anybody who doesn\u2019t want to Terminate the Filibuster is a FOOL, a very stupid one, at that! The Dumocrats will end it within minutes of taking office, and then rapidly proceed to destroy our Country, adding 2 Radical Left States, 4 Dumocrat Senators, many Congressmen/women, their dream of 21 Supreme Court Justices (Not just 13, an unlucky number!), an impossible to beat number of Electoral College Votes (and that\u2019s the Ballgame!), \u201cPopular\u201d Vote Landslides, and so much else. The Republican Party will never win another Election. I will, sadly, be the last Republican President. Senate Majority Leader John Thune, and the Republican Senate, must not let this \u201ccarnage\u201d happen. They will go down on the wrong side of History, as will all Republicans who just stood by and watched. The Republican Party isn\u2019t at stake, our Country is. TERMINATE THE FILIBUSTER, AND IMMEDIATELY APPROVE THE SAVE AMERICA ACT. GOD BLESS THE U.S.A. President DONALD J. TRUMP",
+      "time": "2026-06-18 18:29:01",
+      "market_question": "Will the announcers say \"Qatar\" during the Czechia vs South Africa FIFA World Cup Match?",
+      "headline": "FIFA World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:28:59",
+      "market_question": "Will Portugal reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "FIFA World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -426,35 +439,22 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 18:26:44",
-      "market_question": "Will the Republican Party hold exactly 53 Senate seats after the 2026 midterm elections?",
-      "headline": "Anybody who doesn\u2019t want to Terminate the Filibuster is a FOOL, a very stupid one, at that! The Dumocrats will end it within minutes of taking office, and then rapidly proceed to destroy our Country, adding 2 Radical Left States, 4 Dumocrat Senators, many Congressmen/women, their dream of 21 Supreme Court Justices (Not just 13, an unlucky number!), an impossible to beat number of Electoral College Votes (and that\u2019s the Ballgame!), \u201cPopular\u201d Vote Landslides, and so much else. The Republican Party will never win another Election. I will, sadly, be the last Republican President. Senate Majority Leader John Thune, and the Republican Senate, must not let this \u201ccarnage\u201d happen. They will go down on the wrong side of History, as will all Republicans who just stood by and watched. The Republican Party isn\u2019t at stake, our Country is. TERMINATE THE FILIBUSTER, AND IMMEDIATELY APPROVE THE SAVE AMERICA ACT. GOD BLESS THE U.S.A. President DONALD J. TRUMP",
+      "time": "2026-06-18 18:28:58",
+      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
+      "headline": "FIFA World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 18:26:44",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "Anybody who doesn\u2019t want to Terminate the Filibuster is a FOOL, a very stupid one, at that! The Dumocrats will end it within minutes of taking office, and then rapidly proceed to destroy our Country, adding 2 Radical Left States, 4 Dumocrat Senators, many Congressmen/women, their dream of 21 Supreme Court Justices (Not just 13, an unlucky number!), an impossible to beat number of Electoral College Votes (and that\u2019s the Ballgame!), \u201cPopular\u201d Vote Landslides, and so much else. The Republican Party will never win another Election. I will, sadly, be the last Republican President. Senate Majority Leader John Thune, and the Republican Senate, must not let this \u201ccarnage\u201d happen. They will go down on the wrong side of History, as will all Republicans who just stood by and watched. The Republican Party isn\u2019t at stake, our Country is. TERMINATE THE FILIBUSTER, AND IMMEDIATELY APPROVE THE SAVE AMERICA ACT. GOD BLESS THE U.S.A. President DONALD J. TRUMP",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 18:26:44",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "headline": "Anybody who doesn\u2019t want to Terminate the Filibuster is a FOOL, a very stupid one, at that! The Dumocrats will end it within minutes of taking office, and then rapidly proceed to destroy our Country, adding 2 Radical Left States, 4 Dumocrat Senators, many Congressmen/women, their dream of 21 Supreme Court Justices (Not just 13, an unlucky number!), an impossible to beat number of Electoral College Votes (and that\u2019s the Ballgame!), \u201cPopular\u201d Vote Landslides, and so much else. The Republican Party will never win another Election. I will, sadly, be the last Republican President. Senate Majority Leader John Thune, and the Republican Senate, must not let this \u201ccarnage\u201d happen. They will go down on the wrong side of History, as will all Republicans who just stood by and watched. The Republican Party isn\u2019t at stake, our Country is. TERMINATE THE FILIBUSTER, AND IMMEDIATELY APPROVE THE SAVE AMERICA ACT. GOD BLESS THE U.S.A. President DONALD J. TRUMP",
+      "time": "2026-06-18 18:28:58",
+      "market_question": "Will Argentina reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "FIFA World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
