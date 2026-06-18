@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-18T20:49:46.763515+00:00",
-  "last_heartbeat": "2026-06-18T20:49:46.763515+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-18T20:54:52.317414+00:00",
+  "last_heartbeat": "2026-06-18T20:54:52.317414+00:00",
+  "uptime_seconds": 343,
   "dry_run": true,
-  "markets_tracked": 1666,
-  "classify_error_streak": 25,
+  "markets_tracked": 1669,
+  "classify_error_streak": 334,
   "track_record": {
-    "total": 6889,
+    "total": 6892,
     "accuracy": 17.5,
     "by_category": {
       "other": 16.2,
@@ -14,7 +14,7 @@
       "politics": 24.1,
       "technology": 10.9,
       "crypto": 12.0,
-      "sports": 35.7
+      "sports": 35.0
     },
     "by_source": {
       "rss": 17.3,
@@ -23,7 +23,7 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.5,
-    "overall_total": 6889,
+    "overall_total": 6892,
     "buckets": [
       {
         "name": "very_low",
@@ -46,10 +46,10 @@
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 711,
+        "total": 712,
         "correct": 259,
         "accuracy_pct": 36.4,
-        "avg_pnl_pct": 4.08,
+        "avg_pnl_pct": 3.95,
         "color": "green"
       },
       {
@@ -73,22 +73,22 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 882,
+        "total": 884,
         "correct": 167,
         "accuracy_pct": 18.9,
-        "avg_pnl_pct": -6.46,
+        "avg_pnl_pct": -6.45,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 3170,
-  "headlines_last_cycle": 14,
+  "headlines_scanned_today": 3344,
+  "headlines_last_cycle": 23,
   "signals_24h": 8,
-  "classifications_24h": 15084,
+  "classifications_24h": 15847,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4606,
-    "stale": 62,
+    "prefiltered_haiku": 4601,
+    "stale": 61,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3607,
-    "matched": 1281,
-    "classified": 15084,
+    "news": 3778,
+    "matched": 1282,
+    "classified": 15847,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2517.2
+    "avg_classification_latency_ms": 2526.9
   },
   "live_readiness": {
     "ready": true,
@@ -373,48 +373,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 20:49:45",
-      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
-      "headline": "Arsenal's first bid for Monga rejected - Friday's gossip",
+      "time": "2026-06-18 20:54:49",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "Sanders proposes tax on artificial intelligence stocks - WCAX",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:49:45",
-      "market_question": "Will Darryn Peterson be the first pick in the 2026 NBA draft?",
-      "headline": "Arsenal's first bid for Monga rejected - Friday's gossip",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:49:45",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Arsenal's first bid for Monga rejected - Friday's gossip",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:49:45",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "White House AI talks enter new phase - Politico",
+      "time": "2026-06-18 20:54:49",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Injured Neymar not travelling with Brazil squad for Haiti match - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -425,9 +399,35 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 20:49:45",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "White House AI talks enter new phase - Politico",
+      "time": "2026-06-18 20:54:49",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Injured Neymar not travelling with Brazil squad for Haiti match - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 20:54:49",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Injured Neymar not travelling with Brazil squad for Haiti match - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 20:54:49",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Injured Neymar not travelling with Brazil squad for Haiti match - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
