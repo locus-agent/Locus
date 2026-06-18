@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T20:13:23.209928+00:00",
-  "last_heartbeat": "2026-06-18T20:13:23.209928+00:00",
-  "uptime_seconds": 8565,
+  "generated_at": "2026-06-18T20:18:27.903575+00:00",
+  "last_heartbeat": "2026-06-18T20:18:27.903575+00:00",
+  "uptime_seconds": 8870,
   "dry_run": true,
   "markets_tracked": 1660,
   "classify_error_streak": 0,
@@ -80,20 +80,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 2598,
+  "headlines_scanned_today": 2606,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 14564,
+  "classifications_24h": 13522,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 5369,
-    "stale": 71,
+    "prefiltered_haiku": 4990,
+    "stale": 62,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 5,
-    "correlation_block": 5,
+    "correlation_block": 4,
     "category_limit": 1,
     "orderbook_skip": 0,
     "already_priced_in": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3414,
-    "matched": 1283,
-    "classified": 14564,
+    "news": 3219,
+    "matched": 1284,
+    "classified": 13522,
     "signals": 8,
     "trades": 5
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1511.0
+    "avg_classification_latency_ms": 1520.3
   },
   "live_readiness": {
     "ready": false,
@@ -372,11 +372,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 20:11:56",
-      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
-      "headline": "What Iran and US get from deal and why both could struggle to keep it",
+      "time": "2026-06-18 20:16:26",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
       "direction": "neutral",
-      "materiality": 0.1,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -385,56 +385,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:11:52",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "What Iran and US get from deal and why both could struggle to keep it",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 20:16:25",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:11:52",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "What Iran and US get from deal and why both could struggle to keep it",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 20:16:25",
+      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:11:52",
-      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "What Iran and US get from deal and why both could struggle to keep it",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 20:16:22",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:11:52",
-      "market_question": "Will Sam Altman get OpenAI equity by June 30?",
-      "headline": "What Iran and US get from deal and why both could struggle to keep it",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 20:16:22",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
