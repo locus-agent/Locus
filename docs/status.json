@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T21:51:26.919069+00:00",
-  "last_heartbeat": "2026-06-18T21:51:26.919069+00:00",
-  "uptime_seconds": 3738,
+  "generated_at": "2026-06-18T21:56:35.184370+00:00",
+  "last_heartbeat": "2026-06-18T21:56:35.184370+00:00",
+  "uptime_seconds": 4046,
   "dry_run": true,
   "markets_tracked": 1679,
-  "classify_error_streak": 554,
+  "classify_error_streak": 576,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3434,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 3440,
+  "headlines_last_cycle": 3,
   "signals_24h": 8,
-  "classifications_24h": 15541,
+  "classifications_24h": 15315,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4316,
+    "prefiltered_haiku": 4211,
     "stale": 54,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3713,
-    "matched": 1269,
-    "classified": 15541,
+    "news": 3673,
+    "matched": 1235,
+    "classified": 15315,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2523.8
+    "avg_classification_latency_ms": 2527.0
   },
   "live_readiness": {
     "ready": true,
@@ -373,22 +373,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 21:49:48",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "MLB | Latest News, Stats, and Scores - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 21:49:48",
-      "market_question": "Will Reid Detmers strike out the most batters during the 2026 MLB regular season?",
-      "headline": "MLB | Latest News, Stats, and Scores - AP News",
+      "time": "2026-06-18 21:56:33",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Brazilian soccer fans at the World Cup heed warning not to dress Rocky statue in team gear - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -399,43 +386,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 21:49:48",
-      "market_question": "Will Munetaka Murakami hit the most home runs during the 2026 MLB regular season?",
-      "headline": "MLB | Latest News, Stats, and Scores - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 21:56:33",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Mother of pregnant teen with cancer who died challenges Dominican Republic's strict abortion ban - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 21:49:48",
-      "market_question": "Will Bo Bichette lead the MLB in doubles for the 2026 regular season?",
-      "headline": "MLB | Latest News, Stats, and Scores - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 21:49:48",
-      "market_question": "Will Aaron Judge lead the MLB in RBIs for the 2026 regular season?",
-      "headline": "MLB | Latest News, Stats, and Scores - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-18 21:56:33",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Mother of pregnant teen with cancer who died challenges Dominican Republic's strict abortion ban - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
-      "action": "error",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 21:56:33",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Mother of pregnant teen with cancer who died challenges Dominican Republic's strict abortion ban - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 21:56:33",
+      "market_question": "Will Trump meet with Delcy Rodr\u00edguez by June 30?",
+      "headline": "Mother of pregnant teen with cancer who died challenges Dominican Republic's strict abortion ban - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
