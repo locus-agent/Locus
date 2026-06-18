@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T09:04:40.301748+00:00",
-  "last_heartbeat": "2026-06-18T09:04:40.301748+00:00",
-  "uptime_seconds": 40191,
+  "generated_at": "2026-06-18T09:09:44.650594+00:00",
+  "last_heartbeat": "2026-06-18T09:09:44.650594+00:00",
+  "uptime_seconds": 40496,
   "dry_run": true,
   "markets_tracked": 735,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 422,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 429,
+  "headlines_last_cycle": 1,
   "signals_24h": 6,
-  "classifications_24h": 15857,
+  "classifications_24h": 15860,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3605,
+    "prefiltered_haiku": 3589,
     "stale": 54,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3155,
+    "news": 3154,
     "matched": 1043,
-    "classified": 15857,
+    "classified": 15860,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1722.9
+    "avg_classification_latency_ms": 1726.6
   },
   "live_readiness": {
     "ready": false,
@@ -456,35 +456,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 09:03:01",
-      "market_question": "Will DeepSeek have the best Coding AI model at the end of June 2026?",
-      "headline": "How DeepSeek\u2019s landmark funding cements founder\u2019s grip amid heated AI rivalry - South China Morning Post",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 09:03:01",
-      "market_question": "Will DeepSeek have the best Chinese AI model at the end of June 2026?",
-      "headline": "How DeepSeek\u2019s landmark funding cements founder\u2019s grip amid heated AI rivalry - South China Morning Post",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 09:03:01",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Midjourney goes from generating cat images to full-body ultrasound scans - The Verge",
+      "time": "2026-06-18 09:09:37",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $1.1T by December 31?",
+      "headline": "Dollar hovers near two-month high on Fed hike bets; Japan warns on yen - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -495,9 +469,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 09:03:01",
-      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "Midjourney goes from generating cat images to full-body ultrasound scans - The Verge",
+      "time": "2026-06-18 09:09:37",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $1.25T by December 31?",
+      "headline": "Dollar hovers near two-month high on Fed hike bets; Japan warns on yen - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -508,17 +482,43 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 09:03:00",
-      "market_question": "Will DeepSeek have the best Math AI model at the end of June 2026?",
-      "headline": "How DeepSeek\u2019s landmark funding cements founder\u2019s grip amid heated AI rivalry - South China Morning Post",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-18 09:09:37",
+      "market_question": "Will OpenAI's valuation hit (HIGH) $2.0T by December 31?",
+      "headline": "Dollar hovers near two-month high on Fed hike bets; Japan warns on yen - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 09:09:37",
+      "market_question": "Will Anthropic\u2019s valuation hit (HIGH) $1.25T by June 30?",
+      "headline": "Dollar hovers near two-month high on Fed hike bets; Japan warns on yen - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 09:09:37",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $1.5T by December 31?",
+      "headline": "Dollar hovers near two-month high on Fed hike bets; Japan warns on yen - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
