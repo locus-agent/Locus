@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T22:01:50.862082+00:00",
-  "last_heartbeat": "2026-06-18T22:01:50.862082+00:00",
-  "uptime_seconds": 4362,
+  "generated_at": "2026-06-18T22:06:59.298892+00:00",
+  "last_heartbeat": "2026-06-18T22:06:59.298892+00:00",
+  "uptime_seconds": 4670,
   "dry_run": true,
-  "markets_tracked": 1677,
-  "classify_error_streak": 632,
+  "markets_tracked": 1671,
+  "classify_error_streak": 695,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,16 +81,16 @@
       }
     ]
   },
-  "headlines_scanned_today": 3463,
-  "headlines_last_cycle": 17,
+  "headlines_scanned_today": 3493,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 14719,
+  "classifications_24h": 14769,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3915,
+    "prefiltered_haiku": 3892,
     "stale": 48,
     "capped": 0,
-    "too_close_to_resolution": 2,
+    "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 4,
@@ -110,7 +110,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T21:49:26.551863+00:00"
+    "last_check": "2026-06-18T22:04:26.958911+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3570,
-    "matched": 1144,
-    "classified": 14719,
+    "news": 3584,
+    "matched": 1137,
+    "classified": 14769,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2539.8
+    "avg_classification_latency_ms": 2535.7
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 22:01:50",
-      "market_question": "Will OpenAI announce earbuds or headphones in 2026?",
-      "headline": "Ten months later, the $100 Google Home Speaker is finally available for preorder - Ars Technica",
+      "time": "2026-06-18 22:03:16",
+      "market_question": "Will the announcers say \"Visa\" during the Canada vs Qatar FIFA World Cup Match?",
+      "headline": "Follow live: Canada and Qatar face off in Group B ...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:03:16",
+      "market_question": "Will the announcers say \"Header\" during the Canada vs Qatar FIFA World Cup Match?",
+      "headline": "Follow live: Canada and Qatar face off in Group B ...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -386,56 +399,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:01:50",
-      "market_question": "Will J Balvin perform at the 2026 FIFA World Cup Final halftime show?",
-      "headline": "Valve Steam Machine Benchmarks Show Near Twice The Uplift Over Steam Deck & Comparable To Ryzen 5 5600X at 30W - Wccftech",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 22:03:16",
+      "market_question": "Will the announcers say \"Champion\" during the Canada vs Qatar FIFA World Cup Match?",
+      "headline": "Follow live: Canada and Qatar face off in Group B ...",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "error",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:01:50",
-      "market_question": "Will Shakira perform at the 2026 FIFA World Cup Final halftime show?",
-      "headline": "Valve Steam Machine Benchmarks Show Near Twice The Uplift Over Steam Deck & Comparable To Ryzen 5 5600X at 30W - Wccftech",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 22:03:16",
+      "market_question": "Will the announcers say \"Qatar\" during the Canada vs Qatar FIFA World Cup Match?",
+      "headline": "Follow live: Canada and Qatar face off in Group B ...",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "error",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:01:50",
-      "market_question": "Will Ed Sheeran perform at the 2026 FIFA World Cup Final halftime show?",
-      "headline": "Valve Steam Machine Benchmarks Show Near Twice The Uplift Over Steam Deck & Comparable To Ryzen 5 5600X at 30W - Wccftech",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 22:03:16",
+      "market_question": "Will the announcers say \"What a Save\" during the Canada vs Qatar FIFA World Cup Match?",
+      "headline": "Follow live: Canada and Qatar face off in Group B ...",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 22:01:50",
-      "market_question": "Will Coldplay perform at the 2026 FIFA World Cup Final halftime show?",
-      "headline": "Valve Steam Machine Benchmarks Show Near Twice The Uplift Over Steam Deck & Comparable To Ryzen 5 5600X at 30W - Wccftech",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
