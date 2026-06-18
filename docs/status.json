@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T07:13:08.875867+00:00",
-  "last_heartbeat": "2026-06-18T07:13:08.875867+00:00",
-  "uptime_seconds": 33500,
+  "generated_at": "2026-06-18T07:18:13.000034+00:00",
+  "last_heartbeat": "2026-06-18T07:18:13.000034+00:00",
+  "uptime_seconds": 33804,
   "dry_run": true,
   "markets_tracked": 737,
   "classify_error_streak": 0,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 345,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 359,
+  "headlines_last_cycle": 1,
   "signals_24h": 6,
-  "classifications_24h": 15745,
+  "classifications_24h": 15780,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3557,
-    "stale": 57,
+    "prefiltered_haiku": 3576,
+    "stale": 56,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3114,
-    "matched": 1012,
-    "classified": 15745,
+    "news": 3124,
+    "matched": 1019,
+    "classified": 15780,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1713.0
+    "avg_classification_latency_ms": 1708.8
   },
   "live_readiness": {
     "ready": false,
@@ -456,9 +456,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 07:11:14",
-      "market_question": "Will Bitcoin reach $68,000 on June 18?",
-      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
+      "time": "2026-06-18 07:17:58",
+      "market_question": "Will Anthropic IPO by December 31, 2026?",
+      "headline": "JPMorgan blocks Anthropic AI access for Hong Kong staff, FT reports - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -469,9 +469,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 07:11:13",
-      "market_question": "Will Bitcoin reach $68,000 June 15-21?",
-      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
+      "time": "2026-06-18 07:17:57",
+      "market_question": "Will Anthropic IPO by October 31, 2026?",
+      "headline": "JPMorgan blocks Anthropic AI access for Hong Kong staff, FT reports - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -482,41 +482,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 07:11:13",
-      "market_question": "Will Bitcoin reach $66,000 on June 18?",
-      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
+      "time": "2026-06-18 07:17:54",
+      "market_question": "Will Anthropic not IPO by December 31, 2027?",
+      "headline": "JPMorgan blocks Anthropic AI access for Hong Kong staff, FT reports - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 07:11:13",
-      "market_question": "Will the price of Bitcoin be above $56,000 on June 18?",
-      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
-      "direction": "neutral",
-      "materiality": 0.05,
+      "time": "2026-06-18 07:17:54",
+      "market_question": "Anthropic vs Meta \u2014 higher valuation on June 30?",
+      "headline": "JPMorgan blocks Anthropic AI access for Hong Kong staff, FT reports - Reuters",
+      "direction": "bearish",
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 07:11:13",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
-      "direction": "neutral",
-      "materiality": 0.05,
+      "time": "2026-06-18 07:17:54",
+      "market_question": "Will Anthropic have the top AI model at the end of June 2026?",
+      "headline": "JPMorgan blocks Anthropic AI access for Hong Kong staff, FT reports - Reuters",
+      "direction": "bearish",
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
