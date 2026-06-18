@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T03:55:28.108290+00:00",
-  "last_heartbeat": "2026-06-18T03:55:28.108290+00:00",
-  "uptime_seconds": 21639,
+  "generated_at": "2026-06-18T04:00:32.580601+00:00",
+  "last_heartbeat": "2026-06-18T04:00:32.580601+00:00",
+  "uptime_seconds": 21943,
   "dry_run": true,
-  "markets_tracked": 728,
+  "markets_tracked": 729,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5818,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 212,
-  "headlines_last_cycle": 12,
+  "headlines_scanned_today": 223,
+  "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15524,
+  "classifications_24h": 15555,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3474,
+    "prefiltered_haiku": 3489,
     "stale": 59,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T03:40:29.657519+00:00"
+    "last_check": "2026-06-18T03:55:30.893578+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3055,
-    "matched": 966,
-    "classified": 15524,
+    "news": 3065,
+    "matched": 973,
+    "classified": 15555,
     "signals": 5,
     "trades": 5
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1699.6
+    "avg_classification_latency_ms": 1695.5
   },
   "live_readiness": {
     "ready": false,
@@ -456,9 +456,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 03:55:27",
-      "market_question": "Will Ed Gallrein win the 2026 KY-04 Republican Primary Election by less than 3%?",
-      "headline": "North Alabama Primary Runoff Election Results \u2013 June 16, 2026 - WHNT.com",
+      "time": "2026-06-18 03:59:06",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Europe explores energy security alternatives after Iran war\u2019s turmoil - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 03:59:06",
+      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Europe explores energy security alternatives after Iran war\u2019s turmoil - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 03:56:53",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Fayzullaev scores Uzbekistan's first-ever World Cup goal",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -469,9 +495,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 03:55:26",
-      "market_question": "Will the next UK election be called by June 30, 2026?",
-      "headline": "North Alabama Primary Runoff Election Results \u2013 June 16, 2026 - WHNT.com",
+      "time": "2026-06-18 03:56:53",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Fayzullaev scores Uzbekistan's first-ever World Cup goal",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -482,41 +508,15 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 03:55:26",
-      "market_question": "French election called by June 30, 2026?",
-      "headline": "North Alabama Primary Runoff Election Results \u2013 June 16, 2026 - WHNT.com",
+      "time": "2026-06-18 03:56:53",
+      "market_question": "Jhon Arias: 1+ goals",
+      "headline": "Fayzullaev scores Uzbekistan's first-ever World Cup goal",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 03:55:26",
-      "market_question": "Spain snap election called by June 30, 2026?",
-      "headline": "North Alabama Primary Runoff Election Results \u2013 June 16, 2026 - WHNT.com",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 03:55:26",
-      "market_question": "Will Ed Gallrein win the 2026 KY-04 Republican Primary Election by between 3% and 6%?",
-      "headline": "North Alabama Primary Runoff Election Results \u2013 June 16, 2026 - WHNT.com",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
