@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T14:36:33.448060+00:00",
-  "last_heartbeat": "2026-06-18T14:36:33.448060+00:00",
-  "uptime_seconds": 342,
+  "generated_at": "2026-06-18T14:41:37.622252+00:00",
+  "last_heartbeat": "2026-06-18T14:41:37.622252+00:00",
+  "uptime_seconds": 647,
   "dry_run": true,
   "markets_tracked": 724,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1187,
+  "headlines_scanned_today": 1190,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 17712,
+  "classifications_24h": 17725,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4232,
+    "prefiltered_haiku": 4234,
     "stale": 53,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3702,
-    "matched": 1206,
-    "classified": 17712,
+    "news": 3704,
+    "matched": 1207,
+    "classified": 17725,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1404.1
+    "avg_classification_latency_ms": 1403.4
   },
   "live_readiness": {
     "ready": false,
@@ -456,22 +456,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 14:35:41",
-      "market_question": "Will Los Angeles Rams win the 2027 NFL NFC Championship?",
-      "headline": "What a traffic jam taught Los Angeles about the Olympics - Politico",
+      "time": "2026-06-18 14:37:55",
+      "market_question": "Will Trump meet with Vladimir Putin in June 2026?",
+      "headline": "Switzerland says talks planned for Friday between Iran and U.S. - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 14:35:39",
-      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
-      "headline": "What a traffic jam taught Los Angeles about the Olympics - Politico",
+      "time": "2026-06-18 14:37:55",
+      "market_question": "Will Trump speak to Mark Rutte in June?",
+      "headline": "Switzerland says talks planned for Friday between Iran and U.S. - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 14:37:55",
+      "market_question": "Will Trump meet with Benjamin Netanyahu in June 2026?",
+      "headline": "Switzerland says talks planned for Friday between Iran and U.S. - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 14:37:54",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Supreme Court sides with a Texas man who says it\u2019s not a crime for marijuana users to have guns - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -482,43 +508,17 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 14:34:12",
-      "market_question": "Will Anthropic have the top AI model at the end of June 2026?",
-      "headline": "Trump's Anthropic restrictions may be illegal - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-18 14:37:54",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Supreme Court sides with a Texas man who says it\u2019s not a crime for marijuana users to have guns - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 14:34:09",
-      "market_question": "Will Anthropic IPO by December 31, 2026?",
-      "headline": "Trump's Anthropic restrictions may be illegal - Politico",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 14:34:09",
-      "market_question": "Will Anthropic not IPO by December 31, 2027?",
-      "headline": "Trump's Anthropic restrictions may be illegal - Politico",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
