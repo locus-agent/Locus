@@ -29,7 +29,6 @@ from locus.core.classifier import (
 )
 from locus.core.multi_classifier import classify_ensemble, is_low_consensus
 from locus.core import event_context
-from locus.core import reentry
 from locus.core import whale_tracker
 from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
 from locus.core.journal import maybe_write_journal, maybe_check_missed_opportunities
@@ -880,7 +879,7 @@ class PipelineV2:
         "reason": ...} (re-enter at the reduced size)."""
         conn = logger._conn()
         try:
-            watched = reentry.find_watched_market(conn, market.condition_id)
+            watched = logger.find_watched_market(conn, market.condition_id)
             if watched is None:
                 return None
             exit_reason = watched.get("exit_reason") or ""
@@ -911,7 +910,7 @@ class PipelineV2:
         """Consume one re-entry from the market's watch window."""
         conn = logger._conn()
         try:
-            reentry.record_reentry(conn, condition_id)
+            logger.record_reentry(conn, condition_id)
             conn.commit()
         finally:
             conn.close()

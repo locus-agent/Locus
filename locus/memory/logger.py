@@ -180,7 +180,7 @@ def init_db():
 
         -- Markets we recently exited and keep watching for a thesis reversal
         -- (re-entry logic). One unexpired row per market; reentry_count caps
-        -- how many times we re-enter (see core/reentry.py).
+        -- how many times we re-enter (see positions.check_reentry_opportunity).
         CREATE TABLE IF NOT EXISTS watched_closed_positions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             condition_id TEXT NOT NULL,
@@ -303,9 +303,9 @@ def _migrate_position_category(conn):
 
 def _migrate_watch_exit_reason(conn):
     """Add the granular exit_reason to watched_closed_positions for the
-    Re-entry 2.0 gate (positions.check_reentry_opportunity). The bucketed
-    close_reason column stays for the legacy reentry.py rules; legacy rows keep
-    a NULL exit_reason and are treated as blocked by the new gate."""
+    Re-entry 2.0 gate (positions.check_reentry_opportunity). The older bucketed
+    close_reason column is retained for back-compat but no longer read; legacy
+    rows keep a NULL exit_reason and are treated as blocked by the gate."""
     cursor = conn.execute("PRAGMA table_info(watched_closed_positions)")
     columns = {row[1] for row in cursor.fetchall()}
     if "exit_reason" not in columns:
@@ -838,9 +838,9 @@ def watch_closed_position(
 ) -> bool:
     """Record a just-closed position as watched for re-entry (caller commits).
 
-    `close_reason` is the bucketed sl/tp/news reason (legacy reentry.py rules);
-    `exit_reason` is the raw, granular exit reason the Re-entry 2.0 gate keys on
-    (positions.check_reentry_opportunity).
+    `close_reason` is the legacy bucketed sl/tp/news reason (retained for
+    back-compat, no longer read); `exit_reason` is the raw, granular exit reason
+    the Re-entry 2.0 gate keys on (positions.check_reentry_opportunity).
 
     Skips if an unexpired watch row already exists for this market, so one close
     -> at most one re-entry window. Returns True if a row was inserted.
@@ -877,6 +877,31 @@ def count_active_watched_markets(now: datetime | None = None) -> int:
     ).fetchone()
     conn.close()
     return row["c"]
+
+
+def find_watched_market(conn, condition_id: str, now: datetime | None = None) -> dict | None:
+    """The active watch row for one market (latest), or None when it isn't being
+    watched — still inside the watch window and under MAX_REENTRY_PER_MARKET.
+    The Re-entry 2.0 gate (positions.check_reentry_opportunity) keys off the
+    row's granular exit_reason."""
+    now_str = (now or datetime.now(timezone.utc)).strftime("%Y-%m-%d %H:%M:%S")
+    row = conn.execute(
+        """SELECT * FROM watched_closed_positions
+           WHERE condition_id = ? AND watch_until > ? AND reentry_count < ?
+           ORDER BY id DESC LIMIT 1""",
+        (condition_id, now_str, config.MAX_REENTRY_PER_MARKET),
+    ).fetchone()
+    return dict(row) if row else None
+
+
+def record_reentry(conn, condition_id: str, now: datetime | None = None) -> None:
+    """Consume one re-entry from the market's active watch window (caller commits)."""
+    now_str = (now or datetime.now(timezone.utc)).strftime("%Y-%m-%d %H:%M:%S")
+    conn.execute(
+        """UPDATE watched_closed_positions SET reentry_count = reentry_count + 1
+           WHERE condition_id = ? AND watch_until > ?""",
+        (condition_id, now_str),
+    )
 
 
 def get_earliest_classification_price(condition_id: str, lookback_hours: float) -> float | None:
