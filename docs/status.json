@@ -1,93 +1,93 @@
 {
-  "generated_at": "2026-06-18T17:24:17.694889+00:00",
-  "last_heartbeat": "2026-06-18T17:24:17.694889+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-18T17:29:23.325700+00:00",
+  "last_heartbeat": "2026-06-18T17:29:23.325700+00:00",
+  "uptime_seconds": 343,
   "dry_run": true,
-  "markets_tracked": 1668,
+  "markets_tracked": 1665,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 6424,
+    "total": 6511,
     "accuracy": 17.3,
     "by_category": {
       "other": 16.2,
-      "ai": 9.8,
-      "politics": 24.3,
+      "ai": 9.7,
+      "politics": 24.2,
       "technology": 10.9,
-      "crypto": 11.8
+      "crypto": 12.1
     },
     "by_source": {
-      "rss": 17.1,
+      "rss": 17.0,
       "newsapi": 18.2
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.3,
-    "overall_total": 6424,
+    "overall_total": 6511,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 3695,
+        "total": 3754,
         "correct": 298,
-        "accuracy_pct": 8.1,
-        "avg_pnl_pct": 15.08,
+        "accuracy_pct": 7.9,
+        "avg_pnl_pct": 14.79,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 544,
+        "total": 546,
         "correct": 201,
-        "accuracy_pct": 36.9,
-        "avg_pnl_pct": 37.72,
+        "accuracy_pct": 36.8,
+        "avg_pnl_pct": 37.58,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 626,
-        "correct": 223,
+        "total": 638,
+        "correct": 227,
         "accuracy_pct": 35.6,
-        "avg_pnl_pct": 3.58,
+        "avg_pnl_pct": 3.41,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 340,
-        "correct": 66,
-        "accuracy_pct": 19.4,
-        "avg_pnl_pct": -5.25,
+        "total": 346,
+        "correct": 70,
+        "accuracy_pct": 20.2,
+        "avg_pnl_pct": -4.91,
         "color": "yellow"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 362,
-        "correct": 159,
-        "accuracy_pct": 43.9,
-        "avg_pnl_pct": 2.12,
+        "total": 366,
+        "correct": 163,
+        "accuracy_pct": 44.5,
+        "avg_pnl_pct": 2.58,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 857,
+        "total": 861,
         "correct": 166,
-        "accuracy_pct": 19.4,
-        "avg_pnl_pct": -7.63,
+        "accuracy_pct": 19.3,
+        "avg_pnl_pct": -7.59,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 1964,
-  "headlines_last_cycle": 22,
+  "headlines_scanned_today": 2160,
+  "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 17259,
+  "classifications_24h": 18074,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5116,
-    "stale": 57,
+    "prefiltered_haiku": 5405,
+    "stale": 63,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3820,
-    "matched": 1224,
-    "classified": 17259,
+    "news": 4015,
+    "matched": 1237,
+    "classified": 18074,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1200.6
+    "avg_classification_latency_ms": 1488.5
   },
   "live_readiness": {
     "ready": false,
@@ -400,9 +400,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 17:24:17",
-      "market_question": "FDA approves Arcalyst technology transfer?",
-      "headline": "FDA panel considers a first-of-its-kind flu vaccine using mRNA technology - AP News",
+      "time": "2026-06-18 17:28:32",
+      "market_question": "Netanyahu drops out of Israel election by July 31?",
+      "headline": "Foreign Office drops 'do not travel' advice for Dubai, but calls situation unpredictable",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 17:28:25",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "Israeli foreign minister says he is severing contact with EU foreign policy chief - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 17:28:25",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Israeli foreign minister says he is severing contact with EU foreign policy chief - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 17:28:25",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Israeli foreign minister says he is severing contact with EU foreign policy chief - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -413,48 +452,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 17:24:17",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "Supreme Court sides with a Texas man who says it\u2019s not a crime for marijuana users to have guns - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 17:24:17",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Supreme Court sides with a Texas man who says it\u2019s not a crime for marijuana users to have guns - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 17:24:17",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Supreme Court sides with a Texas man who says it\u2019s not a crime for marijuana users to have guns - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 17:24:17",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Supreme Court sides with a Texas man who says it\u2019s not a crime for marijuana users to have guns - AP News",
+      "time": "2026-06-18 17:28:25",
+      "market_question": "Quantum breaks Bitcoin by December 31, 2027?",
+      "headline": "Zigart breaks jaw in high-speed Tour de Suisse crash",
       "direction": null,
       "materiality": null,
       "confidence": null,
