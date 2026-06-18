@@ -304,6 +304,11 @@ class PipelineV2:
         # fast (allow many in flight), Sonnet is expensive (keep it tight).
         self._haiku_sem = asyncio.Semaphore(config.HAIKU_SEMAPHORE_SIZE)
         self._sonnet_sem = asyncio.Semaphore(config.SONNET_SEMAPHORE_SIZE)
+        # Per-event locks serializing the risk-recheck -> open critical section
+        # so two signals on the same event (evaluated concurrently, before
+        # either opened) can't both clear the exposure cap and double-open.
+        # Keyed by event_id (or category fallback); see _acquire_position_lock.
+        self._position_locks: dict[str, asyncio.Lock] = {}
         # Latest circuit-breaker read (refreshed each status cycle and whenever a
         # signal is evaluated); drives the trade-time gate and the status line.
         self._circuit_breaker: dict = {"triggered": False, "reason": "", "metrics": {}}
@@ -1059,30 +1064,122 @@ class PipelineV2:
                 f"[{classification.direction} mat:{classification.materiality:.2f}]"
             )
 
+    async def _acquire_position_lock(self, event_key: str) -> asyncio.Lock:
+        """The asyncio.Lock guarding position-opening for one event (its
+        event_id, or category as a fallback), created on first use. Serializes
+        the risk-recheck -> open critical section per event; distinct events get
+        distinct locks and open concurrently. Lazy creation is safe under
+        asyncio's single-threaded loop — there is no await between the lookup
+        and the insert, so two coroutines can't create competing locks."""
+        lock = self._position_locks.get(event_key)
+        if lock is None:
+            lock = asyncio.Lock()
+            self._position_locks[event_key] = lock
+        return lock
+
+    async def _recheck_risk_gates(self, signal: Signal, market) -> bool:
+        """Re-check the position-opening risk gates against FRESH DB state, held
+        inside the event lock immediately before execution.
+
+        The per-candidate gates in _process_news run concurrently across a batch
+        and read the book *before* any of that batch's signals have opened, so
+        they can approve two same-event signals at once. This second,
+        authoritative pass sees the freshly-opened book, so the loser of the race
+        backs off here. Returns False (logging which gate) when correlation
+        (HIGH risk), category exposure, the per-event exposure cap, the circuit
+        breaker, or the daily spend limit would block; True when all pass."""
+        loop = asyncio.get_event_loop()
+        ident = market.slug or market.condition_id
+        open_positions = await loop.run_in_executor(None, positions.get_open_positions)
+
+        corr = positions.check_correlation_risk(market.question, signal.side, open_positions)
+        if corr["risk_level"] == "high":
+            log.info(f"[pipeline] Risk re-check failed: correlation_block on {ident}")
+            return False
+
+        cat_exp = positions.check_category_exposure(
+            getattr(market, "category", "") or "other", open_positions
+        )
+        if not cat_exp["allowed"]:
+            log.info(f"[pipeline] Risk re-check failed: category_limit on {ident}")
+            return False
+
+        # The race target: re-read the per-event position cap so the second
+        # same-event signal now sees the first's just-opened position.
+        event_id = getattr(market, "event_id", "") or ""
+        exposure = event_context.get_event_exposure(event_id, open_positions)
+        if event_id and exposure["position_count"] >= config.MAX_POSITIONS_PER_EVENT:
+            log.info(f"[pipeline] Risk re-check failed: event_exposure_block on {ident}")
+            return False
+
+        breaker = await loop.run_in_executor(None, compute_circuit_breaker)
+        self._circuit_breaker = breaker
+        if breaker["triggered"]:
+            log.info(f"[pipeline] Risk re-check failed: circuit_breaker on {ident}")
+            return False
+
+        daily_spent = abs(await loop.run_in_executor(None, logger.get_daily_pnl))
+        if daily_spent + signal.bet_amount > config.DAILY_SPEND_LIMIT_USD:
+            log.info(f"[pipeline] Risk re-check failed: daily_spend_limit on {ident}")
+            return False
+
+        return True
+
+    async def _execute_with_lock(self, signal: Signal) -> dict | None:
+        """Open one signal's position under its event-level lock, re-checking the
+        risk gates against fresh state first (see _recheck_risk_gates). Returns
+        the execute result, or None when the re-check blocked it (a lost race) or
+        the open errored."""
+        market = signal.market
+        event_key = (getattr(market, "event_id", "") or "") or (
+            getattr(market, "category", "") or "other"
+        )
+        try:
+            async with await self._acquire_position_lock(event_key):
+                if not await self._recheck_risk_gates(signal, market):
+                    self.stats["race_blocks"] = self.stats.get("race_blocks", 0) + 1
+                    log.info("[pipeline] Race condition blocked: risk re-check failed")
+                    console.print(
+                        f"  [red]RACE BLOCKED[/red]: risk re-check failed on "
+                        f"\"{market.question[:40]}\""
+                    )
+                    return None
+
+                result = await execute_trade_async(signal)
+                self.stats["trades_executed"] += 1
+
+                if result["status"] in ("dry_run", "executed"):
+                    await asyncio.get_event_loop().run_in_executor(
+                        None,
+                        lambda: positions.open_position(
+                            result["trade_id"], signal.market, signal.side,
+                            signal.bet_amount, headline=signal.headlines,
+                            reasoning=signal.reasoning,
+                        ),
+                    )
+
+                status_color = "bright_green" if result["status"] in ("dry_run", "executed") else "red"
+                console.print(
+                    f"  [{status_color}]{result['status']}[/{status_color}] "
+                    f"{result['side']} ${result['amount']:.2f} "
+                    f"on \"{result['market'][:40]}\" "
+                    f"(edge:{result['edge']:.1%} latency:{result.get('latency_ms', 0)}ms)"
+                )
+                return result
+        except Exception:
+            log.exception("[pipeline] _execute_with_lock failed")
+            return None
+
     async def _execute_signals(self):
-        """Execute trades from the signal queue."""
+        """Execute trades from the signal queue. Each signal opens under its
+        event-level lock as its own task, so opens on the same event serialize
+        (and the loser re-checks out) while different events open in parallel."""
+        pending: set[asyncio.Task] = set()
         while True:
             signal: Signal = await self.signal_queue.get()
-            result = await execute_trade_async(signal)
-            self.stats["trades_executed"] += 1
-
-            if result["status"] in ("dry_run", "executed"):
-                await asyncio.get_event_loop().run_in_executor(
-                    None,
-                    lambda: positions.open_position(
-                        result["trade_id"], signal.market, signal.side,
-                        signal.bet_amount, headline=signal.headlines,
-                        reasoning=signal.reasoning,
-                    ),
-                )
-
-            status_color = "bright_green" if result["status"] in ("dry_run", "executed") else "red"
-            console.print(
-                f"  [{status_color}]{result['status']}[/{status_color}] "
-                f"{result['side']} ${result['amount']:.2f} "
-                f"on \"{result['market'][:40]}\" "
-                f"(edge:{result['edge']:.1%} latency:{result.get('latency_ms', 0)}ms)"
-            )
+            task = asyncio.create_task(self._execute_with_lock(signal))
+            pending.add(task)
+            task.add_done_callback(pending.discard)
 
     async def _status_printer(self):
         """Print periodic status updates and export the public dashboard snapshot."""
