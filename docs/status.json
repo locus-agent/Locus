@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T05:11:29.028778+00:00",
-  "last_heartbeat": "2026-06-18T05:11:29.028778+00:00",
-  "uptime_seconds": 26200,
+  "generated_at": "2026-06-18T05:16:33.274413+00:00",
+  "last_heartbeat": "2026-06-18T05:16:33.274413+00:00",
+  "uptime_seconds": 26504,
   "dry_run": true,
-  "markets_tracked": 731,
+  "markets_tracked": 734,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5818,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 273,
+  "headlines_scanned_today": 275,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15625,
+  "classifications_24h": 15630,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3545,
-    "stale": 59,
+    "stale": 60,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3081,
-    "matched": 979,
-    "classified": 15625,
+    "news": 3082,
+    "matched": 980,
+    "classified": 15630,
     "signals": 5,
     "trades": 5
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1707.0
+    "avg_classification_latency_ms": 1708.3
   },
   "live_readiness": {
     "ready": false,
@@ -456,35 +456,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 05:10:40",
-      "market_question": "Will Germany reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Messi, Mbappe & Vini jr - best World Cup goals from round one",
+      "time": "2026-06-18 05:15:05",
+      "market_question": "Will there be 30+ missed penalties during the 2026 FIFA World Cup?",
+      "headline": "Are goalkeepers struggling with the World Cup ball?",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 05:10:40",
-      "market_question": "Will Japan score the most goals at the 2026 FIFA World Cup?",
-      "headline": "Messi, Mbappe & Vini jr - best World Cup goals from round one",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 05:10:40",
-      "market_question": "Will Spain reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Messi, Mbappe & Vini jr - best World Cup goals from round one",
+      "time": "2026-06-18 05:15:05",
+      "market_question": "Will there be 10+ missed penalties during the 2026 FIFA World Cup?",
+      "headline": "Are goalkeepers struggling with the World Cup ball?",
+      "direction": "bullish",
+      "materiality": 0.2,
+      "confidence": 0.55,
+      "edge": 0.169,
+      "action": "stale",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 05:15:04",
+      "market_question": "Will there be 15+ missed penalties during the 2026 FIFA World Cup?",
+      "headline": "Are goalkeepers struggling with the World Cup ball?",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 05:15:02",
+      "market_question": "Will Neymar win the Golden Ball at the 2026 FIFA World Cup?",
+      "headline": "Are goalkeepers struggling with the World Cup ball?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -495,22 +508,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 05:10:39",
-      "market_question": "Will Portugal reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Messi, Mbappe & Vini jr - best World Cup goals from round one",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 05:10:39",
-      "market_question": "Will Canada reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Messi, Mbappe & Vini jr - best World Cup goals from round one",
+      "time": "2026-06-18 05:15:02",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Are goalkeepers struggling with the World Cup ball?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
