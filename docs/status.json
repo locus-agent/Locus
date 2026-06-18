@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T18:47:04.405120+00:00",
-  "last_heartbeat": "2026-06-18T18:47:04.405120+00:00",
-  "uptime_seconds": 3387,
+  "generated_at": "2026-06-18T18:52:09.022202+00:00",
+  "last_heartbeat": "2026-06-18T18:52:09.022202+00:00",
+  "uptime_seconds": 3691,
   "dry_run": true,
-  "markets_tracked": 1668,
+  "markets_tracked": 1664,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 2417,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 2456,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 18575,
+  "classifications_24h": 18772,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5811,
-    "stale": 65,
+    "prefiltered_haiku": 5890,
+    "stale": 70,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T18:35:53.077784+00:00"
+    "last_check": "2026-06-18T18:50:53.458799+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4151,
-    "matched": 1218,
-    "classified": 18575,
+    "news": 4188,
+    "matched": 1236,
+    "classified": 18772,
     "signals": 7,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1377.8
+    "avg_classification_latency_ms": 1420.2
   },
   "live_readiness": {
     "ready": false,
@@ -386,9 +386,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 18:46:57",
-      "market_question": "Will Spain reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Liverpool sign \u00a334.5m Spain winger Munoz",
+      "time": "2026-06-18 18:51:19",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Native Americans mark the US 250th with pride, pain and patriotism - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -399,22 +399,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 18:46:57",
-      "market_question": "Will Spain reach the 2026 FIFA World Cup final?",
-      "headline": "Liverpool sign \u00a334.5m Spain winger Munoz",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 18:46:57",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Police arrest a man for attempted murder after toddler ends up in crocodile enclosure at English zoo - AP News",
+      "time": "2026-06-18 18:51:18",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Native Americans mark the US 250th with pride, pain and patriotism - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -425,30 +412,43 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 18:46:55",
-      "market_question": "Will HYPE flip SOL by December 31?",
-      "headline": "Hyperliquid poised to become more than an exchange and drive HYPE higher, Hyperion CEO says",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-18 18:51:18",
+      "market_question": "Will Trump speak to Mark Rutte in June?",
+      "headline": "Native Americans mark the US 250th with pride, pain and patriotism - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 18:46:55",
-      "market_question": "Hyperliquid listed on Binance in 2026?",
-      "headline": "Hyperliquid poised to become more than an exchange and drive HYPE higher, Hyperion CEO says",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-18 18:51:18",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Native Americans mark the US 250th with pride, pain and patriotism - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 18:51:18",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Native Americans mark the US 250th with pride, pain and patriotism - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
