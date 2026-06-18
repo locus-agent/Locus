@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import asyncio
+import json
 import re
 from dataclasses import dataclass
 
@@ -34,11 +36,270 @@ class Market:
 
 # Gamma caps page size at 100 regardless of the requested limit.
 _GAMMA_PAGE_SIZE = 100
-# Gamma rejects offsets past 10,000 with a 422; beyond that we roll the
-# volume cursor (see fetch_active_markets) instead of paging deeper.
-_GAMMA_OFFSET_CAP = 10_000
-# Safety cap on total requests per fetch.
-_GAMMA_MAX_PAGES = 200
+# Per-stream pagination ceiling. A single volume-ordered stream can't reach the
+# niche tail before Gamma's offset wall, so we fan out across tag_id-filtered
+# streams instead, each paginated only this deep (offset 0..2000 = 20 pages).
+_GAMMA_TAG_OFFSET_CAP = 2000
+
+# Category tag slugs fetched in parallel (one tag_id stream each), spanning the
+# niche markets the pipeline cares about plus the broad breaking-news topics.
+_TAG_CATEGORIES = [
+    "politics", "crypto", "sports", "science",
+    "entertainment", "world", "business", "pop-culture",
+]
+# The general (untagged) stream only pulls high-volume markets, to catch large
+# markets in categories outside the tag list without re-scanning the whole tail.
+_GENERAL_VOLUME_MIN = 50_000
+# Fallback when the /tags endpoint is unavailable: slice the volume axis into
+# independent ranges and paginate each (no tag_id needed).
+_FALLBACK_VOLUME_RANGES = [(1_000, 50_000), (50_000, 500_000)]
+
+# Shared query params for every /markets call: active, open, orderbook-enabled,
+# highest volume first.
+_BASE_MARKET_PARAMS = {
+    "active": True,
+    "closed": False,
+    "enableOrderBook": True,
+    "order": "volume",
+    "ascending": False,
+}
+
+# /tags caps page size at 100 like /markets, and the catalog is large (~6k
+# tags) with the common category slugs scattered well past offset 2000, so
+# paginate generously — but stop as soon as every tracked category slug is found.
+_GAMMA_TAGS_MAX_PAGES = 120
+
+# Process cache for the slug->tag_id map (tags change rarely). None until the
+# first successful get_tags().
+_tags_cache: dict[str, int] | None = None
+
+
+def get_tags() -> dict[str, int]:
+    """Fetch Gamma's tag catalog and return a {slug: tag_id} map, cached for the
+    process. Paginates the /tags endpoint until every tracked category slug is
+    found (or the catalog is exhausted). Raises on network/parse failure (and
+    when the catalog comes back empty) so fetch_active_markets can fall back to
+    volume-range slicing."""
+    global _tags_cache
+    if _tags_cache is not None:
+        return _tags_cache
+
+    mapping: dict[str, int] = {}
+    needed = set(_TAG_CATEGORIES)
+    with httpx.Client(timeout=15) as client:
+        offset = 0
+        for _ in range(_GAMMA_TAGS_MAX_PAGES):
+            resp = client.get(
+                f"{GAMMA_API}/tags",
+                params={"limit": _GAMMA_PAGE_SIZE, "offset": offset},
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            batch = data if isinstance(data, list) else data.get("data", [])
+            if not batch:
+                break
+            for t in batch:
+                slug = (t.get("slug") or "").lower()
+                tid = t.get("id")
+                if slug and tid is not None:
+                    try:
+                        mapping[slug] = int(tid)
+                    except (ValueError, TypeError):
+                        continue
+            offset += len(batch)
+            if len(batch) < _GAMMA_PAGE_SIZE:
+                break
+            if needed <= mapping.keys():  # every tracked category slug found
+                break
+
+    if not mapping:
+        raise ValueError("Gamma /tags returned no usable tags")
+    _tags_cache = mapping
+    return mapping
+
+
+def _parse_market(m: dict) -> Market | None:
+    """Convert one raw Gamma market dict into a Market, or None when it can't be
+    parsed or is a resolved/zero-info market. Pure (carries no dedup state)."""
+    try:
+        # Gamma API encodes outcomePrices as a JSON string of [yes, no].
+        outcome_prices = m.get("outcomePrices", "")
+        yes_price = 0.5
+        no_price = 0.5
+        if outcome_prices:
+            try:
+                prices = json.loads(outcome_prices) if isinstance(outcome_prices, str) else outcome_prices
+                if len(prices) >= 2:
+                    yes_price = float(prices[0])
+                    no_price = float(prices[1])
+            except (json.JSONDecodeError, ValueError):
+                pass
+
+        clob_token_ids = m.get("clobTokenIds", "")
+        if isinstance(clob_token_ids, str):
+            try:
+                clob_token_ids = json.loads(clob_token_ids)
+            except json.JSONDecodeError:
+                clob_token_ids = []
+
+        token_list = []
+        outcomes = ["Yes", "No"]
+        for i, tid in enumerate(clob_token_ids if isinstance(clob_token_ids, list) else []):
+            token_list.append({
+                "token_id": tid,
+                "outcome": outcomes[i] if i < len(outcomes) else f"Outcome_{i}",
+                "price": yes_price if i == 0 else no_price,
+            })
+
+        vol = float(m.get("volume", m.get("volumeNum", 0)) or 0)
+        question = m.get("question", "")
+
+        # Skip resolved or low-info markets.
+        if yes_price in (0.0, 1.0) and vol == 0:
+            return None
+
+        condition_id = m.get("conditionId", m.get("condition_id", m.get("id", "")))
+        if not condition_id:
+            return None
+
+        event = (m.get("events") or [{}])[0]
+        event_id = str(event.get("id", "") or "")
+
+        return Market(
+            condition_id=condition_id,
+            question=question,
+            category=_infer_category(question, m.get("tags", None) or []),
+            yes_price=yes_price,
+            no_price=no_price,
+            volume=vol,
+            end_date=m.get("endDate", m.get("end_date_iso", "")),
+            active=m.get("active", True),
+            tokens=token_list,
+            description=m.get("description", "") or "",
+            spread=float(m.get("spread", 0) or 0),
+            liquidity=float(m.get("liquidityNum", m.get("liquidity", 0)) or 0),
+            slug=event.get("slug", "") or m.get("slug", ""),
+            event_id=event_id,
+        )
+    except (KeyError, ValueError, TypeError):
+        return None
+
+
+def _parse_markets(raw: list[dict]) -> list[Market]:
+    """Parse a batch of raw market dicts, dropping any that don't convert."""
+    return [m for m in (_parse_market(r) for r in raw) if m is not None]
+
+
+async def _paginate_async(
+    client: httpx.AsyncClient, extra_params: dict, max_items: int,
+) -> list[dict]:
+    """Page /markets with the given extra params (a tag_id and/or volume bounds)
+    until max_items are collected, the per-stream offset cap is hit, or a short
+    page signals the end. Returns raw market dicts."""
+    items: list[dict] = []
+    offset = 0
+    while offset < _GAMMA_TAG_OFFSET_CAP and len(items) < max_items:
+        params = {
+            **_BASE_MARKET_PARAMS, **extra_params,
+            "limit": _GAMMA_PAGE_SIZE, "offset": offset,
+        }
+        resp = await client.get(f"{GAMMA_API}/markets", params=params)
+        resp.raise_for_status()
+        data = resp.json()
+        batch = data if isinstance(data, list) else data.get("data", [])
+        if not batch:
+            break
+        items.extend(batch)
+        offset += len(batch)
+        if len(batch) < _GAMMA_PAGE_SIZE:
+            break
+    return items
+
+
+async def _fetch_with_tag(
+    client: httpx.AsyncClient, tag_id: int, max_items: int = _GAMMA_TAG_OFFSET_CAP,
+) -> list[Market]:
+    """All active markets carrying a given tag_id, paginated up to the offset cap."""
+    return _parse_markets(await _paginate_async(client, {"tag_id": tag_id}, max_items))
+
+
+async def _fetch_general(
+    client: httpx.AsyncClient, max_items: int = _GAMMA_TAG_OFFSET_CAP,
+) -> list[Market]:
+    """High-volume markets across all categories (no tag filter), to catch big
+    markets in categories outside the tracked tag list."""
+    return _parse_markets(
+        await _paginate_async(client, {"volume_num_min": _GENERAL_VOLUME_MIN}, max_items)
+    )
+
+
+async def _fetch_volume_range(
+    client: httpx.AsyncClient, vmin: float, vmax: float,
+    max_items: int = _GAMMA_TAG_OFFSET_CAP,
+) -> list[Market]:
+    """Markets within a [vmin, vmax] volume slice — the tags-unavailable fallback."""
+    return _parse_markets(await _paginate_async(
+        client, {"volume_num_min": vmin, "volume_num_max": vmax}, max_items
+    ))
+
+
+def _merge_dedupe_sort(
+    results: list, min_volume: float | None, max_volume: float | None,
+    limit: int | None,
+) -> list[Market]:
+    """Merge the per-stream results (some may be Exceptions, since the gather
+    uses return_exceptions=True), dedupe by condition_id, apply optional volume
+    bounds, sort by volume DESC, and truncate to limit."""
+    markets: list[Market] = []
+    seen: set[str] = set()
+    for res in results:
+        if isinstance(res, Exception):
+            print(f"[markets] fetch stream failed: {res}")
+            continue
+        for m in res or []:
+            if m.condition_id in seen:
+                continue
+            if min_volume is not None and m.volume < min_volume:
+                continue
+            if max_volume is not None and m.volume > max_volume:
+                continue
+            seen.add(m.condition_id)
+            markets.append(m)
+    markets.sort(key=lambda x: x.volume, reverse=True)
+    if limit is not None:
+        markets = markets[:limit]
+    return markets
+
+
+async def _fetch_active_markets_async(
+    limit: int | None, min_volume: float | None, max_volume: float | None,
+) -> list[Market]:
+    """Async core of fetch_active_markets: fan out one stream per category
+    tag_id plus a general high-volume stream, in parallel. Falls back to
+    parallel volume-range slicing when the /tags endpoint is unavailable."""
+    max_items = limit if limit is not None else _GAMMA_TAG_OFFSET_CAP
+
+    try:
+        tags = get_tags()
+    except Exception as e:
+        print(f"[markets] tags endpoint failed ({e}); falling back to volume ranges")
+        tags = None
+
+    async with httpx.AsyncClient(timeout=20) as client:
+        if tags:
+            tasks = [
+                _fetch_with_tag(client, tags[slug], max_items)
+                for slug in _TAG_CATEGORIES if slug in tags
+            ]
+            tasks.append(_fetch_general(client, max_items))
+        else:
+            tasks = [
+                _fetch_volume_range(client, vmin, vmax, max_items)
+                for vmin, vmax in _FALLBACK_VOLUME_RANGES
+            ]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+
+    return _merge_dedupe_sort(results, min_volume, max_volume, limit)
 
 
 def fetch_active_markets(
@@ -46,158 +307,28 @@ def fetch_active_markets(
     min_volume: float | None = None,
     max_volume: float | None = None,
 ) -> list[Market]:
+    """Fetch active, orderbook-enabled markets from Polymarket's Gamma API.
+
+    A single volume-ordered stream can't page deep enough to reach niche markets
+    before Gamma's offset wall, so we fan out one tag_id-filtered stream per
+    category (plus a general high-volume stream) in parallel, dedupe by
+    condition_id, and sort by volume DESC. When the /tags endpoint is down we
+    fall back to parallel volume-range slices; if Gamma is unreachable entirely
+    we fall back to the CLOB API.
+
+    `limit` truncates the merged result (None = full niche scan). `min_volume`/
+    `max_volume`, when given, filter the merged result client-side. Synchronous:
+    it drives its own event loop, so it must be called from a non-async context
+    (as all callers do — the CLI directly, market_watcher via run_in_executor).
     """
-    Fetch active, orderbook-enabled markets from Polymarket's Gamma API.
-
-    Paginates until `limit` markets are collected, or until the API is
-    exhausted when limit is None. Volume bounds are applied Gamma-side
-    (volume_num_min/max) so a full scan of the niche band stays cheap.
-
-    Gamma rejects offsets past 10k, so on hitting that wall we restart at
-    offset 0 with volume_num_max lowered to the smallest volume seen so far
-    (results are volume-ordered; the one-row overlap is deduped below).
-    """
-    params = {
-        "active": True,
-        "closed": False,
-        "enableOrderBook": True,
-        "order": "volume",
-        "ascending": False,
-    }
-    if min_volume is not None:
-        params["volume_num_min"] = min_volume
-
-    items = []
-    offset = 0
-    volume_ceiling = max_volume
-    lowest_volume_seen = None
     try:
-        with httpx.Client(timeout=15) as client:
-            for _ in range(_GAMMA_MAX_PAGES):
-                page_size = _GAMMA_PAGE_SIZE
-                if limit is not None:
-                    page_size = min(page_size, limit - len(items))
-                    if page_size <= 0:
-                        break
-
-                if offset + page_size > _GAMMA_OFFSET_CAP:
-                    # Roll the volume cursor instead of paging past the cap.
-                    if lowest_volume_seen is None or lowest_volume_seen == volume_ceiling:
-                        break
-                    volume_ceiling = lowest_volume_seen
-                    offset = 0
-
-                page_params = {**params, "limit": page_size, "offset": offset}
-                if volume_ceiling is not None:
-                    page_params["volume_num_max"] = volume_ceiling
-
-                resp = client.get(f"{GAMMA_API}/markets", params=page_params)
-                resp.raise_for_status()
-                data = resp.json()
-                batch = data if isinstance(data, list) else data.get("data", [])
-                if not batch:
-                    break
-                items.extend(batch)
-                offset += len(batch)
-
-                page_volumes = [
-                    float(m.get("volumeNum", m.get("volume", 0)) or 0) for m in batch
-                ]
-                if page_volumes:
-                    page_min = min(page_volumes)
-                    if lowest_volume_seen is None or page_min < lowest_volume_seen:
-                        lowest_volume_seen = page_min
+        markets = asyncio.run(_fetch_active_markets_async(limit, min_volume, max_volume))
     except Exception as e:
-        if not items:
-            print(f"[markets] Gamma API error: {e}, falling back to CLOB...")
-            return _fetch_from_clob(limit or _GAMMA_PAGE_SIZE)
-        # Mid-pagination failure: keep what we have rather than losing the refresh.
-        print(f"[markets] Gamma pagination stopped early at offset {offset}: {e}")
-
-    markets = []
-    seen_ids = set()
-
-    for m in items:
-        try:
-            # Gamma API uses outcomePrices as a JSON string
-            outcome_prices = m.get("outcomePrices", "")
-            yes_price = 0.5
-            no_price = 0.5
-
-            if outcome_prices:
-                import json
-                try:
-                    prices = json.loads(outcome_prices) if isinstance(outcome_prices, str) else outcome_prices
-                    if len(prices) >= 2:
-                        yes_price = float(prices[0])
-                        no_price = float(prices[1])
-                except (json.JSONDecodeError, ValueError):
-                    pass
-
-            # Also check tokens array
-            tokens = m.get("tokens", m.get("clobTokenIds", []))
-            if isinstance(tokens, str):
-                import json
-                try:
-                    tokens = json.loads(tokens)
-                except json.JSONDecodeError:
-                    tokens = []
-
-            # Build token list for order execution
-            clob_token_ids = m.get("clobTokenIds", "")
-            if isinstance(clob_token_ids, str):
-                import json
-                try:
-                    clob_token_ids = json.loads(clob_token_ids)
-                except json.JSONDecodeError:
-                    clob_token_ids = []
-
-            token_list = []
-            outcomes = ["Yes", "No"]
-            for i, tid in enumerate(clob_token_ids if isinstance(clob_token_ids, list) else []):
-                token_list.append({
-                    "token_id": tid,
-                    "outcome": outcomes[i] if i < len(outcomes) else f"Outcome_{i}",
-                    "price": yes_price if i == 0 else no_price,
-                })
-
-            vol = float(m.get("volume", m.get("volumeNum", 0)) or 0)
-            question = m.get("question", "")
-
-            # Skip resolved or low-info markets
-            if yes_price in (0.0, 1.0) and vol == 0:
-                continue
-
-            condition_id = m.get("conditionId", m.get("condition_id", m.get("id", "")))
-            # Pagination ordered by live volume can shift between pages; dedupe.
-            if condition_id in seen_ids:
-                continue
-            seen_ids.add(condition_id)
-
-            event = (m.get("events") or [{}])[0]
-            event_id = str(event.get("id", "") or "")
-
-            markets.append(Market(
-                condition_id=condition_id,
-                question=question,
-                category=_infer_category(question, m.get("tags", None) or []),
-                yes_price=yes_price,
-                no_price=no_price,
-                volume=vol,
-                end_date=m.get("endDate", m.get("end_date_iso", "")),
-                active=m.get("active", True),
-                tokens=token_list,
-                description=m.get("description", "") or "",
-                spread=float(m.get("spread", 0) or 0),
-                liquidity=float(m.get("liquidityNum", m.get("liquidity", 0)) or 0),
-                slug=event.get("slug", "") or m.get("slug", ""),
-                event_id=event_id,
-            ))
-        except (KeyError, ValueError, TypeError):
-            continue
-
-    # Sort by volume descending
-    markets.sort(key=lambda x: x.volume, reverse=True)
+        print(f"[markets] Gamma parallel fetch error: {e}, falling back to CLOB...")
+        return _fetch_from_clob(limit or _GAMMA_PAGE_SIZE)
+    if not markets:
+        print("[markets] Gamma returned no markets, falling back to CLOB...")
+        return _fetch_from_clob(limit or _GAMMA_PAGE_SIZE)
     return markets
 
 
