@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T19:53:04.890642+00:00",
-  "last_heartbeat": "2026-06-18T19:53:04.890642+00:00",
-  "uptime_seconds": 7347,
+  "generated_at": "2026-06-18T19:58:09.610924+00:00",
+  "last_heartbeat": "2026-06-18T19:58:09.610924+00:00",
+  "uptime_seconds": 7652,
   "dry_run": true,
-  "markets_tracked": 1668,
+  "markets_tracked": 1666,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,20 +80,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 2584,
+  "headlines_scanned_today": 2589,
   "headlines_last_cycle": 0,
-  "signals_24h": 8,
-  "classifications_24h": 16562,
+  "signals_24h": 7,
+  "classifications_24h": 15902,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 6107,
-    "stale": 76,
+    "prefiltered_haiku": 5933,
+    "stale": 73,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 5,
-    "correlation_block": 12,
+    "correlation_block": 9,
     "category_limit": 1,
     "orderbook_skip": 0,
     "already_priced_in": 0,
@@ -113,15 +113,15 @@
   },
   "edge_types_24h": {
     "news": 5,
-    "momentum": 3,
+    "momentum": 2,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3777,
-    "matched": 1280,
-    "classified": 16562,
-    "signals": 8,
-    "trades": 6
+    "news": 3656,
+    "matched": 1284,
+    "classified": 15902,
+    "signals": 7,
+    "trades": 5
   },
   "performance": {
     "trades_total": 25,
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1490.9
+    "avg_classification_latency_ms": 1496.6
   },
   "live_readiness": {
     "ready": false,
@@ -386,9 +386,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 19:51:45",
-      "market_question": "Will the announcers say \"What a Save\" during the Canada vs Qatar FIFA World Cup Match?",
-      "headline": "FIFA hydration breaks have sparked criticism from different groups. But what do they actually do? - AP News",
+      "time": "2026-06-18 19:56:24",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 19:56:20",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -399,56 +412,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:51:45",
-      "market_question": "Will Argentina reach the Quarterfinals at the 2026 FIFA World Cup?",
-      "headline": "FIFA hydration breaks have sparked criticism from different groups. But what do they actually do? - AP News",
+      "time": "2026-06-18 19:56:19",
+      "market_question": "Will Trump's approval rating hit 35% in 2026?",
+      "headline": "US judge narrows lawsuits challenging Trump's executive order restricting mail-in voting - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:51:45",
-      "market_question": "Will Portugal reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "FIFA hydration breaks have sparked criticism from different groups. But what do they actually do? - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 19:56:19",
+      "market_question": "Will Trump talk to Mojtaba Khamenei by June 30?",
+      "headline": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 19:51:45",
-      "market_question": "Will the announcers say \"What A Save\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "FIFA hydration breaks have sparked criticism from different groups. But what do they actually do? - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 19:56:19",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 19:51:45",
-      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
-      "headline": "FIFA hydration breaks have sparked criticism from different groups. But what do they actually do? - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
