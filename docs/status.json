@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T20:08:18.616647+00:00",
-  "last_heartbeat": "2026-06-18T20:08:18.616647+00:00",
-  "uptime_seconds": 8261,
+  "generated_at": "2026-06-18T20:13:23.209928+00:00",
+  "last_heartbeat": "2026-06-18T20:13:23.209928+00:00",
+  "uptime_seconds": 8565,
   "dry_run": true,
-  "markets_tracked": 1662,
+  "markets_tracked": 1660,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,20 +80,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 2597,
+  "headlines_scanned_today": 2598,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 15318,
+  "classifications_24h": 14564,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 5684,
+    "prefiltered_haiku": 5369,
     "stale": 71,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 5,
-    "correlation_block": 7,
+    "correlation_block": 5,
     "category_limit": 1,
     "orderbook_skip": 0,
     "already_priced_in": 0,
@@ -104,7 +104,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 1
   },
-  "watched_markets_count": 18,
+  "watched_markets_count": 19,
   "missed_opportunities_24h": 3,
   "whale": {
     "watched_wallets": 4,
@@ -117,27 +117,27 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3553,
-    "matched": 1284,
-    "classified": 15318,
+    "news": 3414,
+    "matched": 1283,
+    "classified": 14564,
     "signals": 8,
     "trades": 5
   },
   "performance": {
     "trades_total": 25,
     "deployed_usd": 440.58,
-    "open_count": 2,
-    "closed_count": 23,
-    "wins": 12,
+    "open_count": 1,
+    "closed_count": 24,
+    "wins": 13,
     "losses": 11,
-    "win_rate_pct": 52.2,
+    "win_rate_pct": 54.2,
     "realized_pnl_usd": 56.87,
     "unrealized_pnl_usd": 0.0,
     "total_pnl_usd": 56.87,
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1509.7
+    "avg_classification_latency_ms": 1511.0
   },
   "live_readiness": {
     "ready": false,
@@ -149,7 +149,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 23,
+        "value": 24,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -157,7 +157,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 52.2,
+        "value": 54.2,
         "threshold_display": "> 55%",
         "pass": false
       },
@@ -173,7 +173,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 3.8,
+        "value": 3.7,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -182,7 +182,7 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0383,
+    "drawdown_7d": 0.0372,
     "sharpe_7d": 0.54
   },
   "open_positions": [
@@ -199,23 +199,21 @@
       "pnl_usd": 0.0,
       "edge_type": "momentum",
       "event_id": "89548"
-    },
+    }
+  ],
+  "closed_positions": [
     {
-      "time": "2026-06-15 19:01:43",
+      "time": "2026-06-18T20:11:51.155769+00:00",
       "market_question": "Will Anthropic be acquired before 2027?",
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07500000000000001,
-      "pnl_pct": 0.0,
-      "amount_usd": 13.18,
-      "current_value_usd": 13.18,
-      "pnl_usd": 0.0,
-      "edge_type": "news",
-      "event_id": "86832"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": 0.07500000000000001,
+      "realized_pnl_usd": 2.9265478929119126e-15,
+      "exit_reason": "manual",
+      "event_id": "86832",
+      "partial": false
+    },
     {
       "time": "2026-06-18T18:34:13.100938+00:00",
       "market_question": "Will Donald Trump publicly insult Benjamin Netanyahu by June 30, 2026?",
@@ -323,21 +321,18 @@
       "exit_reason": "manual",
       "event_id": "101877",
       "partial": false
-    },
-    {
-      "time": "2026-06-17T19:23:38.456448+00:00",
-      "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
-      "slug": "will-bitmine-announce-holding-eth-before-2027",
-      "side": "YES",
-      "entry_price": 0.34,
-      "exit_price": 0.39,
-      "realized_pnl_usd": 2.1588235294117637,
-      "exit_reason": "manual",
-      "event_id": "103576",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-18 20:11:51",
+      "market_question": "Will Anthropic be acquired before 2027?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 0.0
+    },
     {
       "time": "2026-06-18 18:34:13",
       "market_question": "Will Donald Trump publicly insult Benjamin Netanyahu by June 30, 2026?",
@@ -373,82 +368,73 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 0.0
-    },
-    {
-      "time": "2026-06-18 16:53:22",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": 0.0
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 20:07:26",
-      "market_question": "Will Solana reach $300 by December 31, 2026?",
-      "headline": "Don\u2019t expect that $300 billion anytime soon - Politico",
+      "time": "2026-06-18 20:11:56",
+      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
+      "headline": "What Iran and US get from deal and why both could struggle to keep it",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.1,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:11:52",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "What Iran and US get from deal and why both could struggle to keep it",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 20:07:26",
-      "market_question": "Will the 2026 Midterm Elections happen as scheduled?",
-      "headline": "Don\u2019t expect that $300 billion anytime soon - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:07:25",
-      "market_question": "Will Elon Musk rejoin the Trump Administration in 2026?",
-      "headline": "Don\u2019t expect that $300 billion anytime soon - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:07:25",
-      "market_question": "Over $1B crypto hack value in 2026?",
-      "headline": "Don\u2019t expect that $300 billion anytime soon - Politico",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:05:13",
+      "time": "2026-06-18 20:11:52",
       "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "There are many questions about the Iran deal. Here are (some) answers. - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "headline": "What Iran and US get from deal and why both could struggle to keep it",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 20:11:52",
+      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "What Iran and US get from deal and why both could struggle to keep it",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 20:11:52",
+      "market_question": "Will Sam Altman get OpenAI equity by June 30?",
+      "headline": "What Iran and US get from deal and why both could struggle to keep it",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
