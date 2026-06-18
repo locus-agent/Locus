@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T18:36:55.813250+00:00",
-  "last_heartbeat": "2026-06-18T18:36:55.813250+00:00",
-  "uptime_seconds": 2778,
+  "generated_at": "2026-06-18T18:42:00.135912+00:00",
+  "last_heartbeat": "2026-06-18T18:42:00.135912+00:00",
+  "uptime_seconds": 3082,
   "dry_run": true,
-  "markets_tracked": 1670,
+  "markets_tracked": 1668,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2406,
+  "headlines_scanned_today": 2411,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 18698,
+  "classifications_24h": 18705,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5797,
+    "prefiltered_haiku": 5802,
     "stale": 65,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4172,
-    "matched": 1223,
-    "classified": 18698,
+    "news": 4174,
+    "matched": 1226,
+    "classified": 18705,
     "signals": 7,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1342.0
+    "avg_classification_latency_ms": 1355.7
   },
   "live_readiness": {
     "ready": false,
@@ -386,9 +386,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 18:35:41",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "King attends Ladies Day at Royal Ascot with Stanley Tucci",
+      "time": "2026-06-18 18:40:13",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "Vance warns Israeli critics over Iran deal: Trump is your only ally - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:40:12",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Vance warns Israeli critics over Iran deal: Trump is your only ally - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:40:12",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Vance warns Israeli critics over Iran deal: Trump is your only ally - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:40:12",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Vance warns Israeli critics over Iran deal: Trump is your only ally - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:40:10",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Vance warns Israeli critics over Iran deal: Trump is your only ally - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -397,58 +449,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 18:35:39",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "King attends Ladies Day at Royal Ascot with Stanley Tucci",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 18:35:39",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "King attends Ladies Day at Royal Ascot with Stanley Tucci",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 18:35:39",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "King attends Ladies Day at Royal Ascot with Stanley Tucci",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 18:35:39",
-      "market_question": "Will Trump meet with Delcy Rodr\u00edguez by June 30?",
-      "headline": "King attends Ladies Day at Royal Ascot with Stanley Tucci",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
