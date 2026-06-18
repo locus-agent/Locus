@@ -1,92 +1,92 @@
 {
-  "generated_at": "2026-06-18T12:02:09.170110+00:00",
-  "last_heartbeat": "2026-06-18T12:02:09.170110+00:00",
-  "uptime_seconds": 50840,
+  "generated_at": "2026-06-18T12:04:36.983235+00:00",
+  "last_heartbeat": "2026-06-18T12:04:36.983235+00:00",
+  "uptime_seconds": 38,
   "dry_run": true,
   "markets_tracked": 719,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 5993,
-    "accuracy": 17.5,
+    "total": 6018,
+    "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
-      "ai": 9.3,
+      "ai": 9.4,
       "politics": 24.8,
       "technology": 10.9,
       "crypto": 11.6
     },
     "by_source": {
-      "rss": 17.3,
+      "rss": 17.4,
       "newsapi": 18.3
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 17.5,
-    "overall_total": 5993,
+    "overall_accuracy": 17.4,
+    "overall_total": 6100,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 3407,
-        "correct": 279,
+        "total": 3479,
+        "correct": 287,
         "accuracy_pct": 8.2,
-        "avg_pnl_pct": 13.5,
+        "avg_pnl_pct": 13.96,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 529,
-        "correct": 200,
-        "accuracy_pct": 37.8,
-        "avg_pnl_pct": 39.41,
+        "total": 537,
+        "correct": 201,
+        "accuracy_pct": 37.4,
+        "avg_pnl_pct": 38.49,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 578,
-        "correct": 210,
-        "accuracy_pct": 36.3,
-        "avg_pnl_pct": 3.98,
+        "total": 598,
+        "correct": 212,
+        "accuracy_pct": 35.5,
+        "avg_pnl_pct": 3.54,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 308,
+        "total": 312,
         "correct": 53,
-        "accuracy_pct": 17.2,
-        "avg_pnl_pct": -5.86,
+        "accuracy_pct": 17.0,
+        "avg_pnl_pct": -5.88,
         "color": "yellow"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 344,
-        "correct": 148,
-        "accuracy_pct": 43.0,
-        "avg_pnl_pct": 1.33,
+        "total": 345,
+        "correct": 149,
+        "accuracy_pct": 43.2,
+        "avg_pnl_pct": 1.44,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 827,
+        "total": 829,
         "correct": 161,
-        "accuracy_pct": 19.5,
-        "avg_pnl_pct": -7.92,
+        "accuracy_pct": 19.4,
+        "avg_pnl_pct": -7.91,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 569,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 578,
+  "headlines_last_cycle": 9,
   "signals_24h": 6,
-  "classifications_24h": 15854,
+  "classifications_24h": 15838,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3591,
+    "prefiltered_haiku": 3613,
     "stale": 51,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T11:55:43.762886+00:00"
+    "last_check": "2026-06-18T12:04:12.367098+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3177,
-    "matched": 1092,
-    "classified": 15854,
+    "news": 3171,
+    "matched": 1087,
+    "classified": 15838,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1724.4
+    "avg_classification_latency_ms": 1495.2
   },
   "live_readiness": {
     "ready": false,
@@ -456,69 +456,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 12:01:49",
-      "market_question": "Will Maikel Garcia lead the MLB in doubles for the 2026 regular season?",
-      "headline": "This Ghost in the Shell keyboard makes me want to activate the hundred spidery robot fingers inside my regular fingers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 12:04:36",
+      "market_question": "Will Cameron Boozer be the 2nd overall pick in the 2026 NBA Draft?",
+      "headline": "Let's combine the 2025 and 2026 NBA draft classes:...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 12:01:49",
-      "market_question": "Will Christian Yelich lead the MLB in RBIs for the 2026 regular season?",
-      "headline": "This Ghost in the Shell keyboard makes me want to activate the hundred spidery robot fingers inside my regular fingers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 12:04:36",
+      "market_question": "Will Darryn Peterson be the first pick in the 2026 NBA draft?",
+      "headline": "Let's combine the 2025 and 2026 NBA draft classes:...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 12:01:49",
-      "market_question": "Will Aaron Judge lead the MLB in RBIs for the 2026 regular season?",
-      "headline": "This Ghost in the Shell keyboard makes me want to activate the hundred spidery robot fingers inside my regular fingers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 12:04:35",
+      "market_question": "Will Hannes Steinbach be the 5th overall pick in the 2026 NBA Draft?",
+      "headline": "Let's combine the 2025 and 2026 NBA draft classes:...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 12:01:49",
-      "market_question": "Will the Cleveland Guardians win 100 or more games during the 2026 MLB Regular Season?",
-      "headline": "This Ghost in the Shell keyboard makes me want to activate the hundred spidery robot fingers inside my regular fingers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 12:04:35",
+      "market_question": "Will Brooks Rogowski be drafted 1st overall in the 2026 NHL Draft?",
+      "headline": "Let's combine the 2025 and 2026 NBA draft classes:...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 12:01:49",
-      "market_question": "Will Dexter Lawrence play for the Pittsburgh Steelers in Week 1 of the 2026-27 NFL regular season?",
-      "headline": "This Ghost in the Shell keyboard makes me want to activate the hundred spidery robot fingers inside my regular fingers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 12:04:35",
+      "market_question": "Will Keaton Wagler be the 3rd overall pick in the 2026 NBA Draft?",
+      "headline": "Let's combine the 2025 and 2026 NBA draft classes:...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
