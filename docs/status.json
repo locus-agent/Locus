@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T17:44:36.198876+00:00",
-  "last_heartbeat": "2026-06-18T17:44:36.198876+00:00",
-  "uptime_seconds": 1256,
+  "generated_at": "2026-06-18T17:49:40.307320+00:00",
+  "last_heartbeat": "2026-06-18T17:49:40.307320+00:00",
+  "uptime_seconds": 1560,
   "dry_run": true,
   "markets_tracked": 1669,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2164,
+  "headlines_scanned_today": 2166,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 18079,
+  "classifications_24h": 18075,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5407,
+    "prefiltered_haiku": 5408,
     "stale": 63,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -118,8 +118,8 @@
   },
   "pipeline_24h": {
     "news": 4017,
-    "matched": 1239,
-    "classified": 18079,
+    "matched": 1240,
+    "classified": 18075,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1486.7
+    "avg_classification_latency_ms": 1486.0
   },
   "live_readiness": {
     "ready": false,
@@ -220,11 +220,11 @@
       "slug": "which-companies-will-be-acquired-before-2027",
       "side": "YES",
       "entry_price": 0.075,
-      "current_price": 0.07499999999999996,
+      "current_price": 0.07500000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 13.18,
       "current_value_usd": 13.18,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "86832"
     }
@@ -400,9 +400,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 17:35:15",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "A year of Walmart Plus is half off ahead of Prime Day",
+      "time": "2026-06-18 17:46:28",
+      "market_question": "Netanyahu drops out of Israel election by July 31?",
+      "headline": "Vance cautions Israeli critics: Don't attack \u2018the only powerful ally\u2019 you have left - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 17:46:27",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Vance cautions Israeli critics: Don't attack \u2018the only powerful ally\u2019 you have left - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -413,9 +426,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 17:35:15",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "A year of Walmart Plus is half off ahead of Prime Day",
+      "time": "2026-06-18 17:46:27",
+      "market_question": "Will The Left win the most seats in the 2026 Sachsen-Anhalt parliamentary elections?",
+      "headline": "Vance cautions Israeli critics: Don't attack \u2018the only powerful ally\u2019 you have left - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -426,9 +439,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 17:35:15",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "A year of Walmart Plus is half off ahead of Prime Day",
+      "time": "2026-06-18 17:46:27",
+      "market_question": "Will Donald Trump publicly insult J.D. Vance by June 30, 2026?",
+      "headline": "Vance cautions Israeli critics: Don't attack \u2018the only powerful ally\u2019 you have left - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -439,22 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 17:35:15",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "A year of Walmart Plus is half off ahead of Prime Day",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 17:35:15",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "A year of Walmart Plus is half off ahead of Prime Day",
+      "time": "2026-06-18 17:46:27",
+      "market_question": "Will Together win the most seats in the 2026 Israeli legislative election?",
+      "headline": "Vance cautions Israeli critics: Don't attack \u2018the only powerful ally\u2019 you have left - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
