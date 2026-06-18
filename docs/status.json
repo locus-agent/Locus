@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T19:17:33.563708+00:00",
-  "last_heartbeat": "2026-06-18T19:17:33.563708+00:00",
-  "uptime_seconds": 5216,
+  "generated_at": "2026-06-18T19:22:37.887757+00:00",
+  "last_heartbeat": "2026-06-18T19:22:37.887757+00:00",
+  "uptime_seconds": 5520,
   "dry_run": true,
-  "markets_tracked": 1656,
+  "markets_tracked": 1670,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 2524,
-  "headlines_last_cycle": 11,
+  "headlines_scanned_today": 2559,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 18979,
+  "classifications_24h": 18668,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5999,
-    "stale": 72,
+    "prefiltered_haiku": 6063,
+    "stale": 76,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T19:05:53.997931+00:00"
+    "last_check": "2026-06-18T19:20:54.448403+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4239,
-    "matched": 1261,
-    "classified": 18979,
+    "news": 4178,
+    "matched": 1267,
+    "classified": 18668,
     "signals": 7,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1445.1
+    "avg_classification_latency_ms": 1472.7
   },
   "live_readiness": {
     "ready": false,
@@ -386,35 +386,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 19:17:33",
-      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
-      "headline": "Futures Mixed, Oil Rises On Trump's New Iran Threat - Investor's Business Daily",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.6,
+      "time": "2026-06-18 19:18:31",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "Stranded ships have begun transiting the Strait of Hormuz, maritime data company says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:17:33",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Futures Mixed, Oil Rises On Trump's New Iran Threat - Investor's Business Daily",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 19:17:33",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "SpaceX launches 3 Block 2 BlueBird satellites for AST SpaceMobile - Spaceflight Now",
+      "time": "2026-06-18 19:18:31",
+      "market_question": "Tush Push banned for 2026 NFL Season?",
+      "headline": "US banks to make final push on capital rule changes as Fed wraps up consultation - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -425,9 +412,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 19:17:33",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "From supply shock to oil glut: IEA flags scale of demand destruction caused by Iran war - CNBC",
+      "time": "2026-06-18 19:18:31",
+      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
+      "headline": "US banks to make final push on capital rule changes as Fed wraps up consultation - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +425,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 19:17:33",
-      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "From supply shock to oil glut: IEA flags scale of demand destruction caused by Iran war - CNBC",
+      "time": "2026-06-18 19:18:31",
+      "market_question": "Will France reach the 2026 FIFA World Cup final?",
+      "headline": "US banks to make final push on capital rule changes as Fed wraps up consultation - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 19:18:31",
+      "market_question": "Will Norway reach the 2026 FIFA World Cup final?",
+      "headline": "US banks to make final push on capital rule changes as Fed wraps up consultation - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
