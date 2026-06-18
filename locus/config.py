@@ -222,6 +222,20 @@ MAX_NEWS_AGE_SECONDS_TELEGRAM = float(os.getenv("MAX_NEWS_AGE_SECONDS_TELEGRAM",
 # as nearly as time-sensitive as Twitter (30 min), not slow RSS (2h).
 MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL = float(os.getenv("MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL", "1800"))
 
+# Geopolitical markets move slowly: long-horizon diplomatic/military/political
+# developments (Iran deals, Ukraine, Taiwan, sanctions, ...) stay relevant for
+# days, so headlines on those markets get a much wider freshness window (12h)
+# than the source default — but only when the market resolves > 7 days out (see
+# pipeline.is_geopolitical + gate_trade).
+MAX_NEWS_AGE_SECONDS_GEOPOLITICAL = float(os.getenv("MAX_NEWS_AGE_SECONDS_GEOPOLITICAL", "43200"))
+GEOPOLITICAL_KEYWORDS = [
+    "iran", "tehran", "ayatollah", "nuclear deal", "sanctions", "ceasefire",
+    "ukraine", "russia", "putin", "zelensky", "taiwan", "china invasion",
+    "nato", "g7", "g20", "diplomatic", "treaty", "signing ceremony",
+    "peace deal", "trade war", "tariff", "congress", "senate", "election",
+    "coup", "regime", "withdrawal", "troops", "middle east",
+]
+
 
 def get_max_age_seconds(news_source: str) -> float:
     """Freshness limit (seconds) for a given news source, falling back to

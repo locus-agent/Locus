@@ -71,6 +71,19 @@ def is_price_target_market(question: str) -> bool:
     return any(kw.lower() in q for kw in config.PRICE_TARGET_KEYWORDS)
 
 
+def is_geopolitical(market, headline: str = "") -> bool:
+    """True when a market (and optional headline) is about long-horizon
+    geopolitics — Iran deals, the Ukraine/Russia war, Taiwan tensions,
+    sanctions, treaties, etc. Matched case-insensitively against
+    config.GEOPOLITICAL_KEYWORDS over the market question + headline.
+    'u.s.'/'united states' are normalized to 'us' so the keyword list can stay
+    simple. Used to widen the freshness window for slow-moving geopolitical
+    markets (see gate_trade)."""
+    text = (getattr(market, "question", "") + " " + (headline or "")).lower()
+    text = text.replace("u.s.", "us").replace("united states", "us")
+    return any(kw in text for kw in config.GEOPOLITICAL_KEYWORDS)
+
+
 def should_verify_novelty(materiality: float, yes_price: float) -> bool:
     """Whether a signal warrants a Chain-of-Verification novelty check: only
     high-materiality calls (>= COV_MATERIALITY_THRESHOLD) at non-extreme prices
@@ -144,8 +157,20 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     """
     if signal is None:
         return None, "skip"
+    market = signal.market
     age = news_age_seconds(event, now)
-    if age is None or age > config.get_max_age_seconds(signal.news_source):
+    max_age = config.get_max_age_seconds(signal.news_source)
+    # Geopolitical markets move slowly: a long-horizon (resolution > 7 days out)
+    # diplomatic/military/political story stays tradeable for far longer than a
+    # typical breaking headline, so widen the freshness window to 12h for them.
+    if is_geopolitical(market, event.headline):
+        hours_to_resolution = positions.hours_to_close(market.end_date, now)
+        if hours_to_resolution is not None and hours_to_resolution > 7 * 24:
+            max_age = config.MAX_NEWS_AGE_SECONDS_GEOPOLITICAL
+            log.info(
+                f"Geopolitical market: extended freshness window (12h) | {market.slug}"
+            )
+    if age is None or age > max_age:
         return None, "stale"
     if event.headline in traded_headlines:
         return None, "capped"
@@ -154,7 +179,6 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     # in a market about to resolve (no time for the thesis to play out) or a
     # price-target market (resolves on a price threshold news rarely moves
     # cleanly). Neither consumes the headline cap.
-    market = signal.market
     is_sports = (getattr(market, "category", "") or "") == "sports"
 
     # Sports markets are off entirely unless the feature is enabled.

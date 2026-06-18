@@ -77,6 +77,8 @@ REVERSE (denials/cancellations): A first-person denial or cancellation ('I will 
 resolved YES, this is a BEARISH signal with the same +0.15 boost.
 Example: Trump posting 'The Iran deal is off, no deal' → bearish, materiality 0.80+ for 'Will the Iran deal be signed?' markets.
 
+GEOPOLITICAL EVENTS: Long-term diplomatic, military and political developments (Iran deals, Ukraine conflict, Taiwan tensions, sanctions etc.) often remain highly relevant for days or weeks. Do not heavily penalize materiality based on news recency for these topics.
+
 Also rate the MATERIALITY — how much should this move the price? 0.0 means no impact, 1.0 means this is definitive evidence.
 
 Judge materiality for THIS SPECIFIC market: does the news materially change the probability that
