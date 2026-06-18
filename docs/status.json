@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-06-18T20:39:36.055725+00:00",
-  "last_heartbeat": "2026-06-18T20:39:36.055725+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-18T20:44:41.371546+00:00",
+  "last_heartbeat": "2026-06-18T20:44:41.371546+00:00",
+  "uptime_seconds": 343,
   "dry_run": true,
   "markets_tracked": 1667,
-  "classify_error_streak": 25,
+  "classify_error_streak": 335,
   "track_record": {
-    "total": 6753,
-    "accuracy": 17.4,
+    "total": 6889,
+    "accuracy": 17.5,
     "by_category": {
       "other": 16.2,
-      "ai": 9.8,
-      "politics": 24.3,
-      "technology": 11.0,
-      "crypto": 11.8,
-      "sports": 26.1
+      "ai": 9.7,
+      "politics": 24.1,
+      "technology": 10.9,
+      "crypto": 12.0,
+      "sports": 35.7
     },
     "by_source": {
-      "rss": 17.1,
-      "newsapi": 18.4
+      "rss": 17.3,
+      "newsapi": 18.3
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 17.4,
-    "overall_total": 6753,
+    "overall_accuracy": 17.5,
+    "overall_total": 6889,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 3868,
+        "total": 3946,
         "correct": 308,
-        "accuracy_pct": 8.0,
-        "avg_pnl_pct": 15.6,
+        "accuracy_pct": 7.8,
+        "avg_pnl_pct": 15.23,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 561,
-        "correct": 202,
-        "accuracy_pct": 36.0,
-        "avg_pnl_pct": 37.17,
+        "total": 582,
+        "correct": 213,
+        "accuracy_pct": 36.6,
+        "avg_pnl_pct": 35.94,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 692,
-        "correct": 247,
-        "accuracy_pct": 35.7,
-        "avg_pnl_pct": 4.04,
+        "total": 711,
+        "correct": 259,
+        "accuracy_pct": 36.4,
+        "avg_pnl_pct": 4.08,
         "color": "green"
       },
       {
@@ -64,30 +64,30 @@
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 378,
-        "correct": 163,
-        "accuracy_pct": 43.1,
-        "avg_pnl_pct": 2.48,
+        "total": 391,
+        "correct": 174,
+        "accuracy_pct": 44.5,
+        "avg_pnl_pct": 3.05,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 877,
+        "total": 882,
         "correct": 167,
-        "accuracy_pct": 19.0,
-        "avg_pnl_pct": -7.41,
+        "accuracy_pct": 18.9,
+        "avg_pnl_pct": -6.46,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 2854,
-  "headlines_last_cycle": 14,
+  "headlines_scanned_today": 3033,
+  "headlines_last_cycle": 25,
   "signals_24h": 8,
-  "classifications_24h": 13693,
+  "classifications_24h": 14461,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4623,
+    "prefiltered_haiku": 4607,
     "stale": 62,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3298,
-    "matched": 1283,
-    "classified": 13693,
+    "news": 3472,
+    "matched": 1281,
+    "classified": 14461,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2488.9
+    "avg_classification_latency_ms": 2511.7
   },
   "live_readiness": {
     "ready": false,
@@ -373,9 +373,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 20:39:34",
-      "market_question": "Will Darryn Peterson be the first pick in the 2026 NBA draft?",
-      "headline": "Arsenal's first bid for Monga rejected - Friday's gossip",
+      "time": "2026-06-18 20:44:39",
+      "market_question": "Will Bitcoin reach $82,500 in June?",
+      "headline": "Crypto for Advisors: Trading the bitcoin cycle",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -386,56 +386,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:39:34",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "White House AI talks enter new phase - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 20:44:39",
+      "market_question": "Will Bitcoin reach $92,500 in June?",
+      "headline": "Crypto for Advisors: Trading the bitcoin cycle",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:39:34",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "White House AI talks enter new phase - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 20:44:39",
+      "market_question": "Will Bitcoin reach $87,500 in June?",
+      "headline": "Crypto for Advisors: Trading the bitcoin cycle",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:39:34",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "White House AI talks enter new phase - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 20:44:39",
+      "market_question": "Will Bitcoin reach $85,000 in June?",
+      "headline": "Crypto for Advisors: Trading the bitcoin cycle",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:39:34",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "White House AI talks enter new phase - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-18 20:44:39",
+      "market_question": "Will Bitcoin reach $90,000 in June?",
+      "headline": "Crypto for Advisors: Trading the bitcoin cycle",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
-      "action": "prefiltered",
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
