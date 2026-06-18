@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T17:06:07.109524+00:00",
-  "last_heartbeat": "2026-06-18T17:06:07.109524+00:00",
-  "uptime_seconds": 343,
+  "generated_at": "2026-06-18T17:09:13.292574+00:00",
+  "last_heartbeat": "2026-06-18T17:09:13.292574+00:00",
+  "uptime_seconds": 37,
   "dry_run": true,
   "markets_tracked": 726,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1636,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1664,
+  "headlines_last_cycle": 27,
   "signals_24h": 6,
-  "classifications_24h": 17204,
+  "classifications_24h": 17248,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4710,
+    "prefiltered_haiku": 4750,
     "stale": 57,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T17:00:34.963883+00:00"
+    "last_check": "2026-06-18T17:08:45.709653+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3721,
-    "matched": 1247,
-    "classified": 17204,
+    "news": 3739,
+    "matched": 1245,
+    "classified": 17248,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1494.2
+    "avg_classification_latency_ms": 1188.7
   },
   "live_readiness": {
     "ready": false,
@@ -400,66 +400,66 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 17:05:21",
-      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
-      "headline": "Portugal held to draw by Congo, England beats Croatia and other World Cup highlights, in photos - AP News",
-      "direction": "bearish",
-      "materiality": 0.25,
-      "confidence": 0.6,
+      "time": "2026-06-18 17:09:12",
+      "market_question": "Will Trump launch a coin by December 31?",
+      "headline": "RT @realDonaldTrumpFormer Trump economist says Iran deal means big economic boom for US:",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 17:05:21",
-      "market_question": "Will England reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Portugal held to draw by Congo, England beats Croatia and other World Cup highlights, in photos - AP News",
+      "time": "2026-06-18 17:09:12",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "RT @realDonaldTrumpFormer Trump economist says Iran deal means big economic boom for US:",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 17:09:12",
+      "market_question": "Will Trump hug an Iranian official by June 20?",
+      "headline": "RT @realDonaldTrumpFormer Trump economist says Iran deal means big economic boom for US:",
       "direction": "bullish",
-      "materiality": 0.55,
-      "confidence": 0.72,
-      "edge": 0.11274999999999999,
-      "action": "stale",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 17:05:18",
-      "market_question": "Will Portugal reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Portugal held to draw by Congo, England beats Croatia and other World Cup highlights, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 17:05:17",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "As Hungary\u2019s new leader joins EU summit, sidelined Orb\u00e1n meets with far-right allies in Brussels - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 17:09:12",
+      "market_question": "Will voter turnout be 60-64% in the second round of the 2026 Colombian presidential election?",
+      "headline": "RT @realDonaldTrumpUS attorney in California suspects voter fraud investigation will result in charges:",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 17:05:17",
-      "market_question": "Will Croatia reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Portugal held to draw by Congo, England beats Croatia and other World Cup highlights, in photos - AP News",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "confidence": 0.72,
+      "time": "2026-06-18 17:09:12",
+      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
+      "headline": "RT @realDonaldTrumpUS attorney in California suspects voter fraud investigation will result in charges:",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "cached",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
