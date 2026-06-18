@@ -134,7 +134,7 @@ def detect_edge_v2(
     # lottery tickets on any directional whiff.
     if classification.direction == "bullish":
         side = "YES"
-        if not config.BULLISH_MIN_PRICE <= market_price <= config.BULLISH_MAX_PRICE:
+        if not (config.BULLISH_MIN_PRICE < market_price <= config.BULLISH_MAX_PRICE):
             log.info(
                 f"[edge] Price guard blocked YES at {market_price:.2f} "
                 f"(outside {config.BULLISH_MIN_PRICE:.2f}-{config.BULLISH_MAX_PRICE:.2f})"
@@ -143,7 +143,7 @@ def detect_edge_v2(
         edge = classification.materiality * (1.0 - market_price)
     else:  # bearish
         side = "NO"
-        if not config.BEARISH_MIN_PRICE <= market_price <= config.BEARISH_MAX_PRICE:
+        if not (config.BEARISH_MIN_PRICE < market_price <= config.BEARISH_MAX_PRICE):
             log.info(
                 f"[edge] Price guard blocked NO at {market_price:.2f} "
                 f"(outside {config.BEARISH_MIN_PRICE:.2f}-{config.BEARISH_MAX_PRICE:.2f})"

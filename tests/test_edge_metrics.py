@@ -88,26 +88,33 @@ def test_detect_edge_v2_returns_none_below_threshold():
 # allowed band, so the guard is the only thing that can return None here.
 
 def test_bullish_price_guard_boundaries():
-    # Defaults: BULLISH_MIN_PRICE=0.12, BULLISH_MAX_PRICE=0.82 (inclusive).
-    assert detect_edge_v2(_mkt(0.12), _cls("bullish", 0.9), EVENT) is not None  # at min
+    # Defaults: BULLISH_MIN_PRICE=0.12, BULLISH_MAX_PRICE=0.82. The min side is
+    # EXCLUSIVE (strict <) so an entry exactly at the floor is rejected; the max
+    # side stays inclusive.
+    assert detect_edge_v2(_mkt(0.12), _cls("bullish", 0.9), EVENT) is None      # at min (excluded)
+    assert detect_edge_v2(_mkt(0.13), _cls("bullish", 0.9), EVENT) is not None  # just above min
     assert detect_edge_v2(_mkt(0.11), _cls("bullish", 0.9), EVENT) is None      # below min
-    assert detect_edge_v2(_mkt(0.82), _cls("bullish", 0.9), EVENT) is not None  # at max
+    assert detect_edge_v2(_mkt(0.82), _cls("bullish", 0.9), EVENT) is not None  # at max (included)
     assert detect_edge_v2(_mkt(0.83), _cls("bullish", 0.9), EVENT) is None      # above max
 
 
 def test_bearish_price_guard_boundaries():
-    # Defaults: BEARISH_MIN_PRICE=0.18, BEARISH_MAX_PRICE=0.88 (inclusive).
-    assert detect_edge_v2(_mkt(0.18), _cls("bearish", 0.9), EVENT) is not None  # at min
+    # Defaults: BEARISH_MIN_PRICE=0.18, BEARISH_MAX_PRICE=0.88. Min side is
+    # EXCLUSIVE (strict <), max side inclusive.
+    assert detect_edge_v2(_mkt(0.18), _cls("bearish", 0.9), EVENT) is None      # at min (excluded)
+    assert detect_edge_v2(_mkt(0.19), _cls("bearish", 0.9), EVENT) is not None  # just above min
     assert detect_edge_v2(_mkt(0.17), _cls("bearish", 0.9), EVENT) is None      # below min
-    assert detect_edge_v2(_mkt(0.88), _cls("bearish", 0.9), EVENT) is not None  # at max
+    assert detect_edge_v2(_mkt(0.88), _cls("bearish", 0.9), EVENT) is not None  # at max (included)
     assert detect_edge_v2(_mkt(0.89), _cls("bearish", 0.9), EVENT) is None      # above max
 
 
 def test_price_guards_are_configurable(monkeypatch):
-    # An overridden band changes what passes: widen bullish to allow 0.05.
-    assert detect_edge_v2(_mkt(0.05), _cls("bullish", 0.9), EVENT) is None
+    # An overridden band changes what passes: widen bullish to allow 0.10.
+    assert detect_edge_v2(_mkt(0.10), _cls("bullish", 0.9), EVENT) is None
     monkeypatch.setattr(config, "BULLISH_MIN_PRICE", 0.05)
-    assert detect_edge_v2(_mkt(0.05), _cls("bullish", 0.9), EVENT) is not None
+    assert detect_edge_v2(_mkt(0.10), _cls("bullish", 0.9), EVENT) is not None
+    # Min side is exclusive: an entry exactly at the (overridden) floor is still rejected.
+    assert detect_edge_v2(_mkt(0.05), _cls("bullish", 0.9), EVENT) is None
 
 
 # --- edge_factor at the key points -------------------------------------------

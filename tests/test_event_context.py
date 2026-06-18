@@ -178,6 +178,50 @@ def test_implied_play_skips_outcome_without_price_room():
     assert rec["recommended_market"].condition_id == "a"
 
 
+# --- correlation gate on switched sibling outcomes -----------------------
+
+def test_correlation_high_drops_switched_sibling(monkeypatch):
+    # Bullish on A makes the implied NO on sibling B the highest-edge play
+    # (see test_bullish_switches_to_higher_edge_sibling). But we already hold a
+    # large same-topic position, so the correlation gate (HIGH risk) must drop B
+    # and fall back to the direct signal on A.
+    monkeypatch.setattr(config, "EDGE_THRESHOLD", 0.10)
+    a = mkt("a", 0.6, q="Will Hilton win?")
+    b = mkt("b", 0.55, q="Will Biden win?")
+    book = [{"condition_id": "z", "event_id": "e2",
+             "market_question": "Will Biden resign?", "side": "NO",
+             "amount_usd": 80.0}]  # shares 'biden', >$75 -> high risk
+    rec = event_context.find_best_outcome(sig(a, materiality=0.5), [a, b], book)
+    assert rec["recommended_market"].condition_id == "a"
+    assert rec["recommended_side"] == "YES"
+
+
+def test_correlation_medium_does_not_drop_sibling(monkeypatch):
+    # Medium correlation risk only warns (in the pipeline) — it must not drop the
+    # higher-edge sibling switch.
+    monkeypatch.setattr(config, "EDGE_THRESHOLD", 0.10)
+    a = mkt("a", 0.6, q="Will Hilton win?")
+    b = mkt("b", 0.55, q="Will Biden win?")
+    book = [{"condition_id": "z", "event_id": "e2",
+             "market_question": "Will Biden resign?", "side": "NO",
+             "amount_usd": 60.0}]  # shares 'biden', $50-75 -> medium risk
+    rec = event_context.find_best_outcome(sig(a, materiality=0.5), [a, b], book)
+    assert rec["recommended_market"].condition_id == "b"
+    assert rec["recommended_side"] == "NO"
+
+
+def test_correlation_high_on_all_candidates_returns_none(monkeypatch):
+    # Both the direct signal and the sibling are HIGH-risk correlated with the
+    # open book -> nothing clears, so no switch/open at all.
+    monkeypatch.setattr(config, "EDGE_THRESHOLD", 0.10)
+    a = mkt("a", 0.6, q="Will Biden win?")
+    b = mkt("b", 0.55, q="Will Biden lose?")
+    book = [{"condition_id": "z", "event_id": "e2",
+             "market_question": "Will Biden resign?", "side": "NO",
+             "amount_usd": 80.0}]  # shares 'biden' with both -> high risk
+    assert event_context.find_best_outcome(sig(a, materiality=0.5), [a, b], book) is None
+
+
 # --- build_switched_signal ----------------------------------------------
 
 def test_build_switched_signal_resizes_and_relabels():

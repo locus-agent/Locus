@@ -21,6 +21,7 @@ from __future__ import annotations
 from locus import config
 from locus.markets.gamma import Market
 from locus.core.edge import Signal, size_position
+from locus.core import positions
 
 # A set of event markets is treated as a mutually-exclusive (categorical) event
 # when its YES prices sum to ~1.0 within this tolerance. Many-outcome events
@@ -73,10 +74,16 @@ def find_best_outcome(
     Candidates are the direct signal plus, for a categorical event, the implied
     play on each sibling outcome: bullish on A implies bearish (NO) on every
     sibling, bearish on A implies bullish (YES). Candidates failing the price-
-    room guard, the edge threshold, or already held in an open position are
-    dropped. Returns the best candidate as
+    room guard, the edge threshold, already held in an open position, or that
+    would trip the correlation gate (HIGH topic-concentration risk against the
+    open book) are dropped. Returns the best candidate as
     `{recommended_market, recommended_side, implied_edge, reason}`, or None if
     nothing clears the bar.
+
+    The correlation filter mirrors the pipeline's correlation gate (which blocks
+    'high' risk and only warns on 'medium'), so a switched sibling trade respects
+    the same concentration limit the primary signal did — previously the switch
+    bypassed that check.
     """
     direction = signal.classification
     materiality = signal.materiality
@@ -107,6 +114,16 @@ def find_best_outcome(
     # Don't recommend a market we already hold a position in.
     candidates = [c for c in candidates if c[0].condition_id not in held]
     candidates = [c for c in candidates if c[2] >= config.EDGE_THRESHOLD]
+    # Correlation gate: drop any candidate (including a switched sibling) whose
+    # topic overlap with the open book is HIGH risk. The primary signal already
+    # cleared this upstream, but a switch to a sibling outcome previously went
+    # straight to open without re-checking — so verify each candidate here.
+    candidates = [
+        c for c in candidates
+        if positions.check_correlation_risk(
+            c[0].question, c[1], open_positions or []
+        )["risk_level"] != "high"
+    ]
     if not candidates:
         return None
 
