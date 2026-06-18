@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T19:58:09.610924+00:00",
-  "last_heartbeat": "2026-06-18T19:58:09.610924+00:00",
-  "uptime_seconds": 7652,
+  "generated_at": "2026-06-18T20:03:13.732085+00:00",
+  "last_heartbeat": "2026-06-18T20:03:13.732085+00:00",
+  "uptime_seconds": 7956,
   "dry_run": true,
-  "markets_tracked": 1666,
+  "markets_tracked": 1663,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 2589,
-  "headlines_last_cycle": 0,
-  "signals_24h": 7,
-  "classifications_24h": 15902,
-  "selectivity_pct": 0.0,
+  "headlines_scanned_today": 2593,
+  "headlines_last_cycle": 2,
+  "signals_24h": 8,
+  "classifications_24h": 15361,
+  "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 5933,
-    "stale": 73,
+    "prefiltered_haiku": 5692,
+    "stale": 71,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -113,14 +113,14 @@
   },
   "edge_types_24h": {
     "news": 5,
-    "momentum": 2,
+    "momentum": 3,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3656,
-    "matched": 1284,
-    "classified": 15902,
-    "signals": 7,
+    "news": 3559,
+    "matched": 1281,
+    "classified": 15361,
+    "signals": 8,
     "trades": 5
   },
   "performance": {
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1496.6
+    "avg_classification_latency_ms": 1510.3
   },
   "live_readiness": {
     "ready": false,
@@ -386,22 +386,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 19:56:24",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
+      "time": "2026-06-18 20:03:02",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "SpaceX shares fall as post-IPO frenzy loses steam - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:02:59",
+      "market_question": "Will Anthropic not IPO by June 30, 2026?",
+      "headline": "SpaceX shares fall as post-IPO frenzy loses steam - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:56:20",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
+      "time": "2026-06-18 20:02:58",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "SpaceX shares fall as post-IPO frenzy loses steam - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:02:58",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "SpaceX shares fall as post-IPO frenzy loses steam - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:02:56",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "An Uber driver for World Cup fans was injured in Kansas City shootings that also left a man dead - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -410,45 +449,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 19:56:19",
-      "market_question": "Will Trump's approval rating hit 35% in 2026?",
-      "headline": "US judge narrows lawsuits challenging Trump's executive order restricting mail-in voting - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 19:56:19",
-      "market_question": "Will Trump talk to Mojtaba Khamenei by June 30?",
-      "headline": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 19:56:19",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
