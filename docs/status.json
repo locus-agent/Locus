@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T22:17:16.754165+00:00",
-  "last_heartbeat": "2026-06-18T22:17:16.754165+00:00",
-  "uptime_seconds": 5287,
+  "generated_at": "2026-06-18T22:22:25.007208+00:00",
+  "last_heartbeat": "2026-06-18T22:22:25.007208+00:00",
+  "uptime_seconds": 5596,
   "dry_run": true,
-  "markets_tracked": 1683,
-  "classify_error_streak": 823,
+  "markets_tracked": 1681,
+  "classify_error_streak": 831,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3545,
-  "headlines_last_cycle": 17,
+  "headlines_scanned_today": 3547,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 14939,
+  "classifications_24h": 14924,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3867,
+    "prefiltered_haiku": 3854,
     "stale": 48,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -105,12 +105,12 @@
     "whale_triggered": 0,
     "reentry_triggered": 1
   },
-  "watched_markets_count": 19,
+  "watched_markets_count": 18,
   "missed_opportunities_24h": 11,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T22:04:26.958911+00:00"
+    "last_check": "2026-06-18T22:19:27.343827+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3625,
-    "matched": 1147,
-    "classified": 14939,
+    "news": 3624,
+    "matched": 1145,
+    "classified": 14924,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2540.4
+    "avg_classification_latency_ms": 2539.8
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 22:17:15",
-      "market_question": "Will a player representing Bosnia and Herzegovina be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Manzambi double propels Switzerland to win against Bosnia",
+      "time": "2026-06-18 22:21:04",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Explainer: How Trump's deal with Iran compares to Obama's - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:21:04",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Explainer: How Trump's deal with Iran compares to Obama's - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:21:04",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Explainer: How Trump's deal with Iran compares to Obama's - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -386,48 +412,22 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:17:13",
-      "market_question": "Will Bosnia and Herzegovina win Group B in the 2026 FIFA World Cup?",
-      "headline": "Manzambi double propels Switzerland to win against Bosnia",
+      "time": "2026-06-18 22:21:04",
+      "market_question": "Will Trump hug an Iranian official by June 20?",
+      "headline": "Explainer: How Trump's deal with Iran compares to Obama's - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "action": "error",
-      "match_source": "both",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:17:13",
-      "market_question": "Will Switzerland win Group B in the 2026 FIFA World Cup?",
-      "headline": "Manzambi double propels Switzerland to win against Bosnia",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 22:17:10",
-      "market_question": "Will OpenAI announce a watch in 2026?",
-      "headline": "OLIN and HUNTSMAN Announce Transformative Merger of Equals to Create a $12+ Billion Integrated North American Chemicals Leader - Huntsman",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 22:17:10",
-      "market_question": "Will OpenAI announce a phone in 2026?",
-      "headline": "OLIN and HUNTSMAN Announce Transformative Merger of Equals to Create a $12+ Billion Integrated North American Chemicals Leader - Huntsman",
+      "time": "2026-06-18 22:21:04",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Explainer: How Trump's deal with Iran compares to Obama's - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
