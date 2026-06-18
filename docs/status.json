@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T20:59:57.538580+00:00",
-  "last_heartbeat": "2026-06-18T20:59:57.538580+00:00",
-  "uptime_seconds": 648,
+  "generated_at": "2026-06-18T21:05:06.947551+00:00",
+  "last_heartbeat": "2026-06-18T21:05:06.947551+00:00",
+  "uptime_seconds": 958,
   "dry_run": true,
-  "markets_tracked": 1665,
-  "classify_error_streak": 382,
+  "markets_tracked": 1658,
+  "classify_error_streak": 398,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3366,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 3372,
+  "headlines_last_cycle": 1,
   "signals_24h": 8,
-  "classifications_24h": 15937,
+  "classifications_24h": 15960,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4589,
+    "prefiltered_haiku": 4585,
     "stale": 61,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -110,7 +110,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T20:49:25.020433+00:00"
+    "last_check": "2026-06-18T21:04:25.402683+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3798,
-    "matched": 1286,
-    "classified": 15937,
+    "news": 3803,
+    "matched": 1291,
+    "classified": 15960,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2527.0
+    "avg_classification_latency_ms": 2525.4
   },
   "live_readiness": {
     "ready": true,
@@ -373,35 +373,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 20:58:27",
-      "market_question": "Will Kyle Schwarber hit the most home runs during the 2026 MLB regular season?",
-      "headline": "Fantasy baseball: Scherzer scratched and other new...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:58:27",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "Fantasy baseball: Scherzer scratched and other new...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:58:24",
-      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
-      "headline": "Pick up these soon-to-be breakout stars while you ...",
+      "time": "2026-06-18 21:05:06",
+      "market_question": "Will there be 40+ missed penalties during the 2026 FIFA World Cup?",
+      "headline": "What sanctions are there on Iran and will they be lifted? - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -412,9 +386,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 20:58:24",
-      "market_question": "Will Darryn Peterson be the first pick in the 2026 NBA draft?",
-      "headline": "Pick up these soon-to-be breakout stars while you ...",
+      "time": "2026-06-18 21:05:06",
+      "market_question": "Will there be 15+ missed penalties during the 2026 FIFA World Cup?",
+      "headline": "What sanctions are there on Iran and will they be lifted? - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -425,15 +399,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 20:58:24",
-      "market_question": "Will Cameron Boozer be the first pick in the 2026 NBA draft?",
-      "headline": "Pick up these soon-to-be breakout stars while you ...",
+      "time": "2026-06-18 21:02:58",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Obama Center opens in Chicago with a call to defend democracy and a celebrity crowd - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 21:02:58",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "US-Iran deal redraws the Middle East: Iran gains, rivals alarmed - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
       "edge": null,
       "action": "prefiltered",
       "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 21:02:58",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "US-Iran deal redraws the Middle East: Iran gains, rivals alarmed - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": null
     }
