@@ -188,6 +188,7 @@ def init_db():
             original_side TEXT,
             original_entry_price REAL,
             close_reason TEXT,
+            exit_reason TEXT,
             closed_at TEXT NOT NULL DEFAULT (datetime('now')),
             watch_until TEXT,
             reentry_count INTEGER NOT NULL DEFAULT 0,
@@ -200,6 +201,7 @@ def init_db():
     _migrate_event_columns(conn)
     _migrate_position_category(conn)
     _migrate_lesson_columns(conn)
+    _migrate_watch_exit_reason(conn)
     conn.close()
 
 
@@ -296,6 +298,18 @@ def _migrate_position_category(conn):
     # Legacy rows stay NULL and are skipped by the exit (unknown time-to-close).
     if "end_date" not in columns:
         conn.execute("ALTER TABLE positions ADD COLUMN end_date TEXT")
+    conn.commit()
+
+
+def _migrate_watch_exit_reason(conn):
+    """Add the granular exit_reason to watched_closed_positions for the
+    Re-entry 2.0 gate (positions.check_reentry_opportunity). The bucketed
+    close_reason column stays for the legacy reentry.py rules; legacy rows keep
+    a NULL exit_reason and are treated as blocked by the new gate."""
+    cursor = conn.execute("PRAGMA table_info(watched_closed_positions)")
+    columns = {row[1] for row in cursor.fetchall()}
+    if "exit_reason" not in columns:
+        conn.execute("ALTER TABLE watched_closed_positions ADD COLUMN exit_reason TEXT")
     conn.commit()
 
 
@@ -820,8 +834,13 @@ def watch_closed_position(
     close_reason: str,
     watch_hours: float,
     now: datetime | None = None,
+    exit_reason: str | None = None,
 ) -> bool:
     """Record a just-closed position as watched for re-entry (caller commits).
+
+    `close_reason` is the bucketed sl/tp/news reason (legacy reentry.py rules);
+    `exit_reason` is the raw, granular exit reason the Re-entry 2.0 gate keys on
+    (positions.check_reentry_opportunity).
 
     Skips if an unexpired watch row already exists for this market, so one close
     -> at most one re-entry window. Returns True if a row was inserted.
@@ -838,10 +857,10 @@ def watch_closed_position(
     conn.execute(
         """INSERT INTO watched_closed_positions
            (condition_id, market_question, original_side, original_entry_price,
-            close_reason, closed_at, watch_until, reentry_count)
-           VALUES (?, ?, ?, ?, ?, ?, ?, 0)""",
+            close_reason, exit_reason, closed_at, watch_until, reentry_count)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)""",
         (condition_id, market_question, original_side, original_entry_price,
-         close_reason, now_str, watch_until),
+         close_reason, exit_reason, now_str, watch_until),
     )
     return True
 

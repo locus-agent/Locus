@@ -572,6 +572,7 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
                 original_entry_price=position["entry_yes_price"],
                 close_reason=reason,
                 watch_hours=config.REENTRY_WATCH_HOURS,
+                exit_reason=exit_reason,
             )
     else:
         conn.execute(

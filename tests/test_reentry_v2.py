@@ -1,7 +1,12 @@
-"""Re-entry 2.0: the exit_reason calibration gate (positions.check_reentry_opportunity).
+"""Re-entry 2.0: the exit_reason calibration gate (positions.check_reentry_opportunity)
+and its wiring into PipelineV2._check_reentry.
 
 Covers the allow/block lists, the cooldown, the resolution-time floor, the
-per-event cap, the materiality floor, and the size-factor reduction."""
+per-event cap, the materiality floor, the size-factor reduction, and the
+pipeline tri-state (not watched / blocked / re-enter at reduced size)."""
+from datetime import datetime, timedelta, timezone
+from types import SimpleNamespace
+
 import pytest
 
 from locus import config
@@ -140,3 +145,73 @@ def test_max_per_event_enforced(tmp_db, monkeypatch):
         ) is not None
     finally:
         conn.close()
+
+
+# --- pipeline wiring (PipelineV2._check_reentry) --------------------------
+
+# A market that resolves well past REENTRY_MIN_HOURS_TO_RESOLUTION.
+_FAR_END_DATE = (datetime.now(timezone.utc) + timedelta(days=30)).isoformat()
+
+
+def _market(condition_id="c1", event_id=""):
+    return SimpleNamespace(
+        condition_id=condition_id, question=f"Will {condition_id}?",
+        end_date=_FAR_END_DATE, event_id=event_id,
+    )
+
+
+def _classification(materiality=0.6, direction="bullish"):
+    return SimpleNamespace(materiality=materiality, direction=direction)
+
+
+def _seed_watch(db, condition_id, exit_reason, hours_ago=10):
+    """Seed a watched-closed row whose close happened `hours_ago` hours ago."""
+    closed = datetime.now(timezone.utc) - timedelta(hours=hours_ago)
+    conn = db._conn()
+    try:
+        db.watch_closed_position(
+            conn, condition_id, f"Will {condition_id}?", "YES", 0.4,
+            "tp", config.REENTRY_WATCH_HOURS, now=closed, exit_reason=exit_reason,
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def test_pipeline_unwatched_market_returns_none(tmp_db):
+    from locus.core import pipeline as pl
+
+    p = pl.PipelineV2()
+    decision = p._check_reentry(_market("c1"), _classification(), base_size_usd=20.0)
+    assert decision is None
+
+
+def test_pipeline_allowed_reentry_carries_reduced_size(tmp_db, monkeypatch):
+    from locus.core import pipeline as pl
+
+    monkeypatch.setattr(config, "REENTRY_SIZE_FACTOR", 0.7)
+    _seed_watch(tmp_db, "c1", "tp_decision")
+    p = pl.PipelineV2()
+    decision = p._check_reentry(_market("c1"), _classification(), base_size_usd=20.0)
+    assert decision["should_reenter"] is True
+    assert decision["size_usd"] == pytest.approx(14.0)
+
+
+def test_pipeline_blocked_reason_returns_should_not_reenter(tmp_db):
+    from locus.core import pipeline as pl
+
+    _seed_watch(tmp_db, "c1", "hard_sl")  # on the block list
+    p = pl.PipelineV2()
+    decision = p._check_reentry(_market("c1"), _classification(), base_size_usd=20.0)
+    assert decision is not None
+    assert decision["should_reenter"] is False
+
+
+def test_pipeline_cooldown_blocks_recent_close(tmp_db, monkeypatch):
+    from locus.core import pipeline as pl
+
+    monkeypatch.setattr(config, "REENTRY_MIN_HOURS", 4)
+    _seed_watch(tmp_db, "c1", "tp_decision", hours_ago=1)  # inside the cooldown
+    p = pl.PipelineV2()
+    decision = p._check_reentry(_market("c1"), _classification(), base_size_usd=20.0)
+    assert decision["should_reenter"] is False

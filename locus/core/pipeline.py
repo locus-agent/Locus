@@ -50,6 +50,22 @@ def _batches(items, size):
         yield items[i:i + size]
 
 
+def _hours_since(ts: str | None, now: datetime | None = None) -> float:
+    """Hours elapsed since a stored timestamp ("YYYY-MM-DD HH:MM:SS", UTC).
+    Returns a large number when the timestamp is missing/unparseable, so a
+    cooldown check treats unknown ages as 'long ago' (never blocks on bad data)."""
+    if not ts:
+        return float("inf")
+    try:
+        dt = datetime.fromisoformat(ts.replace(" ", "T"))
+    except (ValueError, AttributeError):
+        return float("inf")
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    now = now or datetime.now(timezone.utc)
+    return (now - dt).total_seconds() / 3600.0
+
+
 def news_age_seconds(event: NewsEvent, now: datetime | None = None) -> float | None:
     """Age of the news at this moment (publication -> now), or None when the
     publication time is unknown (latency_ms == -1 sentinel). Computed at
@@ -520,7 +536,10 @@ class PipelineV2:
                         edge_type_override = None
                         if signal is not None:
                             decision = await asyncio.get_event_loop().run_in_executor(
-                                None, lambda: self._check_reentry(market, classification)
+                                None,
+                                lambda: self._check_reentry(
+                                    market, classification, signal.bet_amount
+                                ),
                             )
                             if decision is not None and not decision["should_reenter"]:
                                 self.stats["reentry_blocked"] = (
@@ -534,6 +553,8 @@ class PipelineV2:
                             elif decision is not None:
                                 reentry_active = True
                                 edge_type_override = "reentry"
+                                # Re-entries are sized down (REENTRY_SIZE_FACTOR).
+                                signal.bet_amount = decision["size_usd"]
                                 self.stats["reentry_triggered"] = (
                                     self.stats.get("reentry_triggered", 0) + 1
                                 )
@@ -849,24 +870,40 @@ class PipelineV2:
                 config.SCORING_MODEL,
             )
 
-    def _check_reentry(self, market, classification):
-        """Re-entry decision for a watched market, or None when the market isn't
-        being watched. Read-only; runs off the event loop (own DB conn)."""
+    def _check_reentry(self, market, classification, base_size_usd):
+        """Re-entry decision for a watched market via the Re-entry 2.0 gate
+        (positions.check_reentry_opportunity), or None when the market isn't
+        being watched. Read-only; runs off the event loop (own DB conn).
+
+        Returns None (not watched), {"should_reenter": False, "reason": ...}
+        (watched but blocked), or {"should_reenter": True, "size_usd": float,
+        "reason": ...} (re-enter at the reduced size)."""
         conn = logger._conn()
         try:
             watched = reentry.find_watched_market(conn, market.condition_id)
             if watched is None:
                 return None
-            since = (
-                datetime.now(timezone.utc)
-                - timedelta(hours=config.CONFIRMATION_WINDOW_HOURS)
-            ).strftime("%Y-%m-%d %H:%M:%S")
-            sources = logger.get_confirming_sources(
-                market.condition_id, classification.direction, since
+            exit_reason = watched.get("exit_reason") or ""
+            closed_at = watched.get("closed_at")
+            hours_since_close = _hours_since(closed_at)
+            hours_to_resolution = positions.hours_to_close(
+                getattr(market, "end_date", None)
             )
-            return reentry.check_reentry_opportunity(
-                watched, classification, confirming_source_count=len(sources)
+            result = positions.check_reentry_opportunity(
+                exit_reason=exit_reason,
+                materiality=classification.materiality,
+                base_size_usd=base_size_usd,
+                hours_since_close=hours_since_close,
+                hours_to_resolution=hours_to_resolution,
+                event_id=getattr(market, "event_id", "") or None,
+                conn=conn,
             )
+            if result is None:
+                return {
+                    "should_reenter": False,
+                    "reason": f"re-entry gate blocked (exit '{exit_reason or 'unknown'}')",
+                }
+            return {"should_reenter": True, **result}
         finally:
             conn.close()
 
