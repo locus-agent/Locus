@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T22:43:10.243110+00:00",
-  "last_heartbeat": "2026-06-18T22:43:10.243110+00:00",
-  "uptime_seconds": 6841,
+  "generated_at": "2026-06-18T22:47:44.614106+00:00",
+  "last_heartbeat": "2026-06-18T22:47:44.614106+00:00",
+  "uptime_seconds": 63,
   "dry_run": true,
   "markets_tracked": 1671,
-  "classify_error_streak": 845,
+  "classify_error_streak": 0,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,14 +81,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 3556,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 3590,
+  "headlines_last_cycle": 18,
   "signals_24h": 7,
-  "classifications_24h": 14878,
+  "classifications_24h": 14988,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3822,
-    "stale": 48,
+    "prefiltered_haiku": 3863,
+    "stale": 49,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -106,11 +106,11 @@
     "reentry_triggered": 1
   },
   "watched_markets_count": 18,
-  "missed_opportunities_24h": 11,
+  "missed_opportunities_24h": 21,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T22:34:27.719743+00:00"
+    "last_check": "2026-06-18T22:46:56.879103+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3618,
-    "matched": 1138,
-    "classified": 14878,
+    "news": 3648,
+    "matched": 1136,
+    "classified": 14988,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2538.7
+    "avg_classification_latency_ms": 1533.3
   },
   "live_readiness": {
     "ready": true,
@@ -373,67 +373,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 22:41:10",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 22:47:44",
+      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:47:34",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:47:34",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:47:33",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 22:41:10",
+      "time": "2026-06-18 22:47:33",
       "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 22:41:10",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 22:41:10",
-      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 22:41:10",
-      "market_question": "Will Alcaraz or Sinner win more Grand Slams in 2026?",
-      "headline": "JD Vance slams Israeli officials who criticized Iran deal, deepening rift between allies - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "cached",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": null
     }
@@ -459,91 +459,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-18 22:00:18",
-      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump agree to withdraw troops from the Irani' \u2014 price moved +344%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-18 22:00:17",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will Wes Streeting be a candidate in the next Labo' \u2014 price moved +22%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-18 22:00:17",
-      "market_question": "Will Croatia reach the Semifinals at the 2026 FIFA World Cup?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will Croatia reach the Semifinals at the 2026 FIFA' \u2014 price moved +19%. Consider lowering min_materiality for sports category."
-    },
-    {
-      "time": "2026-06-18 22:00:17",
-      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will Portugal reach the 2026 FIFA World Cup final?' \u2014 price moved +24%. Consider lowering min_materiality for sports category."
-    },
-    {
-      "time": "2026-06-18 22:00:17",
+      "time": "2026-06-18 22:47:44",
       "market_question": "Will Trump say \"White House\" during UFC 250?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.50) on 'Will Trump say \"White House\" during UFC 250?' \u2014 price moved +25%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.50) on 'Will Trump say \"White House\" during UFC 250?' \u2014 price moved +24%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-06-18 22:47:42",
+      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will Portugal reach the 2026 FIFA World Cup final?' \u2014 price moved +18%. Consider lowering min_materiality for sports category."
+    },
+    {
+      "time": "2026-06-18 22:47:39",
+      "market_question": "Will Croatia reach the Semifinals at the 2026 FIFA World Cup?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will Croatia reach the Semifinals at the 2026 FIFA' \u2014 price moved +46%. Consider lowering min_materiality for sports category."
+    },
+    {
+      "time": "2026-06-18 22:47:37",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will Wes Streeting be a candidate in the next Labo' \u2014 price moved +21%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-06-18 22:47:33",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will Wes Streeting be a candidate in the next Labo' \u2014 price moved +29%. Consider lowering min_materiality for politics category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-18 22:00:18",
-      "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
-      "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "action": "stale",
-      "pct_move": 344.2,
-      "reflection": "(reflection generation failed: BadRequestError)"
-    },
-    {
-      "time": "2026-06-18 22:00:17",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "slug": "candidates-in-next-labour-leadership-election",
-      "direction": "bullish",
-      "materiality": 0.55,
-      "action": "stale",
-      "pct_move": 21.9,
-      "reflection": "(reflection generation failed: BadRequestError)"
-    },
-    {
-      "time": "2026-06-18 22:00:17",
-      "market_question": "Will Croatia reach the Semifinals at the 2026 FIFA World Cup?",
-      "slug": "world-cup-nation-to-reach-semifinals",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "action": "skip",
-      "pct_move": 19.5,
-      "reflection": "(reflection generation failed: BadRequestError)"
-    },
-    {
-      "time": "2026-06-18 22:00:17",
-      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
-      "slug": "world-cup-nation-to-reach-final",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "action": "stale",
-      "pct_move": 23.7,
-      "reflection": "(reflection generation failed: BadRequestError)"
-    },
-    {
-      "time": "2026-06-18 22:00:17",
+      "time": "2026-06-18 22:47:44",
       "market_question": "Will Trump say \"White House\" during UFC 250?",
       "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
       "direction": "bearish",
       "materiality": 0.5,
       "action": "stale",
-      "pct_move": 25.5,
-      "reflection": "(reflection generation failed: BadRequestError)"
+      "pct_move": 24.0,
+      "reflection": "I called this bearish at 0.50 materiality but dismissed it as stale without reconsidering the signal strength\u2014a mistake that cost me 24% in predicted upside. The staleness of the market data didn't invalidate the underlying logic; I should have weighted my conviction (50% materiality) more heavily against recency bias. This is a clean lesson: I need to distinguish between \"old information\" and \"information with persistent edge,\" especially when my own model flagged meaningful probability."
+    },
+    {
+      "time": "2026-06-18 22:47:42",
+      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
+      "slug": "world-cup-nation-to-reach-final",
+      "direction": "bearish",
+      "materiality": 0.55,
+      "action": "stale",
+      "pct_move": 18.4,
+      "reflection": "I passed on a bearish signal with moderate conviction (0.55) because the data felt stale, but I underestimated how much that staleness actually *confirmed* the thesis\u2014Portugal's qualification odds hadn't shifted despite aging star power and group difficulty, suggesting the market was slow to price in structural decline. Missing an 18% move in my predicted direction stings because I was too rigid about data freshness; sometimes stale data that contradicts consensus is more valuable than recent noise, and I should have weighted the signal's directional clarity over my recency bias."
+    },
+    {
+      "time": "2026-06-18 22:47:39",
+      "market_question": "Will Croatia reach the Semifinals at the 2026 FIFA World Cup?",
+      "slug": "world-cup-nation-to-reach-semifinals",
+      "direction": "bearish",
+      "materiality": 0.55,
+      "action": "skip",
+      "pct_move": 45.8,
+      "reflection": "I had a bearish signal on Croatia's semifinal chances with moderate conviction (0.55), but I skipped the trade\u2014and the market moved 46% in exactly the direction I'd predicted, which stings. My skip decision suggests I was either second-guessing my own analysis or being overly cautious about execution, when the real lesson here is that moderate-conviction signals still deserve proportional positions rather than avoidance. I need to distinguish between \"uncertain enough to skip entirely\" and \"uncertain enough to size down\"\u2014because sitting out entirely means I captured zero value from a directional call I actually got right."
+    },
+    {
+      "time": "2026-06-18 22:47:37",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "slug": "candidates-in-next-labour-leadership-election",
+      "direction": "bullish",
+      "materiality": 0.55,
+      "action": "stale",
+      "pct_move": 20.8,
+      "reflection": "I flagged Wes Streeting as a bullish candidate at 0.55 materiality but dismissed the signal as stale without reassessing whether new information had emerged\u2014a lazy heuristic that cost me 21% of potential gains. The real mistake wasn't caution about aging data; it was failing to distinguish between a signal that was *genuinely outdated* versus one that simply hadn't been acted upon yet, especially on a political question where sentiment can shift rapidly without obvious news hooks. I need to rebuild my decision rules around staleness to account for the *velocity* of opinion change in prediction markets, not just calendar days."
+    },
+    {
+      "time": "2026-06-18 22:47:33",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "slug": "candidates-in-next-labour-leadership-election",
+      "direction": "bullish",
+      "materiality": 0.55,
+      "action": "stale",
+      "pct_move": 28.9,
+      "reflection": "I marked this signal stale without properly reassessing the base case\u2014Wes Streeting's prominence as Health Secretary and his positioning within Labour's hierarchy were live factors that hadn't fundamentally changed, yet I treated the signal as if information decay alone had killed its edge. A 29% move in the predicted direction suggests the market was repricing something material that I should have distinguished from mere staleness: either new evidence of leadership ambitions or shifting party dynamics that my stale filter was too blunt to capture. I need to separate \"old signal\" from \"invalidated signal\"\u2014the former just means I should update my confidence, not abandon the thesis entirely."
     }
   ]
 }

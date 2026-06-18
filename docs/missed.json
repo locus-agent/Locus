@@ -1,6 +1,106 @@
 {
  "missed": [
   {
+   "time": "2026-06-18 22:47:44",
+   "market_question": "Will Trump say \"White House\" during UFC 250?",
+   "slug": "what-will-trump-say-during-ufc-freedom-250-20260611142620117",
+   "direction": "bearish",
+   "materiality": 0.5,
+   "action": "stale",
+   "pct_move": 24.0,
+   "reflection": "I called this bearish at 0.50 materiality but dismissed it as stale without reconsidering the signal strength\u2014a mistake that cost me 24% in predicted upside. The staleness of the market data didn't invalidate the underlying logic; I should have weighted my conviction (50% materiality) more heavily against recency bias. This is a clean lesson: I need to distinguish between \"old information\" and \"information with persistent edge,\" especially when my own model flagged meaningful probability."
+  },
+  {
+   "time": "2026-06-18 22:47:42",
+   "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
+   "slug": "world-cup-nation-to-reach-final",
+   "direction": "bearish",
+   "materiality": 0.55,
+   "action": "stale",
+   "pct_move": 18.4,
+   "reflection": "I passed on a bearish signal with moderate conviction (0.55) because the data felt stale, but I underestimated how much that staleness actually *confirmed* the thesis\u2014Portugal's qualification odds hadn't shifted despite aging star power and group difficulty, suggesting the market was slow to price in structural decline. Missing an 18% move in my predicted direction stings because I was too rigid about data freshness; sometimes stale data that contradicts consensus is more valuable than recent noise, and I should have weighted the signal's directional clarity over my recency bias."
+  },
+  {
+   "time": "2026-06-18 22:47:39",
+   "market_question": "Will Croatia reach the Semifinals at the 2026 FIFA World Cup?",
+   "slug": "world-cup-nation-to-reach-semifinals",
+   "direction": "bearish",
+   "materiality": 0.55,
+   "action": "skip",
+   "pct_move": 45.8,
+   "reflection": "I had a bearish signal on Croatia's semifinal chances with moderate conviction (0.55), but I skipped the trade\u2014and the market moved 46% in exactly the direction I'd predicted, which stings. My skip decision suggests I was either second-guessing my own analysis or being overly cautious about execution, when the real lesson here is that moderate-conviction signals still deserve proportional positions rather than avoidance. I need to distinguish between \"uncertain enough to skip entirely\" and \"uncertain enough to size down\"\u2014because sitting out entirely means I captured zero value from a directional call I actually got right."
+  },
+  {
+   "time": "2026-06-18 22:47:37",
+   "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+   "slug": "candidates-in-next-labour-leadership-election",
+   "direction": "bullish",
+   "materiality": 0.55,
+   "action": "stale",
+   "pct_move": 20.8,
+   "reflection": "I flagged Wes Streeting as a bullish candidate at 0.55 materiality but dismissed the signal as stale without reassessing whether new information had emerged\u2014a lazy heuristic that cost me 21% of potential gains. The real mistake wasn't caution about aging data; it was failing to distinguish between a signal that was *genuinely outdated* versus one that simply hadn't been acted upon yet, especially on a political question where sentiment can shift rapidly without obvious news hooks. I need to rebuild my decision rules around staleness to account for the *velocity* of opinion change in prediction markets, not just calendar days."
+  },
+  {
+   "time": "2026-06-18 22:47:33",
+   "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+   "slug": "candidates-in-next-labour-leadership-election",
+   "direction": "bullish",
+   "materiality": 0.55,
+   "action": "stale",
+   "pct_move": 28.9,
+   "reflection": "I marked this signal stale without properly reassessing the base case\u2014Wes Streeting's prominence as Health Secretary and his positioning within Labour's hierarchy were live factors that hadn't fundamentally changed, yet I treated the signal as if information decay alone had killed its edge. A 29% move in the predicted direction suggests the market was repricing something material that I should have distinguished from mere staleness: either new evidence of leadership ambitions or shifting party dynamics that my stale filter was too blunt to capture. I need to separate \"old signal\" from \"invalidated signal\"\u2014the former just means I should update my confidence, not abandon the thesis entirely."
+  },
+  {
+   "time": "2026-06-18 22:47:30",
+   "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
+   "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
+   "direction": "bullish",
+   "materiality": 0.55,
+   "action": "stale",
+   "pct_move": 189.7,
+   "reflection": "I flagged this as stale data and missed a 190% move in the direction my own model predicted\u2014a clear failure of judgment on my part. The materiality score of 0.55 should have told me this wasn't noise, yet I discounted it anyway, confusing \"older information\" with \"irrelevant information\" when geopolitical signals often have delayed market pricing. I need to recalibrate: a bullish signal with moderate-to-strong materiality deserves execution regardless of freshness, especially on binary events where conviction matters more than timing."
+  },
+  {
+   "time": "2026-06-18 22:47:27",
+   "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
+   "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
+   "direction": "bullish",
+   "materiality": 0.55,
+   "action": "stale",
+   "pct_move": 181.5,
+   "reflection": "I misjudged the signal's relevance by dismissing it as stale when geopolitical developments move faster than my update cycles\u2014the 0.55 materiality threshold should have overridden my staleness concern given the binary nature and high stakes of troop withdrawal negotiations. I let process override judgment: a moderately material political signal with clear directional conviction deserved execution despite aging data, especially when 182% moves indicate the market was still pricing in genuine uncertainty around Trump's Iran policy."
+  },
+  {
+   "time": "2026-06-18 22:47:25",
+   "market_question": "Will Panama advance to the knockout stages at the 2026 FIFA World Cup?",
+   "slug": "world-cup-team-to-advance-to-knockout-stages",
+   "direction": "bearish",
+   "materiality": 0.65,
+   "action": "skip",
+   "pct_move": 20.7,
+   "reflection": "I flagged Panama's knockout stage chances as bearish with solid conviction (0.65 materiality), but I let the skip override my analysis\u2014likely because I second-guessed whether a sports prediction had sufficient liquidity or was too niche for my risk parameters. The 21% move in my predicted direction stings because the signal was sound; I let operational caution override the actual edge I'd identified, which is exactly the kind of hesitation that leaves money on the table."
+  },
+  {
+   "time": "2026-06-18 22:47:23",
+   "market_question": "Will Jim Priest be the Democratic nominee for Senate in Oklahoma?",
+   "slug": "oklahoma-democratic-senate-primary-winner",
+   "direction": "bearish",
+   "materiality": 0.75,
+   "action": "skip",
+   "pct_move": 77.1,
+   "reflection": "I had a clear bearish signal with substantial conviction (0.75 materiality) on Jim Priest's nomination odds, and the market validated that view with a decisive 77% move in my predicted direction\u2014yet I skipped it entirely. I can't justify this decision; the skip appears to have been either a mechanical failure or an unexplained loss of confidence at execution time that contradicted my own analysis. This is a meaningful miss that suggests I need to examine whether I'm second-guessing high-conviction signals without good reason, or if there's a systematic issue in my decision-making between signal generation and trade execution."
+  },
+  {
+   "time": "2026-06-18 22:47:20",
+   "market_question": "Will Croatia reach the Semifinals at the 2026 FIFA World Cup?",
+   "slug": "world-cup-nation-to-reach-semifinals",
+   "direction": "bearish",
+   "materiality": 0.75,
+   "action": "skip",
+   "pct_move": 43.7,
+   "reflection": "I had a clear bearish signal with strong conviction (0.75 materiality) on Croatia's semifinal chances, but I let caution override my analysis\u2014and watched the market move 44% exactly as I'd predicted. The skip cost me because my reasoning was sound; I should have trusted the signal strength rather than defaulting to inaction when the data pointed decisively in one direction."
+  },
+  {
    "time": "2026-06-18 22:00:18",
    "market_question": "Will Trump agree to withdraw troops from the Iranian region by June 30?",
    "slug": "what-iranian-demands-will-trump-agree-to-by-june-30",
