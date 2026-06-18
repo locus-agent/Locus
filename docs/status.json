@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T19:22:37.887757+00:00",
-  "last_heartbeat": "2026-06-18T19:22:37.887757+00:00",
-  "uptime_seconds": 5520,
+  "generated_at": "2026-06-18T19:27:42.131740+00:00",
+  "last_heartbeat": "2026-06-18T19:27:42.131740+00:00",
+  "uptime_seconds": 5824,
   "dry_run": true,
-  "markets_tracked": 1670,
+  "markets_tracked": 1673,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2559,
+  "headlines_scanned_today": 2565,
   "headlines_last_cycle": 0,
-  "signals_24h": 7,
-  "classifications_24h": 18668,
+  "signals_24h": 8,
+  "classifications_24h": 18193,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 6063,
+    "prefiltered_haiku": 6079,
     "stale": 76,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -113,14 +113,14 @@
   },
   "edge_types_24h": {
     "news": 5,
-    "momentum": 2,
+    "momentum": 3,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4178,
-    "matched": 1267,
-    "classified": 18668,
-    "signals": 7,
+    "news": 4081,
+    "matched": 1269,
+    "classified": 18193,
+    "signals": 8,
     "trades": 6
   },
   "performance": {
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1472.7
+    "avg_classification_latency_ms": 1485.3
   },
   "live_readiness": {
     "ready": false,
@@ -386,9 +386,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 19:18:31",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "Stranded ships have begun transiting the Strait of Hormuz, maritime data company says - AP News",
+      "time": "2026-06-18 19:27:16",
+      "market_question": "New MLB CBA by Dec. 1?",
+      "headline": "Sources: MLB proposes amateur-entry overhaul",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 19:27:12",
+      "market_question": "Will Bryan Reynolds lead the MLB in doubles for the 2026 regular season?",
+      "headline": "Sources: MLB proposes amateur-entry overhaul",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 19:27:12",
+      "market_question": "Will Cal Raleigh lead the MLB in RBIs for the 2026 regular season?",
+      "headline": "Sources: MLB proposes amateur-entry overhaul",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -399,56 +425,30 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:18:31",
-      "market_question": "Tush Push banned for 2026 NFL Season?",
-      "headline": "US banks to make final push on capital rule changes as Fed wraps up consultation - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 19:27:12",
+      "market_question": "MLB: Perfect Game thrown in 2026 season?",
+      "headline": "Sources: MLB proposes amateur-entry overhaul",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:18:31",
-      "market_question": "Will Portugal reach the 2026 FIFA World Cup final?",
-      "headline": "US banks to make final push on capital rule changes as Fed wraps up consultation - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 19:27:12",
+      "market_question": "Will the Cleveland Guardians win 100 or more games during the 2026 MLB Regular Season?",
+      "headline": "Sources: MLB proposes amateur-entry overhaul",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 19:18:31",
-      "market_question": "Will France reach the 2026 FIFA World Cup final?",
-      "headline": "US banks to make final push on capital rule changes as Fed wraps up consultation - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 19:18:31",
-      "market_question": "Will Norway reach the 2026 FIFA World Cup final?",
-      "headline": "US banks to make final push on capital rule changes as Fed wraps up consultation - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
