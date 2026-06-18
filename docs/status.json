@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T04:51:13.282444+00:00",
-  "last_heartbeat": "2026-06-18T04:51:13.282444+00:00",
-  "uptime_seconds": 24984,
+  "generated_at": "2026-06-18T04:56:17.255876+00:00",
+  "last_heartbeat": "2026-06-18T04:56:17.255876+00:00",
+  "uptime_seconds": 25288,
   "dry_run": true,
-  "markets_tracked": 733,
+  "markets_tracked": 735,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5818,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 262,
+  "headlines_scanned_today": 263,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15689,
+  "classifications_24h": 15681,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3561,
+    "prefiltered_haiku": 3562,
     "stale": 59,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T04:40:32.139227+00:00"
+    "last_check": "2026-06-18T04:55:32.511748+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3091,
-    "matched": 991,
-    "classified": 15689,
+    "news": 3089,
+    "matched": 989,
+    "classified": 15681,
     "signals": 5,
     "trades": 5
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1698.4
+    "avg_classification_latency_ms": 1702.5
   },
   "live_readiness": {
     "ready": false,
@@ -456,25 +456,12 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 04:41:37",
-      "market_question": "Will South Korea be the highest-scoring team in Group A during the Group Stage of the 2026 FIFA World Cup?",
-      "headline": "From one to 48 - every World Cup team ranked after one game",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 04:41:36",
-      "market_question": "Will Portugal reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "From one to 48 - every World Cup team ranked after one game",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-18 04:55:03",
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 19?",
+      "headline": "Bitcoin, ether slide after a hawkish Fed, even as Trump's signed Iran deal lifts stocks",
+      "direction": "bearish",
+      "materiality": 0.12,
+      "confidence": 0.55,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
@@ -482,41 +469,54 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 04:41:35",
-      "market_question": "Will Switzerland be the highest-scoring team in Group B during the Group Stage of the 2026 FIFA World Cup?",
-      "headline": "From one to 48 - every World Cup team ranked after one game",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 04:55:01",
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 18?",
+      "headline": "Bitcoin, ether slide after a hawkish Fed, even as Trump's signed Iran deal lifts stocks",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.55,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 04:41:33",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "From one to 48 - every World Cup team ranked after one game",
+      "time": "2026-06-18 04:55:01",
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 18?",
+      "headline": "Bitcoin, ether slide after a hawkish Fed, even as Trump's signed Iran deal lifts stocks",
+      "direction": "bearish",
+      "materiality": 0.1,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 04:55:00",
+      "market_question": "Will Bitcoin reach $68,000 June 15-21?",
+      "headline": "Bitcoin, ether slide after a hawkish Fed, even as Trump's signed Iran deal lifts stocks",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.6,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 04:54:57",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Bitcoin, ether slide after a hawkish Fed, even as Trump's signed Iran deal lifts stocks",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 04:41:33",
-      "market_question": "World Cup: Total Tournament Goals O/U 264.5 ",
-      "headline": "From one to 48 - every World Cup team ranked after one game",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
