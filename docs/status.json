@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T16:48:32.590019+00:00",
-  "last_heartbeat": "2026-06-18T16:48:32.590019+00:00",
-  "uptime_seconds": 8262,
+  "generated_at": "2026-06-18T16:53:37.146744+00:00",
+  "last_heartbeat": "2026-06-18T16:53:37.146744+00:00",
+  "uptime_seconds": 8566,
   "dry_run": true,
-  "markets_tracked": 725,
+  "markets_tracked": 726,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6205,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1384,
+  "headlines_scanned_today": 1388,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 16870,
+  "classifications_24h": 16854,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4389,
+    "prefiltered_haiku": 4397,
     "stale": 54,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -104,7 +104,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 18,
+  "watched_markets_count": 19,
   "missed_opportunities_24h": 3,
   "whale": {
     "watched_wallets": 4,
@@ -117,39 +117,39 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3584,
-    "matched": 1239,
-    "classified": 16870,
+    "news": 3580,
+    "matched": 1238,
+    "classified": 16854,
     "signals": 6,
     "trades": 6
   },
   "performance": {
     "trades_total": 25,
     "deployed_usd": 440.58,
-    "open_count": 7,
-    "closed_count": 18,
+    "open_count": 6,
+    "closed_count": 19,
     "wins": 10,
-    "losses": 8,
-    "win_rate_pct": 55.6,
+    "losses": 9,
+    "win_rate_pct": 52.6,
     "realized_pnl_usd": 58.42,
     "unrealized_pnl_usd": -7.19,
     "total_pnl_usd": 51.23,
-    "recent_winrate": 0.5556,
-    "kelly_factor": 0.7083,
+    "recent_winrate": 0.5263,
+    "kelly_factor": 0.6645,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1542.4
+    "avg_classification_latency_ms": 1547.5
   },
   "live_readiness": {
     "ready": false,
-    "criteria_met": 3,
+    "criteria_met": 2,
     "criteria_total": 4,
-    "sharpe_days_count": 3,
+    "sharpe_days_count": 4,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 18,
+        "value": 19,
         "threshold_display": "\u2265 20",
         "pass": false
       },
@@ -157,15 +157,15 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 55.6,
+        "value": 52.6,
         "threshold_display": "> 55%",
-        "pass": true
+        "pass": false
       },
       {
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio (preliminary)",
         "unit": "ratio",
-        "value": 12.69,
+        "value": 10.8,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -173,7 +173,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 5.1,
+        "value": 4.4,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -182,8 +182,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0514,
-    "sharpe_7d": 0.66
+    "drawdown_7d": 0.0444,
+    "sharpe_7d": 0.57
   },
   "open_positions": [
     {
@@ -199,20 +199,6 @@
       "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "528413"
-    },
-    {
-      "time": "2026-06-18 01:56:21",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "slug": "where-will-trump-and-putin-meet-next-678",
-      "side": "YES",
-      "entry_price": 0.05,
-      "current_price": 0.05,
-      "pnl_pct": 0.0,
-      "amount_usd": 39.52,
-      "current_value_usd": 39.52,
-      "pnl_usd": 0.0,
-      "edge_type": "news",
-      "event_id": "528389"
     },
     {
       "time": "2026-06-18 01:56:21",
@@ -286,6 +272,18 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-18T16:53:22.038551+00:00",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "slug": "where-will-trump-and-putin-meet-next-678",
+      "side": "YES",
+      "entry_price": 0.05,
+      "exit_price": 0.05,
+      "realized_pnl_usd": 0.0,
+      "exit_reason": "manual",
+      "event_id": "528389",
+      "partial": false
+    },
     {
       "time": "2026-06-17T23:46:41.567706+00:00",
       "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
@@ -393,21 +391,18 @@
       "exit_reason": "drawdown_decision",
       "event_id": "379876",
       "partial": false
-    },
-    {
-      "time": "2026-06-16T03:21:34.461765+00:00",
-      "market_question": "Will Ethereum reach $2,000 in June?",
-      "slug": "what-price-will-ethereum-hit-in-june-2026",
-      "side": "YES",
-      "entry_price": 0.275,
-      "exit_price": 0.18,
-      "realized_pnl_usd": -6.328727272727275,
-      "exit_reason": "drawdown_decision",
-      "event_id": "548275",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-18 16:53:22",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 0.0
+    },
     {
       "time": "2026-06-17 23:46:41",
       "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
@@ -443,61 +438,39 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 11.21
-    },
-    {
-      "time": "2026-06-17 19:23:48",
-      "market_question": "Will Click Bishop advance from the 2026 Alaska Governor primary election?",
-      "side": "NO",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": 3.73
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 16:47:49",
-      "market_question": "AI wins IMO gold medal in 2026?",
-      "headline": "Building human connection to create value in the AI era - The World Economic Forum",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 16:52:19",
+      "market_question": "Will Trump hug an Iranian official by June 20?",
+      "headline": "There is no 300 Billion Dollar payment to Iran by the U.S. That\u2019s Fake News! All there is for the U.S. is Success, Lower Oil Prices, and Victory. Check out the Stock Market. Dumocrat propaganda at play!!! President DJT",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.62,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 16:47:49",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "Building human connection to create value in the AI era - The World Economic Forum",
+      "time": "2026-06-18 16:52:18",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "There is no 300 Billion Dollar payment to Iran by the U.S. That\u2019s Fake News! All there is for the U.S. is Success, Lower Oil Prices, and Victory. Check out the Stock Market. Dumocrat propaganda at play!!! President DJT",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 16:47:48",
-      "market_question": "Will another AI-generated song reach number 1 on any Billboard chart by June 30?",
-      "headline": "Building human connection to create value in the AI era - The World Economic Forum",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 16:47:47",
-      "market_question": "Will OpenAI IPO by August 31 2026?",
-      "headline": "Pfizer CFO Dave Denton to leave company in August - Reuters",
+      "time": "2026-06-18 16:52:14",
+      "market_question": "Mahmoud Abbas out as Palestinian President by June 30?",
+      "headline": "There is no 300 Billion Dollar payment to Iran by the U.S. That\u2019s Fake News! All there is for the U.S. is Success, Lower Oil Prices, and Victory. Check out the Stock Market. Dumocrat propaganda at play!!! President DJT",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -508,17 +481,30 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 16:47:47",
-      "market_question": "Will David Sacks leave the Trump administration before 2027?",
-      "headline": "Pfizer CFO Dave Denton to leave company in August - Reuters",
+      "time": "2026-06-18 16:52:14",
+      "market_question": "Joseph Aoun out as President of Lebanon by December 31?",
+      "headline": "There is no 300 Billion Dollar payment to Iran by the U.S. That\u2019s Fake News! All there is for the U.S. is Success, Lower Oil Prices, and Victory. Check out the Stock Market. Dumocrat propaganda at play!!! President DJT",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 16:52:13",
+      "market_question": "Will Anthropic's market cap be between $2.0T and $2.25T at market close on IPO day?",
+      "headline": "There is no 300 Billion Dollar payment to Iran by the U.S. That\u2019s Fake News! All there is for the U.S. is Success, Lower Oil Prices, and Victory. Check out the Stock Market. Dumocrat propaganda at play!!! President DJT",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
