@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T07:08:04.688158+00:00",
-  "last_heartbeat": "2026-06-18T07:08:04.688158+00:00",
-  "uptime_seconds": 33196,
+  "generated_at": "2026-06-18T07:13:08.875867+00:00",
+  "last_heartbeat": "2026-06-18T07:13:08.875867+00:00",
+  "uptime_seconds": 33500,
   "dry_run": true,
   "markets_tracked": 737,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 343,
+  "headlines_scanned_today": 345,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15740,
+  "classifications_24h": 15745,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3562,
+    "prefiltered_haiku": 3557,
     "stale": 57,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T06:55:35.761176+00:00"
+    "last_check": "2026-06-18T07:10:36.208973+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3113,
-    "matched": 1011,
-    "classified": 15740,
+    "news": 3114,
+    "matched": 1012,
+    "classified": 15745,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1708.4
+    "avg_classification_latency_ms": 1713.0
   },
   "live_readiness": {
     "ready": false,
@@ -456,69 +456,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 07:04:31",
-      "market_question": "Will Solana dip to $30 in June?",
-      "headline": "Exclusive: Thailand revives $30 bln coast-to-coast corridor to rival Malacca Strait - Reuters",
+      "time": "2026-06-18 07:11:14",
+      "market_question": "Will Bitcoin reach $68,000 on June 18?",
+      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 07:04:30",
-      "market_question": "Will Donald Trump attend NATO Summit?",
-      "headline": "G7 Summit - AP News",
+      "time": "2026-06-18 07:11:13",
+      "market_question": "Will Bitcoin reach $68,000 June 15-21?",
+      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 07:04:29",
-      "market_question": "Will Lamine Yamal record the most assists at the 2026 FIFA World Cup?",
-      "headline": "Transfer Big Board: Best players in each position ...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 07:04:28",
-      "market_question": "Will Steven Gerrard be the next manager of Manchester City FC?",
-      "headline": "Transfer rumors, news: Liverpool and Chelsea keen ...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 07:04:28",
-      "market_question": "Will claude-opus-4-6-thinking be the best AI model on June 20, 2026?",
-      "headline": "Transfer Big Board: Best players in each position ...",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 07:11:13",
+      "market_question": "Will Bitcoin reach $66,000 on June 18?",
+      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 07:11:13",
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 18?",
+      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 07:11:13",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "The bond market is flashing a clear signal on interest rates. Bitcoin bulls should take note",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
