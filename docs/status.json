@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T18:06:29.874026+00:00",
-  "last_heartbeat": "2026-06-18T18:06:29.874026+00:00",
-  "uptime_seconds": 952,
+  "generated_at": "2026-06-18T18:11:34.339924+00:00",
+  "last_heartbeat": "2026-06-18T18:11:34.339924+00:00",
+  "uptime_seconds": 1257,
   "dry_run": true,
   "markets_tracked": 1653,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2383,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2388,
+  "headlines_last_cycle": 2,
   "signals_24h": 6,
-  "classifications_24h": 18959,
+  "classifications_24h": 18985,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5745,
+    "prefiltered_haiku": 5761,
     "stale": 65,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4231,
-    "matched": 1249,
-    "classified": 18959,
+    "news": 4236,
+    "matched": 1253,
+    "classified": 18985,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1263.4
+    "avg_classification_latency_ms": 1287.2
   },
   "live_readiness": {
     "ready": false,
@@ -400,9 +400,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 18:04:26",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Inside the colorful, compelling and controversial jersey designs at the World Cup - AP News",
+      "time": "2026-06-18 18:11:10",
+      "market_question": "New MLB CBA by Dec. 1?",
+      "headline": "Beever-Jones set to sign new deal at Chelsea",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -413,9 +413,35 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 18:04:26",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Inside the colorful, compelling and controversial jersey designs at the World Cup - AP News",
+      "time": "2026-06-18 18:11:09",
+      "market_question": "Will William Moses win the 2026 Colorado Governor Democratic primary election?",
+      "headline": "It seems as though the Great State of Utah, which I won each time, and handily, is going to the All Mail In Ballot format of Colorado, and the rest, that always head LEFT, as soon as the move is made. We should stop Utah from doing this. All Mail In Ballots, dishonestly handled, are a big advantage for the Dumocrats, whose only Road to Victory, because their Policies are so insane, is CHEATING. Does the Republican Party have any idea what is happening to it? Step by step, State by State, the Democrats are smiling all the way to the \u201cBank.\u201d Stop the onslaught by either immediately terminating the Filibuster and/or pass THE SAVE AMERICA ACT! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:11:09",
+      "market_question": "Will Robert Moore win the 2026 Colorado Governor Republican primary election?",
+      "headline": "It seems as though the Great State of Utah, which I won each time, and handily, is going to the All Mail In Ballot format of Colorado, and the rest, that always head LEFT, as soon as the move is made. We should stop Utah from doing this. All Mail In Ballots, dishonestly handled, are a big advantage for the Dumocrats, whose only Road to Victory, because their Policies are so insane, is CHEATING. Does the Republican Party have any idea what is happening to it? Step by step, State by State, the Democrats are smiling all the way to the \u201cBank.\u201d Stop the onslaught by either immediately terminating the Filibuster and/or pass THE SAVE AMERICA ACT! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 18:11:09",
+      "market_question": "Will Donald Trump visit Taiwan in 2026?",
+      "headline": "It seems as though the Great State of Utah, which I won each time, and handily, is going to the All Mail In Ballot format of Colorado, and the rest, that always head LEFT, as soon as the move is made. We should stop Utah from doing this. All Mail In Ballots, dishonestly handled, are a big advantage for the Dumocrats, whose only Road to Victory, because their Policies are so insane, is CHEATING. Does the Republican Party have any idea what is happening to it? Step by step, State by State, the Democrats are smiling all the way to the \u201cBank.\u201d Stop the onslaught by either immediately terminating the Filibuster and/or pass THE SAVE AMERICA ACT! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -426,43 +452,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 18:04:26",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Inside the colorful, compelling and controversial jersey designs at the World Cup - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 18:11:09",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Beever-Jones set to sign new deal at Chelsea",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 18:04:26",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Inside the colorful, compelling and controversial jersey designs at the World Cup - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 18:04:26",
-      "market_question": "Will Argentina reach the Quarterfinals at the 2026 FIFA World Cup?",
-      "headline": "Inside the colorful, compelling and controversial jersey designs at the World Cup - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
