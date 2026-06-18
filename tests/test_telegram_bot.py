@@ -182,6 +182,11 @@ def test_balance_deployed_counts_only_open_positions(tmp_db, monkeypatch):
     _open(2, "c2", "B", amount=50.0)
     # A closed position whose $161 must NOT inflate deployed (capital returned).
     pid = _open(3, "c3", "C", amount=161.0)
+    # Mark it off its 0.50 entry so the manual close realizes a real (non-zero)
+    # PnL and counts as a closed trade — a break-even ($0.00) close is a non-event.
+    conn = tmp_db._conn()
+    conn.execute("UPDATE positions SET current_yes_price=0.60 WHERE id=?", (pid,))
+    conn.commit(); conn.close()
     positions_mod.close_manual(pid)
 
     text, _ = telegram_bot._build_balance()

@@ -237,6 +237,19 @@ def test_recent_pnls_filtered_by_since(tmp_db):
     assert sum(1 for p in new if p > 0) == 2
 
 
+def test_recent_pnls_exclude_zero_pnl_closes(tmp_db):
+    # A break-even close ($0.00) is a non-event: it must not land in the win-rate
+    # denominator. $0.01 is a win, $-0.01 is a loss; only those two are returned.
+    _close(tmp_db, "win", 0.01, "2026-06-14 10:00:00")
+    _close(tmp_db, "loss", -0.01, "2026-06-14 11:00:00")
+    _close(tmp_db, "even", 0.0, "2026-06-14 12:00:00")
+    pnls = logger.get_recent_closed_position_pnls(20)
+    assert len(pnls) == 2
+    assert 0.0 not in pnls
+    # win rate over the two graded closes is exactly 50%.
+    assert sum(1 for p in pnls if p > 0) == 1
+
+
 def test_recent_winrate_respects_performance_start_date(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "KELLY_WINRATE_MIN_SAMPLES", 5)
     _seed_old_and_new(tmp_db)

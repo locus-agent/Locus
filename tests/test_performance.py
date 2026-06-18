@@ -380,6 +380,31 @@ def test_live_readiness_sharpe_not_preliminary_at_seven_days(tmp_db, monkeypatch
     assert _readiness_metric(r, "sharpe_ratio")["label"] == "Sharpe Ratio"
 
 
+def test_zero_pnl_close_excluded_from_performance_counts(tmp_db):
+    # WIN strictly > 0, LOSS strictly < 0, $0.00 is a non-event (skipped).
+    _closed_position(tmp_db, "win", 25.0, 0.01, _days_ago(1))
+    _closed_position(tmp_db, "loss", 25.0, -0.01, _days_ago(1))
+    _closed_position(tmp_db, "even", 25.0, 0.0, _days_ago(1))
+
+    perf = compute_performance(current_prices={})
+    assert perf["wins"] == 1
+    assert perf["losses"] == 1
+    assert perf["closed_count"] == 2                       # the $0.00 close is dropped
+    assert perf["win_rate_pct"] == pytest.approx(50.0)
+    assert perf["realized_pnl_usd"] == pytest.approx(0.0)  # break-even adds nothing
+
+
+def test_zero_pnl_close_excluded_from_live_readiness(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    _closed_position(tmp_db, "win", 25.0, 0.01, _days_ago(1))
+    _closed_position(tmp_db, "loss", 25.0, -0.01, _days_ago(1))
+    _closed_position(tmp_db, "even", 25.0, 0.0, _days_ago(1))
+
+    r = compute_live_readiness()
+    assert _readiness_value(r, "closed_trades") == 2       # $0.00 excluded
+    assert _readiness_value(r, "win_rate") == pytest.approx(50.0)
+
+
 def test_live_readiness_future_date_excludes_all(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "2030-01-01")
     _seed_old_and_new_closes(tmp_db)

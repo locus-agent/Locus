@@ -56,8 +56,9 @@ def compute_live_readiness() -> dict:
     Reads only fully-closed positions (status LIKE 'closed_%'); partial
     close_half realizations on still-open positions don't count as a trade.
 
-    - closed_trades: how many closed positions exist.
-    - win_rate: % of them with positive realized PnL.
+    - closed_trades: how many closed positions exist, excluding break-even
+      closes (realized PnL of exactly 0, or NULL) — those are non-events.
+    - win_rate: % of those graded closes with positive realized PnL.
     - sharpe_ratio: annualized (×√365) ratio of mean to std of realized PnL
       grouped by close date; null until at least 3 distinct days of data. Below
       7 distinct days the metric label is suffixed "(preliminary)" to flag the
@@ -83,10 +84,15 @@ def compute_live_readiness() -> dict:
     if since:
         closed = [p for p in closed if (p.get("opened_at") or "") >= since]
 
+    # Graded closes only: a break-even close (realized PnL exactly 0, or NULL) is
+    # a non-event — neither a win nor a loss — so it's excluded from closed_trades,
+    # win_rate, the Sharpe series, and the drawdown curve alike.
+    closed = [p for p in closed if (p["realized_pnl_usd"] or 0) != 0]
+
     closed_trades = len(closed)
 
     win_rate = (
-        round(sum(1 for p in closed if (p["realized_pnl_usd"] or 0) > 0)
+        round(sum(1 for p in closed if p["realized_pnl_usd"] > 0)
               / closed_trades * 100, 1)
         if closed_trades else None
     )
@@ -289,8 +295,10 @@ def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
     """Aggregate the positions table into a performance summary.
 
     Realized PnL sums realized_pnl_usd over all positions (including
-    partial close_half realizations on still-open ones); wins/losses count
-    closed positions by their total realized PnL. Unrealized marks open
+    partial close_half realizations on still-open ones); wins (realized PnL
+    > 0) and losses (realized PnL < 0) count closed positions by their total
+    realized PnL, while break-even closes (exactly 0, or NULL) are excluded
+    from wins, losses, and closed_count alike. Unrealized marks open
     positions at current_prices when given, else the position's stored
     mark, else a Gamma fetch, else entry (zero contribution).
     """
@@ -314,9 +322,14 @@ def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
 
     deployed = sum(t["amount_usd"] for t in trades)
     realized = sum(p["realized_pnl_usd"] or 0.0 for p in rows)
-    closed = [p for p in rows if p["status"] != "open"]
-    wins = sum(1 for p in closed if (p["realized_pnl_usd"] or 0) > 0)
-    losses = len(closed) - wins
+    # Graded closes: a closed position with exactly zero (or NULL) realized PnL
+    # is a break-even non-event — it counts as neither a win nor a loss, and is
+    # excluded from the closed-trade total. WIN is strictly > 0, LOSS strictly < 0.
+    graded = [p for p in rows
+              if p["status"] != "open" and (p["realized_pnl_usd"] or 0) != 0]
+    wins = sum(1 for p in graded if p["realized_pnl_usd"] > 0)
+    losses = sum(1 for p in graded if p["realized_pnl_usd"] < 0)
+    closed_count = len(graded)
 
     unrealized = 0.0
     open_rows = [p for p in rows if p["status"] == "open"]
@@ -333,10 +346,10 @@ def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
         "trades_total": len(trades),
         "deployed_usd": round(deployed, 2),
         "open_count": len(open_rows),
-        "closed_count": len(closed),
+        "closed_count": closed_count,
         "wins": wins,
         "losses": losses,
-        "win_rate_pct": round(wins / len(closed) * 100, 1) if closed else None,
+        "win_rate_pct": round(wins / closed_count * 100, 1) if closed_count else None,
         "realized_pnl_usd": round(realized, 2),
         "unrealized_pnl_usd": round(unrealized, 2),
         "total_pnl_usd": round(realized + unrealized, 2),
