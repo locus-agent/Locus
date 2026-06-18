@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T03:19:58.724884+00:00",
-  "last_heartbeat": "2026-06-18T03:19:58.724884+00:00",
-  "uptime_seconds": 19510,
+  "generated_at": "2026-06-18T03:25:02.635659+00:00",
+  "last_heartbeat": "2026-06-18T03:25:02.635659+00:00",
+  "uptime_seconds": 19814,
   "dry_run": true,
-  "markets_tracked": 731,
+  "markets_tracked": 729,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5818,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 189,
+  "headlines_scanned_today": 190,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15625,
+  "classifications_24h": 15529,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3501,
-    "stale": 63,
+    "prefiltered_haiku": 3473,
+    "stale": 58,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3070,
-    "matched": 978,
-    "classified": 15625,
+    "news": 3051,
+    "matched": 960,
+    "classified": 15529,
     "signals": 5,
     "trades": 5
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1702.7
+    "avg_classification_latency_ms": 1700.7
   },
   "live_readiness": {
     "ready": false,
@@ -456,11 +456,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 03:18:59",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "Teenager dies in horse-drawn carriage accident in New York",
+      "time": "2026-06-18 03:23:24",
+      "market_question": "Anthropic vs Meta \u2014 higher valuation on June 30?",
+      "headline": "EU cybersecurity agency to meet Anthropic on Thursday, EU Commission says - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
@@ -469,56 +469,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 03:18:59",
-      "market_question": "Will New York Giants win the 2027 NFL NFC Championship?",
-      "headline": "Teenager dies in horse-drawn carriage accident in New York",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 03:18:58",
-      "market_question": "Will Apple be the second-largest company in the world by market cap on June 30?",
-      "headline": "Apple to raise prices as AI boom pushes up chip costs",
+      "time": "2026-06-18 03:23:23",
+      "market_question": "Will Anthropic not IPO by December 31, 2027?",
+      "headline": "EU cybersecurity agency to meet Anthropic on Thursday, EU Commission says - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 03:18:58",
-      "market_question": "Will the New York Mets have the longest winning streak during the 2026 MLB regular season?",
-      "headline": "Teenager dies in horse-drawn carriage accident in New York",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 03:23:23",
+      "market_question": "Will Anthropic's public ticker be $ANAI?",
+      "headline": "EU cybersecurity agency to meet Anthropic on Thursday, EU Commission says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-18 03:18:58",
-      "market_question": "Will the Republicans win the New Hampshire Senate race in 2026?",
-      "headline": "Teenager dies in horse-drawn carriage accident in New York",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-18 03:23:23",
+      "market_question": "Will Anthropic have the top AI model at the end of June 2026?",
+      "headline": "EU cybersecurity agency to meet Anthropic on Thursday, EU Commission says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 03:23:23",
+      "market_question": "Will Anthropic IPO by October 31, 2026?",
+      "headline": "EU cybersecurity agency to meet Anthropic on Thursday, EU Commission says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
