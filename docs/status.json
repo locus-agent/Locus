@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T20:03:13.732085+00:00",
-  "last_heartbeat": "2026-06-18T20:03:13.732085+00:00",
-  "uptime_seconds": 7956,
+  "generated_at": "2026-06-18T20:08:18.616647+00:00",
+  "last_heartbeat": "2026-06-18T20:08:18.616647+00:00",
+  "uptime_seconds": 8261,
   "dry_run": true,
-  "markets_tracked": 1663,
+  "markets_tracked": 1662,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,20 +80,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 2593,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 2597,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 15361,
+  "classifications_24h": 15318,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 5692,
+    "prefiltered_haiku": 5684,
     "stale": 71,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 5,
-    "correlation_block": 9,
+    "correlation_block": 7,
     "category_limit": 1,
     "orderbook_skip": 0,
     "already_priced_in": 0,
@@ -109,7 +109,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T19:50:55.356491+00:00"
+    "last_check": "2026-06-18T20:05:55.767557+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3559,
-    "matched": 1281,
-    "classified": 15361,
+    "news": 3553,
+    "matched": 1284,
+    "classified": 15318,
     "signals": 8,
     "trades": 5
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1510.3
+    "avg_classification_latency_ms": 1509.7
   },
   "live_readiness": {
     "ready": false,
@@ -386,67 +386,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 20:03:02",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "SpaceX shares fall as post-IPO frenzy loses steam - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:02:59",
-      "market_question": "Will Anthropic not IPO by June 30, 2026?",
-      "headline": "SpaceX shares fall as post-IPO frenzy loses steam - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:02:58",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "SpaceX shares fall as post-IPO frenzy loses steam - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:02:58",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "SpaceX shares fall as post-IPO frenzy loses steam - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 20:02:56",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "An Uber driver for World Cup fans was injured in Kansas City shootings that also left a man dead - AP News",
+      "time": "2026-06-18 20:07:26",
+      "market_question": "Will Solana reach $300 by December 31, 2026?",
+      "headline": "Don\u2019t expect that $300 billion anytime soon - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:07:26",
+      "market_question": "Will the 2026 Midterm Elections happen as scheduled?",
+      "headline": "Don\u2019t expect that $300 billion anytime soon - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:07:25",
+      "market_question": "Will Elon Musk rejoin the Trump Administration in 2026?",
+      "headline": "Don\u2019t expect that $300 billion anytime soon - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:07:25",
+      "market_question": "Over $1B crypto hack value in 2026?",
+      "headline": "Don\u2019t expect that $300 billion anytime soon - Politico",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:05:13",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "There are many questions about the Iran deal. Here are (some) answers. - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
