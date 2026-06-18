@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T19:12:29.261273+00:00",
-  "last_heartbeat": "2026-06-18T19:12:29.261273+00:00",
-  "uptime_seconds": 4912,
+  "generated_at": "2026-06-18T19:17:33.563708+00:00",
+  "last_heartbeat": "2026-06-18T19:17:33.563708+00:00",
+  "uptime_seconds": 5216,
   "dry_run": true,
-  "markets_tracked": 1657,
+  "markets_tracked": 1656,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2511,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2524,
+  "headlines_last_cycle": 11,
   "signals_24h": 7,
-  "classifications_24h": 18936,
+  "classifications_24h": 18979,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 5979,
+    "prefiltered_haiku": 5999,
     "stale": 72,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4229,
-    "matched": 1252,
-    "classified": 18936,
+    "news": 4239,
+    "matched": 1261,
+    "classified": 18979,
     "signals": 7,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1435.9
+    "avg_classification_latency_ms": 1445.1
   },
   "live_readiness": {
     "ready": false,
@@ -386,22 +386,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 19:09:14",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Hats and high-fashion as King attends Royal Ascot with actor Stanley Tucci",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 19:17:33",
+      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
+      "headline": "Futures Mixed, Oil Rises On Trump's New Iran Threat - Investor's Business Daily",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.6,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:09:12",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Hats and high-fashion as King attends Royal Ascot with actor Stanley Tucci",
+      "time": "2026-06-18 19:17:33",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Futures Mixed, Oil Rises On Trump's New Iran Threat - Investor's Business Daily",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 19:17:33",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "SpaceX launches 3 Block 2 BlueBird satellites for AST SpaceMobile - Spaceflight Now",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -412,9 +425,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 19:09:12",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Hats and high-fashion as King attends Royal Ascot with actor Stanley Tucci",
+      "time": "2026-06-18 19:17:33",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "From supply shock to oil glut: IEA flags scale of demand destruction caused by Iran war - CNBC",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -425,22 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 19:09:12",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Hats and high-fashion as King attends Royal Ascot with actor Stanley Tucci",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 19:09:12",
-      "market_question": "Will Trump meet with Delcy Rodr\u00edguez by June 30?",
-      "headline": "Hats and high-fashion as King attends Royal Ascot with actor Stanley Tucci",
+      "time": "2026-06-18 19:17:33",
+      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "From supply shock to oil glut: IEA flags scale of demand destruction caused by Iran war - CNBC",
       "direction": null,
       "materiality": null,
       "confidence": null,
