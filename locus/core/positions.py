@@ -48,6 +48,118 @@ def _canonical_close_reason(exit_reason: str) -> str:
 
 log = logging.getLogger(__name__)
 
+
+# --- Re-entry 2.0: exit_reason calibration gate -------------------------------
+#
+# A granular re-entry gate keyed on *why* the position closed. Unlike the
+# bucketed reentry.check_reentry_opportunity (sl/tp/news), this inspects the raw
+# exit_reason against the calibrated REENTRY_ALLOWED_REASONS / _BLOCKED_REASONS
+# lists: exits that left a clean thesis (tp_decision, manual, near_certain_*,
+# resolution) may re-enter; exits where the market beat us (drawdown_decision,
+# time_pressure, hard_sl, news_decision, already_priced_in) never do.
+
+def _normalize_exit_reason(exit_reason: str) -> str:
+    """Collapse a stored exit_reason to its re-entry list key. near_certain
+    exits carry a price suffix ("near_certain_yes_0.96"); the hard stop loss is
+    stored as "sl" but the calibration lists call it "hard_sl"."""
+    r = (exit_reason or "").lower()
+    if r.startswith("near_certain_yes"):
+        return "near_certain_yes"
+    if r.startswith("near_certain_no"):
+        return "near_certain_no"
+    if r == "sl":
+        return "hard_sl"
+    return r
+
+
+def event_reentry_count(conn, event_id: str | None) -> int:
+    """How many re-entry trades (edge_type='reentry') already exist for this
+    event_id. 0 when the event is unknown."""
+    if not event_id:
+        return 0
+    row = conn.execute(
+        "SELECT COUNT(*) AS c FROM trades WHERE event_id=? AND edge_type='reentry'",
+        (event_id,),
+    ).fetchone()
+    return row["c"] if row else 0
+
+
+def check_reentry_opportunity(
+    exit_reason: str,
+    materiality: float,
+    base_size_usd: float,
+    hours_since_close: float,
+    hours_to_resolution: float | None = None,
+    event_id: str | None = None,
+    conn=None,
+) -> dict | None:
+    """Re-entry 2.0 gate: decide whether a watched market may be re-entered,
+    driven by the granular exit_reason and the new classification's materiality.
+
+    Returns None when re-entry is blocked (each rejection logs its reason), or
+    {"size_usd": float, "reason": str} when allowed — size already scaled by
+    REENTRY_SIZE_FACTOR.
+    """
+    if not config.REENTRY_ENABLED:
+        log.info("[positions] Re-entry blocked: feature disabled (REENTRY_ENABLED=false)")
+        return None
+
+    reason_key = _normalize_exit_reason(exit_reason)
+
+    # Explicit block list takes precedence over everything else.
+    if reason_key in config.REENTRY_BLOCKED_REASONS:
+        log.info(f"[positions] Re-entry blocked: exit_reason '{reason_key}' is on the block list")
+        return None
+
+    # Only re-enter on an explicitly allowed exit reason (unknown reasons block).
+    if reason_key not in config.REENTRY_ALLOWED_REASONS:
+        log.info(f"[positions] Re-entry blocked: exit_reason '{reason_key}' not on the allow list")
+        return None
+
+    # Cooldown: don't re-enter the same market within REENTRY_MIN_HOURS of exit.
+    if hours_since_close < config.REENTRY_MIN_HOURS:
+        log.info(
+            f"[positions] Re-entry blocked: only {hours_since_close:.1f}h since close "
+            f"(< {config.REENTRY_MIN_HOURS}h cooldown)"
+        )
+        return None
+
+    # Don't re-enter a market that resolves too soon for the thesis to play out
+    # (skip the check when the close time is unknown — a None hours_to_resolution).
+    if (hours_to_resolution is not None
+            and hours_to_resolution < config.REENTRY_MIN_HOURS_TO_RESOLUTION):
+        log.info(
+            f"[positions] Re-entry blocked: {hours_to_resolution:.1f}h to resolution "
+            f"(< {config.REENTRY_MIN_HOURS_TO_RESOLUTION}h)"
+        )
+        return None
+
+    # Per-event cap: at most REENTRY_MAX_PER_EVENT re-entries across one event.
+    if conn is not None and event_id:
+        existing = event_reentry_count(conn, event_id)
+        if existing >= config.REENTRY_MAX_PER_EVENT:
+            log.info(
+                f"[positions] Re-entry blocked: event {event_id} already has "
+                f"{existing} re-entry(s) (max {config.REENTRY_MAX_PER_EVENT})"
+            )
+            return None
+
+    # Materiality floor.
+    if materiality < config.REENTRY_MIN_MATERIALITY:
+        log.info(
+            f"[positions] Re-entry blocked: materiality {materiality:.2f} "
+            f"< {config.REENTRY_MIN_MATERIALITY}"
+        )
+        return None
+
+    size_usd = round(base_size_usd * config.REENTRY_SIZE_FACTOR, 2)
+    reason = (
+        f"exit_reason '{reason_key}', materiality {materiality:.2f}, "
+        f"size ${size_usd:.2f} ({config.REENTRY_SIZE_FACTOR:g}x of ${base_size_usd:.2f})"
+    )
+    log.info(f"[positions] Re-entry allowed: {reason}")
+    return {"size_usd": size_usd, "reason": reason}
+
 EXIT_PROMPT = """You are Locus, an autonomous agent trading niche Polymarket prediction \
 markets. One of your open positions hit a re-evaluation trigger. Decide what to do with it.
 

@@ -418,6 +418,45 @@ REENTRY_NEWS_MATERIALITY = float(os.getenv("REENTRY_NEWS_MATERIALITY", "0.45"))
 REENTRY_SL_MATERIALITY = float(os.getenv("REENTRY_SL_MATERIALITY", "0.55"))
 REENTRY_SL_MIN_SOURCES = int(os.getenv("REENTRY_SL_MIN_SOURCES", "2"))
 
+# --- Re-entry 2.0 (exit_reason calibration) ---
+# A calibration-driven re-entry gate keyed on the *granular* exit_reason rather
+# than the bucketed close reason above. Some exits leave a clean thesis to
+# re-enter on (a take-profit decision, a manual close, a near-certain lock-in, a
+# resolution); others mean the market beat us and re-entering loses money (a
+# drawdown or time-pressure exit, a hard stop, a news reversal, an
+# already-priced-in skip). Reasons are matched after normalizing the stored
+# exit_reason (e.g. "near_certain_yes_0.96" -> "near_certain_yes", the hard stop
+# "sl" -> "hard_sl"); see positions.check_reentry_opportunity. REENTRY_ENABLED
+# is the master switch. Override the lists with JSON arrays in .env.
+REENTRY_ENABLED = os.getenv("REENTRY_ENABLED", "true").lower() == "true"
+REENTRY_ALLOWED_REASONS = [
+    "tp_decision", "manual", "near_certain_yes", "near_certain_no", "resolution",
+]
+REENTRY_BLOCKED_REASONS = [
+    "drawdown_decision", "time_pressure", "news_decision", "already_priced_in", "hard_sl",
+]
+_reentry_allowed_override = os.getenv("REENTRY_ALLOWED_REASONS", "")
+if _reentry_allowed_override:
+    try:
+        REENTRY_ALLOWED_REASONS = json.loads(_reentry_allowed_override)
+    except (ValueError, TypeError):
+        pass  # malformed override -> keep the defaults above
+_reentry_blocked_override = os.getenv("REENTRY_BLOCKED_REASONS", "")
+if _reentry_blocked_override:
+    try:
+        REENTRY_BLOCKED_REASONS = json.loads(_reentry_blocked_override)
+    except (ValueError, TypeError):
+        pass  # malformed override -> keep the defaults above
+REENTRY_MIN_MATERIALITY = float(os.getenv("REENTRY_MIN_MATERIALITY", "0.45"))
+REENTRY_MIN_HOURS = float(os.getenv("REENTRY_MIN_HOURS", "4"))
+# Reduce position size on a re-entry (0.7 = 70% of the size we'd otherwise open).
+REENTRY_SIZE_FACTOR = float(os.getenv("REENTRY_SIZE_FACTOR", "0.7"))
+# At most this many re-entries across one Gamma event_id.
+REENTRY_MAX_PER_EVENT = int(os.getenv("REENTRY_MAX_PER_EVENT", "1"))
+# Don't re-enter a market that resolves within this many hours (too little time
+# for the re-entered thesis to play out).
+REENTRY_MIN_HOURS_TO_RESOLUTION = float(os.getenv("REENTRY_MIN_HOURS_TO_RESOLUTION", "12"))
+
 # --- Circuit breaker ---
 # Auto-pause trading when recent realized performance deteriorates. Evaluated
 # at the start of each signal-processing cycle: a tripped breaker holds every
