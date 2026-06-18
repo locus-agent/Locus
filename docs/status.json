@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T19:27:42.131740+00:00",
-  "last_heartbeat": "2026-06-18T19:27:42.131740+00:00",
-  "uptime_seconds": 5824,
+  "generated_at": "2026-06-18T19:32:46.541862+00:00",
+  "last_heartbeat": "2026-06-18T19:32:46.541862+00:00",
+  "uptime_seconds": 6129,
   "dry_run": true,
-  "markets_tracked": 1673,
+  "markets_tracked": 1671,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2565,
+  "headlines_scanned_today": 2569,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 18193,
+  "classifications_24h": 18196,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 6079,
+    "prefiltered_haiku": 6084,
     "stale": 76,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4081,
-    "matched": 1269,
-    "classified": 18193,
+    "news": 4083,
+    "matched": 1273,
+    "classified": 18196,
     "signals": 8,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1485.3
+    "avg_classification_latency_ms": 1485.5
   },
   "live_readiness": {
     "ready": false,
@@ -386,35 +386,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 19:27:16",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "Sources: MLB proposes amateur-entry overhaul",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 19:27:12",
-      "market_question": "Will Bryan Reynolds lead the MLB in doubles for the 2026 regular season?",
-      "headline": "Sources: MLB proposes amateur-entry overhaul",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 19:27:12",
-      "market_question": "Will Cal Raleigh lead the MLB in RBIs for the 2026 regular season?",
-      "headline": "Sources: MLB proposes amateur-entry overhaul",
+      "time": "2026-06-18 19:31:40",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "CFTC enters settlement with former Celsius CEO, imposes a permanent trading ban",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -425,30 +399,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:27:12",
-      "market_question": "MLB: Perfect Game thrown in 2026 season?",
-      "headline": "Sources: MLB proposes amateur-entry overhaul",
+      "time": "2026-06-18 19:31:40",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "Should Animals Have Human Rights? Hawai\u2018i Court To Decide - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 19:31:39",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "CFTC enters settlement with former Celsius CEO, imposes a permanent trading ban",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:27:12",
-      "market_question": "Will the Cleveland Guardians win 100 or more games during the 2026 MLB Regular Season?",
-      "headline": "Sources: MLB proposes amateur-entry overhaul",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-18 19:31:37",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "CFTC enters settlement with former Celsius CEO, imposes a permanent trading ban",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 19:31:37",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "CFTC enters settlement with former Celsius CEO, imposes a permanent trading ban",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
