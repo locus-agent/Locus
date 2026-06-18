@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T05:57:06.008173+00:00",
-  "last_heartbeat": "2026-06-18T05:57:06.008173+00:00",
-  "uptime_seconds": 28937,
+  "generated_at": "2026-06-18T06:02:10.306181+00:00",
+  "last_heartbeat": "2026-06-18T06:02:10.306181+00:00",
+  "uptime_seconds": 29241,
   "dry_run": true,
   "markets_tracked": 732,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 305,
+  "headlines_scanned_today": 309,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15648,
+  "classifications_24h": 15657,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3540,
+    "prefiltered_haiku": 3548,
     "stale": 56,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3094,
-    "matched": 990,
-    "classified": 15648,
+    "news": 3096,
+    "matched": 992,
+    "classified": 15657,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1708.6
+    "avg_classification_latency_ms": 1703.9
   },
   "live_readiness": {
     "ready": false,
@@ -456,9 +456,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 05:55:13",
-      "market_question": "Will the announcers say \"Ronaldo\" during the England vs Croatia FIFA World Cup Match?",
-      "headline": "'If we lose, we lose in our way' - how Tuchel inspired 'fearful' England",
+      "time": "2026-06-18 05:59:44",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Midjourney goes from generating cat images to full-body ultrasound scans",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -469,9 +469,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 05:50:26",
-      "market_question": "Will Trump visit Pakistan by June 30?",
-      "headline": "I spent a year trying to figure out if the Trump phone is a scam - The Verge",
+      "time": "2026-06-18 05:59:44",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "Midjourney goes from generating cat images to full-body ultrasound scans",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 05:59:43",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Strategy's STRC preferred stock hits a record low below par",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -482,9 +495,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 05:50:23",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "I spent a year trying to figure out if the Trump phone is a scam - The Verge",
+      "time": "2026-06-18 05:59:42",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Who am I? Guess World Cup star No 11",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -495,28 +508,15 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 05:50:23",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "I spent a year trying to figure out if the Trump phone is a scam - The Verge",
+      "time": "2026-06-18 05:59:42",
+      "market_question": "Will a player representing Algeria be the top goalscorer at the 2026 FIFA World Cup?",
+      "headline": "Who am I? Guess World Cup star No 11",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 05:50:23",
-      "market_question": "Will Trump pardon Diddy before 2027?",
-      "headline": "I spent a year trying to figure out if the Trump phone is a scam - The Verge",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
