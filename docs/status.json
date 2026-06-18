@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T03:45:18.956192+00:00",
-  "last_heartbeat": "2026-06-18T03:45:18.956192+00:00",
-  "uptime_seconds": 21030,
+  "generated_at": "2026-06-18T03:50:23.904170+00:00",
+  "last_heartbeat": "2026-06-18T03:50:23.904170+00:00",
+  "uptime_seconds": 21335,
   "dry_run": true,
   "markets_tracked": 729,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 194,
+  "headlines_scanned_today": 195,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
   "classifications_24h": 15478,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3460,
+    "prefiltered_haiku": 3455,
     "stale": 58,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1700.0
+    "avg_classification_latency_ms": 1701.0
   },
   "live_readiness": {
     "ready": false,
@@ -456,11 +456,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 03:43:32",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "PwC ties higher productivity to Artificial Intelligence - The Nation Newspaper",
+      "time": "2026-06-18 03:48:01",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "CME chief executive says company plans to sue CFTC after perpetual futures approval",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -469,22 +469,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 03:43:29",
-      "market_question": "Anthropic vs Meta \u2014 higher valuation on June 30?",
-      "headline": "PwC ties higher productivity to Artificial Intelligence - The Nation Newspaper",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 03:43:28",
-      "market_question": "Will Paraguay be the worst-placed South American nation in the 2026 FIFA World Cup?",
-      "headline": "PwC ties higher productivity to Artificial Intelligence - The Nation Newspaper",
+      "time": "2026-06-18 03:47:56",
+      "market_question": "Will Trump's approval rating hit 35% in 2026?",
+      "headline": "CME chief executive says company plans to sue CFTC after perpetual futures approval",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -495,30 +482,43 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 03:34:37",
-      "market_question": "Will Panama advance to the knockout stages at the 2026 FIFA World Cup?",
-      "headline": "Ghana score late winner to break Panama hearts",
-      "direction": "bearish",
-      "materiality": 0.72,
-      "confidence": 0.82,
+      "time": "2026-06-18 03:47:56",
+      "market_question": "Will Trump's approval rating hit 30% in 2026?",
+      "headline": "CME chief executive says company plans to sue CFTC after perpetual futures approval",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 03:34:34",
-      "market_question": "Will a player representing Ghana be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Ghana score late winner to break Panama hearts",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 03:47:56",
+      "market_question": "Will Apple be the second-largest company in the world by market cap on June 30?",
+      "headline": "CME chief executive says company plans to sue CFTC after perpetual futures approval",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 03:47:56",
+      "market_question": "Will Google be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?",
+      "headline": "CME chief executive says company plans to sue CFTC after perpetual futures approval",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
