@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T20:54:52.317414+00:00",
-  "last_heartbeat": "2026-06-18T20:54:52.317414+00:00",
-  "uptime_seconds": 343,
+  "generated_at": "2026-06-18T20:59:57.538580+00:00",
+  "last_heartbeat": "2026-06-18T20:59:57.538580+00:00",
+  "uptime_seconds": 648,
   "dry_run": true,
-  "markets_tracked": 1669,
-  "classify_error_streak": 334,
+  "markets_tracked": 1665,
+  "classify_error_streak": 382,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3344,
-  "headlines_last_cycle": 23,
+  "headlines_scanned_today": 3366,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 15847,
+  "classifications_24h": 15937,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4601,
+    "prefiltered_haiku": 4589,
     "stale": 61,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3778,
-    "matched": 1282,
-    "classified": 15847,
+    "news": 3798,
+    "matched": 1286,
+    "classified": 15937,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2526.9
+    "avg_classification_latency_ms": 2527.0
   },
   "live_readiness": {
     "ready": true,
@@ -373,22 +373,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 20:54:49",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "Sanders proposes tax on artificial intelligence stocks - WCAX",
+      "time": "2026-06-18 20:58:27",
+      "market_question": "Will Kyle Schwarber hit the most home runs during the 2026 MLB regular season?",
+      "headline": "Fantasy baseball: Scherzer scratched and other new...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "action": "error",
-      "match_source": "both",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 20:54:49",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Injured Neymar not travelling with Brazil squad for Haiti match - Reuters",
+      "time": "2026-06-18 20:58:27",
+      "market_question": "New MLB CBA by Dec. 1?",
+      "headline": "Fantasy baseball: Scherzer scratched and other new...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 20:58:24",
+      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
+      "headline": "Pick up these soon-to-be breakout stars while you ...",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -399,9 +412,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 20:54:49",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Injured Neymar not travelling with Brazil squad for Haiti match - Reuters",
+      "time": "2026-06-18 20:58:24",
+      "market_question": "Will Darryn Peterson be the first pick in the 2026 NBA draft?",
+      "headline": "Pick up these soon-to-be breakout stars while you ...",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -412,22 +425,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-18 20:54:49",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Injured Neymar not travelling with Brazil squad for Haiti match - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 20:54:49",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Injured Neymar not travelling with Brazil squad for Haiti match - Reuters",
+      "time": "2026-06-18 20:58:24",
+      "market_question": "Will Cameron Boozer be the first pick in the 2026 NBA draft?",
+      "headline": "Pick up these soon-to-be breakout stars while you ...",
       "direction": null,
       "materiality": null,
       "confidence": null,
