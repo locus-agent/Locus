@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T08:59:36.256504+00:00",
-  "last_heartbeat": "2026-06-18T08:59:36.256504+00:00",
-  "uptime_seconds": 39887,
+  "generated_at": "2026-06-18T09:04:40.301748+00:00",
+  "last_heartbeat": "2026-06-18T09:04:40.301748+00:00",
+  "uptime_seconds": 40191,
   "dry_run": true,
   "markets_tracked": 735,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 419,
+  "headlines_scanned_today": 422,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15842,
+  "classifications_24h": 15857,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3602,
+    "prefiltered_haiku": 3605,
     "stale": 54,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3152,
-    "matched": 1040,
-    "classified": 15842,
+    "news": 3155,
+    "matched": 1043,
+    "classified": 15857,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1717.6
+    "avg_classification_latency_ms": 1722.9
   },
   "live_readiness": {
     "ready": false,
@@ -456,67 +456,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 08:56:15",
-      "market_question": "Anthropic vs Meta \u2014 higher valuation on June 30?",
-      "headline": "Morning Bid: Warsh debut raises rate-hike stakes - Reuters",
+      "time": "2026-06-18 09:03:01",
+      "market_question": "Will DeepSeek have the best Coding AI model at the end of June 2026?",
+      "headline": "How DeepSeek\u2019s landmark funding cements founder\u2019s grip amid heated AI rivalry - South China Morning Post",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 08:54:04",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "\u2018They barely check the box of trying\u2019: Trump frustrated GOP isn\u2019t following his roadmap - Politico",
+      "time": "2026-06-18 09:03:01",
+      "market_question": "Will DeepSeek have the best Chinese AI model at the end of June 2026?",
+      "headline": "How DeepSeek\u2019s landmark funding cements founder\u2019s grip amid heated AI rivalry - South China Morning Post",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 08:54:03",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "\u2018They barely check the box of trying\u2019: Trump frustrated GOP isn\u2019t following his roadmap - Politico",
+      "time": "2026-06-18 09:03:01",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Midjourney goes from generating cat images to full-body ultrasound scans - The Verge",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 09:03:01",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "Midjourney goes from generating cat images to full-body ultrasound scans - The Verge",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 09:03:00",
+      "market_question": "Will DeepSeek have the best Math AI model at the end of June 2026?",
+      "headline": "How DeepSeek\u2019s landmark funding cements founder\u2019s grip amid heated AI rivalry - South China Morning Post",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 08:54:03",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "\u2018They barely check the box of trying\u2019: Trump frustrated GOP isn\u2019t following his roadmap - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 08:54:00",
-      "market_question": "Will Trump visit Pakistan by June 30?",
-      "headline": "\u2018They barely check the box of trying\u2019: Trump frustrated GOP isn\u2019t following his roadmap - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
