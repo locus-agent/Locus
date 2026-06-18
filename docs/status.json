@@ -1,93 +1,93 @@
 {
-  "generated_at": "2026-06-18T22:47:44.614106+00:00",
-  "last_heartbeat": "2026-06-18T22:47:44.614106+00:00",
-  "uptime_seconds": 63,
+  "generated_at": "2026-06-18T22:52:50.740053+00:00",
+  "last_heartbeat": "2026-06-18T22:52:50.740053+00:00",
+  "uptime_seconds": 369,
   "dry_run": true,
-  "markets_tracked": 1671,
+  "markets_tracked": 1668,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 6892,
-    "accuracy": 17.5,
+    "total": 6967,
+    "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
-      "ai": 9.7,
-      "politics": 24.1,
-      "technology": 10.9,
+      "ai": 9.8,
+      "politics": 24.0,
+      "technology": 11.1,
       "crypto": 12.0,
-      "sports": 35.0
+      "sports": 35.7
     },
     "by_source": {
-      "rss": 17.3,
-      "newsapi": 18.3
+      "rss": 17.4,
+      "newsapi": 18.4
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 17.5,
-    "overall_total": 6892,
+    "overall_accuracy": 17.6,
+    "overall_total": 6967,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 3946,
-        "correct": 308,
+        "total": 3981,
+        "correct": 309,
         "accuracy_pct": 7.8,
-        "avg_pnl_pct": 15.23,
+        "avg_pnl_pct": 15.09,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 582,
-        "correct": 213,
-        "accuracy_pct": 36.6,
-        "avg_pnl_pct": 35.94,
+        "total": 592,
+        "correct": 218,
+        "accuracy_pct": 36.8,
+        "avg_pnl_pct": 35.33,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 712,
-        "correct": 259,
-        "accuracy_pct": 36.4,
-        "avg_pnl_pct": 3.95,
+        "total": 719,
+        "correct": 264,
+        "accuracy_pct": 36.7,
+        "avg_pnl_pct": 3.98,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 377,
-        "correct": 86,
-        "accuracy_pct": 22.8,
-        "avg_pnl_pct": -4.15,
+        "total": 389,
+        "correct": 91,
+        "accuracy_pct": 23.4,
+        "avg_pnl_pct": -4.27,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 391,
-        "correct": 174,
-        "accuracy_pct": 44.5,
-        "avg_pnl_pct": 3.05,
+        "total": 396,
+        "correct": 175,
+        "accuracy_pct": 44.2,
+        "avg_pnl_pct": 2.97,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 884,
-        "correct": 167,
-        "accuracy_pct": 18.9,
-        "avg_pnl_pct": -6.45,
+        "total": 890,
+        "correct": 170,
+        "accuracy_pct": 19.1,
+        "avg_pnl_pct": -6.36,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 3590,
-  "headlines_last_cycle": 18,
+  "headlines_scanned_today": 3747,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 14988,
+  "classifications_24h": 15750,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3863,
+    "prefiltered_haiku": 4195,
     "stale": 49,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3648,
-    "matched": 1136,
-    "classified": 14988,
+    "news": 3803,
+    "matched": 1141,
+    "classified": 15750,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1533.3
+    "avg_classification_latency_ms": 1439.5
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 22:47:44",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "time": "2026-06-18 22:51:40",
+      "market_question": "Will South Africa win Group A in the 2026 FIFA World Cup?",
+      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:51:38",
+      "market_question": "Will the announcers say \"Red Card\" during the Mexico vs South Korea FIFA World Cup Match?",
+      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -386,9 +399,35 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 22:47:34",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
+      "time": "2026-06-18 22:51:38",
+      "market_question": "Will the announcers say \"Ankle\" during the Mexico vs South Korea FIFA World Cup Match?",
+      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:51:38",
+      "market_question": "Will South Korea win Group A in the 2026 FIFA World Cup?",
+      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 22:51:38",
+      "market_question": "Will the announcers say \"Trump\" during the Mexico vs South Korea FIFA World Cup Match?",
+      "headline": "Mexico and South Korea play for group lead and other World Cup Day 8 highlights, in photos - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -397,45 +436,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 22:47:34",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 22:47:33",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 22:47:33",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "US lifts naval blockade as Iran's supreme leader says Trump made deal 'out of desperation'",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "cached",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
