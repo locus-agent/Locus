@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T11:46:56.658083+00:00",
-  "last_heartbeat": "2026-06-18T11:46:56.658083+00:00",
-  "uptime_seconds": 49928,
+  "generated_at": "2026-06-18T11:52:00.781746+00:00",
+  "last_heartbeat": "2026-06-18T11:52:00.781746+00:00",
+  "uptime_seconds": 50232,
   "dry_run": true,
-  "markets_tracked": 718,
+  "markets_tracked": 717,
   "classify_error_streak": 0,
   "track_record": {
     "total": 5993,
@@ -80,14 +80,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 555,
+  "headlines_scanned_today": 560,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15930,
+  "classifications_24h": 15847,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3631,
-    "stale": 52,
+    "prefiltered_haiku": 3578,
+    "stale": 51,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3192,
-    "matched": 1094,
-    "classified": 15930,
+    "news": 3176,
+    "matched": 1089,
+    "classified": 15847,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1727.0
+    "avg_classification_latency_ms": 1726.7
   },
   "live_readiness": {
     "ready": false,
@@ -456,9 +456,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 11:43:58",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Wall St futures bounce back as US-Iran deal optimism balances hawkish Fed; Intel up - Reuters",
+      "time": "2026-06-18 11:50:41",
+      "market_question": "Over $600M raised on Coinbase in 2026?",
+      "headline": "Stablecoin compliance startup Range raises $8.3 million from fintech and crypto VCs",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 11:50:39",
+      "market_question": "Over $1B crypto hack value in 2026?",
+      "headline": "Stablecoin compliance startup Range raises $8.3 million from fintech and crypto VCs",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 11:50:38",
+      "market_question": "Will X launch a USD stablecoin in 2026?",
+      "headline": "Stablecoin compliance startup Range raises $8.3 million from fintech and crypto VCs",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 11:50:38",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Stablecoin compliance startup Range raises $8.3 million from fintech and crypto VCs",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 11:50:37",
+      "market_question": "Another Canada election called by June 30?",
+      "headline": "Hive shares jumps 10% on $220m Canada sovereign AI infrastructure deal",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -467,58 +519,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 11:43:57",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "New UK defence secretary meets Nato allies without investment plan in place",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 11:43:56",
-      "market_question": "Will Austria reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Wales face Albania in World Cup play-offs round one",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 11:43:56",
-      "market_question": "Will Canada reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Wales face Albania in World Cup play-offs round one",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 11:43:56",
-      "market_question": "Will Spain reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Wales face Albania in World Cup play-offs round one",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
