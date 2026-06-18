@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T19:42:55.469082+00:00",
-  "last_heartbeat": "2026-06-18T19:42:55.469082+00:00",
-  "uptime_seconds": 6738,
+  "generated_at": "2026-06-18T19:48:00.450815+00:00",
+  "last_heartbeat": "2026-06-18T19:48:00.450815+00:00",
+  "uptime_seconds": 7043,
   "dry_run": true,
-  "markets_tracked": 1671,
+  "markets_tracked": 1673,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6511,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2577,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 2580,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 18102,
+  "classifications_24h": 17228,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 6090,
+    "prefiltered_haiku": 6101,
     "stale": 76,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 4066,
-    "matched": 1280,
-    "classified": 18102,
+    "news": 3904,
+    "matched": 1279,
+    "classified": 17228,
     "signals": 8,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1485.7
+    "avg_classification_latency_ms": 1482.6
   },
   "live_readiness": {
     "ready": false,
@@ -386,9 +386,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 19:42:54",
-      "market_question": "US national Bitcoin reserve before 2027?",
-      "headline": "National Science Foundation reverses decision to dismantle oceans-monitoring network after outcry - AP News",
+      "time": "2026-06-18 19:47:19",
+      "market_question": "Will Ivory Coast reach the 2026 FIFA World Cup final?",
+      "headline": "Ivory Coast's Wahi cleared to travel to Canada, country's football federation says - Reuters",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 19:47:17",
+      "market_question": "Will David Hughes win the 2026 Colorado Governor Democratic primary election?",
+      "headline": "Democratic socialist Janeese Lewis George on track to win DC mayoral primary - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -399,9 +412,22 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:42:54",
-      "market_question": "US national Ethereum reserve before 2027?",
-      "headline": "National Science Foundation reverses decision to dismantle oceans-monitoring network after outcry - AP News",
+      "time": "2026-06-18 19:47:17",
+      "market_question": "Will Charity Clark win the 2026 Vermont Governor Democratic primary election?",
+      "headline": "Democratic socialist Janeese Lewis George on track to win DC mayoral primary - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 19:47:17",
+      "market_question": "Will Marty Tuley win the 2026 Kansas Governor Democratic primary election?",
+      "headline": "Democratic socialist Janeese Lewis George on track to win DC mayoral primary - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -412,43 +438,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 19:42:52",
-      "market_question": "Will Karrin Taylor Robson win the 2026 Arizona Governor Republican primary election?",
-      "headline": "Arizona prosecutors dismissing fake elector case but vow to seek new indictment - AP News",
+      "time": "2026-06-18 19:47:17",
+      "market_question": "Will Hannah Pingree win the 2026 Maine Governor Democratic primary election?",
+      "headline": "Democratic socialist Janeese Lewis George on track to win DC mayoral primary - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 19:42:52",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "National Science Foundation reverses decision to dismantle oceans-monitoring network after outcry - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-18 19:42:52",
-      "market_question": "Will the National Movement of Independents win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "National Science Foundation reverses decision to dismantle oceans-monitoring network after outcry - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
