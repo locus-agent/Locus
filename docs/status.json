@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T14:01:14.958899+00:00",
-  "last_heartbeat": "2026-06-18T14:01:14.958899+00:00",
-  "uptime_seconds": 7036,
+  "generated_at": "2026-06-18T14:06:19.268883+00:00",
+  "last_heartbeat": "2026-06-18T14:06:19.268883+00:00",
+  "uptime_seconds": 7340,
   "dry_run": true,
   "markets_tracked": 723,
   "classify_error_streak": 0,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 945,
+  "headlines_scanned_today": 956,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 16920,
+  "classifications_24h": 16949,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3980,
+    "prefiltered_haiku": 3990,
     "stale": 52,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -104,12 +104,12 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 20,
+  "watched_markets_count": 19,
   "missed_opportunities_24h": 3,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T13:49:15.394256+00:00"
+    "last_check": "2026-06-18T14:04:15.773804+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3477,
-    "matched": 1170,
-    "classified": 16920,
+    "news": 3487,
+    "matched": 1180,
+    "classified": 16949,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1679.4
+    "avg_classification_latency_ms": 1684.4
   },
   "live_readiness": {
     "ready": false,
@@ -456,69 +456,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 14:00:35",
-      "market_question": "Will Trump hug an Iranian official by June 20?",
-      "headline": "OIL IS FLOWING, IRAN CAN NEVER HAVE A NUCLEAR WEAPON (THE WORLD WILL BE SAFE!), THE STOCK MARKETS ARE ROARING, JOBS ARE AT RECORDS, AND PRICES ARE DROPPING (AFFORDABILITY!). OUR COUNTRY IS STRONG, SAFE, AND RESPECTED LIKE NEVER BEFORE. \u201cYOU\u2019RE WELCOME!\u201d President DJT",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-18 14:04:59",
+      "market_question": "Will Mistral have the top AI model at the end of June 2026?",
+      "headline": "Top sights and sounds from the Knicks' championshi...",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 14:00:35",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "OIL IS FLOWING, IRAN CAN NEVER HAVE A NUCLEAR WEAPON (THE WORLD WILL BE SAFE!), THE STOCK MARKETS ARE ROARING, JOBS ARE AT RECORDS, AND PRICES ARE DROPPING (AFFORDABILITY!). OUR COUNTRY IS STRONG, SAFE, AND RESPECTED LIKE NEVER BEFORE. \u201cYOU\u2019RE WELCOME!\u201d President DJT",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 14:00:35",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "OIL IS FLOWING, IRAN CAN NEVER HAVE A NUCLEAR WEAPON (THE WORLD WILL BE SAFE!), THE STOCK MARKETS ARE ROARING, JOBS ARE AT RECORDS, AND PRICES ARE DROPPING (AFFORDABILITY!). OUR COUNTRY IS STRONG, SAFE, AND RESPECTED LIKE NEVER BEFORE. \u201cYOU\u2019RE WELCOME!\u201d President DJT",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 14:00:33",
-      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "OIL IS FLOWING, IRAN CAN NEVER HAVE A NUCLEAR WEAPON (THE WORLD WILL BE SAFE!), THE STOCK MARKETS ARE ROARING, JOBS ARE AT RECORDS, AND PRICES ARE DROPPING (AFFORDABILITY!). OUR COUNTRY IS STRONG, SAFE, AND RESPECTED LIKE NEVER BEFORE. \u201cYOU\u2019RE WELCOME!\u201d President DJT",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 14:04:59",
+      "market_question": "Will OpenAI have the top AI model at the end of June 2026?",
+      "headline": "Top sights and sounds from the Knicks' championshi...",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 14:00:33",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "OIL IS FLOWING, IRAN CAN NEVER HAVE A NUCLEAR WEAPON (THE WORLD WILL BE SAFE!), THE STOCK MARKETS ARE ROARING, JOBS ARE AT RECORDS, AND PRICES ARE DROPPING (AFFORDABILITY!). OUR COUNTRY IS STRONG, SAFE, AND RESPECTED LIKE NEVER BEFORE. \u201cYOU\u2019RE WELCOME!\u201d President DJT",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 14:04:59",
+      "market_question": "Will Anthropic have the top AI model at the end of June 2026?",
+      "headline": "Top sights and sounds from the Knicks' championshi...",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 14:04:59",
+      "market_question": "Will Folarin Balogun be the top goalscorer at the 2026 FIFA World Cup?",
+      "headline": "Top sights and sounds from the Knicks' championshi...",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-18 14:04:59",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Top sights and sounds from the Knicks' championshi...",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
