@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-18T21:30:52.880991+00:00",
-  "last_heartbeat": "2026-06-18T21:30:52.880991+00:00",
-  "uptime_seconds": 2504,
+  "generated_at": "2026-06-18T21:36:00.907656+00:00",
+  "last_heartbeat": "2026-06-18T21:36:00.907656+00:00",
+  "uptime_seconds": 2812,
   "dry_run": true,
-  "markets_tracked": 1675,
-  "classify_error_streak": 433,
+  "markets_tracked": 1678,
+  "classify_error_streak": 435,
   "track_record": {
     "total": 6892,
     "accuracy": 17.5,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 3385,
+  "headlines_scanned_today": 3387,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 15666,
+  "classifications_24h": 15579,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4449,
+    "prefiltered_haiku": 4417,
     "stale": 60,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -110,7 +110,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-18T21:19:25.759119+00:00"
+    "last_check": "2026-06-18T21:34:26.148258+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3735,
-    "matched": 1272,
-    "classified": 15666,
+    "news": 3719,
+    "matched": 1265,
+    "classified": 15579,
     "signals": 8,
     "trades": 5
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2521.3
+    "avg_classification_latency_ms": 2521.0
   },
   "live_readiness": {
     "ready": true,
@@ -373,6 +373,32 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-18 21:31:56",
+      "market_question": "Will Solana reach $90 in June?",
+      "headline": "Strategy\u2019s preferred stock STRC continues to trade under $90 as trading volume jumps",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 21:31:56",
+      "market_question": "Will Solana reach $90 June 15-21?",
+      "headline": "Strategy\u2019s preferred stock STRC continues to trade under $90 as trading volume jumps",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-18 21:27:31",
       "market_question": "Will Donald Trump enter Iran by June 30?",
       "headline": "Some GOP senators and Trump allies have harsh reviews of his agreement to end Iran war - AP News",
@@ -401,32 +427,6 @@
     {
       "time": "2026-06-18 21:27:31",
       "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Some GOP senators and Trump allies have harsh reviews of his agreement to end Iran war - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 21:27:31",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Some GOP senators and Trump allies have harsh reviews of his agreement to end Iran war - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 21:27:31",
-      "market_question": "Will Trump be in the WC Champions Photo?",
       "headline": "Some GOP senators and Trump allies have harsh reviews of his agreement to end Iran war - AP News",
       "direction": "neutral",
       "materiality": 0.0,
