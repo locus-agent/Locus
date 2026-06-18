@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-18T13:51:06.580404+00:00",
-  "last_heartbeat": "2026-06-18T13:51:06.580404+00:00",
-  "uptime_seconds": 6427,
+  "generated_at": "2026-06-18T13:56:10.815087+00:00",
+  "last_heartbeat": "2026-06-18T13:56:10.815087+00:00",
+  "uptime_seconds": 6732,
   "dry_run": true,
-  "markets_tracked": 724,
+  "markets_tracked": 723,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6146,
@@ -80,13 +80,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 936,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 942,
+  "headlines_last_cycle": 1,
   "signals_24h": 6,
-  "classifications_24h": 16906,
+  "classifications_24h": 16927,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3975,
+    "prefiltered_haiku": 3983,
     "stale": 52,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -117,9 +117,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3472,
-    "matched": 1162,
-    "classified": 16906,
+    "news": 3478,
+    "matched": 1168,
+    "classified": 16927,
     "signals": 6,
     "trades": 6
   },
@@ -137,7 +137,7 @@
     "recent_winrate": 0.5556,
     "kelly_factor": 0.7083,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1670.7
+    "avg_classification_latency_ms": 1669.4
   },
   "live_readiness": {
     "ready": false,
@@ -456,9 +456,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-18 13:49:23",
-      "market_question": "Will Baltimore Ravens win the 2027 NFL AFC Championship?",
-      "headline": "The last-minute to-do list for every NFL front off...",
+      "time": "2026-06-18 13:56:05",
+      "market_question": "AI wins IMO gold medal in 2026?",
+      "headline": "Artificial Intelligence company CEO says AI is having lasting impacts in the United States - WFAA",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-18 13:56:04",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "Artificial Intelligence company CEO says AI is having lasting impacts in the United States - WFAA",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -469,56 +482,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 13:49:23",
-      "market_question": "Will Baker Mayfield win the 2026 NFL MVP?",
-      "headline": "The last-minute to-do list for every NFL front off...",
+      "time": "2026-06-18 13:56:04",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Artificial Intelligence company CEO says AI is having lasting impacts in the United States - WFAA",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-18 13:49:23",
-      "market_question": "Will Seattle Seahawks win the 2027 NFL NFC Championship?",
-      "headline": "The last-minute to-do list for every NFL front off...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 13:56:03",
+      "market_question": "Will United States score the most goals at the 2026 FIFA World Cup?",
+      "headline": "Artificial Intelligence company CEO says AI is having lasting impacts in the United States - WFAA",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-18 13:49:23",
-      "market_question": "Will Miami Dolphins win the 2027 NFL AFC Championship?",
-      "headline": "The last-minute to-do list for every NFL front off...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-18 13:56:03",
+      "market_question": "Will Utah use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Artificial Intelligence company CEO says AI is having lasting impacts in the United States - WFAA",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-18 13:49:23",
-      "market_question": "Will Buffalo Bills win the 2027 NFL AFC Championship?",
-      "headline": "The last-minute to-do list for every NFL front off...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
