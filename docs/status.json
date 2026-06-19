@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T11:49:04.465410+00:00",
-  "last_heartbeat": "2026-06-19T11:49:04.465410+00:00",
-  "uptime_seconds": 46943,
+  "generated_at": "2026-06-19T11:54:08.992593+00:00",
+  "last_heartbeat": "2026-06-19T11:54:08.992593+00:00",
+  "uptime_seconds": 47248,
   "dry_run": true,
-  "markets_tracked": 1679,
+  "markets_tracked": 1675,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 518,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 523,
+  "headlines_last_cycle": 3,
   "signals_24h": 6,
-  "classifications_24h": 15905,
+  "classifications_24h": 15918,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4246,
+    "prefiltered_haiku": 4257,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3815,
-    "matched": 1232,
-    "classified": 15905,
+    "news": 3818,
+    "matched": 1237,
+    "classified": 15918,
     "signals": 6,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 48.45,
-    "unrealized_pnl_usd": 0.0,
+    "unrealized_pnl_usd": -0.0,
     "total_pnl_usd": 48.45,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1790.1
+    "avg_classification_latency_ms": 1786.5
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     },
@@ -402,9 +402,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 11:47:13",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "Henry takes five wickets to give New Zealand control early on day three",
+      "time": "2026-06-19 11:53:59",
+      "market_question": "Will Meituan have a #1 AI model by December 31, 2026?",
+      "headline": "\u2018We will build AI that is powerful, trusted and affordable\u2019: Mukesh Ambani at Reliance AGM 2026 - The Indian Express",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 11:53:58",
+      "market_question": "Will Grok AI beat T1 in 2026? ",
+      "headline": "\u2018We will build AI that is powerful, trusted and affordable\u2019: Mukesh Ambani at Reliance AGM 2026 - The Indian Express",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -415,9 +428,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 11:47:13",
-      "market_question": "Will New Zealand reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Henry takes five wickets to give New Zealand control early on day three",
+      "time": "2026-06-19 11:53:58",
+      "market_question": "MLB: Scorigami in 2026?",
+      "headline": "\u2018We will build AI that is powerful, trusted and affordable\u2019: Mukesh Ambani at Reliance AGM 2026 - The Indian Express",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -428,9 +441,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 11:47:13",
-      "market_question": "Will New Zealand win Group G in the 2026 FIFA World Cup?",
-      "headline": "Henry takes five wickets to give New Zealand control early on day three",
+      "time": "2026-06-19 11:53:58",
+      "market_question": "Will Bitcoin reach $180,000 by December 31, 2026?",
+      "headline": "\u2018We will build AI that is powerful, trusted and affordable\u2019: Mukesh Ambani at Reliance AGM 2026 - The Indian Express",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -441,30 +454,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 11:47:12",
-      "market_question": "Will a player representing New Zealand be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Henry takes five wickets to give New Zealand control early on day three",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 11:53:58",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "\u2018We will build AI that is powerful, trusted and affordable\u2019: Mukesh Ambani at Reliance AGM 2026 - The Indian Express",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 11:47:12",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Henry takes five wickets to give New Zealand control early on day three",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
