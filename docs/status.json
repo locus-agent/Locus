@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T17:03:50.154032+00:00",
-  "last_heartbeat": "2026-06-19T17:03:50.154032+00:00",
-  "uptime_seconds": 65829,
+  "generated_at": "2026-06-19T17:08:54.673272+00:00",
+  "last_heartbeat": "2026-06-19T17:08:54.673272+00:00",
+  "uptime_seconds": 66133,
   "dry_run": true,
-  "markets_tracked": 1681,
+  "markets_tracked": 1679,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 757,
+  "headlines_scanned_today": 759,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 13121,
+  "classifications_24h": 13111,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 3295,
-    "stale": 54,
+    "stale": 53,
     "capped": 3,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2979,
-    "matched": 1227,
-    "classified": 13121,
+    "news": 2976,
+    "matched": 1229,
+    "classified": 13111,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1816.4
+    "avg_classification_latency_ms": 1815.3
   },
   "live_readiness": {
     "ready": true,
@@ -416,22 +416,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 17:02:57",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Aviation officials turn to AI for combating runway issues - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 17:00:42",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "'Prioritise love': Kate writes essay reflecting on Italy tour as new pictures released",
+      "time": "2026-06-19 17:07:25",
+      "market_question": "Will Matteo Berrettini win the 2026 Men's US Open?",
+      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -442,43 +429,56 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 17:00:41",
-      "market_question": "Will Donald Trump visit Italy in 2026?",
-      "headline": "'Prioritise love': Kate writes essay reflecting on Italy tour as new pictures released",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 17:07:25",
+      "market_question": "Will Qinwen Zheng win the 2026 Women\u2019s US Open?",
+      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 17:00:41",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "'Prioritise love': Kate writes essay reflecting on Italy tour as new pictures released",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 17:07:25",
+      "market_question": "Will Anastasia Potapova win the 2026 Women\u2019s US Open?",
+      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 17:00:41",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "'Prioritise love': Kate writes essay reflecting on Italy tour as new pictures released",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 17:07:25",
+      "market_question": "Will Jiri Lehecka win the 2026 Men's US Open?",
+      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 17:07:25",
+      "market_question": "Will Alexandra Eala win the 2026 Women\u2019s US Open?",
+      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
