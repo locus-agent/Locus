@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T12:55:04.148917+00:00",
-  "last_heartbeat": "2026-06-19T12:55:04.148917+00:00",
-  "uptime_seconds": 50903,
+  "generated_at": "2026-06-19T13:00:08.638023+00:00",
+  "last_heartbeat": "2026-06-19T13:00:08.638023+00:00",
+  "uptime_seconds": 51207,
   "dry_run": true,
-  "markets_tracked": 1682,
+  "markets_tracked": 1681,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 562,
+  "headlines_scanned_today": 567,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15253,
+  "classifications_24h": 15272,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4001,
+    "prefiltered_haiku": 4012,
     "stale": 62,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3649,
-    "matched": 1219,
-    "classified": 15253,
+    "news": 3653,
+    "matched": 1223,
+    "classified": 15272,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1802.5
+    "avg_classification_latency_ms": 1799.3
   },
   "live_readiness": {
     "ready": true,
@@ -416,35 +416,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 12:52:26",
-      "market_question": "Will Donald Trump visit Italy in 2026?",
-      "headline": "Italy's top diplomat cancels US trip as Meloni slams Trump's claim she 'begged' for a photo with him - AP News",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.58,
-      "edge": 0.11024999999999999,
-      "action": "category_limit",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 12:52:25",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Italy's top diplomat cancels US trip as Meloni slams Trump's claim she 'begged' for a photo with him - AP News",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 12:52:22",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Italy's top diplomat cancels US trip as Meloni slams Trump's claim she 'begged' for a photo with him - AP News",
+      "time": "2026-06-19 12:59:07",
+      "market_question": "Will Amazon have a #1 AI model by December 31, 2026?",
+      "headline": "Amazon points to water conservation steps in India amid data centre scrutiny - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -455,22 +429,48 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 12:52:21",
-      "market_question": "Will Canada be the highest-scoring team in Group B during the Group Stage of the 2026 FIFA World Cup?",
-      "headline": "Canada's historic win over Qatar could be a waters...",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
+      "time": "2026-06-19 12:59:07",
+      "market_question": "Will Deutsche Bank or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Simplifying Europe's bank rules could unlock \u20ac2 trillion in lending, industry says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 12:52:21",
-      "market_question": "Will OpenAI's valuation hit (LOW) $750B by December 31?",
-      "headline": "Yen teeters on cusp of 40-year low, pound bounces - Reuters",
+      "time": "2026-06-19 12:59:07",
+      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Simplifying Europe's bank rules could unlock \u20ac2 trillion in lending, industry says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 12:59:07",
+      "market_question": "Will Deutsche Bank or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Simplifying Europe's bank rules could unlock \u20ac2 trillion in lending, industry says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 12:59:07",
+      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Simplifying Europe's bank rules could unlock \u20ac2 trillion in lending, industry says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
