@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T17:08:54.673272+00:00",
-  "last_heartbeat": "2026-06-19T17:08:54.673272+00:00",
-  "uptime_seconds": 66133,
+  "generated_at": "2026-06-19T17:13:59.446846+00:00",
+  "last_heartbeat": "2026-06-19T17:13:59.446846+00:00",
+  "uptime_seconds": 66438,
   "dry_run": true,
-  "markets_tracked": 1679,
+  "markets_tracked": 1682,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 759,
+  "headlines_scanned_today": 762,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 13111,
+  "classifications_24h": 12368,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3295,
+    "prefiltered_haiku": 3042,
     "stale": 53,
     "capped": 3,
     "too_close_to_resolution": 1,
@@ -106,7 +106,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 1
   },
-  "watched_markets_count": 16,
+  "watched_markets_count": 17,
   "missed_opportunities_24h": 21,
   "whale": {
     "watched_wallets": 4,
@@ -119,16 +119,16 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2976,
-    "matched": 1229,
-    "classified": 13111,
+    "news": 2764,
+    "matched": 1222,
+    "classified": 12368,
     "signals": 7,
     "trades": 4
   },
   "performance": {
     "trades_total": 29,
     "deployed_usd": 540.58,
-    "open_count": 4,
+    "open_count": 3,
     "closed_count": 23,
     "wins": 13,
     "losses": 10,
@@ -184,7 +184,7 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0512,
+    "drawdown_7d": 0.0487,
     "sharpe_7d": 0.39
   },
   "open_positions": [
@@ -229,23 +229,21 @@
       "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "57650"
-    },
+    }
+  ],
+  "closed_positions": [
     {
-      "time": "2026-06-17 01:44:54",
+      "time": "2026-06-19T17:12:55.665010+00:00",
       "market_question": "Labour leadership election scheduled by June 30?",
       "slug": "labour-leadership-election-scheduled-by",
       "side": "YES",
       "entry_price": 0.36,
-      "current_price": 0.36,
-      "pnl_pct": 0.0,
-      "amount_usd": 25.0,
-      "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
-      "edge_type": "momentum",
-      "event_id": "89548"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": 0.36,
+      "realized_pnl_usd": 0.0,
+      "exit_reason": "manual",
+      "event_id": "89548",
+      "partial": false
+    },
     {
       "time": "2026-06-19T06:04:34.445425+00:00",
       "market_question": "Bitcoin Up or Down on June 19?",
@@ -353,21 +351,18 @@
       "exit_reason": "UPD: \u00bd closed +89% \u2192 fully closed +299%",
       "event_id": "601512",
       "partial": true
-    },
-    {
-      "time": "2026-06-17T19:23:50.799347+00:00",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
-      "slug": "openai-1t-ipo-before-2027",
-      "side": "NO",
-      "entry_price": 0.465,
-      "exit_price": 0.405,
-      "realized_pnl_usd": 1.0250467289719627,
-      "exit_reason": "manual",
-      "event_id": null,
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-19 17:12:55",
+      "market_question": "Labour leadership election scheduled by June 30?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 0.0
+    },
     {
       "time": "2026-06-19 12:41:16",
       "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
@@ -403,82 +398,73 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 2.82
-    },
-    {
-      "time": "2026-06-18 16:57:33",
-      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": -17.39
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 17:07:25",
-      "market_question": "Will Matteo Berrettini win the 2026 Men's US Open?",
-      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 17:09:38",
+      "market_question": "Will Trump and Putin meet next in South Korea?",
+      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 17:07:25",
-      "market_question": "Will Qinwen Zheng win the 2026 Women\u2019s US Open?",
-      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 17:09:38",
+      "market_question": "Will Donald Trump visit South Carolina in 2026?",
+      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 17:07:25",
-      "market_question": "Will Anastasia Potapova win the 2026 Women\u2019s US Open?",
-      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 17:09:38",
+      "market_question": "Will Donald Trump visit South Korea in 2026?",
+      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 17:07:25",
-      "market_question": "Will Jiri Lehecka win the 2026 Men's US Open?",
-      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 17:09:38",
+      "market_question": "Will Trump and Putin meet next in South Korea?",
+      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 17:07:25",
-      "market_question": "Will Alexandra Eala win the 2026 Women\u2019s US Open?",
-      "headline": "Wyndham Clark has lowest opening round at Shinnecock Hills to lead US Open - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 17:09:38",
+      "market_question": "Will South Korea reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
