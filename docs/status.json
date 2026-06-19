@@ -1,56 +1,56 @@
 {
-  "generated_at": "2026-06-19T06:49:41.033935+00:00",
-  "last_heartbeat": "2026-06-19T06:49:41.033935+00:00",
-  "uptime_seconds": 28980,
+  "generated_at": "2026-06-19T06:54:46.189936+00:00",
+  "last_heartbeat": "2026-06-19T06:54:46.189936+00:00",
+  "uptime_seconds": 29285,
   "dry_run": true,
   "markets_tracked": 1688,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 7038,
+    "total": 7083,
     "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
       "ai": 9.8,
-      "politics": 23.9,
+      "politics": 23.8,
       "technology": 10.9,
-      "crypto": 12.0,
-      "sports": 32.9
+      "crypto": 12.1,
+      "sports": 31.6
     },
     "by_source": {
       "rss": 17.4,
-      "newsapi": 18.3,
+      "newsapi": 18.2,
       "truthsocial": 0.0
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.6,
-    "overall_total": 7038,
+    "overall_total": 7083,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4020,
-        "correct": 312,
+        "total": 4045,
+        "correct": 317,
         "accuracy_pct": 7.8,
-        "avg_pnl_pct": 14.83,
+        "avg_pnl_pct": 14.73,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 598,
+        "total": 604,
         "correct": 220,
-        "accuracy_pct": 36.8,
-        "avg_pnl_pct": 35.04,
+        "accuracy_pct": 36.4,
+        "avg_pnl_pct": 34.7,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 727,
-        "correct": 264,
-        "accuracy_pct": 36.3,
-        "avg_pnl_pct": 3.84,
+        "total": 733,
+        "correct": 267,
+        "accuracy_pct": 36.4,
+        "avg_pnl_pct": 3.82,
         "color": "green"
       },
       {
@@ -74,21 +74,21 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 898,
+        "total": 906,
         "correct": 173,
-        "accuracy_pct": 19.3,
-        "avg_pnl_pct": -6.29,
+        "accuracy_pct": 19.1,
+        "avg_pnl_pct": -5.56,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 279,
+  "headlines_scanned_today": 284,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15675,
+  "classifications_24h": 15694,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4156,
+    "prefiltered_haiku": 4162,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3799,
-    "matched": 1082,
-    "classified": 15675,
+    "news": 3804,
+    "matched": 1086,
+    "classified": 15694,
     "signals": 5,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1712.9
+    "avg_classification_latency_ms": 1716.5
   },
   "live_readiness": {
     "ready": true,
@@ -388,35 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 06:49:13",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 06:49:11",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 06:49:10",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
+      "time": "2026-06-19 06:53:49",
+      "market_question": "New MLB CBA by Dec. 1?",
+      "headline": "EU leaders to clash over bloc's next 7-year budget, seek new revenue sources - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -427,9 +401,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 06:49:10",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
+      "time": "2026-06-19 06:53:48",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "'He hid the a la carte menu': Who should pay on the first date?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -440,9 +414,35 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 06:49:09",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
+      "time": "2026-06-19 06:53:48",
+      "market_question": "Will New People (NL) win the most seats in the next Russian parliamentary election?",
+      "headline": "EU leaders to clash over bloc's next 7-year budget, seek new revenue sources - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 06:53:48",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "EU leaders to clash over bloc's next 7-year budget, seek new revenue sources - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 06:53:48",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "EU leaders to clash over bloc's next 7-year budget, seek new revenue sources - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
