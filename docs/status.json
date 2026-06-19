@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T02:10:42.717112+00:00",
-  "last_heartbeat": "2026-06-19T02:10:42.717112+00:00",
-  "uptime_seconds": 12241,
+  "generated_at": "2026-06-19T02:15:46.976003+00:00",
+  "last_heartbeat": "2026-06-19T02:15:46.976003+00:00",
+  "uptime_seconds": 12546,
   "dry_run": true,
   "markets_tracked": 1696,
   "classify_error_streak": 0,
@@ -81,14 +81,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 141,
+  "headlines_scanned_today": 142,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 16240,
+  "classifications_24h": 16049,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4414,
-    "stale": 53,
+    "prefiltered_haiku": 4352,
+    "stale": 50,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3935,
-    "matched": 1132,
-    "classified": 16240,
+    "news": 3900,
+    "matched": 1111,
+    "classified": 16049,
     "signals": 4,
     "trades": 1
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1573.1
+    "avg_classification_latency_ms": 1575.2
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 02:10:05",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump presents the Medal of Honor to 3 veterans for heroism in Vietnam and Afghanistan - AP News",
+      "time": "2026-06-19 02:14:30",
+      "market_question": "Will the announcers say \"Ankle\" during the Mexico vs South Korea FIFA World Cup Match?",
+      "headline": "Follow live: Mexico takes advantage of South Korea...",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:14:30",
+      "market_question": "Will Mexico advance to the knockout stages at the 2026 FIFA World Cup?",
+      "headline": "Follow live: Mexico takes advantage of South Korea...",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.6,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:14:27",
+      "market_question": "Will Mexico score the most goals at the 2026 FIFA World Cup?",
+      "headline": "Follow live: Mexico takes advantage of South Korea...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:14:27",
+      "market_question": "Will Donald Trump visit South Korea in 2026?",
+      "headline": "Follow live: Mexico takes advantage of South Korea...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,54 +425,15 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 02:10:04",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Trump presents the Medal of Honor to 3 veterans for heroism in Vietnam and Afghanistan - AP News",
+      "time": "2026-06-19 02:14:27",
+      "market_question": "Will the announcers say \"What A Save\" during the Mexico vs South Korea FIFA World Cup Match?",
+      "headline": "Follow live: Mexico takes advantage of South Korea...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 02:10:03",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump presents the Medal of Honor to 3 veterans for heroism in Vietnam and Afghanistan - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 02:10:03",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Trump presents the Medal of Honor to 3 veterans for heroism in Vietnam and Afghanistan - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 02:10:03",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump presents the Medal of Honor to 3 veterans for heroism in Vietnam and Afghanistan - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
