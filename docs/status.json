@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T12:39:50.681688+00:00",
-  "last_heartbeat": "2026-06-19T12:39:50.681688+00:00",
-  "uptime_seconds": 49989,
+  "generated_at": "2026-06-19T12:44:55.192623+00:00",
+  "last_heartbeat": "2026-06-19T12:44:55.192623+00:00",
+  "uptime_seconds": 50294,
   "dry_run": true,
   "markets_tracked": 1685,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 551,
+  "headlines_scanned_today": 554,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15238,
+  "classifications_24h": 15252,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3993,
+    "prefiltered_haiku": 3997,
     "stale": 62,
     "capped": 3,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 4,
-    "correlation_block": 0,
+    "correlation_block": 1,
     "category_limit": 0,
     "orderbook_skip": 1,
     "already_priced_in": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3649,
-    "matched": 1210,
-    "classified": 15238,
+    "news": 3650,
+    "matched": 1213,
+    "classified": 15252,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1798.2
+    "avg_classification_latency_ms": 1800.5
   },
   "live_readiness": {
     "ready": true,
@@ -369,6 +369,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-19 12:41:16",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "side": "NO",
+      "trigger": "news",
+      "decision": "hold",
+      "reasoning": "The trigger headline actually reinforces the original thesis in a nuanced way: Starmer vowing to 'fight' suggests he intends to remain leader, which keeps the probability of a near-term Labour leadership contest (where Streeting would be a candidate) low. Burnham's win fueling speculation is noise \u2014 Starmer's explicit commitment to staying is the more material signal, and the position is flat with no loss to cut.",
+      "pnl_pct": 0.0
+    },
+    {
       "time": "2026-06-19 06:04:34",
       "market_question": "Bitcoin Up or Down on June 19?",
       "side": "NO",
@@ -403,35 +412,39 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": -17.39
-    },
-    {
-      "time": "2026-06-18 16:57:33",
-      "market_question": "Trump meets with Putin by December 31?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": 0.0
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 12:36:45",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "The War has diminished Iran! It doesn\u2019t, any longer, have an Air Force, a Navy, Antiaircraft Equipment, Radar, or practically anything else, and yet the Dumocrats say that Iran is better off now than it was four months ago. Can you imagine getting away with that??? How stupid can some people be??? President DJT",
+      "time": "2026-06-19 12:43:17",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "headline": "Wall St Week Ahead Investors see Micron earnings as pulse check of AI rally momentum - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 12:36:45",
-      "market_question": "Ukraine election called by June 30, 2026?",
-      "headline": "Russia jails Romanian man for 15 years after convicting him of spying for Ukraine - Reuters",
+      "time": "2026-06-19 12:43:17",
+      "market_question": "MicroStrategy announces >1000 BTC purchase June 16-22?",
+      "headline": "Wall St Week Ahead Investors see Micron earnings as pulse check of AI rally momentum - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 12:43:16",
+      "market_question": "Will Dexter Lawrence play for the Pittsburgh Steelers in Week 1 of the 2026-27 NFL regular season?",
+      "headline": "Wall St Week Ahead Investors see Micron earnings as pulse check of AI rally momentum - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -442,9 +455,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 12:36:45",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Russia jails Romanian man for 15 years after convicting him of spying for Ukraine - Reuters",
+      "time": "2026-06-19 12:43:16",
+      "market_question": "Will ECDSA.fail get at least 50% ahead of Google\u2019s classified circuit by June 30, 2026?",
+      "headline": "Wall St Week Ahead Investors see Micron earnings as pulse check of AI rally momentum - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -455,22 +468,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 12:36:45",
-      "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "Russia jails Romanian man for 15 years after convicting him of spying for Ukraine - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 12:36:45",
-      "market_question": "Ukraine election called by December 31, 2026?",
-      "headline": "Russia jails Romanian man for 15 years after convicting him of spying for Ukraine - Reuters",
+      "time": "2026-06-19 12:43:16",
+      "market_question": "Will the Central African Democratic Rally win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Wall St Week Ahead Investors see Micron earnings as pulse check of AI rally momentum - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
