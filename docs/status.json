@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T10:02:31.778185+00:00",
-  "last_heartbeat": "2026-06-19T10:02:31.778185+00:00",
-  "uptime_seconds": 40550,
+  "generated_at": "2026-06-19T10:07:36.772876+00:00",
+  "last_heartbeat": "2026-06-19T10:07:36.772876+00:00",
+  "uptime_seconds": 40855,
   "dry_run": true,
-  "markets_tracked": 1691,
+  "markets_tracked": 1687,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 433,
+  "headlines_scanned_today": 448,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15823,
+  "classifications_24h": 15884,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4230,
+    "prefiltered_haiku": 4248,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -97,7 +97,7 @@
     "price_target_market": 6,
     "correlation_block": 0,
     "category_limit": 0,
-    "orderbook_skip": 0,
+    "orderbook_skip": 1,
     "already_priced_in": 3,
     "needs_confirmation": 1,
     "event_exposure_block": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3810,
-    "matched": 1173,
-    "classified": 15823,
+    "news": 3823,
+    "matched": 1183,
+    "classified": 15884,
     "signals": 6,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1758.3
+    "avg_classification_latency_ms": 1776.0
   },
   "live_readiness": {
     "ready": true,
@@ -402,9 +402,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 09:59:35",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
+      "time": "2026-06-19 10:06:16",
+      "market_question": "Will Argentina reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "Lionel Messi ties men\u2019s World Cup goals record with a hat trick as Argentina tops Algeria - AP News",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.58,
+      "edge": 0.14525,
+      "action": "low_materiality",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 10:06:14",
+      "market_question": "Will Senegal score the most goals at the 2026 FIFA World Cup?",
+      "headline": "Lionel Messi ties men\u2019s World Cup goals record with a hat trick as Argentina tops Algeria - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 10:06:12",
+      "market_question": "World Cup Goals H2H: Dembele vs. Olise",
+      "headline": "Lionel Messi ties men\u2019s World Cup goals record with a hat trick as Argentina tops Algeria - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -415,56 +441,30 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 09:59:35",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 10:06:11",
+      "market_question": "World Cup Goals H2H: Messi vs. Ronaldo",
+      "headline": "Lionel Messi ties men\u2019s World Cup goals record with a hat trick as Argentina tops Algeria - AP News",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.72,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "cached",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 09:59:34",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 10:06:11",
+      "market_question": "Will Lionel Messi be the top goalscorer at the 2026 FIFA World Cup?",
+      "headline": "Lionel Messi ties men\u2019s World Cup goals record with a hat trick as Argentina tops Algeria - AP News",
+      "direction": "bullish",
+      "materiality": 0.55,
+      "confidence": 0.62,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "cached",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 09:59:34",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 09:59:34",
-      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
-      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
