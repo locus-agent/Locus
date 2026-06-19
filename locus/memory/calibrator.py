@@ -7,7 +7,7 @@ from __future__ import annotations
 import logging
 import time
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import httpx
 
@@ -376,6 +376,92 @@ def grade_classifications(max_tokens_per_run: int = 50) -> int:
 # signal we "missed").
 MISSED_MIN_MATERIALITY = 0.35
 
+# Move sizes (percent) at which a missed opportunity is strong enough to count
+# toward a recurring-pattern suggestion / lesson (stricter than the 12% that
+# logs the miss in the first place).
+_PATTERN_MOVE_PCT = 20.0
+_HIGH_MATERIALITY_SKIP_MOVE_PCT = 25.0
+_HIGH_MATERIALITY_SKIP_FLOOR = 0.55
+
+
+def _analyze_missed_pattern(missed: dict) -> None:
+    """Inspect a just-logged missed opportunity for a *recurring* pattern and, if
+    present, raise a conservative human-review suggestion (or, for high-materiality
+    skips, a lesson). Suggestions only — nothing is auto-applied here. Best-effort:
+    any error is swallowed so pattern analysis can't break the calibration cycle.
+
+    `missed` carries: market_question, action, direction, materiality, category,
+    and pct (the move as a fraction, 0.20 == +20%). Counts come from the
+    already-logged missed-opportunity lessons (this miss included), so the
+    thresholds are "N misses within the window", and has_pending_suggestion keeps
+    the same suggestion from being re-raised every cycle."""
+    try:
+        action = missed.get("action") or ""
+        pct_pct = missed.get("pct", 0.0) * 100
+        category = missed.get("category") or "other"
+        question = missed.get("market_question", "")
+        now = datetime.now(timezone.utc)
+
+        # 1. Geopolitical staleness: the freshness window may be too tight.
+        if action == "stale" and pct_pct >= _PATTERN_MOVE_PCT and gamma._is_geopolitical_question(question):
+            since = (now - timedelta(days=14)).strftime("%Y-%m-%d %H:%M:%S")
+            geo = [
+                m for m in logger.get_missed_lessons_since(since, action="stale")
+                if gamma._is_geopolitical_question(m.get("market_question", ""))
+                and (m.get("pct_move") or 0) >= _PATTERN_MOVE_PCT
+            ]
+            if (len(geo) >= config.MISSED_STALE_GEOPOLITICAL_THRESHOLD
+                    and not logger.has_pending_suggestion("stale_geopolitical", "geopolitical")):
+                avg = sum(m["pct_move"] for m in geo) / len(geo)
+                pct_inc = round(config.STALE_WINDOW_INCREASE_PCT * 100)
+                text = (
+                    f"{len(geo)}+ geopolitical stale misses (avg +{avg:.0f}%) — consider "
+                    f"increasing MAX_NEWS_AGE_SECONDS_GEOPOLITICAL by {pct_inc}%"
+                )
+                logger.log_adjustment_suggestion(
+                    "stale_geopolitical", text, category="geopolitical",
+                    avg_pct_move=round(avg, 1), miss_count=len(geo),
+                )
+                log.info(f"[calibrator] Suggestion raised: {text}")
+
+        # 2. Low-materiality misses clustering in one category.
+        if action == "low_materiality" and pct_pct >= _PATTERN_MOVE_PCT:
+            since = (now - timedelta(days=7)).strftime("%Y-%m-%d %H:%M:%S")
+            same_cat = [
+                m for m in logger.get_missed_lessons_since(since, action="low_materiality")
+                if gamma._infer_category(m.get("market_question", ""), []) == category
+                and (m.get("pct_move") or 0) >= _PATTERN_MOVE_PCT
+            ]
+            if (len(same_cat) >= config.MISSED_MATERIALITY_THRESHOLD
+                    and not logger.has_pending_suggestion("low_materiality", category)):
+                avg = sum(m["pct_move"] for m in same_cat) / len(same_cat)
+                text = (
+                    f"{len(same_cat)}+ {category} low_materiality misses — consider "
+                    f"lowering materiality threshold by 0.05"
+                )
+                logger.log_adjustment_suggestion(
+                    "low_materiality", text, category=category,
+                    avg_pct_move=round(avg, 1), miss_count=len(same_cat),
+                )
+                log.info(f"[calibrator] Suggestion raised: {text}")
+
+        # 3. High-materiality skip: the Direct Evidence Rule may be too strict.
+        if (action == "skip" and missed.get("materiality", 0.0) >= _HIGH_MATERIALITY_SKIP_FLOOR
+                and pct_pct >= _HIGH_MATERIALITY_SKIP_MOVE_PCT):
+            lesson = (
+                f"High-materiality skip on {category} missed {pct_pct:.0f}% — "
+                f"Direct Evidence Rule may be too strict"
+            )
+            logger.log_lesson(
+                trade_id=None, market_question=question,
+                classification=missed.get("direction", "neutral"),
+                actual_direction=missed.get("direction", "neutral"),
+                lesson=lesson,
+            )
+            log.info(f"[calibrator] Lesson raised: {lesson}")
+    except Exception as e:
+        log.warning(f"[calibrator] _analyze_missed_pattern failed: {e}")
+
 
 def check_missed_opportunities() -> int:
     """Look back at directional classifications we declined to trade and flag
@@ -444,6 +530,18 @@ def check_missed_opportunities() -> int:
             slug=market.get("slug", ""),
         )
         logged += 1
+
+        # Recurring-pattern analysis: raise a conservative human-review
+        # suggestion when the same kind of miss keeps happening. The lesson above
+        # is already in the table, so this miss is counted too.
+        _analyze_missed_pattern({
+            "market_question": r["market_question"],
+            "action": r["action"],
+            "direction": direction,
+            "materiality": r["materiality"],
+            "category": category,
+            "pct": pct,
+        })
 
     if logged:
         log.info(f"[calibrator] Logged {logged} missed-opportunity lessons")

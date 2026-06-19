@@ -411,6 +411,20 @@ MISSED_OPPORTUNITY_ENABLED = os.getenv("MISSED_OPPORTUNITY_ENABLED", "true").low
 MISSED_OPPORTUNITY_THRESHOLD = float(os.getenv("MISSED_OPPORTUNITY_THRESHOLD", "0.12"))
 MISSED_MIN_ENTRY_PRICE = float(os.getenv("MISSED_MIN_ENTRY_PRICE", "0.08"))
 
+# --- Missed-opportunity-driven threshold suggestions (conservative mode) ---
+# When the calibrator detects a *recurring* pattern of misses, it stores a
+# human-readable suggestion (e.g. "loosen the geopolitical freshness window")
+# rather than silently changing a threshold. AUTO_ADJUST stays off: these are
+# suggestions for a human to review on the dashboard, never auto-applied.
+MISSED_OPPORTUNITY_AUTO_ADJUST_ENABLED = os.getenv("MISSED_OPPORTUNITY_AUTO_ADJUST_ENABLED", "false").lower() == "true"
+# Recurrence bars: N qualifying misses within the window before we suggest.
+MISSED_STALE_GEOPOLITICAL_THRESHOLD = int(os.getenv("MISSED_STALE_GEOPOLITICAL_THRESHOLD", "3"))   # in 14 days
+MISSED_MATERIALITY_THRESHOLD = int(os.getenv("MISSED_MATERIALITY_THRESHOLD", "2"))                  # per category, 7 days
+# Conservative magnitude the suggestion proposes (a freshness-window widening).
+STALE_WINDOW_INCREASE_PCT = float(os.getenv("STALE_WINDOW_INCREASE_PCT", "0.25"))
+# Pending suggestions older than this are treated as expired (counters reset).
+MISSED_ADJUSTMENT_DECAY_DAYS = int(os.getenv("MISSED_ADJUSTMENT_DECAY_DAYS", "30"))
+
 # --- Meta-prompt evolution ---
 # Once every PROMPT_EVOLUTION_INTERVAL_DAYS, after the daily journal, Claude
 # (Sonnet) rewrites its own classification prompt from accumulated lessons and

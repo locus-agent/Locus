@@ -173,8 +173,12 @@ def test_resolved_market_excluded(tmp_db, monkeypatch):
         closed={"resolved": True},
     )
     assert calibrator.check_missed_opportunities() == 1
-    assert len(_lessons(tmp_db)) == 1
-    assert "live" in _lessons(tmp_db)[0]
+    # Only the "live" market yields a missed-opportunity lesson (resolved/gone
+    # are excluded). The skip+high-materiality move also adds a Direct-Evidence
+    # pattern lesson for the same market, so filter to the missed-opportunity one.
+    missed = [l for l in _lessons(tmp_db) if l.startswith("Missed strong")]
+    assert len(missed) == 1
+    assert "live" in missed[0]
 
 
 def test_lesson_format(tmp_db, monkeypatch):

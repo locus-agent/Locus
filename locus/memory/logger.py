@@ -197,6 +197,21 @@ def init_db():
             reentry_count INTEGER NOT NULL DEFAULT 0,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
+
+        -- Human-review suggestions the calibrator raises when a *recurring*
+        -- pattern of missed opportunities appears (see calibrator
+        -- _analyze_missed_pattern). Suggestions only; applied_at is stamped when
+        -- a human marks one reviewed. Conservative mode never auto-applies.
+        CREATE TABLE IF NOT EXISTS adjustment_suggestions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            suggestion_type TEXT NOT NULL,
+            suggestion_text TEXT NOT NULL,
+            category TEXT,
+            avg_pct_move REAL,
+            miss_count INTEGER,
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            applied_at TEXT
+        );
     """)
     # Add V2 columns to existing trades table if missing
     _migrate_v2_columns(conn)
@@ -544,6 +559,94 @@ def get_missed_opportunity_count_since(since: str) -> int:
     ).fetchone()[0]
     conn.close()
     return n
+
+
+def get_missed_lessons_since(since: str, action: str | None = None) -> list[dict]:
+    """Missed-opportunity lessons (reflection set) logged at/after `since`,
+    optionally filtered to a single skip `action`. Newest first. Backs the
+    calibrator's recurring-pattern counting (the geopolitical/category windows)."""
+    conn = _conn()
+    sql = ("SELECT * FROM lessons WHERE reflection IS NOT NULL AND created_at >= ?")
+    params: list = [since]
+    if action is not None:
+        sql += " AND action = ?"
+        params.append(action)
+    sql += " ORDER BY created_at DESC"
+    rows = conn.execute(sql, params).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+# --- Missed-opportunity adjustment suggestions (human-review queue) -----------
+
+def log_adjustment_suggestion(
+    suggestion_type: str, suggestion_text: str, category: str | None = None,
+    avg_pct_move: float | None = None, miss_count: int | None = None,
+) -> int:
+    """Store a threshold-adjustment suggestion for human review (never
+    auto-applied). Returns the new row id."""
+    conn = _conn()
+    cur = conn.execute(
+        """INSERT INTO adjustment_suggestions
+           (suggestion_type, suggestion_text, category, avg_pct_move, miss_count)
+           VALUES (?, ?, ?, ?, ?)""",
+        (suggestion_type, suggestion_text, category, avg_pct_move, miss_count),
+    )
+    sid = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return sid
+
+
+def _decay_cutoff(now: datetime | None = None) -> str:
+    """The created_at floor below which pending suggestions are considered
+    expired (config.MISSED_ADJUSTMENT_DECAY_DAYS old)."""
+    now = now or datetime.now(timezone.utc)
+    return (now - timedelta(days=config.MISSED_ADJUSTMENT_DECAY_DAYS)).strftime("%Y-%m-%d %H:%M:%S")
+
+
+def has_pending_suggestion(
+    suggestion_type: str, category: str | None = None, now: datetime | None = None,
+) -> bool:
+    """True when an unreviewed, unexpired suggestion of this type (and category,
+    when given) already exists — so the calibrator doesn't re-raise the same one
+    every cycle."""
+    conn = _conn()
+    sql = ("SELECT 1 FROM adjustment_suggestions "
+           "WHERE suggestion_type = ? AND applied_at IS NULL AND created_at >= ?")
+    params: list = [suggestion_type, _decay_cutoff(now)]
+    if category is not None:
+        sql += " AND category = ?"
+        params.append(category)
+    row = conn.execute(sql + " LIMIT 1", params).fetchone()
+    conn.close()
+    return row is not None
+
+
+def get_pending_suggestions(now: datetime | None = None) -> list[dict]:
+    """Unreviewed suggestions newer than the decay window (expired ones are
+    dropped — the counters effectively reset). Newest first."""
+    conn = _conn()
+    rows = conn.execute(
+        """SELECT * FROM adjustment_suggestions
+           WHERE applied_at IS NULL AND created_at >= ?
+           ORDER BY created_at DESC""",
+        (_decay_cutoff(now),),
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def mark_suggestion_reviewed(suggestion_id: int, now: datetime | None = None) -> None:
+    """Stamp applied_at on a suggestion so it leaves the pending queue."""
+    now = now or datetime.now(timezone.utc)
+    conn = _conn()
+    conn.execute(
+        "UPDATE adjustment_suggestions SET applied_at = ? WHERE id = ?",
+        (now.strftime("%Y-%m-%d %H:%M:%S"), suggestion_id),
+    )
+    conn.commit()
+    conn.close()
 
 
 def log_classification_grade(

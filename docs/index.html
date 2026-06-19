@@ -681,6 +681,33 @@
   .missed-entry .missed-move { color: var(--green); font-weight: 700; }
   .missed-entry .missed-reflection { font-size: 13px; font-style: italic; margin-top: 6px; }
 
+  /* Pending threshold-adjustment suggestions (human review queue) */
+  .suggestions-box {
+    border: 1px solid var(--yellow);
+    border-radius: 6px;
+    background: rgba(255, 196, 0, 0.06);
+    padding: 8px 10px;
+    margin-bottom: 12px;
+  }
+  .suggestions-box .sugg-title {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--yellow); margin-bottom: 6px;
+  }
+  .suggestions-box .sugg-badge {
+    display: inline-block; background: var(--yellow); color: #1a1a1a;
+    font-size: 11px; font-weight: 700; border-radius: 10px;
+    padding: 0 7px; margin-left: 6px;
+  }
+  .sugg-entry { padding: 6px 0; border-top: 1px dotted var(--row-border); }
+  .sugg-entry:first-of-type { border-top: none; }
+  .sugg-entry .sugg-text { font-size: 13px; font-weight: 600; }
+  .sugg-entry .sugg-meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .sugg-entry .sugg-review {
+    font-size: 12px; color: var(--muted); cursor: pointer;
+    background: none; border: none; padding: 0; text-decoration: underline;
+  }
+  .sugg-entry .sugg-review:hover { color: var(--green); }
+
   .empty {
     color: var(--muted);
     font-style: italic;
@@ -1026,6 +1053,7 @@
   <section class="block">
     <div class="panel">
       <div class="panel-title">Missed Opportunities<a class="view-all" href="missed.html">view all →</a></div>
+      <div id="suggestions-list"></div>
       <div id="missed-list">
         <div class="empty">No missed opportunities flagged yet.</div>
       </div>
@@ -1585,6 +1613,48 @@
     container.innerHTML = entries.map(missedEntryHtml).join('');
   }
 
+  // Reviewed suggestion ids are remembered in the browser (the dashboard is a
+  // static page and can't write the DB's applied_at directly); a reviewed
+  // suggestion is hidden locally until the backend stamps applied_at and it
+  // drops out of pending_suggestions on the next export.
+  const REVIEWED_KEY = 'locus_reviewed_suggestions';
+  function reviewedIds() {
+    try { return new Set(JSON.parse(localStorage.getItem(REVIEWED_KEY) || '[]')); }
+    catch (e) { return new Set(); }
+  }
+  function markReviewed(id) {
+    const ids = reviewedIds(); ids.add(id);
+    localStorage.setItem(REVIEWED_KEY, JSON.stringify([...ids]));
+    renderSuggestions(window.__lastStatus || {});
+  }
+
+  function suggestionHtml(s) {
+    const move = (s.avg_pct_move == null) ? '' :
+      ` · avg move +${Number(s.avg_pct_move).toFixed(0)}%`;
+    const count = (s.miss_count == null) ? '' :
+      ` · ${s.miss_count} miss${s.miss_count === 1 ? '' : 'es'}`;
+    return `
+      <div class="sugg-entry">
+        <div class="sugg-text">${escapeHtml(s.text)}</div>
+        <div class="sugg-meta">${escapeHtml((s.category || '').toString())}${move}${count}
+          · <button class="sugg-review" onclick="markReviewed(${Number(s.id)})">Mark as reviewed</button>
+        </div>
+      </div>`;
+  }
+
+  function renderSuggestions(status) {
+    const container = document.getElementById('suggestions-list');
+    if (!container) return;
+    const reviewed = reviewedIds();
+    const entries = (status.pending_suggestions || []).filter(s => !reviewed.has(s.id));
+    if (entries.length === 0) { container.innerHTML = ''; return; }
+    container.innerHTML = `
+      <div class="suggestions-box">
+        <div class="sugg-title">⚠ Threshold suggestions<span class="sugg-badge">${entries.length}</span></div>
+        ${entries.map(suggestionHtml).join('')}
+      </div>`;
+  }
+
   // --- Live topbar clock (uptime + last-update), ticks every 10s ----------
   let uptimeBaseSec = null;     // uptime_seconds from the last status snapshot
   let statusFetchedAt = null;   // ms timestamp when we received that snapshot
@@ -1710,6 +1780,7 @@
     uptimeBaseSec = status.uptime_seconds ?? null;
     statusFetchedAt = Date.now();
     heartbeatTime = status.last_heartbeat ? new Date(status.last_heartbeat) : null;
+    window.__lastStatus = status;
 
     safeRender('topbarClock', updateTopbarClock, status);
     safeRender('header', renderHeader, status);
@@ -1725,6 +1796,7 @@
     safeRender('priceBuckets', renderPriceBuckets, status);
     safeRender('prompt', renderPrompt, status);
     safeRender('journal', renderJournal, status);
+    safeRender('suggestions', renderSuggestions, status);
     safeRender('missed', renderMissed, status);
     safeRender('classifications', renderClassifications, status);
   }

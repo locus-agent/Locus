@@ -86,6 +86,19 @@ def _missed_opportunity_row(l: dict) -> dict:
     }
 
 
+def _suggestion_row(s: dict) -> dict:
+    """Public shape of a pending adjustment suggestion for the dashboard."""
+    return {
+        "id": s["id"],
+        "type": s["suggestion_type"],
+        "text": s["suggestion_text"],
+        "category": s.get("category"),
+        "avg_pct_move": s.get("avg_pct_move"),
+        "miss_count": s.get("miss_count"),
+        "time": s["created_at"],
+    }
+
+
 def _open_position_row(p: dict) -> dict:
     """Public shape of an open position, with marked-to-market dollar PnL.
 
@@ -397,6 +410,12 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
         "missed_opportunities": [
             _missed_opportunity_row(l)
             for l in logger.get_missed_opportunity_lessons(limit=5)
+        ],
+        # Conservative threshold-adjustment suggestions awaiting human review
+        # (the calibrator raises these on recurring missed-opportunity patterns;
+        # never auto-applied). Expired/reviewed ones are filtered out by the query.
+        "pending_suggestions": [
+            _suggestion_row(s) for s in logger.get_pending_suggestions()
         ],
     }
 
