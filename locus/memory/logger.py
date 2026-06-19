@@ -819,6 +819,17 @@ def get_prompt_version_count() -> int:
     return n
 
 
+def get_all_prompt_versions() -> list[dict]:
+    """Every evolved prompt version, oldest first — backs the dashboard's
+    evolution timeline and the version-over-version 'what changed' diff."""
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT * FROM prompt_versions ORDER BY version ASC"
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
 def save_prompt_version(
     version: int, prompt_text: str, lessons_count: int, accuracy_at_creation: float | None
 ) -> int:

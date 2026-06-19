@@ -205,6 +205,22 @@
     margin-bottom: 4px;
   }
   .prompt-cell .prompt-value { font-size: 18px; font-weight: 700; }
+  .prompt-summary { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+  .prompt-changes { margin: 0 0 10px; }
+  .prompt-changes .pc-title,
+  .prompt-timeline .pt-title {
+    color: var(--muted); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.05em; margin-bottom: 4px;
+  }
+  .prompt-changes ul { margin: 0; padding-left: 18px; }
+  .prompt-changes li { font-size: 13px; margin: 2px 0; }
+  .prompt-timeline .pt-row {
+    display: flex; gap: 10px; font-size: 12px; padding: 3px 0;
+    border-top: 1px dotted var(--row-border);
+  }
+  .prompt-timeline .pt-row:first-of-type { border-top: none; }
+  .prompt-timeline .pt-ver { font-weight: 700; min-width: 32px; }
+  .prompt-timeline .pt-meta { color: var(--muted); }
   .prompt-note {
     color: var(--muted);
     font-size: 11px;
@@ -1023,20 +1039,9 @@
   <section class="block" id="prompt-section">
     <div class="panel">
       <div class="panel-title">Prompt Evolution</div>
-      <div class="prompt-row">
-        <div class="prompt-cell">
-          <div class="prompt-label">Version</div>
-          <div class="prompt-value" id="prompt-version">v0</div>
-        </div>
-        <div class="prompt-cell">
-          <div class="prompt-label">Last Evolved</div>
-          <div class="prompt-value" id="prompt-evolved">—</div>
-        </div>
-        <div class="prompt-cell">
-          <div class="prompt-label">Lessons Used</div>
-          <div class="prompt-value" id="prompt-lessons">—</div>
-        </div>
-      </div>
+      <div class="prompt-summary" id="prompt-summary">—</div>
+      <div class="prompt-changes" id="prompt-changes"></div>
+      <div class="prompt-timeline" id="prompt-timeline"></div>
       <div class="prompt-note" id="prompt-note">Claude rewrites its own classification prompt weekly from accumulated lessons.</div>
     </div>
   </section>
@@ -1113,6 +1118,14 @@
   function fmtPct(value) {
     if (value === null || value === undefined) return '—';
     return Math.round(value * 100) + '%';
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return '—';
+    const normalized = iso.includes('T') ? iso : iso.replace(' ', 'T') + 'Z';
+    const d = new Date(normalized);
+    if (isNaN(d.getTime())) return iso;
+    return d.toLocaleString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
   }
 
   function escapeHtml(str) {
@@ -1560,13 +1573,37 @@
       return;
     }
     section.style.display = '';
-    document.getElementById('prompt-version').textContent = 'v' + v;
-    document.getElementById('prompt-evolved').textContent =
-      p.last_evolved ? fmtTime(p.last_evolved) : '—';
-    document.getElementById('prompt-lessons').textContent = p.lessons_used ?? '—';
-    document.getElementById('prompt-note').textContent = v === 0
-      ? 'Still on the hand-written prompt — Claude evolves it weekly once 7 days of lessons accumulate.'
-      : 'Claude rewrites its own classification prompt weekly from accumulated lessons.';
+
+    // Summary line, e.g. "Version 1 · Evolved Jun 19 · 24 lessons · 17.6% accuracy".
+    const parts = ['Version ' + v];
+    if (p.last_evolved) parts.push('Evolved ' + fmtDate(p.last_evolved));
+    if (p.lessons_used != null)
+      parts.push(p.lessons_used + ' lesson' + (p.lessons_used === 1 ? '' : 's'));
+    if (p.accuracy_at_evolution != null)
+      parts.push(Number(p.accuracy_at_evolution).toFixed(1) + '% accuracy');
+    document.getElementById('prompt-summary').textContent = parts.join(' · ');
+
+    // Key changes vs the previous version.
+    const changes = p.key_changes || [];
+    document.getElementById('prompt-changes').innerHTML = changes.length
+      ? '<div class="pc-title">Key changes in v' + v + '</div><ul>'
+        + changes.map(c => '<li>' + escapeHtml(c) + '</li>').join('') + '</ul>'
+      : '';
+
+    // Evolution timeline, newest version first.
+    const hist = (p.evolution_history || []).slice().sort((a, b) => b.version - a.version);
+    document.getElementById('prompt-timeline').innerHTML = hist.length
+      ? '<div class="pt-title">Evolution timeline</div>' + hist.map(h => {
+          const acc = (h.accuracy == null) ? '—' : Number(h.accuracy).toFixed(1) + '%';
+          const les = (h.lessons_count == null) ? '—' : h.lessons_count + ' lessons';
+          return '<div class="pt-row"><span class="pt-ver">v' + h.version + '</span>'
+            + '<span class="pt-meta">' + escapeHtml(fmtDate(h.created_at))
+            + ' · ' + les + ' · ' + acc + ' accuracy</span></div>';
+        }).join('')
+      : '';
+
+    document.getElementById('prompt-note').textContent =
+      'Claude rewrites its own classification prompt weekly from accumulated lessons.';
   }
 
   function renderJournal(status) {

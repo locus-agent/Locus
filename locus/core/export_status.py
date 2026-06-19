@@ -86,6 +86,103 @@ def _missed_opportunity_row(l: dict) -> dict:
     }
 
 
+import re
+
+# A line that reads like a prompt section header: a Markdown heading, or a
+# short Title-cased line ending in a colon (e.g. "POLITICS MARKETS — Calibration
+# Warning:"). Used to diff one prompt version against the previous one.
+def _section_headers(text: str) -> list[str]:
+    headers = []
+    for line in (text or "").splitlines():
+        s = line.strip()
+        if not s:
+            continue
+        if s.startswith("#") or (s.endswith(":") and len(s) <= 60 and s[:1].isupper()):
+            headers.append(s)
+    return headers
+
+
+def _header_topic(header: str) -> str:
+    """The leading topic of a header (before the first em-dash/colon), upper-cased,
+    so a reworded section ('SPORTS MARKETS — Extra Strict' vs '… — Calibrated')
+    is recognized as the same topic (a refinement, not a new section)."""
+    return re.split(r"[—:]| - ", header.lstrip("#"))[0].strip().upper()
+
+
+def _clean_header(header: str) -> str:
+    """Make a header readable: drop the leading '#'/trailing ':' and Title-case
+    SHOUTING words ('POLITICS MARKETS' -> 'Politics Markets')."""
+    h = header.lstrip("#").rstrip(":").strip()
+    words = [
+        w.capitalize() if (len(w) > 1 and w.isupper() and w.isalpha()) else w
+        for w in h.split()
+    ]
+    return " ".join(words)
+
+
+def _diff_key_changes(prev_text: str, latest_text: str, max_items: int = 8) -> list[str]:
+    """Human-readable bullets describing what changed from prev_text to
+    latest_text: new section headers become 'Added …', reworded ones 'Refined …'.
+    Falls back to a character-delta note when nothing structural changed."""
+    prev_headers = _section_headers(prev_text)
+    prev_topics = {_header_topic(h) for h in prev_headers}
+    prev_set = set(prev_headers)
+
+    bullets = []
+    for h in _section_headers(latest_text):
+        if h in prev_set:
+            continue  # unchanged section
+        verb = "Refined" if _header_topic(h) in prev_topics else "Added"
+        bullets.append(f"{verb} {_clean_header(h)}")
+        if len(bullets) >= max_items:
+            break
+
+    if not bullets:
+        delta = len(latest_text or "") - len(prev_text or "")
+        if delta:
+            bullets.append(
+                f"Refined wording ({len(prev_text or '')} → {len(latest_text or '')} chars)"
+            )
+    return bullets
+
+
+def _prompt_evolution_block() -> dict:
+    """The dashboard's Prompt Evolution payload: current version metadata plus
+    the 'what changed' bullets, the accuracy at evolution time, and the full
+    version timeline. version 0 (no evolution yet) returns empty extras."""
+    versions = logger.get_all_prompt_versions()
+    if not versions:
+        return {
+            "version": 0, "last_evolved": None, "lessons_used": 0,
+            "key_changes": [], "accuracy_at_evolution": None, "evolution_history": [],
+        }
+
+    latest = versions[-1]
+    # The baseline for v1 is the hand-written prompt; for v2+ it's the prior version.
+    if len(versions) >= 2:
+        prev_text = versions[-2]["prompt_text"]
+    else:
+        from locus.core.classifier import CLASSIFICATION_PROMPT
+        prev_text = CLASSIFICATION_PROMPT
+
+    return {
+        "version": latest["version"],
+        "last_evolved": latest["created_at"],
+        "lessons_used": latest["lessons_count"],
+        "key_changes": _diff_key_changes(prev_text, latest["prompt_text"]),
+        "accuracy_at_evolution": latest["accuracy_at_creation"],
+        "evolution_history": [
+            {
+                "version": v["version"],
+                "created_at": v["created_at"],
+                "lessons_count": v["lessons_count"],
+                "accuracy": v["accuracy_at_creation"],
+            }
+            for v in versions
+        ],
+    }
+
+
 def _suggestion_row(s: dict) -> dict:
     """Public shape of a pending adjustment suggestion for the dashboard."""
     return {
@@ -282,9 +379,6 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
 
     cb = compute_circuit_breaker()
 
-    # Meta-prompt evolution status (latest evolved classification prompt).
-    latest_prompt = logger.get_latest_prompt_version()
-
     # Performance + dynamic-Kelly sizing snapshot: recent realized win rate over
     # the last KELLY_WINRATE_LOOKBACK closes and the multiplier it currently maps
     # to (see edge.winrate_factor / size_position).
@@ -388,11 +482,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             _classification_row(c)
             for c in logger.get_recent_classifications(limit=RECENT_CLASSIFICATIONS_LIMIT)
         ],
-        "prompt": {
-            "version": latest_prompt["version"] if latest_prompt else 0,
-            "last_evolved": latest_prompt["created_at"] if latest_prompt else None,
-            "lessons_used": latest_prompt["lessons_count"] if latest_prompt else 0,
-        },
+        "prompt": _prompt_evolution_block(),
         "journal": [
             {"date": j["date"], "entry": j["entry"]}
             for j in logger.get_journal_entries(limit=3)
