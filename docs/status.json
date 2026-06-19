@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T13:10:17.575235+00:00",
-  "last_heartbeat": "2026-06-19T13:10:17.575235+00:00",
-  "uptime_seconds": 51816,
+  "generated_at": "2026-06-19T13:15:22.783348+00:00",
+  "last_heartbeat": "2026-06-19T13:15:22.783348+00:00",
+  "uptime_seconds": 52121,
   "dry_run": true,
-  "markets_tracked": 1678,
+  "markets_tracked": 1679,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 575,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 601,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15133,
+  "classifications_24h": 15236,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3943,
+    "prefiltered_haiku": 3972,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3611,
-    "matched": 1208,
-    "classified": 15133,
+    "news": 3634,
+    "matched": 1232,
+    "classified": 15236,
     "signals": 7,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 48.45,
-    "unrealized_pnl_usd": 0.0,
+    "unrealized_pnl_usd": -0.0,
     "total_pnl_usd": 48.45,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1800.4
+    "avg_classification_latency_ms": 1807.8
   },
   "live_readiness": {
     "ready": true,
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     },
@@ -416,9 +416,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 13:10:13",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "Red Lobster CEO Damola Adamolekun aims to make chain \u2018most AI-forward restaurant company\u2019 - eciks.org",
+      "time": "2026-06-19 13:12:25",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "More than 70 Congo medics infected with Ebola since outbreak started, WHO says - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -429,35 +429,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 13:10:12",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "Red Lobster CEO Damola Adamolekun aims to make chain \u2018most AI-forward restaurant company\u2019 - eciks.org",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 13:10:10",
-      "market_question": "Peru Presidential Election Invalidated?",
-      "headline": "Photos show opening day at the Obama Presidential Center - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 13:10:10",
-      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
-      "headline": "Red Lobster CEO Damola Adamolekun aims to make chain \u2018most AI-forward restaurant company\u2019 - eciks.org",
+      "time": "2026-06-19 13:12:23",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "More than 70 Congo medics infected with Ebola since outbreak started, WHO says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -468,9 +442,35 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 13:10:10",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "Red Lobster CEO Damola Adamolekun aims to make chain \u2018most AI-forward restaurant company\u2019 - eciks.org",
+      "time": "2026-06-19 13:12:23",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "More than 70 Congo medics infected with Ebola since outbreak started, WHO says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 13:12:23",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "More than 70 Congo medics infected with Ebola since outbreak started, WHO says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 13:12:23",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "More than 70 Congo medics infected with Ebola since outbreak started, WHO says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
