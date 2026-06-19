@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T13:30:37.528197+00:00",
-  "last_heartbeat": "2026-06-19T13:30:37.528197+00:00",
-  "uptime_seconds": 53036,
+  "generated_at": "2026-06-19T13:35:42.111064+00:00",
+  "last_heartbeat": "2026-06-19T13:35:42.111064+00:00",
+  "uptime_seconds": 53341,
   "dry_run": true,
   "markets_tracked": 1680,
   "classify_error_streak": 0,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 630,
+  "headlines_scanned_today": 632,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15170,
+  "classifications_24h": 15032,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3958,
-    "stale": 61,
+    "prefiltered_haiku": 3917,
+    "stale": 59,
     "capped": 3,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T13:17:22.560074+00:00"
+    "last_check": "2026-06-19T13:32:22.976566+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3601,
-    "matched": 1247,
-    "classified": 15170,
+    "news": 3563,
+    "matched": 1242,
+    "classified": 15032,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1803.5
+    "avg_classification_latency_ms": 1801.7
   },
   "live_readiness": {
     "ready": true,
@@ -416,9 +416,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 13:28:06",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "What's next for new and former champs after UFC Wh...",
+      "time": "2026-06-19 13:34:49",
+      "market_question": "Will Javier Milei win the 2027 Argentina presidential election?",
+      "headline": "Where's Infantino been? FIFA president has already...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 13:34:48",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Where's Infantino been? FIFA president has already...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -429,56 +442,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 13:28:06",
-      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
-      "headline": "'I could never pick one': Why LSU's Ahmad Hudson p...",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 13:34:48",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Where's Infantino been? FIFA president has already...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 13:28:06",
-      "market_question": "Will Darryn Peterson be the first pick in the 2026 NBA draft?",
-      "headline": "'I could never pick one': Why LSU's Ahmad Hudson p...",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 13:34:48",
+      "market_question": "Miguel D\u00edaz-Canel out as President of Cuba by June 30?",
+      "headline": "Where's Infantino been? FIFA president has already...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 13:28:06",
-      "market_question": "Will Cameron Boozer be the first pick in the 2026 NBA draft?",
-      "headline": "'I could never pick one': Why LSU's Ahmad Hudson p...",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 13:34:48",
+      "market_question": "Claudio Tapia out as AFA President by July 19, 2026?",
+      "headline": "Where's Infantino been? FIFA president has already...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 13:28:06",
-      "market_question": "Will AJ Dybantsa be the 2nd overall pick in the 2026 NBA Draft?",
-      "headline": "'I could never pick one': Why LSU's Ahmad Hudson p...",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
