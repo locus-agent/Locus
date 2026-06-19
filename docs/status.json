@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T03:47:02.664367+00:00",
-  "last_heartbeat": "2026-06-19T03:47:02.664367+00:00",
-  "uptime_seconds": 18021,
+  "generated_at": "2026-06-19T03:52:06.746186+00:00",
+  "last_heartbeat": "2026-06-19T03:52:06.746186+00:00",
+  "uptime_seconds": 18325,
   "dry_run": true,
-  "markets_tracked": 1705,
+  "markets_tracked": 1700,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 212,
+  "headlines_scanned_today": 213,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 15958,
+  "classifications_24h": 15961,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4316,
+    "prefiltered_haiku": 4317,
     "stale": 56,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T03:32:04.323728+00:00"
+    "last_check": "2026-06-19T03:47:05.066129+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 3873,
     "matched": 1110,
-    "classified": 15958,
+    "classified": 15961,
     "signals": 4,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1601.9
+    "avg_classification_latency_ms": 1612.5
   },
   "live_readiness": {
     "ready": true,
@@ -374,12 +374,12 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 03:43:45",
-      "market_question": "Will Canada reach the Semifinals at the 2026 FIFA World Cup?",
-      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.55,
+      "time": "2026-06-19 03:48:14",
+      "market_question": "Will South Korea win Group A in the 2026 FIFA World Cup?",
+      "headline": "Mexico becomes first country to reach knockout stage of World Cup, beating South Korea 1-0 - AP News",
+      "direction": "bearish",
+      "materiality": 0.7,
+      "confidence": 0.92,
       "edge": null,
       "action": "skip",
       "match_source": "keyword",
@@ -387,12 +387,12 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:43:45",
-      "market_question": "Will a player representing Canada be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.55,
+      "time": "2026-06-19 03:48:11",
+      "market_question": "Will the announcers say \"Champion\" during the Mexico vs South Korea FIFA World Cup Match?",
+      "headline": "Mexico becomes first country to reach knockout stage of World Cup, beating South Korea 1-0 - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
       "match_source": "embedding",
@@ -400,24 +400,24 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:43:45",
-      "market_question": "Will Canada win Group B in the 2026 FIFA World Cup?",
-      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
-      "direction": "bullish",
-      "materiality": 0.65,
-      "confidence": 0.72,
-      "edge": 0.26325000000000004,
-      "action": "stale",
-      "match_source": "keyword",
+      "time": "2026-06-19 03:48:11",
+      "market_question": "Will the announcers say \"Golden Boot\" during the Mexico vs South Korea FIFA World Cup Match?",
+      "headline": "Mexico becomes first country to reach knockout stage of World Cup, beating South Korea 1-0 - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:43:44",
-      "market_question": "Will the announcers say \"History\" during the Canada vs Qatar FIFA World Cup Match?",
-      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
+      "time": "2026-06-19 03:48:11",
+      "market_question": "Will the announcers say \"Ankle\" during the Mexico vs South Korea FIFA World Cup Match?",
+      "headline": "Mexico becomes first country to reach knockout stage of World Cup, beating South Korea 1-0 - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -426,15 +426,15 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:43:44",
-      "market_question": "Will Canada be the highest-scoring team in Group B during the Group Stage of the 2026 FIFA World Cup?",
-      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
+      "time": "2026-06-19 03:48:11",
+      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
+      "headline": "Mexico becomes first country to reach knockout stage of World Cup, beating South Korea 1-0 - AP News",
       "direction": "bullish",
-      "materiality": 0.65,
-      "confidence": 0.78,
-      "edge": 0.12349999999999997,
-      "action": "stale",
-      "match_source": "embedding",
+      "materiality": 0.45,
+      "confidence": 0.58,
+      "edge": 0.423225,
+      "action": "low_materiality",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
