@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T02:56:20.171592+00:00",
-  "last_heartbeat": "2026-06-19T02:56:20.171592+00:00",
-  "uptime_seconds": 14979,
+  "generated_at": "2026-06-19T03:01:24.723872+00:00",
+  "last_heartbeat": "2026-06-19T03:01:24.723872+00:00",
+  "uptime_seconds": 15283,
   "dry_run": true,
-  "markets_tracked": 1706,
+  "markets_tracked": 1705,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 153,
+  "headlines_scanned_today": 158,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 15723,
+  "classifications_24h": 15753,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4229,
-    "stale": 50,
+    "prefiltered_haiku": 4245,
+    "stale": 51,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3828,
-    "matched": 1069,
-    "classified": 15723,
+    "news": 3831,
+    "matched": 1074,
+    "classified": 15753,
     "signals": 4,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1573.6
+    "avg_classification_latency_ms": 1580.7
   },
   "live_readiness": {
     "ready": true,
@@ -374,69 +374,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 02:54:38",
-      "market_question": "Will Trump and Putin meet next in another EU country?",
-      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 02:59:11",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
+      "headline": "Labour\u2019s Andy Burnham wins a special election, setting up a showdown with Starmer - AP News",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.65,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 02:54:37",
-      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
-      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 02:59:11",
+      "market_question": "Will the announcers say \"History\" during the Canada vs Qatar FIFA World Cup Match?",
+      "headline": "Canada\u2019s Kon\u00e9 to undergo surgery after gruesome injury against Qatar - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 02:54:36",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 02:54:35",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 02:59:11",
+      "market_question": "Will the announcers say \"Qatar\" during the Brazil vs Haiti FIFA World Cup Match?",
+      "headline": "Canada\u2019s Kon\u00e9 to undergo surgery after gruesome injury against Qatar - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 02:54:35",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 02:59:11",
+      "market_question": "Will the announcers say \"Qatar\" during the Netherlands vs Sweden FIFA World Cup Match?",
+      "headline": "Canada\u2019s Kon\u00e9 to undergo surgery after gruesome injury against Qatar - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 02:59:11",
+      "market_question": "Will the announcers say \"Qatar\" during the Germany vs Ivory Coast FIFA World Cup Match?",
+      "headline": "Canada\u2019s Kon\u00e9 to undergo surgery after gruesome injury against Qatar - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
