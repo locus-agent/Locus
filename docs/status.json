@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T05:03:07.403511+00:00",
-  "last_heartbeat": "2026-06-19T05:03:07.403511+00:00",
-  "uptime_seconds": 22586,
+  "generated_at": "2026-06-19T05:08:11.712998+00:00",
+  "last_heartbeat": "2026-06-19T05:08:11.712998+00:00",
+  "uptime_seconds": 22890,
   "dry_run": true,
-  "markets_tracked": 1689,
+  "markets_tracked": 1685,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,19 +82,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 236,
+  "headlines_scanned_today": 243,
   "headlines_last_cycle": 0,
-  "signals_24h": 4,
-  "classifications_24h": 15756,
+  "signals_24h": 5,
+  "classifications_24h": 15799,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4191,
+    "prefiltered_haiku": 4204,
     "stale": 61,
-    "capped": 0,
+    "capped": 3,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 5,
+    "price_target_market": 6,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 0,
@@ -115,20 +115,20 @@
   },
   "edge_types_24h": {
     "news": 2,
-    "momentum": 2,
+    "momentum": 3,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3824,
-    "matched": 1085,
-    "classified": 15756,
-    "signals": 4,
-    "trades": 1
+    "news": 3830,
+    "matched": 1092,
+    "classified": 15799,
+    "signals": 5,
+    "trades": 2
   },
   "performance": {
-    "trades_total": 25,
-    "deployed_usd": 440.58,
-    "open_count": 1,
+    "trades_total": 26,
+    "deployed_usd": 465.58,
+    "open_count": 2,
     "closed_count": 22,
     "wins": 13,
     "losses": 9,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1687.6
+    "avg_classification_latency_ms": 1709.7
   },
   "live_readiness": {
     "ready": true,
@@ -188,6 +188,20 @@
     "sharpe_7d": 0.54
   },
   "open_positions": [
+    {
+      "time": "2026-06-19 05:04:17",
+      "market_question": "Bitcoin Up or Down on June 19?",
+      "slug": "bitcoin-up-or-down-on-june-19-2026",
+      "side": "NO",
+      "entry_price": 0.495,
+      "current_price": 0.495,
+      "pnl_pct": 0.0,
+      "amount_usd": 25.0,
+      "current_value_usd": 25.0,
+      "pnl_usd": 0.0,
+      "edge_type": "momentum",
+      "event_id": "605219"
+    },
     {
       "time": "2026-06-17 01:44:54",
       "market_question": "Labour leadership election scheduled by June 30?",
@@ -374,9 +388,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 04:50:56",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
-      "headline": "Sir John Curtice: Burnham's win represents remarkable personal success for him",
+      "time": "2026-06-19 05:06:45",
+      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
+      "headline": "Switzerland says US-Iran talks planned for Friday are off - Reuters",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.72,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 05:06:44",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "headline": "Switzerland says US-Iran talks planned for Friday are off - Reuters",
+      "direction": "bearish",
+      "materiality": 0.55,
+      "confidence": 0.72,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 05:06:44",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Switzerland says US-Iran talks planned for Friday are off - Reuters",
       "direction": "bearish",
       "materiality": 0.35,
       "confidence": 0.65,
@@ -387,54 +427,28 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 04:50:53",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
-      "headline": "Sir John Curtice: Burnham's win represents remarkable personal success for him",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 04:50:49",
-      "market_question": "Will John Tory win the 2026 Toronto mayoral election?",
-      "headline": "Sir John Curtice: Burnham's win represents remarkable personal success for him",
+      "time": "2026-06-19 05:06:41",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Switzerland says US-Iran talks planned for Friday are off - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 04:50:48",
-      "market_question": "Will Bitcoin reach $90,000 in June?",
-      "headline": "Bitcoin falls below $63,000 as risk assets sell off and the week's bounce fades",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.65,
+      "time": "2026-06-19 05:06:41",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Switzerland says US-Iran talks planned for Friday are off - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 04:50:48",
-      "market_question": "Will Bitcoin reach $70,000 by December 31, 2026?",
-      "headline": "Bitcoin falls below $63,000 as risk assets sell off and the week's bounce fades",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.52,
-      "edge": 0.11175,
-      "action": "price_target_market",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
