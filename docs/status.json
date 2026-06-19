@@ -1,93 +1,94 @@
 {
-  "generated_at": "2026-06-19T02:51:15.586622+00:00",
-  "last_heartbeat": "2026-06-19T02:51:15.586622+00:00",
-  "uptime_seconds": 14674,
+  "generated_at": "2026-06-19T02:56:20.171592+00:00",
+  "last_heartbeat": "2026-06-19T02:56:20.171592+00:00",
+  "uptime_seconds": 14979,
   "dry_run": true,
-  "markets_tracked": 1704,
+  "markets_tracked": 1706,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 6967,
+    "total": 7038,
     "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
       "ai": 9.8,
-      "politics": 24.0,
-      "technology": 11.1,
+      "politics": 23.9,
+      "technology": 10.9,
       "crypto": 12.0,
-      "sports": 35.7
+      "sports": 32.9
     },
     "by_source": {
       "rss": 17.4,
-      "newsapi": 18.4
+      "newsapi": 18.3,
+      "truthsocial": 0.0
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.6,
-    "overall_total": 6967,
+    "overall_total": 7038,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 3981,
-        "correct": 309,
+        "total": 4020,
+        "correct": 312,
         "accuracy_pct": 7.8,
-        "avg_pnl_pct": 15.09,
+        "avg_pnl_pct": 14.83,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 592,
-        "correct": 218,
+        "total": 598,
+        "correct": 220,
         "accuracy_pct": 36.8,
-        "avg_pnl_pct": 35.33,
+        "avg_pnl_pct": 35.04,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 719,
+        "total": 727,
         "correct": 264,
-        "accuracy_pct": 36.7,
-        "avg_pnl_pct": 3.98,
+        "accuracy_pct": 36.3,
+        "avg_pnl_pct": 3.84,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 389,
+        "total": 394,
         "correct": 91,
-        "accuracy_pct": 23.4,
-        "avg_pnl_pct": -4.27,
+        "accuracy_pct": 23.1,
+        "avg_pnl_pct": -4.2,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 396,
-        "correct": 175,
-        "accuracy_pct": 44.2,
-        "avg_pnl_pct": 2.97,
+        "total": 401,
+        "correct": 177,
+        "accuracy_pct": 44.1,
+        "avg_pnl_pct": 2.94,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 890,
-        "correct": 170,
-        "accuracy_pct": 19.1,
-        "avg_pnl_pct": -6.36,
+        "total": 898,
+        "correct": 173,
+        "accuracy_pct": 19.3,
+        "avg_pnl_pct": -6.29,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 152,
+  "headlines_scanned_today": 153,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 15715,
+  "classifications_24h": 15723,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4222,
+    "prefiltered_haiku": 4229,
     "stale": 50,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -118,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3827,
-    "matched": 1068,
-    "classified": 15715,
+    "news": 3828,
+    "matched": 1069,
+    "classified": 15723,
     "signals": 4,
     "trades": 1
   },
@@ -138,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1573.4
+    "avg_classification_latency_ms": 1573.6
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +374,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 02:47:54",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Tuchel throws first pitch as England enjoy downtime",
+      "time": "2026-06-19 02:54:38",
+      "market_question": "Will Trump and Putin meet next in another EU country?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:54:37",
+      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:54:36",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:54:35",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,56 +426,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 02:47:53",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Tuchel throws first pitch as England enjoy downtime",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 02:54:35",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Trump and Macron will meet over dinner at Versailles palace after G7 summit in France - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 02:47:53",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Tuchel throws first pitch as England enjoy downtime",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 02:47:53",
-      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
-      "headline": "Tuchel throws first pitch as England enjoy downtime",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 02:47:53",
-      "market_question": "Will England reach the 2026 FIFA World Cup final?",
-      "headline": "Tuchel throws first pitch as England enjoy downtime",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
