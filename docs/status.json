@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T05:58:54.460995+00:00",
-  "last_heartbeat": "2026-06-19T05:58:54.460995+00:00",
-  "uptime_seconds": 25933,
+  "generated_at": "2026-06-19T06:03:58.973257+00:00",
+  "last_heartbeat": "2026-06-19T06:03:58.973257+00:00",
+  "uptime_seconds": 26238,
   "dry_run": true,
-  "markets_tracked": 1686,
+  "markets_tracked": 1682,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 257,
+  "headlines_scanned_today": 262,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 15709,
+  "classifications_24h": 15722,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 4168,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T05:47:08.336933+00:00"
+    "last_check": "2026-06-19T06:02:08.801411+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3806,
-    "matched": 1081,
-    "classified": 15709,
+    "news": 3808,
+    "matched": 1083,
+    "classified": 15722,
     "signals": 4,
     "trades": 1
   },
@@ -134,12 +134,12 @@
     "losses": 9,
     "win_rate_pct": 59.1,
     "realized_pnl_usd": 56.87,
-    "unrealized_pnl_usd": -5.45,
-    "total_pnl_usd": 51.42,
+    "unrealized_pnl_usd": -7.43,
+    "total_pnl_usd": 49.44,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1709.4
+    "avg_classification_latency_ms": 1712.0
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-19-2026",
       "side": "NO",
       "entry_price": 0.495,
-      "current_price": 0.605,
-      "pnl_pct": -21.78,
+      "current_price": 0.645,
+      "pnl_pct": -29.7,
       "amount_usd": 25.0,
-      "current_value_usd": 19.55,
-      "pnl_usd": -5.45,
+      "current_value_usd": 17.57,
+      "pnl_usd": -7.43,
       "edge_type": "momentum",
       "event_id": "605219"
     },
@@ -388,69 +388,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 05:51:07",
-      "market_question": "Christian Pulisic: 1+ goals",
-      "headline": "Pulisic a doubt for US match against Australia - Reuters",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.65,
-      "edge": 0.11025,
-      "action": "stale",
-      "match_source": "embedding",
+      "time": "2026-06-19 06:02:21",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Fans are fuming after World Cup tickets they bought through resale sites fall through - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 05:51:03",
+      "time": "2026-06-19 06:02:18",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Fans are fuming after World Cup tickets they bought through resale sites fall through - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 06:02:18",
       "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Pulisic a doubt for US match against Australia - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "headline": "Fans are fuming after World Cup tickets they bought through resale sites fall through - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 05:51:03",
-      "market_question": "Will Trump and Putin meet next in Australia?",
-      "headline": "Pulisic a doubt for US match against Australia - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 06:02:18",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Fans are fuming after World Cup tickets they bought through resale sites fall through - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 05:51:03",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "Pulisic a doubt for US match against Australia - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 06:02:18",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Fans are fuming after World Cup tickets they bought through resale sites fall through - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 05:51:03",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "Pulisic a doubt for US match against Australia - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
