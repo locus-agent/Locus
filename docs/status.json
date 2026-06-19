@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T01:45:20.713777+00:00",
-  "last_heartbeat": "2026-06-19T01:45:20.713777+00:00",
-  "uptime_seconds": 10719,
+  "generated_at": "2026-06-19T01:50:25.032306+00:00",
+  "last_heartbeat": "2026-06-19T01:50:25.032306+00:00",
+  "uptime_seconds": 11024,
   "dry_run": true,
-  "markets_tracked": 1700,
+  "markets_tracked": 1702,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6967,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 116,
+  "headlines_scanned_today": 120,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 16192,
+  "classifications_24h": 16197,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4400,
+    "prefiltered_haiku": 4402,
     "stale": 51,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -110,7 +110,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T01:32:01.306525+00:00"
+    "last_check": "2026-06-19T01:47:01.668459+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3926,
-    "matched": 1125,
-    "classified": 16192,
+    "news": 3928,
+    "matched": 1126,
+    "classified": 16197,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1539.4
+    "avg_classification_latency_ms": 1540.9
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 01:43:14",
-      "market_question": "Will the New England Patriots win the 2027 NFL league championship?",
-      "headline": "Toney scores hat-trick in England friendly win",
+      "time": "2026-06-19 01:47:46",
+      "market_question": "Will Juan Carlos Pinz\u00f3n win the 2026 Colombian presidential election?",
+      "headline": "Comedian Carlos Mencia faces 12 felony charges for failing to report more than $8M in earnings - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 01:47:46",
+      "market_question": "Will Carlos Roberto Massa J\u00fanior win the first round of the 2026 Brazilian presidential election?",
+      "headline": "Comedian Carlos Mencia faces 12 felony charges for failing to report more than $8M in earnings - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 01:47:46",
+      "market_question": "Will Carlos Roberto Massa J\u00fanior finish in third place in the first round of the 2026 Brazilian presidential election?",
+      "headline": "Comedian Carlos Mencia faces 12 felony charges for failing to report more than $8M in earnings - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 01:47:45",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Vance delays trip to Switzerland to lead new US talks with Iran on its nuclear program - AP News",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.72,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 01:47:42",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Vance delays trip to Switzerland to lead new US talks with Iran on its nuclear program - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -384,58 +436,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 01:43:14",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "Japan is considered to be far from the artificial intelligence (AI) startup craze. However, Lee Jin - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 01:43:14",
-      "market_question": "Will Donald Trump visit Japan in 2026?",
-      "headline": "Japan is considered to be far from the artificial intelligence (AI) startup craze. However, Lee Jin - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 01:43:14",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "Japan is considered to be far from the artificial intelligence (AI) startup craze. However, Lee Jin - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 01:43:14",
-      "market_question": "Will Japan reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Japan is considered to be far from the artificial intelligence (AI) startup craze. However, Lee Jin - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
