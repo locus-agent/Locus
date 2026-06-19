@@ -15,6 +15,8 @@ Usage:
     python cli.py close <position_id>  # Manually close an open position
     python cli.py stats                # Performance statistics
     python cli.py evolve               # Manually evolve the classification prompt
+    python cli.py suggestion list      # List pending threshold-adjustment suggestions
+    python cli.py suggestion review <id>  # Mark a suggestion as reviewed
 """
 
 import argparse
@@ -441,6 +443,49 @@ def cmd_evolve(args):
         )
 
 
+def cmd_suggestion(args):
+    """List or review the calibrator's missed-opportunity threshold suggestions."""
+    from locus.memory import logger
+
+    if args.action == "list":
+        suggestions = logger.get_pending_suggestions()
+        if not suggestions:
+            console.print("[yellow]No pending suggestions.[/yellow]")
+            return
+
+        console.print(f"\n[bold]{len(suggestions)} pending suggestion(s)[/bold]\n")
+        table = Table(show_header=True, header_style="bold cyan")
+        table.add_column("ID", justify="right", width=4)
+        table.add_column("Type", width=18)
+        table.add_column("Category", width=12)
+        table.add_column("Avg Move", justify="right", width=8)
+        table.add_column("Misses", justify="right", width=6)
+        table.add_column("Suggestion", max_width=60)
+
+        for s in suggestions:
+            avg = f"+{s['avg_pct_move']:.0f}%" if s.get("avg_pct_move") is not None else "—"
+            misses = str(s["miss_count"]) if s.get("miss_count") is not None else "—"
+            table.add_row(
+                str(s["id"]), s["suggestion_type"], s.get("category") or "—",
+                avg, misses, s["suggestion_text"],
+            )
+
+        console.print(table)
+        console.print(
+            "\n[dim]Mark one reviewed with: python3 cli.py suggestion review <id>[/dim]"
+        )
+
+    elif args.action == "review":
+        pending_ids = {s["id"] for s in logger.get_pending_suggestions()}
+        if args.id not in pending_ids:
+            console.print(
+                f"[red]Suggestion #{args.id} not found among pending suggestions.[/red]"
+            )
+            sys.exit(1)
+        logger.mark_suggestion_reviewed(args.id)
+        console.print(f"[green]Marked suggestion #{args.id} as reviewed.[/green]")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Polymarket Pipeline V2")
     sub = parser.add_subparsers(dest="command")
@@ -494,6 +539,14 @@ def main():
     # evolve
     p_evolve = sub.add_parser("evolve", help="Manually evolve the classification prompt")
     p_evolve.set_defaults(func=cmd_evolve)
+
+    # suggestion (list / review missed-opportunity threshold suggestions)
+    p_sugg = sub.add_parser("suggestion", help="View / review adjustment suggestions")
+    sugg_sub = p_sugg.add_subparsers(dest="action", required=True)
+    sugg_sub.add_parser("list", help="Show all pending suggestions")
+    p_sugg_review = sugg_sub.add_parser("review", help="Mark a suggestion as reviewed")
+    p_sugg_review.add_argument("id", type=int, help="Suggestion id to mark reviewed")
+    p_sugg.set_defaults(func=cmd_suggestion)
 
     args = parser.parse_args()
     if not args.command:
