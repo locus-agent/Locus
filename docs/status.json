@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T05:33:33.564784+00:00",
-  "last_heartbeat": "2026-06-19T05:33:33.564784+00:00",
-  "uptime_seconds": 24412,
+  "generated_at": "2026-06-19T05:38:37.778803+00:00",
+  "last_heartbeat": "2026-06-19T05:38:37.778803+00:00",
+  "uptime_seconds": 24716,
   "dry_run": true,
-  "markets_tracked": 1688,
+  "markets_tracked": 1689,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 251,
+  "headlines_scanned_today": 253,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15784,
+  "classifications_24h": 15714,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4203,
+    "prefiltered_haiku": 4177,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3828,
-    "matched": 1090,
-    "classified": 15784,
+    "news": 3812,
+    "matched": 1082,
+    "classified": 15714,
     "signals": 5,
     "trades": 2
   },
@@ -134,12 +134,12 @@
     "losses": 9,
     "win_rate_pct": 59.1,
     "realized_pnl_usd": 56.87,
-    "unrealized_pnl_usd": -4.46,
-    "total_pnl_usd": 52.41,
+    "unrealized_pnl_usd": -3.96,
+    "total_pnl_usd": 52.91,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1710.0
+    "avg_classification_latency_ms": 1709.5
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-19-2026",
       "side": "NO",
       "entry_price": 0.495,
-      "current_price": 0.585,
-      "pnl_pct": -17.82,
+      "current_price": 0.575,
+      "pnl_pct": -15.84,
       "amount_usd": 25.0,
-      "current_value_usd": 20.54,
-      "pnl_usd": -4.46,
+      "current_value_usd": 21.04,
+      "pnl_usd": -3.96,
       "edge_type": "momentum",
       "event_id": "605219"
     },
@@ -388,9 +388,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 05:30:58",
-      "market_question": "Will Donald Trump visit India in 2026?",
-      "headline": "India shares drop as IT declines on Accenture shock - Reuters",
+      "time": "2026-06-19 05:35:27",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Chris Mason: Emphatic win leaves Starmer with big decision on leadership",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 05:35:26",
+      "market_question": "Will Chris Madel win the 2026 Minnesota Governor Republican primary election?",
+      "headline": "Chris Mason: Emphatic win leaves Starmer with big decision on leadership",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -401,56 +414,43 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 05:26:35",
-      "market_question": "Will South Korea win Group A in the 2026 FIFA World Cup?",
-      "headline": "Mexico edge South Korea to win Group A, secure home last-32 tie - Reuters",
-      "direction": "bearish",
-      "materiality": 0.95,
-      "confidence": 0.98,
+      "time": "2026-06-19 05:35:26",
+      "market_question": "Will the Athletics win the 2026 World Series?",
+      "headline": "Chris Mason: Emphatic win leaves Starmer with big decision on leadership",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 05:26:35",
-      "market_question": "Will South Africa win Group A in the 2026 FIFA World Cup?",
-      "headline": "Mexico edge South Korea to win Group A, secure home last-32 tie - Reuters",
-      "direction": "bearish",
-      "materiality": 0.85,
-      "confidence": 0.97,
-      "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 05:26:35",
-      "market_question": "Will Mexico score the most goals at the 2026 FIFA World Cup?",
-      "headline": "Mexico edge South Korea to win Group A, secure home last-32 tie - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-19 05:35:26",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Chris Mason: Emphatic win leaves Starmer with big decision on leadership",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 05:26:35",
-      "market_question": "Will the announcers say \"Champion\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Mexico edge South Korea to win Group A, secure home last-32 tie - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-19 05:35:26",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Chris Mason: Emphatic win leaves Starmer with big decision on leadership",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
