@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T10:32:59.304041+00:00",
-  "last_heartbeat": "2026-06-19T10:32:59.304041+00:00",
-  "uptime_seconds": 42378,
+  "generated_at": "2026-06-19T10:38:03.543462+00:00",
+  "last_heartbeat": "2026-06-19T10:38:03.543462+00:00",
+  "uptime_seconds": 42682,
   "dry_run": true,
-  "markets_tracked": 1687,
+  "markets_tracked": 1683,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 466,
+  "headlines_scanned_today": 473,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15923,
+  "classifications_24h": 15945,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4276,
+    "prefiltered_haiku": 4278,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3829,
-    "matched": 1196,
-    "classified": 15923,
+    "news": 3836,
+    "matched": 1202,
+    "classified": 15945,
     "signals": 6,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1781.7
+    "avg_classification_latency_ms": 1786.0
   },
   "live_readiness": {
     "ready": true,
@@ -402,9 +402,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 10:26:21",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "ASML denies selling EUV chipmaking tool to China after report of US concern - Reuters",
+      "time": "2026-06-19 10:37:33",
+      "market_question": "Will England reach the 2026 FIFA World Cup final?",
+      "headline": "Wonderwall one of favourite England moments - Kane",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -415,56 +415,56 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 10:24:15",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $1.1T by December 31?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
+      "time": "2026-06-19 10:37:33",
+      "market_question": "Will England reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Wonderwall one of favourite England moments - Kane",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 10:37:33",
+      "market_question": "Will the New England Patriots win the 2027 NFL league championship?",
+      "headline": "Wonderwall one of favourite England moments - Kane",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 10:37:32",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "The heavily jeered $250m goldmine - are hydration break ads here to stay?",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 10:24:13",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $1.5T by December 31?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-19 10:37:31",
+      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
+      "headline": "Gov't fast-tracks incentive package to position PH as AI, semicon hub - Philippine News Agency",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 10:24:12",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 10:24:12",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $1.75T by December 31?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
