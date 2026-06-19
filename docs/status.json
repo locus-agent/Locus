@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T12:24:37.579055+00:00",
-  "last_heartbeat": "2026-06-19T12:24:37.579055+00:00",
-  "uptime_seconds": 49076,
+  "generated_at": "2026-06-19T12:29:42.126263+00:00",
+  "last_heartbeat": "2026-06-19T12:29:42.126263+00:00",
+  "uptime_seconds": 49381,
   "dry_run": true,
-  "markets_tracked": 1680,
+  "markets_tracked": 1685,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,19 +82,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 538,
+  "headlines_scanned_today": 545,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15237,
+  "classifications_24h": 15244,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3976,
+    "prefiltered_haiku": 3977,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 6,
+    "price_target_market": 4,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3649,
-    "matched": 1203,
-    "classified": 15237,
+    "news": 3652,
+    "matched": 1207,
+    "classified": 15244,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1793.5
+    "avg_classification_latency_ms": 1798.5
   },
   "live_readiness": {
     "ready": true,
@@ -416,9 +416,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 12:20:53",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "The Most Surprising Miscalculation of Trump\u2019s Second Term - Politico",
+      "time": "2026-06-19 12:27:31",
+      "market_question": "Will Burna Boy perform at the 2026 FIFA World Cup Final halftime show?",
+      "headline": "Boy, 3, hurt at zoo was attacked by a crocodile, BBC understands",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 12:25:35",
+      "market_question": "Will Ethereum dip to $1,100 in June?",
+      "headline": "Stocks dip after US-Iran peace talks delay; yen hovers near 40-year lows - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 12:25:33",
+      "market_question": "Will Ethereum dip to $1,100 June 15-21?",
+      "headline": "Stocks dip after US-Iran peace talks delay; yen hovers near 40-year lows - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 12:25:33",
+      "market_question": "Will Ethereum dip to $1,200 in June?",
+      "headline": "Stocks dip after US-Iran peace talks delay; yen hovers near 40-year lows - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -429,56 +468,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 12:20:49",
-      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
-      "headline": "The Most Surprising Miscalculation of Trump\u2019s Second Term - Politico",
+      "time": "2026-06-19 12:25:33",
+      "market_question": "Will Ethereum dip to $1,500 in June?",
+      "headline": "Stocks dip after US-Iran peace talks delay; yen hovers near 40-year lows - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 12:20:48",
-      "market_question": "Will DeepSeek have the second best AI model at the end of June 2026?",
-      "headline": "The Most Surprising Miscalculation of Trump\u2019s Second Term - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 12:20:48",
-      "market_question": "Will Meituan have the second best AI model at the end of June 2026?",
-      "headline": "The Most Surprising Miscalculation of Trump\u2019s Second Term - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 12:20:48",
-      "market_question": "Will OpenAI have the second best AI model at the end of June 2026?",
-      "headline": "The Most Surprising Miscalculation of Trump\u2019s Second Term - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
