@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T06:34:28.515541+00:00",
-  "last_heartbeat": "2026-06-19T06:34:28.515541+00:00",
-  "uptime_seconds": 28067,
+  "generated_at": "2026-06-19T06:39:32.900080+00:00",
+  "last_heartbeat": "2026-06-19T06:39:32.900080+00:00",
+  "uptime_seconds": 28372,
   "dry_run": true,
-  "markets_tracked": 1691,
+  "markets_tracked": 1688,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 271,
+  "headlines_scanned_today": 275,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15683,
+  "classifications_24h": 15700,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4153,
+    "prefiltered_haiku": 4165,
     "stale": 62,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3799,
-    "matched": 1080,
-    "classified": 15683,
+    "news": 3803,
+    "matched": 1083,
+    "classified": 15700,
     "signals": 5,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1715.9
+    "avg_classification_latency_ms": 1713.3
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 06:33:30",
-      "market_question": "Will the announcers say \"Champion\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Meet Merlin the Duck: Mexico's World Cup 'ambassador'",
+      "time": "2026-06-19 06:38:03",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Janse van Rensburg backed for first England run-out",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 06:38:02",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "What Happens When Bitcoin Reaches 21 Million Supply?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -401,56 +414,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 06:33:30",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Meet Merlin the Duck: Mexico's World Cup 'ambassador'",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 06:38:02",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Janse van Rensburg backed for first England run-out",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 06:33:30",
-      "market_question": "Will the announcers say \"Assist\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Meet Merlin the Duck: Mexico's World Cup 'ambassador'",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 06:38:02",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Janse van Rensburg backed for first England run-out",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 06:33:30",
-      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
-      "headline": "Meet Merlin the Duck: Mexico's World Cup 'ambassador'",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 06:33:30",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Meet Merlin the Duck: Mexico's World Cup 'ambassador'",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 06:38:02",
+      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
+      "headline": "Janse van Rensburg backed for first England run-out",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
