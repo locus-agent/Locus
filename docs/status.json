@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T09:57:26.787058+00:00",
-  "last_heartbeat": "2026-06-19T09:57:26.787058+00:00",
-  "uptime_seconds": 40245,
+  "generated_at": "2026-06-19T10:02:31.778185+00:00",
+  "last_heartbeat": "2026-06-19T10:02:31.778185+00:00",
+  "uptime_seconds": 40550,
   "dry_run": true,
-  "markets_tracked": 1694,
+  "markets_tracked": 1691,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 430,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 433,
+  "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15817,
+  "classifications_24h": 15823,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4222,
+    "prefiltered_haiku": 4230,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T09:47:15.624307+00:00"
+    "last_check": "2026-06-19T10:02:16.009682+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 3810,
-    "matched": 1171,
-    "classified": 15817,
+    "matched": 1173,
+    "classified": 15823,
     "signals": 6,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1758.9
+    "avg_classification_latency_ms": 1758.3
   },
   "live_readiness": {
     "ready": true,
@@ -402,35 +402,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 09:57:18",
-      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
-      "headline": "How Andy Burnham could try to displace Keir Starmer as UK prime minister - Reuters",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.6,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 09:57:15",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
-      "headline": "How Andy Burnham could try to displace Keir Starmer as UK prime minister - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 09:57:14",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "How Andy Burnham could try to displace Keir Starmer as UK prime minister - Reuters",
+      "time": "2026-06-19 09:59:35",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -441,22 +415,48 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 09:57:14",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
-      "headline": "How Andy Burnham could try to displace Keir Starmer as UK prime minister - Reuters",
+      "time": "2026-06-19 09:59:35",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 09:57:14",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "How Andy Burnham could try to displace Keir Starmer as UK prime minister - Reuters",
+      "time": "2026-06-19 09:59:34",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 09:59:34",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 09:59:34",
+      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
+      "headline": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
