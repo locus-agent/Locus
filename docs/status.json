@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T07:15:04.370317+00:00",
-  "last_heartbeat": "2026-06-19T07:15:04.370317+00:00",
-  "uptime_seconds": 30503,
+  "generated_at": "2026-06-19T07:20:08.570291+00:00",
+  "last_heartbeat": "2026-06-19T07:20:08.570291+00:00",
+  "uptime_seconds": 30807,
   "dry_run": true,
-  "markets_tracked": 1677,
+  "markets_tracked": 1685,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 296,
+  "headlines_scanned_today": 297,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15712,
+  "classifications_24h": 15660,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4172,
+    "prefiltered_haiku": 4152,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T07:02:10.686955+00:00"
+    "last_check": "2026-06-19T07:17:11.109680+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3806,
-    "matched": 1092,
-    "classified": 15712,
+    "news": 3792,
+    "matched": 1083,
+    "classified": 15660,
     "signals": 5,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1724.3
+    "avg_classification_latency_ms": 1726.5
   },
   "live_readiness": {
     "ready": true,
@@ -388,60 +388,60 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-19 07:18:22",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
+      "headline": "Burnham says 'tonight could be the the turning point' in his victory speech",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.65,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 07:18:15",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Burnham says 'tonight could be the the turning point' in his victory speech",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 07:18:15",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
+      "headline": "Burnham says 'tonight could be the the turning point' in his victory speech",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 07:18:15",
+      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
+      "headline": "Burnham says 'tonight could be the the turning point' in his victory speech",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-19 07:07:05",
       "market_question": "Will Kash Patel leave the Trump administration before 2027?",
-      "headline": "Pakistani Kashmir faces shutdown as protests leave more than 20 dead - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 07:07:05",
-      "market_question": "Will Kristi Noem leave the Trump administration before 2027?",
-      "headline": "Pakistani Kashmir faces shutdown as protests leave more than 20 dead - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 07:07:05",
-      "market_question": "Will Pete Hegseth leave the Trump administration before 2027?",
-      "headline": "Pakistani Kashmir faces shutdown as protests leave more than 20 dead - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 07:07:05",
-      "market_question": "Will Howard Lutnick leave the Trump administration before 2027?",
-      "headline": "Pakistani Kashmir faces shutdown as protests leave more than 20 dead - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 07:07:05",
-      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
       "headline": "Pakistani Kashmir faces shutdown as protests leave more than 20 dead - Reuters",
       "direction": null,
       "materiality": null,
