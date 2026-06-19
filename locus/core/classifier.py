@@ -61,6 +61,15 @@ Examples of VALID direct evidence:
 If you need more than one logical step to connect the headline to the market resolution → direction MUST be neutral.
 Ask yourself: Does this headline alone almost prove the market outcome? If not — neutral.
 
+TIME HORIZON ASSESSMENT: For each signal, assess when the market is likely to resolve based on this news:
+- immediate (0-4h): news directly and immediately affects market resolution
+- medium (4-24h): news strongly suggests resolution within a day
+- long_term (>24h): news is relevant but resolution is days/weeks away
+
+Return time_horizon field in JSON: 'immediate', 'medium', or 'long_term'
+
+If time_horizon is 'long_term', reduce the materiality score by 0.10. This is a soft penalty — strong long-term signals (original materiality 0.60+) can still be traded, weak ones will be filtered out naturally.
+
 SPORTS MARKETS — Extra Strict Rules:
 For any sports market, ADDITIONALLY require:
 - NO rumors, speculation, or unnamed sources ('rumored', 'expected', 'might', 'could', 'according to sources', 'insider says')
@@ -108,6 +117,7 @@ Respond with ONLY valid JSON:
   "direction": "bullish" | "bearish" | "neutral",
   "materiality": <float 0.0 to 1.0>,
   "confidence": <float 0.5 to 1.0>,
+  "time_horizon": "immediate" | "medium" | "long_term",
   "reasoning": "<1 sentence>"
 }}"""
 
@@ -230,6 +240,17 @@ class Classification:
     # left at defaults for plain single-model classify() results.
     consensus_score: float | None = None  # 0.0-1.0 agreement between models
     ensemble_used: bool = False  # True when two models were blended
+    # Time horizon for the market's resolution given this news (immediate/medium/
+    # long_term). adjusted_materiality is the raw materiality with the
+    # horizon-specific penalty applied (floored at 0) — the gates check against
+    # it, so long-horizon resolutions need a stronger raw read to clear the bar.
+    # Computed in __post_init__ so every construction path (incl. tests) gets it.
+    time_horizon: str = "medium"
+    adjusted_materiality: float = 0.0
+
+    def __post_init__(self):
+        penalty = config.TIME_HORIZON_PENALTY.get(self.time_horizon, -0.03)
+        self.adjusted_materiality = max(0.0, self.materiality + penalty)
 
 
 # Direction synonyms normalized to our three canonical labels. Different models
@@ -263,6 +284,17 @@ _DIRECTION_RE = re.compile(r'direction["\s:=]+([a-zA-Z]+)', re.IGNORECASE)
 _MATERIALITY_RE = re.compile(r'materiality["\s:=]+(-?[0-9]*\.?[0-9]+)', re.IGNORECASE)
 _CONFIDENCE_RE = re.compile(r'confidence["\s:=]+(-?[0-9]*\.?[0-9]+)', re.IGNORECASE)
 _REASONING_RE = re.compile(r'reasoning["\s:=]+"([^"]*)"', re.IGNORECASE)
+_TIME_HORIZON_RE = re.compile(r'time_horizon["\s:=]+([a-zA-Z_]+)', re.IGNORECASE)
+
+# Canonical resolution-time horizons; anything else normalizes to "medium".
+_TIME_HORIZONS = {"immediate", "medium", "long_term"}
+
+
+def _normalize_time_horizon(value: object) -> str:
+    """Map a model's time_horizon label to immediate/medium/long_term (default
+    medium for missing/unrecognized values)."""
+    v = str(value or "").strip().lower()
+    return v if v in _TIME_HORIZONS else "medium"
 
 
 def parse_classification(text: str) -> dict:
@@ -299,6 +331,7 @@ def parse_classification(text: str) -> dict:
                     "direction": _normalize_direction(result.get("direction", "neutral")),
                     "materiality": _clamp(result.get("materiality", 0.0), 0.0, 1.0),
                     "confidence": _clamp(result.get("confidence", 0.5), 0.5, 1.0),
+                    "time_horizon": _normalize_time_horizon(result.get("time_horizon", "medium")),
                     "reasoning": str(result.get("reasoning", "")),
                 }
         except (ValueError, TypeError):
@@ -308,17 +341,20 @@ def parse_classification(text: str) -> dict:
     d = _DIRECTION_RE.search(text)
     mat = _MATERIALITY_RE.search(text)
     conf = _CONFIDENCE_RE.search(text)
+    horizon = _TIME_HORIZON_RE.search(text)
     reason = _REASONING_RE.search(text)
     if d or mat or conf:
         return {
             "direction": _normalize_direction(d.group(1)) if d else "neutral",
             "materiality": _clamp(mat.group(1), 0.0, 1.0) if mat else 0.0,
             "confidence": _clamp(conf.group(1), 0.5, 1.0) if conf else 0.5,
+            "time_horizon": _normalize_time_horizon(horizon.group(1)) if horizon else "medium",
             "reasoning": reason.group(1) if reason else "",
         }
 
     # Try 3: nothing parseable — neutral fallback.
-    return {"direction": "neutral", "materiality": 0.0, "confidence": 0.5, "reasoning": ""}
+    return {"direction": "neutral", "materiality": 0.0, "confidence": 0.5,
+            "time_horizon": "medium", "reasoning": ""}
 
 
 _RELEVANT_RE = re.compile(r'relevant["\s:=]+(true|false)', re.IGNORECASE)
@@ -406,6 +442,7 @@ def classify(
                 direction=parsed["direction"],
                 materiality=parsed["materiality"],
                 confidence=parsed["confidence"],
+                time_horizon=parsed["time_horizon"],
                 reasoning=parsed["reasoning"],
                 latency_ms=latency,
                 model=model,

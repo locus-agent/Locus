@@ -4,10 +4,12 @@ import logging
 import time
 from dataclasses import dataclass
 
+import httpx
+
 from locus import config
 from locus import memory
 from locus.memory import logger
-from locus.markets.gamma import Market
+from locus.markets.gamma import Market, get_token_id
 from locus.core.classifier import Classification
 from locus.sources.news_stream import NewsEvent
 
@@ -73,6 +75,10 @@ class Signal:
     news_source: str = ""
     classification: str = ""
     materiality: float = 0.0
+    # Materiality with the time-horizon penalty applied; the gates check against
+    # this. None for signals built outside detect_edge_v2 (tests) — consumers
+    # fall back to `materiality` then.
+    adjusted_materiality: float | None = None
     confidence: float = 0.5  # P(predicted direction) used for Kelly sizing
     news_latency_ms: int = 0
     classification_latency_ms: int = 0
@@ -107,6 +113,49 @@ class EdgeMetrics:
     fee_cost: float = 0.0
     net_edge: float = 0.0
     signal: "Signal | None" = None
+
+
+def get_price_momentum(market: Market, lookback_minutes: int = 60) -> float | None:
+    """Relative YES-price drift over the last `lookback_minutes`, from the
+    Polymarket CLOB price-history API: (price_now - price_then) / price_then.
+
+    Returns None — never raises — when the market has no YES token, the history
+    endpoint is unreachable, or too few points come back, so detect_edge_v2 can
+    treat a missing reading as "no momentum signal" and proceed without a boost.
+    """
+    token_id = get_token_id(market, "YES")
+    if not token_id:
+        return None
+    now = int(time.time())
+    start_ts = now - lookback_minutes * 60
+    try:
+        resp = httpx.get(
+            f"{config.POLYMARKET_HOST}/prices-history",
+            params={
+                "market": token_id,
+                "startTs": start_ts,
+                "endTs": now,
+                "fidelity": max(1, lookback_minutes // 12),
+            },
+            timeout=2.0,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as e:  # network/HTTP/parse — fail open
+        log.info(f"[edge] Momentum price history unavailable ({type(e).__name__}: {e})")
+        return None
+
+    history = data.get("history") if isinstance(data, dict) else None
+    if not history or len(history) < 2:
+        return None
+    try:
+        price_then = float(history[0]["p"])
+        price_now = float(history[-1]["p"])
+    except (KeyError, ValueError, TypeError, IndexError):
+        return None
+    if price_then <= 0:
+        return None
+    return (price_now - price_then) / price_then
 
 
 def detect_edge_v2(
@@ -167,6 +216,21 @@ def detect_edge_v2(
     log.info(
         f"[edge] Fee-adjusted edge: raw={edge:.3f} fee={fee_cost:.3f} net={net_edge:.3f}"
     )
+
+    # Momentum hybrid: when recent price drift agrees with our direction (YES &
+    # rising, or NO & falling), nudge the edge up a touch. Bounded to +0.05 and
+    # skipped entirely when price history is unavailable (get_price_momentum None).
+    if config.MOMENTUM_ENABLED:
+        momentum = get_price_momentum(market, config.MOMENTUM_LOOKBACK_MINUTES)
+        if momentum is not None:
+            confirms = (side == "YES" and momentum > 0) or (side == "NO" and momentum < 0)
+            if confirms:
+                momentum_boost = min(0.05, abs(momentum) * 0.5)
+                net_edge += momentum_boost
+                log.info(
+                    f"[edge] Momentum boost: {momentum:+.1%} → edge boost +{momentum_boost:.3f}"
+                )
+
     if net_edge < config.EDGE_THRESHOLD:
         return None
 
@@ -192,6 +256,7 @@ def detect_edge_v2(
         news_source=news_event.source,
         classification=classification.direction,
         materiality=classification.materiality,
+        adjusted_materiality=classification.adjusted_materiality,
         confidence=classification.confidence,
         news_latency_ms=news_event.latency_ms,
         classification_latency_ms=classification.latency_ms,

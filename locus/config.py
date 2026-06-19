@@ -110,6 +110,39 @@ DAILY_SPEND_LIMIT_USD = float(os.getenv("DAILY_SPEND_LIMIT_USD", "100"))
 EDGE_THRESHOLD = float(os.getenv("EDGE_THRESHOLD", "0.10"))
 NEWS_LOOKBACK_HOURS = 6
 
+# --- Time-horizon materiality penalty (classifier) ---
+# Claude tags each signal with when the market is likely to resolve given the
+# news. Long-horizon resolutions are discounted: the penalty is added to the raw
+# materiality to produce adjusted_materiality (floored at 0), which the gates
+# check against. A soft penalty — strong long-term signals still clear the bar,
+# weak ones drop below it. Override with a TIME_HORIZON_PENALTY JSON string.
+TIME_HORIZON_PENALTY = {"immediate": 0.0, "medium": -0.03, "long_term": -0.10}
+_time_horizon_penalty_override = os.getenv("TIME_HORIZON_PENALTY", "")
+if _time_horizon_penalty_override:
+    try:
+        TIME_HORIZON_PENALTY = json.loads(_time_horizon_penalty_override)
+    except (ValueError, TypeError):
+        pass  # malformed override -> keep the defaults above
+
+# --- Momentum hybrid edge (edge.detect_edge_v2) ---
+# When MOMENTUM_ENABLED, a signal whose direction agrees with the market's
+# recent price drift (over MOMENTUM_LOOKBACK_MINUTES, via the Gamma/CLOB price
+# history API) gets a small additive edge boost. Fails open: if price history is
+# unavailable the boost is simply skipped.
+MOMENTUM_ENABLED = os.getenv("MOMENTUM_ENABLED", "true").lower() == "true"
+MOMENTUM_LOOKBACK_MINUTES = int(os.getenv("MOMENTUM_LOOKBACK_MINUTES", "60"))
+
+# --- Multi-source confirmation for high-materiality signals (pipeline) ---
+# A high-materiality signal (adjusted_materiality >= MULTI_SOURCE_CONFIRM_THRESHOLD)
+# is sized down by MULTI_SOURCE_SIZE_REDUCTION unless a second, independent news
+# source produced a matching directional call (materiality >= 0.35) on the same
+# market in the last few hours. Obvious news is least accurate, so an unconfirmed
+# big signal bets smaller rather than being blocked outright.
+MULTI_SOURCE_CONFIRM_THRESHOLD = float(os.getenv("MULTI_SOURCE_CONFIRM_THRESHOLD", "0.65"))
+MULTI_SOURCE_SIZE_REDUCTION = float(os.getenv("MULTI_SOURCE_SIZE_REDUCTION", "0.30"))
+MULTI_SOURCE_CONFIRM_WINDOW_HOURS = float(os.getenv("MULTI_SOURCE_CONFIRM_WINDOW_HOURS", "3"))
+MULTI_SOURCE_CONFIRM_MIN_MATERIALITY = float(os.getenv("MULTI_SOURCE_CONFIRM_MIN_MATERIALITY", "0.35"))
+
 # --- Polymarket trading fees (per-category) ---
 # Per-share fee modeled as feeRate * p * (1 - p) (see edge.detect_edge_v2).
 # The fee is subtracted from raw edge before the EDGE_THRESHOLD check, so a

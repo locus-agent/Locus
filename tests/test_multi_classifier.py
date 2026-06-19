@@ -25,7 +25,7 @@ def test_parser_json():
         '{"direction":"bullish","materiality":0.7,"confidence":0.82,"reasoning":"r"}'
     )
     assert out == {"direction": "bullish", "materiality": 0.7,
-                   "confidence": 0.82, "reasoning": "r"}
+                   "confidence": 0.82, "time_horizon": "medium", "reasoning": "r"}
 
 
 def test_parser_json_in_code_fence_with_prose():
@@ -51,7 +51,7 @@ def test_parser_text_regex_fallback():
 def test_parser_pure_fallback():
     out = parse_classification("totally unparseable prose with no fields at all")
     assert out == {"direction": "neutral", "materiality": 0.0,
-                   "confidence": 0.5, "reasoning": ""}
+                   "confidence": 0.5, "time_horizon": "medium", "reasoning": ""}
 
 
 def test_parser_empty_and_none():

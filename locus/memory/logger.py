@@ -107,6 +107,8 @@ def init_db():
             expected_edge REAL,
             vol_adj REAL,
             fee_cost REAL,
+            time_horizon TEXT,
+            adjusted_materiality REAL,
             action TEXT NOT NULL,
             match_source TEXT,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
@@ -253,6 +255,10 @@ def _migrate_classification_columns(conn):
         ("vol_adj", "REAL"),
         # Modeled per-share trading fee subtracted from raw edge at signal time.
         ("fee_cost", "REAL"),
+        # Resolution time horizon (immediate/medium/long_term) and the
+        # horizon-penalized materiality the gates check against.
+        ("time_horizon", "TEXT"),
+        ("adjusted_materiality", "REAL"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -747,20 +753,23 @@ def log_classification(
     expected_edge: float | None = None,
     vol_adj: float | None = None,
     fee_cost: float | None = None,
+    time_horizon: str | None = None,
+    adjusted_materiality: float | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
            (market_question, headline, news_source, direction, materiality, edge, action,
             match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
-            event_id, consensus_score, ensemble_used, expected_edge, vol_adj, fee_cost)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            event_id, consensus_score, ensemble_used, expected_edge, vol_adj, fee_cost,
+            time_horizon, adjusted_materiality)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_question, headline, news_source, direction, materiality, edge, action,
          match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
          event_id,
          consensus_score,
          None if ensemble_used is None else int(ensemble_used),
-         expected_edge, vol_adj, fee_cost),
+         expected_edge, vol_adj, fee_cost, time_horizon, adjusted_materiality),
     )
     classification_id = cur.lastrowid
     conn.commit()
@@ -829,6 +838,29 @@ def get_confirming_sources(condition_id: str, direction: str, since: str) -> set
     ).fetchall()
     conn.close()
     return {r["news_source"] for r in rows}
+
+
+def has_multi_source_confirmation(
+    condition_id: str, direction: str, since: str, exclude_source: str,
+    min_materiality: float = 0.35,
+) -> bool:
+    """True when a prior classification on this market — same direction,
+    materiality >= min_materiality, since `since` — came from a news_source
+    other than exclude_source. Backs the pipeline's multi-source confirmation of
+    high-materiality signals (an independent second source vouching for the call)."""
+    conn = _conn()
+    row = conn.execute(
+        """SELECT 1 FROM classifications
+           WHERE condition_id = ? AND direction = ?
+             AND materiality >= ?
+             AND news_source IS NOT NULL AND news_source != ''
+             AND news_source != ?
+             AND created_at >= ?
+           LIMIT 1""",
+        (condition_id, direction, min_materiality, exclude_source, since),
+    ).fetchone()
+    conn.close()
+    return row is not None
 
 
 def watch_closed_position(

@@ -123,6 +123,30 @@ def cov_blocks(cov: dict | None) -> bool:
     )
 
 
+def effective_materiality(signal) -> float:
+    """The materiality the gates judge a signal by: the time-horizon-penalized
+    adjusted_materiality when detect_edge_v2 set it, else the raw materiality
+    (signals built outside the edge path — e.g. tests — leave it None)."""
+    adj = getattr(signal, "adjusted_materiality", None)
+    return adj if adj is not None else signal.materiality
+
+
+def multi_source_adjust(signal, confirmed: bool) -> str:
+    """Multi-source confirmation for high-materiality signals (size, not block).
+
+    Only acts when effective materiality >= MULTI_SOURCE_CONFIRM_THRESHOLD. When
+    an independent second source already vouched for the call (`confirmed`), the
+    size is untouched; otherwise it is shaved by MULTI_SOURCE_SIZE_REDUCTION.
+    Returns 'confirmed', 'reduced', or 'n/a' (below the threshold) for logging.
+    """
+    if effective_materiality(signal) < config.MULTI_SOURCE_CONFIRM_THRESHOLD:
+        return "n/a"
+    if confirmed:
+        return "confirmed"
+    signal.bet_amount = round(signal.bet_amount * (1.0 - config.MULTI_SOURCE_SIZE_REDUCTION), 2)
+    return "reduced"
+
+
 def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: datetime | None = None,
                sports_event_counts: dict[str, int] | None = None):
     """Trade-time risk gates, applied after classification so every
@@ -235,13 +259,16 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         config.SPORTS_MATERIALITY_THRESHOLD if is_sports
         else config.materiality_threshold(direction)
     )
-    if signal.materiality < floor:
+    # Judge against the time-horizon-penalized materiality (long-horizon
+    # resolutions need a stronger raw read to clear the floor).
+    mat = effective_materiality(signal)
+    if mat < floor:
         return None, "low_materiality"
 
     # High-materiality confirmation gate: the most "obvious" news grades worst
     # (likely already priced in), so require the same directional read from
     # >= MIN_CONFIRMING_SOURCES distinct sources within the recent window.
-    if signal.materiality >= config.HIGH_MATERIALITY_THRESHOLD:
+    if mat >= config.HIGH_MATERIALITY_THRESHOLD:
         since = (
             (now or datetime.now(timezone.utc))
             - timedelta(hours=config.CONFIRMATION_WINDOW_HOURS)
@@ -615,6 +642,38 @@ class PipelineV2:
                                     f"on \"{market.question[:40]}\" (allowed)"
                                 )
 
+                        # Multi-source confirmation: a high-materiality signal
+                        # (adjusted_materiality >= MULTI_SOURCE_CONFIRM_THRESHOLD)
+                        # keeps full size only if a second, independent source
+                        # already made a matching directional call on this market
+                        # recently; otherwise it bets smaller (not blocked).
+                        if signal is not None and effective_materiality(signal) >= config.MULTI_SOURCE_CONFIRM_THRESHOLD:
+                            since = (
+                                datetime.now(timezone.utc)
+                                - timedelta(hours=config.MULTI_SOURCE_CONFIRM_WINDOW_HOURS)
+                            ).strftime("%Y-%m-%d %H:%M:%S")
+                            confirmed = await asyncio.get_event_loop().run_in_executor(
+                                None,
+                                lambda: logger.has_multi_source_confirmation(
+                                    market.condition_id, signal.classification, since,
+                                    event.source, config.MULTI_SOURCE_CONFIRM_MIN_MATERIALITY,
+                                ),
+                            )
+                            before = signal.bet_amount
+                            result = multi_source_adjust(signal, confirmed)
+                            if result == "confirmed":
+                                log.info(f"Multi-source confirmed: {market.slug}")
+                                console.print(
+                                    f"  [green]MULTI-SOURCE CONFIRMED[/green]: "
+                                    f"\"{market.question[:40]}\""
+                                )
+                            elif result == "reduced":
+                                console.print(
+                                    f"  [yellow]UNCONFIRMED HIGH-MATERIALITY[/yellow]: "
+                                    f"size ${before:.0f} -> ${signal.bet_amount:.0f} "
+                                    f"on \"{market.question[:40]}\""
+                                )
+
                         # Orderbook imbalance gate + Chain-of-Verification (CoV).
                         # Both are independent network calls, so fetch them
                         # concurrently. Orderbook: don't trade into strong
@@ -766,6 +825,8 @@ class PipelineV2:
                         expected_edge=raw_signal.expected_edge if raw_signal else None,
                         vol_adj=raw_signal.vol_adj if raw_signal else None,
                         fee_cost=raw_signal.fee_cost if raw_signal else None,
+                        time_horizon=classification.time_horizon,
+                        adjusted_materiality=classification.adjusted_materiality,
                         action=action,
                         match_source=match_source,
                         condition_id=market.condition_id,
@@ -1077,6 +1138,8 @@ class PipelineV2:
             expected_edge=signal.expected_edge if signal else None,
             vol_adj=signal.vol_adj if signal else None,
             fee_cost=signal.fee_cost if signal else None,
+            time_horizon=classification.time_horizon,
+            adjusted_materiality=classification.adjusted_materiality,
             action="whale_triggered",
             match_source="whale",
             condition_id=market.condition_id,

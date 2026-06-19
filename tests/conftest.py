@@ -17,6 +17,16 @@ def _disable_telegram(monkeypatch):
     monkeypatch.setattr(config, "TELEGRAM_CHAT_ID", "", raising=False)
 
 
+@pytest.fixture(autouse=True)
+def _disable_momentum(monkeypatch):
+    """Keep the momentum hybrid off by default so detect_edge_v2 never reaches
+    for the live price-history API during tests. Tests that exercise momentum
+    re-enable it explicitly and stub edge.get_price_momentum."""
+    from locus import config
+
+    monkeypatch.setattr(config, "MOMENTUM_ENABLED", False, raising=False)
+
+
 @pytest.fixture
 def tmp_db(tmp_path, monkeypatch):
     """Point the SQLite layer at a throwaway database."""

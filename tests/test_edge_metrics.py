@@ -137,6 +137,50 @@ def test_edge_rejected_when_fee_eats_it():
     assert detect_edge_v2(_mkt(0.5, fee_rate=0.10), _cls("bullish", 0.22), EVENT) is None
 
 
+# --- momentum hybrid edge ----------------------------------------------------
+# price 0.5, bullish, materiality 0.6 -> raw edge 0.30, no fee (test default).
+
+def test_momentum_boost_added_when_direction_confirms(monkeypatch):
+    monkeypatch.setattr(config, "MOMENTUM_ENABLED", True)
+    monkeypatch.setattr(edge, "get_price_momentum", lambda *a, **k: 0.20)  # +20% YES drift
+    m = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.6), EVENT)
+    # boost = min(0.05, abs(0.20) * 0.5 = 0.10) = 0.05.
+    assert m.net_edge == pytest.approx(0.30 + 0.05)
+
+
+def test_momentum_boost_capped_below_cap(monkeypatch):
+    monkeypatch.setattr(config, "MOMENTUM_ENABLED", True)
+    monkeypatch.setattr(edge, "get_price_momentum", lambda *a, **k: 0.04)  # +4% drift
+    m = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.6), EVENT)
+    # boost = min(0.05, abs(0.04) * 0.5 = 0.02) = 0.02.
+    assert m.net_edge == pytest.approx(0.30 + 0.02)
+
+
+def test_momentum_no_boost_when_direction_opposes(monkeypatch):
+    monkeypatch.setattr(config, "MOMENTUM_ENABLED", True)
+    # Bullish signal but price is falling -> momentum does not confirm.
+    monkeypatch.setattr(edge, "get_price_momentum", lambda *a, **k: -0.20)
+    m = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.6), EVENT)
+    assert m.net_edge == pytest.approx(0.30)
+
+
+def test_momentum_skipped_when_history_unavailable(monkeypatch):
+    monkeypatch.setattr(config, "MOMENTUM_ENABLED", True)
+    monkeypatch.setattr(edge, "get_price_momentum", lambda *a, **k: None)
+    m = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.6), EVENT)
+    assert m.net_edge == pytest.approx(0.30)
+
+
+def test_momentum_not_consulted_when_disabled(monkeypatch):
+    # MOMENTUM_ENABLED is False (conftest default): get_price_momentum must not
+    # even be called, so a raising stub proves the guard short-circuits.
+    def _boom(*a, **k):
+        raise AssertionError("get_price_momentum should not be called when disabled")
+    monkeypatch.setattr(edge, "get_price_momentum", _boom)
+    m = detect_edge_v2(_mkt(0.5), _cls("bullish", 0.6), EVENT)
+    assert m.net_edge == pytest.approx(0.30)
+
+
 # --- configurable price guards (BULLISH/BEARISH_MIN/MAX_PRICE) ---------------
 # Materiality is high enough that the edge clears EDGE_THRESHOLD across the whole
 # allowed band, so the guard is the only thing that can return None here.
