@@ -1,80 +1,80 @@
 {
-  "generated_at": "2026-06-19T19:47:02.435449+00:00",
-  "last_heartbeat": "2026-06-19T19:47:02.435449+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-19T19:52:07.970333+00:00",
+  "last_heartbeat": "2026-06-19T19:52:07.970333+00:00",
+  "uptime_seconds": 344,
   "dry_run": true,
-  "markets_tracked": 1364,
+  "markets_tracked": 1357,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 7296,
+    "total": 7334,
     "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
-      "ai": 9.8,
-      "politics": 23.7,
-      "technology": 10.9,
-      "crypto": 12.7,
-      "sports": 28.1
+      "ai": 9.9,
+      "politics": 23.5,
+      "technology": 11.1,
+      "crypto": 12.9,
+      "sports": 28.0
     },
     "by_source": {
-      "rss": 17.4,
+      "rss": 17.5,
       "newsapi": 18.2,
       "truthsocial": 0.0
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.6,
-    "overall_total": 7296,
+    "overall_total": 7334,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4148,
+        "total": 4171,
         "correct": 320,
         "accuracy_pct": 7.7,
-        "avg_pnl_pct": 14.31,
+        "avg_pnl_pct": 14.1,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 637,
-        "correct": 228,
-        "accuracy_pct": 35.8,
-        "avg_pnl_pct": 32.89,
+        "total": 644,
+        "correct": 233,
+        "accuracy_pct": 36.2,
+        "avg_pnl_pct": 32.6,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 763,
-        "correct": 278,
-        "accuracy_pct": 36.4,
-        "avg_pnl_pct": 3.14,
+        "total": 767,
+        "correct": 280,
+        "accuracy_pct": 36.5,
+        "avg_pnl_pct": 3.15,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 406,
+        "total": 407,
         "correct": 97,
-        "accuracy_pct": 23.9,
+        "accuracy_pct": 23.8,
         "avg_pnl_pct": -3.67,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 411,
+        "total": 413,
         "correct": 182,
-        "accuracy_pct": 44.3,
-        "avg_pnl_pct": 3.25,
+        "accuracy_pct": 44.1,
+        "avg_pnl_pct": 3.16,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 931,
+        "total": 932,
         "correct": 176,
         "accuracy_pct": 18.9,
         "avg_pnl_pct": -6.45,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1294,
-  "headlines_last_cycle": 28,
+  "headlines_scanned_today": 1350,
+  "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 11483,
+  "classifications_24h": 11682,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2616,
+    "prefiltered_haiku": 2678,
     "stale": 38,
     "capped": 3,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2571,
-    "matched": 1121,
-    "classified": 11483,
+    "news": 2621,
+    "matched": 1120,
+    "classified": 11682,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1244.0
+    "avg_classification_latency_ms": 1298.4
   },
   "live_readiness": {
     "ready": true,
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     }
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 19:47:00",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
+      "time": "2026-06-19 19:49:01",
+      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
+      "headline": "Who is Andy Burnham, the lawmaker seeking to replace Keir Starmer - AP News",
+      "direction": "bullish",
+      "materiality": 0.45,
+      "confidence": 0.72,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.35,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 19:48:55",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "headline": "Who is Andy Burnham, the lawmaker seeking to replace Keir Starmer - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +420,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 19:46:59",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
+      "time": "2026-06-19 19:48:54",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
+      "headline": "Who is Andy Burnham, the lawmaker seeking to replace Keir Starmer - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 19:48:54",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
+      "headline": "Who is Andy Burnham, the lawmaker seeking to replace Keir Starmer - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 19:48:54",
+      "market_question": "Will Bitcoin replace SHA-256 before 2027?",
+      "headline": "Who is Andy Burnham, the lawmaker seeking to replace Keir Starmer - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -416,54 +464,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 19:46:59",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 19:46:59",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 19:46:58",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Zelenskiy says Belarus should remove equipment used in attacks on Ukraine in one week - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
