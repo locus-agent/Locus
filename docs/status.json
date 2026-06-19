@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T07:30:17.304027+00:00",
-  "last_heartbeat": "2026-06-19T07:30:17.304027+00:00",
-  "uptime_seconds": 31416,
+  "generated_at": "2026-06-19T07:35:21.752219+00:00",
+  "last_heartbeat": "2026-06-19T07:35:21.752219+00:00",
+  "uptime_seconds": 31720,
   "dry_run": true,
-  "markets_tracked": 1682,
+  "markets_tracked": 1683,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 299,
+  "headlines_scanned_today": 301,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15671,
+  "classifications_24h": 15637,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4153,
+    "prefiltered_haiku": 4141,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T07:17:11.109680+00:00"
+    "last_check": "2026-06-19T07:32:11.516880+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3792,
-    "matched": 1085,
-    "classified": 15671,
+    "news": 3781,
+    "matched": 1083,
+    "classified": 15637,
     "signals": 5,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1735.1
+    "avg_classification_latency_ms": 1737.1
   },
   "live_readiness": {
     "ready": true,
@@ -388,69 +388,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 07:29:32",
-      "market_question": "Will Robert Kenyon win the 2026 Makerfield by-election by 6% or more?",
-      "headline": "Burnham Wins in Makerfield - So What Happens Now?",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.65,
+      "time": "2026-06-19 07:33:58",
+      "market_question": "USDC depeg by December 31?",
+      "headline": "Yen nears 40-year low, dollar gains as peace talks in doubt - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 07:29:30",
-      "market_question": "Will another outcome occur in the 2026 Makerfield by-election?",
-      "headline": "Burnham Wins in Makerfield - So What Happens Now?",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "confidence": 0.75,
+      "time": "2026-06-19 07:33:53",
+      "market_question": "Will OpenAI's valuation hit (LOW) $750B by December 31?",
+      "headline": "Yen nears 40-year low, dollar gains as peace talks in doubt - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 07:29:30",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
-      "headline": "Burnham Wins in Makerfield - So What Happens Now?",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.65,
+      "time": "2026-06-19 07:33:53",
+      "market_question": "Will OpenAI's valuation hit (LOW) $800B by December 31?",
+      "headline": "Yen nears 40-year low, dollar gains as peace talks in doubt - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 07:29:30",
-      "market_question": "Will Robert Kenyon win the 2026 Makerfield by-election by less than 3%?",
-      "headline": "Burnham Wins in Makerfield - So What Happens Now?",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.65,
+      "time": "2026-06-19 07:33:53",
+      "market_question": "Will Anthropic's valuation hit (LOW) $800B by December 31?",
+      "headline": "Yen nears 40-year low, dollar gains as peace talks in doubt - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 07:29:30",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
-      "headline": "Burnham Wins in Makerfield - So What Happens Now?",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "confidence": 0.72,
+      "time": "2026-06-19 07:33:53",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "Yen nears 40-year low, dollar gains as peace talks in doubt - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
