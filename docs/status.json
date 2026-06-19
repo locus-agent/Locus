@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T04:27:37.515552+00:00",
-  "last_heartbeat": "2026-06-19T04:27:37.515552+00:00",
-  "uptime_seconds": 20456,
+  "generated_at": "2026-06-19T04:32:41.930724+00:00",
+  "last_heartbeat": "2026-06-19T04:32:41.930724+00:00",
+  "uptime_seconds": 20761,
   "dry_run": true,
   "markets_tracked": 1699,
   "classify_error_streak": 0,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 224,
+  "headlines_scanned_today": 225,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 15766,
+  "classifications_24h": 15756,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4227,
-    "stale": 55,
+    "prefiltered_haiku": 4214,
+    "stale": 60,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T04:17:05.802148+00:00"
+    "last_check": "2026-06-19T04:32:06.148018+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3825,
-    "matched": 1088,
-    "classified": 15766,
+    "news": 3823,
+    "matched": 1087,
+    "classified": 15756,
     "signals": 4,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1641.7
+    "avg_classification_latency_ms": 1655.3
   },
   "live_readiness": {
     "ready": true,
@@ -374,11 +374,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 04:26:09",
-      "market_question": "Will a player representing Switzerland be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Hat-trick hero & Swiss wonderkid - World Cup duo set for Premier League?",
+      "time": "2026-06-19 04:28:26",
+      "market_question": "Will Paraguay be the worst-placed South American nation in the 2026 FIFA World Cup?",
+      "headline": "Mexico rejoice after second World Cup win in 2026....",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -387,53 +387,53 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 04:26:07",
-      "market_question": "Will Switzerland be the highest-scoring team in Group B during the Group Stage of the 2026 FIFA World Cup?",
-      "headline": "Hat-trick hero & Swiss wonderkid - World Cup duo set for Premier League?",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "time": "2026-06-19 04:28:25",
+      "market_question": "Will Argentina win Group J in the 2026 FIFA World Cup?",
+      "headline": "Mexico rejoice after second World Cup win in 2026....",
+      "direction": "bearish",
+      "materiality": 0.55,
+      "confidence": 0.65,
+      "edge": 0.46475,
+      "action": "stale",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 04:28:24",
+      "market_question": "Will Spain reach the 2026 FIFA World Cup final?",
+      "headline": "Mexico rejoice after second World Cup win in 2026....",
+      "direction": "bearish",
+      "materiality": 0.62,
+      "confidence": 0.72,
+      "edge": 0.1519,
+      "action": "stale",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 04:26:06",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Hat-trick hero & Swiss wonderkid - World Cup duo set for Premier League?",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "time": "2026-06-19 04:28:24",
+      "market_question": "Will Switzerland win Group B in the 2026 FIFA World Cup?",
+      "headline": "Mexico rejoice after second World Cup win in 2026....",
+      "direction": "bearish",
+      "materiality": 0.62,
+      "confidence": 0.72,
+      "edge": 0.2511,
+      "action": "stale",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 04:26:06",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Hat-trick hero & Swiss wonderkid - World Cup duo set for Premier League?",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 04:26:06",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Hat-trick hero & Swiss wonderkid - World Cup duo set for Premier League?",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "time": "2026-06-19 04:28:24",
+      "market_question": "Will France win Group I in the 2026 FIFA World Cup?",
+      "headline": "Mexico rejoice after second World Cup win in 2026....",
+      "direction": "bearish",
+      "materiality": 0.55,
+      "confidence": 0.65,
+      "edge": 0.42075000000000007,
+      "action": "stale",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
