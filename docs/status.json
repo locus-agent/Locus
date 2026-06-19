@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T08:41:18.962177+00:00",
-  "last_heartbeat": "2026-06-19T08:41:18.962177+00:00",
-  "uptime_seconds": 35678,
+  "generated_at": "2026-06-19T08:46:23.491739+00:00",
+  "last_heartbeat": "2026-06-19T08:46:23.491739+00:00",
+  "uptime_seconds": 35982,
   "dry_run": true,
-  "markets_tracked": 1688,
+  "markets_tracked": 1687,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 372,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 373,
+  "headlines_last_cycle": 0,
   "signals_24h": 6,
   "classifications_24h": 15839,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4212,
+    "prefiltered_haiku": 4216,
     "stale": 64,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,7 +119,7 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3818,
+    "news": 3817,
     "matched": 1139,
     "classified": 15839,
     "signals": 6,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1744.9
+    "avg_classification_latency_ms": 1743.3
   },
   "live_readiness": {
     "ready": true,
@@ -402,50 +402,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 08:41:00",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "US-Iran peace talks postponed, clouding prospects for lasting truce - Reuters",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.72,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:41:00",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "US-Iran peace talks postponed, clouding prospects for lasting truce - Reuters",
-      "direction": "bearish",
-      "materiality": 0.25,
-      "confidence": 0.6,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:41:00",
-      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
-      "headline": "US-Iran peace talks postponed, clouding prospects for lasting truce - Reuters",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.6,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:40:57",
-      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "US-Iran peace talks postponed, clouding prospects for lasting truce - Reuters",
+      "time": "2026-06-19 08:45:25",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "\"Artificial intelligence (AI) for India means 'All Inclusive'.\" Indian Prime Minister Narendra Modi - \ub9e4\uc77c\uacbd\uc81c",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
@@ -454,9 +415,48 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 08:38:42",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Warning over 'fragile' public finances as borrowing rises",
+      "time": "2026-06-19 08:45:25",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "\"Artificial intelligence (AI) for India means 'All Inclusive'.\" Indian Prime Minister Narendra Modi - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:45:25",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "\"Artificial intelligence (AI) for India means 'All Inclusive'.\" Indian Prime Minister Narendra Modi - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:45:25",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "\"Artificial intelligence (AI) for India means 'All Inclusive'.\" Indian Prime Minister Narendra Modi - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:45:24",
+      "market_question": "Will Donald Trump visit India in 2026?",
+      "headline": "\"Artificial intelligence (AI) for India means 'All Inclusive'.\" Indian Prime Minister Narendra Modi - \ub9e4\uc77c\uacbd\uc81c",
       "direction": null,
       "materiality": null,
       "confidence": null,
