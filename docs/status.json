@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T17:13:59.446846+00:00",
-  "last_heartbeat": "2026-06-19T17:13:59.446846+00:00",
-  "uptime_seconds": 66438,
+  "generated_at": "2026-06-19T17:19:04.409619+00:00",
+  "last_heartbeat": "2026-06-19T17:19:04.409619+00:00",
+  "uptime_seconds": 66743,
   "dry_run": true,
-  "markets_tracked": 1682,
+  "markets_tracked": 1689,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 762,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 765,
+  "headlines_last_cycle": 2,
   "signals_24h": 7,
-  "classifications_24h": 12368,
+  "classifications_24h": 12376,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3042,
+    "prefiltered_haiku": 3041,
     "stale": 53,
     "capped": 3,
     "too_close_to_resolution": 1,
@@ -106,12 +106,12 @@
     "whale_triggered": 0,
     "reentry_triggered": 1
   },
-  "watched_markets_count": 17,
+  "watched_markets_count": 18,
   "missed_opportunities_24h": 21,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T17:02:31.012884+00:00"
+    "last_check": "2026-06-19T17:17:31.380223+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,16 +119,16 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2764,
-    "matched": 1222,
-    "classified": 12368,
+    "news": 2763,
+    "matched": 1225,
+    "classified": 12376,
     "signals": 7,
     "trades": 4
   },
   "performance": {
     "trades_total": 29,
     "deployed_usd": 540.58,
-    "open_count": 3,
+    "open_count": 2,
     "closed_count": 23,
     "wins": 13,
     "losses": 10,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1815.3
+    "avg_classification_latency_ms": 1817.2
   },
   "live_readiness": {
     "ready": true,
@@ -184,7 +184,7 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0487,
+    "drawdown_7d": 0.0464,
     "sharpe_7d": 0.39
   },
   "open_positions": [
@@ -215,23 +215,21 @@
       "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "527505"
-    },
+    }
+  ],
+  "closed_positions": [
     {
-      "time": "2026-06-19 06:06:44",
+      "time": "2026-06-19T17:14:37.987454+00:00",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.375,
-      "current_price": 0.375,
-      "pnl_pct": 0.0,
-      "amount_usd": 25.0,
-      "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
-      "edge_type": "news",
-      "event_id": "57650"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": 0.375,
+      "realized_pnl_usd": 0.0,
+      "exit_reason": "manual",
+      "event_id": "57650",
+      "partial": false
+    },
     {
       "time": "2026-06-19T17:12:55.665010+00:00",
       "market_question": "Labour leadership election scheduled by June 30?",
@@ -339,21 +337,18 @@
       "exit_reason": "drawdown_decision",
       "event_id": "601528",
       "partial": false
-    },
-    {
-      "time": "2026-06-17T21:48:06.810361+00:00",
-      "market_question": "Will Trump physically sign US x Iran deal?",
-      "slug": "will-trump-physically-sign-us-x-iran-deal-20260615192526331",
-      "side": "YES",
-      "entry_price": 0.135,
-      "exit_price": 0.538,
-      "realized_pnl_usd": 63.01181481481482,
-      "exit_reason": "UPD: \u00bd closed +89% \u2192 fully closed +299%",
-      "event_id": "601512",
-      "partial": true
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-19 17:14:38",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "side": "NO",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 0.0
+    },
     {
       "time": "2026-06-19 17:12:55",
       "market_question": "Labour leadership election scheduled by June 30?",
@@ -389,82 +384,73 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 0.0
-    },
-    {
-      "time": "2026-06-18 18:34:13",
-      "market_question": "Will Donald Trump publicly insult Benjamin Netanyahu by June 30, 2026?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": 2.82
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 17:09:38",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 17:18:39",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "US push to get Iran talks started hits an early bump. Vance stays at home, for now - AP News",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 17:09:38",
-      "market_question": "Will Donald Trump visit South Carolina in 2026?",
-      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 17:18:39",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "US push to get Iran talks started hits an early bump. Vance stays at home, for now - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 17:09:38",
-      "market_question": "Will Donald Trump visit South Korea in 2026?",
-      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 17:18:39",
+      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
+      "headline": "US push to get Iran talks started hits an early bump. Vance stays at home, for now - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.6,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 17:09:38",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 17:18:39",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "headline": "US push to get Iran talks started hits an early bump. Vance stays at home, for now - AP News",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.6,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 17:09:38",
-      "market_question": "Will South Korea reach the Quarterfinals at the 2026 FIFA World Cup?",
-      "headline": "US to end funding of South Africa's HIV programmes over claims of Afrikaner persecution",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 17:18:35",
+      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
+      "headline": "Toews, Stanley Cup and Olympic champ, retires",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
