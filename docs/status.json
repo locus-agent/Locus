@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T14:21:24.137429+00:00",
-  "last_heartbeat": "2026-06-19T14:21:24.137429+00:00",
-  "uptime_seconds": 56083,
+  "generated_at": "2026-06-19T14:26:28.446688+00:00",
+  "last_heartbeat": "2026-06-19T14:26:28.446688+00:00",
+  "uptime_seconds": 56387,
   "dry_run": true,
-  "markets_tracked": 1691,
+  "markets_tracked": 1692,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 684,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 687,
+  "headlines_last_cycle": 2,
   "signals_24h": 7,
-  "classifications_24h": 15123,
+  "classifications_24h": 15114,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3978,
+    "prefiltered_haiku": 3975,
     "stale": 59,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3574,
-    "matched": 1278,
-    "classified": 15123,
+    "news": 3570,
+    "matched": 1281,
+    "classified": 15114,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1796.0
+    "avg_classification_latency_ms": 1801.3
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.33999999999999997,
+      "current_price": 0.3400000000000001,
       "pnl_pct": 0.76,
       "amount_usd": 25.0,
       "current_value_usd": 25.19,
@@ -416,22 +416,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 14:19:42",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "Elon Musk Sees SpaceX Hitting $1 Trillion in Revenue by 2030. It Could Be Beaten to That Mark by This Artificial Intelligence (AI) Stock - The Motley Fool",
+      "time": "2026-06-19 14:26:25",
+      "market_question": "Will a player representing Scotland be the top goalscorer at the 2026 FIFA World Cup?",
+      "headline": "Can Scotland turn World Cup party into knockout ru...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 14:19:38",
-      "market_question": "Will Trump pardon Elon Musk before 2027?",
-      "headline": "Elon Musk Sees SpaceX Hitting $1 Trillion in Revenue by 2030. It Could Be Beaten to That Mark by This Artificial Intelligence (AI) Stock - The Motley Fool",
+      "time": "2026-06-19 14:26:24",
+      "market_question": "Will Scotland win Group C in the 2026 FIFA World Cup?",
+      "headline": "Can Scotland turn World Cup party into knockout ru...",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 14:26:24",
+      "market_question": "Will Scotland reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Can Scotland turn World Cup party into knockout ru...",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 14:26:21",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Can Scotland turn World Cup party into knockout ru...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -442,35 +468,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 14:19:38",
-      "market_question": "Will Donald Trump publicly insult Elon Musk by June 30, 2026?",
-      "headline": "Elon Musk Sees SpaceX Hitting $1 Trillion in Revenue by 2030. It Could Be Beaten to That Mark by This Artificial Intelligence (AI) Stock - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 14:19:38",
-      "market_question": "Will Elon Musk rejoin the Trump Administration in 2026?",
-      "headline": "Elon Musk Sees SpaceX Hitting $1 Trillion in Revenue by 2030. It Could Be Beaten to That Mark by This Artificial Intelligence (AI) Stock - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 14:19:38",
-      "market_question": "Will Based Polymarket revenue hit $2M before 2027?",
-      "headline": "Elon Musk Sees SpaceX Hitting $1 Trillion in Revenue by 2030. It Could Be Beaten to That Mark by This Artificial Intelligence (AI) Stock - The Motley Fool",
+      "time": "2026-06-19 14:26:21",
+      "market_question": "Will Canada advance to the knockout stages at the 2026 FIFA World Cup?",
+      "headline": "Can Scotland turn World Cup party into knockout ru...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
