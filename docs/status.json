@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T08:00:44.124803+00:00",
-  "last_heartbeat": "2026-06-19T08:00:44.124803+00:00",
-  "uptime_seconds": 33243,
+  "generated_at": "2026-06-19T08:05:48.258907+00:00",
+  "last_heartbeat": "2026-06-19T08:05:48.258907+00:00",
+  "uptime_seconds": 33547,
   "dry_run": true,
-  "markets_tracked": 1685,
+  "markets_tracked": 1683,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 310,
+  "headlines_scanned_today": 313,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15639,
+  "classifications_24h": 15646,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4133,
+    "prefiltered_haiku": 4138,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T07:47:11.909023+00:00"
+    "last_check": "2026-06-19T08:02:12.422014+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 3780,
-    "matched": 1087,
-    "classified": 15639,
+    "matched": 1089,
+    "classified": 15646,
     "signals": 6,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1742.1
+    "avg_classification_latency_ms": 1740.0
   },
   "live_readiness": {
     "ready": true,
@@ -402,61 +402,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 07:51:49",
-      "market_question": "Will Scotland win Group C in the 2026 FIFA World Cup?",
-      "headline": "Why Morocco game could be greatest of all for Scotland",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 07:51:48",
-      "market_question": "Will a player representing Scotland be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Why Morocco game could be greatest of all for Scotland",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 07:51:48",
-      "market_question": "Will Scotland reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Why Morocco game could be greatest of all for Scotland",
-      "direction": "neutral",
+      "time": "2026-06-19 08:02:59",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Iran to lodge complaint over travel restrictions",
+      "direction": "bearish",
       "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 07:51:45",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "'I'd be put off if he asked to split it': Who should pay on a first date?",
+      "time": "2026-06-19 08:02:58",
+      "market_question": "Will Lamine Yamal be the top goalscorer at the 2026 FIFA World Cup?",
+      "headline": "Transfer Big Board: Best players in each position ...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 07:51:45",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "Why Morocco game could be greatest of all for Scotland",
+      "time": "2026-06-19 08:02:58",
+      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Iran to lodge complaint over travel restrictions",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,6 +439,32 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 08:02:58",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Iran to lodge complaint over travel restrictions",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 08:02:57",
+      "market_question": "Will Bitcoin have the best performance in 2026?",
+      "headline": "Transfer Big Board: Best players in each position ...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
