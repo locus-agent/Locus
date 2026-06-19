@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T04:12:24.287058+00:00",
-  "last_heartbeat": "2026-06-19T04:12:24.287058+00:00",
-  "uptime_seconds": 19543,
+  "generated_at": "2026-06-19T04:17:28.539854+00:00",
+  "last_heartbeat": "2026-06-19T04:17:28.539854+00:00",
+  "uptime_seconds": 19847,
   "dry_run": true,
-  "markets_tracked": 1694,
+  "markets_tracked": 1696,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 220,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 222,
+  "headlines_last_cycle": 1,
   "signals_24h": 4,
-  "classifications_24h": 15833,
+  "classifications_24h": 15839,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4255,
+    "prefiltered_haiku": 4254,
     "stale": 55,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T04:02:05.460968+00:00"
+    "last_check": "2026-06-19T04:17:05.802148+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 3840,
-    "matched": 1094,
-    "classified": 15833,
+    "matched": 1095,
+    "classified": 15839,
     "signals": 4,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1615.7
+    "avg_classification_latency_ms": 1642.2
   },
   "live_readiness": {
     "ready": true,
@@ -374,67 +374,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 04:10:28",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Norwegian parliament gets behind World Cup team with Viking \"rowing\" display - Reuters",
+      "time": "2026-06-19 04:17:19",
+      "market_question": "OpenAI $1t+ IPO before 2027?",
+      "headline": "Kalshi making early IPO talks with investment banks: report",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 04:17:13",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "Kalshi making early IPO talks with investment banks: report",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 04:17:13",
+      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
+      "headline": "Kalshi making early IPO talks with investment banks: report",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 04:17:13",
+      "market_question": "Will Anthropic not IPO by June 30, 2026?",
+      "headline": "Kalshi making early IPO talks with investment banks: report",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 04:10:28",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Norwegian parliament gets behind World Cup team with Viking \"rowing\" display - Reuters",
+      "time": "2026-06-19 04:17:12",
+      "market_question": "Mistral AI IPO before 2027?",
+      "headline": "Kalshi making early IPO talks with investment banks: report",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 04:10:28",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Norwegian parliament gets behind World Cup team with Viking \"rowing\" display - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 04:10:28",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Norwegian parliament gets behind World Cup team with Viking \"rowing\" display - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 04:10:28",
-      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
-      "headline": "Norwegian parliament gets behind World Cup team with Viking \"rowing\" display - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
