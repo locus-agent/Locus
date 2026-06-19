@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T08:15:57.148258+00:00",
-  "last_heartbeat": "2026-06-19T08:15:57.148258+00:00",
-  "uptime_seconds": 34156,
+  "generated_at": "2026-06-19T08:21:01.321509+00:00",
+  "last_heartbeat": "2026-06-19T08:21:01.321509+00:00",
+  "uptime_seconds": 34460,
   "dry_run": true,
-  "markets_tracked": 1682,
+  "markets_tracked": 1685,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 337,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 342,
+  "headlines_last_cycle": 1,
   "signals_24h": 6,
-  "classifications_24h": 15748,
+  "classifications_24h": 15768,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4173,
+    "prefiltered_haiku": 4186,
     "stale": 63,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T08:02:12.422014+00:00"
+    "last_check": "2026-06-19T08:17:12.881773+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3798,
-    "matched": 1110,
-    "classified": 15748,
+    "news": 3801,
+    "matched": 1115,
+    "classified": 15768,
     "signals": 6,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1742.6
+    "avg_classification_latency_ms": 1743.2
   },
   "live_readiness": {
     "ready": true,
@@ -402,9 +402,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 08:09:23",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "Among the large new rockets Amazon was counting on, only Europe has delivered - Ars Technica",
+      "time": "2026-06-19 08:20:53",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
+      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:20:52",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
+      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:20:51",
+      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
+      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
+      "direction": "bullish",
+      "materiality": 0.55,
+      "confidence": 0.72,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:20:49",
+      "market_question": "Will Robert Kenyon win the 2026 Makerfield by-election by less than 3%?",
+      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:20:48",
+      "market_question": "Will Eduardo Braide win the Governor of Maranh\u00e3o election?",
+      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -413,58 +465,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:09:23",
-      "market_question": "Will Amazon have a #1 AI model by December 31, 2026?",
-      "headline": "Among the large new rockets Amazon was counting on, only Europe has delivered - Ars Technica",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:09:22",
-      "market_question": "Solana Up or Down - May 20, 6AM ET",
-      "headline": "Humans may have hidden regenerative powers - ScienceDaily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:09:22",
-      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
-      "headline": "Humans may have hidden regenerative powers - ScienceDaily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:09:22",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Among the large new rockets Amazon was counting on, only Europe has delivered - Ars Technica",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
