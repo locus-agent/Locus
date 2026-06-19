@@ -214,6 +214,14 @@
   }
   .prompt-changes ul { margin: 0; padding-left: 18px; }
   .prompt-changes li { font-size: 13px; margin: 2px 0; }
+  .view-prompt-link {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  .view-prompt-link:hover { color: var(--text); text-decoration: underline; }
   .prompt-timeline .pt-row {
     display: flex; gap: 10px; font-size: 12px; padding: 3px 0;
     border-top: 1px dotted var(--row-border);
@@ -1041,6 +1049,7 @@
       <div class="panel-title">Prompt Evolution</div>
       <div class="prompt-summary" id="prompt-summary">—</div>
       <div class="prompt-changes" id="prompt-changes"></div>
+      <div id="prompt-fullprompt"></div>
       <div class="prompt-timeline" id="prompt-timeline"></div>
       <div class="prompt-note" id="prompt-note">Claude rewrites its own classification prompt weekly from accumulated lessons.</div>
     </div>
@@ -1588,6 +1597,12 @@
     document.getElementById('prompt-changes').innerHTML = changes.length
       ? '<div class="pc-title">Key changes in v' + v + '</div><ul>'
         + changes.map(c => '<li>' + escapeHtml(c) + '</li>').join('') + '</ul>'
+      : '';
+
+    // Link to the full evolved prompt text on GitHub (built from the version).
+    document.getElementById('prompt-fullprompt').innerHTML = v
+      ? '<a href="https://github.com/locus-agent/Locus/blob/main/docs/prompts/classification_prompt_v'
+        + v + '.txt" target="_blank" class="view-prompt-link">View full prompt →</a>'
       : '';
 
     // Evolution timeline, newest version first.
