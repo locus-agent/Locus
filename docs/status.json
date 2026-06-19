@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T06:19:15.920020+00:00",
-  "last_heartbeat": "2026-06-19T06:19:15.920020+00:00",
-  "uptime_seconds": 27155,
+  "generated_at": "2026-06-19T06:24:20.215749+00:00",
+  "last_heartbeat": "2026-06-19T06:24:20.215749+00:00",
+  "uptime_seconds": 27459,
   "dry_run": true,
-  "markets_tracked": 1687,
+  "markets_tracked": 1688,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 268,
+  "headlines_scanned_today": 269,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15681,
+  "classifications_24h": 15685,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 4148,
@@ -106,7 +106,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 1
   },
-  "watched_markets_count": 17,
+  "watched_markets_count": 16,
   "missed_opportunities_24h": 21,
   "whale": {
     "watched_wallets": 4,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 3800,
     "matched": 1080,
-    "classified": 15681,
+    "classified": 15685,
     "signals": 5,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1713.7
+    "avg_classification_latency_ms": 1716.5
   },
   "live_readiness": {
     "ready": true,
@@ -388,22 +388,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 06:17:51",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "India's RMZ to ramp up data center capacity with $35 billion push, exec says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 06:20:09",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "headline": "US-Iran peace talks in Geneva called off, clouding prospects for lasting truce - Reuters",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "confidence": 0.72,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 06:17:51",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Stocks turn lower as US-Iran talks hit early snag; oil erase early losses - Reuters",
+      "time": "2026-06-19 06:20:09",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "US-Iran peace talks in Geneva called off, clouding prospects for lasting truce - Reuters",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.6,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 06:20:08",
+      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
+      "headline": "US-Iran peace talks in Geneva called off, clouding prospects for lasting truce - Reuters",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.72,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 06:20:04",
+      "market_question": "Ukraine election called by June 30, 2026?",
+      "headline": "US-Iran peace talks in Geneva called off, clouding prospects for lasting truce - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -414,35 +440,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 06:17:51",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Stocks turn lower as US-Iran talks hit early snag; oil erase early losses - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 06:17:51",
-      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
-      "headline": "Stocks turn lower as US-Iran talks hit early snag; oil erase early losses - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 06:17:51",
-      "market_question": "Will Polymarket mindshare hit 90% by June 30?",
-      "headline": "Stocks turn lower as US-Iran talks hit early snag; oil erase early losses - Reuters",
+      "time": "2026-06-19 06:20:04",
+      "market_question": "Another Canada election called by June 30?",
+      "headline": "US-Iran peace talks in Geneva called off, clouding prospects for lasting truce - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
