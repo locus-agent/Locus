@@ -182,7 +182,7 @@ def _parse_market(m: dict) -> Market | None:
             liquidity=float(m.get("liquidityNum", m.get("liquidity", 0)) or 0),
             slug=event.get("slug", "") or m.get("slug", ""),
             event_id=event_id,
-            fee_rate=_fee_rate_for_category(category),
+            fee_rate=_fee_rate_for_category(category, question),
         )
     except (KeyError, ValueError, TypeError):
         return None
@@ -454,7 +454,7 @@ def _fetch_from_clob(limit: int) -> list[Market]:
                 end_date=m.get("end_date_iso", m.get("end_date", "")),
                 active=m.get("active", True),
                 tokens=tokens,
-                fee_rate=_fee_rate_for_category(category),
+                fee_rate=_fee_rate_for_category(category, m.get("question", "")),
             ))
         except (KeyError, ValueError):
             continue
@@ -503,10 +503,25 @@ def _infer_category(question: str, tags: list) -> str:
     return "other"
 
 
-def _fee_rate_for_category(category: str) -> float:
-    """Per-share Polymarket fee rate for an inferred category. Falls back to the
-    'other' rate for any category without an explicit entry. See config.FEE_RATES
-    and edge.detect_edge_v2 for how the fee is applied (feeRate * p * (1 - p))."""
+def _is_geopolitical_question(question: str) -> bool:
+    """True when a market question is about long-horizon geopolitics (Iran deals,
+    Ukraine/Russia, Taiwan, sanctions, treaties, ...). Mirrors
+    pipeline.is_geopolitical's keyword match against config.GEOPOLITICAL_KEYWORDS
+    (duplicated here to avoid a gamma<-pipeline import cycle). 'u.s.'/'united
+    states' are normalized to 'us' so the keyword list can stay simple."""
+    text = (question or "").lower().replace("u.s.", "us").replace("united states", "us")
+    return any(kw in text for kw in config.GEOPOLITICAL_KEYWORDS)
+
+
+def _fee_rate_for_category(category: str, question: str = "") -> float:
+    """Per-share Polymarket fee rate for an inferred category. Geopolitical
+    markets (matched on the question text) are fee-free regardless of category,
+    so an Iran/Ukraine/Trump-diplomacy market that infers as 'politics' still
+    gets 0.0. Otherwise falls back to the 'other' rate for any category without
+    an explicit entry. See config.FEE_RATES and edge.detect_edge_v2 for how the
+    fee is applied (feeRate * p * (1 - p))."""
+    if _is_geopolitical_question(question):
+        return 0.0
     rates = config.FEE_RATES
     return rates.get(category, rates.get("other", 0.05))
 

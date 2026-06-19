@@ -96,6 +96,19 @@ def test_geopolitics_market_is_fee_free():
     assert m.net_edge == pytest.approx(m.edge)
 
 
+def test_geopolitical_politics_market_is_fee_free():
+    from locus.markets import gamma
+    # A politics-category market whose question is geopolitical -> fee-free,
+    # overriding the 0.04 politics rate.
+    assert gamma._fee_rate_for_category(
+        "politics", "Will the US and Iran sign a nuclear deal?") == 0.0
+    assert gamma._fee_rate_for_category(
+        "politics", "Will Russia and Ukraine reach a ceasefire?") == 0.0
+    # Plain (non-geopolitical) politics keeps the standard 0.04 rate.
+    assert gamma._fee_rate_for_category(
+        "politics", "Will the Democrats win the House?") == pytest.approx(0.04)
+
+
 def test_crypto_fee_rate_and_cost():
     from locus.markets import gamma
     assert gamma._fee_rate_for_category("crypto") == pytest.approx(0.07)
