@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T16:48:35.324371+00:00",
-  "last_heartbeat": "2026-06-19T16:48:35.324371+00:00",
-  "uptime_seconds": 64914,
+  "generated_at": "2026-06-19T16:53:39.849159+00:00",
+  "last_heartbeat": "2026-06-19T16:53:39.849159+00:00",
+  "uptime_seconds": 65219,
   "dry_run": true,
-  "markets_tracked": 1683,
+  "markets_tracked": 1684,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 749,
+  "headlines_scanned_today": 752,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 13942,
+  "classifications_24h": 13946,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3598,
+    "prefiltered_haiku": 3599,
     "stale": 56,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3220,
-    "matched": 1222,
-    "classified": 13942,
+    "news": 3219,
+    "matched": 1225,
+    "classified": 13946,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1813.1
+    "avg_classification_latency_ms": 1814.3
   },
   "live_readiness": {
     "ready": true,
@@ -416,35 +416,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 16:47:23",
-      "market_question": "Will Anthropic\u2019s market cap be 1.8T or greater at market close on IPO day by December 31 2027?",
-      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
+      "time": "2026-06-19 16:51:54",
+      "market_question": "Will OpenAI have the second best AI model at the end of June 2026?",
+      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:47:17",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
+      "time": "2026-06-19 16:51:53",
+      "market_question": "Will OpenAI have a #1 AI model by June 30?",
+      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:47:16",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
+      "time": "2026-06-19 16:51:53",
+      "market_question": "Will OpenAI have the top AI model at the end of June 2026?",
+      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:51:50",
+      "market_question": "OpenAI $1t+ IPO before 2027?",
+      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -455,24 +468,11 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:47:16",
-      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
-      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
+      "time": "2026-06-19 16:51:50",
+      "market_question": "OpenAI IPO before 2027?",
+      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
       "direction": "neutral",
       "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:47:16",
-      "market_question": "Will Anthropic\u2019s valuation hit (HIGH) $1.25T by June 30?",
-      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
-      "direction": "neutral",
-      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
