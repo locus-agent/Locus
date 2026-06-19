@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T19:00:32.214880+00:00",
-  "last_heartbeat": "2026-06-19T19:00:32.214880+00:00",
-  "uptime_seconds": 343,
+  "generated_at": "2026-06-19T19:05:37.030855+00:00",
+  "last_heartbeat": "2026-06-19T19:05:37.030855+00:00",
+  "uptime_seconds": 648,
   "dry_run": true,
-  "markets_tracked": 1358,
+  "markets_tracked": 1355,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7296,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1172,
+  "headlines_scanned_today": 1173,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 11464,
+  "classifications_24h": 11282,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2658,
-    "stale": 44,
+    "prefiltered_haiku": 2586,
+    "stale": 42,
     "capped": 3,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -97,7 +97,7 @@
     "price_target_market": 2,
     "correlation_block": 1,
     "category_limit": 2,
-    "orderbook_skip": 1,
+    "orderbook_skip": 2,
     "already_priced_in": 3,
     "needs_confirmation": 0,
     "event_exposure_block": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2564,
-    "matched": 1149,
-    "classified": 11464,
+    "news": 2518,
+    "matched": 1127,
+    "classified": 11282,
     "signals": 6,
     "trades": 4
   },
@@ -133,13 +133,13 @@
     "wins": 13,
     "losses": 10,
     "win_rate_pct": 56.5,
-    "realized_pnl_usd": 48.45,
-    "unrealized_pnl_usd": 3.44,
-    "total_pnl_usd": 51.89,
+    "realized_pnl_usd": 50.07,
+    "unrealized_pnl_usd": 1.15,
+    "total_pnl_usd": 51.22,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1215.4
+    "avg_classification_latency_ms": 1242.5
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.255,
-      "pnl_pct": 13.74,
-      "amount_usd": 25.0,
-      "current_value_usd": 28.44,
-      "pnl_usd": 3.44,
+      "current_price": 0.28500000000000003,
+      "pnl_pct": 9.16,
+      "amount_usd": 12.5,
+      "current_value_usd": 13.65,
+      "pnl_usd": 1.15,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43999999999999995,
+      "current_price": 0.44,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "527505"
     }
@@ -253,6 +253,18 @@
       "exit_reason": "drawdown_decision",
       "event_id": "605219",
       "partial": false
+    },
+    {
+      "time": "2026-06-19 19:04:04",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "slug": "candidates-in-next-labour-leadership-election",
+      "side": "NO",
+      "entry_price": 0.345,
+      "exit_price": 0.26,
+      "realized_pnl_usd": 1.622137404580151,
+      "exit_reason": "\u00bd closed at +13%",
+      "event_id": "481681",
+      "partial": true
     },
     {
       "time": "2026-06-18T20:11:51.155769+00:00",
@@ -325,21 +337,18 @@
       "exit_reason": "manual",
       "event_id": "528389",
       "partial": false
-    },
-    {
-      "time": "2026-06-17T23:46:41.567706+00:00",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "slug": "who-will-attend-us-iran-signing-ceremony-20260615232202457",
-      "side": "YES",
-      "entry_price": 0.135,
-      "exit_price": 0.085,
-      "realized_pnl_usd": -14.814814814814813,
-      "exit_reason": "drawdown_decision",
-      "event_id": "601528",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-19 19:04:04",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "side": "NO",
+      "trigger": "news",
+      "decision": "close_half",
+      "reasoning": "The new headline directly undermines the original thesis by suggesting a Labour leadership contest is now more plausible (Burnham's win fueling a showdown), which increases the probability Streeting would be a candidate; however, we've already captured +13% and the trigger's materiality is moderate (0.55), so locking in half the profit while letting the rest ride balances realized gains against residual uncertainty.",
+      "pnl_pct": 12.98
+    },
     {
       "time": "2026-06-19 17:14:38",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -375,22 +384,27 @@
       "decision": "close",
       "reasoning": "The original thesis relied on bearish sentiment positioning as a weak proxy for actual price direction, and the market has moved sharply against the position to 0.665 YES, suggesting Bitcoin is trading up on June 19. With no strong counter-thesis and a -33.7% drawdown, holding is hope-based rather than edge-based.",
       "pnl_pct": -33.66
-    },
-    {
-      "time": "2026-06-18 20:11:51",
-      "market_question": "Will Anthropic be acquired before 2027?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": 0.0
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 18:59:30",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Fifa alters how World Cup tables work - it changes everything",
+      "time": "2026-06-19 19:04:00",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "headline": "Starmer vows to fight as Burnham\u2019s election win fuels a Labour leadership showdown - AP News",
+      "direction": "bullish",
+      "materiality": 0.55,
+      "confidence": 0.62,
+      "edge": 0.40975,
+      "fee_cost": 0.0,
+      "action": "orderbook_skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 19:03:54",
+      "market_question": "Will Dr. Luizinho win the Governor of Rio de Janeiro election?",
+      "headline": "Starmer vows to fight as Burnham\u2019s election win fuels a Labour leadership showdown - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -402,9 +416,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 18:59:30",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Fifa alters how World Cup tables work - it changes everything",
+      "time": "2026-06-19 19:03:53",
+      "market_question": "Will Loranne Ausley win the Tallahassee mayoral election?",
+      "headline": "Starmer vows to fight as Burnham\u2019s election win fuels a Labour leadership showdown - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -416,9 +430,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 18:59:30",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Fifa alters how World Cup tables work - it changes everything",
+      "time": "2026-06-19 19:03:53",
+      "market_question": "Will Eduardo Braide win the Governor of Maranh\u00e3o election?",
+      "headline": "Starmer vows to fight as Burnham\u2019s election win fuels a Labour leadership showdown - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -430,32 +444,18 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 18:59:30",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Fifa alters how World Cup tables work - it changes everything",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 19:03:52",
+      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
+      "headline": "Starmer vows to fight as Burnham\u2019s election win fuels a Labour leadership showdown - AP News",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.65,
       "edge": null,
       "fee_cost": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "cached",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 18:59:30",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Fifa alters how World Cup tables work - it changes everything",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
