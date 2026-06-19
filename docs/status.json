@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T08:51:28.254195+00:00",
-  "last_heartbeat": "2026-06-19T08:51:28.254195+00:00",
-  "uptime_seconds": 36287,
+  "generated_at": "2026-06-19T08:56:32.888543+00:00",
+  "last_heartbeat": "2026-06-19T08:56:32.888543+00:00",
+  "uptime_seconds": 36592,
   "dry_run": true,
-  "markets_tracked": 1684,
+  "markets_tracked": 1683,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 377,
+  "headlines_scanned_today": 378,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15846,
+  "classifications_24h": 15822,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4222,
+    "prefiltered_haiku": 4209,
     "stale": 64,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3818,
+    "news": 3814,
     "matched": 1142,
-    "classified": 15846,
+    "classified": 15822,
     "signals": 6,
     "trades": 3
   },
@@ -402,6 +402,19 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-19 08:54:20",
+      "market_question": "Will Alcaraz or Sinner win more Grand Slams in 2026?",
+      "headline": "Mercedes withdraw Monaco Grand Prix appeal",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-19 08:49:58",
       "market_question": "Will Trump and Putin not meet?",
       "headline": "Trump is shaking up intel leadership. His CIA director is coming out on top. - Politico",
@@ -450,19 +463,6 @@
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:49:58",
-      "market_question": "Will Elon Musk rejoin the Trump Administration in 2026?",
-      "headline": "Trump is shaking up intel leadership. His CIA director is coming out on top. - Politico",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
