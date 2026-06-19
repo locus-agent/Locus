@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T01:25:02.693866+00:00",
-  "last_heartbeat": "2026-06-19T01:25:02.693866+00:00",
-  "uptime_seconds": 9501,
+  "generated_at": "2026-06-19T01:30:07.258061+00:00",
+  "last_heartbeat": "2026-06-19T01:30:07.258061+00:00",
+  "uptime_seconds": 9806,
   "dry_run": true,
-  "markets_tracked": 1701,
+  "markets_tracked": 1704,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6967,
@@ -81,14 +81,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 78,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 99,
+  "headlines_last_cycle": 1,
   "signals_24h": 7,
-  "classifications_24h": 16091,
+  "classifications_24h": 16164,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4358,
-    "stale": 46,
+    "prefiltered_haiku": 4389,
+    "stale": 51,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3898,
-    "matched": 1102,
-    "classified": 16091,
+    "news": 3916,
+    "matched": 1118,
+    "classified": 16164,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1507.8
+    "avg_classification_latency_ms": 1540.2
   },
   "live_readiness": {
     "ready": true,
@@ -373,69 +373,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 01:23:19",
-      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
-      "headline": "New Mexico Epstein probe subpoenas US Attorneys' offices - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-19 01:29:50",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "Opening Day at the Obama Museum in photos - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 01:23:15",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "New Mexico Epstein probe subpoenas US Attorneys' offices - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 01:23:15",
-      "market_question": "Will the Republicans win the New Mexico Senate race in 2026?",
-      "headline": "New Mexico Epstein probe subpoenas US Attorneys' offices - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-19 01:29:50",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Opening Day at the Obama Museum in photos - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 01:23:15",
-      "market_question": "Will the Democrats win the New Mexico Senate race in 2026?",
-      "headline": "New Mexico Epstein probe subpoenas US Attorneys' offices - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-19 01:29:50",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "Opening Day at the Obama Museum in photos - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 01:23:14",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "White House postpones sending Vance to Switzerland for talks with Iran negotiators - AP News",
-      "direction": "bearish",
-      "materiality": 0.25,
-      "confidence": 0.62,
+      "time": "2026-06-19 01:29:50",
+      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
+      "headline": "Opening Day at the Obama Museum in photos - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 01:29:50",
+      "market_question": "Will OpenAI\u2019s market cap be between $1T and $1.25T at market close on IPO day?",
+      "headline": "Opening Day at the Obama Museum in photos - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
