@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T03:41:58.061591+00:00",
-  "last_heartbeat": "2026-06-19T03:41:58.061591+00:00",
-  "uptime_seconds": 17717,
+  "generated_at": "2026-06-19T03:47:02.664367+00:00",
+  "last_heartbeat": "2026-06-19T03:47:02.664367+00:00",
+  "uptime_seconds": 18021,
   "dry_run": true,
-  "markets_tracked": 1707,
+  "markets_tracked": 1705,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 210,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 212,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 15952,
+  "classifications_24h": 15958,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4314,
-    "stale": 54,
+    "prefiltered_haiku": 4316,
+    "stale": 56,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3872,
-    "matched": 1109,
-    "classified": 15952,
+    "news": 3873,
+    "matched": 1110,
+    "classified": 15958,
     "signals": 4,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1595.2
+    "avg_classification_latency_ms": 1601.9
   },
   "live_readiness": {
     "ready": true,
@@ -374,11 +374,50 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 03:41:28",
-      "market_question": "Will the announcers say \"Trump\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Keeper error sees Mexico beat South Korea to book last 32 spot",
+      "time": "2026-06-19 03:43:45",
+      "market_question": "Will Canada reach the Semifinals at the 2026 FIFA World Cup?",
+      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 03:43:45",
+      "market_question": "Will a player representing Canada be the top goalscorer at the 2026 FIFA World Cup?",
+      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.55,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 03:43:45",
+      "market_question": "Will Canada win Group B in the 2026 FIFA World Cup?",
+      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
+      "direction": "bullish",
+      "materiality": 0.65,
+      "confidence": 0.72,
+      "edge": 0.26325000000000004,
+      "action": "stale",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 03:43:44",
+      "market_question": "Will the announcers say \"History\" during the Canada vs Qatar FIFA World Cup Match?",
+      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "skip",
@@ -387,56 +426,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:41:28",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "A day of tears, scuffles & history as injury mars Canada's moment",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time": "2026-06-19 03:43:44",
+      "market_question": "Will Canada be the highest-scoring team in Group B during the Group Stage of the 2026 FIFA World Cup?",
+      "headline": "David hat-trick as Canada crush nine-man Qatar 6-0 to earn first World Cup finals win - Reuters",
+      "direction": "bullish",
+      "materiality": 0.65,
+      "confidence": 0.78,
+      "edge": 0.12349999999999997,
+      "action": "stale",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 03:41:28",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "A day of tears, scuffles & history as injury mars Canada's moment",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 03:41:28",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "A day of tears, scuffles & history as injury mars Canada's moment",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 03:41:28",
-      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
-      "headline": "A day of tears, scuffles & history as injury mars Canada's moment",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
