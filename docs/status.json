@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T16:23:12.464051+00:00",
-  "last_heartbeat": "2026-06-19T16:23:12.464051+00:00",
-  "uptime_seconds": 63391,
+  "generated_at": "2026-06-19T16:28:16.941046+00:00",
+  "last_heartbeat": "2026-06-19T16:28:16.941046+00:00",
+  "uptime_seconds": 63696,
   "dry_run": true,
-  "markets_tracked": 1689,
+  "markets_tracked": 1686,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 737,
+  "headlines_scanned_today": 739,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 13929,
+  "classifications_24h": 13934,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3573,
+    "prefiltered_haiku": 3577,
     "stale": 56,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3220,
-    "matched": 1213,
-    "classified": 13929,
+    "news": 3221,
+    "matched": 1214,
+    "classified": 13934,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1818.9
+    "avg_classification_latency_ms": 1818.1
   },
   "live_readiness": {
     "ready": true,
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     },
@@ -416,9 +416,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 16:22:44",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Read the transcript of the deal between the US and Iran - AP News",
+      "time": "2026-06-19 16:24:57",
+      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Iran to lodge FIFA complaint over World Cup travel restrictions - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -429,54 +429,54 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:22:43",
-      "market_question": "Will Trump hug an Iranian official by June 20?",
-      "headline": "Read the transcript of the deal between the US and Iran - AP News",
+      "time": "2026-06-19 16:24:54",
+      "market_question": "Will USA reach the Round of 16 at the 2026 FIFA World Cup?",
+      "headline": "Iran to lodge FIFA complaint over World Cup travel restrictions - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:22:42",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "Read the transcript of the deal between the US and Iran - AP News",
+      "time": "2026-06-19 16:24:54",
+      "market_question": "Will Argentina reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "Iran to lodge FIFA complaint over World Cup travel restrictions - Reuters",
       "direction": "neutral",
-      "materiality": 0.1,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:22:42",
-      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
-      "headline": "Read the transcript of the deal between the US and Iran - AP News",
+      "time": "2026-06-19 16:24:54",
+      "market_question": "Will France reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "Iran to lodge FIFA complaint over World Cup travel restrictions - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:22:42",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Read the transcript of the deal between the US and Iran - AP News",
+      "time": "2026-06-19 16:24:53",
+      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
+      "headline": "Iran to lodge FIFA complaint over World Cup travel restrictions - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
