@@ -28,10 +28,12 @@ JOURNAL_PATH = REPO_DIR / "docs" / "journal.json"
 DECISIONS_PATH = REPO_DIR / "docs" / "exit_decisions.json"
 CLASSIFICATIONS_PATH = REPO_DIR / "docs" / "classifications.json"
 MISSED_PATH = REPO_DIR / "docs" / "missed.json"
-# All files the auto-pusher is allowed to commit.
+# All files the auto-pusher is allowed to commit. "docs/prompts/" is a directory
+# pathspec so newly evolved prompt versions (classification_prompt_v{N}.txt) are
+# committed and pushed automatically when the meta-evolver writes them.
 PUSH_PATHS = [
     "docs/status.json", "docs/journal.json", "docs/exit_decisions.json",
-    "docs/classifications.json", "docs/missed.json",
+    "docs/classifications.json", "docs/missed.json", "docs/prompts/",
 ]
 
 # Rows shown inline on the main dashboard; the rest live in the archive page.
