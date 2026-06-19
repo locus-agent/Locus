@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T12:09:23.716389+00:00",
-  "last_heartbeat": "2026-06-19T12:09:23.716389+00:00",
-  "uptime_seconds": 48162,
+  "generated_at": "2026-06-19T12:14:28.196119+00:00",
+  "last_heartbeat": "2026-06-19T12:14:28.196119+00:00",
+  "uptime_seconds": 48467,
   "dry_run": true,
-  "markets_tracked": 1673,
+  "markets_tracked": 1676,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 533,
+  "headlines_scanned_today": 536,
   "headlines_last_cycle": 0,
-  "signals_24h": 6,
-  "classifications_24h": 15285,
+  "signals_24h": 7,
+  "classifications_24h": 15281,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3991,
+    "prefiltered_haiku": 3994,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -115,31 +115,31 @@
   },
   "edge_types_24h": {
     "news": 3,
-    "momentum": 3,
+    "momentum": 4,
     "arbitrage": 0
   },
   "pipeline_24h": {
     "news": 3658,
-    "matched": 1201,
-    "classified": 15285,
-    "signals": 6,
-    "trades": 3
+    "matched": 1203,
+    "classified": 15281,
+    "signals": 7,
+    "trades": 4
   },
   "performance": {
-    "trades_total": 28,
-    "deployed_usd": 515.58,
-    "open_count": 3,
+    "trades_total": 29,
+    "deployed_usd": 540.58,
+    "open_count": 4,
     "closed_count": 23,
     "wins": 13,
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 48.45,
-    "unrealized_pnl_usd": 0.0,
+    "unrealized_pnl_usd": -0.0,
     "total_pnl_usd": 48.45,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1791.8
+    "avg_classification_latency_ms": 1791.9
   },
   "live_readiness": {
     "ready": true,
@@ -189,16 +189,30 @@
   },
   "open_positions": [
     {
+      "time": "2026-06-19 12:09:41",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "slug": "candidates-in-next-labour-leadership-election",
+      "side": "NO",
+      "entry_price": 0.345,
+      "current_price": 0.345,
+      "pnl_pct": 0.0,
+      "amount_usd": 25.0,
+      "current_value_usd": 25.0,
+      "pnl_usd": 0.0,
+      "edge_type": "momentum",
+      "event_id": "481681"
+    },
+    {
       "time": "2026-06-19 07:40:40",
       "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     },
@@ -402,35 +416,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 12:07:27",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
-      "headline": "Who is Andy Burnham, the lawmaker who could replace Keir Starmer - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 12:07:26",
-      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
-      "headline": "Who is Andy Burnham, the lawmaker who could replace Keir Starmer - AP News",
-      "direction": "bullish",
-      "materiality": 0.25,
-      "confidence": 0.6,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 12:07:23",
-      "market_question": "Will Bitcoin replace SHA-256 before 2027?",
-      "headline": "Who is Andy Burnham, the lawmaker who could replace Keir Starmer - AP News",
+      "time": "2026-06-19 12:11:52",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Meloni fights back after Trump tells Italian TV she 'begged' for photo with him at G7 - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -441,9 +429,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 12:07:23",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "headline": "Who is Andy Burnham, the lawmaker who could replace Keir Starmer - AP News",
+      "time": "2026-06-19 12:11:52",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Meloni fights back after Trump tells Italian TV she 'begged' for photo with him at G7 - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -454,15 +442,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 12:07:23",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
-      "headline": "Who is Andy Burnham, the lawmaker who could replace Keir Starmer - AP News",
+      "time": "2026-06-19 12:11:52",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Meloni fights back after Trump tells Italian TV she 'begged' for photo with him at G7 - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 12:11:52",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Meloni fights back after Trump tells Italian TV she 'begged' for photo with him at G7 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 12:11:52",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Meloni fights back after Trump tells Italian TV she 'begged' for photo with him at G7 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
