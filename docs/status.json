@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-06-19T20:32:15.108092+00:00",
-  "last_heartbeat": "2026-06-19T20:32:15.108092+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-19T20:37:19.978805+00:00",
+  "last_heartbeat": "2026-06-19T20:37:19.978805+00:00",
+  "uptime_seconds": 342,
   "dry_run": true,
-  "markets_tracked": 1363,
+  "markets_tracked": 1364,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 7340,
+    "total": 7359,
     "accuracy": 17.5,
     "by_category": {
       "other": 16.2,
-      "ai": 9.9,
-      "politics": 23.5,
+      "ai": 10.0,
+      "politics": 23.4,
       "technology": 11.1,
-      "crypto": 12.9,
+      "crypto": 12.8,
       "sports": 28.0
     },
     "by_source": {
-      "rss": 17.5,
+      "rss": 17.4,
       "newsapi": 18.2,
       "truthsocial": 0.0
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.5,
-    "overall_total": 7340,
+    "overall_total": 7359,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4176,
+        "total": 4193,
         "correct": 320,
-        "accuracy_pct": 7.7,
-        "avg_pnl_pct": 14.06,
+        "accuracy_pct": 7.6,
+        "avg_pnl_pct": 13.97,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 644,
-        "correct": 233,
-        "accuracy_pct": 36.2,
-        "avg_pnl_pct": 32.6,
+        "total": 645,
+        "correct": 234,
+        "accuracy_pct": 36.3,
+        "avg_pnl_pct": 32.58,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 767,
+        "total": 768,
         "correct": 280,
         "accuracy_pct": 36.5,
         "avg_pnl_pct": 3.15,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1475,
-  "headlines_last_cycle": 32,
+  "headlines_scanned_today": 1523,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 11938,
+  "classifications_24h": 11454,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2794,
+    "prefiltered_haiku": 2865,
     "stale": 38,
     "capped": 3,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2690,
+    "news": 2586,
     "matched": 1114,
-    "classified": 11938,
+    "classified": 11454,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1102.1
+    "avg_classification_latency_ms": 1257.0
   },
   "live_readiness": {
     "ready": true,
@@ -388,41 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 20:32:14",
-      "market_question": "Over $1.5B crypto hack value in 2026?",
-      "headline": "TD Cowen says CME has the upper hand in lawsuit against CFTC over crypto perpetual futures",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 20:32:14",
-      "market_question": "Over $1B crypto hack value in 2026?",
-      "headline": "TD Cowen says CME has the upper hand in lawsuit against CFTC over crypto perpetual futures",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 20:32:14",
-      "market_question": "Another crypto hack over $100m by June 30?",
-      "headline": "TD Cowen says CME has the upper hand in lawsuit against CFTC over crypto perpetual futures",
+      "time": "2026-06-19 20:32:52",
+      "market_question": "Will Iliana Iotova win the next Bulgarian presidential election?",
+      "headline": "Henry Zeffman: What does Keir Starmer do next after Andy Burnham's Makerfield win?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,25 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 20:32:14",
-      "market_question": "Another crypto hack over $100m by December 31?",
-      "headline": "TD Cowen says CME has the upper hand in lawsuit against CFTC over crypto perpetual futures",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 20:32:14",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Zelenskiy says Belarus should remove equipment used in attacks on Ukraine in one week - Reuters",
+      "time": "2026-06-19 20:32:52",
+      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
+      "headline": "US acting spy chief seeks to fire hundreds of staff, CNN reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -466,6 +418,54 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 20:32:51",
+      "market_question": "Will another outcome occur in the 2026 Makerfield by-election?",
+      "headline": "Henry Zeffman: What does Keir Starmer do next after Andy Burnham's Makerfield win?",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 20:32:50",
+      "market_question": "Will Donald Trump publicly insult Elon Musk by June 30, 2026?",
+      "headline": "Elon Musk Sees SpaceX Hitting $1 Trillion in Revenue by 2030. It Could Be Beaten to That Mark by This Artificial Intelligence (AI) Stock - The Motley Fool",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 20:32:50",
+      "market_question": "Will Based Polymarket revenue hit $2M before 2027?",
+      "headline": "Elon Musk Sees SpaceX Hitting $1 Trillion in Revenue by 2030. It Could Be Beaten to That Mark by This Artificial Intelligence (AI) Stock - The Motley Fool",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
