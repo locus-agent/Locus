@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T07:40:26.427979+00:00",
-  "last_heartbeat": "2026-06-19T07:40:26.427979+00:00",
-  "uptime_seconds": 32025,
+  "generated_at": "2026-06-19T07:45:30.849895+00:00",
+  "last_heartbeat": "2026-06-19T07:45:30.849895+00:00",
+  "uptime_seconds": 32330,
   "dry_run": true,
-  "markets_tracked": 1688,
+  "markets_tracked": 1690,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 303,
-  "headlines_last_cycle": 0,
-  "signals_24h": 5,
-  "classifications_24h": 15641,
+  "headlines_scanned_today": 307,
+  "headlines_last_cycle": 1,
+  "signals_24h": 6,
+  "classifications_24h": 15656,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4141,
+    "prefiltered_haiku": 4146,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -114,21 +114,21 @@
     "last_check": "2026-06-19T07:32:11.516880+00:00"
   },
   "edge_types_24h": {
-    "news": 2,
+    "news": 3,
     "momentum": 3,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3783,
-    "matched": 1085,
-    "classified": 15641,
-    "signals": 5,
-    "trades": 2
+    "news": 3785,
+    "matched": 1088,
+    "classified": 15656,
+    "signals": 6,
+    "trades": 3
   },
   "performance": {
-    "trades_total": 27,
-    "deployed_usd": 490.58,
-    "open_count": 2,
+    "trades_total": 28,
+    "deployed_usd": 515.58,
+    "open_count": 3,
     "closed_count": 23,
     "wins": 13,
     "losses": 10,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1737.1
+    "avg_classification_latency_ms": 1740.8
   },
   "live_readiness": {
     "ready": true,
@@ -188,6 +188,20 @@
     "sharpe_7d": 0.39
   },
   "open_positions": [
+    {
+      "time": "2026-06-19 07:40:40",
+      "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
+      "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
+      "side": "YES",
+      "entry_price": 0.44,
+      "current_price": 0.44,
+      "pnl_pct": 0.0,
+      "amount_usd": 25.0,
+      "current_value_usd": 25.0,
+      "pnl_usd": 0.0,
+      "edge_type": "news",
+      "event_id": "527505"
+    },
     {
       "time": "2026-06-19 06:06:44",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -388,69 +402,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 07:38:21",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "China tightens indium export checks as AI demand increases - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 07:36:07",
-      "market_question": "Will Burna Boy perform at the 2026 FIFA World Cup Final halftime show?",
-      "headline": "Zoo worker jumped into crocodile enclosure to save injured boy, BBC told",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 07:36:07",
-      "market_question": "Will the announcers say \"What a Save\" during the Brazil vs Haiti FIFA World Cup Match?",
-      "headline": "Zoo worker jumped into crocodile enclosure to save injured boy, BBC told",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 07:36:07",
-      "market_question": "Will the announcers say \"What a Save\" during the Spain vs Saudi Arabia FIFA World Cup Match?",
-      "headline": "Zoo worker jumped into crocodile enclosure to save injured boy, BBC told",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 07:33:58",
-      "market_question": "USDC depeg by December 31?",
-      "headline": "Yen nears 40-year low, dollar gains as peace talks in doubt - Reuters",
+      "time": "2026-06-19 07:45:05",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "A Russian artist who was critical of Putin is killed near his home in Poland - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 07:45:04",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "A Russian artist who was critical of Putin is killed near his home in Poland - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 07:45:03",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "A Russian artist who was critical of Putin is killed near his home in Poland - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 07:45:03",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "A Russian artist who was critical of Putin is killed near his home in Poland - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 07:45:03",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "A Russian artist who was critical of Putin is killed near his home in Poland - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
