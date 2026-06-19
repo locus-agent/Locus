@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T08:05:48.258907+00:00",
-  "last_heartbeat": "2026-06-19T08:05:48.258907+00:00",
-  "uptime_seconds": 33547,
+  "generated_at": "2026-06-19T08:10:52.996446+00:00",
+  "last_heartbeat": "2026-06-19T08:10:52.996446+00:00",
+  "uptime_seconds": 33852,
   "dry_run": true,
-  "markets_tracked": 1683,
+  "markets_tracked": 1682,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 313,
+  "headlines_scanned_today": 336,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15646,
+  "classifications_24h": 15760,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4138,
-    "stale": 61,
+    "prefiltered_haiku": 4176,
+    "stale": 63,
     "capped": 3,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3780,
-    "matched": 1089,
-    "classified": 15646,
+    "news": 3801,
+    "matched": 1111,
+    "classified": 15760,
     "signals": 6,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1740.0
+    "avg_classification_latency_ms": 1742.6
   },
   "live_readiness": {
     "ready": true,
@@ -402,61 +402,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 08:02:59",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Iran to lodge complaint over travel restrictions",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:02:58",
-      "market_question": "Will Lamine Yamal be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Transfer Big Board: Best players in each position ...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:02:58",
-      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Iran to lodge complaint over travel restrictions",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 08:02:58",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Iran to lodge complaint over travel restrictions",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 08:02:57",
-      "market_question": "Will Bitcoin have the best performance in 2026?",
-      "headline": "Transfer Big Board: Best players in each position ...",
+      "time": "2026-06-19 08:09:23",
+      "market_question": "New MLB CBA by Dec. 1?",
+      "headline": "Among the large new rockets Amazon was counting on, only Europe has delivered - Ars Technica",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -465,6 +413,58 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:09:23",
+      "market_question": "Will Amazon have a #1 AI model by December 31, 2026?",
+      "headline": "Among the large new rockets Amazon was counting on, only Europe has delivered - Ars Technica",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:09:22",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "Humans may have hidden regenerative powers - ScienceDaily",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:09:22",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "Humans may have hidden regenerative powers - ScienceDaily",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:09:22",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Among the large new rockets Amazon was counting on, only Europe has delivered - Ars Technica",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
