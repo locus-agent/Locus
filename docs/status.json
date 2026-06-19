@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T16:58:44.994886+00:00",
-  "last_heartbeat": "2026-06-19T16:58:44.994886+00:00",
-  "uptime_seconds": 65524,
+  "generated_at": "2026-06-19T17:03:50.154032+00:00",
+  "last_heartbeat": "2026-06-19T17:03:50.154032+00:00",
+  "uptime_seconds": 65829,
   "dry_run": true,
-  "markets_tracked": 1683,
+  "markets_tracked": 1681,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,19 +82,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 755,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 757,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 13953,
+  "classifications_24h": 13121,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3598,
-    "stale": 56,
+    "prefiltered_haiku": 3295,
+    "stale": 54,
     "capped": 3,
-    "too_close_to_resolution": 2,
+    "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 4,
+    "price_target_market": 2,
     "correlation_block": 1,
     "category_limit": 2,
     "orderbook_skip": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T16:47:30.460130+00:00"
+    "last_check": "2026-06-19T17:02:31.012884+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3220,
-    "matched": 1228,
-    "classified": 13953,
+    "news": 2979,
+    "matched": 1227,
+    "classified": 13121,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1816.7
+    "avg_classification_latency_ms": 1816.4
   },
   "live_readiness": {
     "ready": true,
@@ -416,22 +416,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 16:58:32",
+      "time": "2026-06-19 17:02:57",
       "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
+      "headline": "Aviation officials turn to AI for combating runway issues - Politico",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:58:29",
-      "market_question": "Will OpenAI GPT score at least 50% on Humanity\u2019s Last Exam?",
-      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
+      "time": "2026-06-19 17:00:42",
+      "market_question": "New MLB CBA by Dec. 1?",
+      "headline": "'Prioritise love': Kate writes essay reflecting on Italy tour as new pictures released",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -442,35 +442,35 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:58:29",
-      "market_question": "Will an Anthropic Claude model score at least 50% on Humanity\u2019s Last Exam?",
-      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 17:00:41",
+      "market_question": "Will Donald Trump visit Italy in 2026?",
+      "headline": "'Prioritise love': Kate writes essay reflecting on Italy tour as new pictures released",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 16:58:28",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 17:00:41",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "'Prioritise love': Kate writes essay reflecting on Italy tour as new pictures released",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 16:58:28",
-      "market_question": "Will Google Gemini score at least 50% on Humanity\u2019s Last Exam?",
-      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
+      "time": "2026-06-19 17:00:41",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "'Prioritise love': Kate writes essay reflecting on Italy tour as new pictures released",
       "direction": null,
       "materiality": null,
       "confidence": null,
