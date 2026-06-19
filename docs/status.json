@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T08:56:32.888543+00:00",
-  "last_heartbeat": "2026-06-19T08:56:32.888543+00:00",
-  "uptime_seconds": 36592,
+  "generated_at": "2026-06-19T09:01:37.554684+00:00",
+  "last_heartbeat": "2026-06-19T09:01:37.554684+00:00",
+  "uptime_seconds": 36896,
   "dry_run": true,
-  "markets_tracked": 1683,
+  "markets_tracked": 1685,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 378,
+  "headlines_scanned_today": 383,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15822,
+  "classifications_24h": 15842,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4209,
+    "prefiltered_haiku": 4208,
     "stale": 64,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3814,
-    "matched": 1142,
-    "classified": 15822,
+    "news": 3818,
+    "matched": 1146,
+    "classified": 15842,
     "signals": 6,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1743.5
+    "avg_classification_latency_ms": 1745.5
   },
   "live_readiness": {
     "ready": true,
@@ -402,9 +402,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 08:54:20",
-      "market_question": "Will Alcaraz or Sinner win more Grand Slams in 2026?",
-      "headline": "Mercedes withdraw Monaco Grand Prix appeal",
+      "time": "2026-06-19 08:59:09",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Plans to end gazumping with binding agreements in house sales shake-up",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:59:08",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "French president urges US to share cutting-edge AI and democracies to cooperate on regulation - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:59:08",
+      "market_question": "MLB: Perfect Game thrown in 2026 season?",
+      "headline": "Teenager dies after being thrown from horse-drawn carriage in NYC\u2019s Central Park - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -415,56 +441,30 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 08:49:58",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump is shaking up intel leadership. His CIA director is coming out on top. - Politico",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-19 08:59:08",
+      "market_question": "Will the Union for Central African Renewal win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Teenager dies after being thrown from horse-drawn carriage in NYC\u2019s Central Park - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 08:49:58",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump is shaking up intel leadership. His CIA director is coming out on top. - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 08:59:08",
+      "market_question": "Will the Central African Democratic Rally win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Teenager dies after being thrown from horse-drawn carriage in NYC\u2019s Central Park - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:49:58",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Trump is shaking up intel leadership. His CIA director is coming out on top. - Politico",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:49:58",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump is shaking up intel leadership. His CIA director is coming out on top. - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
