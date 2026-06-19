@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T19:41:09.464913+00:00",
-  "last_heartbeat": "2026-06-19T19:41:09.464913+00:00",
-  "uptime_seconds": 2781,
+  "generated_at": "2026-06-19T19:43:06.331759+00:00",
+  "last_heartbeat": "2026-06-19T19:43:06.331759+00:00",
+  "uptime_seconds": 37,
   "dry_run": true,
   "markets_tracked": 1365,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1182,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1208,
+  "headlines_last_cycle": 26,
   "signals_24h": 5,
-  "classifications_24h": 11049,
+  "classifications_24h": 11140,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2483,
+    "prefiltered_haiku": 2510,
     "stale": 38,
     "capped": 3,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T19:40:06.425698+00:00"
+    "last_check": "2026-06-19T19:42:42.596357+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2462,
+    "news": 2486,
     "matched": 1121,
-    "classified": 11049,
+    "classified": 11140,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1280.4
+    "avg_classification_latency_ms": 1382.0
   },
   "live_readiness": {
     "ready": true,
@@ -388,74 +388,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 19:38:57",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Horse-drawn carriage rides in New York on hold after teen tourist\u2019s death - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 19:43:06",
+      "market_question": "Over $1B crypto hack value in 2026?",
+      "headline": "TD Cowen says CME has the upper hand in lawsuit against CFTC over crypto perpetual futures",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 19:38:57",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Horse-drawn carriage rides in New York on hold after teen tourist\u2019s death - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 19:43:06",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "TD Cowen says CME has the upper hand in lawsuit against CFTC over crypto perpetual futures",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 19:38:57",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Horse-drawn carriage rides in New York on hold after teen tourist\u2019s death - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 19:43:05",
+      "market_question": "Over $1.5B crypto hack value in 2026?",
+      "headline": "TD Cowen says CME has the upper hand in lawsuit against CFTC over crypto perpetual futures",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 19:38:57",
-      "market_question": "Will El Salvador hold $1b+ of BTC by December 31, 2026?",
-      "headline": "Horse-drawn carriage rides in New York on hold after teen tourist\u2019s death - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 19:43:05",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "TD Cowen says CME has the upper hand in lawsuit against CFTC over crypto perpetual futures",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 19:38:57",
-      "market_question": "Trump declassifies new UFO files by June 22?",
-      "headline": "Horse-drawn carriage rides in New York on hold after teen tourist\u2019s death - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 19:43:04",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Schwab to join prediction markets race with S&P 500 event-based options: WSJ",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
