@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T16:33:21.248944+00:00",
-  "last_heartbeat": "2026-06-19T16:33:21.248944+00:00",
-  "uptime_seconds": 64000,
+  "generated_at": "2026-06-19T16:38:25.829074+00:00",
+  "last_heartbeat": "2026-06-19T16:38:25.829074+00:00",
+  "uptime_seconds": 64305,
   "dry_run": true,
   "markets_tracked": 1685,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 741,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 743,
+  "headlines_last_cycle": 1,
   "signals_24h": 7,
-  "classifications_24h": 13944,
+  "classifications_24h": 13947,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 3583,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3222,
-    "matched": 1216,
-    "classified": 13944,
+    "news": 3223,
+    "matched": 1218,
+    "classified": 13947,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1818.1
+    "avg_classification_latency_ms": 1818.0
   },
   "live_readiness": {
     "ready": true,
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     },
@@ -416,61 +416,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 16:29:28",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World Cup ticket buyers are left stranded as resale purchases fall through - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:29:28",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "World Cup ticket buyers are left stranded as resale purchases fall through - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:29:28",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World Cup ticket buyers are left stranded as resale purchases fall through - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:29:28",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World Cup ticket buyers are left stranded as resale purchases fall through - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:29:25",
-      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
-      "headline": "World Cup ticket buyers are left stranded as resale purchases fall through - AP News",
+      "time": "2026-06-19 16:38:21",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Anne Hathaway is pregnant with her third child - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -479,6 +427,58 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:38:19",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Anne Hathaway is pregnant with her third child - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 16:38:19",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Anne Hathaway is pregnant with her third child - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 16:38:19",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Anne Hathaway is pregnant with her third child - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 16:38:19",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Anne Hathaway is pregnant with her third child - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
