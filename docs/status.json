@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T17:19:04.409619+00:00",
-  "last_heartbeat": "2026-06-19T17:19:04.409619+00:00",
-  "uptime_seconds": 66743,
+  "generated_at": "2026-06-19T17:21:13.059427+00:00",
+  "last_heartbeat": "2026-06-19T17:21:13.059427+00:00",
+  "uptime_seconds": 38,
   "dry_run": true,
-  "markets_tracked": 1689,
+  "markets_tracked": 1350,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 765,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 779,
+  "headlines_last_cycle": 13,
   "signals_24h": 7,
-  "classifications_24h": 12376,
+  "classifications_24h": 12420,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3041,
+    "prefiltered_haiku": 3047,
     "stale": 53,
     "capped": 3,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T17:17:31.380223+00:00"
+    "last_check": "2026-06-19T17:20:50.347498+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2763,
-    "matched": 1225,
-    "classified": 12376,
+    "news": 2775,
+    "matched": 1228,
+    "classified": 12420,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1817.2
+    "avg_classification_latency_ms": 1966.3
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.33999999999999997,
+      "current_price": 0.34,
       "pnl_pct": 0.76,
       "amount_usd": 25.0,
       "current_value_usd": 25.19,
@@ -388,61 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 17:18:39",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "US push to get Iran talks started hits an early bump. Vance stays at home, for now - AP News",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 17:18:39",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "US push to get Iran talks started hits an early bump. Vance stays at home, for now - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 17:18:39",
-      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
-      "headline": "US push to get Iran talks started hits an early bump. Vance stays at home, for now - AP News",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.6,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 17:18:39",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "US push to get Iran talks started hits an early bump. Vance stays at home, for now - AP News",
-      "direction": "bearish",
-      "materiality": 0.25,
-      "confidence": 0.6,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 17:18:35",
-      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
-      "headline": "Toews, Stanley Cup and Olympic champ, retires",
+      "time": "2026-06-19 17:21:13",
+      "market_question": "Will an Anthropic Claude model score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -451,6 +399,58 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 17:21:12",
+      "market_question": "Will OpenAI GPT score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 17:21:11",
+      "market_question": "Will Donald Trump visit Italy in 2026?",
+      "headline": "Meloni slams Trump's claim she 'begged' for a photo with him as Italy's top diplomat cancels US trip - AP News",
+      "direction": "bearish",
+      "materiality": 0.3,
+      "confidence": 0.58,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 17:21:11",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Lebanon ceasefire agreed after US-Iran talks in Switzerland scrapped - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 17:21:11",
+      "market_question": "Will Donald Trump visit Lebanon in 2026?",
+      "headline": "Lebanon ceasefire agreed after US-Iran talks in Switzerland scrapped - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
