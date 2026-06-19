@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T01:19:58.461899+00:00",
-  "last_heartbeat": "2026-06-19T01:19:58.461899+00:00",
-  "uptime_seconds": 9197,
+  "generated_at": "2026-06-19T01:25:02.693866+00:00",
+  "last_heartbeat": "2026-06-19T01:25:02.693866+00:00",
+  "uptime_seconds": 9501,
   "dry_run": true,
   "markets_tracked": 1701,
   "classify_error_streak": 0,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 75,
+  "headlines_scanned_today": 78,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 16077,
+  "classifications_24h": 16091,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4348,
+    "prefiltered_haiku": 4358,
     "stale": 46,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3897,
-    "matched": 1100,
-    "classified": 16077,
+    "news": 3898,
+    "matched": 1102,
+    "classified": 16091,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1504.1
+    "avg_classification_latency_ms": 1507.8
   },
   "live_readiness": {
     "ready": true,
@@ -373,69 +373,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 01:18:42",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Clark builds 4-shot lead as U.S. Open suspended",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 01:23:19",
+      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
+      "headline": "New Mexico Epstein probe subpoenas US Attorneys' offices - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 01:18:42",
-      "market_question": "Will Anastasia Potapova win the 2026 Women\u2019s US Open?",
-      "headline": "Clark builds 4-shot lead as U.S. Open suspended",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 01:23:15",
+      "market_question": "New MLB CBA by Dec. 1?",
+      "headline": "New Mexico Epstein probe subpoenas US Attorneys' offices - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 01:18:42",
-      "market_question": "Will Matteo Berrettini win the 2026 Men's US Open?",
-      "headline": "Clark builds 4-shot lead as U.S. Open suspended",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 01:23:15",
+      "market_question": "Will the Republicans win the New Mexico Senate race in 2026?",
+      "headline": "New Mexico Epstein probe subpoenas US Attorneys' offices - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 01:18:42",
-      "market_question": "Will Jiri Lehecka win the 2026 Men's US Open?",
-      "headline": "Clark builds 4-shot lead as U.S. Open suspended",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 01:23:15",
+      "market_question": "Will the Democrats win the New Mexico Senate race in 2026?",
+      "headline": "New Mexico Epstein probe subpoenas US Attorneys' offices - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 01:18:42",
-      "market_question": "Will Alexandra Eala win the 2026 Women\u2019s US Open?",
-      "headline": "Clark builds 4-shot lead as U.S. Open suspended",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 01:23:14",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "White House postpones sending Vance to Switzerland for talks with Iran negotiators - AP News",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.62,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
