@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T00:03:54.708436+00:00",
-  "last_heartbeat": "2026-06-19T00:03:54.708436+00:00",
-  "uptime_seconds": 4633,
+  "generated_at": "2026-06-19T00:08:59.198686+00:00",
+  "last_heartbeat": "2026-06-19T00:08:59.198686+00:00",
+  "uptime_seconds": 4938,
   "dry_run": true,
-  "markets_tracked": 1668,
+  "markets_tracked": 1664,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6967,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2,
+  "headlines_scanned_today": 4,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15928,
+  "classifications_24h": 15921,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4278,
+    "prefiltered_haiku": 4280,
     "stale": 45,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3856,
+    "news": 3855,
     "matched": 1107,
-    "classified": 15928,
+    "classified": 15921,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1509.1
+    "avg_classification_latency_ms": 1511.4
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 00:00:38",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Man who admits setting cross on fire in Chicago park is charged with a hate crime - AP News",
+      "time": "2026-06-19 00:07:22",
+      "market_question": "Will Trump meet with Delcy Rodr\u00edguez by June 30?",
+      "headline": "EXCLUSIVE: US diplomats depart Latin America-focused mission amid clashes with Trump ally - Reuters",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.58,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 00:07:20",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "EXCLUSIVE: US diplomats depart Latin America-focused mission amid clashes with Trump ally - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,56 +399,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 00:00:36",
-      "market_question": "Will Donald Trump visit Mississippi in 2026?",
-      "headline": "Police shooting of a 1-year-old Mississippi boy ignites tension between police and Black residents - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 00:07:19",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "EXCLUSIVE: US diplomats depart Latin America-focused mission amid clashes with Trump ally - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 00:00:36",
-      "market_question": "Will the Democrats win the Mississippi Senate race in 2026?",
-      "headline": "Police shooting of a 1-year-old Mississippi boy ignites tension between police and Black residents - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 00:07:19",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "EXCLUSIVE: US diplomats depart Latin America-focused mission amid clashes with Trump ally - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 00:00:36",
-      "market_question": "Will Burna Boy perform at the 2026 FIFA World Cup Final halftime show?",
-      "headline": "Police shooting of a 1-year-old Mississippi boy ignites tension between police and Black residents - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 00:07:19",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "EXCLUSIVE: US diplomats depart Latin America-focused mission amid clashes with Trump ally - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 00:00:36",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Man who admits setting cross on fire in Chicago park is charged with a hate crime - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
