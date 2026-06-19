@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T06:44:36.886463+00:00",
-  "last_heartbeat": "2026-06-19T06:44:36.886463+00:00",
-  "uptime_seconds": 28676,
+  "generated_at": "2026-06-19T06:49:41.033935+00:00",
+  "last_heartbeat": "2026-06-19T06:49:41.033935+00:00",
+  "uptime_seconds": 28980,
   "dry_run": true,
-  "markets_tracked": 1692,
+  "markets_tracked": 1688,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 275,
+  "headlines_scanned_today": 279,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 15680,
+  "classifications_24h": 15675,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4160,
-    "stale": 62,
+    "prefiltered_haiku": 4156,
+    "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T06:32:09.672305+00:00"
+    "last_check": "2026-06-19T06:47:10.370968+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 3799,
-    "matched": 1081,
-    "classified": 15680,
+    "matched": 1082,
+    "classified": 15675,
     "signals": 5,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1713.3
+    "avg_classification_latency_ms": 1712.9
   },
   "live_readiness": {
     "ready": true,
@@ -388,61 +388,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 06:38:03",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Janse van Rensburg backed for first England run-out",
+      "time": "2026-06-19 06:49:13",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 06:38:02",
-      "market_question": "US national Bitcoin reserve before 2027?",
-      "headline": "What Happens When Bitcoin Reaches 21 Million Supply?",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 06:38:02",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Janse van Rensburg backed for first England run-out",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 06:49:11",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 06:38:02",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Janse van Rensburg backed for first England run-out",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 06:49:10",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 06:38:02",
-      "market_question": "Will AJ Dybantsa be the first pick in the 2026 NBA draft?",
-      "headline": "Janse van Rensburg backed for first England run-out",
+      "time": "2026-06-19 06:49:10",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 06:49:09",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "What Is the CLARITY Act? The Crypto Market Structure Bill Explained",
       "direction": null,
       "materiality": null,
       "confidence": null,
