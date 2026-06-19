@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T00:19:08.121377+00:00",
-  "last_heartbeat": "2026-06-19T00:19:08.121377+00:00",
-  "uptime_seconds": 5547,
+  "generated_at": "2026-06-19T00:24:12.368585+00:00",
+  "last_heartbeat": "2026-06-19T00:24:12.368585+00:00",
+  "uptime_seconds": 5851,
   "dry_run": true,
   "markets_tracked": 1681,
   "classify_error_streak": 0,
@@ -81,10 +81,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 51,
+  "headlines_scanned_today": 55,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 16071,
+  "classifications_24h": 16079,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 4344,
@@ -98,7 +98,7 @@
     "category_limit": 1,
     "orderbook_skip": 0,
     "already_priced_in": 1,
-    "needs_confirmation": 4,
+    "needs_confirmation": 2,
     "event_exposure_block": 1,
     "low_consensus": 0,
     "circuit_breaker": 0,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3892,
-    "matched": 1099,
-    "classified": 16071,
+    "news": 3895,
+    "matched": 1101,
+    "classified": 16079,
     "signals": 7,
     "trades": 4
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1481.2
+    "avg_classification_latency_ms": 1485.0
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 00:18:27",
+      "time": "2026-06-19 00:20:49",
+      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
+      "headline": "Five ways the Iran peace deal could affect you and your money",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 00:20:44",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "'He hid the a la carte menu': Who should pay on the first date",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 00:20:44",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Five ways the Iran peace deal could affect you and your money",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 00:20:44",
       "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Senators seek to block Hegseth travel funds until Pentagon releases report on Iran school strike - AP News",
+      "headline": "Five ways the Iran peace deal could affect you and your money",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -386,48 +425,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 00:18:27",
-      "market_question": "Will Pete Hegseth leave the Trump administration before 2027?",
-      "headline": "Senators seek to block Hegseth travel funds until Pentagon releases report on Iran school strike - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 00:18:27",
+      "time": "2026-06-19 00:20:44",
       "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Senators seek to block Hegseth travel funds until Pentagon releases report on Iran school strike - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 00:18:27",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Senators seek to block Hegseth travel funds until Pentagon releases report on Iran school strike - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 00:18:27",
-      "market_question": "Will Reid Detmers strike out the most batters during the 2026 MLB regular season?",
-      "headline": "Senators seek to block Hegseth travel funds until Pentagon releases report on Iran school strike - AP News",
+      "headline": "Five ways the Iran peace deal could affect you and your money",
       "direction": null,
       "materiality": null,
       "confidence": null,
