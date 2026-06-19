@@ -38,9 +38,9 @@ def _cls(direction, materiality, confidence=0.5):
                           model="test")
 
 
-def _mkt(price):
-    return Market("c1", "Will X happen?", "ai", price, round(1 - price, 4),
-                  5000, "", True, [])
+def _mkt(price, category="ai", fee_rate=0.0):
+    return Market("c1", "Will X happen?", category, price, round(1 - price, 4),
+                  5000, "", True, [], fee_rate=fee_rate)
 
 
 EVENT = NewsEvent(headline="h", source="rss", url="",
@@ -81,6 +81,47 @@ def test_detect_edge_v2_returns_none_below_threshold():
     # Tiny materiality leaves edge under EDGE_THRESHOLD -> no metrics at all.
     assert detect_edge_v2(_mkt(0.5), _cls("bullish", 0.05), EVENT) is None
     assert detect_edge_v2(_mkt(0.5), _cls("neutral", 0.9), EVENT) is None
+
+
+# --- fee-adjusted edge -------------------------------------------------------
+
+def test_geopolitics_market_is_fee_free():
+    from locus.markets import gamma
+    assert gamma._fee_rate_for_category("geopolitics") == 0.0
+    assert gamma._fee_rate_for_category("world") == 0.0
+    # A geopolitics market carries no fee, so net_edge == raw_edge.
+    m = detect_edge_v2(_mkt(0.5, category="geopolitics", fee_rate=0.0),
+                       _cls("bullish", 0.6), EVENT)
+    assert m.fee_cost == 0.0
+    assert m.net_edge == pytest.approx(m.edge)
+
+
+def test_crypto_fee_rate_and_cost():
+    from locus.markets import gamma
+    assert gamma._fee_rate_for_category("crypto") == pytest.approx(0.07)
+    # crypto fee at price 0.50: 0.07 * 0.50 * 0.50 = 0.0175 per share.
+    m = detect_edge_v2(_mkt(0.5, category="crypto", fee_rate=0.07),
+                       _cls("bullish", 0.6), EVENT)
+    assert m.fee_cost == pytest.approx(0.07 * 0.25)            # 0.0175
+
+
+def test_net_edge_is_raw_minus_fee():
+    # price 0.5, bullish, materiality 0.6 -> raw edge 0.30; crypto fee 0.0175.
+    m = detect_edge_v2(_mkt(0.5, category="crypto", fee_rate=0.07),
+                       _cls("bullish", 0.6), EVENT)
+    assert m.edge == pytest.approx(0.6 * 0.5)                  # 0.30 raw
+    assert m.net_edge == pytest.approx(m.edge - m.fee_cost)    # 0.2825
+    # The built Signal carries the same fee figures through for logging.
+    assert m.signal.fee_cost == pytest.approx(m.fee_cost)
+    assert m.signal.net_edge == pytest.approx(m.net_edge)
+
+
+def test_edge_rejected_when_fee_eats_it():
+    # price 0.5, bullish, materiality 0.22 -> raw edge 0.11, just over the 0.10
+    # threshold. With no fee it signals; a fat fee drags net under the floor.
+    assert detect_edge_v2(_mkt(0.5, fee_rate=0.0), _cls("bullish", 0.22), EVENT) is not None
+    # fee 0.10 * 0.5 * 0.5 = 0.025 -> net 0.085 < EDGE_THRESHOLD (0.10) -> rejected.
+    assert detect_edge_v2(_mkt(0.5, fee_rate=0.10), _cls("bullish", 0.22), EVENT) is None
 
 
 # --- configurable price guards (BULLISH/BEARISH_MIN/MAX_PRICE) ---------------

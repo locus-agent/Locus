@@ -61,6 +61,7 @@ def _classification_row(c: dict) -> dict:
         "materiality": c["materiality"],
         "confidence": c["confidence"],
         "edge": c["edge"],
+        "fee_cost": c.get("fee_cost"),
         "action": c["action"],
         "match_source": c["match_source"],
         "consensus_score": c["consensus_score"],

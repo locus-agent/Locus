@@ -110,6 +110,32 @@ DAILY_SPEND_LIMIT_USD = float(os.getenv("DAILY_SPEND_LIMIT_USD", "100"))
 EDGE_THRESHOLD = float(os.getenv("EDGE_THRESHOLD", "0.10"))
 NEWS_LOOKBACK_HOURS = 6
 
+# --- Polymarket trading fees (per-category) ---
+# Per-share fee modeled as feeRate * p * (1 - p) (see edge.detect_edge_v2).
+# The fee is subtracted from raw edge before the EDGE_THRESHOLD check, so a
+# market whose fee eats the edge never signals. Geopolitics/world markets are
+# fee-free. Override the whole mapping with a FEE_RATES JSON string in .env,
+# e.g. FEE_RATES='{"crypto": 0.07, "other": 0.05}'. 'other' is the fallback
+# for any category without an explicit entry (see gamma._fee_rate_for_category).
+FEE_RATES = {
+    "geopolitics": 0.0,
+    "world": 0.0,
+    "politics": 0.04,
+    "mentions": 0.04,
+    "technology": 0.04,
+    "ai": 0.04,
+    "crypto": 0.07,
+    "sports": 0.03,
+    "finance": 0.04,
+    "other": 0.05,
+}
+_fee_rates_override = os.getenv("FEE_RATES", "")
+if _fee_rates_override:
+    try:
+        FEE_RATES = json.loads(_fee_rates_override)
+    except (ValueError, TypeError):
+        pass  # malformed override -> keep the defaults above
+
 # --- Price-room guards (edge.detect_edge_v2) ---
 # Skip a signal when the market is priced outside the band where its direction
 # has historically paid. Bullish (YES): min raised from 0.05 to 0.12 because

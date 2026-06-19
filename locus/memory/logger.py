@@ -106,6 +106,7 @@ def init_db():
             edge REAL,
             expected_edge REAL,
             vol_adj REAL,
+            fee_cost REAL,
             action TEXT NOT NULL,
             match_source TEXT,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
@@ -250,6 +251,8 @@ def _migrate_classification_columns(conn):
         # volatility adjustment that penalizes near-certain markets.
         ("expected_edge", "REAL"),
         ("vol_adj", "REAL"),
+        # Modeled per-share trading fee subtracted from raw edge at signal time.
+        ("fee_cost", "REAL"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -743,20 +746,21 @@ def log_classification(
     ensemble_used: bool | None = None,
     expected_edge: float | None = None,
     vol_adj: float | None = None,
+    fee_cost: float | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
         """INSERT INTO classifications
            (market_question, headline, news_source, direction, materiality, edge, action,
             match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
-            event_id, consensus_score, ensemble_used, expected_edge, vol_adj)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            event_id, consensus_score, ensemble_used, expected_edge, vol_adj, fee_cost)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_question, headline, news_source, direction, materiality, edge, action,
          match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
          event_id,
          consensus_score,
          None if ensemble_used is None else int(ensemble_used),
-         expected_edge, vol_adj),
+         expected_edge, vol_adj, fee_cost),
     )
     classification_id = cur.lastrowid
     conn.commit()

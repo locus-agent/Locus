@@ -81,6 +81,9 @@ class Signal:
     # Enhanced-edge metrics that drove sizing (carried through for logging).
     expected_edge: float = 0.0
     vol_adj: float = 1.0
+    # Per-share trading fee modeled at entry, and the raw edge net of it.
+    fee_cost: float = 0.0
+    net_edge: float = 0.0
 
 
 @dataclass
@@ -88,6 +91,8 @@ class EdgeMetrics:
     """The enhanced-edge computation behind a V2 signal.
 
     edge            — raw directional edge (materiality * distance-to-travel)
+    fee_cost        — modeled per-share trading fee (feeRate * p * (1 - p))
+    net_edge        — raw edge net of the fee; gated against EDGE_THRESHOLD
     expected_edge   — edge discounted by Claude's win-probability (confidence):
                       materiality * confidence * distance
     vol_adj         — volatility adjustment that penalizes near-certain markets
@@ -99,6 +104,8 @@ class EdgeMetrics:
     expected_edge: float
     vol_adj: float
     recommended_size: float
+    fee_cost: float = 0.0
+    net_edge: float = 0.0
     signal: "Signal | None" = None
 
 
@@ -151,7 +158,16 @@ def detect_edge_v2(
             return None
         edge = classification.materiality * market_price
 
-    if edge < config.EDGE_THRESHOLD:
+    # Subtract the modeled trading fee before gating: the fee is symmetric in
+    # price (feeRate * p * (1 - p)), so it's the same whichever side we buy.
+    # Geopolitics markets are fee-free (fee_rate 0). A market whose fee eats the
+    # edge below EDGE_THRESHOLD never signals.
+    fee_cost = market.fee_rate * market_price * (1.0 - market_price)
+    net_edge = edge - fee_cost
+    log.info(
+        f"[edge] Fee-adjusted edge: raw={edge:.3f} fee={fee_cost:.3f} net={net_edge:.3f}"
+    )
+    if net_edge < config.EDGE_THRESHOLD:
         return None
 
     # Discount the raw edge by Claude's win-probability (confidence) and the
@@ -182,12 +198,16 @@ def detect_edge_v2(
         total_latency_ms=total_latency,
         expected_edge=expected_edge,
         vol_adj=vol_adj,
+        fee_cost=fee_cost,
+        net_edge=net_edge,
     )
     return EdgeMetrics(
         edge=edge,
         expected_edge=expected_edge,
         vol_adj=vol_adj,
         recommended_size=bet_amount,
+        fee_cost=fee_cost,
+        net_edge=net_edge,
         signal=signal,
     )
 

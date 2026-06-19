@@ -28,6 +28,7 @@ class Market:
     liquidity: float = 0.0
     slug: str = ""  # polymarket.com/event/<slug>
     event_id: str = ""  # Gamma event id; markets sharing it are sibling outcomes
+    fee_rate: float = 0.0  # per-share fee rate by category (see _fee_rate_for_category)
 
     @property
     def implied_probability(self) -> float:
@@ -165,10 +166,11 @@ def _parse_market(m: dict) -> Market | None:
         event = (m.get("events") or [{}])[0]
         event_id = str(event.get("id", "") or "")
 
+        category = _infer_category(question, m.get("tags", None) or [])
         return Market(
             condition_id=condition_id,
             question=question,
-            category=_infer_category(question, m.get("tags", None) or []),
+            category=category,
             yes_price=yes_price,
             no_price=no_price,
             volume=vol,
@@ -180,6 +182,7 @@ def _parse_market(m: dict) -> Market | None:
             liquidity=float(m.get("liquidityNum", m.get("liquidity", 0)) or 0),
             slug=event.get("slug", "") or m.get("slug", ""),
             event_id=event_id,
+            fee_rate=_fee_rate_for_category(category),
         )
     except (KeyError, ValueError, TypeError):
         return None
@@ -440,16 +443,18 @@ def _fetch_from_clob(limit: int) -> list[Market]:
                 elif outcome == "no":
                     no_price = price
 
+            category = _infer_category(m.get("question", ""), m.get("tags") or [])
             markets.append(Market(
                 condition_id=m.get("condition_id", m.get("id", "")),
                 question=m.get("question", ""),
-                category=_infer_category(m.get("question", ""), m.get("tags") or []),
+                category=category,
                 yes_price=yes_price,
                 no_price=no_price,
                 volume=float(m.get("volume", 0)),
                 end_date=m.get("end_date_iso", m.get("end_date", "")),
                 active=m.get("active", True),
                 tokens=tokens,
+                fee_rate=_fee_rate_for_category(category),
             ))
         except (KeyError, ValueError):
             continue
@@ -496,6 +501,14 @@ def _infer_category(question: str, tags: list) -> str:
         if pattern.search(combined):
             return cat
     return "other"
+
+
+def _fee_rate_for_category(category: str) -> float:
+    """Per-share Polymarket fee rate for an inferred category. Falls back to the
+    'other' rate for any category without an explicit entry. See config.FEE_RATES
+    and edge.detect_edge_v2 for how the fee is applied (feeRate * p * (1 - p))."""
+    rates = config.FEE_RATES
+    return rates.get(category, rates.get("other", 0.05))
 
 
 def filter_by_categories(markets: list[Market], categories: list[str] | None = None) -> list[Market]:
