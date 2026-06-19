@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T08:21:01.321509+00:00",
-  "last_heartbeat": "2026-06-19T08:21:01.321509+00:00",
-  "uptime_seconds": 34460,
+  "generated_at": "2026-06-19T08:26:05.759109+00:00",
+  "last_heartbeat": "2026-06-19T08:26:05.759109+00:00",
+  "uptime_seconds": 34764,
   "dry_run": true,
-  "markets_tracked": 1685,
+  "markets_tracked": 1686,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 342,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 358,
+  "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15768,
+  "classifications_24h": 15826,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4186,
-    "stale": 63,
+    "prefiltered_haiku": 4208,
+    "stale": 64,
     "capped": 3,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3801,
-    "matched": 1115,
-    "classified": 15768,
+    "news": 3815,
+    "matched": 1128,
+    "classified": 15826,
     "signals": 6,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1743.2
+    "avg_classification_latency_ms": 1739.9
   },
   "live_readiness": {
     "ready": true,
@@ -402,61 +402,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 08:20:53",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
-      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:20:52",
-      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
-      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:20:51",
-      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
-      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
-      "direction": "bullish",
-      "materiality": 0.55,
-      "confidence": 0.72,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 08:20:49",
-      "market_question": "Will Robert Kenyon win the 2026 Makerfield by-election by less than 3%?",
-      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
+      "time": "2026-06-19 08:23:31",
+      "market_question": "Will Microsoft be the second-largest company in the world by market cap on June 30?",
+      "headline": "Microsoft Teams Introduces Office Attendance Tracking via Wi-Fi Connection - CyberSecurityNews",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 08:20:48",
-      "market_question": "Will Eduardo Braide win the Governor of Maranh\u00e3o election?",
-      "headline": "Andy Burnham's election win paves way for bid to oust UK PM Starmer - Reuters",
+      "time": "2026-06-19 08:23:31",
+      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
+      "headline": "Microsoft Teams Introduces Office Attendance Tracking via Wi-Fi Connection - CyberSecurityNews",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:23:31",
+      "market_question": "Will Microsoft be the third-largest company in the world by market cap on June 30?",
+      "headline": "Microsoft Teams Introduces Office Attendance Tracking via Wi-Fi Connection - CyberSecurityNews",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:23:31",
+      "market_question": "Will Microsoft be the largest company in the world by market cap on December 31?",
+      "headline": "Microsoft Teams Introduces Office Attendance Tracking via Wi-Fi Connection - CyberSecurityNews",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 08:23:30",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "Siri AI may have confirmed a major iPhone 18 design change - PhoneArena",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
