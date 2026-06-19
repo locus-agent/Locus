@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T16:43:30.589587+00:00",
-  "last_heartbeat": "2026-06-19T16:43:30.589587+00:00",
-  "uptime_seconds": 64609,
+  "generated_at": "2026-06-19T16:48:35.324371+00:00",
+  "last_heartbeat": "2026-06-19T16:48:35.324371+00:00",
+  "uptime_seconds": 64914,
   "dry_run": true,
   "markets_tracked": 1683,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 747,
+  "headlines_scanned_today": 749,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 13971,
+  "classifications_24h": 13942,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3607,
+    "prefiltered_haiku": 3598,
     "stale": 56,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T16:32:30.039546+00:00"
+    "last_check": "2026-06-19T16:47:30.460130+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3224,
-    "matched": 1221,
-    "classified": 13971,
+    "news": 3220,
+    "matched": 1222,
+    "classified": 13942,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1812.2
+    "avg_classification_latency_ms": 1813.1
   },
   "live_readiness": {
     "ready": true,
@@ -416,9 +416,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 16:42:48",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Draper to return at Eastbourne with new coach Murray",
+      "time": "2026-06-19 16:47:23",
+      "market_question": "Will Anthropic\u2019s market cap be 1.8T or greater at market close on IPO day by December 31 2027?",
+      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:47:17",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -429,11 +442,11 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:42:48",
-      "market_question": "New MLB CBA by Dec. 1?",
-      "headline": "Draper to return at Eastbourne with new coach Murray",
+      "time": "2026-06-19 16:47:16",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
@@ -442,43 +455,30 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:42:47",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Draper to return at Eastbourne with new coach Murray",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 16:47:16",
+      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
+      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:42:47",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Draper to return at Eastbourne with new coach Murray",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 16:47:16",
+      "market_question": "Will Anthropic\u2019s valuation hit (HIGH) $1.25T by June 30?",
+      "headline": "'They\u2019re politically naive': The political fight behind Anthropic\u2019s export controls - Politico",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 16:42:47",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Draper to return at Eastbourne with new coach Murray",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
