@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T13:20:27.488677+00:00",
-  "last_heartbeat": "2026-06-19T13:20:27.488677+00:00",
-  "uptime_seconds": 52426,
+  "generated_at": "2026-06-19T13:25:32.020901+00:00",
+  "last_heartbeat": "2026-06-19T13:25:32.020901+00:00",
+  "uptime_seconds": 52731,
   "dry_run": true,
-  "markets_tracked": 1682,
+  "markets_tracked": 1681,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 604,
+  "headlines_scanned_today": 609,
   "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15085,
+  "classifications_24h": 15095,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3932,
+    "prefiltered_haiku": 3935,
     "stale": 61,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3584,
-    "matched": 1226,
-    "classified": 15085,
+    "news": 3586,
+    "matched": 1230,
+    "classified": 15095,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1808.0
+    "avg_classification_latency_ms": 1806.3
   },
   "live_readiness": {
     "ready": true,
@@ -416,35 +416,48 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 13:19:12",
-      "market_question": "Will the Republicans win the New Jersey Senate race in 2026?",
-      "headline": "How Pulte\u2019s new role is a win for CIA\u2019s John Ratcliffe - Politico",
+      "time": "2026-06-19 13:23:37",
+      "market_question": "Will Matteo Berrettini win the 2026 Men's US Open?",
+      "headline": "U.S. Open 2026: The best shots, sights and sounds ...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 13:19:11",
-      "market_question": "Will the Republicans win the New Hampshire Senate race in 2026?",
-      "headline": "How Pulte\u2019s new role is a win for CIA\u2019s John Ratcliffe - Politico",
+      "time": "2026-06-19 13:23:37",
+      "market_question": "Will Arthur Fils win the 2026 Men's US Open?",
+      "headline": "U.S. Open 2026: The best shots, sights and sounds ...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 13:19:09",
-      "market_question": "Will the Democrats win the New Jersey Senate race in 2026?",
-      "headline": "How Pulte\u2019s new role is a win for CIA\u2019s John Ratcliffe - Politico",
+      "time": "2026-06-19 13:23:37",
+      "market_question": "Will Donald Trump visit Canada in 2026?",
+      "headline": "U.S. Open 2026: The best shots, sights and sounds ...",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 13:23:37",
+      "market_question": "Will Bitcoin have the best performance in 2026?",
+      "headline": "U.S. Open 2026: The best shots, sights and sounds ...",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -455,30 +468,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 13:19:09",
-      "market_question": "Will New Orleans Pelicans win the 2027 NBA Finals?",
-      "headline": "How Pulte\u2019s new role is a win for CIA\u2019s John Ratcliffe - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 13:23:37",
+      "market_question": "Will Trump hug an Iranian official by June 20?",
+      "headline": "Police order last-minute ban of Iranian opposition rally in Paris - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 13:19:09",
-      "market_question": "Will the New York Yankees win the 2026 World Series?",
-      "headline": "How Pulte\u2019s new role is a win for CIA\u2019s John Ratcliffe - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
