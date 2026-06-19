@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T16:53:39.849159+00:00",
-  "last_heartbeat": "2026-06-19T16:53:39.849159+00:00",
-  "uptime_seconds": 65219,
+  "generated_at": "2026-06-19T16:58:44.994886+00:00",
+  "last_heartbeat": "2026-06-19T16:58:44.994886+00:00",
+  "uptime_seconds": 65524,
   "dry_run": true,
-  "markets_tracked": 1684,
+  "markets_tracked": 1683,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 752,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 755,
+  "headlines_last_cycle": 2,
   "signals_24h": 7,
-  "classifications_24h": 13946,
+  "classifications_24h": 13953,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3599,
+    "prefiltered_haiku": 3598,
     "stale": 56,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3219,
-    "matched": 1225,
-    "classified": 13946,
+    "news": 3220,
+    "matched": 1228,
+    "classified": 13953,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1814.3
+    "avg_classification_latency_ms": 1816.7
   },
   "live_readiness": {
     "ready": true,
@@ -416,9 +416,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 16:51:54",
-      "market_question": "Will OpenAI have the second best AI model at the end of June 2026?",
-      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
+      "time": "2026-06-19 16:58:32",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -429,37 +429,11 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:51:53",
-      "market_question": "Will OpenAI have a #1 AI model by June 30?",
-      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
+      "time": "2026-06-19 16:58:29",
+      "market_question": "Will OpenAI GPT score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
       "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:51:53",
-      "market_question": "Will OpenAI have the top AI model at the end of June 2026?",
-      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:51:50",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
-      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
-      "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
@@ -468,17 +442,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 16:51:50",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "OpenAI gets the attention it needs from AI researcher Noam Shazeer - Computerworld",
+      "time": "2026-06-19 16:58:29",
+      "market_question": "Will an Anthropic Claude model score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:58:28",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:58:28",
+      "market_question": "Will Google Gemini score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "US should take 50% stake in major AI firms, says Bernie Sanders - Computerworld",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
