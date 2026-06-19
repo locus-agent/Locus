@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T14:26:28.446688+00:00",
-  "last_heartbeat": "2026-06-19T14:26:28.446688+00:00",
-  "uptime_seconds": 56387,
+  "generated_at": "2026-06-19T14:31:32.991906+00:00",
+  "last_heartbeat": "2026-06-19T14:31:32.991906+00:00",
+  "uptime_seconds": 56692,
   "dry_run": true,
-  "markets_tracked": 1692,
+  "markets_tracked": 1694,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 687,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 688,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 15114,
+  "classifications_24h": 15043,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3975,
+    "prefiltered_haiku": 3955,
     "stale": 59,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3570,
-    "matched": 1281,
-    "classified": 15114,
+    "news": 3552,
+    "matched": 1279,
+    "classified": 15043,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1801.3
+    "avg_classification_latency_ms": 1800.4
   },
   "live_readiness": {
     "ready": true,
@@ -416,48 +416,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 14:26:25",
-      "market_question": "Will a player representing Scotland be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Can Scotland turn World Cup party into knockout ru...",
+      "time": "2026-06-19 14:28:37",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Reliance unveils AI-first strategy at AGM 2026; Mukesh Ambani says India must become a global leader - The Indian Express",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 14:26:24",
-      "market_question": "Will Scotland win Group C in the 2026 FIFA World Cup?",
-      "headline": "Can Scotland turn World Cup party into knockout ru...",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 14:26:24",
-      "market_question": "Will Scotland reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Can Scotland turn World Cup party into knockout ru...",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 14:26:21",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Can Scotland turn World Cup party into knockout ru...",
+      "time": "2026-06-19 14:28:36",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "Reliance unveils AI-first strategy at AGM 2026; Mukesh Ambani says India must become a global leader - The Indian Express",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -468,9 +442,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 14:26:21",
-      "market_question": "Will Canada advance to the knockout stages at the 2026 FIFA World Cup?",
-      "headline": "Can Scotland turn World Cup party into knockout ru...",
+      "time": "2026-06-19 14:28:36",
+      "market_question": "Will Meituan have the top AI model at the end of June 2026?",
+      "headline": "Reliance unveils AI-first strategy at AGM 2026; Mukesh Ambani says India must become a global leader - The Indian Express",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -479,6 +453,32 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 14:28:36",
+      "market_question": "Will Meituan have the second best AI model at the end of June 2026?",
+      "headline": "Reliance unveils AI-first strategy at AGM 2026; Mukesh Ambani says India must become a global leader - The Indian Express",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 14:28:35",
+      "market_question": "Will Donald Trump visit India in 2026?",
+      "headline": "Reliance unveils AI-first strategy at AGM 2026; Mukesh Ambani says India must become a global leader - The Indian Express",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
