@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T09:42:12.864723+00:00",
-  "last_heartbeat": "2026-06-19T09:42:12.864723+00:00",
-  "uptime_seconds": 39332,
+  "generated_at": "2026-06-19T09:47:17.235070+00:00",
+  "last_heartbeat": "2026-06-19T09:47:17.235070+00:00",
+  "uptime_seconds": 39636,
   "dry_run": true,
-  "markets_tracked": 1696,
+  "markets_tracked": 1695,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7083,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 408,
+  "headlines_scanned_today": 409,
   "headlines_last_cycle": 0,
   "signals_24h": 6,
-  "classifications_24h": 15747,
+  "classifications_24h": 15752,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 4187,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T09:32:15.054505+00:00"
+    "last_check": "2026-06-19T09:47:15.624307+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3798,
-    "matched": 1155,
-    "classified": 15747,
+    "news": 3799,
+    "matched": 1156,
+    "classified": 15752,
     "signals": 6,
     "trades": 3
   },
@@ -194,11 +194,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     },
@@ -402,35 +402,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 09:41:38",
+      "time": "2026-06-19 09:46:01",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "Lebanon says Israeli strikes kill 18 as Israel says four soldiers killed by Hezbollah",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 09:46:01",
       "market_question": "Will Donald Trump visit Lebanon in 2026?",
-      "headline": "Lebanon hostilities escalate, weighing on US-Iran deal - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 09:41:38",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Lebanon hostilities escalate, weighing on US-Iran deal - Reuters",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
-      "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 09:41:34",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Lebanon hostilities escalate, weighing on US-Iran deal - Reuters",
+      "headline": "Lebanon says Israeli strikes kill 18 as Israel says four soldiers killed by Hezbollah",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -441,9 +428,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 09:41:34",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "Lebanon hostilities escalate, weighing on US-Iran deal - Reuters",
+      "time": "2026-06-19 09:46:01",
+      "market_question": "Netanyahu drops out of Israel election by July 31?",
+      "headline": "Lebanon says Israeli strikes kill 18 as Israel says four soldiers killed by Hezbollah",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -454,9 +441,22 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 09:41:34",
-      "market_question": "Will Arab Socialist Ba'ath Party in Lebanon win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Lebanon hostilities escalate, weighing on US-Iran deal - Reuters",
+      "time": "2026-06-19 09:46:01",
+      "market_question": "Will Democrats win all \"core four\" senate races?",
+      "headline": "Lebanon says Israeli strikes kill 18 as Israel says four soldiers killed by Hezbollah",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 09:46:01",
+      "market_question": "Will Hezbollah win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "Lebanon says Israeli strikes kill 18 as Israel says four soldiers killed by Hezbollah",
       "direction": null,
       "materiality": null,
       "confidence": null,
