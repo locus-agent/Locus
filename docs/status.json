@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T20:26:01.889974+00:00",
-  "last_heartbeat": "2026-06-19T20:26:01.889974+00:00",
-  "uptime_seconds": 344,
+  "generated_at": "2026-06-19T20:31:06.892011+00:00",
+  "last_heartbeat": "2026-06-19T20:31:06.892011+00:00",
+  "uptime_seconds": 649,
   "dry_run": true,
   "markets_tracked": 1363,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1440,
+  "headlines_scanned_today": 1443,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 11903,
+  "classifications_24h": 11820,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2751,
+    "prefiltered_haiku": 2759,
     "stale": 38,
     "capped": 3,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2680,
-    "matched": 1124,
-    "classified": 11903,
+    "news": 2659,
+    "matched": 1114,
+    "classified": 11820,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1330.5
+    "avg_classification_latency_ms": 1323.5
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 20:25:06",
-      "market_question": "Will Anthropic IPO by October 31, 2026?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
+      "time": "2026-06-19 20:29:25",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "From Trump whisperer to Trump basher: Meloni takes on US president - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 20:29:24",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "From Trump whisperer to Trump basher: Meloni takes on US president - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -399,30 +415,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 20:25:01",
-      "market_question": "Will Anthropic IPO by December 31, 2026?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
+      "time": "2026-06-19 20:29:24",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "From Trump whisperer to Trump basher: Meloni takes on US president - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 20:25:01",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
+      "time": "2026-06-19 20:29:24",
+      "market_question": "Will Trump launch a coin by December 31?",
+      "headline": "From Trump whisperer to Trump basher: Meloni takes on US president - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,36 +452,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 20:25:00",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
+      "time": "2026-06-19 20:29:24",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "From Trump whisperer to Trump basher: Meloni takes on US president - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 20:25:00",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $1.75T by December 31?",
-      "headline": "Early users of Anthropic's Mythos still have access after US order, Bloomberg News reports - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
