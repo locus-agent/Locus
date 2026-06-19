@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T18:22:08.730890+00:00",
-  "last_heartbeat": "2026-06-19T18:22:08.730890+00:00",
-  "uptime_seconds": 3694,
+  "generated_at": "2026-06-19T18:27:13.007186+00:00",
+  "last_heartbeat": "2026-06-19T18:27:13.007186+00:00",
+  "uptime_seconds": 3998,
   "dry_run": true,
-  "markets_tracked": 1362,
+  "markets_tracked": 1363,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7228,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 912,
+  "headlines_scanned_today": 914,
   "headlines_last_cycle": 0,
-  "signals_24h": 7,
-  "classifications_24h": 10749,
+  "signals_24h": 6,
+  "classifications_24h": 10728,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2423,
+    "prefiltered_haiku": 2402,
     "stale": 45,
     "capped": 3,
     "too_close_to_resolution": 1,
@@ -114,15 +114,15 @@
     "last_check": "2026-06-19T18:20:51.857062+00:00"
   },
   "edge_types_24h": {
-    "news": 3,
+    "news": 2,
     "momentum": 4,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2371,
-    "matched": 1146,
-    "classified": 10749,
-    "signals": 7,
+    "news": 2367,
+    "matched": 1147,
+    "classified": 10728,
+    "signals": 6,
     "trades": 4
   },
   "performance": {
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1474.5
+    "avg_classification_latency_ms": 1479.6
   },
   "live_readiness": {
     "ready": true,
@@ -388,69 +388,69 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 18:20:07",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 18:20:06",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
+      "time": "2026-06-19 18:26:45",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "PM under pressure from Labour MPs and ministers to set timetable for exit",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 18:20:06",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 18:26:40",
+      "market_question": "Will Fuerza Popular (FP) win the most seats in the 2026 Peruvian Chamber of Deputies election?",
+      "headline": "Very popular agreement, except for the Fake News and their partner, the Dumocrats!",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 18:20:06",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-19 18:26:40",
+      "market_question": "Will Popular Nasserist Organization win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "Very popular agreement, except for the Fake News and their partner, the Dumocrats!",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-19 18:20:06",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Christian Pulisic to miss US World Cup match against Australia because of calf injury - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-19 18:26:40",
+      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 6% and 8%?",
+      "headline": "Very popular agreement, except for the Fake News and their partner, the Dumocrats!",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
-      "action": "prefiltered_haiku",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 18:26:40",
+      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 0% and 2%?",
+      "headline": "Very popular agreement, except for the Fake News and their partner, the Dumocrats!",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
