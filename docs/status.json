@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T03:16:37.168559+00:00",
-  "last_heartbeat": "2026-06-19T03:16:37.168559+00:00",
-  "uptime_seconds": 16196,
+  "generated_at": "2026-06-19T03:21:41.236723+00:00",
+  "last_heartbeat": "2026-06-19T03:21:41.236723+00:00",
+  "uptime_seconds": 16500,
   "dry_run": true,
-  "markets_tracked": 1700,
+  "markets_tracked": 1709,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 176,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 191,
+  "headlines_last_cycle": 2,
   "signals_24h": 4,
-  "classifications_24h": 15819,
+  "classifications_24h": 15876,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4268,
-    "stale": 53,
+    "prefiltered_haiku": 4284,
+    "stale": 54,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -106,12 +106,12 @@
     "whale_triggered": 0,
     "reentry_triggered": 1
   },
-  "watched_markets_count": 17,
+  "watched_markets_count": 16,
   "missed_opportunities_24h": 21,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T03:02:03.578876+00:00"
+    "last_check": "2026-06-19T03:17:03.934870+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3844,
-    "matched": 1086,
-    "classified": 15819,
+    "news": 3857,
+    "matched": 1097,
+    "classified": 15876,
     "signals": 4,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1588.9
+    "avg_classification_latency_ms": 1590.5
   },
   "live_readiness": {
     "ready": true,
@@ -374,9 +374,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 03:07:57",
-      "market_question": "Solana Up or Down - May 20, 6AM ET",
-      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
+      "time": "2026-06-19 03:21:25",
+      "market_question": "Will Trump and Putin meet next in South Korea?",
+      "headline": "Putin and leaders of Southeast Asia agree to bolster ties at a summit in Russia - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 03:21:25",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Putin and leaders of Southeast Asia agree to bolster ties at a summit in Russia - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "cached",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 03:21:25",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Putin and leaders of Southeast Asia agree to bolster ties at a summit in Russia - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -387,56 +413,30 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:07:57",
-      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
-      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
+      "time": "2026-06-19 03:21:25",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Putin and leaders of Southeast Asia agree to bolster ties at a summit in Russia - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:07:56",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time": "2026-06-19 03:21:24",
+      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
+      "headline": "Mexico defeat South Korea, becomes first team to q...",
+      "direction": "bullish",
+      "materiality": 0.45,
+      "confidence": 0.58,
+      "edge": 0.4221,
+      "action": "stale",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 03:07:56",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 03:07:56",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
