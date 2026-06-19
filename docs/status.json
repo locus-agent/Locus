@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T02:15:46.976003+00:00",
-  "last_heartbeat": "2026-06-19T02:15:46.976003+00:00",
-  "uptime_seconds": 12546,
+  "generated_at": "2026-06-19T02:20:51.180477+00:00",
+  "last_heartbeat": "2026-06-19T02:20:51.180477+00:00",
+  "uptime_seconds": 12850,
   "dry_run": true,
-  "markets_tracked": 1696,
+  "markets_tracked": 1706,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6967,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 142,
+  "headlines_scanned_today": 143,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 16049,
+  "classifications_24h": 16023,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4352,
+    "prefiltered_haiku": 4337,
     "stale": 50,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -95,7 +95,7 @@
     "sports_event_cap": 0,
     "price_target_market": 4,
     "correlation_block": 0,
-    "category_limit": 1,
+    "category_limit": 0,
     "orderbook_skip": 0,
     "already_priced_in": 3,
     "needs_confirmation": 1,
@@ -110,7 +110,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T02:02:02.083314+00:00"
+    "last_check": "2026-06-19T02:17:02.487562+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3900,
-    "matched": 1111,
-    "classified": 16049,
+    "news": 3895,
+    "matched": 1106,
+    "classified": 16023,
     "signals": 4,
     "trades": 1
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1575.2
+    "avg_classification_latency_ms": 1575.7
   },
   "live_readiness": {
     "ready": true,
@@ -373,9 +373,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 02:14:30",
-      "market_question": "Will the announcers say \"Ankle\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Follow live: Mexico takes advantage of South Korea...",
+      "time": "2026-06-19 02:18:56",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "SpaceX IPO, Anthropic's AI Bets, and Roku - StartupHub.ai",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -386,22 +386,22 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 02:14:30",
-      "market_question": "Will Mexico advance to the knockout stages at the 2026 FIFA World Cup?",
-      "headline": "Follow live: Mexico takes advantage of South Korea...",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.6,
+      "time": "2026-06-19 02:18:56",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "SpaceX IPO, Anthropic's AI Bets, and Roku - StartupHub.ai",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 02:14:27",
-      "market_question": "Will Mexico score the most goals at the 2026 FIFA World Cup?",
-      "headline": "Follow live: Mexico takes advantage of South Korea...",
+      "time": "2026-06-19 02:18:54",
+      "market_question": "Will Anthropic have the top AI model at the end of June 2026?",
+      "headline": "SpaceX IPO, Anthropic's AI Bets, and Roku - StartupHub.ai",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -412,28 +412,28 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 02:14:27",
-      "market_question": "Will Donald Trump visit South Korea in 2026?",
-      "headline": "Follow live: Mexico takes advantage of South Korea...",
+      "time": "2026-06-19 02:18:54",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "SpaceX IPO, Anthropic's AI Bets, and Roku - StartupHub.ai",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:18:54",
+      "market_question": "Mistral AI IPO before 2027?",
+      "headline": "SpaceX IPO, Anthropic's AI Bets, and Roku - StartupHub.ai",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 02:14:27",
-      "market_question": "Will the announcers say \"What A Save\" during the Mexico vs South Korea FIFA World Cup Match?",
-      "headline": "Follow live: Mexico takes advantage of South Korea...",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
