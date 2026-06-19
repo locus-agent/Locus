@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-19T03:21:41.236723+00:00",
-  "last_heartbeat": "2026-06-19T03:21:41.236723+00:00",
-  "uptime_seconds": 16500,
+  "generated_at": "2026-06-19T03:26:45.588452+00:00",
+  "last_heartbeat": "2026-06-19T03:26:45.588452+00:00",
+  "uptime_seconds": 16804,
   "dry_run": true,
   "markets_tracked": 1709,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 191,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 193,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 15876,
+  "classifications_24h": 15874,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4284,
+    "prefiltered_haiku": 4277,
     "stale": 54,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 3857,
     "matched": 1097,
-    "classified": 15876,
+    "classified": 15874,
     "signals": 4,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1590.5
+    "avg_classification_latency_ms": 1594.8
   },
   "live_readiness": {
     "ready": true,
@@ -374,67 +374,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 03:21:25",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "Putin and leaders of Southeast Asia agree to bolster ties at a summit in Russia - AP News",
+      "time": "2026-06-19 03:25:51",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Iranian resistance leader, former national security aide praise Trump\u2019s deal with Tehran:",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "cached",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:21:25",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "Putin and leaders of Southeast Asia agree to bolster ties at a summit in Russia - AP News",
+      "time": "2026-06-19 03:25:51",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Iranian resistance leader, former national security aide praise Trump\u2019s deal with Tehran:",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
-      "action": "cached",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:21:25",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Putin and leaders of Southeast Asia agree to bolster ties at a summit in Russia - AP News",
+      "time": "2026-06-19 03:25:51",
+      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
+      "headline": "Iranian resistance leader, former national security aide praise Trump\u2019s deal with Tehran:",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 03:25:51",
+      "market_question": "Will Trump hug an Iranian official by June 20?",
+      "headline": "Iranian resistance leader, former national security aide praise Trump\u2019s deal with Tehran:",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 03:25:48",
+      "market_question": "Will Trump praise Allah again by June 30?",
+      "headline": "Iranian resistance leader, former national security aide praise Trump\u2019s deal with Tehran:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 03:21:25",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Putin and leaders of Southeast Asia agree to bolster ties at a summit in Russia - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 03:21:24",
-      "market_question": "Will Mexico reach the 2026 FIFA World Cup final?",
-      "headline": "Mexico defeat South Korea, becomes first team to q...",
-      "direction": "bullish",
-      "materiality": 0.45,
-      "confidence": 0.58,
-      "edge": 0.4221,
-      "action": "stale",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
