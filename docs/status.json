@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T03:06:28.848882+00:00",
-  "last_heartbeat": "2026-06-19T03:06:28.848882+00:00",
-  "uptime_seconds": 15588,
+  "generated_at": "2026-06-19T03:11:33.232710+00:00",
+  "last_heartbeat": "2026-06-19T03:11:33.232710+00:00",
+  "uptime_seconds": 15892,
   "dry_run": true,
-  "markets_tracked": 1698,
+  "markets_tracked": 1697,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7038,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 167,
-  "headlines_last_cycle": 8,
+  "headlines_scanned_today": 176,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 15786,
+  "classifications_24h": 15826,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4261,
-    "stale": 52,
+    "prefiltered_haiku": 4268,
+    "stale": 53,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3839,
-    "matched": 1080,
-    "classified": 15786,
+    "news": 3847,
+    "matched": 1087,
+    "classified": 15826,
     "signals": 4,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1583.5
+    "avg_classification_latency_ms": 1588.9
   },
   "live_readiness": {
     "ready": true,
@@ -374,22 +374,35 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 03:06:26",
-      "market_question": "Will Donald Trump publicly insult Emmanuel Macron by June 30, 2026?",
-      "headline": "How Macron won Trump round at the G7. Until the next bust-up. - politico.eu",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.58,
+      "time": "2026-06-19 03:07:57",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 03:06:26",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Georgia Republican leaders nix redistricting plans amid pushback - AJC.com",
+      "time": "2026-06-19 03:07:57",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 03:07:56",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -400,9 +413,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 03:06:26",
-      "market_question": "Will John Fleming be the republican nominee for Senate in Louisiana?",
-      "headline": "Georgia Republican leaders nix redistricting plans amid pushback - AJC.com",
+      "time": "2026-06-19 03:07:56",
+      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -413,22 +426,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-19 03:06:26",
-      "market_question": "Will Bill Cassidy be the republican nominee for Senate in Louisiana?",
-      "headline": "Georgia Republican leaders nix redistricting plans amid pushback - AJC.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 03:06:26",
-      "market_question": "Will Julia Letlow be the republican nominee for Senate in Louisiana?",
-      "headline": "Georgia Republican leaders nix redistricting plans amid pushback - AJC.com",
+      "time": "2026-06-19 03:07:56",
+      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "US tells ASML it's concerned one of its chipmaking tools may be in China, Bloomberg News reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
