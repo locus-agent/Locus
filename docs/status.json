@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T14:46:46.012886+00:00",
-  "last_heartbeat": "2026-06-19T14:46:46.012886+00:00",
-  "uptime_seconds": 57605,
+  "generated_at": "2026-06-19T14:51:50.510395+00:00",
+  "last_heartbeat": "2026-06-19T14:51:50.510395+00:00",
+  "uptime_seconds": 57909,
   "dry_run": true,
-  "markets_tracked": 1695,
+  "markets_tracked": 1692,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7098,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 695,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 698,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 14350,
+  "classifications_24h": 14358,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3712,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T14:32:24.873192+00:00"
+    "last_check": "2026-06-19T14:47:25.322883+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 3357,
-    "matched": 1220,
-    "classified": 14350,
+    "matched": 1221,
+    "classified": 14358,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1804.6
+    "avg_classification_latency_ms": 1807.8
   },
   "live_readiness": {
     "ready": true,
@@ -416,9 +416,22 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 14:46:34",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Iran says it will waive fees for Hormuz during 60 day negotiation period - Reuters",
+      "time": "2026-06-19 14:51:03",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "headline": "US push to get Iran talks started hits an early bump due to intense fighting in Lebanon - AP News",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.6,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 14:51:03",
+      "market_question": "Will Donald Trump visit Lebanon in 2026?",
+      "headline": "US push to get Iran talks started hits an early bump due to intense fighting in Lebanon - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -429,56 +442,43 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 14:46:29",
-      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Iran says it will waive fees for Hormuz during 60 day negotiation period - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 14:46:29",
+      "time": "2026-06-19 14:51:02",
       "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Iran says it will waive fees for Hormuz during 60 day negotiation period - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "headline": "US push to get Iran talks started hits an early bump due to intense fighting in Lebanon - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 14:46:29",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Iran says it will waive fees for Hormuz during 60 day negotiation period - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 14:51:02",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "US push to get Iran talks started hits an early bump due to intense fighting in Lebanon - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 14:46:29",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Iran says it will waive fees for Hormuz during 60 day negotiation period - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-19 14:51:02",
+      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
+      "headline": "US push to get Iran talks started hits an early bump due to intense fighting in Lebanon - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.6,
       "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
