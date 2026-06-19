@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T16:02:53.908405+00:00",
-  "last_heartbeat": "2026-06-19T16:02:53.908405+00:00",
-  "uptime_seconds": 62173,
+  "generated_at": "2026-06-19T16:07:58.471988+00:00",
+  "last_heartbeat": "2026-06-19T16:07:58.471988+00:00",
+  "uptime_seconds": 62477,
   "dry_run": true,
-  "markets_tracked": 1697,
+  "markets_tracked": 1701,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7134,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 725,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 727,
+  "headlines_last_cycle": 0,
   "signals_24h": 7,
-  "classifications_24h": 13908,
+  "classifications_24h": 13912,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3564,
+    "prefiltered_haiku": 3571,
     "stale": 56,
     "capped": 3,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3220,
-    "matched": 1202,
-    "classified": 13908,
+    "news": 3221,
+    "matched": 1204,
+    "classified": 13912,
     "signals": 7,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1815.7
+    "avg_classification_latency_ms": 1815.5
   },
   "live_readiness": {
     "ready": true,
@@ -416,67 +416,67 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 16:02:39",
-      "market_question": "Will Iran reach the Round of 16 at the 2026 FIFA World Cup?",
-      "headline": "Analysis: A confident Iran is pressing its advantage, but challenges loom - AP News",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:02:37",
-      "market_question": "Will Trump shake hands with an Iranian official by June 20?",
-      "headline": "Analysis: A confident Iran is pressing its advantage, but challenges loom - AP News",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:02:37",
-      "market_question": "Will Trump hug an Iranian official by June 20?",
-      "headline": "Analysis: A confident Iran is pressing its advantage, but challenges loom - AP News",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:02:36",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Analysis: A confident Iran is pressing its advantage, but challenges loom - AP News",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 16:02:36",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Analysis: A confident Iran is pressing its advantage, but challenges loom - AP News",
+      "time": "2026-06-19 16:07:05",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Rain fails to dampen spirits as TRNSMT festival becomes World Cup fan zone",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:07:05",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Rain fails to dampen spirits as TRNSMT festival becomes World Cup fan zone",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:07:05",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Rain fails to dampen spirits as TRNSMT festival becomes World Cup fan zone",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:07:05",
+      "market_question": "Will Argentina reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "headline": "Rain fails to dampen spirits as TRNSMT festival becomes World Cup fan zone",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 16:07:05",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Rain fails to dampen spirits as TRNSMT festival becomes World Cup fan zone",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
