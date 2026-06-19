@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T02:00:33.783602+00:00",
-  "last_heartbeat": "2026-06-19T02:00:33.783602+00:00",
-  "uptime_seconds": 11632,
+  "generated_at": "2026-06-19T02:05:38.274598+00:00",
+  "last_heartbeat": "2026-06-19T02:05:38.274598+00:00",
+  "uptime_seconds": 11937,
   "dry_run": true,
-  "markets_tracked": 1700,
+  "markets_tracked": 1704,
   "classify_error_streak": 0,
   "track_record": {
     "total": 6967,
@@ -81,13 +81,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 135,
+  "headlines_scanned_today": 138,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 16245,
+  "classifications_24h": 16231,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4422,
+    "prefiltered_haiku": 4412,
     "stale": 53,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -97,8 +97,8 @@
     "correlation_block": 0,
     "category_limit": 1,
     "orderbook_skip": 0,
-    "already_priced_in": 2,
-    "needs_confirmation": 2,
+    "already_priced_in": 3,
+    "needs_confirmation": 1,
     "event_exposure_block": 0,
     "low_consensus": 0,
     "circuit_breaker": 0,
@@ -110,7 +110,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-19T01:47:01.668459+00:00"
+    "last_check": "2026-06-19T02:02:02.083314+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -118,9 +118,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3937,
-    "matched": 1132,
-    "classified": 16245,
+    "news": 3933,
+    "matched": 1130,
+    "classified": 16231,
     "signals": 4,
     "trades": 1
   },
@@ -138,7 +138,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1555.6
+    "avg_classification_latency_ms": 1566.8
   },
   "live_readiness": {
     "ready": true,
@@ -373,61 +373,61 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 01:58:50",
-      "market_question": "Another Canada election called by June 30?",
-      "headline": "Canada, Marsch 'shaken' by gruesome Kon\u00e9 injury",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time": "2026-06-19 02:03:27",
+      "market_question": "Will Canada be the highest-scoring team in Group B during the Group Stage of the 2026 FIFA World Cup?",
+      "headline": "Canada score six but historic win marred by Kone injury",
+      "direction": "bullish",
+      "materiality": 0.65,
+      "confidence": 0.78,
+      "edge": 0.12349999999999997,
+      "action": "already_priced_in",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-19 01:58:50",
-      "market_question": "Will Donald Trump visit Canada in 2026?",
-      "headline": "Canada, Marsch 'shaken' by gruesome Kon\u00e9 injury",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 01:58:50",
-      "market_question": "Will Canada reach the Semifinals at the 2026 FIFA World Cup?",
-      "headline": "Canada, Marsch 'shaken' by gruesome Kon\u00e9 injury",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 01:58:50",
-      "market_question": "Will Canada advance to the knockout stages at the 2026 FIFA World Cup?",
-      "headline": "Canada, Marsch 'shaken' by gruesome Kon\u00e9 injury",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-19 01:58:50",
+      "time": "2026-06-19 02:03:25",
       "market_question": "Will a player representing Canada be the top goalscorer at the 2026 FIFA World Cup?",
-      "headline": "Canada, Marsch 'shaken' by gruesome Kon\u00e9 injury",
+      "headline": "Canada score six but historic win marred by Kone injury",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:03:21",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "'Not the old sleepy agency:\u2019 Energy regulator dives into fight over data center connections - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-19 02:03:21",
+      "market_question": "Will the Athletics win the 2026 World Series?",
+      "headline": "Canada score six but historic win marred by Kone injury",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-19 02:03:21",
+      "market_question": "Another Canada election called by June 30?",
+      "headline": "Canada score six but historic win marred by Kone injury",
       "direction": null,
       "materiality": null,
       "confidence": null,
