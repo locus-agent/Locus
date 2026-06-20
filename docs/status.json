@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-20T20:15:39.000350+00:00",
-  "last_heartbeat": "2026-06-20T20:15:39.000350+00:00",
-  "uptime_seconds": 85030,
+  "generated_at": "2026-06-20T20:20:44.003756+00:00",
+  "last_heartbeat": "2026-06-20T20:20:44.003756+00:00",
+  "uptime_seconds": 85335,
   "dry_run": true,
-  "markets_tracked": 1321,
-  "classify_error_streak": 60,
+  "markets_tracked": 1337,
+  "classify_error_streak": 61,
   "track_record": {
     "total": 7762,
     "accuracy": 17.2,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 615,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 616,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4253,
+  "classifications_24h": 4203,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1677,
+    "prefiltered_haiku": 1661,
     "stale": 7,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1087,
-    "matched": 758,
-    "classified": 4253,
+    "news": 1073,
+    "matched": 759,
+    "classified": 4203,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1490.6
+    "avg_classification_latency_ms": 1491.2
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.425,
+      "current_price": 0.42500000000000004,
       "pnl_pct": -12.21,
       "amount_usd": 12.5,
       "current_value_usd": 10.97,
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-20 20:17:36",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Former Olympian is arrested for allegedly vandalizing Reflecting Pool:",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-20 20:15:25",
       "market_question": "Will OpenAI announce glasses in 2026?",
       "headline": "Holly Ramsay and Adam Peaty announce they are expecting first child",
@@ -438,22 +454,6 @@
     {
       "time": "2026-06-20 20:15:25",
       "market_question": "Will OpenAI announce a watch in 2026?",
-      "headline": "Holly Ramsay and Adam Peaty announce they are expecting first child",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 20:15:25",
-      "market_question": "Will Perplexity AI announce bankruptcy before 2027?",
       "headline": "Holly Ramsay and Adam Peaty announce they are expecting first child",
       "direction": "neutral",
       "materiality": 0.0,
