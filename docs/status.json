@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-20T19:04:32.469865+00:00",
-  "last_heartbeat": "2026-06-20T19:04:32.469865+00:00",
-  "uptime_seconds": 80763,
+  "generated_at": "2026-06-20T19:09:37.041342+00:00",
+  "last_heartbeat": "2026-06-20T19:09:37.041342+00:00",
+  "uptime_seconds": 81068,
   "dry_run": true,
   "markets_tracked": 1328,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 565,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 569,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 4803,
+  "classifications_24h": 4798,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1860,
+    "prefiltered_haiku": 1862,
     "stale": 7,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-20T18:54:18.154092+00:00"
+    "last_check": "2026-06-20T19:09:18.533679+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1221,
-    "matched": 729,
-    "classified": 4803,
+    "news": 1223,
+    "matched": 731,
+    "classified": 4798,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": -2.19,
-    "total_pnl_usd": 47.88,
+    "unrealized_pnl_usd": -1.52,
+    "total_pnl_usd": 48.55,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1456.5
+    "avg_classification_latency_ms": 1456.2
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.445,
-      "pnl_pct": -15.27,
+      "current_price": 0.41000000000000003,
+      "pnl_pct": -9.92,
       "amount_usd": 12.5,
-      "current_value_usd": 10.59,
-      "pnl_usd": -1.91,
+      "current_value_usd": 11.26,
+      "pnl_usd": -1.24,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 19:03:02",
-      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Root stands firm as England head towards final\u2011day defeat",
+      "time": "2026-06-20 19:07:28",
+      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
+      "headline": "Charles Schwab is working with Cboe to launch S&P 500 \u2018yes-or-no\u2019 binary options contracts: WSJ",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 19:07:28",
+      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
+      "headline": "NHL Scores, News & Stats | Latest NHL News - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,41 +420,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-20 19:03:02",
-      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Root stands firm as England head towards final\u2011day defeat",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 19:03:02",
-      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Root stands firm as England head towards final\u2011day defeat",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 19:00:52",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Gakpo fires home the 100th goal of this World Cup",
+      "time": "2026-06-20 19:07:27",
+      "market_question": "Will X launch a USD stablecoin in 2026?",
+      "headline": "Charles Schwab is working with Cboe to launch S&P 500 \u2018yes-or-no\u2019 binary options contracts: WSJ",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +436,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 19:00:52",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Gakpo fires home the 100th goal of this World Cup",
+      "time": "2026-06-20 19:07:26",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Charles Schwab is working with Cboe to launch S&P 500 \u2018yes-or-no\u2019 binary options contracts: WSJ",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 19:07:26",
+      "market_question": "Will OpenAI launch a token before 2027?",
+      "headline": "Charles Schwab is working with Cboe to launch S&P 500 \u2018yes-or-no\u2019 binary options contracts: WSJ",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
