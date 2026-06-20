@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-20T23:10:04.486528+00:00",
-  "last_heartbeat": "2026-06-20T23:10:04.486528+00:00",
-  "uptime_seconds": 95495,
+  "generated_at": "2026-06-20T23:15:13.782787+00:00",
+  "last_heartbeat": "2026-06-20T23:15:13.782787+00:00",
+  "uptime_seconds": 95805,
   "dry_run": true,
-  "markets_tracked": 1319,
-  "classify_error_streak": 307,
+  "markets_tracked": 1320,
+  "classify_error_streak": 315,
   "track_record": {
     "total": 7932,
     "accuracy": 17.2,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 721,
+  "headlines_scanned_today": 725,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2956,
+  "classifications_24h": 2969,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1054,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 775,
-    "matched": 633,
-    "classified": 2956,
+    "news": 778,
+    "matched": 636,
+    "classified": 2969,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1615.9
+    "avg_classification_latency_ms": 1619.4
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 22:57:38",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Pink boots are everywhere at the World Cup as the color becomes a soccer star - AP News",
+      "time": "2026-06-20 23:12:52",
+      "market_question": "Spain snap election called by June 30, 2026?",
+      "headline": "Spain living in a bubble but motivated by criticism, says De la Fuente - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-20 23:10:47",
+      "market_question": "Trump, Putin, and Zelensky seen together before 2027?",
+      "headline": "Zelenskiy warns of impending massive Russian attack on Ukraine - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -399,14 +415,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 22:57:38",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Pink boots are everywhere at the World Cup as the color becomes a soccer star - AP News",
+      "time": "2026-06-20 23:10:47",
+      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
+      "headline": "Zelenskiy warns of impending massive Russian attack on Ukraine - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -415,14 +431,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 22:57:38",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Pink boots are everywhere at the World Cup as the color becomes a soccer star - AP News",
+      "time": "2026-06-20 23:10:47",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Zelenskiy warns of impending massive Russian attack on Ukraine - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -431,30 +447,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 22:57:38",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Pink boots are everywhere at the World Cup as the color becomes a soccer star - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 22:57:38",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Pink boots are everywhere at the World Cup as the color becomes a soccer star - AP News",
+      "time": "2026-06-20 23:10:44",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Israeli fire kills nine people in Gaza, including a child and journalist, medics say - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
