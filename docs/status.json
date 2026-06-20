@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-20T22:49:28.121922+00:00",
-  "last_heartbeat": "2026-06-20T22:49:28.121922+00:00",
-  "uptime_seconds": 94259,
+  "generated_at": "2026-06-20T22:54:36.832970+00:00",
+  "last_heartbeat": "2026-06-20T22:54:36.832970+00:00",
+  "uptime_seconds": 94568,
   "dry_run": true,
-  "markets_tracked": 1329,
-  "classify_error_streak": 298,
+  "markets_tracked": 1330,
+  "classify_error_streak": 302,
   "track_record": {
     "total": 7932,
     "accuracy": 17.2,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 717,
+  "headlines_scanned_today": 718,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2959,
+  "classifications_24h": 2967,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1065,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-20T22:39:23.889945+00:00"
+    "last_check": "2026-06-20T22:54:24.571741+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 775,
-    "matched": 634,
-    "classified": 2959,
+    "news": 776,
+    "matched": 635,
+    "classified": 2967,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1612.1
+    "avg_classification_latency_ms": 1613.8
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 22:48:54",
-      "market_question": "Will Grok AI beat T1 in 2026? ",
-      "headline": "Undav scores twice as Germany fight back to beat Ivory Coast",
+      "time": "2026-06-20 22:51:05",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Argentina face Austria with knockout stage in sight - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 22:48:54",
-      "market_question": "Will the announcers say \"Trump\" during the Germany vs Ivory Coast FIFA World Cup Match?",
-      "headline": "Undav scores twice as Germany fight back to beat Ivory Coast",
+      "time": "2026-06-20 22:51:05",
+      "market_question": "Will Dante Gebel win the 2027 Argentina presidential election?",
+      "headline": "Argentina face Austria with knockout stage in sight - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -415,14 +415,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 22:48:51",
-      "market_question": "Will Donald Trump visit Germany in 2026?",
-      "headline": "Undav scores twice as Germany fight back to beat Ivory Coast",
+      "time": "2026-06-20 22:51:05",
+      "market_question": "Will Juan Schiaretti win the 2027 Argentina presidential election?",
+      "headline": "Argentina face Austria with knockout stage in sight - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 22:51:05",
+      "market_question": "Will Facundo Manes win the 2027 Argentina presidential election?",
+      "headline": "Argentina face Austria with knockout stage in sight - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 22:51:02",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Argentina face Austria with knockout stage in sight - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -434,38 +466,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 22:48:51",
-      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
-      "headline": "Undav scores twice as Germany fight back to beat Ivory Coast",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 22:39:57",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Newly released video captures the aftermath of a fatal teen stabbing at a Texas track meet - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
