@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-20T09:20:49.430430+00:00",
-  "last_heartbeat": "2026-06-20T09:20:49.430430+00:00",
-  "uptime_seconds": 45740,
+  "generated_at": "2026-06-20T09:25:54.132255+00:00",
+  "last_heartbeat": "2026-06-20T09:25:54.132255+00:00",
+  "uptime_seconds": 46045,
   "dry_run": true,
   "markets_tracked": 1357,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 220,
+  "headlines_scanned_today": 239,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6828,
+  "classifications_24h": 6893,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2479,
+    "prefiltered_haiku": 2504,
     "stale": 12,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-20T09:09:02.308206+00:00"
+    "last_check": "2026-06-20T09:24:02.678386+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1650,
-    "matched": 763,
-    "classified": 6828,
+    "news": 1669,
+    "matched": 777,
+    "classified": 6893,
     "signals": 1,
     "trades": 1
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": -0.86,
-    "total_pnl_usd": 49.22,
+    "unrealized_pnl_usd": -0.95,
+    "total_pnl_usd": 49.12,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1429.9
+    "avg_classification_latency_ms": 1433.1
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.375,
-      "pnl_pct": -4.58,
+      "current_price": 0.38,
+      "pnl_pct": -5.34,
       "amount_usd": 12.5,
-      "current_value_usd": 11.93,
-      "pnl_usd": -0.57,
+      "current_value_usd": 11.83,
+      "pnl_usd": -0.67,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 09:18:00",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
+      "time": "2026-06-20 09:22:41",
+      "market_question": "Will OpenAI announce glasses in 2026?",
+      "headline": "Snap Specs combine smart glasses with rich augmented reality - Dezeen",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 09:22:39",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Snap Specs combine smart glasses with rich augmented reality - Dezeen",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +420,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 09:17:58",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
+      "time": "2026-06-20 09:22:38",
+      "market_question": "Will OpenAI announce earbuds or headphones in 2026?",
+      "headline": "Sennheiser Joins the Open Wireless Earbud Craze - Gizmodo",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 09:22:38",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Snap Specs combine smart glasses with rich augmented reality - Dezeen",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,41 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-20 09:17:58",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 09:17:58",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
-      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 09:17:58",
-      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
-      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
+      "time": "2026-06-20 09:22:38",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Snap Specs combine smart glasses with rich augmented reality - Dezeen",
       "direction": null,
       "materiality": null,
       "confidence": null,
