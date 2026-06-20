@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-20T18:18:51.634530+00:00",
-  "last_heartbeat": "2026-06-20T18:18:51.634530+00:00",
-  "uptime_seconds": 78023,
+  "generated_at": "2026-06-20T18:23:56.285884+00:00",
+  "last_heartbeat": "2026-06-20T18:23:56.285884+00:00",
+  "uptime_seconds": 78327,
   "dry_run": true,
   "markets_tracked": 1335,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 548,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 553,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 5821,
+  "classifications_24h": 5820,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2222,
+    "prefiltered_haiku": 2224,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1473,
-    "matched": 765,
-    "classified": 5821,
+    "news": 1470,
+    "matched": 767,
+    "classified": 5820,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": -1.24,
-    "total_pnl_usd": 48.83,
+    "unrealized_pnl_usd": -1.43,
+    "total_pnl_usd": 48.64,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1458.5
+    "avg_classification_latency_ms": 1457.7
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.395,
-      "pnl_pct": -7.63,
+      "current_price": 0.405,
+      "pnl_pct": -9.16,
       "amount_usd": 12.5,
-      "current_value_usd": 11.55,
-      "pnl_usd": -0.95,
+      "current_value_usd": 11.35,
+      "pnl_usd": -1.15,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 18:15:41",
-      "market_question": "Will Bitcoin replace SHA-256 before 2027?",
-      "headline": "Thinking About Leaving Roku After the FOX Deal? Here Are the Best Streaming Devices to Replace It - | Cord Cutters News",
+      "time": "2026-06-20 18:21:26",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Ukraine's Zelenskiy says he returned state decoration to Polish president - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 18:15:41",
-      "market_question": "Will Bitcoin have the best performance in 2026?",
-      "headline": "Thinking About Leaving Roku After the FOX Deal? Here Are the Best Streaming Devices to Replace It - | Cord Cutters News",
+      "time": "2026-06-20 18:21:26",
+      "market_question": "Mahmoud Abbas out as Palestinian President by June 30?",
+      "headline": "Ukraine's Zelenskiy says he returned state decoration to Polish president - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +420,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 18:15:40",
-      "market_question": "Will Bitcoin reach $180,000 by December 31, 2026?",
-      "headline": "Accenture PLC (ACN) Q3 2026 Earnings Call Highlights: Strong Revenue Growth Amid Middle East ... - Yahoo Finance",
+      "time": "2026-06-20 18:21:26",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Ukraine's Zelenskiy says he returned state decoration to Polish president - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 18:21:26",
+      "market_question": "Miguel D\u00edaz-Canel out as President of Cuba by June 30?",
+      "headline": "Ukraine's Zelenskiy says he returned state decoration to Polish president - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,36 +452,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 18:15:40",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Thinking About Leaving Roku After the FOX Deal? Here Are the Best Streaming Devices to Replace It - | Cord Cutters News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-20 18:21:26",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Ukraine's Zelenskiy says he returned state decoration to Polish president - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 18:15:40",
-      "market_question": "Will Microsoft have the best AI model at the end of July 2026?",
-      "headline": "Thinking About Leaving Roku After the FOX Deal? Here Are the Best Streaming Devices to Replace It - | Cord Cutters News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
