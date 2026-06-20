@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T05:17:16.931407+00:00",
-  "last_heartbeat": "2026-06-20T05:17:16.931407+00:00",
-  "uptime_seconds": 31128,
+  "generated_at": "2026-06-20T05:22:21.061250+00:00",
+  "last_heartbeat": "2026-06-20T05:22:21.061250+00:00",
+  "uptime_seconds": 31432,
   "dry_run": true,
-  "markets_tracked": 1365,
+  "markets_tracked": 1367,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7590,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 114,
+  "headlines_scanned_today": 116,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 7119,
+  "classifications_24h": 7116,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2537,
+    "prefiltered_haiku": 2539,
     "stale": 17,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 1696,
     "matched": 802,
-    "classified": 7119,
+    "classified": 7116,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1366.2
+    "avg_classification_latency_ms": 1364.2
   },
   "live_readiness": {
     "ready": true,
@@ -388,41 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 04:59:50",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
-      "headline": "World Cup still waits for real Brazil to show up",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 04:59:50",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "World Cup still waits for real Brazil to show up",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 04:59:50",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World Cup still waits for real Brazil to show up",
+      "time": "2026-06-20 05:21:43",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Driver dies and 33 people seriously injured in Bedford train crash",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 04:59:50",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "World Cup still waits for real Brazil to show up",
+      "time": "2026-06-20 05:21:43",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "Driver dies and 33 people seriously injured in Bedford train crash",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -447,14 +415,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 04:59:49",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "World Cup still waits for real Brazil to show up",
+      "time": "2026-06-20 05:21:43",
+      "market_question": "Will Trump deport 900k-1m people?",
+      "headline": "Driver dies and 33 people seriously injured in Bedford train crash",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -463,7 +431,39 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 05:21:42",
+      "market_question": "Will Trump deport 200-300k people?",
+      "headline": "Driver dies and 33 people seriously injured in Bedford train crash",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 05:21:42",
+      "market_question": "Will Trump deport 400-500k people?",
+      "headline": "Driver dies and 33 people seriously injured in Bedford train crash",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
