@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T00:53:32.455624+00:00",
-  "last_heartbeat": "2026-06-20T00:53:32.455624+00:00",
-  "uptime_seconds": 15303,
+  "generated_at": "2026-06-20T00:58:37.135455+00:00",
+  "last_heartbeat": "2026-06-20T00:58:37.135455+00:00",
+  "uptime_seconds": 15608,
   "dry_run": true,
-  "markets_tracked": 1362,
+  "markets_tracked": 1363,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7509,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 20,
+  "headlines_scanned_today": 22,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 7691,
+  "classifications_24h": 7700,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2691,
+    "prefiltered_haiku": 2693,
     "stale": 36,
     "capped": 3,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-20T00:38:48.095022+00:00"
+    "last_check": "2026-06-20T00:53:48.433018+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1786,
+    "news": 1787,
     "matched": 892,
-    "classified": 7691,
+    "classified": 7700,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1350.2
+    "avg_classification_latency_ms": 1349.1
   },
   "live_readiness": {
     "ready": true,
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     }
@@ -388,9 +388,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 00:50:27",
-      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
-      "headline": "Scotland fall to narrow defeat against Morocco",
+      "time": "2026-06-20 00:57:02",
+      "market_question": "Will Donald Trump visit Italy in 2026?",
+      "headline": "Rubio plans Middle East trip next week, Axios reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:57:02",
+      "market_question": "Will Donald Trump visit Lebanon in 2026?",
+      "headline": "Rubio plans Middle East trip next week, Axios reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:57:02",
+      "market_question": "Will Donald Trump visit Oman in 2026?",
+      "headline": "Rubio plans Middle East trip next week, Axios reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:57:01",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "Rubio plans Middle East trip next week, Axios reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,68 +452,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-20 00:41:47",
+      "time": "2026-06-20 00:57:01",
       "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Russia-Ukraine | Breaking News & Live Updates - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "headline": "Rubio plans Middle East trip next week, Axios reports - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:41:47",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Russia-Ukraine | Breaking News & Live Updates - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:41:45",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Russia-Ukraine | Breaking News & Live Updates - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:41:44",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Volodymyr Zelenskyy - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
