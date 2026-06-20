@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T14:20:15.079275+00:00",
-  "last_heartbeat": "2026-06-20T14:20:15.079275+00:00",
-  "uptime_seconds": 63706,
+  "generated_at": "2026-06-20T14:25:20.014125+00:00",
+  "last_heartbeat": "2026-06-20T14:25:20.014125+00:00",
+  "uptime_seconds": 64011,
   "dry_run": true,
-  "markets_tracked": 1351,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7723,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 358,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 378,
+  "headlines_last_cycle": 12,
   "signals_24h": 0,
-  "classifications_24h": 6067,
+  "classifications_24h": 6159,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2189,
+    "prefiltered_haiku": 2241,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-20T14:09:10.676954+00:00"
+    "last_check": "2026-06-20T14:24:10.937417+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1503,
-    "matched": 695,
-    "classified": 6067,
+    "news": 1522,
+    "matched": 713,
+    "classified": 6159,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1467.6
+    "avg_classification_latency_ms": 1463.1
   },
   "live_readiness": {
     "ready": true,
@@ -388,31 +388,15 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 14:20:10",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "Switzerland says US-Iran talks continue at B\u00fcrgenstock, declines to identify participants - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 14:20:10",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Switzerland says US-Iran talks continue at B\u00fcrgenstock, declines to identify participants - Reuters",
+      "time": "2026-06-20 14:25:15",
+      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
+      "headline": "Android verification is coming: Google confirms timeline and supported app stores - Ars Technica",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
       "match_source": "embedding",
@@ -420,9 +404,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 14:20:08",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "Switzerland says US-Iran talks continue at B\u00fcrgenstock, declines to identify participants - Reuters",
+      "time": "2026-06-20 14:25:13",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Android verification is coming: Google confirms timeline and supported app stores - Ars Technica",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 14:25:13",
+      "market_question": "Will Google Gemini score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "Android verification is coming: Google confirms timeline and supported app stores - Ars Technica",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -431,30 +431,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 14:20:07",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "Switzerland says US-Iran talks continue at B\u00fcrgenstock, declines to identify participants - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-20 14:25:13",
+      "market_question": "Will OpenAI announce a tablet in 2026?",
+      "headline": "Android verification is coming: Google confirms timeline and supported app stores - Ars Technica",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-20 14:17:57",
-      "market_question": "Will Donald Trump publicly insult Pope Leo XIV by June 30, 2026?",
-      "headline": "Pope Leo XIV heads to northern Italy to honor St. Augustine and migrant saint Cabrini - AP News",
+      "time": "2026-06-20 14:25:13",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Android verification is coming: Google confirms timeline and supported app stores - Ars Technica",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
