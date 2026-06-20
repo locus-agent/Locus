@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T06:43:31.350486+00:00",
-  "last_heartbeat": "2026-06-20T06:43:31.350486+00:00",
-  "uptime_seconds": 36302,
+  "generated_at": "2026-06-20T06:48:35.620798+00:00",
+  "last_heartbeat": "2026-06-20T06:48:35.620798+00:00",
+  "uptime_seconds": 36607,
   "dry_run": true,
-  "markets_tracked": 1366,
+  "markets_tracked": 1364,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7590,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 158,
+  "headlines_scanned_today": 160,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7136,
+  "classifications_24h": 7131,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2539,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1712,
-    "matched": 810,
-    "classified": 7136,
+    "news": 1711,
+    "matched": 809,
+    "classified": 7131,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1389.1
+    "avg_classification_latency_ms": 1388.8
   },
   "live_readiness": {
     "ready": true,
@@ -388,6 +388,70 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-20 06:46:57",
+      "market_question": "OpenAI $1t+ IPO before 2027?",
+      "headline": "Japan to target $2.3 trillion public-private investment by 2040, Nikkei reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 06:46:55",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Japan to target $2.3 trillion public-private investment by 2040, Nikkei reports - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-20 06:46:55",
+      "market_question": "Will Donald Trump visit Japan in 2026?",
+      "headline": "Japan to target $2.3 trillion public-private investment by 2040, Nikkei reports - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-20 06:46:55",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Japan to target $2.3 trillion public-private investment by 2040, Nikkei reports - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-20 06:36:00",
       "market_question": "Will AI be charged with a crime before 2027?",
       "headline": "Ten-man Paraguay eliminate Turkey with tense 1-0 win - Reuters",
@@ -402,70 +466,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 06:35:59",
-      "market_question": "Will Donald Trump visit Turkey in 2026?",
-      "headline": "Ten-man Paraguay eliminate Turkey with tense 1-0 win - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 06:35:59",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Ten-man Paraguay eliminate Turkey with tense 1-0 win - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 06:35:59",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Ten-man Paraguay eliminate Turkey with tense 1-0 win - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 06:35:59",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Ten-man Paraguay eliminate Turkey with tense 1-0 win - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
