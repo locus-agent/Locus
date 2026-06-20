@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T16:06:51.442941+00:00",
-  "last_heartbeat": "2026-06-20T16:06:51.442941+00:00",
-  "uptime_seconds": 70102,
+  "generated_at": "2026-06-20T16:11:56.041125+00:00",
+  "last_heartbeat": "2026-06-20T16:11:56.041125+00:00",
+  "uptime_seconds": 70407,
   "dry_run": true,
-  "markets_tracked": 1351,
+  "markets_tracked": 1350,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7723,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 438,
+  "headlines_scanned_today": 439,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 6191,
+  "classifications_24h": 6178,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2305,
+    "prefiltered_haiku": 2296,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-20T15:54:13.494351+00:00"
+    "last_check": "2026-06-20T16:09:13.918621+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1542,
-    "matched": 739,
-    "classified": 6191,
+    "news": 1540,
+    "matched": 738,
+    "classified": 6178,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": -2.1,
-    "total_pnl_usd": 47.98,
+    "unrealized_pnl_usd": -1.05,
+    "total_pnl_usd": 49.03,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1458.0
+    "avg_classification_latency_ms": 1457.1
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.44,
-      "pnl_pct": -14.5,
+      "current_price": 0.385,
+      "pnl_pct": -6.11,
       "amount_usd": 12.5,
-      "current_value_usd": 10.69,
-      "pnl_usd": -1.81,
+      "current_value_usd": 11.74,
+      "pnl_usd": -0.76,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 16:05:57",
-      "market_question": "Solana Up or Down - May 20, 6AM ET",
-      "headline": "The omega-3 supplement you take may not be helping your brain - CNN",
+      "time": "2026-06-20 16:09:51",
+      "market_question": "Will Trump deport 200-300k people?",
+      "headline": "Nine people in critical condition among 100 injured in fatal Bedford train crash",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 16:05:57",
-      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
-      "headline": "The omega-3 supplement you take may not be helping your brain - CNN",
+      "time": "2026-06-20 16:09:51",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Nine people in critical condition among 100 injured in fatal Bedford train crash",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,50 +420,50 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 16:05:56",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "First steps in peace deal demand far more from U.S. than Iran - The Washington Post",
+      "time": "2026-06-20 16:09:51",
+      "market_question": "Will Trump deport 900k-1m people?",
+      "headline": "Nine people in critical condition among 100 injured in fatal Bedford train crash",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 16:05:55",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "First steps in peace deal demand far more from U.S. than Iran - The Washington Post",
+      "time": "2026-06-20 16:09:50",
+      "market_question": "Will Trump deport 400-500k people?",
+      "headline": "Nine people in critical condition among 100 injured in fatal Bedford train crash",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 16:05:55",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "First steps in peace deal demand far more from U.S. than Iran - The Washington Post",
+      "time": "2026-06-20 16:09:50",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "Nine people in critical condition among 100 injured in fatal Bedford train crash",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
