@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T00:02:47.301012+00:00",
-  "last_heartbeat": "2026-06-20T00:02:47.301012+00:00",
-  "uptime_seconds": 12258,
+  "generated_at": "2026-06-20T00:07:52.102667+00:00",
+  "last_heartbeat": "2026-06-20T00:07:52.102667+00:00",
+  "uptime_seconds": 12563,
   "dry_run": true,
-  "markets_tracked": 1367,
+  "markets_tracked": 1365,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7395,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 4,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 7,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 7904,
+  "classifications_24h": 7911,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2782,
+    "prefiltered_haiku": 2787,
     "stale": 37,
     "capped": 3,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1831,
-    "matched": 930,
-    "classified": 7904,
+    "news": 1832,
+    "matched": 931,
+    "classified": 7911,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1353.6
+    "avg_classification_latency_ms": 1352.1
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.29500000000000004,
+      "current_price": 0.295,
       "pnl_pct": 7.63,
       "amount_usd": 12.5,
       "current_value_usd": 13.45,
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43999999999999995,
+      "current_price": 0.44,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "527505"
     }
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 00:02:24",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "Polish president strips Zelenskyy of honor over naming of army unit after notorious WWII group - AP News",
+      "time": "2026-06-20 00:06:48",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Scotland fans have descended on Boston for the World Cup, and bars are struggling to keep up - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,41 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 00:02:24",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Polish president strips Zelenskyy of honor over naming of army unit after notorious WWII group - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:02:24",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Polish president strips Zelenskyy of honor over naming of army unit after notorious WWII group - AP News",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:02:23",
+      "time": "2026-06-20 00:06:48",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Quiz: What type of World Cup fan are you?",
+      "headline": "Scotland fans have descended on Boston for the World Cup, and bars are struggling to keep up - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +420,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 00:02:23",
+      "time": "2026-06-20 00:06:48",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Scotland fans have descended on Boston for the World Cup, and bars are struggling to keep up - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:06:48",
       "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Quiz: What type of World Cup fan are you?",
+      "headline": "Scotland fans have descended on Boston for the World Cup, and bars are struggling to keep up - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:06:48",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Scotland fans have descended on Boston for the World Cup, and bars are struggling to keep up - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
