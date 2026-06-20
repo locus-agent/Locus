@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-19T23:57:42.542481+00:00",
-  "last_heartbeat": "2026-06-19T23:57:42.542481+00:00",
-  "uptime_seconds": 11953,
+  "generated_at": "2026-06-20T00:02:47.301012+00:00",
+  "last_heartbeat": "2026-06-20T00:02:47.301012+00:00",
+  "uptime_seconds": 12258,
   "dry_run": true,
-  "markets_tracked": 1369,
+  "markets_tracked": 1367,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7395,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1828,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 4,
+  "headlines_last_cycle": 3,
   "signals_24h": 4,
-  "classifications_24h": 8098,
-  "selectivity_pct": 0.0,
+  "classifications_24h": 7904,
+  "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2860,
-    "stale": 39,
+    "prefiltered_haiku": 2782,
+    "stale": 37,
     "capped": 3,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1876,
-    "matched": 966,
-    "classified": 8098,
+    "news": 1831,
+    "matched": 930,
+    "classified": 7904,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1355.1
+    "avg_classification_latency_ms": 1353.6
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-19 23:53:37",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Boston, Scotland World Cup fans brought together in soccer kinship, celebration and love of beer - AP News",
+      "time": "2026-06-20 00:02:24",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Polish president strips Zelenskyy of honor over naming of army unit after notorious WWII group - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 23:53:36",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Boston, Scotland World Cup fans brought together in soccer kinship, celebration and love of beer - AP News",
+      "time": "2026-06-20 00:02:24",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Polish president strips Zelenskyy of honor over naming of army unit after notorious WWII group - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +420,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 23:53:36",
+      "time": "2026-06-20 00:02:24",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Polish president strips Zelenskyy of honor over naming of army unit after notorious WWII group - AP News",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:02:23",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Boston, Scotland World Cup fans brought together in soccer kinship, celebration and love of beer - AP News",
+      "headline": "Quiz: What type of World Cup fan are you?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,25 +452,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-19 23:53:36",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Boston, Scotland World Cup fans brought together in soccer kinship, celebration and love of beer - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-19 23:53:36",
+      "time": "2026-06-20 00:02:23",
       "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Boston, Scotland World Cup fans brought together in soccer kinship, celebration and love of beer - AP News",
+      "headline": "Quiz: What type of World Cup fan are you?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
