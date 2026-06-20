@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T09:15:44.524726+00:00",
-  "last_heartbeat": "2026-06-20T09:15:44.524726+00:00",
-  "uptime_seconds": 45435,
+  "generated_at": "2026-06-20T09:20:49.430430+00:00",
+  "last_heartbeat": "2026-06-20T09:20:49.430430+00:00",
+  "uptime_seconds": 45740,
   "dry_run": true,
-  "markets_tracked": 1344,
+  "markets_tracked": 1357,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7661,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 218,
+  "headlines_scanned_today": 220,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6833,
+  "classifications_24h": 6828,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2476,
+    "prefiltered_haiku": 2479,
     "stale": 12,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1652,
-    "matched": 766,
-    "classified": 6833,
+    "news": 1650,
+    "matched": 763,
+    "classified": 6828,
     "signals": 1,
     "trades": 1
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": -1.33,
-    "total_pnl_usd": 48.74,
+    "unrealized_pnl_usd": -0.86,
+    "total_pnl_usd": 49.22,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1428.7
+    "avg_classification_latency_ms": 1429.9
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.4,
-      "pnl_pct": -8.4,
+      "current_price": 0.375,
+      "pnl_pct": -4.58,
       "amount_usd": 12.5,
-      "current_value_usd": 11.45,
-      "pnl_usd": -1.05,
+      "current_value_usd": 11.93,
+      "pnl_usd": -0.57,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 09:13:34",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "'The Death of Robin Hood' review: Draining the life out of an old legend - AP News",
+      "time": "2026-06-20 09:18:00",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 09:17:58",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,9 +420,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-20 09:13:34",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "'The Death of Robin Hood' review: Draining the life out of an old legend - AP News",
+      "time": "2026-06-20 09:17:58",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-20 09:13:34",
-      "market_question": "Miguel D\u00edaz-Canel out as President of Cuba by June 30?",
-      "headline": "'The Death of Robin Hood' review: Draining the life out of an old legend - AP News",
+      "time": "2026-06-20 09:17:58",
+      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
+      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,25 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-20 09:13:34",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "'The Death of Robin Hood' review: Draining the life out of an old legend - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 09:13:34",
-      "market_question": "Mahmoud Abbas out as Palestinian President by June 30?",
-      "headline": "'The Death of Robin Hood' review: Draining the life out of an old legend - AP News",
+      "time": "2026-06-20 09:17:58",
+      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
+      "headline": "Tale of the ticker tape: The quirky history behind the Knicks\u2019 first NYC parade - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
