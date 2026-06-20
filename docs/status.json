@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T00:38:19.729877+00:00",
-  "last_heartbeat": "2026-06-20T00:38:19.729877+00:00",
-  "uptime_seconds": 14391,
+  "generated_at": "2026-06-20T00:43:24.046639+00:00",
+  "last_heartbeat": "2026-06-20T00:43:24.046639+00:00",
+  "uptime_seconds": 14695,
   "dry_run": true,
-  "markets_tracked": 1368,
+  "markets_tracked": 1367,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7395,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 14,
+  "headlines_scanned_today": 19,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 7705,
+  "classifications_24h": 7709,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2699,
+    "prefiltered_haiku": 2701,
     "stale": 36,
     "capped": 3,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-20T00:23:47.731180+00:00"
+    "last_check": "2026-06-20T00:38:48.095022+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1784,
-    "matched": 892,
-    "classified": 7705,
+    "news": 1789,
+    "matched": 894,
+    "classified": 7709,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1350.6
+    "avg_classification_latency_ms": 1350.2
   },
   "live_readiness": {
     "ready": true,
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43999999999999995,
+      "current_price": 0.44,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": -0.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "527505"
     }
@@ -388,72 +388,72 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-20 00:41:47",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Russia-Ukraine | Breaking News & Live Updates - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:41:47",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Russia-Ukraine | Breaking News & Live Updates - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:41:45",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "Russia-Ukraine | Breaking News & Live Updates - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 00:41:44",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Volodymyr Zelenskyy - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-20 00:30:49",
       "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Brazilian soccer fans at the World Cup heed warning not to dress Rocky statue in team gear - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:30:48",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Brazilian soccer fans at the World Cup heed warning not to dress Rocky statue in team gear - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:30:48",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Brazilian soccer fans at the World Cup heed warning not to dress Rocky statue in team gear - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:30:48",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Brazilian soccer fans at the World Cup heed warning not to dress Rocky statue in team gear - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 00:30:48",
-      "market_question": "Will Trump attend 2 World Cup matches?",
       "headline": "Brazilian soccer fans at the World Cup heed warning not to dress Rocky statue in team gear - AP News",
       "direction": "neutral",
       "materiality": 0.0,
