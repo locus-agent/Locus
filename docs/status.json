@@ -1,91 +1,91 @@
 {
-  "generated_at": "2026-06-20T20:41:00.794565+00:00",
-  "last_heartbeat": "2026-06-20T20:41:00.794565+00:00",
-  "uptime_seconds": 86552,
+  "generated_at": "2026-06-20T20:46:05.319727+00:00",
+  "last_heartbeat": "2026-06-20T20:46:05.319727+00:00",
+  "uptime_seconds": 86856,
   "dry_run": true,
   "markets_tracked": 1335,
-  "classify_error_streak": 61,
+  "classify_error_streak": 66,
   "track_record": {
-    "total": 7762,
+    "total": 7932,
     "accuracy": 17.2,
     "by_category": {
       "other": 16.2,
       "ai": 10.2,
-      "politics": 22.6,
-      "technology": 12.2,
-      "crypto": 12.3,
+      "politics": 22.3,
+      "technology": 12.4,
+      "crypto": 12.1,
       "sports": 26.2
     },
     "by_source": {
-      "rss": 17.1,
-      "newsapi": 18.3,
-      "truthsocial": 2.6
+      "rss": 17.0,
+      "newsapi": 18.4,
+      "truthsocial": 1.8
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.2,
-    "overall_total": 7762,
+    "overall_total": 7932,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4456,
+        "total": 4568,
         "correct": 327,
-        "accuracy_pct": 7.3,
-        "avg_pnl_pct": 12.87,
+        "accuracy_pct": 7.2,
+        "avg_pnl_pct": 12.53,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 678,
-        "correct": 244,
-        "accuracy_pct": 36.0,
-        "avg_pnl_pct": 31.22,
+        "total": 689,
+        "correct": 254,
+        "accuracy_pct": 36.9,
+        "avg_pnl_pct": 31.27,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 814,
-        "correct": 300,
-        "accuracy_pct": 36.9,
-        "avg_pnl_pct": 3.15,
+        "total": 824,
+        "correct": 306,
+        "accuracy_pct": 37.1,
+        "avg_pnl_pct": 3.18,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 420,
-        "correct": 100,
-        "accuracy_pct": 23.8,
-        "avg_pnl_pct": -3.53,
+        "total": 433,
+        "correct": 107,
+        "accuracy_pct": 24.7,
+        "avg_pnl_pct": -3.36,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 430,
-        "correct": 187,
-        "accuracy_pct": 43.5,
-        "avg_pnl_pct": 3.03,
+        "total": 435,
+        "correct": 188,
+        "accuracy_pct": 43.2,
+        "avg_pnl_pct": 3.0,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 964,
+        "total": 983,
         "correct": 180,
-        "accuracy_pct": 18.7,
-        "avg_pnl_pct": -6.42,
+        "accuracy_pct": 18.3,
+        "avg_pnl_pct": -6.07,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 618,
+  "headlines_scanned_today": 619,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3243,
+  "classifications_24h": 3248,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1346,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 846,
-    "matched": 695,
-    "classified": 3243,
+    "news": 847,
+    "matched": 696,
+    "classified": 3248,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1491.2
+    "avg_classification_latency_ms": 1494.1
   },
   "live_readiness": {
     "ready": true,
@@ -388,41 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 20:39:28",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Watch: BBC reports from train crash site as investigators give update",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 20:39:28",
-      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "Watch: BBC reports from train crash site as investigators give update",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-20 20:17:36",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "Former Olympian is arrested for allegedly vandalizing Reflecting Pool:",
+      "time": "2026-06-20 20:41:42",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Germany unchanged for Ivory Coast World Cup match as Amad starts - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -436,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 20:15:25",
-      "market_question": "Will OpenAI announce glasses in 2026?",
-      "headline": "Holly Ramsay and Adam Peaty announce they are expecting first child",
+      "time": "2026-06-20 20:41:42",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Germany unchanged for Ivory Coast World Cup match as Amad starts - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -452,9 +420,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 20:15:25",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Holly Ramsay and Adam Peaty announce they are expecting first child",
+      "time": "2026-06-20 20:41:42",
+      "market_question": "Will the announcers say \"Trump\" during the Germany vs Ivory Coast FIFA World Cup Match?",
+      "headline": "Germany unchanged for Ivory Coast World Cup match as Amad starts - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 20:41:42",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Germany unchanged for Ivory Coast World Cup match as Amad starts - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 20:41:42",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Germany unchanged for Ivory Coast World Cup match as Amad starts - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
