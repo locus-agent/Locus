@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-20T13:24:26.658122+00:00",
-  "last_heartbeat": "2026-06-20T13:24:26.658122+00:00",
-  "uptime_seconds": 60358,
+  "generated_at": "2026-06-20T13:29:31.084810+00:00",
+  "last_heartbeat": "2026-06-20T13:29:31.084810+00:00",
+  "uptime_seconds": 60662,
   "dry_run": true,
   "markets_tracked": 1341,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 344,
+  "headlines_scanned_today": 345,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 6359,
+  "classifications_24h": 6267,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2306,
+    "prefiltered_haiku": 2281,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1564,
-    "matched": 711,
-    "classified": 6359,
+    "news": 1544,
+    "matched": 706,
+    "classified": 6267,
     "signals": 0,
     "trades": 0
   },
@@ -388,6 +388,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-20 13:27:33",
+      "market_question": "Will the Workers' Party nominate Lula for President of Brazil by August 15?",
+      "headline": "Suspected hacker sends unauthorized alert across Brazil - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-20 13:27:33",
+      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
+      "headline": "Suspected hacker sends unauthorized alert across Brazil - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-20 13:23:15",
       "market_question": "Will Donald Trump enter Iran by June 30?",
       "headline": "Congress wonders as the Iran war draws to a close: Was it worth it? - AP News",
@@ -432,38 +464,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 13:23:11",
-      "market_question": "US national Bitcoin reserve before 2027?",
-      "headline": "Warsh\u2019s gamble: A quieter Federal Reserve could mean volatile markets, higher rates - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 13:23:11",
-      "market_question": "US national Ethereum reserve before 2027?",
-      "headline": "Warsh\u2019s gamble: A quieter Federal Reserve could mean volatile markets, higher rates - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
