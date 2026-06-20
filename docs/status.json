@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-20T16:37:19.532981+00:00",
-  "last_heartbeat": "2026-06-20T16:37:19.532981+00:00",
-  "uptime_seconds": 71930,
+  "generated_at": "2026-06-20T16:42:24.103998+00:00",
+  "last_heartbeat": "2026-06-20T16:42:24.103998+00:00",
+  "uptime_seconds": 72235,
   "dry_run": true,
   "markets_tracked": 1329,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 473,
+  "headlines_scanned_today": 475,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 6241,
+  "classifications_24h": 6215,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2331,
+    "prefiltered_haiku": 2310,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-20T16:24:14.298480+00:00"
+    "last_check": "2026-06-20T16:39:14.690293+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1560,
-    "matched": 758,
-    "classified": 6241,
+    "news": 1558,
+    "matched": 756,
+    "classified": 6215,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": -1.05,
-    "total_pnl_usd": 49.03,
+    "unrealized_pnl_usd": -1.24,
+    "total_pnl_usd": 48.83,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1461.6
+    "avg_classification_latency_ms": 1461.1
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.385,
-      "pnl_pct": -6.11,
+      "current_price": 0.395,
+      "pnl_pct": -7.63,
       "amount_usd": 12.5,
-      "current_value_usd": 11.74,
-      "pnl_usd": -0.76,
+      "current_value_usd": 11.55,
+      "pnl_usd": -0.95,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,6 +388,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-20 16:38:18",
+      "market_question": "Will Trump meet with Pope Leo XIV in 2026?",
+      "headline": "Pope Leo XIV urges Italians to rediscover their faith during prayer before remains of St Augustine - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 16:38:18",
+      "market_question": "Will Donald Trump publicly insult Pope Leo XIV by June 30, 2026?",
+      "headline": "Pope Leo XIV urges Italians to rediscover their faith during prayer before remains of St Augustine - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 16:38:17",
+      "market_question": "Will Leo Zacky finish first in the 2026 California Governor primary election?",
+      "headline": "Pope Leo XIV urges Italians to rediscover their faith during prayer before remains of St Augustine - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-20 16:34:33",
       "market_question": "Will the price of Bitcoin be above $60,000 on June 21?",
       "headline": "SanDisk and Micron surge as Apple confirms memory price pass-through - Yahoo Finance",
@@ -416,54 +464,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 16:34:32",
-      "market_question": "Will the price of Bitcoin be above $58,000 on June 21?",
-      "headline": "SanDisk and Micron surge as Apple confirms memory price pass-through - Yahoo Finance",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 16:34:32",
-      "market_question": "Will the price of Bitcoin be above $66,000 on June 21?",
-      "headline": "SanDisk and Micron surge as Apple confirms memory price pass-through - Yahoo Finance",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 16:34:32",
-      "market_question": "MicroStrategy announces >1000 BTC purchase June 16-22?",
-      "headline": "SanDisk and Micron surge as Apple confirms memory price pass-through - Yahoo Finance",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
