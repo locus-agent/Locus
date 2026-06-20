@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-20T21:42:32.362771+00:00",
-  "last_heartbeat": "2026-06-20T21:42:32.362771+00:00",
-  "uptime_seconds": 90243,
+  "generated_at": "2026-06-20T21:47:40.786571+00:00",
+  "last_heartbeat": "2026-06-20T21:47:40.786571+00:00",
+  "uptime_seconds": 90552,
   "dry_run": true,
-  "markets_tracked": 1337,
-  "classify_error_streak": 236,
+  "markets_tracked": 1336,
+  "classify_error_streak": 250,
   "track_record": {
     "total": 7932,
     "accuracy": 17.2,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 695,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 698,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 3275,
+  "classifications_24h": 3290,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1218,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 858,
-    "matched": 703,
-    "classified": 3275,
+    "news": 860,
+    "matched": 706,
+    "classified": 3290,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1584.5
+    "avg_classification_latency_ms": 1591.3
   },
   "live_readiness": {
     "ready": true,
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 21:40:49",
+      "time": "2026-06-20 21:47:26",
       "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Netherlands and Sweden face off in Houston and other World Cup Day 10 highlights, in photos - AP News",
+      "headline": "Hormuz, World Cup joy, Meloni Vs Trump and Chinese foie gras - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,41 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 21:40:49",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Netherlands and Sweden face off in Houston and other World Cup Day 10 highlights, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 21:40:49",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Netherlands and Sweden face off in Houston and other World Cup Day 10 highlights, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 21:40:49",
+      "time": "2026-06-20 21:47:26",
       "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Netherlands and Sweden face off in Houston and other World Cup Day 10 highlights, in photos - AP News",
+      "headline": "Hormuz, World Cup joy, Meloni Vs Trump and Chinese foie gras - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -452,9 +420,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 21:40:49",
+      "time": "2026-06-20 21:47:26",
       "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Netherlands and Sweden face off in Houston and other World Cup Day 10 highlights, in photos - AP News",
+      "headline": "Hormuz, World Cup joy, Meloni Vs Trump and Chinese foie gras - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 21:47:26",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Hormuz, World Cup joy, Meloni Vs Trump and Chinese foie gras - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 21:47:26",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Hormuz, World Cup joy, Meloni Vs Trump and Chinese foie gras - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
