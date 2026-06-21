@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-20T23:56:22.771216+00:00",
-  "last_heartbeat": "2026-06-20T23:56:22.771216+00:00",
-  "uptime_seconds": 98274,
+  "generated_at": "2026-06-21T00:01:30.272583+00:00",
+  "last_heartbeat": "2026-06-21T00:01:30.272583+00:00",
+  "uptime_seconds": 98581,
   "dry_run": true,
-  "markets_tracked": 1328,
-  "classify_error_streak": 352,
+  "markets_tracked": 1333,
+  "classify_error_streak": 364,
   "track_record": {
     "total": 7932,
     "accuracy": 17.2,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 740,
+  "headlines_scanned_today": 0,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2831,
+  "classifications_24h": 2848,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 978,
+    "prefiltered_haiku": 977,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 741,
-    "matched": 602,
-    "classified": 2831,
+    "news": 746,
+    "matched": 604,
+    "classified": 2848,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": -0.57,
-    "total_pnl_usd": 49.5,
+    "unrealized_pnl_usd": -0.19,
+    "total_pnl_usd": 49.88,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1636.8
+    "avg_classification_latency_ms": 1641.7
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.36,
-      "pnl_pct": -2.29,
+      "current_price": 0.33999999999999997,
+      "pnl_pct": 0.76,
       "amount_usd": 12.5,
-      "current_value_usd": 12.21,
-      "pnl_usd": -0.29,
+      "current_value_usd": 12.6,
+      "pnl_usd": 0.1,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-20 23:52:18",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Fastest World Cup to 100 goals in 68 years - are balls and breaks behind it?",
+      "time": "2026-06-20 23:58:53",
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 21?",
+      "headline": "7189.T - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,9 +404,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 23:52:18",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Fastest World Cup to 100 goals in 68 years - are balls and breaks behind it?",
+      "time": "2026-06-20 23:58:53",
+      "market_question": "Will Bitcoin reach $74,000 June 15-21?",
+      "headline": "7189.T - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-20 23:58:53",
+      "market_question": "Will the price of Bitcoin be above $68,000 on June 21?",
+      "headline": "7189.T - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -420,9 +436,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 23:52:18",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Fastest World Cup to 100 goals in 68 years - are balls and breaks behind it?",
+      "time": "2026-06-20 23:58:53",
+      "market_question": "Will the price of Bitcoin be above $60,000 on June 21?",
+      "headline": "7189.T - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -436,25 +452,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-20 23:52:18",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Fastest World Cup to 100 goals in 68 years - are balls and breaks behind it?",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-20 23:52:18",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Fastest World Cup to 100 goals in 68 years - are balls and breaks behind it?",
+      "time": "2026-06-20 23:58:53",
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 21?",
+      "headline": "7189.T - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
