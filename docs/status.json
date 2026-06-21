@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T11:21:41.132825+00:00",
-  "last_heartbeat": "2026-06-21T11:21:41.132825+00:00",
-  "uptime_seconds": 139392,
+  "generated_at": "2026-06-21T11:26:46.011870+00:00",
+  "last_heartbeat": "2026-06-21T11:26:46.011870+00:00",
+  "uptime_seconds": 139697,
   "dry_run": true,
-  "markets_tracked": 1337,
-  "classify_error_streak": 999,
+  "markets_tracked": 1341,
+  "classify_error_streak": 1003,
   "track_record": {
     "total": 7964,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 306,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 307,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2934,
+  "classifications_24h": 2928,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 501,
+    "prefiltered_haiku": 500,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T11:09:45.475273+00:00"
+    "last_check": "2026-06-21T11:24:45.827410+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 764,
-    "matched": 613,
-    "classified": 2934,
+    "news": 763,
+    "matched": 612,
+    "classified": 2928,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 3.44,
-    "total_pnl_usd": 53.51,
+    "unrealized_pnl_usd": 3.72,
+    "total_pnl_usd": 53.8,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1853.2
+    "avg_classification_latency_ms": 1854.1
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.15000000000000002,
-      "pnl_pct": 29.77,
+      "current_price": 0.135,
+      "pnl_pct": 32.06,
       "amount_usd": 12.5,
-      "current_value_usd": 16.22,
-      "pnl_usd": 3.72,
+      "current_value_usd": 16.51,
+      "pnl_usd": 4.01,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 11:21:21",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "The Latest: Vance and Iranian negotiators are in Switzerland to work on details of deal - AP News",
+      "time": "2026-06-21 11:25:43",
+      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
+      "headline": "UK minister says Starmer is considering 'political realities' as position under threat - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 11:21:20",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "The Latest: Vance and Iranian negotiators are in Switzerland to work on details of deal - AP News",
+      "time": "2026-06-21 11:25:43",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "UK minister says Starmer is considering 'political realities' as position under threat - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -415,14 +415,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 11:21:20",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "The Latest: Vance and Iranian negotiators are in Switzerland to work on details of deal - AP News",
+      "time": "2026-06-21 11:25:43",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "UK minister says Starmer is considering 'political realities' as position under threat - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -431,14 +431,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 11:21:20",
-      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
-      "headline": "The Latest: Vance and Iranian negotiators are in Switzerland to work on details of deal - AP News",
+      "time": "2026-06-21 11:25:43",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "headline": "UK minister says Starmer is considering 'political realities' as position under threat - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -447,12 +447,12 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 11:21:20",
+      "time": "2026-06-21 11:21:21",
       "market_question": "Will Trump and Putin meet next in Switzerland?",
       "headline": "The Latest: Vance and Iranian negotiators are in Switzerland to work on details of deal - AP News",
       "direction": "neutral",
