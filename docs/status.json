@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-21T19:16:04.693280+00:00",
-  "last_heartbeat": "2026-06-21T19:16:04.693280+00:00",
-  "uptime_seconds": 7043,
+  "generated_at": "2026-06-21T19:21:09.611805+00:00",
+  "last_heartbeat": "2026-06-21T19:21:09.611805+00:00",
+  "uptime_seconds": 7348,
   "dry_run": false,
-  "markets_tracked": 1326,
+  "markets_tracked": 1334,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7981,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 975,
+  "headlines_scanned_today": 983,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4335,
+  "classifications_24h": 4356,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 905,
+    "prefiltered_haiku": 920,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T19:03:58.744557+00:00"
+    "last_check": "2026-06-21T19:18:59.132981+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1153,
-    "matched": 607,
-    "classified": 4335,
+    "news": 1161,
+    "matched": 611,
+    "classified": 4356,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1341.6
+    "avg_classification_latency_ms": 1335.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,57 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 19:13:04",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "The Latest: Trump threats shake up US-Iran talks in Switzerland on deal\u2019s details - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 19:13:00",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "The Latest: Trump threats shake up US-Iran talks in Switzerland on deal\u2019s details - AP News",
-      "direction": "bearish",
-      "materiality": 0.18,
-      "confidence": 0.55,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.07999999999999999,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 19:13:00",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "The Latest: Trump threats shake up US-Iran talks in Switzerland on deal\u2019s details - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 19:12:58",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "The Latest: Trump threats shake up US-Iran talks in Switzerland on deal\u2019s details - AP News",
+      "time": "2026-06-21 19:19:37",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Spain leans on Yamal against Saudi Arabia and other World Cup Day 11 highlights, in photos - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 19:12:58",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "The Latest: Trump threats shake up US-Iran talks in Switzerland on deal\u2019s details - AP News",
+      "time": "2026-06-21 19:19:37",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Spain leans on Yamal against Saudi Arabia and other World Cup Day 11 highlights, in photos - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,7 +386,55 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 19:19:36",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Spain leans on Yamal against Saudi Arabia and other World Cup Day 11 highlights, in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 19:19:36",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Spain leans on Yamal against Saudi Arabia and other World Cup Day 11 highlights, in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 19:19:36",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Spain leans on Yamal against Saudi Arabia and other World Cup Day 11 highlights, in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
