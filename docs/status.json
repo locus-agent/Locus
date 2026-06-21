@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-21T23:32:19.014907+00:00",
-  "last_heartbeat": "2026-06-21T23:32:19.014907+00:00",
-  "uptime_seconds": 2519,
+  "generated_at": "2026-06-21T23:37:23.696939+00:00",
+  "last_heartbeat": "2026-06-21T23:37:23.696939+00:00",
+  "uptime_seconds": 2824,
   "dry_run": false,
   "markets_tracked": 1357,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1223,
+  "headlines_scanned_today": 1225,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4561,
+  "classifications_24h": 4564,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1241,
+    "prefiltered_haiku": 1254,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T23:20:37.390819+00:00"
+    "last_check": "2026-06-21T23:35:37.787593+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 1238,
     "matched": 605,
-    "classified": 4561,
+    "classified": 4564,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1292.5
+    "avg_classification_latency_ms": 1326.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 23:30:02",
-      "market_question": "Will the price of Bitcoin be above $70,000 on June 22?",
-      "headline": "DFMTF.PK - | Stock Price & Latest News - Reuters",
+      "time": "2026-06-21 23:36:38",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "France's Mbapp\u00e9 is having a record-setting World Cup, other marks could fall as Les Bleus advance - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,57 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 23:29:58",
-      "market_question": "Will the price of Bitcoin be above $58,000 on June 22?",
-      "headline": "DFMTF.PK - | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 23:29:57",
-      "market_question": "Will the price of Bitcoin be above $68,000 on June 22?",
-      "headline": "DFMTF.PK - | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 23:29:57",
-      "market_question": "Will the price of Bitcoin be above $60,000 on June 22?",
-      "headline": "DFMTF.PK - | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 23:29:57",
-      "market_question": "Will Bitcoin kimchi premium hit 8% in 2026?",
-      "headline": "DFMTF.PK - | Stock Price & Latest News - Reuters",
+      "time": "2026-06-21 23:36:34",
+      "market_question": "Will \u00c9douard Philippe be on the ballot for the 2027 French presidential election?",
+      "headline": "France's Mbapp\u00e9 is having a record-setting World Cup, other marks could fall as Les Bleus advance - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -435,6 +387,54 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 23:36:33",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "France's Mbapp\u00e9 is having a record-setting World Cup, other marks could fall as Les Bleus advance - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 23:36:32",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "France's Mbapp\u00e9 is having a record-setting World Cup, other marks could fall as Les Bleus advance - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 23:36:32",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "France's Mbapp\u00e9 is having a record-setting World Cup, other marks could fall as Les Bleus advance - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
