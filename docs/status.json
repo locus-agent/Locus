@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-21T21:33:24.842976+00:00",
-  "last_heartbeat": "2026-06-21T21:33:24.842976+00:00",
-  "uptime_seconds": 15283,
+  "generated_at": "2026-06-21T21:38:29.580556+00:00",
+  "last_heartbeat": "2026-06-21T21:38:29.580556+00:00",
+  "uptime_seconds": 15588,
   "dry_run": false,
-  "markets_tracked": 1347,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1036,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 1060,
+  "headlines_last_cycle": 21,
   "signals_24h": 1,
-  "classifications_24h": 4120,
+  "classifications_24h": 4134,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 962,
+    "prefiltered_haiku": 1016,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T21:19:02.360062+00:00"
+    "last_check": "2026-06-21T21:34:02.766187+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1111,
-    "matched": 573,
-    "classified": 4120,
+    "news": 1114,
+    "matched": 579,
+    "classified": 4134,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1343.9
+    "avg_classification_latency_ms": 1324.8
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 21:24:18",
-      "market_question": "Will Christopher Beardsley be the Democratic nominee for Senate in Delaware?",
-      "headline": "Marlins designate infielder Christopher Morel for assignment, place slugger Liam Hicks on IL - AP News",
+      "time": "2026-06-21 21:38:29",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Ukraine Targets Oil Refinery 2,000 Kilometers Inside Russia - Bloomberg.com",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 21:38:29",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Ukraine Targets Oil Refinery 2,000 Kilometers Inside Russia - Bloomberg.com",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 21:38:29",
+      "market_question": "Will Z.ai have the best AI model at the end of July 2026?",
+      "headline": "The best Prime Day tech deals are here: Shop Apple, Beats, Samsung and more for up to 55% percent off - Yahoo Tech",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -375,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 21:24:18",
-      "market_question": "Will Christopher Taylor be the Democratic nominee for the Ann Arbor Mayoral Election?",
-      "headline": "Marlins designate infielder Christopher Morel for assignment, place slugger Liam Hicks on IL - AP News",
+      "time": "2026-06-21 21:38:29",
+      "market_question": "Will Microsoft have the best AI model at the end of July 2026?",
+      "headline": "The best Prime Day tech deals are here: Shop Apple, Beats, Samsung and more for up to 55% percent off - Yahoo Tech",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,52 +423,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 21:24:18",
-      "market_question": "Will Ronaldo Caiado finish in second place in the first round of the 2026 Brazilian presidential election?",
-      "headline": "Marlins designate infielder Christopher Morel for assignment, place slugger Liam Hicks on IL - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-21 21:38:26",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Utah marks a year of battling measles, with no clear end in sight - PBS",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 21:24:18",
-      "market_question": "Will Romeu Zema finish in second place in the first round of the 2026 Brazilian presidential election?",
-      "headline": "Marlins designate infielder Christopher Morel for assignment, place slugger Liam Hicks on IL - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 21:24:18",
-      "market_question": "Will Abelardo de la Espriella place 1st in Bogot\u00e1 in the second round of the 2026 Colombia presidential election?",
-      "headline": "Marlins designate infielder Christopher Morel for assignment, place slugger Liam Hicks on IL - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
