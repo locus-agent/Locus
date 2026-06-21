@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T03:04:13.607570+00:00",
-  "last_heartbeat": "2026-06-21T03:04:13.607570+00:00",
-  "uptime_seconds": 109544,
+  "generated_at": "2026-06-21T03:09:17.994293+00:00",
+  "last_heartbeat": "2026-06-21T03:09:17.994293+00:00",
+  "uptime_seconds": 109849,
   "dry_run": true,
-  "markets_tracked": 1342,
-  "classify_error_streak": 560,
+  "markets_tracked": 1335,
+  "classify_error_streak": 568,
   "track_record": {
     "total": 7954,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 79,
+  "headlines_scanned_today": 80,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2804,
+  "classifications_24h": 2801,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 814,
+    "prefiltered_haiku": 809,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 730,
-    "matched": 589,
-    "classified": 2804,
+    "news": 728,
+    "matched": 587,
+    "classified": 2801,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1716.4
+    "avg_classification_latency_ms": 1719.1
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 02:42:49",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
+      "time": "2026-06-21 03:06:50",
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 21?",
+      "headline": "6971.T%09 - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 02:42:48",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
+      "time": "2026-06-21 03:06:50",
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 21?",
+      "headline": "6971.T%09 - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -420,9 +420,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 02:42:48",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
+      "time": "2026-06-21 03:06:50",
+      "market_question": "Will the price of Bitcoin be above $68,000 on June 23?",
+      "headline": "6971.T%09 - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 03:06:50",
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 21?",
+      "headline": "6971.T%09 - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -436,9 +452,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 02:42:48",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
+      "time": "2026-06-21 03:06:50",
+      "market_question": "Will Bitcoin reach $78,000 June 15-21?",
+      "headline": "6971.T%09 - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -447,23 +463,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 02:42:48",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
