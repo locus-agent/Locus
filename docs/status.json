@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-21T17:19:18.726715+00:00",
-  "last_heartbeat": "2026-06-21T17:19:18.726715+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-21T17:24:23.607446+00:00",
+  "last_heartbeat": "2026-06-21T17:24:23.607446+00:00",
+  "uptime_seconds": 342,
   "dry_run": false,
-  "markets_tracked": 1321,
+  "markets_tracked": 1325,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 7978,
+    "total": 7981,
     "accuracy": 17.1,
     "by_category": {
       "other": 16.2,
@@ -24,15 +24,15 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.1,
-    "overall_total": 7978,
+    "overall_total": 7981,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4598,
+        "total": 4599,
         "correct": 327,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 12.44,
+        "avg_pnl_pct": 12.43,
         "color": "red"
       },
       {
@@ -47,9 +47,9 @@
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 830,
+        "total": 831,
         "correct": 307,
-        "accuracy_pct": 37.0,
+        "accuracy_pct": 36.9,
         "avg_pnl_pct": 3.14,
         "color": "green"
       },
@@ -74,22 +74,22 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 985,
-        "correct": 180,
-        "accuracy_pct": 18.3,
-        "avg_pnl_pct": -6.05,
+        "total": 986,
+        "correct": 181,
+        "accuracy_pct": 18.4,
+        "avg_pnl_pct": -6.04,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 757,
-  "headlines_last_cycle": 24,
+  "headlines_scanned_today": 821,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 3853,
+  "classifications_24h": 4089,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 703,
-    "stale": 5,
+    "prefiltered_haiku": 810,
+    "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1018,
-    "matched": 607,
-    "classified": 3853,
+    "news": 1082,
+    "matched": 611,
+    "classified": 4089,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1197.9
+    "avg_classification_latency_ms": 1291.8
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 17:19:13",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Starmer is on the precipice as pressure builds for the UK leader to resign - AP News",
+      "time": "2026-06-21 17:21:17",
+      "market_question": "Will Trump deport 400-500k people?",
+      "headline": "Polymarket reportedly paid people to post fake videos of themselves placing bets",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,25 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 17:19:13",
-      "market_question": "Will David Sacks leave the Trump administration before 2027?",
-      "headline": "Starmer is on the precipice as pressure builds for the UK leader to resign - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 17:19:12",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "\u2018Have faith': Vozinha\u2019s mom speaks out as Cape Verde heads back to World Cup field - AP News",
+      "time": "2026-06-21 17:21:16",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Polymarket reportedly paid people to post fake videos of themselves placing bets",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 17:19:12",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "\u2018Have faith': Vozinha\u2019s mom speaks out as Cape Verde heads back to World Cup field - AP News",
+      "time": "2026-06-21 17:21:16",
+      "market_question": "Will Trump deport 200-300k people?",
+      "headline": "Polymarket reportedly paid people to post fake videos of themselves placing bets",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,9 +407,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 17:19:12",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "\u2018Have faith': Vozinha\u2019s mom speaks out as Cape Verde heads back to World Cup field - AP News",
+      "time": "2026-06-21 17:21:16",
+      "market_question": "Will Trump deport 900k-1m people?",
+      "headline": "Polymarket reportedly paid people to post fake videos of themselves placing bets",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 17:21:16",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "Polymarket reportedly paid people to post fake videos of themselves placing bets",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
