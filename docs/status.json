@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T10:30:54.167920+00:00",
-  "last_heartbeat": "2026-06-21T10:30:54.167920+00:00",
-  "uptime_seconds": 136345,
+  "generated_at": "2026-06-21T10:35:59.236035+00:00",
+  "last_heartbeat": "2026-06-21T10:35:59.236035+00:00",
+  "uptime_seconds": 136650,
   "dry_run": true,
-  "markets_tracked": 1334,
-  "classify_error_streak": 933,
+  "markets_tracked": 1338,
+  "classify_error_streak": 951,
   "track_record": {
     "total": 7964,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 269,
+  "headlines_scanned_today": 278,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2823,
+  "classifications_24h": 2858,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 517,
+    "prefiltered_haiku": 515,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 740,
-    "matched": 592,
-    "classified": 2823,
+    "news": 748,
+    "matched": 599,
+    "classified": 2858,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 3.53,
-    "total_pnl_usd": 53.61,
+    "unrealized_pnl_usd": 3.34,
+    "total_pnl_usd": 53.42,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1834.9
+    "avg_classification_latency_ms": 1839.4
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.14500000000000002,
-      "pnl_pct": 30.53,
+      "current_price": 0.155,
+      "pnl_pct": 29.01,
       "amount_usd": 12.5,
-      "current_value_usd": 16.32,
-      "pnl_usd": 3.82,
+      "current_value_usd": 16.13,
+      "pnl_usd": 3.63,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 10:28:48",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World Cup quiz: Name every Golden Boot winner",
+      "time": "2026-06-21 10:35:24",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Photo highlights from the International Yoga Day - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 10:28:48",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World Cup quiz: Name every Golden Boot winner",
+      "time": "2026-06-21 10:35:21",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "SZA hits out at \u201cdisgusting\u201d AI music after learning over 200 of her songs had been used to train artificial intelligence - \u0634\u0628\u0643\u0629 \u062a\u0648\u0627\u0635\u0644 \u0627\u0644\u0625\u062e\u0628\u0627\u0631\u064a\u0629",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -420,52 +420,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 10:28:48",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "World Cup quiz: Name every Golden Boot winner",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-21 10:35:21",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "Photo highlights from the International Yoga Day - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-21 10:28:48",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World Cup quiz: Name every Golden Boot winner",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-21 10:35:21",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Photo highlights from the International Yoga Day - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-21 10:28:48",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "World Cup quiz: Name every Golden Boot winner",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-21 10:35:21",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "Photo highlights from the International Yoga Day - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
