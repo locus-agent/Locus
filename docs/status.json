@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T12:02:18.177190+00:00",
-  "last_heartbeat": "2026-06-21T12:02:18.177190+00:00",
-  "uptime_seconds": 141829,
+  "generated_at": "2026-06-21T12:07:22.707647+00:00",
+  "last_heartbeat": "2026-06-21T12:07:22.707647+00:00",
+  "uptime_seconds": 142134,
   "dry_run": true,
-  "markets_tracked": 1332,
-  "classify_error_streak": 1049,
+  "markets_tracked": 1327,
+  "classify_error_streak": 1050,
   "track_record": {
     "total": 7964,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 318,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 319,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 2925,
+  "classifications_24h": 2918,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 478,
+    "prefiltered_haiku": 473,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 757,
-    "matched": 607,
-    "classified": 2925,
+    "news": 756,
+    "matched": 605,
+    "classified": 2918,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 3.53,
-    "total_pnl_usd": 53.61,
+    "unrealized_pnl_usd": 3.72,
+    "total_pnl_usd": 53.8,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1868.7
+    "avg_classification_latency_ms": 1869.0
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.14500000000000002,
-      "pnl_pct": 30.53,
+      "current_price": 0.135,
+      "pnl_pct": 32.06,
       "amount_usd": 12.5,
-      "current_value_usd": 16.32,
-      "pnl_usd": 3.82,
+      "current_value_usd": 16.51,
+      "pnl_usd": 4.01,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-21 12:07:19",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Sooryavanshi, 15, hits record 11-ball fifty",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-21 11:58:41",
       "market_question": "Will the price of Bitcoin be above $58,000 on June 21?",
       "headline": "MPLX.A - | Stock Price & Latest News - Reuters",
@@ -448,22 +464,6 @@
       "adjusted_materiality": 0.0,
       "action": "error",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 11:58:41",
-      "market_question": "Hyperliquid listed on Binance by June 30, 2026?",
-      "headline": "MPLX.A - | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
