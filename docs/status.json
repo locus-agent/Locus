@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T12:32:46.227511+00:00",
-  "last_heartbeat": "2026-06-21T12:32:46.227511+00:00",
-  "uptime_seconds": 143657,
+  "generated_at": "2026-06-21T12:37:51.287008+00:00",
+  "last_heartbeat": "2026-06-21T12:37:51.287008+00:00",
+  "uptime_seconds": 143962,
   "dry_run": true,
-  "markets_tracked": 1330,
-  "classify_error_streak": 1125,
+  "markets_tracked": 1327,
+  "classify_error_streak": 1133,
   "track_record": {
     "total": 7964,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 355,
+  "headlines_scanned_today": 356,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3008,
+  "classifications_24h": 3006,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 448,
+    "prefiltered_haiku": 443,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 782,
-    "matched": 625,
-    "classified": 3008,
+    "news": 781,
+    "matched": 624,
+    "classified": 3006,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 3.63,
-    "total_pnl_usd": 53.7,
+    "unrealized_pnl_usd": 3.53,
+    "total_pnl_usd": 53.61,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1887.3
+    "avg_classification_latency_ms": 1888.9
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.14,
-      "pnl_pct": 31.3,
+      "current_price": 0.14500000000000002,
+      "pnl_pct": 30.53,
       "amount_usd": 12.5,
-      "current_value_usd": 16.41,
-      "pnl_usd": 3.91,
+      "current_value_usd": 16.32,
+      "pnl_usd": 3.82,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 12:30:27",
-      "market_question": "Will Nvidia have a #1 AI model by June 30?",
-      "headline": "The Real Reason Nvidia Has Abandoned PC Gamers - TechSpot",
+      "time": "2026-06-21 12:35:54",
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 21?",
+      "headline": "OAEM.N - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 12:30:25",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "Three-armed Sashimi-Bot learns to slice and serve fish like a pro - Tech Xplore",
+      "time": "2026-06-21 12:35:54",
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 21?",
+      "headline": "OAEM.N - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -420,52 +420,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 12:30:22",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Three-armed Sashimi-Bot learns to slice and serve fish like a pro - Tech Xplore",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-21 12:35:54",
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 21?",
+      "headline": "OAEM.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-21 12:30:22",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Three-armed Sashimi-Bot learns to slice and serve fish like a pro - Tech Xplore",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-21 12:35:54",
+      "market_question": "Will the price of Bitcoin be above $60,000 on June 21?",
+      "headline": "OAEM.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-21 12:30:22",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Three-armed Sashimi-Bot learns to slice and serve fish like a pro - Tech Xplore",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-21 12:35:54",
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 21?",
+      "headline": "OAEM.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
