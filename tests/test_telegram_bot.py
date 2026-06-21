@@ -10,6 +10,14 @@ from locus.core import telegram_bot
 from locus.core import positions as positions_mod
 
 
+@pytest.fixture(autouse=True)
+def _default_dry_run(monkeypatch):
+    """Pin DRY_RUN on for the suite so mode-dependent views/notifications are
+    deterministic regardless of the developer's .env (which may set live mode).
+    Live-mode tests flip it back off explicitly."""
+    monkeypatch.setattr(config, "DRY_RUN", True)
+
+
 def _btns(markup):
     """Flatten an InlineKeyboardMarkup to a list of (text, callback_data)."""
     return [(b.text, b.callback_data) for row in markup.inline_keyboard for b in row]
@@ -281,3 +289,68 @@ def test_other_edit_errors_propagate(tmp_db):
 
     with pytest.raises(RuntimeError, match="network down"):
         _run_button_with_edit("refresh", edit)
+
+
+# --- Live-mode views & notifications -----------------------------------------
+
+def test_build_balance_live_shows_real_balance(tmp_db, monkeypatch):
+    from locus.core import executor
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    monkeypatch.setattr(executor, "get_live_balance", lambda: 245.0)
+    _open(1, "c1", "A", amount=50.0)
+
+    text, _ = telegram_bot._build_balance()
+    assert "💰 BALANCE 🟢 LIVE MODE" in text
+    assert "Real Balance: $245.00" in text
+    # Live mode shows the real balance, not the computed deployed-capital figure.
+    assert "Deployed:" not in text
+
+
+def test_build_balance_live_unavailable_on_fetch_failure(tmp_db, monkeypatch):
+    from locus.core import executor
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(executor, "get_live_balance", lambda: None)
+
+    text, _ = telegram_bot._build_balance()
+    assert "🟢 LIVE MODE" in text
+    assert "Real Balance: unavailable" in text
+
+
+def test_build_balance_dry_run_shows_deployed(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    _open(1, "c1", "A", amount=50.0)
+
+    text, _ = telegram_bot._build_balance()
+    assert "💰 BALANCE 🔵 DRY RUN" in text
+    assert "Deployed: $50.00" in text
+
+
+def test_build_portfolio_badge_reflects_mode(tmp_db, monkeypatch):
+    _open(1, "c1", "Will A happen?")
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    assert telegram_bot._build_portfolio()[0].startswith("💼 PORTFOLIO 🟢 LIVE")
+    monkeypatch.setattr(config, "DRY_RUN", True)
+    assert telegram_bot._build_portfolio()[0].startswith("💼 PORTFOLIO 🔵 DRY RUN")
+
+
+def test_build_portfolio_badge_when_empty(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    text, _ = telegram_bot._build_portfolio()
+    assert text.startswith("💼 PORTFOLIO 🟢 LIVE")
+    assert "No open positions" in text
+
+
+def test_notify_position_opened_live_header(enabled, monkeypatch):
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    pos = {
+        "market_question": "Will BTC hit 100k?", "side": "YES",
+        "entry_yes_price": 0.42, "amount_usd": 12.5, "edge": 0.10, "confidence": 0.7,
+    }
+    assert telegram_bot.notify_position_opened(pos) is True
+    assert enabled[-1] == (
+        "🟢 LIVE POSITION\n"
+        "Market: Will BTC hit 100k?\n"
+        "Side: YES | Entry: 0.420 | Amount: $12.50\n"
+        "Edge: 10.0% | Conf: 70%"
+    )

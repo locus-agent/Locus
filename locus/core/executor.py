@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 
 from locus import config
 from locus.memory import logger
 from locus.core.edge import Signal
 from locus.core import telegram_bot
 from locus.markets.gamma import get_token_id
+
+log = logging.getLogger(__name__)
 
 
 def execute_trade(signal: Signal) -> dict:
@@ -189,6 +192,30 @@ def close_position_live(
         return {"status": "error_no_clob_client", "order_id": None, "price": None, "shares": None}
     except Exception as e:
         return {"status": f"error_{type(e).__name__}", "order_id": None, "price": None, "shares": None}
+
+
+def get_live_balance() -> float | None:
+    """Real USDC collateral balance on Polymarket, in USD, or None on any error.
+
+    The CLOB API reports balances in USDC base units (6 decimals), so the raw
+    figure is divided by 1_000_000. Fails closed (returns None) when
+    py_clob_client is absent or the call errors, so the Telegram balance view
+    never crashes on a live-mode fetch."""
+    try:
+        from py_clob_client.clob_types import BalanceAllowanceParams, AssetType
+
+        client = create_clob_client()
+        resp = client.get_balance_allowance(
+            BalanceAllowanceParams(asset_type=AssetType.COLLATERAL)
+        )
+        raw = (resp.get("balance") if isinstance(resp, dict)
+               else getattr(resp, "balance", None))
+        if raw is None:
+            return None
+        return float(raw) / 1_000_000
+    except Exception as e:
+        log.warning(f"[executor] live balance fetch failed: {e}")
+        return None
 
 
 def _execute_live(signal: Signal) -> dict:

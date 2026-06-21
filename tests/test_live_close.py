@@ -156,6 +156,39 @@ def test_close_position_live_places_sell_order(monkeypatch):
     assert captured["init"]["signature_type"] == 3
 
 
+def _install_fake_balance_types(monkeypatch):
+    """Inject py_clob_client.clob_types with the balance params get_live_balance
+    imports, so the success/error paths can run without the real dependency."""
+    clob_types = types.ModuleType("py_clob_client.clob_types")
+    clob_types.BalanceAllowanceParams = lambda **kw: ("params", kw)
+    clob_types.AssetType = types.SimpleNamespace(COLLATERAL="COLLATERAL")
+    pkg = types.ModuleType("py_clob_client")
+    monkeypatch.setitem(sys.modules, "py_clob_client", pkg)
+    monkeypatch.setitem(sys.modules, "py_clob_client.clob_types", clob_types)
+
+
+def test_get_live_balance_divides_by_usdc_decimals(monkeypatch):
+    _install_fake_balance_types(monkeypatch)
+
+    class FakeClient:
+        def get_balance_allowance(self, params):
+            return {"balance": "245000000"}  # 245 USDC in 6-decimal base units
+
+    monkeypatch.setattr(executor, "create_clob_client", lambda: FakeClient())
+    assert executor.get_live_balance() == pytest.approx(245.0)
+
+
+def test_get_live_balance_returns_none_on_error(monkeypatch):
+    _install_fake_balance_types(monkeypatch)
+
+    class FakeClient:
+        def get_balance_allowance(self, params):
+            raise RuntimeError("network down")
+
+    monkeypatch.setattr(executor, "create_clob_client", lambda: FakeClient())
+    assert executor.get_live_balance() is None
+
+
 def test_close_position_live_skips_empty_book(monkeypatch):
     monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
     monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")

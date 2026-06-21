@@ -69,6 +69,12 @@ def _q(position: dict) -> str:
     return position.get("market_question") or position.get("question") or ""
 
 
+def _mode_badge() -> str:
+    """Trading-mode badge for view headers. Read from config at call time so a
+    runtime DRY_RUN override (cli.py watch --live) is reflected immediately."""
+    return "🟢 LIVE" if not config.DRY_RUN else "🔵 DRY RUN"
+
+
 # --- Notifications -----------------------------------------------------------
 
 def notify_position_opened(position: dict) -> bool:
@@ -79,8 +85,9 @@ def notify_position_opened(position: dict) -> bool:
     amount = position.get("amount_usd", position.get("amount", 0.0)) or 0.0
     edge = position.get("edge", 0.0) or 0.0
     conf = position.get("confidence", position.get("conf", 0.0)) or 0.0
+    header = "🟢 LIVE POSITION" if not config.DRY_RUN else "🟢 NEW POSITION"
     text = (
-        "🟢 NEW POSITION\n"
+        f"{header}\n"
         f"Market: {_q(position)}\n"
         f"Side: {position.get('side', '?')} | Entry: {price:.3f} | Amount: ${amount:.2f}\n"
         f"Edge: {edge * 100:.1f}% | Conf: {conf * 100:.0f}%"
@@ -149,14 +156,15 @@ def _build_portfolio():
     from locus.core import positions
 
     open_pos = positions.get_open_positions()
+    header = f"💼 PORTFOLIO {_mode_badge()}"
     if open_pos:
-        lines = ["💼 PORTFOLIO", ""]
+        lines = [header, ""]
         for p in open_pos:
             pct = p.get("unrealized_pnl_pct") or 0.0
             lines.append(f"#{p['id']} {p['side']} {p['market_question'][:40]} ({pct:+.1f}%)")
         text = "\n".join(lines)
     else:
-        text = "💼 PORTFOLIO\n\nNo open positions."
+        text = f"{header}\n\nNo open positions."
 
     rows = [
         [InlineKeyboardButton(f"🔴 Close #{p['id']}", callback_data=f"close:{p['id']}")]
@@ -174,6 +182,7 @@ def _build_balance():
     no per-position Close buttons — with [⬅️ Back to Portfolio] [🔄 Refresh]."""
     from telegram import InlineKeyboardButton, InlineKeyboardMarkup
     from locus.core import positions
+    from locus.core import executor
     from locus.core.performance import compute_performance
 
     perf = compute_performance()
@@ -185,14 +194,31 @@ def _build_balance():
     since = config.PERFORMANCE_START_DATE or None
     open_pos = positions.get_open_positions(since=since)
     open_count = len(open_pos)
-    deployed = sum(p.get("amount_usd") or 0.0 for p in open_pos)
-    text = (
-        "💰 BALANCE\n"
-        f"Open: {open_count} | Closed: {perf['closed_count']}\n"
-        f"Deployed: ${deployed:.2f}\n"
-        f"Realized: {perf['realized_pnl_usd']:+.2f}\n"
-        f"Unrealized: {perf['unrealized_pnl_usd']:+.2f}"
-    )
+
+    if not config.DRY_RUN:
+        # Live: the real USDC balance on Polymarket replaces the computed
+        # deployed-capital figure (which only tracks simulated stakes).
+        balance = executor.get_live_balance()
+        balance_line = (
+            f"Real Balance: ${balance:.2f}" if balance is not None
+            else "Real Balance: unavailable"
+        )
+        text = (
+            "💰 BALANCE 🟢 LIVE MODE\n"
+            f"{balance_line}\n"
+            f"Open: {open_count} | Closed: {perf['closed_count']}\n"
+            f"Realized: {perf['realized_pnl_usd']:+.2f}\n"
+            f"Unrealized: {perf['unrealized_pnl_usd']:+.2f}"
+        )
+    else:
+        deployed = sum(p.get("amount_usd") or 0.0 for p in open_pos)
+        text = (
+            "💰 BALANCE 🔵 DRY RUN\n"
+            f"Open: {open_count} | Closed: {perf['closed_count']}\n"
+            f"Deployed: ${deployed:.2f}\n"
+            f"Realized: {perf['realized_pnl_usd']:+.2f}\n"
+            f"Unrealized: {perf['unrealized_pnl_usd']:+.2f}"
+        )
     markup = InlineKeyboardMarkup([[
         InlineKeyboardButton("⬅️ Back to Portfolio", callback_data="portfolio"),
         InlineKeyboardButton("🔄 Refresh", callback_data="balance"),
