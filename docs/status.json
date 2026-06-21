@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T02:38:52.021138+00:00",
-  "last_heartbeat": "2026-06-21T02:38:52.021138+00:00",
-  "uptime_seconds": 108023,
+  "generated_at": "2026-06-21T02:43:56.776973+00:00",
+  "last_heartbeat": "2026-06-21T02:43:56.776973+00:00",
+  "uptime_seconds": 108328,
   "dry_run": true,
   "markets_tracked": 1347,
-  "classify_error_streak": 526,
+  "classify_error_streak": 560,
   "track_record": {
     "total": 7954,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 66,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 78,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2807,
+  "classifications_24h": 2810,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 838,
+    "prefiltered_haiku": 819,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T02:24:29.708534+00:00"
+    "last_check": "2026-06-21T02:39:30.158583+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 731,
-    "matched": 589,
-    "classified": 2807,
+    "news": 732,
+    "matched": 591,
+    "classified": 2810,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1704.8
+    "avg_classification_latency_ms": 1716.4
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.31499999999999995,
+      "current_price": 0.315,
       "pnl_pct": 4.58,
       "amount_usd": 12.5,
       "current_value_usd": 13.07,
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,41 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 02:29:40",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Keeper Room shines as Curacao hold Ecuador for historic World Cup draw - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 02:29:40",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Keeper Room shines as Curacao hold Ecuador for historic World Cup draw - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 02:29:40",
+      "time": "2026-06-21 02:42:49",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Keeper Room shines as Curacao hold Ecuador for historic World Cup draw - Reuters",
+      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -436,9 +404,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 02:29:40",
+      "time": "2026-06-21 02:42:48",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 02:42:48",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 02:42:48",
       "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Keeper Room shines as Curacao hold Ecuador for historic World Cup draw - Reuters",
+      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -452,9 +452,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 02:29:40",
+      "time": "2026-06-21 02:42:48",
       "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Keeper Room shines as Curacao hold Ecuador for historic World Cup draw - Reuters",
+      "headline": "Curacao\u2019s Eloy Room makes 15 saves, sends island nation to 0-0 draw with Ecuador in World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
