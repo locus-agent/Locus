@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-21T21:53:44.332071+00:00",
-  "last_heartbeat": "2026-06-21T21:53:44.332071+00:00",
-  "uptime_seconds": 16503,
+  "generated_at": "2026-06-21T21:58:48.901774+00:00",
+  "last_heartbeat": "2026-06-21T21:58:48.901774+00:00",
+  "uptime_seconds": 16808,
   "dry_run": false,
-  "markets_tracked": 1344,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1083,
+  "headlines_scanned_today": 1084,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
   "classifications_24h": 4177,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1051,
+    "prefiltered_haiku": 1052,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,7 +119,7 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1131,
+    "news": 1130,
     "matched": 585,
     "classified": 4177,
     "signals": 1,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1333.3
+    "avg_classification_latency_ms": 1336.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 21:52:53",
-      "market_question": "Miguel D\u00edaz-Canel out as President of Cuba by June 30?",
-      "headline": "Ramiro Vald\u00e9s Men\u00e9ndez, a key figure of the Cuban Revolution and ally of Fidel Castro, has died - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 21:52:52",
-      "market_question": "Will OpenAI announce a computer (Laptop/Desktop) in 2026?",
-      "headline": "Early Prime Day Desktop Deals, From Apple and Asus to HP and Lenovo - PCMag",
+      "time": "2026-06-21 21:57:10",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Ten-man Belgium remain winless after draw with Iran",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,14 +370,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 21:52:52",
-      "market_question": "Will Iv\u00e1n Cepeda Castro win the second round of the 2026 Colombian presidential election?",
-      "headline": "Ramiro Vald\u00e9s Men\u00e9ndez, a key figure of the Cuban Revolution and ally of Fidel Castro, has died - AP News",
+      "time": "2026-06-21 21:57:07",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Ten-man Belgium remain winless after draw with Iran",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,36 +391,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 21:52:51",
-      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
-      "headline": "Early Prime Day Desktop Deals, From Apple and Asus to HP and Lenovo - PCMag",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-21 21:57:07",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Ten-man Belgium remain winless after draw with Iran",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-21 21:52:49",
-      "market_question": "Will Apple be the largest company in the world by market cap on December 31?",
-      "headline": "Early Prime Day Desktop Deals, From Apple and Asus to HP and Lenovo - PCMag",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-21 21:57:07",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Ten-man Belgium remain winless after draw with Iran",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 21:57:07",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Ten-man Belgium remain winless after draw with Iran",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
