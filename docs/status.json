@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T04:25:25.121683+00:00",
-  "last_heartbeat": "2026-06-21T04:25:25.121683+00:00",
-  "uptime_seconds": 114416,
+  "generated_at": "2026-06-21T04:30:29.972815+00:00",
+  "last_heartbeat": "2026-06-21T04:30:29.972815+00:00",
+  "uptime_seconds": 114721,
   "dry_run": true,
   "markets_tracked": 1339,
-  "classify_error_streak": 660,
+  "classify_error_streak": 667,
   "track_record": {
     "total": 7954,
     "accuracy": 17.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 140,
+  "headlines_scanned_today": 143,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2979,
+  "classifications_24h": 2987,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 791,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 780,
-    "matched": 626,
-    "classified": 2979,
+    "news": 782,
+    "matched": 628,
+    "classified": 2987,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1750.6
+    "avg_classification_latency_ms": 1752.6
   },
   "live_readiness": {
     "ready": true,
@@ -208,11 +208,11 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.43999999999999995,
       "pnl_pct": 0.0,
       "amount_usd": 25.0,
       "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "527505"
     }
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 04:20:31",
-      "market_question": "Will Bitcoin outperform Gold in 2026?",
-      "headline": "Gold Set for Third Weekly Loss as Fed Rate Outlook Supports Dollar - Yahoo Finance",
+      "time": "2026-06-21 04:27:41",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "US Vice President JD Vance arriving in Switzerland to launch talks with Iran on its nuclear program - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -399,14 +399,62 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 04:20:28",
-      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
-      "headline": "World shares are mixed and US futures fall after a tech-led rally on Wall St - AP News",
+      "time": "2026-06-21 04:27:41",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "US Vice President JD Vance arriving in Switzerland to launch talks with Iran on its nuclear program - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 04:27:41",
+      "market_question": "Will Trump launch a coin by December 31?",
+      "headline": "US Vice President JD Vance arriving in Switzerland to launch talks with Iran on its nuclear program - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 04:27:41",
+      "market_question": "Will X launch a USD stablecoin in 2026?",
+      "headline": "US Vice President JD Vance arriving in Switzerland to launch talks with Iran on its nuclear program - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 04:27:41",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "US Vice President JD Vance arriving in Switzerland to launch talks with Iran on its nuclear program - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -418,54 +466,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 04:20:28",
-      "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
-      "headline": "Gold Set for Third Weekly Loss as Fed Rate Outlook Supports Dollar - Yahoo Finance",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 04:20:28",
-      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
-      "headline": "Gold Set for Third Weekly Loss as Fed Rate Outlook Supports Dollar - Yahoo Finance",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 04:20:28",
-      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
-      "headline": "Gold Set for Third Weekly Loss as Fed Rate Outlook Supports Dollar - Yahoo Finance",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
