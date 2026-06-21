@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T08:59:32.975506+00:00",
-  "last_heartbeat": "2026-06-21T08:59:32.975506+00:00",
-  "uptime_seconds": 130864,
+  "generated_at": "2026-06-21T09:04:37.783397+00:00",
+  "last_heartbeat": "2026-06-21T09:04:37.783397+00:00",
+  "uptime_seconds": 131169,
   "dry_run": true,
-  "markets_tracked": 1350,
-  "classify_error_streak": 871,
+  "markets_tracked": 1352,
+  "classify_error_streak": 874,
   "track_record": {
     "total": 7964,
     "accuracy": 17.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 238,
+  "headlines_scanned_today": 240,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2982,
+  "classifications_24h": 2977,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 634,
@@ -97,7 +97,7 @@
     "price_target_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
-    "orderbook_skip": 1,
+    "orderbook_skip": 0,
     "already_priced_in": 0,
     "needs_confirmation": 0,
     "event_exposure_block": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 779,
-    "matched": 625,
-    "classified": 2982,
+    "news": 778,
+    "matched": 624,
+    "classified": 2977,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 0.38,
-    "total_pnl_usd": 50.46,
+    "unrealized_pnl_usd": 0.48,
+    "total_pnl_usd": 50.55,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1818.1
+    "avg_classification_latency_ms": 1819.0
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.31,
-      "pnl_pct": 5.34,
+      "current_price": 0.30500000000000005,
+      "pnl_pct": 6.11,
       "amount_usd": 12.5,
-      "current_value_usd": 13.17,
-      "pnl_usd": 0.67,
+      "current_value_usd": 13.26,
+      "pnl_usd": 0.76,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 08:59:01",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Stokes and Atkinson withdrawn from county games",
+      "time": "2026-06-21 09:03:23",
+      "market_question": "Will City Protocol launch a token by June 30, 2026?",
+      "headline": "Three men die after White City building fire",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,9 +404,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 08:59:01",
-      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "Stokes and Atkinson withdrawn from county games",
+      "time": "2026-06-21 09:03:23",
+      "market_question": "Will City Protocol launch a token by December 31, 2026?",
+      "headline": "Three men die after White City building fire",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +420,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 08:39:08",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Japan rout Tunisia 4-0 as Ueda shines in World Cup's 1,000th match - Reuters",
+      "time": "2026-06-21 09:03:23",
+      "market_question": "Will City Protocol launch a token by June 30, 2027?",
+      "headline": "Three men die after White City building fire",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 09:03:23",
+      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
+      "headline": "Three men die after White City building fire",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 09:01:15",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Artificial intelligence (AI) has completely changed the order of the world, becoming a torch of new - \ub9e4\uc77c\uacbd\uc81c",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -431,41 +463,9 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 08:39:05",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "Japan rout Tunisia 4-0 as Ueda shines in World Cup's 1,000th match - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 08:39:05",
-      "market_question": "Will Donald Trump visit Japan in 2026?",
-      "headline": "Japan rout Tunisia 4-0 as Ueda shines in World Cup's 1,000th match - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
