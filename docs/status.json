@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T08:13:51.411592+00:00",
-  "last_heartbeat": "2026-06-21T08:13:51.411592+00:00",
-  "uptime_seconds": 128122,
+  "generated_at": "2026-06-21T08:18:56.004135+00:00",
+  "last_heartbeat": "2026-06-21T08:18:56.004135+00:00",
+  "uptime_seconds": 128427,
   "dry_run": true,
-  "markets_tracked": 1344,
-  "classify_error_streak": 856,
+  "markets_tracked": 1341,
+  "classify_error_streak": 860,
   "track_record": {
     "total": 7956,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 228,
+  "headlines_scanned_today": 230,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2973,
+  "classifications_24h": 2972,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 643,
+    "prefiltered_haiku": 641,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 777,
     "matched": 622,
-    "classified": 2973,
+    "classified": 2972,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 0.38,
-    "total_pnl_usd": 50.46,
+    "unrealized_pnl_usd": 0.29,
+    "total_pnl_usd": 50.36,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1813.8
+    "avg_classification_latency_ms": 1815.0
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.31,
-      "pnl_pct": 5.34,
+      "current_price": 0.31499999999999995,
+      "pnl_pct": 4.58,
       "amount_usd": 12.5,
-      "current_value_usd": 13.17,
-      "pnl_usd": 0.67,
+      "current_value_usd": 13.07,
+      "pnl_usd": 0.57,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 08:06:20",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Virginia - AP News",
+      "time": "2026-06-21 08:17:17",
+      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
+      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 08:06:20",
-      "market_question": "Will Alex De Paula be the Republican nominee for Senate in Virginia?",
-      "headline": "Virginia - AP News",
+      "time": "2026-06-21 08:17:17",
+      "market_question": "Will Trump resign by December 31, 2026?",
+      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -420,25 +420,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 08:06:20",
-      "market_question": "Will Chuck Smith be the Republican nominee for Senate in Virginia?",
-      "headline": "Virginia - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 08:06:17",
-      "market_question": "Will the Democrats win the Virginia Senate race in 2026?",
-      "headline": "Virginia - AP News",
+      "time": "2026-06-21 08:17:14",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,9 +436,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 08:06:17",
-      "market_question": "Will the Republicans win the West Virginia Senate race in 2026?",
-      "headline": "Virginia - AP News",
+      "time": "2026-06-21 08:17:14",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 08:17:14",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
