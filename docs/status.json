@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-21T21:07:59.776187+00:00",
-  "last_heartbeat": "2026-06-21T21:07:59.776187+00:00",
-  "uptime_seconds": 13758,
+  "generated_at": "2026-06-21T21:13:04.678506+00:00",
+  "last_heartbeat": "2026-06-21T21:13:04.678506+00:00",
+  "uptime_seconds": 14063,
   "dry_run": false,
   "markets_tracked": 1326,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1029,
+  "headlines_scanned_today": 1030,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4290,
+  "classifications_24h": 4193,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 960,
+    "prefiltered_haiku": 961,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1151,
-    "matched": 602,
-    "classified": 4290,
+    "news": 1125,
+    "matched": 584,
+    "classified": 4193,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1345.0
+    "avg_classification_latency_ms": 1344.4
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 21:04:37",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "Ocado Group lines up successor to CEO Steiner, Sky News reports - Reuters",
+      "time": "2026-06-21 21:08:55",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Kraken acquire Mackie Samoskevich in a trade with the Panthers - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,41 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 21:04:37",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "Ocado Group lines up successor to CEO Steiner, Sky News reports - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 21:04:36",
-      "market_question": "Will Hezbollah win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Lebanon - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 21:04:36",
-      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
-      "headline": "Ocado Group lines up successor to CEO Steiner, Sky News reports - Reuters",
+      "time": "2026-06-21 21:08:54",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Kraken acquire Mackie Samoskevich in a trade with the Panthers - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +391,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 21:04:36",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "Ocado Group lines up successor to CEO Steiner, Sky News reports - Reuters",
+      "time": "2026-06-21 21:08:54",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Kraken acquire Mackie Samoskevich in a trade with the Panthers - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 21:08:54",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Kraken acquire Mackie Samoskevich in a trade with the Panthers - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 21:08:54",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "Kraken acquire Mackie Samoskevich in a trade with the Panthers - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
