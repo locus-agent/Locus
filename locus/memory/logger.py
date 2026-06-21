@@ -322,6 +322,10 @@ def _migrate_position_category(conn):
     # Legacy rows stay NULL and are skipped by the exit (unknown time-to-close).
     if "end_date" not in columns:
         conn.execute("ALTER TABLE positions ADD COLUMN end_date TEXT")
+    # CLOB order id of the live SELL that flattened the position. NULL for
+    # dry-run closes and for resolution settlements (nothing is sold).
+    if "exit_order_id" not in columns:
+        conn.execute("ALTER TABLE positions ADD COLUMN exit_order_id TEXT")
     conn.commit()
 
 

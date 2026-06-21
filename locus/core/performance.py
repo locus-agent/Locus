@@ -273,6 +273,16 @@ def position_pnl(side: str, entry_yes_price: float, yes_price_now: float, amount
     return amount_usd * (now / entry - 1.0)
 
 
+def position_shares(side: str, entry_yes_price: float, amount_usd: float) -> float:
+    """Outcome-token shares a position holds: amount / entry side price.
+
+    Mirrors position_pnl's share math (same entry-price clamp) so a live exit
+    sells exactly what the position is marked as holding."""
+    entry = entry_yes_price if side == "YES" else 1.0 - entry_yes_price
+    entry = min(max(entry, 1e-6), 1.0)
+    return amount_usd / entry
+
+
 def _fetch_current_yes_price(condition_id: str) -> float | None:
     """Current YES price from Gamma — fallback when no live prices passed."""
     try:

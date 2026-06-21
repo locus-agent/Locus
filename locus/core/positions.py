@@ -28,8 +28,9 @@ import anthropic
 from locus import config
 from locus.markets import gamma
 from locus.memory import logger
-from locus.core.performance import position_pnl
+from locus.core.performance import position_pnl, position_shares
 from locus.core import telegram_bot
+from locus.core import executor
 
 # Map a position's granular exit_reason to a canonical re-entry close reason.
 # 'resolution' is excluded from watching (no point watching a resolved market).
@@ -547,18 +548,51 @@ def cooldown_allows(position: dict, trigger: str, now: datetime | None = None) -
     return (now - last_dt).total_seconds() >= config.REEVAL_COOLDOWN_HOURS * 3600
 
 
+def _live_close(position: dict, exit_reason: str, fraction: float) -> str | None:
+    """Flatten `fraction` of the position on the CLOB (live trading only).
+
+    Returns the real Polymarket order_id on a placed sell, or None. Resolution
+    closes settle on-chain automatically, so there is nothing to sell — those
+    (and every close while DRY_RUN) skip the exchange entirely. A sell that
+    can't be placed (thin/empty book, missing client) is logged and the close
+    is still recorded at the marked price, so the DB never drifts from a
+    position that no longer exists on our side."""
+    if config.DRY_RUN or exit_reason == "resolution":
+        return None
+    shares = position_shares(position["side"], position["entry_yes_price"],
+                             position["amount_usd"] * fraction)
+    result = executor.close_position_live(
+        position["condition_id"], position["side"], shares
+    )
+    if result["status"] == "executed":
+        log.info(
+            f"[positions] Live close order {result['order_id']} placed: SELL "
+            f"{result['shares']} {position['side']} @ {result['price']} "
+            f"on \"{position['market_question'][:40]}\""
+        )
+        return result["order_id"]
+    log.warning(
+        f"[positions] Live close sell not placed (status {result['status']}) on "
+        f"\"{position['market_question'][:40]}\" — recording close at marked price"
+    )
+    return None
+
+
 def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str,
            fraction: float = 1.0) -> float:
-    """Realize `fraction` of the position at yes_price (simulated fill)."""
+    """Realize `fraction` of the position at yes_price. Live trading places a
+    real CLOB sell to flatten the shares; dry-run simulates the fill."""
     realized = position_pnl(position["side"], position["entry_yes_price"],
                             yes_price, position["amount_usd"] * fraction)
+    exit_order_id = _live_close(position, exit_reason, fraction)
     now_iso = datetime.now(timezone.utc).isoformat()
     if fraction >= 1.0:
         conn.execute(
             """UPDATE positions SET status=?, exit_yes_price=?, exit_reason=?,
                realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?, closed_at=?,
-               current_yes_price=?, unrealized_pnl_pct=0 WHERE id=?""",
-            (status, yes_price, exit_reason, realized, now_iso, yes_price, position["id"]),
+               current_yes_price=?, unrealized_pnl_pct=0, exit_order_id=? WHERE id=?""",
+            (status, yes_price, exit_reason, realized, now_iso, yes_price,
+             exit_order_id, position["id"]),
         )
         # Re-entry: keep watching the market for a thesis reversal (every close
         # type except resolution — a resolved market has nothing left to trade).
@@ -578,8 +612,8 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
         conn.execute(
             """UPDATE positions SET amount_usd=amount_usd*?,
                realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?,
-               current_yes_price=? WHERE id=?""",
-            (1.0 - fraction, realized, yes_price, position["id"]),
+               current_yes_price=?, exit_order_id=? WHERE id=?""",
+            (1.0 - fraction, realized, yes_price, exit_order_id, position["id"]),
         )
 
     # Real-time notification — single choke point for every close path (manual,
@@ -625,15 +659,8 @@ def close_manual(position_id: int) -> dict | None:
         yes_price = position["entry_yes_price"]
     current_pnl = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
 
-    if not config.DRY_RUN:
-        # TODO(live): place a CLOB sell order to flatten the position before
-        # recording the close. Until live execution is wired up we record the
-        # close at the marked price without hitting the exchange.
-        log.warning(
-            "[positions] Live manual close not yet implemented — recording the "
-            "close without placing a CLOB sell order"
-        )
-
+    # _close places the real CLOB sell when live (DRY_RUN=false); dry-run
+    # simulates the fill at the marked price.
     realized = _close(conn, position, yes_price, "closed_manual", "manual")
     conn.execute(
         """INSERT INTO exit_decisions (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
