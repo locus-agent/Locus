@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T08:18:56.004135+00:00",
-  "last_heartbeat": "2026-06-21T08:18:56.004135+00:00",
-  "uptime_seconds": 128427,
+  "generated_at": "2026-06-21T08:24:01.473589+00:00",
+  "last_heartbeat": "2026-06-21T08:24:01.473589+00:00",
+  "uptime_seconds": 128732,
   "dry_run": true,
-  "markets_tracked": 1341,
-  "classify_error_streak": 860,
+  "markets_tracked": 1345,
+  "classify_error_streak": 870,
   "track_record": {
     "total": 7956,
     "accuracy": 17.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 230,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 235,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 2972,
+  "classifications_24h": 2989,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 641,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 777,
-    "matched": 622,
-    "classified": 2972,
+    "news": 781,
+    "matched": 626,
+    "classified": 2989,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 0.29,
-    "total_pnl_usd": 50.36,
+    "unrealized_pnl_usd": 0.38,
+    "total_pnl_usd": 50.46,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1815.0
+    "avg_classification_latency_ms": 1817.9
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.31499999999999995,
-      "pnl_pct": 4.58,
+      "current_price": 0.31,
+      "pnl_pct": 5.34,
       "amount_usd": 12.5,
-      "current_value_usd": 13.07,
-      "pnl_usd": 0.57,
+      "current_value_usd": 13.17,
+      "pnl_usd": 0.67,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 08:17:17",
-      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
-      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
+      "time": "2026-06-21 08:23:51",
+      "market_question": "Will Bitcoin have the best performance in 2026?",
+      "headline": "Japan coach Moriyasu praises Kamada after standout performance in new role - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -399,30 +399,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 08:17:17",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 08:17:14",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
+      "time": "2026-06-21 08:23:48",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Japan coach Moriyasu praises Kamada after standout performance in new role - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,9 +420,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 08:17:14",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
+      "time": "2026-06-21 08:23:48",
+      "market_question": "Will Donald Trump visit Japan in 2026?",
+      "headline": "Japan coach Moriyasu praises Kamada after standout performance in new role - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,9 +436,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 08:17:14",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "headline": "UK business minister says he has no reason to think PM Starmer will resign on Monday - Reuters",
+      "time": "2026-06-21 08:23:48",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Japan coach Moriyasu praises Kamada after standout performance in new role - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 08:23:48",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Japan coach Moriyasu praises Kamada after standout performance in new role - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
