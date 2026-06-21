@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-21T16:32:29.409916+00:00",
-  "last_heartbeat": "2026-06-21T16:32:29.409916+00:00",
-  "uptime_seconds": 2477,
+  "generated_at": "2026-06-21T16:37:34.966290+00:00",
+  "last_heartbeat": "2026-06-21T16:37:34.966290+00:00",
+  "uptime_seconds": 2782,
   "dry_run": false,
-  "markets_tracked": 1324,
+  "markets_tracked": 1321,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7978,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 608,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 611,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 3442,
+  "classifications_24h": 3389,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 524,
+    "prefiltered_haiku": 506,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T16:21:31.937848+00:00"
+    "last_check": "2026-06-21T16:36:32.478726+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 896,
-    "matched": 599,
-    "classified": 3442,
+    "news": 885,
+    "matched": 589,
+    "classified": 3389,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1308.1
+    "avg_classification_latency_ms": 1307.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 16:28:49",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "Three teens arrested over boy's fatal stabbing",
+      "time": "2026-06-21 16:35:22",
+      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
+      "headline": "'He's arrived' - Yamal scores the opener for Spain",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 16:35:22",
+      "market_question": "Spain snap election called by June 30, 2026?",
+      "headline": "'He's arrived' - Yamal scores the opener for Spain",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 16:33:11",
+      "market_question": "Will OpenAI release a social network in 2026?",
+      "headline": "Brands using AI-generated influencers to promote products on social media - The Guardian",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 16:33:11",
+      "market_question": "Will another AI-generated song reach number 1 on any Billboard chart by June 30?",
+      "headline": "Brands using AI-generated influencers to promote products on social media - The Guardian",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,68 +423,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 16:26:39",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Watch Spain v Saudi Arabia with our World Cup 3D Experience",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-21 16:33:10",
+      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
+      "headline": "Brands using AI-generated influencers to promote products on social media - The Guardian",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 16:26:39",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Watch Spain v Saudi Arabia with our World Cup 3D Experience",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 16:26:39",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Watch Spain v Saudi Arabia with our World Cup 3D Experience",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 16:26:39",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Watch Spain v Saudi Arabia with our World Cup 3D Experience",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
