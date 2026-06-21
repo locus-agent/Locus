@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T13:59:08.489303+00:00",
-  "last_heartbeat": "2026-06-21T13:59:08.489303+00:00",
-  "uptime_seconds": 148839,
+  "generated_at": "2026-06-21T14:04:14.397477+00:00",
+  "last_heartbeat": "2026-06-21T14:04:14.397477+00:00",
+  "uptime_seconds": 149145,
   "dry_run": true,
-  "markets_tracked": 1323,
-  "classify_error_streak": 1215,
+  "markets_tracked": 1322,
+  "classify_error_streak": 0,
   "track_record": {
     "total": 7970,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 406,
-  "headlines_last_cycle": 1,
-  "signals_24h": 0,
-  "classifications_24h": 3078,
+  "headlines_scanned_today": 410,
+  "headlines_last_cycle": 0,
+  "signals_24h": 1,
+  "classifications_24h": 3107,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 404,
+    "prefiltered_haiku": 414,
     "stale": 0,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -106,7 +106,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 9,
+  "watched_markets_count": 11,
   "missed_opportunities_24h": 10,
   "whale": {
     "watched_wallets": 4,
@@ -115,43 +115,43 @@
   },
   "edge_types_24h": {
     "news": 0,
-    "momentum": 0,
+    "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 801,
-    "matched": 640,
-    "classified": 3078,
-    "signals": 0,
-    "trades": 0
+    "news": 804,
+    "matched": 644,
+    "classified": 3107,
+    "signals": 1,
+    "trades": 1
   },
   "performance": {
-    "trades_total": 29,
-    "deployed_usd": 540.58,
-    "open_count": 2,
-    "closed_count": 23,
-    "wins": 13,
+    "trades_total": 30,
+    "deployed_usd": 580.58,
+    "open_count": 1,
+    "closed_count": 25,
+    "wins": 15,
     "losses": 10,
-    "win_rate_pct": 56.5,
-    "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 3.72,
-    "total_pnl_usd": 53.8,
-    "recent_winrate": 0.6,
-    "kelly_factor": 0.775,
+    "win_rate_pct": 60.0,
+    "realized_pnl_usd": 61.7,
+    "unrealized_pnl_usd": -0.28,
+    "total_pnl_usd": 61.42,
+    "recent_winrate": 0.65,
+    "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1905.8
+    "avg_classification_latency_ms": 1909.0
   },
   "live_readiness": {
     "ready": true,
     "criteria_met": 4,
     "criteria_total": 4,
-    "sharpe_days_count": 5,
+    "sharpe_days_count": 6,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 23,
+        "value": 25,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -159,7 +159,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 56.5,
+        "value": 60.0,
         "threshold_display": "> 55%",
         "pass": true
       },
@@ -167,7 +167,7 @@
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio (preliminary)",
         "unit": "ratio",
-        "value": 7.47,
+        "value": 8.84,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -175,7 +175,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 5.9,
+        "value": 5.3,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -184,31 +184,17 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0464,
-    "sharpe_7d": 0.39
+    "drawdown_7d": 0.0423,
+    "sharpe_7d": 0.46
   },
   "open_positions": [
-    {
-      "time": "2026-06-19 12:09:41",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "slug": "candidates-in-next-labour-leadership-election",
-      "side": "NO",
-      "entry_price": 0.345,
-      "current_price": 0.135,
-      "pnl_pct": 32.06,
-      "amount_usd": 12.5,
-      "current_value_usd": 16.51,
-      "pnl_usd": 4.01,
-      "edge_type": "momentum",
-      "event_id": "481681"
-    },
     {
       "time": "2026-06-19 07:40:40",
       "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -218,6 +204,30 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-21T14:04:11.712093+00:00",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "slug": "who-will-trump-publicly-insult-by-june-30",
+      "side": "NO",
+      "entry_price": 0.58,
+      "exit_price": 0.5,
+      "realized_pnl_usd": 7.619047619047619,
+      "exit_reason": "manual",
+      "event_id": "528020",
+      "partial": false
+    },
+    {
+      "time": "2026-06-21T14:03:31.526898+00:00",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "slug": "candidates-in-next-labour-leadership-election",
+      "side": "NO",
+      "entry_price": 0.345,
+      "exit_price": 0.135,
+      "realized_pnl_usd": 5.629770992366409,
+      "exit_reason": "UPD: \u00bd closed +13% \u2192 fully closed +32%",
+      "event_id": "481681",
+      "partial": true
+    },
     {
       "time": "2026-06-19T17:14:37.987454+00:00",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -253,18 +263,6 @@
       "exit_reason": "drawdown_decision",
       "event_id": "605219",
       "partial": false
-    },
-    {
-      "time": "2026-06-19 19:04:04",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "slug": "candidates-in-next-labour-leadership-election",
-      "side": "NO",
-      "entry_price": 0.345,
-      "exit_price": 0.26,
-      "realized_pnl_usd": 1.622137404580151,
-      "exit_reason": "\u00bd closed at +13%",
-      "event_id": "481681",
-      "partial": true
     },
     {
       "time": "2026-06-18T20:11:51.155769+00:00",
@@ -325,21 +323,27 @@
       "exit_reason": "manual",
       "event_id": "528413",
       "partial": false
-    },
-    {
-      "time": "2026-06-18T16:53:22.038551+00:00",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "slug": "where-will-trump-and-putin-meet-next-678",
-      "side": "YES",
-      "entry_price": 0.05,
-      "exit_price": 0.05,
-      "realized_pnl_usd": 0.0,
-      "exit_reason": "manual",
-      "event_id": "528389",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-21 14:04:11",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "side": "NO",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 19.05
+    },
+    {
+      "time": "2026-06-21 14:03:31",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "side": "NO",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 32.06
+    },
     {
       "time": "2026-06-19 19:04:04",
       "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
@@ -366,104 +370,86 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 0.0
-    },
-    {
-      "time": "2026-06-19 12:41:16",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "side": "NO",
-      "trigger": "news",
-      "decision": "hold",
-      "reasoning": "The trigger headline actually reinforces the original thesis in a nuanced way: Starmer vowing to 'fight' suggests he intends to remain leader, which keeps the probability of a near-term Labour leadership contest (where Streeting would be a candidate) low. Burnham's win fueling speculation is noise \u2014 Starmer's explicit commitment to staying is the more material signal, and the position is flat with no loss to cut.",
-      "pnl_pct": 0.0
-    },
-    {
-      "time": "2026-06-19 06:04:34",
-      "market_question": "Bitcoin Up or Down on June 19?",
-      "side": "NO",
-      "trigger": "drawdown",
-      "decision": "close",
-      "reasoning": "The original thesis relied on bearish sentiment positioning as a weak proxy for actual price direction, and the market has moved sharply against the position to 0.665 YES, suggesting Bitcoin is trading up on June 19. With no strong counter-thesis and a -33.7% drawdown, holding is hope-based rather than edge-based.",
-      "pnl_pct": -33.66
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 13:59:06",
-      "market_question": "Will Trump visit Pakistan by June 30?",
-      "headline": "Pakistan's delegation arrives in Obbuergen for high-level talks between the United States and Iran - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 13:59:06",
-      "market_question": "Will Trump and Putin meet next in United States?",
-      "headline": "Pakistan's delegation arrives in Obbuergen for high-level talks between the United States and Iran - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time": "2026-06-21 14:03:39",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "headline": "Keir Starmer will resign as Prime Minister of The United Kingdom. He failed badly on two very important subjects- IMMIGRATION AND ENERGY (OPEN NORTH SEA OIL!). I wish him well! President DJT",
+      "direction": "bearish",
+      "materiality": 0.62,
+      "confidence": 0.68,
+      "edge": 0.3596,
+      "fee_cost": 0.009744000000000001,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.62,
+      "action": "signal",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 13:59:06",
-      "market_question": "Will Donald Trump visit Pakistan in 2026?",
-      "headline": "Pakistan's delegation arrives in Obbuergen for high-level talks between the United States and Iran - AP News",
+      "time": "2026-06-21 14:03:33",
+      "market_question": "Will Donald Trump visit the United Kingdom in 2026?",
+      "headline": "Keir Starmer will resign as Prime Minister of The United Kingdom. He failed badly on two very important subjects- IMMIGRATION AND ENERGY (OPEN NORTH SEA OIL!). I wish him well! President DJT",
       "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 13:59:06",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "Pakistan's delegation arrives in Obbuergen for high-level talks between the United States and Iran - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 13:59:06",
-      "market_question": "Will Trump and Putin meet next in United States?",
-      "headline": "Pakistan's delegation arrives in Obbuergen for high-level talks between the United States and Iran - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "action": "skip",
       "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 14:03:33",
+      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
+      "headline": "Keir Starmer will resign as Prime Minister of The United Kingdom. He failed badly on two very important subjects- IMMIGRATION AND ENERGY (OPEN NORTH SEA OIL!). I wish him well! President DJT",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 14:03:31",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Keir Starmer will resign as Prime Minister of The United Kingdom. He failed badly on two very important subjects- IMMIGRATION AND ENERGY (OPEN NORTH SEA OIL!). I wish him well! President DJT",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 14:03:31",
+      "market_question": "Will Trump resign by December 31, 2026?",
+      "headline": "Keir Starmer will resign as Prime Minister of The United Kingdom. He failed badly on two very important subjects- IMMIGRATION AND ENERGY (OPEN NORTH SEA OIL!). I wish him well! President DJT",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
