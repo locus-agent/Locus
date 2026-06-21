@@ -72,9 +72,9 @@ def _execute_live(signal: Signal) -> dict:
         from py_clob_client.client import ClobClient
         from py_clob_client.clob_types import OrderArgs, OrderType
 
-        # `key` is the SIGNING key (wallet private key). `funder` is only for
-        # proxy wallets (Polymarket UI accounts): the proxy ADDRESS, paired
-        # with the matching signature_type.
+        # `key` is the SIGNING key (wallet private key). `funder` is the deposit
+        # wallet ADDRESS that holds the USDC, paired with its signature_type
+        # (3 = POLY_1271 deposit wallet). Omit both for a plain EOA wallet.
         client_kwargs = dict(
             host=config.POLYMARKET_HOST,
             key=config.POLYMARKET_PRIVATE_KEY,
