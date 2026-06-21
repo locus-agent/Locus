@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-21T19:31:19.102977+00:00",
-  "last_heartbeat": "2026-06-21T19:31:19.102977+00:00",
-  "uptime_seconds": 7958,
+  "generated_at": "2026-06-21T19:36:24.240153+00:00",
+  "last_heartbeat": "2026-06-21T19:36:24.240153+00:00",
+  "uptime_seconds": 8263,
   "dry_run": false,
-  "markets_tracked": 1330,
+  "markets_tracked": 1329,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7981,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 988,
+  "headlines_scanned_today": 992,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4278,
+  "classifications_24h": 4298,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 888,
+    "prefiltered_haiku": 901,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T19:18:59.132981+00:00"
+    "last_check": "2026-06-21T19:33:59.501240+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1144,
-    "matched": 597,
-    "classified": 4278,
+    "news": 1147,
+    "matched": 600,
+    "classified": 4298,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1332.6
+    "avg_classification_latency_ms": 1338.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 19:28:16",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Four-day extreme heat warning to begin on Monday as temperatures could hit 38C",
+      "time": "2026-06-21 19:34:59",
+      "market_question": "Will another AI-generated song reach number 1 on any Billboard chart by June 30?",
+      "headline": "Brands using AI-generated influencers on social media - Taipei Times",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 19:34:59",
+      "market_question": "Will OpenAI release a social network in 2026?",
+      "headline": "Brands using AI-generated influencers on social media - Taipei Times",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 19:34:58",
+      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
+      "headline": "Trump and Iran's negotiator trade warnings as talks held in Switzerland",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.15,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 19:34:58",
+      "market_question": "Spain snap election called by June 30, 2026?",
+      "headline": "Lamine Yamal on target as Spain put four past Saudi Arabia",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -375,57 +423,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 19:28:16",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Four-day extreme heat warning to begin on Monday as temperatures could hit 38C",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 19:28:16",
-      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
-      "headline": "Four-day extreme heat warning to begin on Monday as temperatures could hit 38C",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 19:28:16",
-      "market_question": "Will Polymarket mindshare hit 90% by June 30?",
-      "headline": "Four-day extreme heat warning to begin on Monday as temperatures could hit 38C",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 19:28:16",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "Four-day extreme heat warning to begin on Monday as temperatures could hit 38C",
+      "time": "2026-06-21 19:34:58",
+      "market_question": "Will Democrats win all \"core four\" senate races?",
+      "headline": "Lamine Yamal on target as Spain put four past Saudi Arabia",
       "direction": null,
       "materiality": null,
       "confidence": null,
