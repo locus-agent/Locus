@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T07:23:05.426734+00:00",
-  "last_heartbeat": "2026-06-21T07:23:05.426734+00:00",
-  "uptime_seconds": 125076,
+  "generated_at": "2026-06-21T07:28:10.405318+00:00",
+  "last_heartbeat": "2026-06-21T07:28:10.405318+00:00",
+  "uptime_seconds": 125381,
   "dry_run": true,
-  "markets_tracked": 1349,
-  "classify_error_streak": 801,
+  "markets_tracked": 1348,
+  "classify_error_streak": 827,
   "track_record": {
     "total": 7956,
     "accuracy": 17.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 196,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 210,
+  "headlines_last_cycle": 3,
   "signals_24h": 0,
-  "classifications_24h": 2984,
+  "classifications_24h": 3030,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 713,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T07:09:39.055254+00:00"
+    "last_check": "2026-06-21T07:24:39.503574+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 778,
-    "matched": 623,
-    "classified": 2984,
+    "news": 792,
+    "matched": 636,
+    "classified": 3030,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1796.3
+    "avg_classification_latency_ms": 1804.1
   },
   "live_readiness": {
     "ready": true,
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 07:20:24",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Best World Cup photos from Day 10 - Reuters",
+      "time": "2026-06-21 07:27:45",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Think You\u2019re Smarter Than the Writer Behind the Slatest? Find Out With This Week\u2019s News Quiz. - Slate Magazine",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -404,9 +404,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 07:20:24",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Best World Cup photos from Day 10 - Reuters",
+      "time": "2026-06-21 07:27:45",
+      "market_question": "Will Trump cut corporate taxes before 2027?",
+      "headline": "Zelda: Ocarina of Time's Cut Content Finally Makes the Switch 2 Remake a Perfect Game - Comic Book Resources",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-21 07:27:42",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Final Fantasy 7 Revelation director explains why the game is sticking with Unreal Engine 4 instead of 5 - Nintendo Everything",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -420,52 +436,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 07:20:24",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Best World Cup photos from Day 10 - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-21 07:27:42",
+      "market_question": "Will Trump meet with Mohammed bin Salman in 2026?",
+      "headline": "Microsoft's latest Windows bug belongs in the Recycle Bin - The Register",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 07:20:24",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Best World Cup photos from Day 10 - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-21 07:20:24",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Best World Cup photos from Day 10 - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-06-21 07:27:42",
+      "market_question": "Will Donald Trump publicly insult Mohammed bin Salman by June 30, 2026?",
+      "headline": "Microsoft's latest Windows bug belongs in the Recycle Bin - The Register",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
