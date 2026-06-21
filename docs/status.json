@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-21T21:58:48.901774+00:00",
-  "last_heartbeat": "2026-06-21T21:58:48.901774+00:00",
-  "uptime_seconds": 16808,
+  "generated_at": "2026-06-21T22:04:06.196430+00:00",
+  "last_heartbeat": "2026-06-21T22:04:06.196430+00:00",
+  "uptime_seconds": 17125,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1347,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1084,
+  "headlines_scanned_today": 1085,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4177,
+  "classifications_24h": 4180,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1052,
+    "prefiltered_haiku": 1057,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -107,11 +107,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 6,
-  "missed_opportunities_24h": 10,
+  "missed_opportunities_24h": 15,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T21:49:03.169125+00:00"
+    "last_check": "2026-06-21T22:04:03.489032+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 1130,
     "matched": 585,
-    "classified": 4177,
+    "classified": 4180,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1336.3
+    "avg_classification_latency_ms": 1345.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 21:57:10",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Ten-man Belgium remain winless after draw with Iran",
+      "time": "2026-06-21 22:01:37",
+      "market_question": "Will Abelardo de la Espriella win the second round of the 2026 Colombian presidential election by 15%+?",
+      "headline": "Colombians choose between an outsider and a progressive in a presidential runoff election, in photos - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.6,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.15,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 22:01:33",
+      "market_question": "Will Abelardo de la Espriella win the second round of the 2026 Colombian presidential election by 5-10%?",
+      "headline": "Colombians choose between an outsider and a progressive in a presidential runoff election, in photos - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.6,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.15,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 22:01:33",
+      "market_question": "Will Abelardo de la Espriella win the second round of the 2026 Colombian presidential election by 10-15%?",
+      "headline": "Colombians choose between an outsider and a progressive in a presidential runoff election, in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 22:01:31",
+      "market_question": "Will Yonhy Lescano win the 2026 Peruvian presidential election?",
+      "headline": "Colombians choose between an outsider and a progressive in a presidential runoff election, in photos - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,68 +423,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 21:57:07",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Ten-man Belgium remain winless after draw with Iran",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-21 22:01:31",
+      "market_question": "Will Mes\u00edas Guevara win the 2026 Peruvian presidential election?",
+      "headline": "Colombians choose between an outsider and a progressive in a presidential runoff election, in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 21:57:07",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Ten-man Belgium remain winless after draw with Iran",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 21:57:07",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Ten-man Belgium remain winless after draw with Iran",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 21:57:07",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Ten-man Belgium remain winless after draw with Iran",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -475,91 +475,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-20 22:00:05",
-      "market_question": "Will South Korea be the highest-scoring team in Group A during the Group Stage of the 2026 FIFA World Cup?",
+      "time": "2026-06-21 22:01:04",
+      "market_question": "Will Cristiano Ronaldo's national team advance the furthest at the 2026 FIFA World Cup?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will South Korea be the highest-scoring team in Gr' \u2014 price moved +14%. Consider lowering min_materiality for sports category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Cristiano Ronaldo's national team advance the' \u2014 price moved +25%. Consider lowering min_materiality for sports category."
     },
     {
-      "time": "2026-06-20 22:00:05",
-      "market_question": "Will South Korea reach the Quarterfinals at the 2026 FIFA World Cup?",
+      "time": "2026-06-21 22:01:01",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will South Korea reach the Quarterfinals at the 20' \u2014 price moved +26%. Consider lowering min_materiality for sports category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump visit Israel in 2026?' \u2014 price moved +29%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-20 22:00:05",
-      "market_question": "Will South Korea reach the Quarterfinals at the 2026 FIFA World Cup?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "High-materiality skip on sports missed 26% \u2014 Direct Evidence Rule may be too strict"
-    },
-    {
-      "time": "2026-06-20 22:00:05",
+      "time": "2026-06-21 22:00:58",
       "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will Trump Mobile release a phone by June 30, 2026' \u2014 price moved +18%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump Mobile release a phone by June 30, 2026' \u2014 price moved +15%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-20 22:00:04",
-      "market_question": "Will Panama advance to the knockout stages at the 2026 FIFA World Cup?",
+      "time": "2026-06-21 22:00:55",
+      "market_question": "Will Apple release a new product line before 2027?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.72) on 'Will Panama advance to the knockout stages at the ' \u2014 price moved +42%. Consider lowering min_materiality for sports category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Apple release a new product line before 2027?' \u2014 price moved +12%. Consider lowering min_materiality for technology category."
+    },
+    {
+      "time": "2026-06-21 22:00:52",
+      "market_question": "Will Trump meet with Benjamin Netanyahu in June 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump meet with Benjamin Netanyahu in June 20' \u2014 price moved +55%. Consider lowering min_materiality for politics category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-20 22:00:05",
-      "market_question": "Will South Korea be the highest-scoring team in Group A during the Group Stage of the 2026 FIFA World Cup?",
-      "slug": "world-cup-highest-scoring-team-in-group-a-group-stage-20260607165219562",
+      "time": "2026-06-21 22:01:04",
+      "market_question": "Will Cristiano Ronaldo's national team advance the furthest at the 2026 FIFA World Cup?",
+      "slug": "will-messi-ronaldo-or-neymar-advance-furthest-in-the-world-cup",
       "direction": "bearish",
-      "materiality": 0.55,
+      "materiality": 0.35,
       "action": "stale",
-      "pct_move": 13.8,
-      "reflection": "(reflection generation failed: BadRequestError)"
+      "pct_move": 25.4,
+      "reflection": "I flagged this as stale and walked away, but I underestimated how much new information\u2014roster changes, qualifying performance, coaching shifts\u2014could refresh the thesis between my analysis and market settlement. A 25% move in my predicted direction suggests the bearish case had real edge that I abandoned too conservatively; I should have either updated my staleness threshold or taken a smaller position rather than skipping entirely. Going forward, I need to distinguish between \"data is old\" and \"thesis is invalidated\"\u2014the former just requires recalibration, not avoidance."
     },
     {
-      "time": "2026-06-20 22:00:05",
-      "market_question": "Will South Korea reach the Quarterfinals at the 2026 FIFA World Cup?",
-      "slug": "world-cup-nation-to-reach-quarterfinals",
+      "time": "2026-06-21 22:01:01",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "slug": "which-countries-will-donald-trump-visit-in-2026",
       "direction": "bearish",
-      "materiality": 0.55,
+      "materiality": 0.35,
       "action": "skip",
-      "pct_move": 25.7,
-      "reflection": "(reflection generation failed: BadRequestError)"
+      "pct_move": 28.8,
+      "reflection": "I missed a 29% move in my predicted direction because I underweighted a signal with only 0.35 materiality\u2014but I should have recognized that even modest materiality on a binary political event can represent significant edge when the market is mispricing tail risk around Trump's travel plans. My skip threshold was too rigid; I let a mechanical materiality cutoff override the signal's actual predictive content, and I failed to account for how low-liquidity political markets can move sharply on relatively small conviction edges."
     },
     {
-      "time": "2026-06-20 22:00:05",
+      "time": "2026-06-21 22:00:58",
       "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
       "slug": "will-trump-mobile-release-a-phone-by",
       "direction": "bearish",
-      "materiality": 0.55,
+      "materiality": 0.35,
       "action": "skip",
-      "pct_move": 17.6,
-      "reflection": "(reflection generation failed: BadRequestError)"
+      "pct_move": 15.2,
+      "reflection": "I missed a 15% move in my predicted direction on Trump Mobile's phone release timeline, and the bearish case I'd identified clearly had merit\u2014the 0.35 materiality threshold should have been low enough to act on given the directional conviction. My skip reflects overcaution: I likely hesitated because the outcome hinges on execution timelines and regulatory factors that feel inherently uncertain, but that uncertainty was already priced into my bearish signal rather than a reason to abstain. I need to trust my directional views more consistently, especially when materiality is meaningful and I have a clear thesis, rather than defaulting to inaction when confidence isn't absolute."
     },
     {
-      "time": "2026-06-20 22:00:04",
-      "market_question": "Will Panama advance to the knockout stages at the 2026 FIFA World Cup?",
-      "slug": "world-cup-team-to-advance-to-knockout-stages",
+      "time": "2026-06-21 22:00:55",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "slug": "will-apple-release-a-new-product-line-before-2027",
       "direction": "bearish",
-      "materiality": 0.72,
-      "action": "skip",
-      "pct_move": 42.3,
-      "reflection": "(reflection generation failed: BadRequestError)"
+      "materiality": 0.35,
+      "action": "stale",
+      "pct_move": 12.5,
+      "reflection": "I flagged this as stale and passed, but I was wrong to dismiss the signal's core validity just because the data felt old\u2014the 0.35 materiality threshold was actually meaningful, and my bearish conviction on Apple's product timeline didn't decay the way I assumed it would. The 12% move vindicated the directional logic I had identified, which means I let process rigor (questioning stale inputs) override conviction in a way that cost real opportunity. I need to distinguish between stale *data* and stale *reasoning*; if the fundamental thesis is sound, age of supporting information shouldn't automatically trigger a skip."
     },
     {
-      "time": "2026-06-20 22:00:04",
-      "market_question": "Will Panama advance to the knockout stages at the 2026 FIFA World Cup?",
-      "slug": "world-cup-team-to-advance-to-knockout-stages",
+      "time": "2026-06-21 22:00:52",
+      "market_question": "Will Trump meet with Benjamin Netanyahu in June 2026?",
+      "slug": "who-will-trump-meet-with-in-june",
       "direction": "bearish",
-      "materiality": 0.65,
-      "action": "skip",
-      "pct_move": 48.3,
-      "reflection": "(reflection generation failed: BadRequestError)"
+      "materiality": 0.35,
+      "action": "stale",
+      "pct_move": 54.8,
+      "reflection": "I dismissed this signal as stale without reassessing its relevance\u2014a critical error given that geopolitical events don't expire on a calendar, they sharpen as deadlines approach. The June 2026 timeframe was actually tightening into material territory by the time price moved, and my bearish call had genuine conviction (0.35 materiality), yet I let process override judgment by mechanically filtering it out. I need to distinguish between truly obsolete signals and ones that simply require recalibration rather than rejection."
     }
   ],
   "pending_suggestions": []
