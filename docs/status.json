@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T07:07:51.535014+00:00",
-  "last_heartbeat": "2026-06-21T07:07:51.535014+00:00",
-  "uptime_seconds": 124162,
+  "generated_at": "2026-06-21T07:12:56.073590+00:00",
+  "last_heartbeat": "2026-06-21T07:12:56.073590+00:00",
+  "uptime_seconds": 124467,
   "dry_run": true,
-  "markets_tracked": 1347,
-  "classify_error_streak": 750,
+  "markets_tracked": 1345,
+  "classify_error_streak": 760,
   "track_record": {
     "total": 7956,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 179,
+  "headlines_scanned_today": 182,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2933,
+  "classifications_24h": 2938,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 719,
+    "prefiltered_haiku": 718,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T06:54:38.615574+00:00"
+    "last_check": "2026-06-21T07:09:39.055254+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 764,
-    "matched": 612,
-    "classified": 2933,
+    "news": 766,
+    "matched": 613,
+    "classified": 2938,
     "signals": 0,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1778.9
+    "avg_classification_latency_ms": 1783.3
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.31499999999999995,
+      "current_price": 0.315,
       "pnl_pct": 4.58,
       "amount_usd": 12.5,
       "current_value_usd": 13.07,
@@ -388,57 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 07:05:07",
-      "market_question": "Will Citizens\u2019 Movement (MC) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Mexico | Latest News & Updates - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 07:05:07",
-      "market_question": "Will Donald Trump visit Germany in 2026?",
-      "headline": "Germany - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 07:05:06",
-      "market_question": "Will Donald Trump visit Mexico in 2026?",
-      "headline": "Mexico | Latest News & Updates - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 07:05:06",
-      "market_question": "Will the Labor Party (PT) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Mexico | Latest News & Updates - AP News",
+      "time": "2026-06-21 07:11:47",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "(CMRG.NS) | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -452,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 07:05:06",
-      "market_question": "Will the Ecologist Green Party of Mexico (PVEM) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Mexico | Latest News & Updates - AP News",
+      "time": "2026-06-21 07:11:43",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "headline": "(CMRG.NS) | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -463,7 +415,55 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 07:11:43",
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 21?",
+      "headline": "(CMRG.NS) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 07:11:43",
+      "market_question": "Will Nansen launch a token by September 30, 2026?",
+      "headline": "(CMRG.NS) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 07:11:43",
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 21?",
+      "headline": "(CMRG.NS) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
