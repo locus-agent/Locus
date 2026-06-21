@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T09:19:51.861789+00:00",
-  "last_heartbeat": "2026-06-21T09:19:51.861789+00:00",
-  "uptime_seconds": 132083,
+  "generated_at": "2026-06-21T09:24:56.797873+00:00",
+  "last_heartbeat": "2026-06-21T09:24:56.797873+00:00",
+  "uptime_seconds": 132388,
   "dry_run": true,
-  "markets_tracked": 1346,
-  "classify_error_streak": 897,
+  "markets_tracked": 1348,
+  "classify_error_streak": 905,
   "track_record": {
     "total": 7964,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 251,
+  "headlines_scanned_today": 256,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2971,
+  "classifications_24h": 2928,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 607,
+    "prefiltered_haiku": 582,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T09:09:42.430703+00:00"
+    "last_check": "2026-06-21T09:24:42.788261+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 778,
-    "matched": 623,
-    "classified": 2971,
+    "news": 764,
+    "matched": 614,
+    "classified": 2928,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 0.38,
-    "total_pnl_usd": 50.46,
+    "unrealized_pnl_usd": 0.48,
+    "total_pnl_usd": 50.55,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1825.3
+    "avg_classification_latency_ms": 1827.3
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.31,
-      "pnl_pct": 5.34,
+      "current_price": 0.30500000000000005,
+      "pnl_pct": 6.11,
       "amount_usd": 12.5,
-      "current_value_usd": 13.17,
-      "pnl_usd": 0.67,
+      "current_value_usd": 13.26,
+      "pnl_usd": 0.76,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,25 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 09:16:34",
-      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Former Olympian denies vandalising Washington Reflecting Pool after arrest",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 09:08:42",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Sea of Thieves players can craft their own experiences with the new Custom Seas update - TrueAchievements",
+      "time": "2026-06-21 09:22:57",
+      "market_question": "Will Anthropic not IPO by June 30, 2026?",
+      "headline": "India's largest telecom and digital service Jio Platforms files for IPO - CNBC",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -420,52 +404,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 09:08:42",
-      "market_question": "Will Hunter Biden announce a Presidential run before 2027?",
-      "headline": "Gearbox Reveals Upcoming Borderlands 4 Vault Hunter and Story Content - TechPowerUp",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-21 09:22:56",
+      "market_question": "Will OpenAI not IPO by December 31, 2026?",
+      "headline": "India's largest telecom and digital service Jio Platforms files for IPO - CNBC",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-21 09:08:42",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "Get free Chipotle simply for playing 2XKO, and here's all of the food and in-game rewards you can earn from the special event - EventHubs",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-21 09:22:56",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "India's largest telecom and digital service Jio Platforms files for IPO - CNBC",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-21 09:08:42",
-      "market_question": "Solana all time high by June 30, 2026?",
-      "headline": "Get free Chipotle simply for playing 2XKO, and here's all of the food and in-game rewards you can earn from the special event - EventHubs",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-06-21 09:22:56",
+      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
+      "headline": "India's largest telecom and digital service Jio Platforms files for IPO - CNBC",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 09:22:56",
+      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
+      "headline": "India's largest telecom and digital service Jio Platforms files for IPO - CNBC",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
