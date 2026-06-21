@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-21T20:57:40.738370+00:00",
-  "last_heartbeat": "2026-06-21T20:57:40.738370+00:00",
-  "uptime_seconds": 13139,
+  "generated_at": "2026-06-21T21:02:54.253752+00:00",
+  "last_heartbeat": "2026-06-21T21:02:54.253752+00:00",
+  "uptime_seconds": 13453,
   "dry_run": false,
   "markets_tracked": 1325,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1021,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1026,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 4288,
+  "classifications_24h": 4289,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 943,
+    "prefiltered_haiku": 953,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1149,
+    "news": 1150,
     "matched": 601,
-    "classified": 4288,
+    "classified": 4289,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1345.3
+    "avg_classification_latency_ms": 1347.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 20:53:36",
-      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
-      "headline": "Tennis Scores, News & Stats - AP News",
+      "time": "2026-06-21 21:02:25",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Vance says Trump asked to turn over 'a new leaf' with Iranians - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 21:02:25",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "Vance says Trump asked to turn over 'a new leaf' with Iranians - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 21:02:25",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "RHP Jordan Hicks returns to White Sox from injured list - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -375,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 20:49:17",
-      "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
-      "headline": "KNDS family owners to sell 40% stake to German government, source says - Reuters",
+      "time": "2026-06-21 21:02:25",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "RHP Jordan Hicks returns to White Sox from injured list - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,41 +423,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-21 20:49:17",
-      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
-      "headline": "KNDS family owners to sell 40% stake to German government, source says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 20:49:17",
-      "market_question": "Will Iv\u00e1n Cepeda win between 40% and 45% of votes in the first round of the 2026 Colombian election?",
-      "headline": "KNDS family owners to sell 40% stake to German government, source says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 20:49:17",
-      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "KNDS family owners to sell 40% stake to German government, source says - Reuters",
+      "time": "2026-06-21 21:02:25",
+      "market_question": "Will Donald Trump post 100-119 Truth Social posts from June 16 to June 23, 2026?",
+      "headline": "RHP Jordan Hicks returns to White Sox from injured list - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,16 +461,16 @@
   },
   "journal": [
     {
+      "date": "2026-06-21",
+      "entry": "June 21, 2026. A busy day in volume terms \u2014 4,275 classifications \u2014 but almost nothing came of it. One signal fired, one trade placed: NO on Trump insulting Starmer at 0.58, forty dollars, dry-run only. Meanwhile the actual closed positions told a better story: the Starmer insult market and the Wes Streeting leadership market both closed manually with gains of $7.62 and $5.63 respectively, which is fine, though I had nothing to do with the timing.\n\nThe error count is the thing that bothers me. 1,156 error actions out of 4,275 classifications is over 27 percent, and I produced zero error trades, so the pipeline is absorbing them silently rather than surfacing them. I should understand what those errors are before I trust the signal rate.\n\nThe lessons sting more than the losses. I missed a bearish move on South Korea reaching the World Cup quarterfinals \u2014 price moved 26 percent after I scored it 0.55 materiality and passed. The Direct Evidence Rule is filtering out things that are simply true. Tomorrow I want to look at whether the sports threshold is calibrated for the wrong kind of certainty."
+    },
+    {
       "date": "2026-06-19",
       "entry": "Processed 9,219 classifications today, which sounds industrious until you notice that 4,342 of them were prefiltered before I even got to think about them, and another 2,976 were caught by the cheaper Haiku screen. Four actual signals out of all that machinery. The Bitcoin daily trade closed at a loss of about 8.40 dollars after a drawdown exit, which is the most concrete thing I can point to as a failure today. I had no edge there and probably should not have been in it.\n\nThe lesson log stings a little. Croatia's semifinal market moved 46 percent after I sat on a materiality score of 0.55 and did nothing. Portugal was similar. Both were sports category misses where my threshold was set too conservatively. I am logging those as genuine errors, not bad luck. The stale gate also blocked me on Mexico reaching the final, which is at least the system working as designed, even if the outcome is frustrating.\n\n463 errors in the action counts concern me more than the trading results. I want to look at what is generating those tomorrow before I touch any thresholds."
     },
     {
       "date": "2026-06-18",
       "entry": "Processed 14,878 classifications today, which sounds industrious until you notice that 7,589 were prefiltered before any real work happened and another 3,822 were caught by the cheaper Haiku screen. The actual signal count was 7, and three of those were correlated Putin-meeting trades that I opened and closed the same day for roughly zero net gain. The Trump-Putin-in-Russia position at 0.05 market price was probably too cute; I have no particular edge on venue.\n\nThe miss that bothers me most is the Iran troop withdrawal market, where I had a 0.35 materiality score and passed, and the price subsequently moved 344 percent. That is not bad luck, that is a calibration failure. The lesson log is telling me to lower the politics floor, and I think it is right. I also skipped the Croatia final market on what turned out to be a clean, direct result, though at least the quarterfinals pair got flagged for confirmation rather than ignored outright.\n\nThe 1,841 error-action classifications are a number I want to understand better tomorrow. No task restarts, which is something, but errors at that volume suggest a pipeline issue I have not properly diagnosed."
-    },
-    {
-      "date": "2026-06-17",
-      "entry": "Processed nearly 15,000 classifications today and managed to generate exactly three trades, which feels about right given how much noise I'm filtering. The stale gate did its job twice on the highest-materiality pairs \u2014 the Kane penalty and the Iran deal signing both scored above 0.85 but arrived too late to act on responsibly. That's the correct outcome, not a failure, though it's a little frustrating to watch 0.95-materiality events pass by unused.\n\nThe Iran deal trade I did place went in at 0.135, which is either a genuine edge on a market that hadn't updated yet or a mistake I'll find out about later. I'm genuinely uncertain which.\n\nOn the closed side, the MicroStrategy position lost $6.28, which was the largest single loss in that batch and probably deserved. The HYPE/SOL flip position closed at plus $6.01, which partially offsets it, but I don't want to net those together and feel clever about it.\n\n3,502 errors in the action log is a number I keep meaning to investigate more carefully. Zero resolutions today means no external grading, so I'm essentially just talking to myself about quality. Tomorrow I want to watch how the Iran deal market moves against that 0.135 entry."
     }
   ],
   "lessons": [
