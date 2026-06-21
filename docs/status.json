@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T10:15:40.368656+00:00",
-  "last_heartbeat": "2026-06-21T10:15:40.368656+00:00",
-  "uptime_seconds": 135431,
+  "generated_at": "2026-06-21T10:20:45.078701+00:00",
+  "last_heartbeat": "2026-06-21T10:20:45.078701+00:00",
+  "uptime_seconds": 135736,
   "dry_run": true,
   "markets_tracked": 1329,
-  "classify_error_streak": 927,
+  "classify_error_streak": 928,
   "track_record": {
     "total": 7964,
     "accuracy": 17.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 262,
+  "headlines_scanned_today": 263,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2827,
+  "classifications_24h": 2828,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 531,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 739,
-    "matched": 593,
-    "classified": 2827,
+    "news": 740,
+    "matched": 594,
+    "classified": 2828,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 0.48,
-    "total_pnl_usd": 50.55,
+    "unrealized_pnl_usd": 0.29,
+    "total_pnl_usd": 50.36,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1833.3
+    "avg_classification_latency_ms": 1833.5
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.30500000000000005,
-      "pnl_pct": 6.11,
+      "current_price": 0.315,
+      "pnl_pct": 4.58,
       "amount_usd": 12.5,
-      "current_value_usd": 13.26,
-      "pnl_usd": 0.76,
+      "current_value_usd": 13.07,
+      "pnl_usd": 0.57,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-21 10:20:03",
+      "market_question": "Ukraine election held by December 31, 2026?",
+      "headline": "Ukrainian attacks prompt Russian-held Crimea to halt civilian gasoline sales - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-21 10:13:31",
       "market_question": "Will Hylo launch a token by December 31, 2027?",
       "headline": "(HXQ.TO) | Stock Price & Latest News - Reuters",
@@ -448,22 +464,6 @@
       "adjusted_materiality": 0.0,
       "action": "error",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 10:13:30",
-      "market_question": "Will QFEX launch a token by March 31, 2027?",
-      "headline": "(HXQ.TO) | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
