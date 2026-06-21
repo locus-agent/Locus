@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-21T16:52:48.176221+00:00",
-  "last_heartbeat": "2026-06-21T16:52:48.176221+00:00",
-  "uptime_seconds": 3695,
+  "generated_at": "2026-06-21T16:57:52.807510+00:00",
+  "last_heartbeat": "2026-06-21T16:57:52.807510+00:00",
+  "uptime_seconds": 4000,
   "dry_run": false,
-  "markets_tracked": 1324,
+  "markets_tracked": 1318,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7978,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 650,
+  "headlines_scanned_today": 657,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 3526,
+  "classifications_24h": 3564,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 546,
+    "prefiltered_haiku": 570,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -106,7 +106,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 12,
+  "watched_markets_count": 8,
   "missed_opportunities_24h": 10,
   "whale": {
     "watched_wallets": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 919,
-    "matched": 585,
-    "classified": 3526,
+    "news": 924,
+    "matched": 589,
+    "classified": 3564,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1310.5
+    "avg_classification_latency_ms": 1302.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-21 16:50:42",
-      "market_question": "Another crypto hack over $100m by September 30?",
-      "headline": "US & International Top News Stories Today - AP News",
+      "time": "2026-06-21 16:57:17",
+      "market_question": "Will the price of Bitcoin be above $66,000 on June 22?",
+      "headline": "JTNY.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 16:57:16",
+      "market_question": "Will the price of Bitcoin be above $60,000 on June 22?",
+      "headline": "JTNY.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 16:57:16",
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 22?",
+      "headline": "JTNY.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 16:57:16",
+      "market_question": "Will the price of Ethereum be above $2,000 on June 23?",
+      "headline": "JTNY.N - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,68 +423,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-21 16:50:40",
-      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
-      "headline": "US & International Top News Stories Today - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-21 16:57:16",
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 22?",
+      "headline": "JTNY.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 16:50:40",
-      "market_question": "Will Meituan have the top AI model at the end of June 2026?",
-      "headline": "US & International Top News Stories Today - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 16:50:40",
-      "market_question": "Will Moonshot have the top AI model at the end of June 2026?",
-      "headline": "US & International Top News Stories Today - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-21 16:50:40",
-      "market_question": "Will DeepSeek have the top AI model at the end of June 2026?",
-      "headline": "US & International Top News Stories Today - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
