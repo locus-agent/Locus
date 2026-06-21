@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-21T06:52:37.963942+00:00",
-  "last_heartbeat": "2026-06-21T06:52:37.963942+00:00",
-  "uptime_seconds": 123249,
+  "generated_at": "2026-06-21T06:57:42.638921+00:00",
+  "last_heartbeat": "2026-06-21T06:57:42.638921+00:00",
+  "uptime_seconds": 123554,
   "dry_run": true,
-  "markets_tracked": 1344,
-  "classify_error_streak": 741,
+  "markets_tracked": 1346,
+  "classify_error_streak": 744,
   "track_record": {
     "total": 7956,
     "accuracy": 17.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 175,
+  "headlines_scanned_today": 176,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2921,
+  "classifications_24h": 2924,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 719,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-21T06:39:38.193883+00:00"
+    "last_check": "2026-06-21T06:54:38.615574+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 761,
-    "matched": 609,
-    "classified": 2921,
+    "news": 762,
+    "matched": 610,
+    "classified": 2924,
     "signals": 0,
     "trades": 0
   },
@@ -134,12 +134,12 @@
     "losses": 10,
     "win_rate_pct": 56.5,
     "realized_pnl_usd": 50.07,
-    "unrealized_pnl_usd": 0.48,
-    "total_pnl_usd": 50.55,
+    "unrealized_pnl_usd": 0.29,
+    "total_pnl_usd": 50.36,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1776.1
+    "avg_classification_latency_ms": 1777.0
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "candidates-in-next-labour-leadership-election",
       "side": "NO",
       "entry_price": 0.345,
-      "current_price": 0.305,
-      "pnl_pct": 6.11,
+      "current_price": 0.31499999999999995,
+      "pnl_pct": 4.58,
       "amount_usd": 12.5,
-      "current_value_usd": 13.26,
-      "pnl_usd": 0.76,
+      "current_value_usd": 13.07,
+      "pnl_usd": 0.57,
       "edge_type": "momentum",
       "event_id": "481681"
     },
@@ -208,7 +208,7 @@
       "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
       "side": "YES",
       "entry_price": 0.44,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.14,
       "amount_usd": 25.0,
       "current_value_usd": 24.72,
@@ -388,6 +388,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-21 06:56:23",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by less than 3%?",
+      "headline": "What is Andy Burnham's 'Manchesterism' vision for the UK? - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 06:56:22",
+      "market_question": "Will Andy Burnham be a candidate in the next Labour Party leadership election?",
+      "headline": "What is Andy Burnham's 'Manchesterism' vision for the UK? - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-21 06:56:22",
+      "market_question": "Will Andy Burnham win the 2026 Makerfield by-election by between 3% and 6%?",
+      "headline": "What is Andy Burnham's 'Manchesterism' vision for the UK? - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-21 06:47:38",
       "market_question": "Will the price of Bitcoin be above $64,000 on June 23?",
       "headline": "Bitcoin holds near $64,000 as a renewed Hormuz threat clouds US-Iran ceasefire talks",
@@ -406,54 +454,6 @@
     {
       "time": "2026-06-21 06:47:38",
       "market_question": "Will the price of Bitcoin be above $64,000 on June 22?",
-      "headline": "Bitcoin holds near $64,000 as a renewed Hormuz threat clouds US-Iran ceasefire talks",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 06:47:38",
-      "market_question": "Will the price of Bitcoin be above $64,000 on June 25?",
-      "headline": "Bitcoin holds near $64,000 as a renewed Hormuz threat clouds US-Iran ceasefire talks",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 06:47:38",
-      "market_question": "Will the price of Bitcoin be above $64,000 on June 24?",
-      "headline": "Bitcoin holds near $64,000 as a renewed Hormuz threat clouds US-Iran ceasefire talks",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-21 06:47:38",
-      "market_question": "Will the price of Bitcoin be above $64,000 on June 21?",
       "headline": "Bitcoin holds near $64,000 as a renewed Hormuz threat clouds US-Iran ceasefire talks",
       "direction": "neutral",
       "materiality": 0.0,
