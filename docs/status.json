@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T02:55:31.820358+00:00",
-  "last_heartbeat": "2026-06-22T02:55:31.820358+00:00",
-  "uptime_seconds": 14712,
+  "generated_at": "2026-06-22T03:00:36.949690+00:00",
+  "last_heartbeat": "2026-06-22T03:00:36.949690+00:00",
+  "uptime_seconds": 15017,
   "dry_run": false,
-  "markets_tracked": 1366,
+  "markets_tracked": 1365,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -83,9 +83,9 @@
     ]
   },
   "headlines_scanned_today": 199,
-  "headlines_last_cycle": 1,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 5220,
+  "classifications_24h": 5223,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1710,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1398,
+    "news": 1397,
     "matched": 639,
-    "classified": 5220,
+    "classified": 5223,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1410.5
+    "avg_classification_latency_ms": 1426.4
   },
   "live_readiness": {
     "ready": true,
@@ -359,6 +359,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-22 02:55:34",
+      "market_question": "Will Abelardo de la Espriella win the second round of the 2026 Colombian presidential election by 10-15%?",
+      "headline": "Trump-backed de la Espriella holds razor-thin lead in Colombia's election as rival challenges vote - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.6,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.15,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 02:55:34",
+      "market_question": "Will Abelardo de la Espriella win the second round of the 2026 Colombian presidential election by 15%+?",
+      "headline": "Trump-backed de la Espriella holds razor-thin lead in Colombia's election as rival challenges vote - AP News",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.6,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.15,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 02:55:34",
+      "market_question": "Will Abelardo de la Espriella place 1st in Bogot\u00e1 in the second round of the 2026 Colombia presidential election?",
+      "headline": "Trump-backed de la Espriella holds razor-thin lead in Colombia's election as rival challenges vote - AP News",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.25,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-22 02:55:29",
       "market_question": "Peru Presidential Election Invalidated?",
       "headline": "Trump-backed de la Espriella holds razor-thin lead in Colombia's election as rival challenges vote - AP News",
@@ -377,54 +425,6 @@
     {
       "time": "2026-06-22 02:55:29",
       "market_question": "Peru General Election invalidated by June 30?",
-      "headline": "Trump-backed de la Espriella holds razor-thin lead in Colombia's election as rival challenges vote - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 02:55:29",
-      "market_question": "Venezuela election scheduled by December 31, 2026?",
-      "headline": "Trump-backed de la Espriella holds razor-thin lead in Colombia's election as rival challenges vote - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 02:55:29",
-      "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "Trump-backed de la Espriella holds razor-thin lead in Colombia's election as rival challenges vote - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 02:55:29",
-      "market_question": "Ukraine election called by June 30, 2026?",
       "headline": "Trump-backed de la Espriella holds razor-thin lead in Colombia's election as rival challenges vote - AP News",
       "direction": "neutral",
       "materiality": 0.0,
