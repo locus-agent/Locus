@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T12:04:27.338343+00:00",
-  "last_heartbeat": "2026-06-22T12:04:27.338343+00:00",
-  "uptime_seconds": 47648,
+  "generated_at": "2026-06-22T12:09:32.562987+00:00",
+  "last_heartbeat": "2026-06-22T12:09:32.562987+00:00",
+  "uptime_seconds": 47953,
   "dry_run": false,
-  "markets_tracked": 1370,
+  "markets_tracked": 1365,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -82,16 +82,16 @@
       }
     ]
   },
-  "headlines_scanned_today": 601,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 613,
+  "headlines_last_cycle": 6,
   "signals_24h": 2,
-  "classifications_24h": 5950,
+  "classifications_24h": 5991,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2333,
+    "prefiltered_haiku": 2353,
     "stale": 8,
     "capped": 0,
-    "too_close_to_resolution": 6,
+    "too_close_to_resolution": 7,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 5,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T11:50:58.076899+00:00"
+    "last_check": "2026-06-22T12:05:58.486528+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1560,
-    "matched": 817,
-    "classified": 5950,
+    "news": 1571,
+    "matched": 828,
+    "classified": 5991,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1530.1
+    "avg_classification_latency_ms": 1530.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,57 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 12:03:04",
-      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
-      "headline": "Rate cuts? Even the Fed's new chair admits companies are easily raising capital on financial markets - Fortune",
+      "time": "2026-06-22 12:09:30",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "headline": "A look at Keir Starmer\u2019s political career, in photos - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 12:03:02",
-      "market_question": "Will Trump cut corporate taxes before 2027?",
-      "headline": "Rate cuts? Even the Fed's new chair admits companies are easily raising capital on financial markets - Fortune",
+      "time": "2026-06-22 12:09:30",
+      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
+      "headline": "A look at Keir Starmer\u2019s political career, in photos - AP News",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 12:03:02",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "Rate cuts? Even the Fed's new chair admits companies are easily raising capital on financial markets - Fortune",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 12:03:01",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Trump Should Shove His Hot Air Where the Sun Shines - Newsweek",
+      "time": "2026-06-22 12:09:29",
+      "market_question": "Will OpenAI announce a watch in 2026?",
+      "headline": "Watch and read Starmer's resignation speech in full",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,20 +407,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 12:03:01",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "A Miami couple started renting out their car as a side gig. They turned it into a full-time, 6-figure family business. - Business Insider",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-22 12:09:29",
+      "market_question": "Will Kristi Noem leave the Trump administration before 2027?",
+      "headline": "Watch and read Starmer's resignation speech in full",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 12:09:29",
+      "market_question": "Will Trump resign by December 31, 2026?",
+      "headline": "Watch and read Starmer's resignation speech in full",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
