@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-22T08:25:49.847473+00:00",
-  "last_heartbeat": "2026-06-22T08:25:49.847473+00:00",
-  "uptime_seconds": 34530,
+  "generated_at": "2026-06-22T08:30:55.215778+00:00",
+  "last_heartbeat": "2026-06-22T08:30:55.215778+00:00",
+  "uptime_seconds": 34836,
   "dry_run": false,
   "markets_tracked": 1331,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 410,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 412,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 5518,
+  "classifications_24h": 5529,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2088,
+    "prefiltered_haiku": 2089,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1452,
-    "matched": 702,
-    "classified": 5518,
+    "news": 1454,
+    "matched": 704,
+    "classified": 5529,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1478.2
+    "avg_classification_latency_ms": 1485.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,57 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 08:25:49",
-      "market_question": "Will Ethereum dip to $500 by December 31, 2026?",
-      "headline": "Pound dips as speculation mounts over PM Starmer exit - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 08:25:49",
-      "market_question": "Will Ethereum dip to $1,250 by December 31, 2026?",
-      "headline": "Pound dips as speculation mounts over PM Starmer exit - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 08:25:49",
-      "market_question": "Will Ethereum dip to $700 by December 31, 2026?",
-      "headline": "Pound dips as speculation mounts over PM Starmer exit - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 08:25:47",
-      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
-      "headline": "Pound dips as speculation mounts over PM Starmer exit - Reuters",
+      "time": "2026-06-22 08:27:58",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "EasyJet rejects \u00a34.7bn takeover offer from US investment firm",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +375,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 08:25:47",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "headline": "Pound dips as speculation mounts over PM Starmer exit - Reuters",
+      "time": "2026-06-22 08:27:58",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "EasyJet rejects \u00a34.7bn takeover offer from US investment firm",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -437,6 +389,54 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 08:27:58",
+      "market_question": "Will Donald Trump post 100-119 Truth Social posts from June 16 to June 23, 2026?",
+      "headline": "EasyJet rejects \u00a34.7bn takeover offer from US investment firm",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 08:25:57",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "An open-source AI model unveiled by a Chinese artificial intelligence (AI) startup is attracting att.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 08:25:55",
+      "market_question": "Will DeepSeek have a #1 AI model by June 30?",
+      "headline": "An open-source AI model unveiled by a Chinese artificial intelligence (AI) startup is attracting att.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
