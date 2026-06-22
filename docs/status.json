@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-22T14:10:15.127833+00:00",
-  "last_heartbeat": "2026-06-22T14:10:15.127833+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-22T14:15:21.692134+00:00",
+  "last_heartbeat": "2026-06-22T14:15:21.692134+00:00",
+  "uptime_seconds": 345,
   "dry_run": false,
-  "markets_tracked": 1382,
+  "markets_tracked": 1383,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 7991,
+    "total": 7992,
     "accuracy": 17.1,
     "by_category": {
       "other": 16.2,
@@ -19,12 +19,12 @@
     "by_source": {
       "rss": 16.9,
       "newsapi": 18.4,
-      "truthsocial": 1.7
+      "truthsocial": 3.4
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.1,
-    "overall_total": 7991,
+    "overall_total": 7992,
     "buckets": [
       {
         "name": "very_low",
@@ -56,10 +56,10 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 436,
-        "correct": 107,
-        "accuracy_pct": 24.5,
-        "avg_pnl_pct": -3.35,
+        "total": 437,
+        "correct": 108,
+        "accuracy_pct": 24.7,
+        "avg_pnl_pct": -3.13,
         "color": "green"
       },
       {
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 912,
-  "headlines_last_cycle": 25,
+  "headlines_scanned_today": 1049,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 6761,
+  "classifications_24h": 7283,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2757,
-    "stale": 12,
+    "prefiltered_haiku": 2935,
+    "stale": 15,
     "capped": 1,
     "too_close_to_resolution": 7,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1778,
-    "matched": 906,
-    "classified": 6761,
+    "news": 1915,
+    "matched": 908,
+    "classified": 7283,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1422.7
+    "avg_classification_latency_ms": 1513.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 14:10:14",
-      "market_question": "Another crypto hack over $100m by December 31?",
-      "headline": "OKX and NYSE partner to bridge tradfi and crypto markets in joint venture led by Andrew Cuomo",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 14:10:14",
-      "market_question": "Will Goldman Sachs or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "OKX and NYSE partner to bridge tradfi and crypto markets in joint venture led by Andrew Cuomo",
+      "time": "2026-06-22 14:12:44",
+      "market_question": "Will Howard Lutnick leave the Trump administration before 2027?",
+      "headline": "Watch and read Starmer's resignation speech in full",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,52 +375,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 14:10:14",
-      "market_question": "Will the Workers' Party nominate Lula for President of Brazil by August 15?",
-      "headline": "Qatar says gas export terminal blast killed 13 as workers tried to resume operations - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-22 14:12:44",
+      "market_question": "Will OpenAI announce a watch in 2026?",
+      "headline": "Watch and read Starmer's resignation speech in full",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-22 14:10:14",
-      "market_question": "Will the average monthly Ethereum gas price hit 20 Gwei before 2027?",
-      "headline": "Qatar says gas export terminal blast killed 13 as workers tried to resume operations - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-22 14:12:44",
+      "market_question": "Will Trump resign by December 31, 2026?",
+      "headline": "Watch and read Starmer's resignation speech in full",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-22 14:10:14",
-      "market_question": "Will the average monthly Ethereum gas price hit 25 Gwei before 2027?",
-      "headline": "Qatar says gas export terminal blast killed 13 as workers tried to resume operations - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-22 14:12:43",
+      "market_question": "Will the price of Bitcoin be above $54,000 on June 26?",
+      "headline": "Bitcoin price may be headed to $54,000, says analyst who forecast October's all-time high",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 14:12:43",
+      "market_question": "Will the price of Bitcoin be above $54,000 on June 25?",
+      "headline": "Bitcoin price may be headed to $54,000, says analyst who forecast October's all-time high",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
