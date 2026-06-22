@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T12:34:58.052898+00:00",
-  "last_heartbeat": "2026-06-22T12:34:58.052898+00:00",
-  "uptime_seconds": 49478,
+  "generated_at": "2026-06-22T12:40:03.351842+00:00",
+  "last_heartbeat": "2026-06-22T12:40:03.351842+00:00",
+  "uptime_seconds": 49784,
   "dry_run": false,
-  "markets_tracked": 1358,
+  "markets_tracked": 1360,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -82,15 +82,15 @@
       }
     ]
   },
-  "headlines_scanned_today": 625,
-  "headlines_last_cycle": 0,
-  "signals_24h": 2,
-  "classifications_24h": 5904,
-  "selectivity_pct": 0.0,
+  "headlines_scanned_today": 630,
+  "headlines_last_cycle": 1,
+  "signals_24h": 3,
+  "classifications_24h": 5911,
+  "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2371,
+    "prefiltered_haiku": 2375,
     "stale": 8,
-    "capped": 0,
+    "capped": 1,
     "too_close_to_resolution": 7,
     "sports_disabled": 0,
     "sports_event_cap": 0,
@@ -111,19 +111,19 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T12:20:58.979312+00:00"
+    "last_check": "2026-06-22T12:35:59.393242+00:00"
   },
   "edge_types_24h": {
-    "news": 1,
+    "news": 2,
     "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1547,
-    "matched": 826,
-    "classified": 5904,
-    "signals": 2,
-    "trades": 3
+    "news": 1549,
+    "matched": 831,
+    "classified": 5911,
+    "signals": 3,
+    "trades": 4
   },
   "performance": {
     "trades_total": 30,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1534.1
+    "avg_classification_latency_ms": 1542.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 12:33:27",
-      "market_question": "Will Solana reach $130 in June?",
-      "headline": "MoneyGram becomes Solana validator, expands blockchain payments strategy",
+      "time": "2026-06-22 12:40:02",
+      "market_question": "Will Bitcoin reach $87,500 in June?",
+      "headline": "Strategy added $35 million in bitcoin, $300 million in cash reserves last week",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -375,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 12:33:27",
-      "market_question": "Will Solana reach $90 in June?",
-      "headline": "MoneyGram becomes Solana validator, expands blockchain payments strategy",
+      "time": "2026-06-22 12:40:01",
+      "market_question": "Will Bitcoin reach $82,500 in June?",
+      "headline": "Strategy added $35 million in bitcoin, $300 million in cash reserves last week",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -391,50 +391,50 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 12:33:27",
-      "market_question": "Will Solana reach $100 in June?",
-      "headline": "MoneyGram becomes Solana validator, expands blockchain payments strategy",
+      "time": "2026-06-22 12:40:00",
+      "market_question": "Will Bitcoin reach $65,000 on June 22?",
+      "headline": "Strategy added $35 million in bitcoin, $300 million in cash reserves last week",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
       "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 12:33:26",
-      "market_question": "Will Solana reach $140 in June?",
-      "headline": "MoneyGram becomes Solana validator, expands blockchain payments strategy",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
+      "time": "2026-06-22 12:37:54",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "Morning Bid: Seventh in a decade - Reuters",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.55,
+      "edge": 0.17149999999999999,
+      "fee_cost": 0.017493,
       "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
+      "adjusted_materiality": 0.24999999999999997,
+      "action": "capped",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 12:33:26",
-      "market_question": "Will Solana reach $160 in June?",
-      "headline": "MoneyGram becomes Solana validator, expands blockchain payments strategy",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
+      "time": "2026-06-22 12:37:50",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Morning Bid: Seventh in a decade - Reuters",
+      "direction": "bullish",
+      "materiality": 0.45,
+      "confidence": 0.62,
+      "edge": 0.15525,
+      "fee_cost": 0.015818250000000002,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.45,
+      "action": "signal",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
