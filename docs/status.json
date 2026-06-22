@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T07:04:30.952666+00:00",
-  "last_heartbeat": "2026-06-22T07:04:30.952666+00:00",
-  "uptime_seconds": 29651,
+  "generated_at": "2026-06-22T07:09:35.926404+00:00",
+  "last_heartbeat": "2026-06-22T07:09:35.926404+00:00",
+  "uptime_seconds": 29956,
   "dry_run": false,
-  "markets_tracked": 1334,
+  "markets_tracked": 1335,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 364,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 369,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 5581,
+  "classifications_24h": 5591,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2022,
+    "prefiltered_haiku": 2036,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T06:50:49.995516+00:00"
+    "last_check": "2026-06-22T07:05:50.483774+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1465,
-    "matched": 714,
-    "classified": 5581,
+    "news": 1467,
+    "matched": 715,
+    "classified": 5591,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1454.7
+    "avg_classification_latency_ms": 1466.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 07:02:42",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "Hong Kong seeks to expand investment, IPO access for Chinese investors - Reuters",
+      "time": "2026-06-22 07:09:15",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Bitget enables direct US stock purchases using crypto",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 07:09:14",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Bitget enables direct US stock purchases using crypto",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -370,14 +386,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 07:02:41",
-      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
-      "headline": "Hong Kong seeks to expand investment, IPO access for Chinese investors - Reuters",
+      "time": "2026-06-22 07:09:13",
+      "market_question": "Over $1B crypto hack value in 2026?",
+      "headline": "Bitget enables direct US stock purchases using crypto",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,14 +402,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 07:02:41",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "Hong Kong seeks to expand investment, IPO access for Chinese investors - Reuters",
+      "time": "2026-06-22 07:09:13",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "Bitget enables direct US stock purchases using crypto",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -402,37 +418,21 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 07:02:41",
-      "market_question": "Will OpenAI IPO by August 31 2026?",
-      "headline": "Hong Kong seeks to expand investment, IPO access for Chinese investors - Reuters",
+      "time": "2026-06-22 07:09:13",
+      "market_question": "Over $1.5B crypto hack value in 2026?",
+      "headline": "Bitget enables direct US stock purchases using crypto",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 07:02:41",
-      "market_question": "Will Anthropic not IPO by June 30, 2026?",
-      "headline": "Hong Kong seeks to expand investment, IPO access for Chinese investors - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
