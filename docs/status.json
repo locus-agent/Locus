@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T19:55:20.807821+00:00",
-  "last_heartbeat": "2026-06-22T19:55:20.807821+00:00",
-  "uptime_seconds": 3703,
+  "generated_at": "2026-06-22T20:00:26.276138+00:00",
+  "last_heartbeat": "2026-06-22T20:00:26.276138+00:00",
+  "uptime_seconds": 4009,
   "dry_run": false,
-  "markets_tracked": 1345,
+  "markets_tracked": 1344,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8045,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2214,
+  "headlines_scanned_today": 2217,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 9680,
+  "classifications_24h": 9684,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3985,
+    "prefiltered_haiku": 3983,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2494,
-    "matched": 1005,
-    "classified": 9680,
+    "news": 2495,
+    "matched": 1006,
+    "classified": 9684,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1470.1
+    "avg_classification_latency_ms": 1470.2
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 19:52:20",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Here\u2019s How Tyrannosaurus Rex Ended up with Big Head, Small Arms - The Japan News",
+      "time": "2026-06-22 20:00:00",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "Chinese AI models raise cybersecurity concerns, new report warns - WKEF",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 19:52:20",
-      "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
-      "headline": "The \u2018earthquake gate\u2019 stopping a San Andreas disaster is under its highest stress in 1,000 years - KTVZ",
+      "time": "2026-06-22 19:59:57",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Chinese AI models raise cybersecurity concerns, new report warns - WKEF",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 19:59:54",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Chinese AI models raise cybersecurity concerns, new report warns - WKEF",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 19:52:20",
-      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
-      "headline": "The \u2018earthquake gate\u2019 stopping a San Andreas disaster is under its highest stress in 1,000 years - KTVZ",
+      "time": "2026-06-22 19:59:54",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Chinese AI models raise cybersecurity concerns, new report warns - WKEF",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,25 +423,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 19:52:20",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "The \u2018earthquake gate\u2019 stopping a San Andreas disaster is under its highest stress in 1,000 years - KTVZ",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-22 19:52:20",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "The \u2018earthquake gate\u2019 stopping a San Andreas disaster is under its highest stress in 1,000 years - KTVZ",
+      "time": "2026-06-22 19:59:54",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "Chinese AI models raise cybersecurity concerns, new report warns - WKEF",
       "direction": null,
       "materiality": null,
       "confidence": null,
