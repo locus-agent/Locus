@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T14:50:59.828818+00:00",
-  "last_heartbeat": "2026-06-22T14:50:59.828818+00:00",
-  "uptime_seconds": 2483,
+  "generated_at": "2026-06-22T14:56:05.260930+00:00",
+  "last_heartbeat": "2026-06-22T14:56:05.260930+00:00",
+  "uptime_seconds": 2788,
   "dry_run": false,
-  "markets_tracked": 1381,
+  "markets_tracked": 1383,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7992,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1091,
+  "headlines_scanned_today": 1098,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7431,
+  "classifications_24h": 7454,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2996,
+    "prefiltered_haiku": 3011,
     "stale": 15,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T14:39:53.276026+00:00"
+    "last_check": "2026-06-22T14:54:53.700301+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1957,
-    "matched": 927,
-    "classified": 7431,
+    "news": 1964,
+    "matched": 932,
+    "classified": 7454,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3518.7
+    "avg_classification_latency_ms": 3412.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 14:49:42",
-      "market_question": "MicroStrategy announces >1000 BTC purchase June 16-22?",
-      "headline": "Ferrari denies making access to limited edition models conditional on Luce EV purchase - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-22 14:54:18",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Three ways Trump could get a stake in AI firms for the US - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-22 14:47:17",
-      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the most seats in the next Russian parliamentary election?",
-      "headline": "Shares of Russia's Gazprom fall below 100 roubles, lowest since 2009 - Reuters",
+      "time": "2026-06-22 14:54:18",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Three ways Trump could get a stake in AI firms for the US - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 14:54:18",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Three ways Trump could get a stake in AI firms for the US - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 14:54:18",
+      "market_question": "Will Trump launch a coin by December 31?",
+      "headline": "Three ways Trump could get a stake in AI firms for the US - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,41 +423,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 14:47:16",
-      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
-      "headline": "Shares of Russia's Gazprom fall below 100 roubles, lowest since 2009 - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-22 14:45:08",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Is VAR being used differently at the World Cup vs the Premier League?",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 14:45:07",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Is VAR being used differently at the World Cup vs the Premier League?",
+      "time": "2026-06-22 14:54:18",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Three ways Trump could get a stake in AI firms for the US - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
