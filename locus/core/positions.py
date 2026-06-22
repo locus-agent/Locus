@@ -548,17 +548,25 @@ def cooldown_allows(position: dict, trigger: str, now: datetime | None = None) -
     return (now - last_dt).total_seconds() >= config.REEVAL_COOLDOWN_HOURS * 3600
 
 
-def _live_close(position: dict, exit_reason: str, fraction: float) -> str | None:
+def _live_close(position: dict, exit_reason: str, fraction: float) -> tuple[bool, str | None]:
     """Flatten `fraction` of the position on the CLOB (live trading only).
 
-    Returns the real Polymarket order_id on a placed sell, or None. Resolution
-    closes settle on-chain automatically, so there is nothing to sell — those
-    (and every close while DRY_RUN) skip the exchange entirely. A sell that
-    can't be placed (thin/empty book, missing client) is logged and the close
-    is still recorded at the marked price, so the DB never drifts from a
-    position that no longer exists on our side."""
+    Returns (recorded_ok, order_id):
+      - (True, None): nothing to sell on the exchange — every close while DRY_RUN
+        and every resolution close (settles on-chain) skip the CLOB, so the local
+        close is always safe to record.
+      - (True, order_id): the live SELL was confirmed/placed; record the close
+        with the real Polymarket order_id.
+      - (False, None): the live SELL could NOT be confirmed (close_failed, a
+        thin/empty/wide book, or a missing client). We still hold the position
+        on-chain, so the caller MUST keep it open and NOT record the close —
+        otherwise the DB would show a flat position we actually still own.
+
+    CRITICAL: a recorded close on an unconfirmed sell silently hides live
+    exposure. Only a confirmed 'executed' fill (or a no-sell-needed close) may
+    record."""
     if config.DRY_RUN or exit_reason == "resolution":
-        return None
+        return True, None
     shares = position_shares(position["side"], position["entry_yes_price"],
                              position["amount_usd"] * fraction)
     result = executor.close_position_live(
@@ -570,12 +578,16 @@ def _live_close(position: dict, exit_reason: str, fraction: float) -> str | None
             f"{result['shares']} {position['side']} @ {result['price']} "
             f"on \"{position['market_question'][:40]}\""
         )
-        return result["order_id"]
-    log.warning(
-        f"[positions] Live close sell not placed (status {result['status']}) on "
-        f"\"{position['market_question'][:40]}\" — recording close at marked price"
+        return True, result["order_id"]
+    # SELL not confirmed. Do NOT record the close — keep the position open.
+    detail = result.get("error")
+    log.error(
+        f"[positions] LIVE CLOSE FAILED (status {result['status']}"
+        + (f": {detail}" if detail else "")
+        + f") on \"{position['market_question'][:40]}\" — position kept OPEN, "
+        "close NOT recorded (we still hold this on-chain)"
     )
-    return None
+    return False, None
 
 
 def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str,
@@ -584,7 +596,21 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
     real CLOB sell to flatten the shares; dry-run simulates the fill."""
     realized = position_pnl(position["side"], position["entry_yes_price"],
                             yes_price, position["amount_usd"] * fraction)
-    exit_order_id = _live_close(position, exit_reason, fraction)
+    recorded_ok, exit_order_id = _live_close(position, exit_reason, fraction)
+    if not recorded_ok:
+        # Live SELL not confirmed — we still hold this position. Record the failed
+        # attempt for tracking (status 'close_failed'), keep the row open, and
+        # realize nothing. The next management cycle will retry the close.
+        current_pct = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+        conn.execute(
+            """INSERT INTO exit_decisions
+               (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
+               VALUES (?, ?, 'close_failed', ?, ?, ?)""",
+            (position["id"], exit_reason or status or "close",
+             f"Live SELL not confirmed ({exit_reason or status}); position kept open",
+             round(current_pct, 2), yes_price),
+        )
+        return 0.0
     now_iso = datetime.now(timezone.utc).isoformat()
     if fraction >= 1.0:
         conn.execute(
@@ -660,8 +686,29 @@ def close_manual(position_id: int) -> dict | None:
     current_pnl = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
 
     # _close places the real CLOB sell when live (DRY_RUN=false); dry-run
-    # simulates the fill at the marked price.
+    # simulates the fill at the marked price. When live, a SELL that can't be
+    # confirmed leaves the position open and records nothing (_close logs the
+    # failed attempt itself), so re-read the row to see if it actually closed.
     realized = _close(conn, position, yes_price, "closed_manual", "manual")
+    still_open = conn.execute(
+        "SELECT status FROM positions WHERE id=?", (position_id,)
+    ).fetchone()["status"] == "open"
+    if still_open:
+        conn.commit()
+        conn.close()
+        log.error(
+            f"[positions] Manual close of position {position_id} FAILED — live "
+            f"SELL not confirmed; position still open"
+        )
+        return {
+            "id": position_id,
+            "market_question": position["market_question"],
+            "side": position["side"],
+            "price": yes_price,
+            "pnl_pct": current_pnl,
+            "realized": 0.0,
+            "close_failed": True,
+        }
     conn.execute(
         """INSERT INTO exit_decisions (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
            VALUES (?, ?, ?, ?, ?, ?)""",
@@ -681,6 +728,7 @@ def close_manual(position_id: int) -> dict | None:
         "price": yes_price,
         "pnl_pct": current_pnl,
         "realized": realized,
+        "close_failed": False,
     }
 
 

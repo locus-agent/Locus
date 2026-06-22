@@ -225,8 +225,11 @@ def close_position_live(
     Mirrors _execute_live (buy) for the sell direction: build the client,
     resolve the token, read the live book, sell into the best bid (depth- and
     spread-guarded), and return {status, order_id, price, shares}. Status is
-    'executed' on a placed order, a 'skipped_*' reason when the book can't
-    support the sell, or 'error_*' on failure (incl. no py_clob_client)."""
+    'executed' ONLY when the SELL is confirmed/placed; a 'skipped_*' reason when
+    the book can't support the sell; 'close_failed' (with an 'error' detail) when
+    the order is rejected/errors; or 'error_*' on setup failure (incl. no
+    py_clob_client). Only 'executed' means the position was actually flattened —
+    the caller must NOT record a local close on any other status."""
     max_spread = config.LIVE_MAX_SPREAD if max_spread is None else max_spread
     try:
         from py_clob_client.clob_types import OrderArgs, OrderType
@@ -258,14 +261,21 @@ def close_position_live(
             resp = client.post_order(signed_order, OrderType.GTC)
         except Exception as order_exc:
             _diagnose_order_error(order_exc, token_id, price, sell_shares, "SELL", tick_size)
-            raise
+            # The SELL was rejected — the position is still held on-chain. Report
+            # close_failed so the caller keeps the local position open.
+            return {"status": "close_failed", "order_id": None, "price": None,
+                    "shares": None, "error": str(getattr(order_exc, "error_msg", None)
+                                                 or order_exc)}
         order_id = resp.get("orderID", resp.get("id", "unknown"))
         return {"status": "executed", "order_id": order_id, "price": price, "shares": sell_shares}
 
     except ImportError:
         return {"status": "error_no_clob_client", "order_id": None, "price": None, "shares": None}
     except Exception as e:
-        return {"status": f"error_{type(e).__name__}", "order_id": None, "price": None, "shares": None}
+        # Any other failure (client build, token resolve, book fetch) means the
+        # SELL never went through — surface close_failed, not a recorded close.
+        return {"status": "close_failed", "order_id": None, "price": None,
+                "shares": None, "error": f"{type(e).__name__}: {e}"}
 
 
 def get_live_balance() -> float | None:

@@ -18,6 +18,18 @@ def _disable_telegram(monkeypatch):
 
 
 @pytest.fixture(autouse=True)
+def _force_dry_run(monkeypatch):
+    """Default every test to dry-run so the exit/close paths simulate fills
+    instead of hitting the real CLOB — a developer .env may set DRY_RUN=false
+    (they trade --live), and without this the suite would place/await real
+    orders. Tests that exercise the live path set DRY_RUN=false explicitly and
+    fake py_clob_client / executor.close_position_live."""
+    from locus import config
+
+    monkeypatch.setattr(config, "DRY_RUN", True, raising=False)
+
+
+@pytest.fixture(autouse=True)
 def _disable_momentum(monkeypatch):
     """Keep the momentum hybrid off by default so detect_edge_v2 never reaches
     for the live price-history API during tests. Tests that exercise momentum

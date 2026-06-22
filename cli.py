@@ -255,12 +255,85 @@ def cmd_verify(args):
     except Exception as e:
         console.print(f"  [yellow]WARN[/yellow]  Niche filter — {e}")
 
-    # 11. Polymarket trading credentials (optional)
-    has_poly = bool(config.POLYMARKET_API_KEY)
-    if has_poly:
-        console.print(f"  [bright_green]PASS[/bright_green]  Polymarket trading credentials set")
+    # 11. Live trading readiness (needed only for --live). Each sub-check is a
+    # hard requirement for placing real orders, so a failure here only fails the
+    # run when live creds are partially configured (you clearly intend to trade).
+    console.print(f"  [bold]Live trading (--live):[/bold]")
+    live_intended = bool(
+        config.POLYMARKET_PRIVATE_KEY or config.POLYMARKET_FUNDER_ADDRESS
+    )
+
+    # 11a. py_clob_client import (optional dependency, installed separately)
+    try:
+        import py_clob_client  # noqa: F401
+        console.print(f"    [bright_green]PASS[/bright_green]  py_clob_client installed")
+        has_clob = True
+    except ImportError:
+        msg = "[red]FAIL[/red]" if live_intended else "[dim]SKIP[/dim]"
+        console.print(
+            f"    {msg}  py_clob_client not installed "
+            f"(pip install py-clob-client — required for --live)"
+        )
+        has_clob = False
+        if live_intended:
+            all_good = False
+
+    # 11b. Signing key
+    if config.POLYMARKET_PRIVATE_KEY:
+        console.print(f"    [bright_green]PASS[/bright_green]  POLYMARKET_PRIVATE_KEY set")
     else:
-        console.print(f"  [dim]SKIP[/dim]  Polymarket trading credentials (optional — needed for --live)")
+        msg = "[red]FAIL[/red]" if live_intended else "[dim]SKIP[/dim]"
+        console.print(f"    {msg}  POLYMARKET_PRIVATE_KEY not set (required for --live)")
+        if live_intended:
+            all_good = False
+
+    # 11c. Funder (deposit wallet) address
+    if config.POLYMARKET_FUNDER_ADDRESS:
+        console.print(
+            f"    [bright_green]PASS[/bright_green]  POLYMARKET_FUNDER_ADDRESS set "
+            f"(signature_type {config.POLYMARKET_SIGNATURE_TYPE})"
+        )
+    else:
+        msg = "[red]FAIL[/red]" if live_intended else "[dim]SKIP[/dim]"
+        console.print(
+            f"    {msg}  POLYMARKET_FUNDER_ADDRESS not set "
+            f"(required for a deposit/proxy wallet — omit only for a plain EOA)"
+        )
+
+    # 11d. Real on-chain USDC balance via get_balance_allowance()
+    if has_clob and config.POLYMARKET_PRIVATE_KEY:
+        try:
+            from locus.core.executor import get_live_balance
+            balance = get_live_balance()
+            if balance is None:
+                console.print(
+                    f"    [red]FAIL[/red]  Balance fetch returned nothing "
+                    f"(check key/funder/allowance)"
+                )
+                if live_intended:
+                    all_good = False
+            else:
+                color = "bright_green" if balance > 0 else "yellow"
+                console.print(
+                    f"    [{color}]PASS[/{color}]  USDC collateral balance: "
+                    f"${balance:,.2f}"
+                )
+                if balance <= 0:
+                    console.print(
+                        f"    [yellow]WARN[/yellow]  Zero balance — deposit USDC "
+                        f"before running --live"
+                    )
+        except Exception as e:
+            console.print(
+                f"    [red]FAIL[/red]  Balance check — {type(e).__name__}: {e}"
+            )
+            if live_intended:
+                all_good = False
+    else:
+        console.print(
+            f"    [dim]SKIP[/dim]  Balance check (needs py_clob_client + "
+            f"POLYMARKET_PRIVATE_KEY)"
+        )
 
     # 12. SQLite
     try:
@@ -382,13 +455,18 @@ def cmd_close(args):
         )
         sys.exit(1)
 
+    if result.get("close_failed"):
+        console.print(
+            f"[red bold]CLOSE FAILED[/red bold] — live SELL for position "
+            f"#{result['id']} ({result['market_question']}) was not confirmed. "
+            "The position is still OPEN; check logs and retry."
+        )
+        sys.exit(1)
+
     if config.DRY_RUN:
         console.print("[yellow]Dry-run mode — simulated close.[/yellow]")
     else:
-        console.print(
-            "[red bold]LIVE mode[/red bold] — CLOB sell order not yet wired up; "
-            "recorded the close at the marked price."
-        )
+        console.print("[red bold]LIVE mode[/red bold] — CLOB sell order placed.")
 
     console.print(
         f"Closed position #{result['id']}: {result['market_question']} "

@@ -264,3 +264,148 @@ def test_resolution_close_does_not_hit_exchange(tmp_db, monkeypatch):
     positions.close_on_resolution(pos["trade_id"], 1.0)
 
     assert called == []
+
+
+# --- close_position_live: a rejected SELL surfaces close_failed ---------------
+
+def _install_fake_clob_failing_order(monkeypatch, captured, book):
+    """Like _install_fake_clob, but post_order raises — the order is rejected."""
+    class FakeClobClient:
+        def __init__(self, **kwargs):
+            captured["init"] = kwargs
+
+        def create_or_derive_api_creds(self):
+            return "creds"
+
+        def set_api_creds(self, creds):
+            pass
+
+        def get_market(self, condition_id):
+            return {"tokens": [{"token_id": "tok-yes", "outcome": "YES"},
+                               {"token_id": "tok-no", "outcome": "NO"}]}
+
+        def get_order_book(self, token_id):
+            return book
+
+        def get_tick_size(self, token_id):
+            return "0.01"
+
+        def create_order(self, order_args):
+            return "signed-order"
+
+        def post_order(self, signed, order_type):
+            exc = RuntimeError("rejected")
+            exc.error_msg = "not enough balance"
+            raise exc
+
+    client_mod = types.ModuleType("py_clob_client.client")
+    client_mod.ClobClient = FakeClobClient
+
+    class OrderArgs:
+        def __init__(self, **kw):
+            self.__dict__.update(kw)
+
+    types_mod = types.ModuleType("py_clob_client.clob_types")
+    types_mod.OrderArgs = OrderArgs
+    types_mod.OrderType = types.SimpleNamespace(GTC="GTC")
+
+    pkg = types.ModuleType("py_clob_client")
+    monkeypatch.setitem(sys.modules, "py_clob_client", pkg)
+    monkeypatch.setitem(sys.modules, "py_clob_client.client", client_mod)
+    monkeypatch.setitem(sys.modules, "py_clob_client.clob_types", types_mod)
+
+
+def test_close_position_live_order_rejection_returns_close_failed(monkeypatch):
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xfunder")
+    monkeypatch.setattr(config, "POLYMARKET_SIGNATURE_TYPE", 3)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    _install_fake_clob_failing_order(monkeypatch, {}, book)
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+    assert result["status"] == "close_failed"
+    assert result["order_id"] is None
+    assert "not enough balance" in result["error"]
+
+
+# --- the close path must NOT flatten the local position on an unconfirmed sell -
+
+def test_failed_live_close_keeps_position_open_and_records_nothing(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(
+        executor, "close_position_live",
+        lambda *a, **k: {"status": "close_failed", "order_id": None,
+                         "price": None, "shares": None, "error": "rejected"},
+    )
+
+    pos = _open(tmp_db, side="YES", entry=0.50, amount=25.0)
+    res = positions.close_manual(pos["id"])
+
+    # close_manual reports the failure and the position is untouched/open
+    assert res is not None
+    assert res["close_failed"] is True
+    assert res["realized"] == 0.0
+
+    conn = tmp_db._conn()
+    row = conn.execute(
+        "SELECT status, exit_order_id, exit_reason, realized_pnl_usd "
+        "FROM positions WHERE id=?", (pos["id"],)
+    ).fetchone()
+    # a close_failed tracking row was written for the attempt
+    dec = conn.execute(
+        "SELECT decision FROM exit_decisions WHERE position_id=?", (pos["id"],)
+    ).fetchall()
+    conn.close()
+
+    assert row["status"] == "open"            # still held
+    assert row["exit_order_id"] is None
+    assert row["exit_reason"] is None
+    assert row["realized_pnl_usd"] == 0
+    # only the failed-attempt decision exists; no successful 'close' was logged
+    decisions = [d["decision"] for d in dec]
+    assert decisions == ["close_failed"]
+
+
+def test_skipped_book_also_keeps_position_open(tmp_db, monkeypatch):
+    # A book that can't support the sell is just as much "not flattened" as an
+    # outright rejection — the position must stay open.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(
+        executor, "close_position_live",
+        lambda *a, **k: {"status": "skipped_empty_book", "order_id": None,
+                         "price": None, "shares": None},
+    )
+
+    pos = _open(tmp_db)
+    res = positions.close_manual(pos["id"])
+    assert res["close_failed"] is True
+
+    conn = tmp_db._conn()
+    status = conn.execute(
+        "SELECT status FROM positions WHERE id=?", (pos["id"],)
+    ).fetchone()["status"]
+    conn.close()
+    assert status == "open"
+
+
+def test_stop_loss_does_not_close_on_failed_sell(tmp_db, monkeypatch):
+    # The hard stop-loss path must also refuse to record a close when the live
+    # SELL can't be confirmed (otherwise we hide live exposure on a loser).
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(
+        executor, "close_position_live",
+        lambda *a, **k: {"status": "close_failed", "order_id": None,
+                         "price": None, "shares": None, "error": "rejected"},
+    )
+
+    pos = _open(tmp_db, side="YES", entry=0.50, amount=25.0)
+    # Mark the position deep underwater (~ -98%) to trip the hard stop loss.
+    positions.update_and_manage({pos["condition_id"]: 0.01})
+
+    conn = tmp_db._conn()
+    status = conn.execute(
+        "SELECT status FROM positions WHERE id=?", (pos["id"],)
+    ).fetchone()["status"]
+    conn.close()
+    assert status == "open"  # stop loss tripped but sell failed -> still held
