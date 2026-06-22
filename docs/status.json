@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T20:36:09.980233+00:00",
-  "last_heartbeat": "2026-06-22T20:36:09.980233+00:00",
-  "uptime_seconds": 6153,
+  "generated_at": "2026-06-22T20:41:15.765215+00:00",
+  "last_heartbeat": "2026-06-22T20:41:15.765215+00:00",
+  "uptime_seconds": 6458,
   "dry_run": false,
-  "markets_tracked": 1342,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8045,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2285,
+  "headlines_scanned_today": 2287,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 9889,
+  "classifications_24h": 9896,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4052,
+    "prefiltered_haiku": 4055,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T20:23:52.506320+00:00"
+    "last_check": "2026-06-22T20:38:52.901264+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2550,
-    "matched": 1031,
-    "classified": 9889,
+    "news": 2551,
+    "matched": 1033,
+    "classified": 9896,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1504.3
+    "avg_classification_latency_ms": 1507.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 20:32:50",
-      "market_question": "Will Javier Milei win the 2027 Argentina presidential election?",
-      "headline": "Messi becomes World Cup's record goal scorer as Argentina march into last 32",
+      "time": "2026-06-22 20:39:28",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "headline": "Google DeepMind signs AI research deal with film studio A24 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 20:39:28",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Google DeepMind signs AI research deal with film studio A24 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 20:39:26",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Google DeepMind signs AI research deal with film studio A24 - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -375,9 +407,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 20:32:50",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Messi becomes World Cup's record goal scorer as Argentina march into last 32",
+      "time": "2026-06-22 20:39:26",
+      "market_question": "Will Google have the top AI model at the end of June 2026?",
+      "headline": "Google DeepMind signs AI research deal with film studio A24 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 20:39:25",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Google DeepMind signs AI research deal with film studio A24 - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,57 +434,9 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 20:32:49",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Messi becomes World Cup's record goal scorer as Argentina march into last 32",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 20:32:48",
-      "market_question": "Will the announcers say \"Trump\" during the Argentina vs Austria FIFA World Cup Match?",
-      "headline": "Messi becomes World Cup's record goal scorer as Argentina march into last 32",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-22 20:32:48",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Messi becomes World Cup's record goal scorer as Argentina march into last 32",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
