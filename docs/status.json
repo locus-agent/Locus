@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T23:04:22.032691+00:00",
-  "last_heartbeat": "2026-06-22T23:04:22.032691+00:00",
-  "uptime_seconds": 15045,
+  "generated_at": "2026-06-22T23:09:27.573465+00:00",
+  "last_heartbeat": "2026-06-22T23:09:27.573465+00:00",
+  "uptime_seconds": 15350,
   "dry_run": false,
-  "markets_tracked": 1354,
+  "markets_tracked": 1349,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8078,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2404,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 2407,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 9664,
+  "classifications_24h": 9663,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3949,
+    "prefiltered_haiku": 3951,
     "stale": 17,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T22:53:58.419780+00:00"
+    "last_check": "2026-06-22T23:08:58.858175+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2471,
+    "news": 2472,
     "matched": 1030,
-    "classified": 9664,
+    "classified": 9663,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1559.0
+    "avg_classification_latency_ms": 1557.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 23:04:16",
-      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
-      "headline": "U.S. Senate passes housing bill that carries four-year ban on a Fed CBDC",
+      "time": "2026-06-22 23:08:38",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "US eases oil sanctions as Iran denies Vance claim on nuclear inspectors",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 23:08:38",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "US eases oil sanctions as Iran denies Vance claim on nuclear inspectors",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 23:08:38",
+      "market_question": "Will Donald Trump publicly insult J.D. Vance by June 30, 2026?",
+      "headline": "US eases oil sanctions as Iran denies Vance claim on nuclear inspectors",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 23:06:28",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "UK set for hottest June day on record as searing heat continues",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,57 +423,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 23:04:16",
-      "market_question": "Will Bill Cassidy be the republican nominee for Senate in Louisiana?",
-      "headline": "U.S. Senate passes housing bill that carries four-year ban on a Fed CBDC",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 23:04:16",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "U.S. Senate passes housing bill that carries four-year ban on a Fed CBDC",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 23:04:16",
-      "market_question": "Will Ed Markey be the Democratic nominee for Senate in Massachusetts?",
-      "headline": "U.S. Senate passes housing bill that carries four-year ban on a Fed CBDC",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 23:04:16",
-      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
-      "headline": "U.S. Senate passes housing bill that carries four-year ban on a Fed CBDC",
+      "time": "2026-06-22 23:06:28",
+      "market_question": "Will Bitcoin reach $82,500 in June?",
+      "headline": "UK set for hottest June day on record as searing heat continues",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
