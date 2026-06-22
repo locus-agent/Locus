@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-22T15:26:37.168511+00:00",
-  "last_heartbeat": "2026-06-22T15:26:37.168511+00:00",
-  "uptime_seconds": 4620,
+  "generated_at": "2026-06-22T15:31:42.093586+00:00",
+  "last_heartbeat": "2026-06-22T15:31:42.093586+00:00",
+  "uptime_seconds": 4925,
   "dry_run": false,
   "markets_tracked": 1385,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1199,
+  "headlines_scanned_today": 1204,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7874,
+  "classifications_24h": 7894,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3159,
+    "prefiltered_haiku": 3163,
     "stale": 15,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2065,
-    "matched": 959,
-    "classified": 7874,
+    "news": 2070,
+    "matched": 963,
+    "classified": 7894,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2731.8
+    "avg_classification_latency_ms": 2720.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 15:24:52",
-      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
-      "headline": "Libyan warlord convicted over abuses at detention center, officials say - AP News",
+      "time": "2026-06-22 15:27:07",
+      "market_question": "Will Hezbollah win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "Lebanon ceasefire largely holds but fears persist it may collapse - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 15:27:07",
+      "market_question": "Will Hunter Biden announce a Presidential run before 2027?",
+      "headline": "FACT FOCUS: Netanyahu's claims about Iran's nuclear program run counter to public evidence - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -375,25 +391,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 15:24:51",
-      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
-      "headline": "S&P 500, Dow tick higher as investors weigh Mideast negotiations - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 15:24:50",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "S&P 500, Dow tick higher as investors weigh Mideast negotiations - Reuters",
+      "time": "2026-06-22 15:27:07",
+      "market_question": "Will Donald Trump announce a presidential run before 2027?",
+      "headline": "FACT FOCUS: Netanyahu's claims about Iran's nuclear program run counter to public evidence - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,25 +407,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 15:22:22",
-      "market_question": "Will Bitcoin have the best performance in 2026?",
-      "headline": "One Of The Best Steam Next Fest Demos Is About A Cannon - Kotaku",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-22 15:27:07",
+      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
+      "headline": "FACT FOCUS: Netanyahu's claims about Iran's nuclear program run counter to public evidence - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-22 15:22:22",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "\"I Want To Send This Story Off In A Way That Leaves No Regrets\" - Final Fantasy 7 Revelation's Game Director On Bringing The Trilogy To Its Climax - TheGamer",
+      "time": "2026-06-22 15:27:07",
+      "market_question": "Will Donald Trump Jr. announce a presidential run before 2027?",
+      "headline": "FACT FOCUS: Netanyahu's claims about Iran's nuclear program run counter to public evidence - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
