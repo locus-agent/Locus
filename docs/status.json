@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-22T16:21:33.116096+00:00",
-  "last_heartbeat": "2026-06-22T16:21:33.116096+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-22T16:26:39.213568+00:00",
+  "last_heartbeat": "2026-06-22T16:26:39.213568+00:00",
+  "uptime_seconds": 344,
   "dry_run": false,
-  "markets_tracked": 1352,
+  "markets_tracked": 1328,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 7992,
+    "total": 8018,
     "accuracy": 17.1,
     "by_category": {
       "other": 16.2,
@@ -19,38 +19,38 @@
     "by_source": {
       "rss": 16.9,
       "newsapi": 18.4,
-      "truthsocial": 3.4
+      "truthsocial": 6.2
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.1,
-    "overall_total": 7992,
+    "overall_total": 8018,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4606,
+        "total": 4621,
         "correct": 327,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 12.42,
+        "avg_pnl_pct": 12.38,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 691,
-        "correct": 255,
-        "accuracy_pct": 36.9,
-        "avg_pnl_pct": 31.14,
+        "total": 694,
+        "correct": 258,
+        "accuracy_pct": 37.2,
+        "avg_pnl_pct": 31.06,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 833,
-        "correct": 307,
+        "total": 834,
+        "correct": 308,
         "accuracy_pct": 36.9,
-        "avg_pnl_pct": 3.12,
+        "avg_pnl_pct": 3.14,
         "color": "green"
       },
       {
@@ -74,21 +74,21 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 987,
+        "total": 994,
         "correct": 182,
-        "accuracy_pct": 18.4,
-        "avg_pnl_pct": -6.03,
+        "accuracy_pct": 18.3,
+        "avg_pnl_pct": -5.9,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 1317,
-  "headlines_last_cycle": 41,
+  "headlines_scanned_today": 1468,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7573,
+  "classifications_24h": 8130,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3002,
+    "prefiltered_haiku": 3206,
     "stale": 16,
     "capped": 1,
     "too_close_to_resolution": 6,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1993,
-    "matched": 977,
-    "classified": 7573,
+    "news": 2139,
+    "matched": 979,
+    "classified": 8130,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1220.7
+    "avg_classification_latency_ms": 1362.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 16:21:32",
-      "market_question": "Will Kash Patel leave the Trump administration before 2027?",
-      "headline": "UK PM Starmer says he will resign, how is his successor chosen? - Reuters",
+      "time": "2026-06-22 16:24:20",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "Geopolitical relief meets the Warsh Fed: Crypto Week Ahead",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +375,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 16:21:32",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "[Great Britain Webinar] The new search journey: How AI is changing online discovery - YouGov",
+      "time": "2026-06-22 16:24:20",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "Geopolitical relief meets the Warsh Fed: Crypto Week Ahead",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 16:24:20",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Temperatures could hit 40C in UK as rare red heat warning issued",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 16:21:32",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "[Great Britain Webinar] The new search journey: How AI is changing online discovery - YouGov",
+      "time": "2026-06-22 16:24:20",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Temperatures could hit 40C in UK as rare red heat warning issued",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,25 +423,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 16:21:32",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "[Great Britain Webinar] The new search journey: How AI is changing online discovery - YouGov",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-22 16:21:32",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "[Great Britain Webinar] The new search journey: How AI is changing online discovery - YouGov",
+      "time": "2026-06-22 16:24:20",
+      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
+      "headline": "Temperatures could hit 40C in UK as rare red heat warning issued",
       "direction": null,
       "materiality": null,
       "confidence": null,
