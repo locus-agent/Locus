@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-22T04:16:49.506201+00:00",
-  "last_heartbeat": "2026-06-22T04:16:49.506201+00:00",
-  "uptime_seconds": 19590,
+  "generated_at": "2026-06-22T04:21:54.565822+00:00",
+  "last_heartbeat": "2026-06-22T04:21:54.565822+00:00",
+  "uptime_seconds": 19895,
   "dry_run": false,
   "markets_tracked": 1325,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 258,
+  "headlines_scanned_today": 261,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 5292,
+  "classifications_24h": 5269,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1826,
+    "prefiltered_haiku": 1831,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T04:05:45.557042+00:00"
+    "last_check": "2026-06-22T04:20:45.915873+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1407,
-    "matched": 658,
-    "classified": 5292,
+    "news": 1399,
+    "matched": 655,
+    "classified": 5269,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1430.3
+    "avg_classification_latency_ms": 1428.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,73 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 04:14:20",
-      "market_question": "Will Islamic Group win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "The Latest: Iran says \u2018major progress\u2019 to end Lebanon war during talks - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 04:14:18",
-      "market_question": "Will Hezbollah win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "The Latest: Iran says \u2018major progress\u2019 to end Lebanon war during talks - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 04:14:18",
-      "market_question": "Will Donald Trump visit Lebanon in 2026?",
-      "headline": "The Latest: Iran says \u2018major progress\u2019 to end Lebanon war during talks - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 04:14:18",
-      "market_question": "Will National Dialogue Party win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "The Latest: Iran says \u2018major progress\u2019 to end Lebanon war during talks - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 04:14:16",
-      "market_question": "Will Donald Trump attend the next US x Iran diplomatic meeting?",
-      "headline": "The Latest: Iran says \u2018major progress\u2019 to end Lebanon war during talks - AP News",
+      "time": "2026-06-22 04:20:50",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Salah scores and Egypt downs New Zealand 3-1 for a first World Cup victory - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,7 +370,71 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 04:20:49",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Salah scores and Egypt downs New Zealand 3-1 for a first World Cup victory - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 04:20:49",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Salah scores and Egypt downs New Zealand 3-1 for a first World Cup victory - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 04:20:49",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Salah scores and Egypt downs New Zealand 3-1 for a first World Cup victory - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 04:20:49",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Salah scores and Egypt downs New Zealand 3-1 for a first World Cup victory - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
