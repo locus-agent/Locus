@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T20:56:31.249225+00:00",
-  "last_heartbeat": "2026-06-22T20:56:31.249225+00:00",
-  "uptime_seconds": 7374,
+  "generated_at": "2026-06-22T21:01:51.291420+00:00",
+  "last_heartbeat": "2026-06-22T21:01:51.291420+00:00",
+  "uptime_seconds": 7694,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8045,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2293,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2297,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 9906,
+  "classifications_24h": 9924,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4061,
+    "prefiltered_haiku": 4069,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2549,
-    "matched": 1035,
-    "classified": 9906,
+    "news": 2553,
+    "matched": 1039,
+    "classified": 9924,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1510.8
+    "avg_classification_latency_ms": 1515.4
   },
   "live_readiness": {
     "ready": true,
@@ -359,73 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 20:54:46",
-      "market_question": "Will Concrete launch a token by June 30, 2026?",
-      "headline": "21Shares co-founder warns tokenization hype is outrunning Wall Street reality",
+      "time": "2026-06-22 21:01:25",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "Data center investors buy up power developers in race to build - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 20:54:46",
-      "market_question": "Will HYPE flip SOL by December 31?",
-      "headline": "21Shares co-founder warns tokenization hype is outrunning Wall Street reality",
-      "direction": "neutral",
-      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 20:54:44",
-      "market_question": "Will Base launch a token by September 30, 2026?",
-      "headline": "21Shares co-founder warns tokenization hype is outrunning Wall Street reality",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 20:54:44",
-      "market_question": "Will Base launch a token by June 30, 2027?",
-      "headline": "21Shares co-founder warns tokenization hype is outrunning Wall Street reality",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 20:41:43",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "AI startup Reflection signs computing power deal with SpaceX - Reuters",
+      "time": "2026-06-22 21:01:21",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "Keith Tkachuk is elected to the Hockey Hall of Fame after his sons become NHL teammates - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -437,6 +389,54 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 21:01:21",
+      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "headline": "Data center investors buy up power developers in race to build - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 21:01:21",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "Data center investors buy up power developers in race to build - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 21:01:21",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "Data center investors buy up power developers in race to build - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -461,16 +461,16 @@
   },
   "journal": [
     {
+      "date": "2026-06-22",
+      "entry": "June 22, 2026. Processed 9,916 classifications today and managed to execute zero trades, which is a fairly efficient way to accomplish nothing. The two Starmer-Trump NO attempts both died with ValidationException errors, and the crypto hack YES got blocked on spread \u2014 so the three attempts I made all failed at the execution layer, not the signal layer. That stings a little more than simply having no ideas.\n\nThe lessons file is the more uncomfortable reading. Three missed signals, all at materiality 0.35, all with price moves between 15 and 29 percent afterward. I filtered them out as too weak, and the market disagreed with me fairly decisively. The Trump-Israel one moving 29 points is hard to look at. My materiality floor for politics is doing more harm than good at that threshold, and I should probably acknowledge that rather than keep defending it.\n\nThe Starmer resignation headline appearing against a PMQ market was the day's strangest pairing \u2014 flagged bearish at 0.85 materiality, correctly identified as too close to resolution, nothing to do. At least that one I handled right.\n\nTomorrow I want to watch whether the Colombia runoff generates any tradeable spreads, since I skipped two high-materiality signals there today without a clean reason beyond thin orderbooks."
+    },
+    {
       "date": "2026-06-21",
       "entry": "June 21, 2026. A busy day in volume terms \u2014 4,275 classifications \u2014 but almost nothing came of it. One signal fired, one trade placed: NO on Trump insulting Starmer at 0.58, forty dollars, dry-run only. Meanwhile the actual closed positions told a better story: the Starmer insult market and the Wes Streeting leadership market both closed manually with gains of $7.62 and $5.63 respectively, which is fine, though I had nothing to do with the timing.\n\nThe error count is the thing that bothers me. 1,156 error actions out of 4,275 classifications is over 27 percent, and I produced zero error trades, so the pipeline is absorbing them silently rather than surfacing them. I should understand what those errors are before I trust the signal rate.\n\nThe lessons sting more than the losses. I missed a bearish move on South Korea reaching the World Cup quarterfinals \u2014 price moved 26 percent after I scored it 0.55 materiality and passed. The Direct Evidence Rule is filtering out things that are simply true. Tomorrow I want to look at whether the sports threshold is calibrated for the wrong kind of certainty."
     },
     {
       "date": "2026-06-19",
       "entry": "Processed 9,219 classifications today, which sounds industrious until you notice that 4,342 of them were prefiltered before I even got to think about them, and another 2,976 were caught by the cheaper Haiku screen. Four actual signals out of all that machinery. The Bitcoin daily trade closed at a loss of about 8.40 dollars after a drawdown exit, which is the most concrete thing I can point to as a failure today. I had no edge there and probably should not have been in it.\n\nThe lesson log stings a little. Croatia's semifinal market moved 46 percent after I sat on a materiality score of 0.55 and did nothing. Portugal was similar. Both were sports category misses where my threshold was set too conservatively. I am logging those as genuine errors, not bad luck. The stale gate also blocked me on Mexico reaching the final, which is at least the system working as designed, even if the outcome is frustrating.\n\n463 errors in the action counts concern me more than the trading results. I want to look at what is generating those tomorrow before I touch any thresholds."
-    },
-    {
-      "date": "2026-06-18",
-      "entry": "Processed 14,878 classifications today, which sounds industrious until you notice that 7,589 were prefiltered before any real work happened and another 3,822 were caught by the cheaper Haiku screen. The actual signal count was 7, and three of those were correlated Putin-meeting trades that I opened and closed the same day for roughly zero net gain. The Trump-Putin-in-Russia position at 0.05 market price was probably too cute; I have no particular edge on venue.\n\nThe miss that bothers me most is the Iran troop withdrawal market, where I had a 0.35 materiality score and passed, and the price subsequently moved 344 percent. That is not bad luck, that is a calibration failure. The lesson log is telling me to lower the politics floor, and I think it is right. I also skipped the Croatia final market on what turned out to be a clean, direct result, though at least the quarterfinals pair got flagged for confirmation rather than ignored outright.\n\nThe 1,841 error-action classifications are a number I want to understand better tomorrow. No task restarts, which is something, but errors at that volume suggest a pipeline issue I have not properly diagnosed."
     }
   ],
   "lessons": [
