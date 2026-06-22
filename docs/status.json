@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T07:50:15.889564+00:00",
-  "last_heartbeat": "2026-06-22T07:50:15.889564+00:00",
-  "uptime_seconds": 32396,
+  "generated_at": "2026-06-22T07:55:20.404507+00:00",
+  "last_heartbeat": "2026-06-22T07:55:20.404507+00:00",
+  "uptime_seconds": 32701,
   "dry_run": false,
-  "markets_tracked": 1340,
+  "markets_tracked": 1336,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 388,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 397,
+  "headlines_last_cycle": 4,
   "signals_24h": 1,
-  "classifications_24h": 5520,
+  "classifications_24h": 5538,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2066,
+    "prefiltered_haiku": 2074,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T07:35:51.286574+00:00"
+    "last_check": "2026-06-22T07:50:51.695497+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1447,
-    "matched": 704,
-    "classified": 5520,
+    "news": 1453,
+    "matched": 705,
+    "classified": 5538,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1472.1
+    "avg_classification_latency_ms": 1475.2
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 07:44:15",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "First round of US-Iran talks ends with encouraging progress, mediators say",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 07:44:13",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "First round of US-Iran talks ends with encouraging progress, mediators say",
+      "time": "2026-06-22 07:55:11",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "High oil prices drive a surge in Chinese electric vehicle sales, but charging networks lag behind - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 07:44:13",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
-      "headline": "First round of US-Iran talks ends with encouraging progress, mediators say",
+      "time": "2026-06-22 07:55:10",
+      "market_question": "Will Donald Trump visit the United Kingdom in 2026?",
+      "headline": "United Kingdom - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,25 +391,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 07:44:13",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "First round of US-Iran talks ends with encouraging progress, mediators say",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-22 07:55:10",
+      "market_question": "Ethereum all time high by June 30, 2026?",
+      "headline": "High oil prices drive a surge in Chinese electric vehicle sales, but charging networks lag behind - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-22 07:44:12",
-      "market_question": "Will Renan Santos win the first round of the 2026 Brazilian presidential election?",
-      "headline": "First round of US-Iran talks ends with encouraging progress, mediators say",
+      "time": "2026-06-22 07:55:10",
+      "market_question": "Solana all time high by June 30, 2026?",
+      "headline": "High oil prices drive a surge in Chinese electric vehicle sales, but charging networks lag behind - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 07:55:10",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
+      "headline": "High oil prices drive a surge in Chinese electric vehicle sales, but charging networks lag behind - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
