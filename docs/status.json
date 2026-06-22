@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T13:04:42.093502+00:00",
-  "last_heartbeat": "2026-06-22T13:04:42.093502+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-22T13:09:48.821430+00:00",
+  "last_heartbeat": "2026-06-22T13:09:48.821430+00:00",
+  "uptime_seconds": 344,
   "dry_run": false,
-  "markets_tracked": 1371,
+  "markets_tracked": 1369,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7991,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 665,
-  "headlines_last_cycle": 19,
+  "headlines_scanned_today": 792,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 5970,
-  "selectivity_pct": 0.1,
+  "classifications_24h": 6445,
+  "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2411,
-    "stale": 9,
+    "prefiltered_haiku": 2565,
+    "stale": 11,
     "capped": 1,
     "too_close_to_resolution": 7,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1571,
-    "matched": 843,
-    "classified": 5970,
+    "news": 1698,
+    "matched": 849,
+    "classified": 6445,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1305.7
+    "avg_classification_latency_ms": 1572.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 13:04:40",
-      "market_question": "Will OpenAI announce a computer (Laptop/Desktop) in 2026?",
-      "headline": "\u2018These computer racks are about the size of a big Godrej safe.\u2019 Speaking to Shereen Bhan on Voices From The Valley, KR Sridhar , Founder, Chairman & CEO of Bloom Energy, uses a striking analogy to explain the scale of AI\u2019s hidden energy demand. He say - LinkedIn",
+      "time": "2026-06-22 13:08:48",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "How England's Madueke went from rejection by club fans to World Cup starter",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,25 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 13:04:40",
-      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
-      "headline": "Watch Duty, the fire tracking app used by millions, expands to help monitor dangerous floods - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-22 13:04:39",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "\u2018These computer racks are about the size of a big Godrej safe.\u2019 Speaking to Shereen Bhan on Voices From The Valley, KR Sridhar , Founder, Chairman & CEO of Bloom Energy, uses a striking analogy to explain the scale of AI\u2019s hidden energy demand. He say - LinkedIn",
+      "time": "2026-06-22 13:08:48",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "How England's Madueke went from rejection by club fans to World Cup starter",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 13:04:39",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "\u2018These computer racks are about the size of a big Godrej safe.\u2019 Speaking to Shereen Bhan on Voices From The Valley, KR Sridhar , Founder, Chairman & CEO of Bloom Energy, uses a striking analogy to explain the scale of AI\u2019s hidden energy demand. He say - LinkedIn",
+      "time": "2026-06-22 13:08:48",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "How England's Madueke went from rejection by club fans to World Cup starter",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,9 +407,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 13:04:38",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Why did Starmer resign and what could happen next?",
+      "time": "2026-06-22 13:08:48",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "How England's Madueke went from rejection by club fans to World Cup starter",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,7 +418,23 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 13:08:48",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "How England's Madueke went from rejection by club fans to World Cup starter",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
