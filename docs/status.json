@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T23:50:10.309930+00:00",
-  "last_heartbeat": "2026-06-22T23:50:10.309930+00:00",
-  "uptime_seconds": 17793,
+  "generated_at": "2026-06-22T23:55:15.562350+00:00",
+  "last_heartbeat": "2026-06-22T23:55:15.562350+00:00",
+  "uptime_seconds": 18098,
   "dry_run": false,
-  "markets_tracked": 1352,
+  "markets_tracked": 1357,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8078,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2476,
+  "headlines_scanned_today": 2479,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 9692,
+  "classifications_24h": 9682,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3929,
+    "prefiltered_haiku": 3925,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-22T23:38:59.527203+00:00"
+    "last_check": "2026-06-22T23:53:59.964290+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2490,
-    "matched": 1047,
-    "classified": 9692,
+    "news": 2489,
+    "matched": 1045,
+    "classified": 9682,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1543.0
+    "avg_classification_latency_ms": 1543.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 23:48:09",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "First drug to delay onset of type 1 diabetes made available on NHS",
+      "time": "2026-06-22 23:54:43",
+      "market_question": "Will Apple be the largest company in the world by market cap on December 31?",
+      "headline": "Millions of iCloud users could claim share of \u00a33bn after Apple case given UK green light",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 23:54:42",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Millions of iCloud users could claim share of \u00a33bn after Apple case given UK green light",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,57 +391,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 23:48:06",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "First drug to delay onset of type 1 diabetes made available on NHS",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-22 23:54:42",
+      "market_question": "Will Apple be the second-largest company in the world by market cap on June 30?",
+      "headline": "Millions of iCloud users could claim share of \u00a33bn after Apple case given UK green light",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-22 23:48:06",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "First drug to delay onset of type 1 diabetes made available on NHS",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-22 23:54:42",
+      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
+      "headline": "Millions of iCloud users could claim share of \u00a33bn after Apple case given UK green light",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-22 23:48:06",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
-      "headline": "First drug to delay onset of type 1 diabetes made available on NHS",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-22 23:48:06",
-      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
-      "headline": "First drug to delay onset of type 1 diabetes made available on NHS",
+      "time": "2026-06-22 23:54:41",
+      "market_question": "Will Troy Green be the Democratic nominee for Senate in Oklahoma?",
+      "headline": "Millions of iCloud users could claim share of \u00a33bn after Apple case given UK green light",
       "direction": null,
       "materiality": null,
       "confidence": null,
