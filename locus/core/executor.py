@@ -87,6 +87,73 @@ def plan_live_sell(
     return best_bid, round(sell_shares, 2), "ok"
 
 
+def round_to_tick(price: float, tick_size) -> float:
+    """Snap `price` to the nearest multiple of `tick_size`, clamped into the
+    [tick, 1 - tick] band Polymarket's CLOB enforces (`price_valid`).
+
+    Polymarket rejects orders whose price is not a multiple of the market's
+    minimum tick (0.01 for most markets, 0.001 for tighter ones) with a
+    ValidationException. Book levels are already tick-aligned, but cached or
+    derived prices may not be, so we always normalise before sending an order.
+    `tick_size` is whatever `client.get_tick_size()` returns (a str like
+    "0.01") or a float; both are accepted."""
+    tick = float(tick_size)
+    if tick <= 0:
+        return price
+    # Decimal places implied by the tick, used to kill float dust like
+    # 0.30000000000000004 after multiplying back up.
+    tick_str = str(tick_size)
+    decimals = len(tick_str.split(".")[1]) if "." in tick_str else 0
+    rounded = round(round(price / tick) * tick, decimals)
+    return max(tick, min(rounded, round(1 - tick, decimals)))
+
+
+def _get_tick_size(client, token_id: str) -> float:
+    """Market minimum tick via the CLOB client, defaulting to 0.01 on error.
+
+    `get_tick_size` returns a string ("0.01"/"0.001"); we keep it as a float
+    for arithmetic but the original is fine to hand back to `round_to_tick`."""
+    try:
+        return float(client.get_tick_size(token_id))
+    except Exception as e:
+        log.warning("[executor] tick-size fetch failed for %s (%s); defaulting to 0.01",
+                    token_id, e)
+        return 0.01
+
+
+def _diagnose_order_error(exc, token_id, price, size, side, tick_size=None) -> list[str]:
+    """Log full detail on a failed live order and guess the likely cause(s).
+
+    Polymarket surfaces order rejections as a ValidationException /
+    PolyApiException carrying the HTTP status and the response body in
+    `error_msg`. We log the exception, that body, and the exact order
+    parameters, then heuristically flag the usual culprits (tick size,
+    minimum order size, signature type) so the watch log says *why*."""
+    body = getattr(exc, "error_msg", None)
+    status = getattr(exc, "status_code", None)
+    detail = body if body is not None else str(exc)
+    log.error(
+        "[executor] LIVE ORDER FAILED %s: side=%s token_id=%s price=%s size=%s "
+        "tick_size=%s status_code=%s body=%s",
+        type(exc).__name__, side, token_id, price, size, tick_size, status, detail,
+    )
+    low = str(detail).lower()
+    reasons: list[str] = []
+    if "tick" in low or ("price" in low and ("min" in low or "max" in low or "valid" in low)):
+        reasons.append("tick_size")
+    if "min" in low and ("size" in low or "order" in low or "amount" in low or "shares" in low):
+        reasons.append("min_order_size")
+    if ("signature" in low or "sig type" in low or "signature_type" in low
+            or "unauthorized" in low or "not enough balance" in low
+            or status in (401, 403)):
+        reasons.append("signature_type")
+    if reasons:
+        log.error("[executor] likely cause(s): %s", ", ".join(reasons))
+    else:
+        log.error("[executor] cause not auto-classified; inspect body above")
+    return reasons
+
+
 def _best_levels(book) -> tuple[float | None, float | None, float | None]:
     """(best_bid, best_ask, size_at_best_ask) from a CLOB OrderBookSummary."""
     bids = [(float(b.price), float(b.size)) for b in (book.bids or [])]
@@ -177,14 +244,21 @@ def close_position_live(
         if status != "ok":
             return {"status": status, "order_id": None, "price": None, "shares": None}
 
+        tick_size = _get_tick_size(client, token_id)
+        price = round_to_tick(price, tick_size)
+
         order_args = OrderArgs(
             price=price,
             size=sell_shares,
             side="SELL",
             token_id=token_id,
         )
-        signed_order = client.create_order(order_args)
-        resp = client.post_order(signed_order, OrderType.GTC)
+        try:
+            signed_order = client.create_order(order_args)
+            resp = client.post_order(signed_order, OrderType.GTC)
+        except Exception as order_exc:
+            _diagnose_order_error(order_exc, token_id, price, sell_shares, "SELL", tick_size)
+            raise
         order_id = resp.get("orderID", resp.get("id", "unknown"))
         return {"status": "executed", "order_id": order_id, "price": price, "shares": sell_shares}
 
@@ -239,6 +313,11 @@ def _execute_live(signal: Signal) -> dict:
         if status != "ok":
             return _log_and_return(signal, status=status, order_id=None)
 
+        # Polymarket rejects off-tick prices with a ValidationException; snap
+        # the price onto the market's tick grid before signing.
+        tick_size = _get_tick_size(client, token_id)
+        price = round_to_tick(price, tick_size)
+
         order_args = OrderArgs(
             price=price,
             size=shares,
@@ -246,8 +325,12 @@ def _execute_live(signal: Signal) -> dict:
             token_id=token_id,
         )
 
-        signed_order = client.create_order(order_args)
-        resp = client.post_order(signed_order, OrderType.GTC)
+        try:
+            signed_order = client.create_order(order_args)
+            resp = client.post_order(signed_order, OrderType.GTC)
+        except Exception as order_exc:
+            _diagnose_order_error(order_exc, token_id, price, shares, "BUY", tick_size)
+            raise
 
         order_id = resp.get("orderID", resp.get("id", "unknown"))
         return _log_and_return(signal, status="executed", order_id=order_id)

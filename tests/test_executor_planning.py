@@ -1,7 +1,12 @@
 """Live-order planning: spread guard, depth downsizing, share sizing."""
 import types
 
-from locus.core.executor import plan_live_order, _best_levels
+from locus.core.executor import (
+    plan_live_order,
+    _best_levels,
+    round_to_tick,
+    _diagnose_order_error,
+)
 
 
 def test_normal_order_priced_at_best_ask_sized_in_shares():
@@ -60,3 +65,60 @@ def test_best_levels_extraction():
 def test_best_levels_empty_book():
     book = types.SimpleNamespace(bids=[], asks=[])
     assert _best_levels(book) == (None, None, None)
+
+
+def test_round_to_tick_penny_market():
+    # 0.01 tick: off-grid prices snap to the nearest penny
+    assert round_to_tick(0.523, "0.01") == 0.52
+    assert round_to_tick(0.527, "0.01") == 0.53
+    assert round_to_tick(0.50, "0.01") == 0.50  # already on grid
+
+
+def test_round_to_tick_fine_market():
+    # 0.001 tick keeps the third decimal
+    assert round_to_tick(0.5237, "0.001") == 0.524
+    assert round_to_tick(0.5231, "0.001") == 0.523
+
+
+def test_round_to_tick_no_float_dust():
+    # the classic 0.1+0.2 style artefact must not leak into the price
+    assert round_to_tick(0.30000000004, "0.01") == 0.30
+
+
+def test_round_to_tick_clamps_into_valid_band():
+    # price_valid requires tick <= price <= 1 - tick
+    assert round_to_tick(0.999, "0.01") == 0.99
+    assert round_to_tick(0.001, "0.01") == 0.01
+    assert round_to_tick(1.5, "0.01") == 0.99
+
+
+def test_round_to_tick_accepts_float_tick():
+    assert round_to_tick(0.527, 0.01) == 0.53
+
+
+def test_diagnose_flags_tick_size():
+    exc = types.SimpleNamespace(
+        status_code=400, error_msg={"error": "price (0.523) not a valid tick"}
+    )
+    reasons = _diagnose_order_error(exc, "tok-1", 0.523, 50.0, "BUY", 0.01)
+    assert "tick_size" in reasons
+
+
+def test_diagnose_flags_min_order_size():
+    exc = types.SimpleNamespace(
+        status_code=400, error_msg="order amount below the minimum order size"
+    )
+    reasons = _diagnose_order_error(exc, "tok-1", 0.52, 1.0, "BUY", 0.01)
+    assert "min_order_size" in reasons
+
+
+def test_diagnose_flags_signature_type_on_auth_status():
+    exc = types.SimpleNamespace(status_code=401, error_msg="unauthorized")
+    reasons = _diagnose_order_error(exc, "tok-1", 0.52, 50.0, "BUY", 0.01)
+    assert "signature_type" in reasons
+
+
+def test_diagnose_handles_plain_exception():
+    # no status_code / error_msg attributes — must not raise, returns a list
+    reasons = _diagnose_order_error(ValueError("boom"), "tok-1", 0.5, 50.0, "BUY")
+    assert isinstance(reasons, list)
