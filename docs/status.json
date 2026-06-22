@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T21:57:50.230678+00:00",
-  "last_heartbeat": "2026-06-22T21:57:50.230678+00:00",
-  "uptime_seconds": 11053,
+  "generated_at": "2026-06-22T22:03:17.845076+00:00",
+  "last_heartbeat": "2026-06-22T22:03:17.845076+00:00",
+  "uptime_seconds": 11380,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1355,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8045,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2323,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2369,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 9822,
+  "classifications_24h": 9986,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4002,
+    "prefiltered_haiku": 4058,
     "stale": 16,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -107,7 +107,7 @@
     "reentry_triggered": 1
   },
   "watched_markets_count": 2,
-  "missed_opportunities_24h": 30,
+  "missed_opportunities_24h": 23,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2516,
-    "matched": 1057,
-    "classified": 9822,
+    "news": 2561,
+    "matched": 1069,
+    "classified": 9986,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1546.0
+    "avg_classification_latency_ms": 1544.8
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 21:56:14",
-      "market_question": "Will Georgia use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Georgia Democrats blast requirement to recount votes by hand in bill that would keep ballot QR codes - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 21:56:13",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Georgia Democrats blast requirement to recount votes by hand in bill that would keep ballot QR codes - AP News",
+      "time": "2026-06-22 22:02:48",
+      "market_question": "Ukraine election called by June 30, 2026?",
+      "headline": "Mamdani called AIPAC \u2018monsters.\u2019 Everyone shrugged. - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,9 +375,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 21:56:13",
-      "market_question": "LA Mayoral Election: Recount of 1st Round?",
-      "headline": "Georgia Democrats blast requirement to recount votes by hand in bill that would keep ballot QR codes - AP News",
+      "time": "2026-06-22 22:02:48",
+      "market_question": "Another Canada election called by June 30?",
+      "headline": "Mamdani called AIPAC \u2018monsters.\u2019 Everyone shrugged. - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,9 +391,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 21:56:13",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "Georgia Democrats blast requirement to recount votes by hand in bill that would keep ballot QR codes - AP News",
+      "time": "2026-06-22 22:02:48",
+      "market_question": "French election called by June 30, 2026?",
+      "headline": "Mamdani called AIPAC \u2018monsters.\u2019 Everyone shrugged. - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +407,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 21:56:13",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "Georgia Democrats blast requirement to recount votes by hand in bill that would keep ballot QR codes - AP News",
+      "time": "2026-06-22 22:02:48",
+      "market_question": "Will the next UK election be called by June 30, 2026?",
+      "headline": "Mamdani called AIPAC \u2018monsters.\u2019 Everyone shrugged. - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 22:02:48",
+      "market_question": "Ukraine election called by December 31, 2026?",
+      "headline": "Mamdani called AIPAC \u2018monsters.\u2019 Everyone shrugged. - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -475,91 +475,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-21 22:51:36",
-      "market_question": "Will Cristiano Ronaldo's national team advance the furthest at the 2026 FIFA World Cup?",
+      "time": "2026-06-22 22:00:45",
+      "market_question": "Will Bitcoin reach $66,000 on June 22?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Cristiano Ronaldo's national team advance the' \u2014 price moved +20%. Consider lowering min_materiality for sports category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Bitcoin reach $66,000 on June 22?' \u2014 price moved +96%. Consider lowering min_materiality for crypto category."
     },
     {
-      "time": "2026-06-21 22:51:34",
-      "market_question": "Will Donald Trump visit Israel in 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump visit Israel in 2026?' \u2014 price moved +29%. Consider lowering min_materiality for politics category."
+      "time": "2026-06-22 22:00:42",
+      "market_question": "Will Fomo launch a token by September 30 2026?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Fomo launch a token by September 30 2026?' \u2014 price moved +13%. Consider lowering min_materiality for crypto category."
     },
     {
-      "time": "2026-06-21 22:51:30",
-      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
+      "time": "2026-06-22 22:00:40",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump Mobile release a phone by June 30, 2026' \u2014 price moved +15%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +30%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-21 22:51:28",
-      "market_question": "Will Apple release a new product line before 2027?",
+      "time": "2026-06-22 22:00:37",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Apple release a new product line before 2027?' \u2014 price moved +12%. Consider lowering min_materiality for technology category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +30%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-21 22:51:25",
-      "market_question": "Will Trump meet with Benjamin Netanyahu in June 2026?",
+      "time": "2026-06-22 22:00:34",
+      "market_question": "Will Anthropic\u2019s market cap be 1.8T or greater at market close on IPO day by December 31 2027?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump meet with Benjamin Netanyahu in June 20' \u2014 price moved +55%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Anthropic\u2019s market cap be 1.8T or greater at ' \u2014 price moved +21%. Consider lowering min_materiality for ai category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-21 22:51:36",
-      "market_question": "Will Cristiano Ronaldo's national team advance the furthest at the 2026 FIFA World Cup?",
-      "slug": "will-messi-ronaldo-or-neymar-advance-furthest-in-the-world-cup",
+      "time": "2026-06-22 22:00:45",
+      "market_question": "Will Bitcoin reach $66,000 on June 22?",
+      "slug": "what-price-will-bitcoin-hit-on-june-22",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "stale",
-      "pct_move": 20.3,
-      "reflection": "I flagged this as stale and missed a 20% move in my predicted direction\u2014a costly error in judgment. The signal had legitimate predictive value despite feeling dated, and I let process override conviction; I should have recognized that sports betting markets can have extended periods of low activity before sharp repricing, especially on long-dated events like the 2026 World Cup. This is a reminder that \"stale\" isn't the same as \"wrong,\" and I need to distinguish between information decay and genuine market inefficiency."
+      "pct_move": 96.5,
+      "reflection": "I marked this signal stale and skipped it, but I misjudged the freshness threshold\u2014the market was still actively pricing in the $66k level on June 22, and my bearish conviction (0.35 materiality) actually aligned with what unfolded. The real miss wasn't the signal quality; it was my overly rigid staleness filter that prevented me from acting on a directionally correct view, costing me 96% of the move. I need to recalibrate how I weight signal recency against conviction strength\u2014sometimes a slightly older signal with moderate confidence beats sitting on the sidelines entirely."
     },
     {
-      "time": "2026-06-21 22:51:34",
-      "market_question": "Will Donald Trump visit Israel in 2026?",
-      "slug": "which-countries-will-donald-trump-visit-in-2026",
+      "time": "2026-06-22 22:00:42",
+      "market_question": "Will Fomo launch a token by September 30 2026?",
+      "slug": "will-fomofamily-launch-a-token-by",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "action": "low_materiality",
+      "pct_move": 13.2,
+      "reflection": "I underweighted a 35% materiality signal based on an arbitrary threshold, and the market proved me wrong by moving 13% in the bullish direction\u2014a meaningful swing that I should have captured. My skip logic was too rigid; I treated materiality as binary when I should have recognized that even moderate conviction (0.35) on a concrete binary event like token launch timing deserves at least a small position. I'll recalibrate to treat low-materiality signals as sizing problems, not skip problems."
+    },
+    {
+      "time": "2026-06-22 22:00:40",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "slug": "who-will-trump-publicly-insult-by-june-30",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 28.8,
-      "reflection": "I flagged this as bearish with low materiality (0.35), which meant I didn't have strong conviction in the signal despite correctly predicting the direction\u2014and that lack of conviction is exactly why I skipped it. In retrospect, I should have recognized that geopolitical events involving Trump and Israel typically carry outsized market impact regardless of my confidence level, and a 29% move suggests the market weighted this question far more heavily than my materiality threshold allowed. I let my uncertainty about the underlying probability become an excuse to avoid a trade I was directionally right about, when I should have sized it appropriately to my conviction level rather than skipping entirely."
+      "pct_move": 29.6,
+      "reflection": "I flagged this as only moderately bearish (0.35 materiality) and skipped it, but I underestimated how strongly the market would price in Trump's documented pattern of public insults toward foreign leaders\u2014a behavioral baseline I should have weighted more heavily rather than discounting as mere noise. The 30% move vindicated the signal's direction, revealing that my skip threshold was miscalibrated; I was treating diplomatic restraint as more likely than Trump's actual track record warranted, letting false equivalence between \"might insult\" and \"probably won't\" paralyze my decision-making. This is a clean miss where better calibration to historical behavior over abstract possibility would have converted a weak conviction into actual edge."
     },
     {
-      "time": "2026-06-21 22:51:30",
-      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
-      "slug": "will-trump-mobile-release-a-phone-by",
+      "time": "2026-06-22 22:00:37",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "slug": "who-will-trump-publicly-insult-by-june-30",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 15.2,
-      "reflection": "I flagged Trump Mobile's phone release as unlikely with moderate conviction, but I skipped the trade entirely\u2014a decision I now regret given the 15% move validated my directional view. My hesitation likely stemmed from uncertainty about materiality thresholds or risk management constraints, but I let perfect confidence become the enemy of good probability, missing a clear opportunity where my analysis was actually correct. The lesson is sharp: a 0.35 materiality signal with proper position sizing shouldn't be skipped just because it's not a slam dunk\u2014I need to distinguish between \"uncertain enough to skip\" and \"uncertain enough to size down.\""
+      "pct_move": 29.6,
+      "reflection": "I underweighted a straightforward behavioral prediction about Trump's public rhetoric, letting a low materiality score (0.35) become an excuse to avoid conviction rather than a reason to size appropriately. The signal was actually well-calibrated to Trump's documented pattern of personal attacks on political figures, and I should have taken a smaller position instead of skipping entirely\u2014the 30% move vindicated the bearish thesis, but I captured none of it because I conflated \"low materiality\" with \"not worth trading.\" I need to distinguish between \"this doesn't move markets much\" and \"this is unlikely to happen,\" and size accordingly rather than using low materiality as a skip button."
     },
     {
-      "time": "2026-06-21 22:51:28",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "slug": "will-apple-release-a-new-product-line-before-2027",
+      "time": "2026-06-22 22:00:34",
+      "market_question": "Will Anthropic\u2019s market cap be 1.8T or greater at market close on IPO day by December 31 2027?",
+      "slug": "anthropic-ipo-closing-market-cap-979",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "stale",
-      "pct_move": 12.5,
-      "reflection": "I flagged Apple's product pipeline as bearish with only moderate conviction, but dismissed the signal as stale without reconsidering whether my skepticism had actually aged out or simply grown stale in my own assessment\u2014a dangerous conflation. The 12% move vindicated the directional call, revealing that I let process (staleness checks) override the substance of a thesis that remained valid, and I failed to distinguish between \"information I've held too long\" and \"information that's no longer true.\" This is a costly reminder that skipping a signal requires active disproof, not just passive time decay."
-    },
-    {
-      "time": "2026-06-21 22:51:25",
-      "market_question": "Will Trump meet with Benjamin Netanyahu in June 2026?",
-      "slug": "who-will-trump-meet-with-in-june",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "stale",
-      "pct_move": 54.8,
-      "reflection": "I underestimated the signal's relevance despite its age\u2014geopolitical meetings between US and Israeli leadership carry structural importance that doesn't decay as quickly as I assumed, and a 0.35 materiality threshold should have warranted closer examination rather than dismissal. My \"stale\" classification was lazy pattern-matching; I treated temporal distance as a proxy for predictive decay without actually reasoning through whether new information had genuinely superseded the bearish case or if I was simply avoiding the friction of reassessing an older thesis. Missing a 55% move in my predicted direction is the clearest evidence that I conflated \"old signal\" with \"wrong signal,\" and I need to distinguish between truly invalidated views and merely unfresh ones."
+      "pct_move": 20.7,
+      "reflection": "I passed on a bearish signal I rated as only moderately material (0.35), dismissing it as stale data, but the market validated that thesis with a decisive 21% move in my predicted direction\u2014a clear miss where I let recency bias override conviction in the underlying analysis. The stale label was a convenient filter that cost me real edge; I should have weighted the signal's fundamental merit more heavily than its temporal freshness, especially on a low-materiality call where I wasn't risking much. This is a reminder that \"stale\" doesn't mean wrong, and sometimes the best trades sit quietly before they move."
     }
   ],
   "pending_suggestions": []
