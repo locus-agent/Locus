@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-22T05:38:09.875859+00:00",
-  "last_heartbeat": "2026-06-22T05:38:09.875859+00:00",
-  "uptime_seconds": 24470,
+  "generated_at": "2026-06-22T05:43:14.940011+00:00",
+  "last_heartbeat": "2026-06-22T05:43:14.940011+00:00",
+  "uptime_seconds": 24775,
   "dry_run": false,
   "markets_tracked": 1325,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 325,
+  "headlines_scanned_today": 328,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 5447,
+  "classifications_24h": 5466,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1928,
+    "prefiltered_haiku": 1943,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1442,
-    "matched": 687,
-    "classified": 5447,
+    "news": 1445,
+    "matched": 690,
+    "classified": 5466,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1434.3
+    "avg_classification_latency_ms": 1430.8
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 05:37:18",
-      "market_question": "Another crypto hack over $100m by September 30?",
-      "headline": "MHHC.PK - Reuters",
+      "time": "2026-06-22 05:41:46",
+      "market_question": "Will OpenAI IPO by August 31 2026?",
+      "headline": "Indian shares rise on Mideast peace hopes; Reliance gets Jio IPO boost - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,57 +375,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 05:26:28",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "US, Iranian negotiators enter 2nd day of talks after rough start - AP News",
+      "time": "2026-06-22 05:41:45",
+      "market_question": "OpenAI IPO before 2027?",
+      "headline": "Indian shares rise on Mideast peace hopes; Reliance gets Jio IPO boost - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 05:26:28",
-      "market_question": "Will Charity Clark win the 2026 Vermont Governor Democratic primary election?",
-      "headline": "Wyndham Clark quiets a US Open crowd that rooted for him to lose - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-22 05:26:24",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "US, Iranian negotiators enter 2nd day of talks after rough start - AP News",
+      "time": "2026-06-22 05:41:45",
+      "market_question": "Mistral AI IPO before 2027?",
+      "headline": "Indian shares rise on Mideast peace hopes; Reliance gets Jio IPO boost - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 05:26:23",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "US, Iranian negotiators enter 2nd day of talks after rough start - AP News",
+      "time": "2026-06-22 05:41:45",
+      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
+      "headline": "Indian shares rise on Mideast peace hopes; Reliance gets Jio IPO boost - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -435,6 +419,22 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-22 05:41:45",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "Indian shares rise on Mideast peace hopes; Reliance gets Jio IPO boost - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
