@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T15:01:10.282231+00:00",
-  "last_heartbeat": "2026-06-22T15:01:10.282231+00:00",
-  "uptime_seconds": 3093,
+  "generated_at": "2026-06-22T15:06:16.078157+00:00",
+  "last_heartbeat": "2026-06-22T15:06:16.078157+00:00",
+  "uptime_seconds": 3399,
   "dry_run": false,
-  "markets_tracked": 1386,
+  "markets_tracked": 1385,
   "classify_error_streak": 0,
   "track_record": {
     "total": 7992,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1099,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1105,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7462,
+  "classifications_24h": 7498,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3013,
+    "prefiltered_haiku": 3019,
     "stale": 15,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1965,
-    "matched": 933,
-    "classified": 7462,
+    "news": 1971,
+    "matched": 939,
+    "classified": 7498,
     "signals": 2,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3400.6
+    "avg_classification_latency_ms": 3322.6
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-22 15:00:52",
-      "market_question": "Will Larry Hogan win the 2026 Maryland Governor Republican primary election?",
-      "headline": "AP Decision Notes: What to expect in Maryland\u2019s state primary - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 15:00:47",
-      "market_question": "Will John Myrick win the 2026 Maryland Governor Republican primary election?",
-      "headline": "AP Decision Notes: What to expect in Maryland\u2019s state primary - AP News",
+      "time": "2026-06-22 15:05:14",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "With no laws on heat in schools, are pupils and teachers at risk?",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,30 +370,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-22 15:00:46",
-      "market_question": "Will Steve Hershey win the 2026 Maryland Governor Republican primary election?",
-      "headline": "AP Decision Notes: What to expect in Maryland\u2019s state primary - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-22 15:00:44",
-      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
-      "headline": "AP Decision Notes: What to expect in Maryland\u2019s state primary - AP News",
+      "time": "2026-06-22 15:05:13",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "With no laws on heat in schools, are pupils and teachers at risk?",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +391,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-22 15:00:44",
-      "market_question": "Will Ed Gallrein win the 2026 KY-04 Republican Primary Election by between 3% and 6%?",
-      "headline": "AP Decision Notes: What to expect in Maryland\u2019s state primary - AP News",
+      "time": "2026-06-22 15:05:13",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "With no laws on heat in schools, are pupils and teachers at risk?",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 15:05:13",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "With no laws on heat in schools, are pupils and teachers at risk?",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-22 15:05:13",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "With no laws on heat in schools, are pupils and teachers at risk?",
       "direction": null,
       "materiality": null,
       "confidence": null,
