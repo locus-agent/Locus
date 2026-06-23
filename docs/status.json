@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T00:35:56.131658+00:00",
-  "last_heartbeat": "2026-06-23T00:35:56.131658+00:00",
-  "uptime_seconds": 20539,
+  "generated_at": "2026-06-23T00:41:01.437746+00:00",
+  "last_heartbeat": "2026-06-23T00:41:01.437746+00:00",
+  "uptime_seconds": 20844,
   "dry_run": false,
   "markets_tracked": 1356,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 10,
+  "headlines_scanned_today": 13,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 9270,
+  "classifications_24h": 9282,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3726,
+    "prefiltered_haiku": 3728,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T00:24:00.741494+00:00"
+    "last_check": "2026-06-23T00:39:01.139913+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 2391,
-    "matched": 970,
-    "classified": 9270,
+    "matched": 971,
+    "classified": 9282,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1559.7
+    "avg_classification_latency_ms": 1560.4
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 00:34:11",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "AI Hospitality Alliance Details Its Mission, Vision, and Roadmap - LODGING Magazine",
+      "time": "2026-06-23 00:38:39",
+      "market_question": "Will Rick Caruso win the 2026 Los Angeles mayoral election?",
+      "headline": "What to know about a cold storage warehouse fire in Los Angeles - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 00:34:11",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "AI Hospitality Alliance Details Its Mission, Vision, and Roadmap - LODGING Magazine",
+      "time": "2026-06-23 00:38:38",
+      "market_question": "Will Adam Miller win the 2026 Los Angeles mayoral election?",
+      "headline": "What to know about a cold storage warehouse fire in Los Angeles - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 00:34:11",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "AI Hospitality Alliance Details Its Mission, Vision, and Roadmap - LODGING Magazine",
+      "time": "2026-06-23 00:38:38",
+      "market_question": "Will Austin Beutner win the 2026 Los Angeles mayoral election?",
+      "headline": "What to know about a cold storage warehouse fire in Los Angeles - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,36 +407,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 00:34:11",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "AI Hospitality Alliance Details Its Mission, Vision, and Roadmap - LODGING Magazine",
+      "time": "2026-06-23 00:38:37",
+      "market_question": "Will the Republican Party hold exactly 53 Senate seats after the 2026 midterm elections?",
+      "headline": "Senate Republicans say it\u2019s time to give Trump a reality check - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 00:34:09",
-      "market_question": "Will Watani Alliance win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "AI Hospitality Alliance Details Its Mission, Vision, and Roadmap - LODGING Magazine",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-23 00:38:37",
+      "market_question": "Will the Republicans win the Iowa Senate race in 2026?",
+      "headline": "Senate Republicans say it\u2019s time to give Trump a reality check - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
