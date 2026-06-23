@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import math
+import time
 
 from locus import config
 from locus.memory import logger
@@ -355,6 +356,57 @@ def get_live_balance() -> float | None:
         return None
 
 
+def _field(obj, *names):
+    """Read the first present field from a dict- or attribute-shaped object."""
+    for name in names:
+        if isinstance(obj, dict):
+            if name in obj:
+                return obj[name]
+        elif hasattr(obj, name):
+            return getattr(obj, name)
+    return None
+
+
+def reconcile_order(client, order_id: str) -> str:
+    """Re-query a just-posted GTC order to learn its real fill status.
+
+    A GTC order can rest unfilled on the book — post_order returning an order_id
+    does NOT mean we got a fill. After ORDER_RECONCILE_WAIT_SECONDS we ask the
+    exchange:
+      - status MATCHED, or any matched/filled size > 0 -> "executed" (real fill)
+      - status LIVE (resting, unfilled)                 -> "resting" (no fill yet)
+      - order not found / query error                   -> "error_not_found"
+    """
+    time.sleep(config.ORDER_RECONCILE_WAIT_SECONDS)
+    try:
+        order = client.get_order(order_id)
+    except Exception as e:
+        log.error("[executor] order reconcile failed for %s: %s", order_id, e)
+        return "error_not_found"
+    if not order:
+        log.error("[executor] order %s not found on reconcile", order_id)
+        return "error_not_found"
+
+    status = (_field(order, "status") or "").upper()
+    filled_raw = _field(order, "size_matched", "filled_size", "matched_size")
+    try:
+        filled = float(filled_raw) if filled_raw is not None else 0.0
+    except (TypeError, ValueError):
+        filled = 0.0
+
+    if status == "MATCHED" or filled > 0:
+        log.info("[executor] order %s reconciled: filled (status=%s, size_matched=%s)",
+                 order_id, status or "?", filled)
+        return "executed"
+    if status == "LIVE":
+        log.warning("[executor] order %s reconciled: resting/unfilled on the book",
+                    order_id)
+        return "resting"
+    # Unknown/other status with no fill — treat as not confirmed.
+    log.warning("[executor] order %s reconciled: status=%s, no fill", order_id, status or "?")
+    return "resting"
+
+
 def _execute_live(signal: Signal) -> dict:
     """Place a real order via Polymarket CLOB client, orderbook-aware."""
     try:
@@ -396,7 +448,10 @@ def _execute_live(signal: Signal) -> dict:
             raise
 
         order_id = resp.get("orderID", resp.get("id", "unknown"))
-        return _log_and_return(signal, status="executed", order_id=order_id)
+        # A posted GTC order may rest unfilled — reconcile against the exchange
+        # before claiming a fill (only a confirmed fill opens a local position).
+        status = reconcile_order(client, order_id)
+        return _log_and_return(signal, status=status, order_id=order_id)
 
     except ImportError:
         return _log_and_return(signal, status="error_no_clob_client", order_id=None)

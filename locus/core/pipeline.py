@@ -1250,6 +1250,8 @@ class PipelineV2:
                 self.stats["trades_executed"] += 1
 
                 if result["status"] in ("dry_run", "executed"):
+                    # Only a confirmed fill (or a dry-run simulation) opens a
+                    # local position.
                     await asyncio.get_event_loop().run_in_executor(
                         None,
                         lambda: positions.open_position(
@@ -1257,6 +1259,14 @@ class PipelineV2:
                             signal.bet_amount, headline=signal.headlines,
                             reasoning=signal.reasoning,
                         ),
+                    )
+                elif result["status"] == "resting":
+                    # Order is live on the book but unfilled — do NOT open a
+                    # position yet; a later fill is reconciled on the exchange.
+                    log.warning(
+                        "[pipeline] order %s resting (unfilled) on \"%s\" — "
+                        "position NOT opened",
+                        result.get("order_id"), market.question[:40],
                     )
 
                 status_color = "bright_green" if result["status"] in ("dry_run", "executed") else "red"

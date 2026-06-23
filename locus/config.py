@@ -41,6 +41,11 @@ POLYMARKET_SIGNATURE_TYPE = int(os.getenv("POLYMARKET_SIGNATURE_TYPE", "3"))
 # Live orders: skip when the book's spread exceeds this (the apparent edge
 # is mostly spread on thin niche books).
 LIVE_MAX_SPREAD = float(os.getenv("LIVE_MAX_SPREAD", "0.05"))
+# After posting a GTC order, wait this long before re-querying the exchange to
+# reconcile the real fill status (MATCHED/filled -> executed, LIVE/resting ->
+# not filled yet, missing -> error). A local position is only opened on a
+# confirmed fill.
+ORDER_RECONCILE_WAIT_SECONDS = float(os.getenv("ORDER_RECONCILE_WAIT_SECONDS", "2"))
 # Polymarket CLOB order minimums (server-enforced). An order must be worth at
 # least MIN_ORDER_USD in notional AND at least MIN_ORDER_SHARES outcome tokens,
 # or the exchange rejects it (e.g. "Size (1.08) lower than the minimum: 5").
