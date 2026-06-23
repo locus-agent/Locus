@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T15:27:05.872280+00:00",
-  "last_heartbeat": "2026-06-23T15:27:05.872280+00:00",
-  "uptime_seconds": 9819,
+  "generated_at": "2026-06-23T15:32:11.967117+00:00",
+  "last_heartbeat": "2026-06-23T15:32:11.967117+00:00",
+  "uptime_seconds": 10125,
   "dry_run": false,
-  "markets_tracked": 1364,
+  "markets_tracked": 1360,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8178,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1458,
+  "headlines_scanned_today": 1461,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 10334,
+  "classifications_24h": 10332,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4263,
+    "prefiltered_haiku": 4266,
     "stale": 26,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T15:13:44.504301+00:00"
+    "last_check": "2026-06-23T15:28:44.876183+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2737,
-    "matched": 1032,
-    "classified": 10334,
+    "news": 2738,
+    "matched": 1034,
+    "classified": 10332,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3350.7
+    "avg_classification_latency_ms": 3333.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 15:22:53",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Apple reportedly decides on a release date for its smart glasses - PhoneArena",
+      "time": "2026-06-23 15:30:38",
+      "market_question": "Will USDT market cap hit $200B before 2027?",
+      "headline": "Tether-backed Oobit brings USDT to nearly 170 million users of Brazil\u2019s PIX payment network",
       "direction": "bullish",
-      "materiality": 0.45,
-      "confidence": 0.62,
-      "edge": 0.26100000000000007,
-      "fee_cost": 0.009744000000000001,
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
       "time_horizon": "long_term",
-      "adjusted_materiality": 0.37,
-      "action": "stale",
-      "match_source": "both",
+      "adjusted_materiality": 0.06999999999999999,
+      "action": "skip",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 15:22:53",
-      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
-      "headline": "Apple reportedly decides on a release date for its smart glasses - PhoneArena",
+      "time": "2026-06-23 15:30:35",
+      "market_question": "Will OpenAI release a social network in 2026?",
+      "headline": "Tether-backed Oobit brings USDT to nearly 170 million users of Brazil\u2019s PIX payment network",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 15:28:25",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "From non-league to the World Cup with Ghana - the Semenyo story",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,14 +402,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 15:22:51",
-      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
-      "headline": "Apple reportedly decides on a release date for its smart glasses - PhoneArena",
+      "time": "2026-06-23 15:28:25",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "From non-league to the World Cup with Ghana - the Semenyo story",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -402,14 +418,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 15:22:51",
-      "market_question": "Will Apple release a MacBook with cellular connectivity by June 30?",
-      "headline": "Apple reportedly decides on a release date for its smart glasses - PhoneArena",
+      "time": "2026-06-23 15:28:25",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "From non-league to the World Cup with Ghana - the Semenyo story",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -418,23 +434,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 15:22:51",
-      "market_question": "Will OpenAI announce a phone in 2026?",
-      "headline": "Apple reportedly decides on a release date for its smart glasses - PhoneArena",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
