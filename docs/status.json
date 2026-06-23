@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T03:38:59.907122+00:00",
-  "last_heartbeat": "2026-06-23T03:38:59.907122+00:00",
-  "uptime_seconds": 31523,
+  "generated_at": "2026-06-23T03:44:04.746051+00:00",
+  "last_heartbeat": "2026-06-23T03:44:04.746051+00:00",
+  "uptime_seconds": 31827,
   "dry_run": false,
   "markets_tracked": 1362,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 98,
+  "headlines_scanned_today": 99,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 9062,
+  "classifications_24h": 9059,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3635,
+    "prefiltered_haiku": 3636,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T03:24:05.630448+00:00"
+    "last_check": "2026-06-23T03:39:05.996566+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2335,
-    "matched": 942,
-    "classified": 9062,
+    "news": 2334,
+    "matched": 941,
+    "classified": 9059,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1551.8
+    "avg_classification_latency_ms": 1551.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,6 +359,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-23 03:42:52",
+      "market_question": "Will Hunter Biden announce a Presidential run before 2027?",
+      "headline": "Fast and Furious 2.0?\u2019 Biden DEA let 1M fentanyl pills flow to streets, whistleblower lawyer says:",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-23 03:29:32",
       "market_question": "Will Trump attend 0 World Cup matches?",
       "headline": "Erling Haaland scores 2 more goals and Norway beats Senegal 3-2 to reach World Cup round of 32 - AP News",
@@ -409,22 +425,6 @@
     {
       "time": "2026-06-23 03:29:32",
       "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Erling Haaland scores 2 more goals and Norway beats Senegal 3-2 to reach World Cup round of 32 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 03:29:32",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
       "headline": "Erling Haaland scores 2 more goals and Norway beats Senegal 3-2 to reach World Cup round of 32 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
