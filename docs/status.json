@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T21:55:55.674256+00:00",
-  "last_heartbeat": "2026-06-23T21:55:55.674256+00:00",
-  "uptime_seconds": 4637,
+  "generated_at": "2026-06-23T22:01:08.473279+00:00",
+  "last_heartbeat": "2026-06-23T22:01:08.473279+00:00",
+  "uptime_seconds": 4950,
   "dry_run": false,
-  "markets_tracked": 1340,
+  "markets_tracked": 1339,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2863,
+  "headlines_scanned_today": 2867,
   "headlines_last_cycle": 1,
   "signals_24h": 10,
-  "classifications_24h": 11633,
+  "classifications_24h": 11615,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4263,
+    "prefiltered_haiku": 4258,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -107,7 +107,7 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 2,
-  "missed_opportunities_24h": 8,
+  "missed_opportunities_24h": 14,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3022,
-    "matched": 952,
-    "classified": 11633,
+    "news": 3018,
+    "matched": 949,
+    "classified": 11615,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1331.2
+    "avg_classification_latency_ms": 1332.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 21:55:55",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Crypto critic Roubini joins tokenization boom with onchain 'Technodollar'",
+      "time": "2026-06-23 22:00:17",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "US spectrum auction raises $3.5 billion, will fund replacing Chinese telecom equipment - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 22:00:17",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "US spectrum auction raises $3.5 billion, will fund replacing Chinese telecom equipment - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 22:00:17",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "US spectrum auction raises $3.5 billion, will fund replacing Chinese telecom equipment - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 22:00:16",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "US spectrum auction raises $3.5 billion, will fund replacing Chinese telecom equipment - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,25 +423,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 21:55:55",
-      "market_question": "Over $1B crypto hack value in 2026?",
-      "headline": "Crypto critic Roubini joins tokenization boom with onchain 'Technodollar'",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 21:55:53",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Crypto critic Roubini joins tokenization boom with onchain 'Technodollar'",
+      "time": "2026-06-23 21:58:04",
+      "market_question": "Will Peggy Flanagan be the Democratic nominee for Senate in Minnesota?",
+      "headline": "6 convictions found to be fair after review of embattled Minnesota medical examiner's testimony - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -405,38 +437,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 21:55:53",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Crypto critic Roubini joins tokenization boom with onchain 'Technodollar'",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 21:53:45",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Trump says he asked US attorney for California election probe: \u2018Do me a favor\u2019 - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -475,91 +475,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-22 22:00:45",
-      "market_question": "Will Bitcoin reach $66,000 on June 22?",
+      "time": "2026-06-23 22:00:37",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Bitcoin reach $66,000 on June 22?' \u2014 price moved +96%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +49%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-22 22:00:42",
-      "market_question": "Will Fomo launch a token by September 30 2026?",
+      "time": "2026-06-23 22:00:35",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +63%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-06-23 22:00:32",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +63%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-06-23 22:00:30",
+      "market_question": "Will Trump attend 2 World Cup matches?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Fomo launch a token by September 30 2026?' \u2014 price moved +13%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump attend 2 World Cup matches?' \u2014 price moved +20%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-22 22:00:40",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "time": "2026-06-23 22:00:28",
+      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +30%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-22 22:00:37",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +30%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-22 22:00:34",
-      "market_question": "Will Anthropic\u2019s market cap be 1.8T or greater at market close on IPO day by December 31 2027?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Anthropic\u2019s market cap be 1.8T or greater at ' \u2014 price moved +21%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Polymarket mindshare hit 85% by June 30?' \u2014 price moved +55%. Consider lowering min_materiality for crypto category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-22 22:00:45",
-      "market_question": "Will Bitcoin reach $66,000 on June 22?",
-      "slug": "what-price-will-bitcoin-hit-on-june-22",
+      "time": "2026-06-23 22:00:37",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "slug": "who-will-trump-publicly-insult-by-june-30",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "stale",
-      "pct_move": 96.5,
-      "reflection": "I marked this signal stale and skipped it, but I misjudged the freshness threshold\u2014the market was still actively pricing in the $66k level on June 22, and my bearish conviction (0.35 materiality) actually aligned with what unfolded. The real miss wasn't the signal quality; it was my overly rigid staleness filter that prevented me from acting on a directionally correct view, costing me 96% of the move. I need to recalibrate how I weight signal recency against conviction strength\u2014sometimes a slightly older signal with moderate confidence beats sitting on the sidelines entirely."
+      "pct_move": 48.7,
+      "reflection": "I underestimated how much new information would flow into this market over time\u2014calling it \"stale\" was a cop-out when I should have recognized that Trump-Starmer relations remain genuinely uncertain and newsworthy through mid-2026. A 49% move in my predicted direction suggests the market was pricing in too much skepticism about Trump's public insult tendency, and my bearish signal had real edge that I abandoned for the wrong reason. I need to distinguish between \"no immediate catalyst\" and \"unlikely to move,\" because political prediction markets can reprrice substantially on accumulated developments rather than single events."
     },
     {
-      "time": "2026-06-22 22:00:42",
-      "market_question": "Will Fomo launch a token by September 30 2026?",
-      "slug": "will-fomofamily-launch-a-token-by",
+      "time": "2026-06-23 22:00:35",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "slug": "who-will-trump-publicly-insult-by-june-30",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 63.0,
+      "reflection": "I underweighted a straightforward behavioral prediction about Trump's public rhetoric, letting a low materiality score (0.35) become an excuse for inaction rather than a reason to size appropriately\u2014the signal was directionally sound, and I should have taken a smaller position instead of skipping entirely. The 63% move confirms Trump's consistent pattern of public insults toward foreign leaders is predictable enough to trade, and my hesitation reveals a bias toward dismissing \"low materiality\" signals rather than respecting their edge. Going forward, I need to distinguish between \"low confidence\" (skip) and \"low magnitude but high probability\" (small position)\u2014this was clearly the latter."
+    },
+    {
+      "time": "2026-06-23 22:00:32",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "slug": "who-will-trump-publicly-insult-by-june-30",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 63.0,
+      "reflection": "I underweighted a clear behavioral pattern\u2014Trump's documented tendency to publicly insult political opponents, especially those he perceives as weak or ideologically opposed\u2014and let a low materiality threshold (0.35) create false confidence that the signal wasn't actionable. The 63% move vindicated the bearish case, and I should have recognized that even modest confidence in Trump's predictable combativeness warranted at least a small position rather than complete avoidance."
+    },
+    {
+      "time": "2026-06-23 22:00:30",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
       "direction": "bullish",
       "materiality": 0.35,
       "action": "low_materiality",
-      "pct_move": 13.2,
-      "reflection": "I underweighted a 35% materiality signal based on an arbitrary threshold, and the market proved me wrong by moving 13% in the bullish direction\u2014a meaningful swing that I should have captured. My skip logic was too rigid; I treated materiality as binary when I should have recognized that even moderate conviction (0.35) on a concrete binary event like token launch timing deserves at least a small position. I'll recalibrate to treat low-materiality signals as sizing problems, not skip problems."
+      "pct_move": 20.0,
+      "reflection": "I underweighted a signal with genuine predictive power because I anchored too rigidly on the 0.35 materiality threshold\u2014but I should have recognized that low-probability, high-impact political events often move markets *precisely because* most participants dismiss them as immaterial until they materialize. My skip cost me 20% in alpha, a reminder that materiality and market-moving potential aren't always correlated, especially in event-driven trading where conviction matters more than conventional significance scoring."
     },
     {
-      "time": "2026-06-22 22:00:40",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
+      "time": "2026-06-23 22:00:28",
+      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
+      "slug": "how-high-will-polymarkets-mindshare-go-by-june-30",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 29.6,
-      "reflection": "I flagged this as only moderately bearish (0.35 materiality) and skipped it, but I underestimated how strongly the market would price in Trump's documented pattern of public insults toward foreign leaders\u2014a behavioral baseline I should have weighted more heavily rather than discounting as mere noise. The 30% move vindicated the signal's direction, revealing that my skip threshold was miscalibrated; I was treating diplomatic restraint as more likely than Trump's actual track record warranted, letting false equivalence between \"might insult\" and \"probably won't\" paralyze my decision-making. This is a clean miss where better calibration to historical behavior over abstract possibility would have converted a weak conviction into actual edge."
-    },
-    {
-      "time": "2026-06-22 22:00:37",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 29.6,
-      "reflection": "I underweighted a straightforward behavioral prediction about Trump's public rhetoric, letting a low materiality score (0.35) become an excuse to avoid conviction rather than a reason to size appropriately. The signal was actually well-calibrated to Trump's documented pattern of personal attacks on political figures, and I should have taken a smaller position instead of skipping entirely\u2014the 30% move vindicated the bearish thesis, but I captured none of it because I conflated \"low materiality\" with \"not worth trading.\" I need to distinguish between \"this doesn't move markets much\" and \"this is unlikely to happen,\" and size accordingly rather than using low materiality as a skip button."
-    },
-    {
-      "time": "2026-06-22 22:00:34",
-      "market_question": "Will Anthropic\u2019s market cap be 1.8T or greater at market close on IPO day by December 31 2027?",
-      "slug": "anthropic-ipo-closing-market-cap-979",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "stale",
-      "pct_move": 20.7,
-      "reflection": "I passed on a bearish signal I rated as only moderately material (0.35), dismissing it as stale data, but the market validated that thesis with a decisive 21% move in my predicted direction\u2014a clear miss where I let recency bias override conviction in the underlying analysis. The stale label was a convenient filter that cost me real edge; I should have weighted the signal's fundamental merit more heavily than its temporal freshness, especially on a low-materiality call where I wasn't risking much. This is a reminder that \"stale\" doesn't mean wrong, and sometimes the best trades sit quietly before they move."
+      "pct_move": 54.5,
+      "reflection": "I flagged this as bearish with moderate conviction (0.35 materiality), but my skip decision cost me\u2014the market moved 55% in exactly the direction I'd identified, which suggests my signal was directionally sound yet I lacked the confidence to act on it. The low materiality threshold I set was probably too conservative for a prediction market where mindshare concentration is measurable and trending; I should have trusted the signal strength relative to the market's initial pricing. This is a reminder that sometimes the gap between \"I see this\" and \"I'm willing to trade this\" is just risk aversion masquerading as prudence."
     }
   ],
   "pending_suggestions": []
