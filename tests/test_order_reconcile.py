@@ -220,3 +220,68 @@ def test_get_order_raising_is_error_not_found(tmp_db, monkeypatch):
     monkeypatch.setattr(client_mod.ClobClient, "get_order", lambda self, oid: boom(oid))
     result = executor.execute_trade(_signal())
     assert result["status"] == "error_not_found"
+
+
+def test_lowercase_filled_status_is_executed(tmp_db, monkeypatch):
+    # v2 may report lowercase 'filled'; status matching is case-insensitive.
+    _setup(monkeypatch)
+    _install_fake_clob(monkeypatch, {"status": "filled", "filledAmount": "0"})
+    result = executor.execute_trade(_signal())
+    assert result["status"] == "executed"
+
+
+def test_camelcase_filled_amount_counts_as_fill(tmp_db, monkeypatch):
+    # No matched status, but a camelCase filledAmount > 0 still means a fill.
+    _setup(monkeypatch)
+    _install_fake_clob(monkeypatch, {"status": "LIVE", "filledAmount": "12"})
+    result = executor.execute_trade(_signal())
+    assert result["status"] == "executed"
+
+
+def test_reconcile_falls_back_to_open_orders_when_get_order_missing(tmp_db, monkeypatch):
+    # A v2 client without get_order: reconcile scans get_open_orders by id.
+    _setup(monkeypatch)
+    _install_fake_clob(monkeypatch, None)
+    import py_clob_client_v2 as client_mod
+    monkeypatch.delattr(client_mod.ClobClient, "get_order", raising=False)
+    monkeypatch.setattr(
+        client_mod.ClobClient, "get_open_orders",
+        lambda self, *a, **k: [{"orderID": "other", "status": "LIVE"},
+                               {"orderID": "order-123", "status": "MATCHED"}],
+        raising=False,
+    )
+    result = executor.execute_trade(_signal())
+    assert result["status"] == "executed"
+
+
+def test_resting_order_is_cancelled(tmp_db, monkeypatch):
+    # An unfilled (resting) GTC buy must be cancelled via OrderPayload, not left
+    # dangling on the book.
+    _setup(monkeypatch)
+    _install_fake_clob(monkeypatch, {"status": "LIVE", "size_matched": "0"})
+
+    cancelled = []
+    import py_clob_client_v2 as client_mod
+    client_mod.OrderPayload = lambda orderID: ("payload", orderID)
+    monkeypatch.setattr(
+        client_mod.ClobClient, "cancel_order",
+        lambda self, payload: cancelled.append(payload), raising=False,
+    )
+
+    result = executor.execute_trade(_signal())
+    assert result["status"] == "resting"
+    assert cancelled == [("payload", "order-123")]
+
+
+def test_attribute_error_in_live_execution_is_logged(tmp_db, monkeypatch):
+    # A v2 API mismatch (missing attribute) surfaces as error_AttributeError.
+    _setup(monkeypatch)
+    _install_fake_clob(monkeypatch, {"status": "MATCHED"})
+    import py_clob_client_v2 as client_mod
+
+    def boom(self, signed, order_type):
+        raise AttributeError("'ClobClient' object has no attribute 'post_order'")
+
+    monkeypatch.setattr(client_mod.ClobClient, "post_order", boom)
+    result = executor.execute_trade(_signal())
+    assert result["status"] == "error_AttributeError"

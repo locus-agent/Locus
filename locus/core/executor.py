@@ -387,19 +387,69 @@ def _field(obj, *names):
     return None
 
 
+def _fetch_order(client, order_id: str):
+    """Fetch a single order's state, tolerant of v2 client API differences.
+
+    The v2 client exposes `get_order(order_id)`, but the method surface has
+    shifted across releases. If `get_order` is missing we fall back to listing
+    open orders (`get_open_orders`/`get_orders`) and matching by id — both id
+    spellings ('id'/'orderID'/'order_id') are accepted. Returns the order
+    object/dict, or None if nothing matches. Raises AttributeError only when the
+    client offers no order-query method at all (so the caller can log it)."""
+    getter = getattr(client, "get_order", None)
+    if callable(getter):
+        return getter(order_id)
+
+    lister = (getattr(client, "get_open_orders", None)
+              or getattr(client, "get_orders", None))
+    if not callable(lister):
+        raise AttributeError(
+            "CLOB client exposes neither get_order nor get_open_orders/get_orders"
+        )
+    orders = lister() or []
+    for o in orders:
+        oid = _field(o, "id", "orderID", "order_id")
+        if oid is not None and str(oid) == str(order_id):
+            return o
+    return None
+
+
+def cancel_order_safe(client, order_id: str) -> bool:
+    """Best-effort cancel of a resting order via the v2 cancel API.
+
+    v2's `cancel_order` takes an `OrderPayload(orderID=...)`, not a bare string;
+    passing a string raises (the payload is dataclass-typed). OrderPayload lives
+    in `py_clob_client_v2.clob_types` (re-exported at the top level), so we try
+    both. Returns True on a clean cancel, False on any failure (missing method,
+    already gone, network) — callers treat cancellation as best-effort cleanup."""
+    try:
+        try:
+            from py_clob_client_v2.clob_types import OrderPayload
+        except ImportError:
+            from py_clob_client_v2 import OrderPayload
+        client.cancel_order(OrderPayload(orderID=order_id))
+        log.info("[executor] cancelled resting order %s", order_id)
+        return True
+    except Exception as e:
+        log.warning("[executor] cancel of order %s failed (%s): %s",
+                    order_id, type(e).__name__, e)
+        return False
+
+
 def reconcile_order(client, order_id: str) -> str:
     """Re-query a just-posted GTC order to learn its real fill status.
 
     A GTC order can rest unfilled on the book — post_order returning an order_id
     does NOT mean we got a fill. After ORDER_RECONCILE_WAIT_SECONDS we ask the
-    exchange:
-      - status MATCHED, or any matched/filled size > 0 -> "executed" (real fill)
-      - status LIVE (resting, unfilled)                 -> "resting" (no fill yet)
-      - order not found / query error                   -> "error_not_found"
+    exchange (matching is case-insensitive; the v2 fill field has several
+    spellings):
+      - status MATCHED/FILLED, or any matched/filled size > 0 -> "executed"
+      - status LIVE (resting, unfilled)                       -> "resting"
+      - order not found / query error                         -> "error_not_found"
     """
     time.sleep(config.ORDER_RECONCILE_WAIT_SECONDS)
     try:
-        order = client.get_order(order_id)
+        order = _fetch_order(client, order_id)
     except Exception as e:
         log.error("[executor] order reconcile failed for %s: %s", order_id, e)
         return "error_not_found"
@@ -408,14 +458,16 @@ def reconcile_order(client, order_id: str) -> str:
         return "error_not_found"
 
     status = (_field(order, "status") or "").upper()
-    filled_raw = _field(order, "size_matched", "filled_size", "matched_size")
+    # v2 fill field varies: size_matched (snake) / filledAmount (camel) / etc.
+    filled_raw = _field(order, "size_matched", "filled_size", "matched_size",
+                        "filledAmount", "filled")
     try:
         filled = float(filled_raw) if filled_raw is not None else 0.0
     except (TypeError, ValueError):
         filled = 0.0
 
-    if status == "MATCHED" or filled > 0:
-        log.info("[executor] order %s reconciled: filled (status=%s, size_matched=%s)",
+    if status in ("MATCHED", "FILLED") or filled > 0:
+        log.info("[executor] order %s reconciled: filled (status=%s, filled=%s)",
                  order_id, status or "?", filled)
         return "executed"
     if status == "LIVE":
@@ -480,10 +532,22 @@ def _execute_live(signal: Signal) -> dict:
         # A posted GTC order may rest unfilled — reconcile against the exchange
         # before claiming a fill (only a confirmed fill opens a local position).
         status = reconcile_order(client, order_id)
+        if status == "resting":
+            # We open no local position for an unfilled order, so don't leave it
+            # resting on the book where it could fill later untracked — cancel it.
+            cancel_order_safe(client, order_id)
         return _log_and_return(signal, status=status, order_id=order_id)
 
     except ImportError:
         return _log_and_return(signal, status="error_no_clob_client", order_id=None)
+    except AttributeError as e:
+        # The v2 client surface differs from a method/attr we call above. Log the
+        # full traceback so the exact missing attribute is visible in watch.log.
+        log.error(
+            "[executor] AttributeError in live execution (py_clob_client_v2 API "
+            "mismatch): %s", e, exc_info=True,
+        )
+        return _log_and_return(signal, status="error_AttributeError", order_id=None)
     except Exception as e:
         return _log_and_return(signal, status=f"error_{type(e).__name__}", order_id=None)
 
