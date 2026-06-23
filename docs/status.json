@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T10:51:24.036113+00:00",
-  "last_heartbeat": "2026-06-23T10:51:24.036113+00:00",
-  "uptime_seconds": 57467,
+  "generated_at": "2026-06-23T10:56:29.337060+00:00",
+  "last_heartbeat": "2026-06-23T10:56:29.337060+00:00",
+  "uptime_seconds": 57772,
   "dry_run": false,
   "markets_tracked": 1346,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 302,
+  "headlines_scanned_today": 305,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 8719,
+  "classifications_24h": 8724,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3571,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T10:39:19.317470+00:00"
+    "last_check": "2026-06-23T10:54:20.075514+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2255,
-    "matched": 958,
-    "classified": 8719,
+    "news": 2256,
+    "matched": 960,
+    "classified": 8724,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1687.3
+    "avg_classification_latency_ms": 1686.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,57 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 10:46:37",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Crypto market drops as Nasdaq tech selloff spills into digital assets",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 10:46:37",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "Crypto market drops as Nasdaq tech selloff spills into digital assets",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 10:46:36",
-      "market_question": "Another crypto hack over $100m by September 30?",
-      "headline": "Crypto market drops as Nasdaq tech selloff spills into digital assets",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 10:46:36",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Crypto market drops as Nasdaq tech selloff spills into digital assets",
+      "time": "2026-06-23 10:55:23",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "\u2018Nobody cares\u2019 says Trump as Energy Secretary attempts to get dates right - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,18 +375,66 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 10:46:35",
-      "market_question": "Another crypto hack over $100m by December 31?",
-      "headline": "Crypto market drops as Nasdaq tech selloff spills into digital assets",
+      "time": "2026-06-23 10:55:23",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "\u2018Nobody cares\u2019 says Trump as Energy Secretary attempts to get dates right - AP News",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 10:55:23",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "\u2018Nobody cares\u2019 says Trump as Energy Secretary attempts to get dates right - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 10:55:23",
+      "market_question": "Will Trump resign by December 31, 2026?",
+      "headline": "\u2018Nobody cares\u2019 says Trump as Energy Secretary attempts to get dates right - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 10:55:23",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "\u2018Nobody cares\u2019 says Trump as Energy Secretary attempts to get dates right - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
