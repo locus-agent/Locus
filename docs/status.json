@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T13:35:01.084726+00:00",
-  "last_heartbeat": "2026-06-23T13:35:01.084726+00:00",
-  "uptime_seconds": 3094,
+  "generated_at": "2026-06-23T13:40:06.869440+00:00",
+  "last_heartbeat": "2026-06-23T13:40:06.869440+00:00",
+  "uptime_seconds": 3400,
   "dry_run": false,
-  "markets_tracked": 1360,
+  "markets_tracked": 1359,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8178,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1236,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1238,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 10985,
+  "classifications_24h": 10975,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4567,
+    "prefiltered_haiku": 4561,
     "stale": 28,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -97,7 +97,7 @@
     "price_target_market": 1,
     "correlation_block": 0,
     "category_limit": 0,
-    "orderbook_skip": 4,
+    "orderbook_skip": 3,
     "already_priced_in": 1,
     "needs_confirmation": 0,
     "event_exposure_block": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2903,
-    "matched": 1016,
-    "classified": 10985,
+    "news": 2902,
+    "matched": 1017,
+    "classified": 10975,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2429.4
+    "avg_classification_latency_ms": 2468.6
   },
   "live_readiness": {
     "ready": true,
@@ -359,41 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 13:34:39",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Bath & Body Works partners with Ulta Beauty as it looks to boost sales - Reuters",
+      "time": "2026-06-23 13:38:50",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "SpaceX extends losses after $600 billion wipeout, tech stocks slide again - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 13:34:37",
-      "market_question": "Another crypto hack over $100m by December 31?",
-      "headline": "OKX Europe chief says 80% of crypto exchanges won\u2019t survive MiCA as deadline nears",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 13:34:37",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Bath & Body Works partners with Ulta Beauty as it looks to boost sales - Reuters",
+      "time": "2026-06-23 13:38:50",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Digital euro clears key hurdle as EU seeks to break free from U.S. credit cards - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,9 +391,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 13:34:37",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Bath & Body Works partners with Ulta Beauty as it looks to boost sales - Reuters",
+      "time": "2026-06-23 13:38:50",
+      "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
+      "headline": "Digital euro clears key hurdle as EU seeks to break free from U.S. credit cards - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +407,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 13:34:37",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Bath & Body Works partners with Ulta Beauty as it looks to boost sales - Reuters",
+      "time": "2026-06-23 13:38:50",
+      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
+      "headline": "Digital euro clears key hurdle as EU seeks to break free from U.S. credit cards - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 13:38:50",
+      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
+      "headline": "Digital euro clears key hurdle as EU seeks to break free from U.S. credit cards - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
