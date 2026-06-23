@@ -225,10 +225,31 @@ def _diagnose_order_error(exc, token_id, price, size, side, tick_size=None) -> l
     return reasons
 
 
+def book_side(book, side: str) -> list:
+    """Resting levels for one book side ('bids' or 'asks').
+
+    py_clob_client_v2's `get_order_book` returns either an OrderBookSummary
+    object (with `.bids`/`.asks` attributes) or a plain dict
+    (`{'bids': [...], 'asks': [...]}`) depending on the release — tolerate both.
+    Returns [] when the side is absent or empty."""
+    if isinstance(book, dict):
+        levels = book.get(side)
+    else:
+        levels = getattr(book, side, None)
+    return levels or []
+
+
+def book_level_price_size(level) -> tuple[float, float]:
+    """(price, size) from a single book level, dict- or attribute-shaped."""
+    if isinstance(level, dict):
+        return float(level["price"]), float(level["size"])
+    return float(level.price), float(level.size)
+
+
 def _best_levels(book) -> tuple[float | None, float | None, float | None]:
     """(best_bid, best_ask, size_at_best_ask) from a CLOB OrderBookSummary."""
-    bids = [(float(b.price), float(b.size)) for b in (book.bids or [])]
-    asks = [(float(a.price), float(a.size)) for a in (book.asks or [])]
+    bids = [book_level_price_size(b) for b in book_side(book, "bids")]
+    asks = [book_level_price_size(a) for a in book_side(book, "asks")]
     best_bid = max(p for p, _ in bids) if bids else None
     best_ask_level = min(asks, key=lambda level: level[0]) if asks else None
     if best_ask_level is None:
@@ -239,8 +260,8 @@ def _best_levels(book) -> tuple[float | None, float | None, float | None]:
 def _bid_levels(book) -> tuple[float | None, float | None, float | None]:
     """(best_bid, best_ask, size_at_best_bid) from a CLOB OrderBookSummary —
     the sell-side counterpart of _best_levels (which reports size at best ask)."""
-    bids = [(float(b.price), float(b.size)) for b in (book.bids or [])]
-    asks = [(float(a.price), float(a.size)) for a in (book.asks or [])]
+    bids = [book_level_price_size(b) for b in book_side(book, "bids")]
+    asks = [book_level_price_size(a) for a in book_side(book, "asks")]
     best_ask = min(p for p, _ in asks) if asks else None
     best_bid_level = max(bids, key=lambda level: level[0]) if bids else None
     if best_bid_level is None:

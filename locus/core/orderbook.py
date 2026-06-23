@@ -70,9 +70,11 @@ def fetch_orderbook_imbalance(token_id: str | None,
     if not token_id:
         return None
     try:
+        from locus.core.executor import book_side, book_level_price_size
+
         book = _clob_client().get_order_book(token_id)
-        bids = [(float(b.price), float(b.size)) for b in (book.bids or [])]
-        asks = [(float(a.price), float(a.size)) for a in (book.asks or [])]
+        bids = [book_level_price_size(b) for b in book_side(book, "bids")]
+        asks = [book_level_price_size(a) for a in book_side(book, "asks")]
         return compute_imbalance(bids, asks, depth)
     except Exception as e:
         log.debug(f"[orderbook] imbalance fetch failed for {str(token_id)[:12]}: {e}")

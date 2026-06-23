@@ -131,6 +131,25 @@ def test_best_levels_empty_book():
     assert _best_levels(book) == (None, None, None)
 
 
+def test_best_levels_dict_book():
+    # py_clob_client_v2 may return a plain dict instead of an OrderBookSummary,
+    # with each level itself a dict — both shapes must extract identically.
+    book = {
+        "bids": [{"price": "0.01", "size": "600"}, {"price": "0.48", "size": "100"}],
+        "asks": [{"price": "0.99", "size": "100"}, {"price": "0.52", "size": "30"}],
+    }
+    best_bid, best_ask, ask_size = _best_levels(book)
+    assert best_bid == 0.48
+    assert best_ask == 0.52
+    assert ask_size == 30.0
+
+
+def test_best_levels_dict_book_missing_side():
+    # a dict with no 'asks' key must not raise — empty side, no best ask
+    book = {"bids": [{"price": "0.48", "size": "100"}]}
+    assert _best_levels(book) == (0.48, None, None)
+
+
 def test_round_to_tick_penny_market():
     # 0.01 tick: off-grid prices snap to the nearest penny
     assert round_to_tick(0.523, "0.01") == 0.52

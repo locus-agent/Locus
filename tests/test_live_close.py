@@ -78,6 +78,19 @@ def test_bid_levels_empty_book():
     assert executor._bid_levels(types.SimpleNamespace(bids=[], asks=[])) == (None, None, None)
 
 
+def test_bid_levels_dict_book():
+    # dict-shaped get_order_book response (with dict levels) — the AttributeError
+    # regression: 'dict' object has no attribute 'bids'.
+    book = {
+        "bids": [{"price": "0.48", "size": "100"}, {"price": "0.50", "size": "30"}],
+        "asks": [{"price": "0.55", "size": "100"}, {"price": "0.52", "size": "10"}],
+    }
+    best_bid, best_ask, bid_size = executor._bid_levels(book)
+    assert best_bid == 0.50
+    assert best_ask == 0.52
+    assert bid_size == 30.0
+
+
 # --- close_position_live: full path against a faked py_clob_client_v2 ---------
 
 def _install_fake_v2_module(monkeypatch, clob_client_cls):
