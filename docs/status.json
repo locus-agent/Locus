@@ -1,94 +1,94 @@
 {
-  "generated_at": "2026-06-23T10:56:29.337060+00:00",
-  "last_heartbeat": "2026-06-23T10:56:29.337060+00:00",
-  "uptime_seconds": 57772,
+  "generated_at": "2026-06-23T11:01:35.157495+00:00",
+  "last_heartbeat": "2026-06-23T11:01:35.157495+00:00",
+  "uptime_seconds": 58078,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1348,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 8116,
+    "total": 8157,
     "accuracy": 17.1,
     "by_category": {
       "other": 16.2,
-      "ai": 10.6,
+      "ai": 10.5,
       "politics": 21.8,
       "technology": 12.4,
-      "crypto": 12.2,
+      "crypto": 12.3,
       "sports": 26.2
     },
     "by_source": {
       "rss": 16.8,
-      "newsapi": 18.5,
+      "newsapi": 18.6,
       "truthsocial": 7.4
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.1,
-    "overall_total": 8116,
+    "overall_total": 8157,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4684,
-        "correct": 328,
+        "total": 4705,
+        "correct": 329,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 12.12,
+        "avg_pnl_pct": 12.17,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 700,
-        "correct": 260,
+        "total": 707,
+        "correct": 262,
         "accuracy_pct": 37.1,
-        "avg_pnl_pct": 30.75,
+        "avg_pnl_pct": 30.4,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 842,
-        "correct": 312,
-        "accuracy_pct": 37.1,
-        "avg_pnl_pct": 3.18,
+        "total": 845,
+        "correct": 313,
+        "accuracy_pct": 37.0,
+        "avg_pnl_pct": 3.17,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 438,
-        "correct": 108,
-        "accuracy_pct": 24.7,
-        "avg_pnl_pct": -3.12,
+        "total": 441,
+        "correct": 110,
+        "accuracy_pct": 24.9,
+        "avg_pnl_pct": -3.08,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 447,
-        "correct": 195,
-        "accuracy_pct": 43.6,
-        "avg_pnl_pct": 3.83,
+        "total": 448,
+        "correct": 196,
+        "accuracy_pct": 43.8,
+        "avg_pnl_pct": 3.86,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1005,
-        "correct": 183,
+        "total": 1011,
+        "correct": 184,
         "accuracy_pct": 18.2,
-        "avg_pnl_pct": -5.91,
+        "avg_pnl_pct": -5.96,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 305,
+  "headlines_scanned_today": 307,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 8724,
+  "classifications_24h": 8715,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3571,
+    "prefiltered_haiku": 3568,
     "stale": 19,
     "capped": 1,
     "too_close_to_resolution": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2256,
-    "matched": 960,
-    "classified": 8724,
+    "news": 2255,
+    "matched": 961,
+    "classified": 8715,
     "signals": 2,
     "trades": 2
   },
@@ -359,6 +359,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-23 10:57:32",
+      "market_question": "Will Donald Trump visit India in 2026?",
+      "headline": "India File: Rupee gets diaspora lifeline \u2014 banks cash in - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-23 10:55:23",
       "market_question": "Will Trump and Putin not meet?",
       "headline": "\u2018Nobody cares\u2019 says Trump as Energy Secretary attempts to get dates right - AP News",
@@ -409,22 +425,6 @@
     {
       "time": "2026-06-23 10:55:23",
       "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "\u2018Nobody cares\u2019 says Trump as Energy Secretary attempts to get dates right - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 10:55:23",
-      "market_question": "Will Trump be impeached by June 30?",
       "headline": "\u2018Nobody cares\u2019 says Trump as Energy Secretary attempts to get dates right - AP News",
       "direction": "neutral",
       "materiality": 0.0,
