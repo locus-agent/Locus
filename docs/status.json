@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T08:59:28.625498+00:00",
-  "last_heartbeat": "2026-06-23T08:59:28.625498+00:00",
-  "uptime_seconds": 50751,
+  "generated_at": "2026-06-23T09:04:33.708516+00:00",
+  "last_heartbeat": "2026-06-23T09:04:33.708516+00:00",
+  "uptime_seconds": 51056,
   "dry_run": false,
   "markets_tracked": 1351,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 253,
+  "headlines_scanned_today": 254,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 8984,
+  "classifications_24h": 8971,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3641,
+    "prefiltered_haiku": 3638,
     "stale": 19,
     "capped": 1,
     "too_close_to_resolution": 6,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2312,
+    "news": 2310,
     "matched": 959,
-    "classified": 8984,
+    "classified": 8971,
     "signals": 3,
     "trades": 4
   },
@@ -359,6 +359,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-23 09:03:19",
+      "market_question": "Will Sam Altman get OpenAI equity by June 30?",
+      "headline": "Ticket reseller StubHub customers to get \u00a310 refund over illegal hidden fees",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 09:03:19",
+      "market_question": "Will ECDSA.fail get at least 50% ahead of Google\u2019s classified circuit by June 30, 2026?",
+      "headline": "Ticket reseller StubHub customers to get \u00a310 refund over illegal hidden fees",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-23 08:56:43",
       "market_question": "Will Trump be impeached before his term ends?",
       "headline": "Jeffries gets preview of his future headaches - Politico",
@@ -405,38 +437,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 08:45:45",
-      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
-      "headline": "How Starmer went from Labour Party hero to calling it quits within 2 years - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 08:45:44",
-      "market_question": "Labour leadership election scheduled by June 30?",
-      "headline": "How Starmer went from Labour Party hero to calling it quits within 2 years - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
