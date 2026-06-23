@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T22:06:15.122246+00:00",
-  "last_heartbeat": "2026-06-23T22:06:15.122246+00:00",
-  "uptime_seconds": 5256,
+  "generated_at": "2026-06-23T22:11:21.663761+00:00",
+  "last_heartbeat": "2026-06-23T22:11:21.663761+00:00",
+  "uptime_seconds": 5563,
   "dry_run": false,
-  "markets_tracked": 1342,
+  "markets_tracked": 1344,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2901,
-  "headlines_last_cycle": 7,
+  "headlines_scanned_today": 2904,
+  "headlines_last_cycle": 2,
   "signals_24h": 10,
-  "classifications_24h": 11625,
+  "classifications_24h": 11598,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4249,
+    "prefiltered_haiku": 4237,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T21:53:55.531918+00:00"
+    "last_check": "2026-06-23T22:08:55.858838+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3013,
-    "matched": 936,
-    "classified": 11625,
+    "news": 3010,
+    "matched": 931,
+    "classified": 11598,
     "signals": 10,
     "trades": 10
   },
@@ -359,6 +359,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-23 22:11:13",
+      "market_question": "Will OpenAI release a social network in 2026?",
+      "headline": "Germany rail network comes to complete halt due to IT malfunction",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 22:11:13",
+      "market_question": "Will Donald Trump visit Germany in 2026?",
+      "headline": "Germany rail network comes to complete halt due to IT malfunction",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-23 22:05:51",
       "market_question": "Ethereum Up or Down - June 23, 6:00PM-6:05PM ET",
       "headline": "15+ deals at Walmart that beat out Prime Day prices right now - NBC News",
@@ -405,38 +437,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 22:05:51",
-      "market_question": "Ethereum Up or Down - June 23, 6:00PM-6:15PM ET",
-      "headline": "15+ deals at Walmart that beat out Prime Day prices right now - NBC News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 22:05:51",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Jets were 300 feet apart in Boston close call that forced Delta flight to abort landing, expert says - PBS",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
