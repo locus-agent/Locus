@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-23T14:31:05.423635+00:00",
-  "last_heartbeat": "2026-06-23T14:31:05.423635+00:00",
-  "uptime_seconds": 6458,
+  "generated_at": "2026-06-23T14:36:10.174702+00:00",
+  "last_heartbeat": "2026-06-23T14:36:10.174702+00:00",
+  "uptime_seconds": 6763,
   "dry_run": false,
-  "markets_tracked": 1361,
-  "classify_error_streak": 26,
+  "markets_tracked": 1360,
+  "classify_error_streak": 27,
   "track_record": {
     "total": 8178,
     "accuracy": 17.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1387,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1389,
+  "headlines_last_cycle": 2,
   "signals_24h": 1,
-  "classifications_24h": 10556,
+  "classifications_24h": 10563,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4348,
+    "prefiltered_haiku": 4349,
     "stale": 25,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 2788,
-    "matched": 1017,
-    "classified": 10556,
+    "matched": 1018,
+    "classified": 10563,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3330.8
+    "avg_classification_latency_ms": 3342.6
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 14:29:12",
-      "market_question": "Will Solana Sierra be the 2026 Women\u2019s Wimbledon Winner?",
-      "headline": "It\u2019s \u2018Serena being Serena\u2019 as Williams makes audacious singles return at Wimbledon - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 14:29:11",
-      "market_question": "Will another AI-generated song reach number 1 on any Billboard chart by June 30?",
-      "headline": "\u2018Very predatory\u2019: Hawaii recording artists say AI platforms are stealing their music - Hawaii News Now",
+      "time": "2026-06-23 14:35:59",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "PM to push ahead with controversial defence plan despite resignation",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -386,14 +370,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 14:29:06",
-      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
-      "headline": "\u2018Very predatory\u2019: Hawaii recording artists say AI platforms are stealing their music - Hawaii News Now",
+      "time": "2026-06-23 14:35:44",
+      "market_question": "Will Trump visit Pakistan by June 30?",
+      "headline": "Leading Pakistan activist given life sentence over soldier's killing at rally",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 14:35:44",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "PM to push ahead with controversial defence plan despite resignation",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 14:29:06",
-      "market_question": "Will the announcers say \"Trump\" during the Norway Vs Senegal FIFA World Cup Match?",
-      "headline": "\u2018Very predatory\u2019: Hawaii recording artists say AI platforms are stealing their music - Hawaii News Now",
+      "time": "2026-06-23 14:35:44",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "PM to push ahead with controversial defence plan despite resignation",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +423,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 14:26:55",
-      "market_question": "Will Donald Trump visit Russia in 2026?",
-      "headline": "Russia weighs fuel imports amid Ukrainian strikes, Crimea restricts public life - Reuters",
+      "time": "2026-06-23 14:35:44",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "PM to push ahead with controversial defence plan despite resignation",
       "direction": null,
       "materiality": null,
       "confidence": null,
