@@ -59,8 +59,8 @@ def orderbook_allows(side: str, imbalance_score: float | None,
 
 def _clob_client():
     """Minimal read-only CLOB client (get_order_book is a public endpoint).
-    Isolated so tests can patch it without importing py_clob_client."""
-    from py_clob_client.client import ClobClient
+    Isolated so tests can patch it without importing py_clob_client_v2."""
+    from py_clob_client_v2 import ClobClient
     return ClobClient(host=config.POLYMARKET_HOST, chain_id=137)
 
 

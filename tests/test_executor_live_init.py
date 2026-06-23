@@ -1,5 +1,5 @@
 """Live ClobClient initialization: the deposit wallet (POLY_1271) is wired in
-via funder + signature_type=3. py_clob_client is an optional dependency, so we
+via funder + signature_type=3. py_clob_client_v2 is an optional dependency, so we
 inject fakes into sys.modules and assert the init kwargs."""
 import sys
 import types
@@ -34,7 +34,7 @@ def _signal(bet_amount: float = 25.0):
 
 
 def _install_fake_clob(monkeypatch, captured):
-    """Stub out py_clob_client so _execute_live can construct a client and we
+    """Stub out py_clob_client_v2 so _execute_live can construct a client and we
     can capture the constructor kwargs. The fake returns an empty book so the
     flow stops early (status 'skipped_empty_book') before any real order."""
 
@@ -42,7 +42,7 @@ def _install_fake_clob(monkeypatch, captured):
         def __init__(self, **kwargs):
             captured.update(kwargs)
 
-        def create_or_derive_api_creds(self):
+        def create_or_derive_api_key(self):
             return "creds"
 
         def set_api_creds(self, creds):
@@ -51,18 +51,14 @@ def _install_fake_clob(monkeypatch, captured):
         def get_order_book(self, token_id):
             return types.SimpleNamespace(bids=[], asks=[])
 
-    client_mod = types.ModuleType("py_clob_client.client")
-    client_mod.ClobClient = FakeClobClient
+    mod = types.ModuleType("py_clob_client_v2")
+    mod.ClobClient = FakeClobClient
+    mod.OrderArgs = object
+    mod.OrderType = types.SimpleNamespace(GTC="GTC", FOK="FOK", FAK="FAK", GTD="GTD")
+    mod.Side = types.SimpleNamespace(BUY="BUY", SELL="SELL")
+    mod.PartialCreateOrderOptions = object
 
-    types_mod = types.ModuleType("py_clob_client.clob_types")
-    types_mod.OrderArgs = object
-    types_mod.OrderType = types.SimpleNamespace(GTC="GTC")
-
-    pkg = types.ModuleType("py_clob_client")
-
-    monkeypatch.setitem(sys.modules, "py_clob_client", pkg)
-    monkeypatch.setitem(sys.modules, "py_clob_client.client", client_mod)
-    monkeypatch.setitem(sys.modules, "py_clob_client.clob_types", types_mod)
+    monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
 
 
 def test_client_initialized_with_deposit_wallet_signature(tmp_db, monkeypatch):

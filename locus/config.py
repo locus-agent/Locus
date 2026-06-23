@@ -33,11 +33,12 @@ POLYMARKET_API_SECRET = os.getenv("POLYMARKET_API_SECRET", "")
 POLYMARKET_API_PASSPHRASE = os.getenv("POLYMARKET_API_PASSPHRASE", "")
 POLYMARKET_PRIVATE_KEY = os.getenv("POLYMARKET_PRIVATE_KEY", "")
 # Funded-wallet trading: the deposit wallet ADDRESS that holds the USDC and its
-# signature type (1 = email/Magic proxy, 2 = browser wallet proxy, 3 = POLY_1271
-# deposit wallet). Defaults to 3 (deposit wallet). Leave the address unset for a
-# plain EOA wallet signing with POLYMARKET_PRIVATE_KEY.
+# signature type (0 = EOA, 1 = email/Magic proxy a.k.a. POLY_PROXY, 2 = browser
+# wallet Gnosis Safe proxy, 3 = POLY_1271 deposit wallet). Defaults to 1
+# (email/Magic proxy). Leave the address unset for a plain EOA wallet signing
+# with POLYMARKET_PRIVATE_KEY.
 POLYMARKET_FUNDER_ADDRESS = os.getenv("POLYMARKET_FUNDER_ADDRESS", "")
-POLYMARKET_SIGNATURE_TYPE = int(os.getenv("POLYMARKET_SIGNATURE_TYPE", "3"))
+POLYMARKET_SIGNATURE_TYPE = int(os.getenv("POLYMARKET_SIGNATURE_TYPE", "1"))
 # Live orders: skip when the book's spread exceeds this (the apparent edge
 # is mostly spread on thin niche books).
 LIVE_MAX_SPREAD = float(os.getenv("LIVE_MAX_SPREAD", "0.05"))

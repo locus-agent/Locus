@@ -6,7 +6,7 @@ maps the real order state to a status:
   - LIVE (resting, unfilled)  -> "resting"
   - missing / query error     -> "error_not_found"
 
-py_clob_client is an optional dependency, so we inject fakes into sys.modules.
+py_clob_client_v2 is an optional dependency, so we inject fakes into sys.modules.
 """
 import sys
 import types
@@ -41,7 +41,7 @@ def _signal(bet_amount: float = 25.0):
 
 
 def _install_fake_clob(monkeypatch, get_order_result):
-    """Stub py_clob_client with a book deep enough to place a BUY, a post_order
+    """Stub py_clob_client_v2 with a book deep enough to place a BUY, a post_order
     that returns an order_id, and a get_order returning `get_order_result`."""
 
     class FakeOrderArgs:
@@ -52,7 +52,7 @@ def _install_fake_clob(monkeypatch, get_order_result):
         def __init__(self, **kwargs):
             pass
 
-        def create_or_derive_api_creds(self):
+        def create_or_derive_api_key(self):
             return "creds"
 
         def set_api_creds(self, creds):
@@ -68,7 +68,7 @@ def _install_fake_clob(monkeypatch, get_order_result):
         def get_tick_size(self, token_id):
             return "0.01"
 
-        def create_order(self, order_args):
+        def create_order(self, order_args, options=None):
             return "signed"
 
         def post_order(self, signed, order_type):
@@ -77,18 +77,14 @@ def _install_fake_clob(monkeypatch, get_order_result):
         def get_order(self, order_id):
             return get_order_result
 
-    client_mod = types.ModuleType("py_clob_client.client")
-    client_mod.ClobClient = FakeClobClient
+    mod = types.ModuleType("py_clob_client_v2")
+    mod.ClobClient = FakeClobClient
+    mod.OrderArgs = FakeOrderArgs
+    mod.OrderType = types.SimpleNamespace(GTC="GTC", FOK="FOK", FAK="FAK", GTD="GTD")
+    mod.Side = types.SimpleNamespace(BUY="BUY", SELL="SELL")
+    mod.PartialCreateOrderOptions = FakeOrderArgs
 
-    types_mod = types.ModuleType("py_clob_client.clob_types")
-    types_mod.OrderArgs = FakeOrderArgs
-    types_mod.OrderType = types.SimpleNamespace(GTC="GTC")
-
-    pkg = types.ModuleType("py_clob_client")
-
-    monkeypatch.setitem(sys.modules, "py_clob_client", pkg)
-    monkeypatch.setitem(sys.modules, "py_clob_client.client", client_mod)
-    monkeypatch.setitem(sys.modules, "py_clob_client.clob_types", types_mod)
+    monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
 
 
 def _setup(monkeypatch):
@@ -137,7 +133,7 @@ def test_get_order_raising_is_error_not_found(tmp_db, monkeypatch):
     def boom(order_id):
         raise RuntimeError("network down")
 
-    import py_clob_client.client as client_mod
+    import py_clob_client_v2 as client_mod
     monkeypatch.setattr(client_mod.ClobClient, "get_order", lambda self, oid: boom(oid))
     result = executor.execute_trade(_signal())
     assert result["status"] == "error_not_found"

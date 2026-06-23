@@ -162,17 +162,19 @@ def round_to_tick(price: float, tick_size) -> float:
     return max(tick, min(rounded, round(1 - tick, decimals)))
 
 
-def _get_tick_size(client, token_id: str) -> float:
-    """Market minimum tick via the CLOB client, defaulting to 0.01 on error.
+def _get_tick_size(client, token_id: str) -> str:
+    """Market minimum tick via the CLOB client, defaulting to "0.01" on error.
 
-    `get_tick_size` returns a string ("0.01"/"0.001"); we keep it as a float
-    for arithmetic but the original is fine to hand back to `round_to_tick`."""
+    `get_tick_size` returns one of the string literals "0.1"/"0.01"/"0.001"/
+    "0.0001". We keep it as the string: `round_to_tick` accepts a str fine, and
+    v2's `PartialCreateOrderOptions(tick_size=...)` requires exactly this literal
+    form (not a float)."""
     try:
-        return float(client.get_tick_size(token_id))
+        return str(client.get_tick_size(token_id))
     except Exception as e:
         log.warning("[executor] tick-size fetch failed for %s (%s); defaulting to 0.01",
                     token_id, e)
-        return 0.01
+        return "0.01"
 
 
 def _diagnose_order_error(exc, token_id, price, size, side, tick_size=None) -> list[str]:
@@ -237,9 +239,9 @@ def create_clob_client():
     `key` is the SIGNING key (wallet private key). `funder` is the deposit
     wallet ADDRESS that holds the USDC, paired with its signature_type
     (3 = POLY_1271 deposit wallet). Omit both for a plain EOA wallet.
-    Raises ImportError when py_clob_client (an optional dependency) is absent.
+    Raises ImportError when py_clob_client_v2 (an optional dependency) is absent.
     """
-    from py_clob_client.client import ClobClient
+    from py_clob_client_v2 import ClobClient
 
     client_kwargs = dict(
         host=config.POLYMARKET_HOST,
@@ -250,7 +252,7 @@ def create_clob_client():
         client_kwargs["funder"] = config.POLYMARKET_FUNDER_ADDRESS
         client_kwargs["signature_type"] = config.POLYMARKET_SIGNATURE_TYPE
     client = ClobClient(**client_kwargs)
-    client.set_api_creds(client.create_or_derive_api_creds())
+    client.set_api_creds(client.create_or_derive_api_key())
     return client
 
 
@@ -286,7 +288,7 @@ def close_position_live(
     the caller must NOT record a local close on any other status."""
     max_spread = config.LIVE_MAX_SPREAD if max_spread is None else max_spread
     try:
-        from py_clob_client.clob_types import OrderArgs, OrderType
+        from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
 
         client = create_clob_client()
         token_id = _resolve_token_id(client, condition_id, side)
@@ -305,13 +307,15 @@ def close_position_live(
         price = round_to_tick(price, tick_size)
 
         order_args = OrderArgs(
+            token_id=token_id,
             price=price,
             size=sell_shares,
-            side="SELL",
-            token_id=token_id,
+            side=Side.SELL,
         )
         try:
-            signed_order = client.create_order(order_args)
+            signed_order = client.create_order(
+                order_args, PartialCreateOrderOptions(tick_size=tick_size)
+            )
             resp = client.post_order(signed_order, OrderType.GTC)
         except Exception as order_exc:
             _diagnose_order_error(order_exc, token_id, price, sell_shares, "SELL", tick_size)
@@ -340,7 +344,7 @@ def get_live_balance() -> float | None:
     py_clob_client is absent or the call errors, so the Telegram balance view
     never crashes on a live-mode fetch."""
     try:
-        from py_clob_client.clob_types import BalanceAllowanceParams, AssetType
+        from py_clob_client_v2 import BalanceAllowanceParams, AssetType
 
         client = create_clob_client()
         resp = client.get_balance_allowance(
@@ -410,7 +414,7 @@ def reconcile_order(client, order_id: str) -> str:
 def _execute_live(signal: Signal) -> dict:
     """Place a real order via Polymarket CLOB client, orderbook-aware."""
     try:
-        from py_clob_client.clob_types import OrderArgs, OrderType
+        from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
 
         client = create_clob_client()
 
@@ -434,14 +438,16 @@ def _execute_live(signal: Signal) -> dict:
         price = round_to_tick(price, tick_size)
 
         order_args = OrderArgs(
+            token_id=token_id,
             price=price,
             size=shares,
-            side="BUY",
-            token_id=token_id,
+            side=Side.BUY,
         )
 
         try:
-            signed_order = client.create_order(order_args)
+            signed_order = client.create_order(
+                order_args, PartialCreateOrderOptions(tick_size=tick_size)
+            )
             resp = client.post_order(signed_order, OrderType.GTC)
         except Exception as order_exc:
             _diagnose_order_error(order_exc, token_id, price, shares, "BUY", tick_size)

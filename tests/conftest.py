@@ -23,7 +23,7 @@ def _force_dry_run(monkeypatch):
     instead of hitting the real CLOB — a developer .env may set DRY_RUN=false
     (they trade --live), and without this the suite would place/await real
     orders. Tests that exercise the live path set DRY_RUN=false explicitly and
-    fake py_clob_client / executor.close_position_live."""
+    fake py_clob_client_v2 / executor.close_position_live."""
     from locus import config
 
     monkeypatch.setattr(config, "DRY_RUN", True, raising=False)

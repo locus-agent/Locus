@@ -78,14 +78,40 @@ def test_bid_levels_empty_book():
     assert executor._bid_levels(types.SimpleNamespace(bids=[], asks=[])) == (None, None, None)
 
 
-# --- close_position_live: full path against a faked py_clob_client ------------
+# --- close_position_live: full path against a faked py_clob_client_v2 ---------
+
+def _install_fake_v2_module(monkeypatch, clob_client_cls):
+    """Inject a flat `py_clob_client_v2` module exposing every name the executor
+    imports (ClobClient + OrderArgs/OrderType/Side/PartialCreateOrderOptions +
+    BalanceAllowanceParams/AssetType), wired to the given fake client class."""
+    class OrderArgs:
+        def __init__(self, **kw):
+            self.__dict__.update(kw)
+
+    class PartialCreateOrderOptions:
+        def __init__(self, **kw):
+            self.__dict__.update(kw)
+
+    mod = types.ModuleType("py_clob_client_v2")
+    mod.ClobClient = clob_client_cls
+    mod.OrderArgs = OrderArgs
+    mod.PartialCreateOrderOptions = PartialCreateOrderOptions
+    mod.OrderType = types.SimpleNamespace(GTC="GTC", FOK="FOK", FAK="FAK", GTD="GTD")
+    # v2 sides are an enum; the executor only ever uses the members, and the
+    # tests assert against the string values, so SimpleNamespace is enough.
+    mod.Side = types.SimpleNamespace(BUY="BUY", SELL="SELL")
+    mod.BalanceAllowanceParams = lambda **kw: ("params", kw)
+    mod.AssetType = types.SimpleNamespace(COLLATERAL="COLLATERAL", CONDITIONAL="CONDITIONAL")
+    monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
+    return mod
+
 
 def _install_fake_clob(monkeypatch, captured, book):
     class FakeClobClient:
         def __init__(self, **kwargs):
             captured["init"] = kwargs
 
-        def create_or_derive_api_creds(self):
+        def create_or_derive_api_key(self):
             return "creds"
 
         def set_api_creds(self, creds):
@@ -102,29 +128,19 @@ def _install_fake_clob(monkeypatch, captured, book):
             captured["book_token"] = token_id
             return book
 
-        def create_order(self, order_args):
+        def get_tick_size(self, token_id):
+            return "0.01"
+
+        def create_order(self, order_args, options=None):
             captured["order_args"] = order_args
+            captured["options"] = options
             return "signed-order"
 
         def post_order(self, signed, order_type):
             captured["posted"] = (signed, order_type)
             return {"orderID": "LIVE-123"}
 
-    client_mod = types.ModuleType("py_clob_client.client")
-    client_mod.ClobClient = FakeClobClient
-
-    class OrderArgs:
-        def __init__(self, **kw):
-            self.__dict__.update(kw)
-
-    types_mod = types.ModuleType("py_clob_client.clob_types")
-    types_mod.OrderArgs = OrderArgs
-    types_mod.OrderType = types.SimpleNamespace(GTC="GTC")
-
-    pkg = types.ModuleType("py_clob_client")
-    monkeypatch.setitem(sys.modules, "py_clob_client", pkg)
-    monkeypatch.setitem(sys.modules, "py_clob_client.client", client_mod)
-    monkeypatch.setitem(sys.modules, "py_clob_client.clob_types", types_mod)
+    _install_fake_v2_module(monkeypatch, FakeClobClient)
 
 
 def test_close_position_live_places_sell_order(monkeypatch):
@@ -157,14 +173,9 @@ def test_close_position_live_places_sell_order(monkeypatch):
 
 
 def _install_fake_balance_types(monkeypatch):
-    """Inject py_clob_client.clob_types with the balance params get_live_balance
-    imports, so the success/error paths can run without the real dependency."""
-    clob_types = types.ModuleType("py_clob_client.clob_types")
-    clob_types.BalanceAllowanceParams = lambda **kw: ("params", kw)
-    clob_types.AssetType = types.SimpleNamespace(COLLATERAL="COLLATERAL")
-    pkg = types.ModuleType("py_clob_client")
-    monkeypatch.setitem(sys.modules, "py_clob_client", pkg)
-    monkeypatch.setitem(sys.modules, "py_clob_client.clob_types", clob_types)
+    """Inject py_clob_client_v2 with the balance params get_live_balance imports,
+    so the success/error paths can run without the real dependency."""
+    _install_fake_v2_module(monkeypatch, clob_client_cls=object)
 
 
 def test_get_live_balance_divides_by_usdc_decimals(monkeypatch):
@@ -274,7 +285,7 @@ def _install_fake_clob_failing_order(monkeypatch, captured, book):
         def __init__(self, **kwargs):
             captured["init"] = kwargs
 
-        def create_or_derive_api_creds(self):
+        def create_or_derive_api_key(self):
             return "creds"
 
         def set_api_creds(self, creds):
@@ -290,7 +301,7 @@ def _install_fake_clob_failing_order(monkeypatch, captured, book):
         def get_tick_size(self, token_id):
             return "0.01"
 
-        def create_order(self, order_args):
+        def create_order(self, order_args, options=None):
             return "signed-order"
 
         def post_order(self, signed, order_type):
@@ -298,21 +309,7 @@ def _install_fake_clob_failing_order(monkeypatch, captured, book):
             exc.error_msg = "not enough balance"
             raise exc
 
-    client_mod = types.ModuleType("py_clob_client.client")
-    client_mod.ClobClient = FakeClobClient
-
-    class OrderArgs:
-        def __init__(self, **kw):
-            self.__dict__.update(kw)
-
-    types_mod = types.ModuleType("py_clob_client.clob_types")
-    types_mod.OrderArgs = OrderArgs
-    types_mod.OrderType = types.SimpleNamespace(GTC="GTC")
-
-    pkg = types.ModuleType("py_clob_client")
-    monkeypatch.setitem(sys.modules, "py_clob_client", pkg)
-    monkeypatch.setitem(sys.modules, "py_clob_client.client", client_mod)
-    monkeypatch.setitem(sys.modules, "py_clob_client.clob_types", types_mod)
+    _install_fake_v2_module(monkeypatch, FakeClobClient)
 
 
 def test_close_position_live_order_rejection_returns_close_failed(monkeypatch):

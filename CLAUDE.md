@@ -143,7 +143,7 @@ PipelineV2._execute_signals:
   market that fails the bar is suppressed (action `reentry_blocked`).
 - `core/executor.py` enforces `DAILY_SPEND_LIMIT_USD` (total notional deployed per day,
   not realized losses; checked via `logger.get_daily_pnl`, which counts `dry_run` rows too),
-  then either logs a `dry_run` row or places a live order via `py_clob_client`
+  then either logs a `dry_run` row or places a live order via `py_clob_client_v2`
   (optional dependency, commented out in requirements.txt — install separately).
 
 The read-only Textual dashboard (`cli.py dashboard`) lives in `ui/tui.py` and renders

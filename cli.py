@@ -305,16 +305,16 @@ def cmd_verify(args):
         config.POLYMARKET_PRIVATE_KEY or config.POLYMARKET_FUNDER_ADDRESS
     )
 
-    # 11a. py_clob_client import (optional dependency, installed separately)
+    # 11a. py_clob_client_v2 import (optional dependency, installed separately)
     try:
-        import py_clob_client  # noqa: F401
-        console.print(f"    [bright_green]PASS[/bright_green]  py_clob_client installed")
+        import py_clob_client_v2  # noqa: F401
+        console.print(f"    [bright_green]PASS[/bright_green]  py_clob_client_v2 installed")
         has_clob = True
     except ImportError:
         msg = "[red]FAIL[/red]" if live_intended else "[dim]SKIP[/dim]"
         console.print(
-            f"    {msg}  py_clob_client not installed "
-            f"(pip install py-clob-client — required for --live)"
+            f"    {msg}  py_clob_client_v2 not installed "
+            f"(pip install py-clob-client-v2 — required for --live)"
         )
         has_clob = False
         if live_intended:
@@ -373,7 +373,7 @@ def cmd_verify(args):
                 all_good = False
     else:
         console.print(
-            f"    [dim]SKIP[/dim]  Balance check (needs py_clob_client + "
+            f"    [dim]SKIP[/dim]  Balance check (needs py_clob_client_v2 + "
             f"POLYMARKET_PRIVATE_KEY)"
         )
 
