@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T16:23:47.336737+00:00",
-  "last_heartbeat": "2026-06-23T16:23:47.336737+00:00",
-  "uptime_seconds": 651,
+  "generated_at": "2026-06-23T16:28:53.154824+00:00",
+  "last_heartbeat": "2026-06-23T16:28:53.154824+00:00",
+  "uptime_seconds": 957,
   "dry_run": false,
   "markets_tracked": 1335,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1721,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1725,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 10475,
+  "classifications_24h": 10369,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4267,
+    "prefiltered_haiku": 4240,
     "stale": 25,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T16:13:15.138619+00:00"
+    "last_check": "2026-06-23T16:28:15.545012+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2766,
-    "matched": 1067,
-    "classified": 10475,
+    "news": 2738,
+    "matched": 1046,
+    "classified": 10369,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2393.1
+    "avg_classification_latency_ms": 2399.4
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 16:19:58",
-      "market_question": "Will Donald Trump visit Taiwan in 2026?",
-      "headline": "China's most advanced aircraft carrier sails through Taiwan Strait, Taipei says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 16:19:54",
-      "market_question": "Will a Chinese AI model become #1 by June 30? ",
-      "headline": "3 Screaming Buy Artificial Intelligence (AI) Stocks Set for a Massive Summer Rebound - The Motley Fool",
+      "time": "2026-06-23 16:26:28",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "US consumers favor homebuying over renting for first time since 2023, BofA study shows - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,14 +370,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 16:19:54",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "A soothing cup of herbal tea can begin in your garden - AP News",
+      "time": "2026-06-23 16:26:24",
+      "market_question": "Will Solana reach $300 by December 31, 2026?",
+      "headline": "Bangladesh says $300 billion climate finance goal falls short, calls for more support - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 16:26:24",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "US consumers favor homebuying over renting for first time since 2023, BofA study shows - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 16:19:54",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "A soothing cup of herbal tea can begin in your garden - AP News",
+      "time": "2026-06-23 16:26:24",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "US consumers favor homebuying over renting for first time since 2023, BofA study shows - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +423,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 16:19:54",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "A soothing cup of herbal tea can begin in your garden - AP News",
+      "time": "2026-06-23 16:26:24",
+      "market_question": "Ethereum all time high by June 30, 2026?",
+      "headline": "US consumers favor homebuying over renting for first time since 2023, BofA study shows - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
