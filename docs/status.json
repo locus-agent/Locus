@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T02:07:26.774475+00:00",
-  "last_heartbeat": "2026-06-23T02:07:26.774475+00:00",
-  "uptime_seconds": 26029,
+  "generated_at": "2026-06-23T02:12:31.841745+00:00",
+  "last_heartbeat": "2026-06-23T02:12:31.841745+00:00",
+  "uptime_seconds": 26334,
   "dry_run": false,
-  "markets_tracked": 1354,
+  "markets_tracked": 1356,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8078,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 52,
+  "headlines_scanned_today": 53,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 9151,
+  "classifications_24h": 9145,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3674,
+    "prefiltered_haiku": 3672,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T01:54:03.359945+00:00"
+    "last_check": "2026-06-23T02:09:03.712441+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2355,
-    "matched": 951,
-    "classified": 9151,
+    "news": 2354,
+    "matched": 950,
+    "classified": 9145,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1558.2
+    "avg_classification_latency_ms": 1561.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,6 +359,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-23 02:08:33",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "Tech giant Oracle sheds 21,000 jobs in a year as AI replaces some roles",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.62,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.26999999999999996,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-23 02:04:01",
       "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
       "headline": "Oil gains after selloff, awaits progress on Strait of Hormuz flows - Reuters",
@@ -418,22 +434,6 @@
       "time_horizon": "immediate",
       "adjusted_materiality": 0.05,
       "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 01:59:40",
-      "market_question": "Will Abelardo de la Espriella place 1st in Bogot\u00e1 in the second round of the 2026 Colombia presidential election?",
-      "headline": "Trump-endorsed populist poised to become Colombia's next president as rival challenges vote - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
