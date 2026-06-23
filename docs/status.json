@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T09:40:09.897263+00:00",
-  "last_heartbeat": "2026-06-23T09:40:09.897263+00:00",
-  "uptime_seconds": 53193,
+  "generated_at": "2026-06-23T09:45:15.323753+00:00",
+  "last_heartbeat": "2026-06-23T09:45:15.323753+00:00",
+  "uptime_seconds": 53498,
   "dry_run": false,
-  "markets_tracked": 1357,
+  "markets_tracked": 1359,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8116,
@@ -82,16 +82,16 @@
       }
     ]
   },
-  "headlines_scanned_today": 265,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 269,
+  "headlines_last_cycle": 2,
   "signals_24h": 3,
-  "classifications_24h": 8952,
+  "classifications_24h": 8964,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3629,
+    "prefiltered_haiku": 3637,
     "stale": 19,
     "capped": 1,
-    "too_close_to_resolution": 6,
+    "too_close_to_resolution": 5,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2309,
-    "matched": 961,
-    "classified": 8952,
+    "news": 2312,
+    "matched": 964,
+    "classified": 8964,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1681.9
+    "avg_classification_latency_ms": 1684.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 09:38:33",
+      "time": "2026-06-23 09:45:08",
+      "market_question": "Will Bitcoin reach $87,500 in June?",
+      "headline": "India's LPG imports from US set to cross 1 million tons in June, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 09:45:06",
+      "market_question": "Will Bitcoin reach $92,500 in June?",
+      "headline": "India's LPG imports from US set to cross 1 million tons in June, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 09:45:05",
       "market_question": "Will Trump be impeached by June 30?",
-      "headline": "US waives Iran sanctions, Trump warns Tehran it must abide by agreement - Reuters",
+      "headline": "India's LPG imports from US set to cross 1 million tons in June, sources say - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,41 +407,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 09:38:28",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "US waives Iran sanctions, Trump warns Tehran it must abide by agreement - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 09:38:28",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "US waives Iran sanctions, Trump warns Tehran it must abide by agreement - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 09:38:27",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "US waives Iran sanctions, Trump warns Tehran it must abide by agreement - Reuters",
+      "time": "2026-06-23 09:45:04",
+      "market_question": "Will Bitcoin reach $82,500 in June?",
+      "headline": "India's LPG imports from US set to cross 1 million tons in June, sources say - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,9 +423,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 09:38:27",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "US waives Iran sanctions, Trump warns Tehran it must abide by agreement - Reuters",
+      "time": "2026-06-23 09:45:04",
+      "market_question": "Will OpenAI have a #1 AI model by June 30?",
+      "headline": "India's LPG imports from US set to cross 1 million tons in June, sources say - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
