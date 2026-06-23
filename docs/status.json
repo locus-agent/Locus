@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T21:04:56.090059+00:00",
-  "last_heartbeat": "2026-06-23T21:04:56.090059+00:00",
-  "uptime_seconds": 1577,
+  "generated_at": "2026-06-23T21:10:01.493207+00:00",
+  "last_heartbeat": "2026-06-23T21:10:01.493207+00:00",
+  "uptime_seconds": 1883,
   "dry_run": false,
-  "markets_tracked": 1339,
+  "markets_tracked": 1341,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2761,
-  "headlines_last_cycle": 0,
-  "signals_24h": 11,
-  "classifications_24h": 11345,
+  "headlines_scanned_today": 2764,
+  "headlines_last_cycle": 2,
+  "signals_24h": 10,
+  "classifications_24h": 11328,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4132,
+    "prefiltered_haiku": 4135,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -97,8 +97,8 @@
     "price_target_market": 5,
     "correlation_block": 0,
     "category_limit": 0,
-    "orderbook_skip": 4,
-    "already_priced_in": 1,
+    "orderbook_skip": 1,
+    "already_priced_in": 0,
     "needs_confirmation": 0,
     "event_exposure_block": 0,
     "low_consensus": 0,
@@ -111,19 +111,19 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T20:53:53.330326+00:00"
+    "last_check": "2026-06-23T21:08:53.624387+00:00"
   },
   "edge_types_24h": {
     "news": 5,
-    "momentum": 6,
+    "momentum": 5,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2943,
-    "matched": 917,
-    "classified": 11345,
-    "signals": 11,
-    "trades": 11
+    "news": 2940,
+    "matched": 913,
+    "classified": 11328,
+    "signals": 10,
+    "trades": 10
   },
   "performance": {
     "trades_total": 30,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1205.2
+    "avg_classification_latency_ms": 1219.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 21:00:54",
-      "market_question": "Will Bitcoin have the best performance in 2026?",
-      "headline": "The best Prime Day deals we found on our favorite gear",
+      "time": "2026-06-23 21:09:41",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Chelsea close in on Palestra as Alonso's first signing",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 21:00:53",
-      "market_question": "Will the price of Bitcoin be above $60,000 on June 24?",
-      "headline": "The Meta Quest 3S is on sale for $297 \u2014 which is basically its old price",
+      "time": "2026-06-23 21:09:40",
+      "market_question": "Will Donald Trump visit Mississippi in 2026?",
+      "headline": "Trump heads to battleground Pennsylvania but keep focuses on himself ahead of midterm elections - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,57 +386,57 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 21:00:53",
-      "market_question": "Will the price of Bitcoin be above $66,000 on June 24?",
-      "headline": "The Meta Quest 3S is on sale for $297 \u2014 which is basically its old price",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-23 21:09:40",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Chelsea close in on Palestra as Alonso's first signing",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-23 21:00:53",
-      "market_question": "Will the price of Bitcoin be above $76,000 on June 24?",
-      "headline": "The Meta Quest 3S is on sale for $297 \u2014 which is basically its old price",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-23 21:09:40",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Chelsea close in on Palestra as Alonso's first signing",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-23 21:00:53",
-      "market_question": "Will Meta have a #1 AI model by June 30?",
-      "headline": "The Meta Quest 3S is on sale for $297 \u2014 which is basically its old price",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-23 21:09:40",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "headline": "Chelsea close in on Palestra as Alonso's first signing",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
