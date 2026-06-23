@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T21:50:48.793478+00:00",
-  "last_heartbeat": "2026-06-23T21:50:48.793478+00:00",
-  "uptime_seconds": 4330,
+  "generated_at": "2026-06-23T21:55:55.674256+00:00",
+  "last_heartbeat": "2026-06-23T21:55:55.674256+00:00",
+  "uptime_seconds": 4637,
   "dry_run": false,
   "markets_tracked": 1340,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2818,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 2863,
+  "headlines_last_cycle": 1,
   "signals_24h": 10,
-  "classifications_24h": 11470,
+  "classifications_24h": 11633,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4199,
+    "prefiltered_haiku": 4263,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T21:38:54.428319+00:00"
+    "last_check": "2026-06-23T21:53:55.531918+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2979,
-    "matched": 938,
-    "classified": 11470,
+    "news": 3022,
+    "matched": 952,
+    "classified": 11633,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1340.1
+    "avg_classification_latency_ms": 1331.2
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 21:50:48",
-      "market_question": "Will OpenAI announce a computer (Laptop/Desktop) in 2026?",
-      "headline": "Computer Was A Mistake - Aftermath",
+      "time": "2026-06-23 21:55:55",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Crypto critic Roubini joins tokenization boom with onchain 'Technodollar'",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 21:55:55",
+      "market_question": "Over $1B crypto hack value in 2026?",
+      "headline": "Crypto critic Roubini joins tokenization boom with onchain 'Technodollar'",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 21:55:53",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Crypto critic Roubini joins tokenization boom with onchain 'Technodollar'",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -375,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 21:50:48",
-      "market_question": "Will OpenAI announce earbuds or headphones in 2026?",
-      "headline": "Walmart Just Slashed 50% Off the PlayStation PULSE Explore Planar Magnetic Wireless Gaming Earbuds - IGN",
+      "time": "2026-06-23 21:55:53",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Crypto critic Roubini joins tokenization boom with onchain 'Technodollar'",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,52 +423,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 21:50:48",
-      "market_question": "Will Google Gemini score at least 50% on Humanity\u2019s Last Exam?",
-      "headline": "Walmart Just Slashed 50% Off the PlayStation PULSE Explore Planar Magnetic Wireless Gaming Earbuds - IGN",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-23 21:53:45",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Trump says he asked US attorney for California election probe: \u2018Do me a favor\u2019 - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 21:50:48",
-      "market_question": "Will OpenAI GPT score at least 50% on Humanity\u2019s Last Exam?",
-      "headline": "Walmart Just Slashed 50% Off the PlayStation PULSE Explore Planar Magnetic Wireless Gaming Earbuds - IGN",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 21:50:48",
-      "market_question": "Will an Anthropic Claude model score at least 50% on Humanity\u2019s Last Exam?",
-      "headline": "Walmart Just Slashed 50% Off the PlayStation PULSE Explore Planar Magnetic Wireless Gaming Earbuds - IGN",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
