@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T06:21:47.660734+00:00",
-  "last_heartbeat": "2026-06-23T06:21:47.660734+00:00",
-  "uptime_seconds": 41290,
+  "generated_at": "2026-06-23T06:26:52.795445+00:00",
+  "last_heartbeat": "2026-06-23T06:26:52.795445+00:00",
+  "uptime_seconds": 41595,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1339,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8100,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 175,
+  "headlines_scanned_today": 180,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 8985,
+  "classifications_24h": 9006,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3640,
+    "prefiltered_haiku": 3650,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T06:09:10.835260+00:00"
+    "last_check": "2026-06-23T06:24:11.166764+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2313,
-    "matched": 945,
-    "classified": 8985,
+    "news": 2318,
+    "matched": 949,
+    "classified": 9006,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1615.9
+    "avg_classification_latency_ms": 1615.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 06:16:31",
-      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
-      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
+      "time": "2026-06-23 06:25:22",
+      "market_question": "Ethereum Up or Down - June 23, 2:15AM-2:30AM ET",
+      "headline": "What to Expect in Markets This Week: A Post-Fed Inflation Reading and Earnings From a Hot Memory Maker - Investopedia",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 06:25:22",
+      "market_question": "Will Ethereum dip to $700 by December 31, 2026?",
+      "headline": "What to Expect in Markets This Week: A Post-Fed Inflation Reading and Earnings From a Hot Memory Maker - Investopedia",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 06:16:31",
-      "market_question": "Will QFEX launch a token by September 30, 2027?",
-      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
+      "time": "2026-06-23 06:25:22",
+      "market_question": "Will OpenAI's valuation hit (HIGH) $900B by December 31?",
+      "headline": "What to Expect in Markets This Week: A Post-Fed Inflation Reading and Earnings From a Hot Memory Maker - Investopedia",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,41 +407,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 06:16:31",
-      "market_question": "Will QFEX launch a token by March 31, 2027?",
-      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
+      "time": "2026-06-23 06:25:20",
+      "market_question": "Altcoin market cap dip to $150B before 2027?",
+      "headline": "SpaceX\u2019s $600 billion plunge erased nearly half of bitcoin\u2019s market cap in three days.",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.1,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 06:16:30",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 06:16:30",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
+      "time": "2026-06-23 06:25:20",
+      "market_question": "Ethereum all time high by June 30, 2026?",
+      "headline": "Most Married Parents Now Work Full Time - Newser",
       "direction": null,
       "materiality": null,
       "confidence": null,
