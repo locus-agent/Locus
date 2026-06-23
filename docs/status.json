@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T00:51:11.336577+00:00",
-  "last_heartbeat": "2026-06-23T00:51:11.336577+00:00",
-  "uptime_seconds": 21454,
+  "generated_at": "2026-06-23T00:56:16.247653+00:00",
+  "last_heartbeat": "2026-06-23T00:56:16.247653+00:00",
+  "uptime_seconds": 21759,
   "dry_run": false,
-  "markets_tracked": 1355,
+  "markets_tracked": 1356,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8078,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 14,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 21,
+  "headlines_last_cycle": 3,
   "signals_24h": 3,
-  "classifications_24h": 9265,
+  "classifications_24h": 9295,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3722,
+    "prefiltered_haiku": 3743,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T00:39:01.139913+00:00"
+    "last_check": "2026-06-23T00:54:01.640557+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2385,
-    "matched": 967,
-    "classified": 9265,
+    "news": 2391,
+    "matched": 972,
+    "classified": 9295,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1560.4
+    "avg_classification_latency_ms": 1558.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,57 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 00:38:39",
-      "market_question": "Will Rick Caruso win the 2026 Los Angeles mayoral election?",
-      "headline": "What to know about a cold storage warehouse fire in Los Angeles - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 00:38:38",
-      "market_question": "Will Adam Miller win the 2026 Los Angeles mayoral election?",
-      "headline": "What to know about a cold storage warehouse fire in Los Angeles - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 00:38:38",
-      "market_question": "Will Austin Beutner win the 2026 Los Angeles mayoral election?",
-      "headline": "What to know about a cold storage warehouse fire in Los Angeles - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 00:38:37",
-      "market_question": "Will the Republican Party hold exactly 53 Senate seats after the 2026 midterm elections?",
-      "headline": "Senate Republicans say it\u2019s time to give Trump a reality check - Politico",
+      "time": "2026-06-23 00:56:13",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Iranian resistance leader, former national security aide praise Trump\u2019s deal with Tehran:",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -423,20 +375,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 00:38:37",
-      "market_question": "Will the Republicans win the Iowa Senate race in 2026?",
-      "headline": "Senate Republicans say it\u2019s time to give Trump a reality check - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-23 00:56:13",
+      "market_question": "Will Donald Trump visit Russia in 2026?",
+      "headline": "Years after Pulitzer prize, New York Times gets Russia collusion story wrong once again:",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 00:56:13",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "headline": "Years after Pulitzer prize, New York Times gets Russia collusion story wrong once again:",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 00:56:13",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Years after Pulitzer prize, New York Times gets Russia collusion story wrong once again:",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 00:56:13",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Years after Pulitzer prize, New York Times gets Russia collusion story wrong once again:",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
