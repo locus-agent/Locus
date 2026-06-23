@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T19:10:21.234290+00:00",
-  "last_heartbeat": "2026-06-23T19:10:21.234290+00:00",
-  "uptime_seconds": 2489,
+  "generated_at": "2026-06-23T19:15:27.079503+00:00",
+  "last_heartbeat": "2026-06-23T19:15:27.079503+00:00",
+  "uptime_seconds": 2795,
   "dry_run": false,
-  "markets_tracked": 1336,
+  "markets_tracked": 1340,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8321,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 2106,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2112,
+  "headlines_last_cycle": 2,
   "signals_24h": 9,
-  "classifications_24h": 9216,
+  "classifications_24h": 9231,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 3539,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T18:59:12.279558+00:00"
+    "last_check": "2026-06-23T19:14:12.627880+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2431,
-    "matched": 915,
-    "classified": 9216,
+    "news": 2434,
+    "matched": 918,
+    "classified": 9231,
     "signals": 9,
     "trades": 9
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1520.9
+    "avg_classification_latency_ms": 1557.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 19:08:41",
-      "market_question": "Over $200M raised on Coinbase in 2026?",
-      "headline": "Michigan forgives $200M in medical debt. Should it help prevent debt instead - AP News",
+      "time": "2026-06-23 19:15:24",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 19:15:22",
+      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
+      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,68 +391,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 19:08:40",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "The Lenovo Legion Go S gaming handheld is $549 for Prime Day",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-23 19:15:22",
+      "market_question": "Will Trump flip the bird again in 2026?",
+      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-23 19:08:40",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "The Lenovo Legion Go S gaming handheld is $549 for Prime Day",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-23 19:15:21",
+      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
+      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-23 19:08:40",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "The Lenovo Legion Go S gaming handheld is $549 for Prime Day",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-23 19:15:20",
+      "market_question": "Will Ed Markey be the Democratic nominee for Senate in Massachusetts?",
+      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 19:08:40",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "The Lenovo Legion Go S gaming handheld is $549 for Prime Day",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
