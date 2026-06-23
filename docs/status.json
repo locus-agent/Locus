@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T23:43:04.879559+00:00",
-  "last_heartbeat": "2026-06-23T23:43:04.879559+00:00",
-  "uptime_seconds": 11066,
+  "generated_at": "2026-06-23T23:48:11.312990+00:00",
+  "last_heartbeat": "2026-06-23T23:48:11.312990+00:00",
+  "uptime_seconds": 11373,
   "dry_run": false,
-  "markets_tracked": 1347,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2974,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 2990,
+  "headlines_last_cycle": 3,
   "signals_24h": 10,
-  "classifications_24h": 11519,
+  "classifications_24h": 11554,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4212,
+    "prefiltered_haiku": 4226,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2983,
-    "matched": 915,
-    "classified": 11519,
+    "news": 2995,
+    "matched": 923,
+    "classified": 11554,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1363.4
+    "avg_classification_latency_ms": 1369.4
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 23:41:07",
+      "time": "2026-06-23 23:47:48",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
+      "direction": "bearish",
+      "materiality": 0.08,
+      "confidence": 0.52,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 23:47:43",
       "market_question": "Will Trump and Putin not meet?",
-      "headline": "Leaders of four Central European countries meet in Hungary to reboot regional group - AP News",
+      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,25 +391,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 23:41:06",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Shooting suspect scoped out library before returning with a shotgun and killing 2, police say - AP News",
+      "time": "2026-06-23 23:47:43",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 23:41:06",
+      "time": "2026-06-23 23:47:43",
       "market_question": "Will Trump say \"Ay Ay Ay\" in June?",
-      "headline": "Shooting suspect scoped out library before returning with a shotgun and killing 2, police say - AP News",
+      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,36 +423,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 23:41:06",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Leaders of four Central European countries meet in Hungary to reboot regional group - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-23 23:47:43",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 23:41:06",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Leaders of four Central European countries meet in Hungary to reboot regional group - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
