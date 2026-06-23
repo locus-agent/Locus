@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T04:24:48.354407+00:00",
-  "last_heartbeat": "2026-06-23T04:24:48.354407+00:00",
-  "uptime_seconds": 34271,
+  "generated_at": "2026-06-23T04:29:53.589951+00:00",
+  "last_heartbeat": "2026-06-23T04:29:53.589951+00:00",
+  "uptime_seconds": 34576,
   "dry_run": false,
-  "markets_tracked": 1344,
+  "markets_tracked": 1340,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8100,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 129,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 130,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 9129,
+  "classifications_24h": 9114,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3674,
+    "prefiltered_haiku": 3663,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2349,
-    "matched": 955,
-    "classified": 9129,
+    "news": 2347,
+    "matched": 953,
+    "classified": 9114,
     "signals": 3,
     "trades": 4
   },
@@ -359,6 +359,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-23 04:28:49",
+      "market_question": "Will the Central African Democratic Rally win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Indian shares open flat after oil-led rally - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-23 04:24:34",
       "market_question": "Bitcoin quantum-resistant upgrade implemented in 2026?",
       "headline": "Trump signs executive orders setting 2031 deadline for post-quantum migration",
@@ -419,22 +435,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 04:24:27",
-      "market_question": "Will Donald Trump visit Germany in 2026?",
-      "headline": "Trump signs executive orders setting 2031 deadline for post-quantum migration",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
