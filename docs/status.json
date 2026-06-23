@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T23:37:58.535115+00:00",
-  "last_heartbeat": "2026-06-23T23:37:58.535115+00:00",
-  "uptime_seconds": 10760,
+  "generated_at": "2026-06-23T23:43:04.879559+00:00",
+  "last_heartbeat": "2026-06-23T23:43:04.879559+00:00",
+  "uptime_seconds": 11066,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1347,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2972,
+  "headlines_scanned_today": 2974,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 11564,
+  "classifications_24h": 11519,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4221,
+    "prefiltered_haiku": 4212,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T23:23:58.081480+00:00"
+    "last_check": "2026-06-23T23:38:58.459597+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3003,
-    "matched": 923,
-    "classified": 11564,
+    "news": 2983,
+    "matched": 915,
+    "classified": 11519,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1365.1
+    "avg_classification_latency_ms": 1363.4
   },
   "live_readiness": {
     "ready": true,
@@ -359,41 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 23:34:31",
-      "market_question": "Will Google have the best Math AI model at the end of June 2026?",
-      "headline": "Stanford was their golden ticket - could AI help or hinder that? - Yahoo",
+      "time": "2026-06-23 23:41:07",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Leaders of four Central European countries meet in Hungary to reboot regional group - AP News",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 23:34:31",
-      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
-      "headline": "Stanford was their golden ticket - could AI help or hinder that? - Yahoo",
+      "time": "2026-06-23 23:41:06",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Shooting suspect scoped out library before returning with a shotgun and killing 2, police say - AP News",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 23:34:31",
-      "market_question": "Will Microsoft be the largest company in the world by market cap on December 31?",
-      "headline": "Largest maternity review in NHS history to be published",
+      "time": "2026-06-23 23:41:06",
+      "market_question": "Will Trump say \"Ay Ay Ay\" in June?",
+      "headline": "Shooting suspect scoped out library before returning with a shotgun and killing 2, police say - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 23:41:06",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "Leaders of four Central European countries meet in Hungary to reboot regional group - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,9 +423,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 23:34:31",
-      "market_question": "Will Apple be the largest company in the world by market cap on December 31?",
-      "headline": "Largest maternity review in NHS history to be published",
+      "time": "2026-06-23 23:41:06",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Leaders of four Central European countries meet in Hungary to reboot regional group - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -421,22 +437,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 23:32:21",
-      "market_question": "Will Pamela Evette win the 2026 South Carolina Governor Republican primary election?",
-      "headline": "Alan Wilson, boosted by Trump\u2019s late co-endorsement, wins South Carolina governor runoff - Politico",
-      "direction": "bearish",
-      "materiality": 0.75,
-      "confidence": 0.95,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.75,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
