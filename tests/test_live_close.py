@@ -131,6 +131,9 @@ def _install_fake_clob(monkeypatch, captured, book):
         def get_tick_size(self, token_id):
             return "0.01"
 
+        def get_neg_risk(self, token_id):
+            return False
+
         def create_order(self, order_args, options=None):
             captured["order_args"] = order_args
             captured["options"] = options
@@ -167,6 +170,10 @@ def test_close_position_live_places_sell_order(monkeypatch):
     assert oa.token_id == "tok-yes"
     assert oa.price == 0.60
     assert oa.size == 40.0
+    # create_order options carry the CLOB-fetched tick size and neg_risk flag
+    opts = captured["options"]
+    assert opts.tick_size == "0.01"
+    assert opts.neg_risk is False
     # built on the deposit wallet (POLY_1271)
     assert captured["init"]["funder"] == "0xfunder"
     assert captured["init"]["signature_type"] == 3
@@ -300,6 +307,9 @@ def _install_fake_clob_failing_order(monkeypatch, captured, book):
 
         def get_tick_size(self, token_id):
             return "0.01"
+
+        def get_neg_risk(self, token_id):
+            return False
 
         def create_order(self, order_args, options=None):
             return "signed-order"

@@ -48,6 +48,13 @@ def _install_fake_clob(monkeypatch, captured):
         def set_api_creds(self, creds):
             pass
 
+        def get_market(self, condition_id):
+            return {"tokens": [{"token_id": "tok-1", "outcome": "YES"},
+                               {"token_id": "tok-no", "outcome": "NO"}]}
+
+        def get_neg_risk(self, token_id):
+            return False
+
         def get_order_book(self, token_id):
             return types.SimpleNamespace(bids=[], asks=[])
 

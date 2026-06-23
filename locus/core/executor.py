@@ -177,6 +177,21 @@ def _get_tick_size(client, token_id: str) -> str:
         return "0.01"
 
 
+def _get_neg_risk(client, token_id: str) -> bool:
+    """Whether `token_id` belongs to a negative-risk (multi-outcome) market,
+    via the CLOB client; defaults to False on error.
+
+    v2 signs neg-risk orders against a different exchange contract, so
+    `PartialCreateOrderOptions(neg_risk=...)` must reflect the market or the
+    order is rejected/mis-signed. `get_neg_risk` returns a bool."""
+    try:
+        return bool(client.get_neg_risk(token_id))
+    except Exception as e:
+        log.warning("[executor] neg_risk fetch failed for %s (%s); defaulting to False",
+                    token_id, e)
+        return False
+
+
 def _diagnose_order_error(exc, token_id, price, size, side, tick_size=None) -> list[str]:
     """Log full detail on a failed live order and guess the likely cause(s).
 
@@ -304,6 +319,7 @@ def close_position_live(
             return {"status": status, "order_id": None, "price": None, "shares": None}
 
         tick_size = _get_tick_size(client, token_id)
+        neg_risk = _get_neg_risk(client, token_id)
         price = round_to_tick(price, tick_size)
 
         order_args = OrderArgs(
@@ -314,7 +330,7 @@ def close_position_live(
         )
         try:
             signed_order = client.create_order(
-                order_args, PartialCreateOrderOptions(tick_size=tick_size)
+                order_args, PartialCreateOrderOptions(tick_size=tick_size, neg_risk=neg_risk)
             )
             resp = client.post_order(signed_order, OrderType.GTC)
         except Exception as order_exc:
@@ -418,7 +434,12 @@ def _execute_live(signal: Signal) -> dict:
 
         client = create_clob_client()
 
-        token_id = get_token_id(signal.market, signal.side)
+        # Resolve the token from the CLOB itself (get_market), not the cached
+        # Gamma token list: the CLOB is the source of truth for the token_id we
+        # sign against. Fall back to the Gamma token only if the CLOB has none.
+        token_id = _resolve_token_id(client, signal.market.condition_id, signal.side)
+        if not token_id:
+            token_id = get_token_id(signal.market, signal.side)
         if not token_id:
             return _log_and_return(signal, status="error_no_token", order_id=None)
 
@@ -433,8 +454,10 @@ def _execute_live(signal: Signal) -> dict:
             return _log_and_return(signal, status=status, order_id=None)
 
         # Polymarket rejects off-tick prices with a ValidationException; snap
-        # the price onto the market's tick grid before signing.
+        # the price onto the market's tick grid before signing. neg_risk picks
+        # the right exchange contract for multi-outcome markets.
         tick_size = _get_tick_size(client, token_id)
+        neg_risk = _get_neg_risk(client, token_id)
         price = round_to_tick(price, tick_size)
 
         order_args = OrderArgs(
@@ -446,7 +469,7 @@ def _execute_live(signal: Signal) -> dict:
 
         try:
             signed_order = client.create_order(
-                order_args, PartialCreateOrderOptions(tick_size=tick_size)
+                order_args, PartialCreateOrderOptions(tick_size=tick_size, neg_risk=neg_risk)
             )
             resp = client.post_order(signed_order, OrderType.GTC)
         except Exception as order_exc:

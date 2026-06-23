@@ -58,6 +58,13 @@ def _install_fake_clob(monkeypatch, get_order_result):
         def set_api_creds(self, creds):
             pass
 
+        def get_market(self, condition_id):
+            return {"tokens": [{"token_id": "tok-1", "outcome": "YES"},
+                               {"token_id": "tok-no", "outcome": "NO"}]}
+
+        def get_neg_risk(self, token_id):
+            return False
+
         def get_order_book(self, token_id):
             # One fat ask level so plan_live_order clears the minimums.
             return types.SimpleNamespace(
@@ -124,6 +131,82 @@ def test_missing_order_is_error_not_found(tmp_db, monkeypatch):
     _install_fake_clob(monkeypatch, None)
     result = executor.execute_trade(_signal())
     assert result["status"] == "error_not_found"
+
+
+def test_buy_resolves_token_from_clob_not_gamma(tmp_db, monkeypatch):
+    """The BUY path signs against the CLOB-resolved token_id (get_market), not
+    the cached Gamma token; neg_risk is fetched and threaded into the options."""
+    _setup(monkeypatch)
+    # Gamma fallback would return a *different* token — it must not be used.
+    monkeypatch.setattr(executor, "get_token_id", lambda market, side: "gamma-token")
+
+    captured = {}
+
+    class FakeOrderArgs:
+        def __init__(self, **kw):
+            self.__dict__.update(kw)
+
+    class FakeOptions:
+        def __init__(self, **kw):
+            self.__dict__.update(kw)
+
+    class FakeClobClient:
+        def __init__(self, **kwargs):
+            pass
+
+        def create_or_derive_api_key(self):
+            return "creds"
+
+        def set_api_creds(self, creds):
+            pass
+
+        def get_market(self, condition_id):
+            captured["get_market"] = condition_id
+            return {"tokens": [{"token_id": "clob-token", "outcome": "YES"},
+                               {"token_id": "clob-no", "outcome": "NO"}]}
+
+        def get_neg_risk(self, token_id):
+            captured["neg_risk_token"] = token_id
+            return True
+
+        def get_order_book(self, token_id):
+            captured["book_token"] = token_id
+            return types.SimpleNamespace(
+                bids=[types.SimpleNamespace(price="0.49", size="500")],
+                asks=[types.SimpleNamespace(price="0.50", size="500")],
+            )
+
+        def get_tick_size(self, token_id):
+            return "0.01"
+
+        def create_order(self, order_args, options=None):
+            captured["order_args"] = order_args
+            captured["options"] = options
+            return "signed"
+
+        def post_order(self, signed, order_type):
+            return {"orderID": "order-123"}
+
+        def get_order(self, order_id):
+            return {"status": "MATCHED", "size_matched": "50"}
+
+    mod = types.ModuleType("py_clob_client_v2")
+    mod.ClobClient = FakeClobClient
+    mod.OrderArgs = FakeOrderArgs
+    mod.OrderType = types.SimpleNamespace(GTC="GTC")
+    mod.Side = types.SimpleNamespace(BUY="BUY", SELL="SELL")
+    mod.PartialCreateOrderOptions = FakeOptions
+    monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
+
+    result = executor.execute_trade(_signal())
+
+    assert result["status"] == "executed"
+    assert captured["get_market"] == "0xabc"        # CLOB consulted by condition_id
+    assert captured["book_token"] == "clob-token"   # book read for the CLOB token
+    assert captured["order_args"].token_id == "clob-token"  # signed against CLOB token
+    assert captured["neg_risk_token"] == "clob-token"
+    assert captured["options"].neg_risk is True     # neg_risk threaded into options
+    assert captured["options"].tick_size == "0.01"
 
 
 def test_get_order_raising_is_error_not_found(tmp_db, monkeypatch):
