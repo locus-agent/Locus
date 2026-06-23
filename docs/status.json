@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T07:22:49.467709+00:00",
-  "last_heartbeat": "2026-06-23T07:22:49.467709+00:00",
-  "uptime_seconds": 44952,
+  "generated_at": "2026-06-23T07:27:54.219019+00:00",
+  "last_heartbeat": "2026-06-23T07:27:54.219019+00:00",
+  "uptime_seconds": 45257,
   "dry_run": false,
   "markets_tracked": 1349,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 200,
+  "headlines_scanned_today": 202,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 8931,
+  "classifications_24h": 8923,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3585,
+    "prefiltered_haiku": 3592,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T07:09:12.254067+00:00"
+    "last_check": "2026-06-23T07:24:12.707263+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2305,
-    "matched": 943,
-    "classified": 8931,
+    "news": 2302,
+    "matched": 942,
+    "classified": 8923,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1649.0
+    "avg_classification_latency_ms": 1650.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,84 +359,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 07:16:01",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "1 Massively Undervalued Artificial Intelligence (AI) Stock That Could Be Worth More Than SpaceX Within 12 Months - The Motley Fool",
+      "time": "2026-06-23 07:24:32",
+      "market_question": "Will Nvidia have a #1 AI model by June 30?",
+      "headline": "This Is the Top Artificial Intelligence (AI) Chip Stock to Buy Right Now, According to Jim Cramer (Hint: It's Not Nvidia) - The Motley Fool",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
       "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 07:24:32",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Iran says no new commitments on nuclear sites after Vance says inspectors to be invited back",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-23 07:15:45",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "1 Massively Undervalued Artificial Intelligence (AI) Stock That Could Be Worth More Than SpaceX Within 12 Months - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-23 07:24:32",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Iran says no new commitments on nuclear sites after Vance says inspectors to be invited back",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 07:15:45",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "1 Massively Undervalued Artificial Intelligence (AI) Stock That Could Be Worth More Than SpaceX Within 12 Months - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 07:15:43",
-      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
-      "headline": "1 Massively Undervalued Artificial Intelligence (AI) Stock That Could Be Worth More Than SpaceX Within 12 Months - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 07:13:37",
-      "market_question": "Will Donald Trump visit North Korea in 2026?",
-      "headline": "South Korea to accept all North Korean POWs in Ukraine if they desire, ministry says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 07:24:32",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Iran says no new commitments on nuclear sites after Vance says inspectors to be invited back",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 07:24:32",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Iran says no new commitments on nuclear sites after Vance says inspectors to be invited back",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
