@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T23:53:17.907897+00:00",
-  "last_heartbeat": "2026-06-23T23:53:17.907897+00:00",
-  "uptime_seconds": 11679,
+  "generated_at": "2026-06-23T23:58:23.812357+00:00",
+  "last_heartbeat": "2026-06-23T23:58:23.812357+00:00",
+  "uptime_seconds": 11985,
   "dry_run": false,
-  "markets_tracked": 1344,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2991,
+  "headlines_scanned_today": 2994,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 11549,
+  "classifications_24h": 11546,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4223,
+    "prefiltered_haiku": 4219,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T23:38:58.459597+00:00"
+    "last_check": "2026-06-23T23:53:58.835995+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2994,
-    "matched": 922,
-    "classified": 11549,
+    "news": 2995,
+    "matched": 923,
+    "classified": 11546,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1369.4
+    "avg_classification_latency_ms": 1369.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 23:47:48",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
-      "direction": "bearish",
-      "materiality": 0.08,
-      "confidence": 0.52,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 23:47:43",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
+      "time": "2026-06-23 23:56:29",
+      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
+      "headline": "Barclays, Stifel lift S&P 500 target to 7,800 on strong earnings outlook - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,52 +375,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 23:47:43",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-23 23:56:27",
+      "market_question": "Will Trump cut corporate taxes before 2027?",
+      "headline": "Heat pump growth stalls as government support cut, warns climate watchdog",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-23 23:47:43",
-      "market_question": "Will Trump say \"Ay Ay Ay\" in June?",
-      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-23 23:56:27",
+      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Heat pump growth stalls as government support cut, warns climate watchdog",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-23 23:47:43",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Judge vacates Trump policy allowing arrests at immigration courts - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-23 23:56:27",
+      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Heat pump growth stalls as government support cut, warns climate watchdog",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 23:56:27",
+      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Heat pump growth stalls as government support cut, warns climate watchdog",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
