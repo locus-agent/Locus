@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T22:36:53.395963+00:00",
-  "last_heartbeat": "2026-06-23T22:36:53.395963+00:00",
-  "uptime_seconds": 7095,
+  "generated_at": "2026-06-23T22:41:58.742131+00:00",
+  "last_heartbeat": "2026-06-23T22:41:58.742131+00:00",
+  "uptime_seconds": 7400,
   "dry_run": false,
-  "markets_tracked": 1345,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2914,
+  "headlines_scanned_today": 2917,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 11598,
+  "classifications_24h": 11599,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4244,
+    "prefiltered_haiku": 4241,
     "stale": 18,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T22:23:56.326446+00:00"
+    "last_check": "2026-06-23T22:38:56.977700+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 3010,
-    "matched": 931,
-    "classified": 11598,
+    "matched": 930,
+    "classified": 11599,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1343.7
+    "avg_classification_latency_ms": 1348.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,41 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 22:33:08",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Cerebras quarterly revenue nearly doubles in first report post-IPO - Reuters",
+      "time": "2026-06-23 22:39:49",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "Chip stocks plunge, but bargain-hunters limit scale of tech rout - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 22:33:08",
-      "market_question": "Will Based Polymarket revenue hit $1M before 2027?",
-      "headline": "Cerebras quarterly revenue nearly doubles in first report post-IPO - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 22:33:08",
-      "market_question": "Will Based Polymarket revenue hit $2M before 2027?",
-      "headline": "Cerebras quarterly revenue nearly doubles in first report post-IPO - Reuters",
+      "time": "2026-06-23 22:39:46",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "Chip stocks plunge, but bargain-hunters limit scale of tech rout - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 22:33:08",
-      "market_question": "Will Based Polymarket revenue hit $3M before 2027?",
-      "headline": "Cerebras quarterly revenue nearly doubles in first report post-IPO - Reuters",
+      "time": "2026-06-23 22:39:46",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "Chip stocks plunge, but bargain-hunters limit scale of tech rout - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,9 +407,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 22:33:08",
-      "market_question": "Will Based Polymarket revenue hit $5M before 2027?",
-      "headline": "Cerebras quarterly revenue nearly doubles in first report post-IPO - Reuters",
+      "time": "2026-06-23 22:39:46",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Chip stocks plunge, but bargain-hunters limit scale of tech rout - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,6 +418,22 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 22:39:45",
+      "market_question": "Bitcoin quantum-resistant upgrade implemented in 2026?",
+      "headline": "Executive order bumps up deadline to move off quantum-vulnerable crypto",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.54,
+      "edge": 0.230875,
+      "fee_cost": 0.0049453425,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.16999999999999998,
+      "action": "low_materiality",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
