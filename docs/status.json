@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T21:10:01.493207+00:00",
-  "last_heartbeat": "2026-06-23T21:10:01.493207+00:00",
-  "uptime_seconds": 1883,
+  "generated_at": "2026-06-23T21:15:07.608393+00:00",
+  "last_heartbeat": "2026-06-23T21:15:07.608393+00:00",
+  "uptime_seconds": 2189,
   "dry_run": false,
-  "markets_tracked": 1341,
+  "markets_tracked": 1339,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2764,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 2768,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 11328,
+  "classifications_24h": 11329,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4135,
+    "prefiltered_haiku": 4145,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 2940,
     "matched": 913,
-    "classified": 11328,
+    "classified": 11329,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1219.3
+    "avg_classification_latency_ms": 1259.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 21:09:41",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Chelsea close in on Palestra as Alonso's first signing",
+      "time": "2026-06-23 21:14:04",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "Anthropic launches Claude Tag in Slack with plans for wider rollout - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 21:14:03",
+      "market_question": "Will Anthropic not IPO by June 30, 2026?",
+      "headline": "Anthropic launches Claude Tag in Slack with plans for wider rollout - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 21:09:40",
-      "market_question": "Will Donald Trump visit Mississippi in 2026?",
-      "headline": "Trump heads to battleground Pennsylvania but keep focuses on himself ahead of midterm elections - AP News",
+      "time": "2026-06-23 21:14:02",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Anthropic launches Claude Tag in Slack with plans for wider rollout - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -385,58 +401,42 @@
       "fee_cost": null,
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 21:14:02",
+      "market_question": "Will an Anthropic Claude model score at least 55% on Humanity\u2019s Last Exam?",
+      "headline": "Anthropic launches Claude Tag in Slack with plans for wider rollout - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 21:09:40",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Chelsea close in on Palestra as Alonso's first signing",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-23 21:14:02",
+      "market_question": "Will Anthropic be acquired before 2027?",
+      "headline": "Anthropic launches Claude Tag in Slack with plans for wider rollout - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 21:09:40",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Chelsea close in on Palestra as Alonso's first signing",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 21:09:40",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "Chelsea close in on Palestra as Alonso's first signing",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
