@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-23T11:32:00.731767+00:00",
-  "last_heartbeat": "2026-06-23T11:32:00.731767+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-23T11:37:07.605918+00:00",
+  "last_heartbeat": "2026-06-23T11:37:07.605918+00:00",
+  "uptime_seconds": 344,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1352,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 8163,
+    "total": 8166,
     "accuracy": 17.1,
     "by_category": {
       "other": 16.2,
@@ -18,21 +18,21 @@
     },
     "by_source": {
       "rss": 16.9,
-      "newsapi": 18.6,
+      "newsapi": 18.5,
       "truthsocial": 7.4
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.1,
-    "overall_total": 8163,
+    "overall_total": 8166,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4708,
+        "total": 4710,
         "correct": 330,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 12.17,
+        "avg_pnl_pct": 12.16,
         "color": "red"
       },
       {
@@ -74,7 +74,7 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1011,
+        "total": 1012,
         "correct": 184,
         "accuracy_pct": 18.2,
         "avg_pnl_pct": -5.96,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 688,
-  "headlines_last_cycle": 17,
+  "headlines_scanned_today": 762,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 9999,
+  "classifications_24h": 10202,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4110,
+    "prefiltered_haiku": 4197,
     "stale": 19,
     "capped": 1,
     "too_close_to_resolution": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2621,
-    "matched": 990,
-    "classified": 9999,
+    "news": 2680,
+    "matched": 984,
+    "classified": 10202,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1467.3
+    "avg_classification_latency_ms": 1508.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,73 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 11:32:00",
-      "market_question": "Ethereum Up or Down - June 23, 7:15AM-7:30AM ET",
-      "headline": "Morning Bid: SpaceXhaust - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 11:31:59",
-      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
-      "headline": "Morning Bid: SpaceXhaust - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 11:31:59",
-      "market_question": "Ethereum Up or Down - June 23, 7:25AM-7:30AM ET",
-      "headline": "Morning Bid: SpaceXhaust - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 11:31:58",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Crypto market drops as Nasdaq tech selloff spills into digital assets",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 11:31:58",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Crypto market drops as Nasdaq tech selloff spills into digital assets",
+      "time": "2026-06-23 11:34:00",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "While domestic game companies are actively using artificial intelligence (AI) for game development - \ub9e4\uc77c\uacbd\uc81c",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -434,9 +370,73 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 11:34:00",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "As the competition axis of the artificial intelligence (AI) industry shifts from developing large la.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 11:34:00",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "As the competition axis of the artificial intelligence (AI) industry shifts from developing large la.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 11:34:00",
+      "market_question": "Will Donald Trump post 200+ Truth Social posts from June 16 to June 23, 2026?",
+      "headline": "As the competition axis of the artificial intelligence (AI) industry shifts from developing large la.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 11:34:00",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "As the competition axis of the artificial intelligence (AI) industry shifts from developing large la.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "cached",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
