@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import math
 
 from locus import config
 from locus.memory import logger
@@ -29,6 +30,42 @@ async def execute_trade_async(signal: Signal) -> dict:
     return await asyncio.get_event_loop().run_in_executor(None, execute_trade, signal)
 
 
+def valid_size_step(price: float) -> float:
+    """Smallest order size increment (in shares) that yields CLOB-valid amounts.
+
+    Polymarket's CLOB has an undocumented rule: both scaled integer amounts of a
+    signed order must be whole multiples of 10_000, where (for a BUY)
+        maker_amount = price * size * 1e6   (USDC, 6 decimals)
+        taker_amount =         size * 1e6   (outcome tokens, 6 decimals)
+    Rounding size to 2 decimals is NOT enough — e.g. price=0.081 size=25.4 gives
+    maker_amount 2_057_400, which is not a multiple of 10_000, so the exchange
+    rejects the order body as "Invalid order inputs". The valid size step is
+    price-dependent; we derive it from the GCD of the scaled price and 1e6.
+
+    `price` must already be tick-aligned (multiples of 0.001/0.0001 etc.); the
+    *10_000 scaling captures ticks down to 0.0001, the CLOB's finest."""
+    p_int = int(round(price * 10_000))
+    if p_int <= 0:
+        return 0.01
+    # Smallest size (in 1e-4-share units) making maker_amount a multiple of 1e6...
+    maker_step = 1_000_000 // math.gcd(p_int, 1_000_000)
+    # ...also forced to a multiple of 100 so taker_amount stays a multiple of 1e4.
+    step_units = maker_step * 100 // math.gcd(maker_step, 100)
+    return step_units / 10_000
+
+
+def round_size_for_clob(price: float, size: float) -> float:
+    """Round `size` DOWN to the nearest CLOB-valid increment at `price`.
+
+    Always rounds down so the order never exceeds the requested size / the
+    visible depth it was already capped to."""
+    step = valid_size_step(price)
+    if step <= 0:
+        return round(size, 2)
+    n = int((size + 1e-9) / step)
+    return round(n * step, 4)
+
+
 def plan_live_order(
     bet_usd: float,
     best_bid: float | None,
@@ -43,19 +80,28 @@ def plan_live_order(
       spread; skip ("skipped_wide_spread").
     - Price at best ask (take liquidity, immediate fill), size in SHARES
       (the CLOB sizes orders in outcome tokens, not dollars), downsized to
-      the visible depth at best ask; under $1 notional -> "skipped_thin_book".
+      the visible depth at best ask and snapped to a CLOB-valid size step;
+      below the exchange minimums -> "skipped_thin_book".
     """
     if best_ask is None or best_ask <= 0:
         return None, None, "skipped_empty_book"
     if best_bid is not None and (best_ask - best_bid) > max_spread:
         return None, None, "skipped_wide_spread"
 
-    shares = bet_usd / best_ask
-    if ask_size_shares is not None:
-        shares = min(shares, ask_size_shares)
-    if shares * best_ask < 1.0:
+    # shares = dollars / price (NOT dollars) — the CLOB sizes in outcome tokens.
+    raw_shares = bet_usd / best_ask
+    capped_shares = min(raw_shares, ask_size_shares) if ask_size_shares is not None else raw_shares
+    shares = round_size_for_clob(best_ask, capped_shares)
+    notional = shares * best_ask
+    log.info(
+        "[executor] BUY plan: bet=$%.2f price=%.4f -> raw %.2f sh, depth-capped %.2f sh, "
+        "snapped %.2f sh (step=%.2f, notional=$%.2f)",
+        bet_usd, best_ask, raw_shares, capped_shares, shares,
+        valid_size_step(best_ask), notional,
+    )
+    if shares < config.MIN_ORDER_SHARES or notional < config.MIN_ORDER_USD:
         return None, None, "skipped_thin_book"
-    return best_ask, round(shares, 2), "ok"
+    return best_ask, shares, "ok"
 
 
 def plan_live_sell(
@@ -69,22 +115,29 @@ def plan_live_sell(
 
     The mirror image of plan_live_order: a close hits the best BID (take
     liquidity, immediate fill), sizing in SHARES and downsizing to the visible
-    depth at best bid. Same guards as a buy:
+    depth at best bid, then snapping to a CLOB-valid size step. Same guards as
+    a buy:
     - No bids -> nothing to sell into ("skipped_empty_book").
     - Spread wider than max_spread -> skip ("skipped_wide_spread").
-    - Under $1 notional after depth downsizing -> "skipped_thin_book".
+    - Below the exchange minimums after downsizing -> "skipped_thin_book".
     """
     if best_bid is None or best_bid <= 0:
         return None, None, "skipped_empty_book"
     if best_ask is not None and (best_ask - best_bid) > max_spread:
         return None, None, "skipped_wide_spread"
 
-    sell_shares = shares
-    if bid_size_shares is not None:
-        sell_shares = min(sell_shares, bid_size_shares)
-    if sell_shares * best_bid < 1.0:
+    capped_shares = min(shares, bid_size_shares) if bid_size_shares is not None else shares
+    sell_shares = round_size_for_clob(best_bid, capped_shares)
+    notional = sell_shares * best_bid
+    log.info(
+        "[executor] SELL plan: want %.2f sh, price=%.4f -> depth-capped %.2f sh, "
+        "snapped %.2f sh (step=%.2f, notional=$%.2f)",
+        shares, best_bid, capped_shares, sell_shares,
+        valid_size_step(best_bid), notional,
+    )
+    if sell_shares < config.MIN_ORDER_SHARES or notional < config.MIN_ORDER_USD:
         return None, None, "skipped_thin_book"
-    return best_bid, round(sell_shares, 2), "ok"
+    return best_bid, sell_shares, "ok"
 
 
 def round_to_tick(price: float, tick_size) -> float:

@@ -3,10 +3,23 @@ import types
 
 from locus.core.executor import (
     plan_live_order,
+    plan_live_sell,
+    valid_size_step,
+    round_size_for_clob,
     _best_levels,
     round_to_tick,
     _diagnose_order_error,
 )
+
+
+def _maker_amount(price, size):
+    """Scaled USDC maker amount the CLOB signs for a BUY (must be a whole 1e4)."""
+    return round(price * size * 1e6)
+
+
+def _taker_amount(size):
+    """Scaled outcome-token amount (must be a whole multiple of 1e4)."""
+    return round(size * 1e6)
 
 
 def test_normal_order_priced_at_best_ask_sized_in_shares():
@@ -49,6 +62,57 @@ def test_missing_bid_side_still_trades():
 
 def _level(p, s):
     return types.SimpleNamespace(price=str(p), size=str(s))
+
+
+def test_regression_invalid_order_inputs_case():
+    # The exact order that the CLOB rejected as "Invalid order inputs":
+    # price=0.081, naive size 25.4 -> maker_amount 2_057_400, not a 1e4 multiple.
+    assert _maker_amount(0.081, 25.4) % 10_000 != 0  # the bug
+    # ~$2.06 bet at $0.081 is the 25.4-share order that was rejected.
+    price, shares, status = plan_live_order(
+        bet_usd=2.06, best_bid=0.080, best_ask=0.081, ask_size_shares=10_000.0,
+        max_spread=0.05,
+    )
+    assert status == "ok"
+    assert price == 0.081
+    # 25.4 raw shares snapped down to a valid step (10 shares at this price)
+    assert shares == 20.0
+    assert _maker_amount(price, shares) % 10_000 == 0
+    assert _taker_amount(shares) % 10_000 == 0
+
+
+def test_valid_size_step_makes_amounts_whole_1e4_multiples():
+    # across a range of tick-aligned prices, snapping any size must yield a
+    # maker AND taker amount divisible by 10_000 (the CLOB's hidden rule).
+    for price in (0.081, 0.123, 0.50, 0.52, 0.337, 0.9, 0.015):
+        for raw in (25.4, 6.25, 313.0, 7.77, 50.0):
+            snapped = round_size_for_clob(price, raw)
+            if snapped <= 0:
+                continue
+            assert snapped <= raw + 1e-9          # only ever rounds down
+            assert _maker_amount(price, snapped) % 10_000 == 0, (price, raw, snapped)
+            assert _taker_amount(snapped) % 10_000 == 0, (price, raw, snapped)
+
+
+def test_valid_size_step_known_values():
+    assert valid_size_step(0.081) == 10.0   # coarse step on a low-price 0.001 mkt
+    assert valid_size_step(0.50) == 0.02     # fine step on a clean half
+
+
+def test_below_five_share_minimum_is_skipped():
+    # 4 shares clears $1 notional at this price but is under the 5-share floor.
+    _, _, status = plan_live_order(2.0, 0.49, 0.50, 4.0, max_spread=0.05)
+    assert status == "skipped_thin_book"
+
+
+def test_sell_snaps_to_valid_step():
+    price, shares, status = plan_live_sell(
+        25.4, best_bid=0.081, best_ask=0.082, bid_size_shares=10_000.0,
+        max_spread=0.05,
+    )
+    assert status == "ok"
+    assert shares == 20.0
+    assert _maker_amount(price, shares) % 10_000 == 0
 
 
 def test_best_levels_extraction():

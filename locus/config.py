@@ -41,6 +41,11 @@ POLYMARKET_SIGNATURE_TYPE = int(os.getenv("POLYMARKET_SIGNATURE_TYPE", "3"))
 # Live orders: skip when the book's spread exceeds this (the apparent edge
 # is mostly spread on thin niche books).
 LIVE_MAX_SPREAD = float(os.getenv("LIVE_MAX_SPREAD", "0.05"))
+# Polymarket CLOB order minimums (server-enforced). An order must be worth at
+# least MIN_ORDER_USD in notional AND at least MIN_ORDER_SHARES outcome tokens,
+# or the exchange rejects it (e.g. "Size (1.08) lower than the minimum: 5").
+MIN_ORDER_USD = float(os.getenv("MIN_ORDER_USD", "1.0"))
+MIN_ORDER_SHARES = float(os.getenv("MIN_ORDER_SHARES", "5.0"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 # Public trades feed (no auth). The CLOB /data/trades endpoint requires API
