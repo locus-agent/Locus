@@ -90,3 +90,61 @@ def test_double_failure_raises():
     idx._client.get_or_create_collection = lambda name, metadata=None: FakeCollection(broken=True)
     with pytest.raises(RuntimeError):
         idx.sync([MKT])
+
+
+# --- loky / semaphore-leak mitigation (macOS, Python 3.14) ---
+
+
+def test_tokenizers_parallelism_disabled_on_import():
+    """Importing the module must pin TOKENIZERS_PARALLELISM=false before any
+    transformers import, so the tokenizer worker pool never spins up."""
+    import os
+
+    import locus.core.market_index  # noqa: F401  (import for the side effect)
+
+    assert os.environ.get("TOKENIZERS_PARALLELISM") == "false"
+
+
+class SemaphoreModel:
+    """Embedding model that fails the way loky does on macOS."""
+
+    def encode(self, docs, **kwargs):
+        raise OSError("leaked semaphore objects to clean up at shutdown")
+
+
+def test_encode_swallows_semaphore_errors():
+    idx = _index_with(FakeCollection())
+    idx._model = SemaphoreModel()
+    assert idx._encode(["hello"], normalize_embeddings=True) is None
+
+
+def test_encode_reraises_unrelated_errors():
+    import pytest
+
+    class BoomModel:
+        def encode(self, docs, **kwargs):
+            raise OSError("disk is on fire")
+
+    idx = _index_with(FakeCollection())
+    idx._model = BoomModel()
+    with pytest.raises(OSError, match="disk is on fire"):
+        idx._encode(["hello"])
+
+
+def test_search_degrades_to_empty_on_semaphore_error():
+    idx = _index_with(FakeCollection())
+    idx._model = SemaphoreModel()
+    idx.ready = True
+    # No crash; falls back to keyword matching (empty semantic hits).
+    assert idx.search("anything") == {}
+
+
+def test_sync_skips_batch_on_semaphore_error():
+    """A semaphore hiccup during encode must not crash sync or trigger a
+    rebuild — the batch is skipped and retried next time."""
+    coll = FakeCollection()
+    idx = _index_with(coll)
+    idx._model = SemaphoreModel()
+    idx.sync([MKT])  # must not raise
+    assert coll.count() == 0  # nothing embedded, but healthy
+    assert idx._client.deleted == []  # no rebuild was triggered

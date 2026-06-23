@@ -11,13 +11,42 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import os
 import time
 from collections import OrderedDict
+
+# --- macOS / Python 3.14 loky semaphore-leak mitigation ---
+# sentence-transformers (via tokenizers/torch) spins up a multiprocessing
+# (loky) backend that leaks semaphore objects on macOS, printing
+# "resource_tracker: There appear to be N leaked semaphore objects" and, on
+# 3.14, sometimes aborting at shutdown. Two defenses, both applied *before*
+# transformers/tokenizers are imported (those imports are deferred to
+# _ensure_loaded, so module load time is early enough):
+#   1. TOKENIZERS_PARALLELISM=false disables the tokenizer's worker pool.
+#   2. force the 'spawn' start method so children get their own resource
+#      tracker and clean up after themselves instead of inheriting the
+#      parent's via fork().
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+import multiprocessing as _multiprocessing
+
+try:
+    _multiprocessing.set_start_method("spawn")
+except RuntimeError:
+    # A start method was already chosen earlier in the process — leave it.
+    pass
 
 from locus import config
 from locus.markets.gamma import Market
 
 log = logging.getLogger(__name__)
+
+
+def _is_semaphore_error(exc: BaseException) -> bool:
+    """True for the loky/multiprocessing semaphore failures we want to swallow
+    rather than crash on (a known macOS / Python 3.14 quirk)."""
+    msg = str(exc).lower()
+    return any(s in msg for s in ("semaphore", "loky", "resource_tracker", "leaked"))
 
 CHROMA_PATH = str(config.PROJECT_ROOT / "chroma_db")
 COLLECTION = "markets"
@@ -99,6 +128,19 @@ class MarketIndex:
             t0 = time.monotonic()
             self._model = SentenceTransformer(MODEL_NAME)
             log.info(f"[index] Loaded {MODEL_NAME} in {time.monotonic() - t0:.1f}s")
+
+    def _encode(self, texts, **kwargs):
+        """Run the embedding model, swallowing loky/semaphore errors (the known
+        macOS / Python 3.14 multiprocessing quirk) so a transient resource
+        failure degrades to keyword matching instead of taking the pipeline
+        down. Returns None when the encode was skipped."""
+        try:
+            return self._model.encode(texts, **kwargs)
+        except (OSError, RuntimeError) as e:
+            if _is_semaphore_error(e):
+                log.warning(f"[index] Embedding skipped (semaphore/loky error): {e}")
+                return None
+            raise
 
     def warm(self) -> None:
         """Load the model and persisted collection (sets ready if data exists).
@@ -212,11 +254,15 @@ class MarketIndex:
 
         for i in range(0, len(to_embed), EMBED_BATCH):
             batch = to_embed[i : i + EMBED_BATCH]
-            embeddings = self._model.encode(
+            embeddings = self._encode(
                 [doc for _, doc, _ in batch],
                 show_progress_bar=False,
                 normalize_embeddings=True,
             )
+            if embeddings is None:
+                # Semaphore/loky hiccup — skip this batch; the unchanged doc
+                # hashes mean it's retried on the next sync.
+                continue
             emb_list = embeddings.tolist()
             self._collection.upsert(
                 ids=[id_ for id_, _, _ in batch],
@@ -252,7 +298,9 @@ class MarketIndex:
         if max_distance is None:
             max_distance = config.EMBED_DISTANCE_THRESHOLD
 
-        embedding = self._model.encode([text], normalize_embeddings=True)
+        embedding = self._encode([text], normalize_embeddings=True)
+        if embedding is None:
+            return {}
         result = self._collection.query(
             query_embeddings=embedding.tolist(),
             n_results=min(top_k, max(self._collection.count(), 1)),

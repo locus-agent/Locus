@@ -20,12 +20,54 @@ Usage:
 """
 
 import argparse
+import logging
 import sys
+import time
 
 from rich.console import Console
 from rich.table import Table
 
 console = Console()
+log = logging.getLogger("locus.cli")
+
+
+def run_with_watchdog(run, *, max_restarts: int = 10, delay_seconds: int = 5) -> None:
+    """Run the pipeline under a crash watchdog.
+
+    A clean return or KeyboardInterrupt stops immediately. Any other exception
+    (e.g. a loky semaphore-leak abort on macOS) is treated as a crash: log it,
+    wait `delay_seconds`, and restart — up to `max_restarts` times before
+    giving up and re-raising the last error.
+    """
+    restarts = 0
+    while True:
+        try:
+            run()
+            return  # clean shutdown (KeyboardInterrupt is handled inside run)
+        except KeyboardInterrupt:
+            console.print("\n[yellow]Interrupted — exiting.[/yellow]")
+            return
+        except Exception as e:
+            restarts += 1
+            if restarts > max_restarts:
+                log.error(
+                    "Pipeline crashed (%s: %s); restart limit of %d reached — giving up.",
+                    type(e).__name__, e, max_restarts,
+                )
+                console.print(
+                    f"[red bold]Pipeline crashed — {max_restarts} restart limit "
+                    f"reached. Giving up.[/red bold]"
+                )
+                raise
+            log.warning(
+                "Pipeline crashed (%s: %s); restart %d/%d in %ds.",
+                type(e).__name__, e, restarts, max_restarts, delay_seconds,
+            )
+            console.print(
+                f"[red]Pipeline crashed ({type(e).__name__}: {e}). "
+                f"Restarting {restarts}/{max_restarts} in {delay_seconds}s...[/red]"
+            )
+            time.sleep(delay_seconds)
 
 
 def cmd_watch(args):
@@ -54,7 +96,7 @@ def cmd_watch(args):
     if telegram_bot.start_bot_polling() is not None:
         console.print("[dim]Telegram interactive bot polling started[/dim]")
 
-    run_pipeline_v2()
+    run_with_watchdog(run_pipeline_v2)
 
 
 def cmd_calibrate(args):
