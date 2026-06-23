@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T02:12:31.841745+00:00",
-  "last_heartbeat": "2026-06-23T02:12:31.841745+00:00",
-  "uptime_seconds": 26334,
+  "generated_at": "2026-06-23T02:17:37.334747+00:00",
+  "last_heartbeat": "2026-06-23T02:17:37.334747+00:00",
+  "uptime_seconds": 26640,
   "dry_run": false,
-  "markets_tracked": 1356,
+  "markets_tracked": 1360,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8078,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 53,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 57,
+  "headlines_last_cycle": 2,
   "signals_24h": 3,
-  "classifications_24h": 9145,
+  "classifications_24h": 9162,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3672,
+    "prefiltered_haiku": 3680,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2354,
-    "matched": 950,
-    "classified": 9145,
+    "news": 2357,
+    "matched": 952,
+    "classified": 9162,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1561.5
+    "avg_classification_latency_ms": 1559.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 02:08:33",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "Tech giant Oracle sheds 21,000 jobs in a year as AI replaces some roles",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "confidence": 0.62,
+      "time": "2026-06-23 02:17:12",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "U.S. News: Top U.S. News Today - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.26999999999999996,
-      "action": "skip",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 02:17:11",
+      "market_question": "Will Javier Milei win the 2027 Argentina presidential election?",
+      "headline": "Lionel Messi becomes top scorer in World Cup history with 2 more goals for Argentina - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 02:17:11",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Lionel Messi becomes top scorer in World Cup history with 2 more goals for Argentina - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 02:04:01",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "Oil gains after selloff, awaits progress on Strait of Hormuz flows - Reuters",
+      "time": "2026-06-23 02:17:11",
+      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
+      "headline": "U.S. News: Top U.S. News Today - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,9 +423,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 02:04:01",
-      "market_question": "Will the National Union for Democracy and Progress win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "Oil gains after selloff, awaits progress on Strait of Hormuz flows - Reuters",
+      "time": "2026-06-23 02:17:11",
+      "market_question": "Will Meituan have the top AI model at the end of June 2026?",
+      "headline": "U.S. News: Top U.S. News Today - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -405,38 +437,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 01:59:45",
-      "market_question": "Will Abelardo de la Espriella win the second round of the 2026 Colombian presidential election by 10-15%?",
-      "headline": "Trump-endorsed populist poised to become Colombia's next president as rival challenges vote - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 01:59:45",
-      "market_question": "Will Abelardo de la Espriella win the second round of the 2026 Colombian presidential election by 15%+?",
-      "headline": "Trump-endorsed populist poised to become Colombia's next president as rival challenges vote - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
