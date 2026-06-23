@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T19:15:27.079503+00:00",
-  "last_heartbeat": "2026-06-23T19:15:27.079503+00:00",
-  "uptime_seconds": 2795,
+  "generated_at": "2026-06-23T19:20:33.109044+00:00",
+  "last_heartbeat": "2026-06-23T19:20:33.109044+00:00",
+  "uptime_seconds": 3101,
   "dry_run": false,
-  "markets_tracked": 1340,
+  "markets_tracked": 1344,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8321,
@@ -82,8 +82,8 @@
       }
     ]
   },
-  "headlines_scanned_today": 2112,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 2113,
+  "headlines_last_cycle": 0,
   "signals_24h": 9,
   "classifications_24h": 9231,
   "selectivity_pct": 0.1,
@@ -119,8 +119,8 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2434,
-    "matched": 918,
+    "news": 2432,
+    "matched": 919,
     "classified": 9231,
     "signals": 9,
     "trades": 9
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1557.5
+    "avg_classification_latency_ms": 1555.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 19:15:24",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 19:15:22",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
+      "time": "2026-06-23 19:17:30",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Cristiano Ronaldo roars back with two goals as Portugal beats Uzbekistan 5-0 at the World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 19:15:22",
-      "market_question": "Will Trump flip the bird again in 2026?",
-      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
+      "time": "2026-06-23 19:17:29",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Cristiano Ronaldo roars back with two goals as Portugal beats Uzbekistan 5-0 at the World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 19:15:21",
-      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
-      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
+      "time": "2026-06-23 19:17:29",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Cristiano Ronaldo roars back with two goals as Portugal beats Uzbekistan 5-0 at the World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,9 +407,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 19:15:20",
-      "market_question": "Will Ed Markey be the Democratic nominee for Senate in Massachusetts?",
-      "headline": "Senate is set to vote again on a war powers resolution to halt the Iran conflict - AP News",
+      "time": "2026-06-23 19:17:29",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Cristiano Ronaldo roars back with two goals as Portugal beats Uzbekistan 5-0 at the World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 19:17:29",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Cristiano Ronaldo roars back with two goals as Portugal beats Uzbekistan 5-0 at the World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
