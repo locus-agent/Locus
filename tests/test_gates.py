@@ -10,21 +10,27 @@ from locus.markets.gamma import Market
 from locus.sources.news_stream import NewsEvent
 
 NOW = datetime(2026, 6, 12, 12, 0, 0, tzinfo=timezone.utc)
-LIMIT = config.MAX_NEWS_AGE_SECONDS
+# Default (unknown-source) freshness window. A signal with no news_source falls
+# back to this in get_max_age_seconds.
+LIMIT = config.MAX_NEWS_AGE_SECONDS_DEFAULT
 
 
 @pytest.fixture(autouse=True)
 def _pin_materiality_thresholds(monkeypatch):
-    """Pin the direction-specific materiality floors and the high-materiality
-    confirmation gate to their standard defaults so the tests don't depend on
-    the developer's .env overrides (same pattern used for other configs). The
-    floor tests below are written against these: bullish 0.3, bearish 0.4
-    (bearish gets a higher bar), and the confirmation gate at 0.5 needing 2
-    distinct sources."""
+    """Pin the direction-specific materiality floors, the high-materiality
+    confirmation gate, and the source freshness windows to their standard
+    defaults so the tests don't depend on the developer's .env overrides (same
+    pattern used for other configs). The floor tests below are written against
+    these: bullish 0.3, bearish 0.4 (bearish gets a higher bar), and the
+    confirmation gate at 0.5 needing 2 distinct sources."""
     monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BULLISH", 0.3)
     monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BEARISH", 0.4)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.5)
     monkeypatch.setattr(config, "MIN_CONFIRMING_SOURCES", 2)
+    monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_DEFAULT", 14400)
+    monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_TWITTER", 10800)
+    monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_RSS", 21600)
+    monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_NEWSAPI", 18000)
 
 MKT = Market("c1", "Will X happen?", "ai", 0.5, 0.5, 5000, "", True, [])
 
@@ -67,8 +73,8 @@ def test_boundary_is_inclusive():
 
 def test_queue_dwell_counts():
     # Received quickly after publication (latency 1s), but it sat in the
-    # queue: by decision time it is 20 minutes old -> stale.
-    event = ev("dwelled", 20 * 60, latency_ms=1000)
+    # queue: by decision time it is 5 hours old -> stale (past the 4h default).
+    event = ev("dwelled", 5 * 3600, latency_ms=1000)
     s, a = gate_trade(event, SIG, set(), now=NOW)
     assert s is None and a == "stale"
 
@@ -88,34 +94,35 @@ def src_sig(news_source):
                   news_source=news_source)
 
 
-def test_twitter_uses_15min_limit():
-    # 15 min (900s) is the limit; just past it is stale, just under trades.
+def test_twitter_uses_3h_limit():
+    # 3h (10800s) is the limit; just past it is stale, just under trades.
     twitter = src_sig("twitter")
-    assert gate_trade(ev("t", 900), twitter, set(), now=NOW)[1] == "signal"
-    s, a = gate_trade(ev("t", 901), twitter, set(), now=NOW)
+    assert gate_trade(ev("t", 10800), twitter, set(), now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("t", 10801), twitter, set(), now=NOW)
     assert s is None and a == "stale"
 
 
-def test_rss_uses_2h_limit():
-    # 90 min old would be stale for Twitter, but RSS allows up to 2 hours.
+def test_rss_uses_6h_limit():
+    # 4 hours old would be stale for Twitter (3h), but RSS allows up to 6 hours.
     rss = src_sig("rss")
-    assert gate_trade(ev("r", 90 * 60), rss, set(), now=NOW)[1] == "signal"
-    s, a = gate_trade(ev("r", 2 * 3600 + 1), rss, set(), now=NOW)
+    assert gate_trade(ev("r", 4 * 3600), rss, set(), now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("r", 6 * 3600 + 1), rss, set(), now=NOW)
     assert s is None and a == "stale"
 
 
-def test_newsapi_uses_4h_limit():
-    # 3 hours old would be stale for RSS, but NewsAPI allows up to 4 hours.
+def test_newsapi_uses_5h_limit():
+    # NewsAPI allows up to 5 hours; just past it is stale.
     newsapi = src_sig("newsapi")
-    assert gate_trade(ev("n", 3 * 3600), newsapi, set(), now=NOW)[1] == "signal"
-    s, a = gate_trade(ev("n", 4 * 3600 + 1), newsapi, set(), now=NOW)
+    assert gate_trade(ev("n", 5 * 3600), newsapi, set(), now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("n", 5 * 3600 + 1), newsapi, set(), now=NOW)
     assert s is None and a == "stale"
 
 
-def test_unknown_source_falls_back_to_15min():
+def test_unknown_source_falls_back_to_default():
+    # Unknown source uses the 4h default window.
     unknown = src_sig("mystery-wire")
-    assert gate_trade(ev("u", 900), unknown, set(), now=NOW)[1] == "signal"
-    s, a = gate_trade(ev("u", 901), unknown, set(), now=NOW)
+    assert gate_trade(ev("u", 4 * 3600), unknown, set(), now=NOW)[1] == "signal"
+    s, a = gate_trade(ev("u", 4 * 3600 + 1), unknown, set(), now=NOW)
     assert s is None and a == "stale"
 
 

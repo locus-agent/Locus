@@ -469,12 +469,13 @@ def classify(
 
 
 def haiku_prefilter(
-    headline: str, market: Market, source: str = "unknown"
+    headline: str, market: Market, source: str = "unknown", category: str = ""
 ) -> Classification | None:
     """The cheap Haiku triage half of tiered classification.
 
     Returns a Classification with action='prefiltered_haiku' when Haiku rejects
-    the headline (irrelevant, or materiality below HAIKU_MATERIALITY_THRESHOLD),
+    the headline (irrelevant, or materiality below the category-specific floor
+    HAIKU_MATERIALITY_BY_CATEGORY.get(category, HAIKU_MATERIALITY_THRESHOLD)),
     or None when it passes and deserves the deep Sonnet analysis.
 
     Fails OPEN: any Haiku error (API or parse) returns None so the caller still
@@ -519,10 +520,14 @@ def haiku_prefilter(
     if materiality > 0.85:
         materiality = 0.75
 
-    if not relevant or materiality < config.HAIKU_MATERIALITY_THRESHOLD:
+    floor = config.HAIKU_MATERIALITY_BY_CATEGORY.get(
+        category, config.HAIKU_MATERIALITY_THRESHOLD
+    )
+    if not relevant or materiality < floor:
         log.info(
             f"haiku_prefilter: {market.slug} | relevant={relevant} | "
-            f"mat={materiality:.2f} | action=prefiltered_haiku"
+            f"mat={materiality:.2f} | floor={floor:.2f} | cat={category or 'n/a'} | "
+            f"action=prefiltered_haiku"
         )
         return Classification(
             direction=direction,
@@ -596,7 +601,9 @@ def classify_fast(
     Fails OPEN: any Haiku error (API or parse) falls through to the full
     classify() so a flaky prefilter never silently drops tradable news.
     """
-    rejected = haiku_prefilter(headline, market, source)
+    rejected = haiku_prefilter(
+        headline, market, source, getattr(market, "category", "") or ""
+    )
     if rejected is not None:
         return rejected
     return classify(headline, market, source, as_of, model=config.SCORING_MODEL)

@@ -51,6 +51,10 @@ def pinned_models(monkeypatch):
     monkeypatch.setattr(config, "HAIKU_MODEL", "haiku-test")
     monkeypatch.setattr(config, "SCORING_MODEL", "sonnet-test")
     monkeypatch.setattr(config, "HAIKU_MATERIALITY_THRESHOLD", 0.25)
+    # Empty the per-category map so these tests exercise the fallback floor
+    # (HAIKU_MATERIALITY_THRESHOLD). The category-specific floors are covered
+    # separately below.
+    monkeypatch.setattr(config, "HAIKU_MATERIALITY_BY_CATEGORY", {})
 
 
 def test_haiku_rejects_low_materiality(monkeypatch):
@@ -116,6 +120,53 @@ def test_haiku_error_falls_through_to_sonnet(monkeypatch):
     assert c.action is None
     assert c.model == "sonnet-test"
     assert calls["models"] == ["haiku-test", "sonnet-test"]
+
+
+# --- Category-specific Haiku prefilter floors ---------------------------------
+
+# Materiality 0.20: clears a low geopolitical floor (0.18) but is below the
+# higher sports floor (0.33), so the same headline is judged per-category.
+HAIKU_MID = '{"relevant": true, "direction": "bullish", "materiality": 0.20, "reason": "mid"}'
+
+
+def _mkt(category):
+    return Market("c1", "Will X happen?", category, 0.5, 0.5, 5000,
+                  "2026-12-31", True, [], slug="will-x")
+
+
+def test_category_floor_passes_low_bar_category(monkeypatch):
+    # Geopolitical floor (0.18): a 0.20 headline clears it and goes to Sonnet.
+    monkeypatch.setattr(config, "HAIKU_MATERIALITY_BY_CATEGORY",
+                        {"geopolitical": 0.18, "sports": 0.33})
+    client, calls = _fake_client([HAIKU_MID, SONNET])
+    monkeypatch.setattr(classifier, "client", client)
+    c = classifier.classify_fast("headline", _mkt("geopolitical"))
+    assert c.action is None
+    assert calls["models"] == ["haiku-test", "sonnet-test"]
+
+
+def test_category_floor_rejects_high_bar_category(monkeypatch):
+    # Sports floor (0.33): the same 0.20 headline is rejected (noisier signal).
+    monkeypatch.setattr(config, "HAIKU_MATERIALITY_BY_CATEGORY",
+                        {"geopolitical": 0.18, "sports": 0.33})
+    client, calls = _fake_client([HAIKU_MID])
+    monkeypatch.setattr(classifier, "client", client)
+    c = classifier.classify_fast("headline", _mkt("sports"))
+    assert c.action == "prefiltered_haiku"
+    assert calls["n"] == 1                       # Haiku only — no Sonnet call
+
+
+def test_category_floor_falls_back_to_default(monkeypatch):
+    # A category absent from the map uses HAIKU_MATERIALITY_THRESHOLD (0.25),
+    # so a 0.20 headline is rejected.
+    monkeypatch.setattr(config, "HAIKU_MATERIALITY_BY_CATEGORY",
+                        {"geopolitical": 0.18})
+    monkeypatch.setattr(config, "HAIKU_MATERIALITY_THRESHOLD", 0.25)
+    client, calls = _fake_client([HAIKU_MID])
+    monkeypatch.setattr(classifier, "client", client)
+    c = classifier.classify_fast("headline", _mkt("crypto"))
+    assert c.action == "prefiltered_haiku"
+    assert calls["n"] == 1
 
 
 def test_disabled_path_uses_sonnet_directly_via_classify(monkeypatch):

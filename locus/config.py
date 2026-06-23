@@ -282,24 +282,25 @@ def materiality_threshold(direction: str) -> float:
 # is logged) when the headline was published more than this long before we
 # received it. Stale RSS/NewsAPI articles must not trigger trades.
 #
-# Limits are source-specific: real-time feeds (Twitter) get a tight window,
-# while slower aggregators (RSS/NewsAPI) get more slack. MAX_NEWS_AGE_SECONDS
-# is the fallback for unknown/unlisted sources. Use get_max_age_seconds().
-MAX_NEWS_AGE_SECONDS = float(os.getenv("MAX_NEWS_AGE_SECONDS", "900"))
-MAX_NEWS_AGE_SECONDS_TWITTER = float(os.getenv("MAX_NEWS_AGE_SECONDS_TWITTER", "900"))
-MAX_NEWS_AGE_SECONDS_RSS = float(os.getenv("MAX_NEWS_AGE_SECONDS_RSS", "7200"))
-MAX_NEWS_AGE_SECONDS_NEWSAPI = float(os.getenv("MAX_NEWS_AGE_SECONDS_NEWSAPI", "14400"))
+# Limits are source-specific: real-time feeds (Twitter/Truth Social) get a
+# tighter window, while slower aggregators (RSS/NewsAPI) get more slack.
+# MAX_NEWS_AGE_SECONDS_DEFAULT is the fallback for unknown/unlisted sources.
+# Use get_max_age_seconds(source, category, hours_to_resolution).
+MAX_NEWS_AGE_SECONDS_DEFAULT = float(os.getenv("MAX_NEWS_AGE_SECONDS_DEFAULT", "14400"))
+MAX_NEWS_AGE_SECONDS_TWITTER = float(os.getenv("MAX_NEWS_AGE_SECONDS_TWITTER", "10800"))
+MAX_NEWS_AGE_SECONDS_RSS = float(os.getenv("MAX_NEWS_AGE_SECONDS_RSS", "21600"))
+MAX_NEWS_AGE_SECONDS_NEWSAPI = float(os.getenv("MAX_NEWS_AGE_SECONDS_NEWSAPI", "18000"))
 MAX_NEWS_AGE_SECONDS_TELEGRAM = float(os.getenv("MAX_NEWS_AGE_SECONDS_TELEGRAM", "1800"))
 # Truth Social posts are breaking news straight from the source — treat them
-# as nearly as time-sensitive as Twitter (30 min), not slow RSS (2h).
-MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL = float(os.getenv("MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL", "1800"))
+# as more time-sensitive (2h) than slow aggregators.
+MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL = float(os.getenv("MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL", "7200"))
 
 # Geopolitical markets move slowly: long-horizon diplomatic/military/political
 # developments (Iran deals, Ukraine, Taiwan, sanctions, ...) stay relevant for
-# days, so headlines on those markets get a much wider freshness window (12h)
-# than the source default — but only when the market resolves > 7 days out (see
-# pipeline.is_geopolitical + gate_trade).
-MAX_NEWS_AGE_SECONDS_GEOPOLITICAL = float(os.getenv("MAX_NEWS_AGE_SECONDS_GEOPOLITICAL", "43200"))
+# days, so headlines on those markets get a much wider freshness window (24h)
+# than the source default — applied for the geopolitical category or markets
+# that resolve far out (see get_max_age_seconds + pipeline.is_geopolitical).
+MAX_NEWS_AGE_SECONDS_GEOPOLITICAL = float(os.getenv("MAX_NEWS_AGE_SECONDS_GEOPOLITICAL", "86400"))
 GEOPOLITICAL_KEYWORDS = [
     "iran", "tehran", "ayatollah", "nuclear deal", "sanctions", "ceasefire",
     "ukraine", "russia", "putin", "zelensky", "taiwan", "china invasion",
@@ -309,17 +310,31 @@ GEOPOLITICAL_KEYWORDS = [
 ]
 
 
-def get_max_age_seconds(news_source: str) -> float:
-    """Freshness limit (seconds) for a given news source, falling back to
-    MAX_NEWS_AGE_SECONDS for unknown/unlisted sources. Read these as
-    config.X at call time so CLI/env overrides are honored."""
+def get_max_age_seconds(
+    news_source: str,
+    category: str = "",
+    hours_to_resolution: float | None = None,
+) -> float:
+    """Freshness limit (seconds) for a news event.
+
+    Geopolitical markets (category == "geopolitical", set upstream by
+    pipeline.is_geopolitical), or any market resolving very far out, get the
+    much wider MAX_NEWS_AGE_SECONDS_GEOPOLITICAL window — slow-moving stories
+    stay tradeable for far longer than a typical breaking headline. Otherwise
+    the window is source-specific (real-time feeds get a tighter bound than slow
+    aggregators), falling back to MAX_NEWS_AGE_SECONDS_DEFAULT for unknown
+    sources. Read these as config.X at call time so CLI/env overrides honored."""
+    if category == "geopolitical" or (
+        hours_to_resolution is not None and hours_to_resolution > 7 * 24 * 3600
+    ):
+        return MAX_NEWS_AGE_SECONDS_GEOPOLITICAL
     return {
         "twitter": MAX_NEWS_AGE_SECONDS_TWITTER,
+        "truthsocial": MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL,
         "rss": MAX_NEWS_AGE_SECONDS_RSS,
         "newsapi": MAX_NEWS_AGE_SECONDS_NEWSAPI,
         "telegram": MAX_NEWS_AGE_SECONDS_TELEGRAM,
-        "truthsocial": MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL,
-    }.get((news_source or "").lower(), MAX_NEWS_AGE_SECONDS)
+    }.get((news_source or "").lower(), MAX_NEWS_AGE_SECONDS_DEFAULT)
 
 # --- Semantic matching (V2) ---
 # Cosine distance ceiling for headline -> market embedding matches.
@@ -336,7 +351,29 @@ SCORING_MODEL = "claude-sonnet-4-6"
 # worth a deep read pay for the expensive call.
 # Expected cost reduction: ~55% (Haiku ~4x cheaper + filters ~60-70% of low-value headlines)
 HAIKU_MODEL = os.getenv("HAIKU_MODEL", "claude-haiku-4-5-20251001")  # fallback: "claude-3-5-haiku-20241022"
-HAIKU_MATERIALITY_THRESHOLD = float(os.getenv("HAIKU_MATERIALITY_THRESHOLD", "0.25"))
+# Fallback materiality floor the Haiku prefilter rejects below (used for any
+# category without an explicit entry in HAIKU_MATERIALITY_BY_CATEGORY).
+HAIKU_MATERIALITY_THRESHOLD = float(os.getenv("HAIKU_MATERIALITY_THRESHOLD", "0.20"))
+# Per-category Haiku prefilter floor: categories whose news is more reliably
+# tradeable (geopolitical/politics) get a lower bar so fewer marginal headlines
+# are dropped before the deep Sonnet read; noisier ones (sports) a higher bar.
+# 'other' / any missing category falls back to HAIKU_MATERIALITY_THRESHOLD.
+# Override the whole mapping with a HAIKU_MATERIALITY_BY_CATEGORY JSON string.
+HAIKU_MATERIALITY_BY_CATEGORY = {
+    "geopolitical": 0.18,
+    "politics": 0.19,
+    "crypto": 0.22,
+    "ai": 0.20,
+    "technology": 0.21,
+    "sports": 0.33,
+    "other": 0.22,
+}
+_haiku_by_category_override = os.getenv("HAIKU_MATERIALITY_BY_CATEGORY", "")
+if _haiku_by_category_override:
+    try:
+        HAIKU_MATERIALITY_BY_CATEGORY = json.loads(_haiku_by_category_override)
+    except (ValueError, TypeError):
+        pass  # malformed override -> keep the defaults above
 TIERED_CLASSIFICATION_ENABLED = os.getenv("TIERED_CLASSIFICATION_ENABLED", "true").lower() == "true"
 
 # --- Chain-of-Verification (CoV) novelty check ---

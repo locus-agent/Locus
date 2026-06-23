@@ -29,6 +29,9 @@ def _pin_thresholds(monkeypatch):
     monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BEARISH", 0.4)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.5)
     monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_GEOPOLITICAL", 43200)
+    # Pin the plain RSS window (6h) so the standard-window tests don't depend on
+    # a developer's .env override.
+    monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_RSS", 21600)
 
 
 def mkt(question="Will X happen?", end_date=END_FAR):
@@ -93,15 +96,16 @@ def test_geopolitical_extended_window_boundary():
 
 
 def test_geopolitical_short_horizon_uses_standard_window():
-    # Geopolitical, but resolves in 3 days (< 7): standard RSS 2h window, so a
-    # 6h-old headline is stale.
+    # Geopolitical, but resolves in 3 days (< 7): standard RSS 6h window, so a
+    # 7h-old headline is stale (the extended geopolitical window needs a
+    # long-horizon market).
     market = mkt("Will the Iran nuclear deal be signed?", end_date=END_SOON)
-    s, a = gate_trade(ev("Iran talks resume", 6 * 3600), sig(market), set(), now=NOW)
+    s, a = gate_trade(ev("Iran talks resume", 7 * 3600), sig(market), set(), now=NOW)
     assert s is None and a == "stale"
 
 
 def test_non_geopolitical_long_horizon_uses_standard_window():
-    # Long horizon but not geopolitical: standard RSS window, 6h-old is stale.
+    # Long horizon but not geopolitical: standard RSS window, 7h-old is stale.
     market = mkt("Will Apple release a new iPhone?", end_date=END_FAR)
-    s, a = gate_trade(ev("Apple rumor", 6 * 3600), sig(market), set(), now=NOW)
+    s, a = gate_trade(ev("Apple rumor", 7 * 3600), sig(market), set(), now=NOW)
     assert s is None and a == "stale"

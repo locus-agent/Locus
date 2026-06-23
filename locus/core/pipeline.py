@@ -198,17 +198,25 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         return None, "skip"
     market = signal.market
     age = news_age_seconds(event, now)
-    max_age = config.get_max_age_seconds(signal.news_source)
     # Geopolitical markets move slowly: a long-horizon (resolution > 7 days out)
     # diplomatic/military/political story stays tradeable for far longer than a
-    # typical breaking headline, so widen the freshness window to 12h for them.
-    if is_geopolitical(market, event.headline):
-        hours_to_resolution = positions.hours_to_close(market.end_date, now)
-        if hours_to_resolution is not None and hours_to_resolution > 7 * 24:
-            max_age = config.MAX_NEWS_AGE_SECONDS_GEOPOLITICAL
-            log.info(
-                f"Geopolitical market: extended freshness window (12h) | {market.slug}"
-            )
+    # typical breaking headline, so flag it as the 'geopolitical' category to
+    # get the much wider freshness window from get_max_age_seconds.
+    hours_to_resolution = positions.hours_to_close(market.end_date, now)
+    if (
+        is_geopolitical(market, event.headline)
+        and hours_to_resolution is not None
+        and hours_to_resolution > 7 * 24
+    ):
+        category = "geopolitical"
+        log.info(
+            f"Geopolitical market: extended freshness window | {market.slug}"
+        )
+    else:
+        category = getattr(market, "category", "") or ""
+    max_age = config.get_max_age_seconds(
+        signal.news_source, category, hours_to_resolution
+    )
     if age is None or age > max_age:
         return None, "stale"
     if event.headline in traded_headlines:
@@ -911,7 +919,8 @@ class PipelineV2:
         if config.TIERED_CLASSIFICATION_ENABLED:
             async with self._haiku_sem:
                 rejected = await loop.run_in_executor(
-                    None, haiku_prefilter, event.headline, market, event.source
+                    None, haiku_prefilter, event.headline, market, event.source,
+                    getattr(market, "category", "") or "",
                 )
             if rejected is not None:
                 return rejected

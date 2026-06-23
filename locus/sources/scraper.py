@@ -6,8 +6,28 @@ from dataclasses import dataclass
 
 import feedparser
 import httpx
+from dateutil import parser as date_parser
 
 from locus import config
+
+
+def _parse_rss_date(entry) -> datetime | None:
+    """Best-effort parse of an RSS item's raw <pubDate> when feedparser's own
+    struct_time parse failed (non-standard date formats). Tries dateutil across
+    the common raw date fields with multiple format fallbacks; returns a
+    tz-aware UTC datetime, or None when nothing parses."""
+    for field_name in ("published", "pubDate", "updated", "created", "date"):
+        raw = entry.get(field_name) if hasattr(entry, "get") else None
+        if not raw or not isinstance(raw, str):
+            continue
+        try:
+            dt = date_parser.parse(raw)
+        except (ValueError, OverflowError, TypeError):
+            continue
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    return None
 
 
 # Sports-specific feeds, scraped only when config.SPORTS_ENABLED is set (see
@@ -63,8 +83,13 @@ def scrape_rss(feed_url: str, lookback_hours: int) -> list[NewsItem]:
         elif hasattr(entry, "updated_parsed") and entry.updated_parsed:
             published = datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
         else:
-            published = datetime.now(timezone.utc)
-            date_known = False
+            # feedparser couldn't parse the date — fall back to a dateutil parse
+            # of the raw <pubDate> string before giving up and treating the item
+            # as undated (received_at is used as the basis downstream).
+            published = _parse_rss_date(entry)
+            if published is None:
+                published = datetime.now(timezone.utc)
+                date_known = False
 
         if published < cutoff:
             continue
