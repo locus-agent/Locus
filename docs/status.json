@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T06:11:37.369318+00:00",
-  "last_heartbeat": "2026-06-23T06:11:37.369318+00:00",
-  "uptime_seconds": 40680,
+  "generated_at": "2026-06-23T06:16:42.520492+00:00",
+  "last_heartbeat": "2026-06-23T06:16:42.520492+00:00",
+  "uptime_seconds": 40985,
   "dry_run": false,
-  "markets_tracked": 1331,
+  "markets_tracked": 1336,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8100,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 174,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 175,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 8994,
+  "classifications_24h": 8995,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3647,
+    "prefiltered_haiku": 3645,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 7,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 2317,
     "matched": 947,
-    "classified": 8994,
+    "classified": 8995,
     "signals": 3,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1616.3
+    "avg_classification_latency_ms": 1615.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 06:11:13",
-      "market_question": "Will the price of Bitcoin be above $70,000 on June 23?",
-      "headline": "AirPods Pro 3 Return to Record Low $169 Price Ahead of Prime Day - MacRumors",
+      "time": "2026-06-23 06:16:31",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -370,14 +370,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 06:11:13",
-      "market_question": "Will the National Action Party (PAN) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "I Saw the Ultimate Rocket Bike in Action and It Blew Me Away - CNET",
+      "time": "2026-06-23 06:16:31",
+      "market_question": "Will QFEX launch a token by September 30, 2027?",
+      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 06:16:31",
+      "market_question": "Will QFEX launch a token by March 31, 2027?",
+      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-23 06:16:30",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,52 +423,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-23 06:11:12",
-      "market_question": "Will the price of Bitcoin be above $62,000 on June 23?",
-      "headline": "AirPods Pro 3 Return to Record Low $169 Price Ahead of Prime Day - MacRumors",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-23 06:16:30",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Qualcomm Nears Deal for AI Chip Startup Modular - Bloomberg.com",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 06:11:11",
-      "market_question": "Will the price of Bitcoin be above $56,000 on June 23?",
-      "headline": "AirPods Pro 3 Return to Record Low $169 Price Ahead of Prime Day - MacRumors",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 06:11:11",
-      "market_question": "Will the price of Bitcoin be above $60,000 on June 23?",
-      "headline": "AirPods Pro 3 Return to Record Low $169 Price Ahead of Prime Day - MacRumors",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
