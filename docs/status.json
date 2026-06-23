@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-23T13:55:23.878615+00:00",
-  "last_heartbeat": "2026-06-23T13:55:23.878615+00:00",
-  "uptime_seconds": 4317,
+  "generated_at": "2026-06-23T14:00:30.952480+00:00",
+  "last_heartbeat": "2026-06-23T14:00:30.952480+00:00",
+  "uptime_seconds": 4624,
   "dry_run": false,
   "markets_tracked": 1358,
   "classify_error_streak": 0,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1281,
+  "headlines_scanned_today": 1331,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 11079,
+  "classifications_24h": 11262,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 4574,
-    "stale": 27,
+    "prefiltered_haiku": 4633,
+    "stale": 28,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-23T13:43:41.880928+00:00"
+    "last_check": "2026-06-23T13:58:42.315282+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2933,
-    "matched": 1039,
-    "classified": 11079,
+    "news": 2976,
+    "matched": 1041,
+    "classified": 11262,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2745.0
+    "avg_classification_latency_ms": 2672.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 13:54:02",
-      "market_question": "Will Donald Trump visit India in 2026?",
-      "headline": "U.S. focused on fair trade deal with India that benefits both countries, U.S. embassy says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 13:54:00",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "U.S. focused on fair trade deal with India that benefits both countries, U.S. embassy says - Reuters",
+      "time": "2026-06-23 13:58:26",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Donaldson's first night in prison as downfall shakes NI politics",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,41 +375,57 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-23 13:54:00",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "U.S. focused on fair trade deal with India that benefits both countries, U.S. embassy says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-23 13:58:21",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Donaldson's first night in prison as downfall shakes NI politics",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-23 13:53:59",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Ukraine's Zelenskiy to skip Poland reconstruction forum amid row - Reuters",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-23 13:58:21",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Donaldson's first night in prison as downfall shakes NI politics",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-23 13:53:59",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "U.S. focused on fair trade deal with India that benefits both countries, U.S. embassy says - Reuters",
+      "time": "2026-06-23 13:58:21",
+      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
+      "headline": "Donaldson's first night in prison as downfall shakes NI politics",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-23 13:58:21",
+      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
+      "headline": "Donaldson's first night in prison as downfall shakes NI politics",
       "direction": null,
       "materiality": null,
       "confidence": null,
