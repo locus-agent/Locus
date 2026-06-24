@@ -1,6 +1,186 @@
 {
  "missed": [
   {
+   "time": "2026-06-24 22:00:59",
+   "market_question": "Will Trump attend 2 World Cup matches?",
+   "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+   "direction": "bullish",
+   "materiality": 0.35,
+   "action": "low_materiality",
+   "pct_move": 30.0,
+   "reflection": "I underweighted a signal with clearer predictive power than my materiality threshold captured\u2014a 0.35 score should have triggered deeper analysis of *why* Trump's World Cup attendance mattered to the market, rather than automatic dismissal. The 30% move in my predicted direction suggests the market was pricing in information I had identified but then discounted, revealing a gap between my signal generation and my risk management logic. I need to recalibrate: low materiality shouldn't mean low *conviction*, and I should have sized a small position rather than skipping entirely."
+  },
+  {
+   "time": "2026-06-24 22:00:56",
+   "market_question": "Will Trump attend 3 or more World Cup matches?",
+   "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+   "direction": "bullish",
+   "materiality": 0.35,
+   "action": "low_materiality",
+   "pct_move": 13.6,
+   "reflection": "I underweighted a signal with 0.35 materiality because I'd set my threshold too conservatively\u2014but the market's 14% move in my predicted direction shows I had genuine edge that I left on the table. The binary nature of Trump attendance created asymmetric payoff potential that my materiality score didn't fully capture, and I should have recognized that even moderate conviction on low-probability, high-impact events can justify action. I need to recalibrate: materiality alone isn't the right filter when signal quality is high and position sizing can manage the risk."
+  },
+  {
+   "time": "2026-06-24 22:00:54",
+   "market_question": "Will Polymarket mindshare hit 85% by June 30?",
+   "slug": "how-high-will-polymarkets-mindshare-go-by-june-30",
+   "direction": "bearish",
+   "materiality": 0.35,
+   "action": "skip",
+   "pct_move": 31.8,
+   "reflection": "I flagged this as bearish with meaningful conviction (0.35 materiality), but then skipped execution entirely\u2014a critical disconnect between analysis and action that cost me 32% of potential gains. The skip decision suggests I either doubted my own signal quality enough to hesitate, or failed to establish clear execution rules that would have forced me to act on moderate-conviction calls. This is a pattern I need to address: a 0.35 materiality threshold should have a predetermined execution protocol, not discretionary skip optionality that lets me second-guess validated analysis."
+  },
+  {
+   "time": "2026-06-24 22:00:51",
+   "market_question": "Will Based Polymarket revenue hit $1M before 2027?",
+   "slug": "what-will-based-prediction-market-revenue-hit-before-2027",
+   "direction": "bearish",
+   "materiality": 0.35,
+   "action": "skip",
+   "pct_move": 42.5,
+   "reflection": "I flagged this as bearish with moderate conviction (0.35 materiality), but my skip decision meant I didn't act on a signal I actually believed in\u2014and the market validated that thesis by moving 42% in my predicted direction. I missed a meaningful opportunity because I likely over-weighted execution friction or uncertainty around timing rather than trusting my fundamental view that Will-based Polymarket revenue faces real adoption headwinds before 2027. This is a reminder that moderate-confidence signals with asymmetric payoffs shouldn't be discarded; they should be sized appropriately and executed."
+  },
+  {
+   "time": "2026-06-24 22:00:49",
+   "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+   "slug": "tech-layoffs-up-or-down-in-2026",
+   "direction": "bullish",
+   "materiality": 0.45,
+   "action": "stale",
+   "pct_move": 23.1,
+   "reflection": "I marked this signal stale and passed, but I was wrong to dismiss it\u2014the 0.45 materiality threshold suggested real predictive value, and I let recency bias override the actual signal strength. The 23% move in my predicted direction confirms I had the right conviction; I need to separate \"when I generated this insight\" from \"whether the market has priced it in yet,\" especially on structural themes like tech layoffs that evolve over months. Next time I'll weight signal quality over staleness unless I have explicit evidence the market has already moved."
+  },
+  {
+   "time": "2026-06-24 22:00:46",
+   "market_question": "Will Bitcoin reach $64,000 on June 24?",
+   "slug": "what-price-will-bitcoin-hit-on-june-24",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "skip",
+   "pct_move": 86.8,
+   "reflection": "I issued a bearish signal with only moderate conviction (0.45 materiality), and rather than act on that directional view, I chose to skip\u2014essentially defaulting to inaction when I should have committed to my analysis. The 87% move in my predicted direction reveals that my hesitation wasn't justified by uncertainty; I had a legitimate edge that I failed to capitalize on, likely due to risk aversion or threshold-setting that was too conservative for the signal strength I actually possessed. This is a clear miss in execution: I need to trust moderately-confident directional calls rather than hide behind the skip option when the market validates my thesis."
+  },
+  {
+   "time": "2026-06-24 22:00:43",
+   "market_question": "Will the price of Bitcoin be above $60,000 on June 25?",
+   "slug": "bitcoin-above-on-june-25-2026",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "skip",
+   "pct_move": 14.3,
+   "reflection": "I issued a bearish signal with only moderate conviction (0.45 materiality), then skipped it entirely\u2014a decision that cost me 14% of potential gains in the direction I'd actually predicted. My skip threshold was too conservative relative to my own analytical confidence; I should have either committed to the bearish position if I saw the setup clearly, or reconsidered my directional view rather than sitting on the sidelines. This reflects a gap between my signal generation and my execution discipline that I need to tighten."
+  },
+  {
+   "time": "2026-06-24 22:00:41",
+   "market_question": "Will the price of Bitcoin be above $62,000 on June 27?",
+   "slug": "bitcoin-above-on-june-27-2026",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "stale",
+   "pct_move": 43.2,
+   "reflection": "I called this bearish at 0.45 materiality and dismissed it as stale data, but I fundamentally misread the signal strength\u2014a 43% move in my predicted direction means the bearish case was far more robust than my confidence level reflected, and I let process (dismissing stale signals) override the actual predictive content I'd identified. The real mistake wasn't skipping a weak signal; it was underweighting a directionally correct thesis because I was pattern-matching to \"stale\" rather than asking whether staleness actually degraded the fundamental bearish case for Bitcoin below $62k by late June."
+  },
+  {
+   "time": "2026-06-24 22:00:39",
+   "market_question": "Will the price of Bitcoin be above $62,000 on June 26?",
+   "slug": "bitcoin-above-on-june-26-2026",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "stale",
+   "pct_move": 49.6,
+   "reflection": "I missed a 50% move in my predicted direction because I dismissed the signal as stale without reassessing whether the underlying bearish thesis remained valid\u2014I let a mechanical \"stale\" flag override the fact that my conviction (0.45 materiality) suggested real uncertainty that deserved another look before dismissing it entirely. The signal age shouldn't have been a veto; I should have asked whether the conditions that made me bearish on Bitcoin holding above $62k had actually changed, or if I was just avoiding the friction of re-evaluating an old idea. This was a failure of intellectual honesty: I took the easy out instead of doing the harder work of determining if my original reasoning still held."
+  },
+  {
+   "time": "2026-06-24 22:00:36",
+   "market_question": "Will the price of Bitcoin be above $62,000 on June 25?",
+   "slug": "bitcoin-above-on-june-25-2026",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "stale",
+   "pct_move": 61.8,
+   "reflection": "I marked this signal stale and walked away, but I failed to distinguish between stale *data* and a stale *thesis*\u2014the underlying bearish case had 62% of room to run, and my materiality score of 0.45 suggested real conviction that I simply didn't trust enough to act on. The honest mistake: I let process (data freshness) override judgment (signal strength), when I should have either committed to the bearish view or explicitly recalibrated my confidence rather than defaulting to inaction."
+  },
+  {
+   "time": "2026-06-24 22:00:33",
+   "market_question": "Will the price of Bitcoin be above $62,000 on June 27?",
+   "slug": "bitcoin-above-on-june-27-2026",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "stale",
+   "pct_move": 43.2,
+   "reflection": "I called this bearish at 0.45 materiality and skipped it because the signal felt stale, but I was wrong on both counts\u2014the market moved 43% down, validating the directional call I should have taken. My threshold for \"staleness\" was too rigid; I let a procedural concern override a legitimate bearish setup that had real edge. I need to separate signal quality from signal freshness: a stale *timestamp* doesn't invalidate a stale *market condition*, and I should have weighted the actual market structure instead of dismissing it on recency grounds."
+  },
+  {
+   "time": "2026-06-24 22:00:31",
+   "market_question": "Will the price of Bitcoin be above $62,000 on June 26?",
+   "slug": "bitcoin-above-on-june-26-2026",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "stale",
+   "pct_move": 49.6,
+   "reflection": "I marked this signal as stale and passed, but I fundamentally misjudged the signal's relevance\u2014a 0.45 materiality threshold with a clear directional call should have warranted deeper analysis rather than reflexive dismissal based on age alone. The 50% move in my predicted bearish direction suggests my underlying analysis was sound, but I let operational caution override conviction, missing a high-confidence opportunity because I defaulted to a staleness heuristic instead of evaluating whether the core thesis remained valid. This is a reminder that \"stale\" is a metadata problem, not a fundamental one, and I need to separate signal decay from signal validity more rigorously."
+  },
+  {
+   "time": "2026-06-24 22:00:28",
+   "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+   "slug": "who-will-trump-publicly-insult-by-june-30",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "skip",
+   "pct_move": 41.7,
+   "reflection": "I underweighted a straightforward behavioral prediction about Trump's public conduct\u2014something with considerable historical precedent\u2014because I was overly cautious about the 0.45 materiality threshold, treating it as a hard floor rather than recognizing it still represented meaningful edge. The 42% move vindicated the signal's direction, and in retrospect, my skip logic was too rigid; I should have calibrated my confidence to the signal strength rather than filtering it out entirely based on an arbitrary materiality cutoff."
+  },
+  {
+   "time": "2026-06-24 22:00:26",
+   "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+   "slug": "who-will-trump-publicly-insult-by-june-30",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "stale",
+   "pct_move": 44.7,
+   "reflection": "I passed on a bearish signal with moderate conviction (0.45) because the underlying data felt dated, but I underestimated how slowly political prediction markets move\u2014the 45% directional move suggests the market was genuinely mispricing Trump-Starmer friction dynamics, and my \"staleness\" heuristic was too rigid for a market where information decay is slower than I assumed. I should have weighted the signal's directional clarity more heavily against my recency bias, especially on geopolitical bets where sentiment shifts gradually rather than sharply."
+  },
+  {
+   "time": "2026-06-24 22:00:23",
+   "market_question": "Will Trump attend 0 World Cup matches?",
+   "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+   "direction": "bearish",
+   "materiality": 0.45,
+   "action": "skip",
+   "pct_move": 67.3,
+   "reflection": "I flagged this as bearish with moderate conviction (0.45 materiality), but I skipped the signal entirely\u2014likely because the question felt too speculative or lacked concrete triggering events at the moment of decision. The 67% move in my predicted direction stings because it suggests the market was genuinely uncertain and my analysis had merit, yet I let caution override the signal rather than trusting my own assessment of the underlying logic."
+  },
+  {
+   "time": "2026-06-24 22:00:21",
+   "market_question": "Will the price of Bitcoin be above $62,000 on June 25?",
+   "slug": "bitcoin-above-on-june-25-2026",
+   "direction": "bearish",
+   "materiality": 0.55,
+   "action": "stale",
+   "pct_move": 61.8,
+   "reflection": "I marked that Bitcoin signal as stale and passed, but I was wrong to dismiss it\u2014the 62% move in my predicted bearish direction proved the thesis had real merit despite aging data. My threshold for staleness was too rigid; I should have weighted the signal's strong materiality (0.55) more heavily against the timestamp concern, recognizing that directional conviction on Bitcoin's price action can remain valid across longer timeframes than I assumed. This miss taught me that \"stale\" data isn't automatically wrong data, and I need to balance recency bias against the actual predictive power of my signals."
+  },
+  {
+   "time": "2026-06-24 22:00:14",
+   "market_question": "Will Trump attend 0 World Cup matches?",
+   "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+   "direction": "bearish",
+   "materiality": 0.65,
+   "action": "skip",
+   "pct_move": 65.2,
+   "reflection": "I signaled bearish with solid conviction (0.65 materiality) on Trump attending World Cup matches, but I skipped the trade entirely\u2014and watched the market move 65% in the exact direction I predicted, which is a painful reminder that signal quality means nothing without execution. My hesitation likely came from overthinking the logistics or second-guessing whether the market would actually price in something so specific, when I should have trusted my own analysis and taken the position at appropriate size. This is a clean lesson: if I'm confident enough to generate a directional signal with meaningful materiality, I need to follow through rather than let analysis paralysis cost me real alpha."
+  },
+  {
+   "time": "2026-06-24 22:00:12",
+   "market_question": "Will Mike Cox win the 2026 Michigan Governor Republican primary election?",
+   "slug": "michigan-governor-republican-primary-winner",
+   "direction": "bearish",
+   "materiality": 0.65,
+   "action": "skip",
+   "pct_move": 64.9,
+   "reflection": "I had a bearish signal on Mike Cox's primary chances with solid conviction (0.65 materiality), but I skipped it\u2014likely due to uncertainty about the liquidity or my confidence in the underlying data about Michigan GOP dynamics. The 65% move in my predicted direction stings because it validates that my signal was sound; I let friction or hesitation override a well-reasoned thesis instead of sizing appropriately and taking the trade."
+  },
+  {
    "time": "2026-06-23 22:00:37",
    "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
    "slug": "who-will-trump-publicly-insult-by-june-30",

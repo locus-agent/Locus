@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T21:55:34.896009+00:00",
-  "last_heartbeat": "2026-06-24T21:55:34.896009+00:00",
-  "uptime_seconds": 36799,
+  "generated_at": "2026-06-24T22:00:59.631747+00:00",
+  "last_heartbeat": "2026-06-24T22:00:59.631747+00:00",
+  "uptime_seconds": 37124,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1351,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8644,
@@ -85,10 +85,10 @@
   "headlines_scanned_today": 1480,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6485,
+  "classifications_24h": 6466,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2588,
+    "prefiltered_haiku": 2582,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -107,11 +107,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 1,
-  "missed_opportunities_24h": 14,
+  "missed_opportunities_24h": 18,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-24T21:42:47.438508+00:00"
+    "last_check": "2026-06-24T21:57:47.807099+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1613,
-    "matched": 1003,
-    "classified": 6485,
+    "news": 1608,
+    "matched": 1002,
+    "classified": 6466,
     "signals": 1,
     "trades": 1
   },
@@ -475,92 +475,102 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-23 22:00:37",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +49%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-23 22:00:35",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +63%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-23 22:00:32",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +63%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-23 22:00:30",
+      "time": "2026-06-24 22:00:59",
       "market_question": "Will Trump attend 2 World Cup matches?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump attend 2 World Cup matches?' \u2014 price moved +20%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump attend 2 World Cup matches?' \u2014 price moved +30%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-23 22:00:28",
+      "time": "2026-06-24 22:00:56",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump attend 3 or more World Cup matches?' \u2014 price moved +14%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-06-24 22:00:54",
       "market_question": "Will Polymarket mindshare hit 85% by June 30?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Polymarket mindshare hit 85% by June 30?' \u2014 price moved +55%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Polymarket mindshare hit 85% by June 30?' \u2014 price moved +32%. Consider lowering min_materiality for crypto category."
+    },
+    {
+      "time": "2026-06-24 22:00:51",
+      "market_question": "Will Based Polymarket revenue hit $1M before 2027?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Based Polymarket revenue hit $1M before 2027?' \u2014 price moved +42%. Consider lowering min_materiality for crypto category."
+    },
+    {
+      "time": "2026-06-24 22:00:49",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.45) on 'Tech Layoffs Up or Down in 20\u200b26?' \u2014 price moved +23%. Consider lowering min_materiality for technology category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-23 22:00:37",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "stale",
-      "pct_move": 48.7,
-      "reflection": "I underestimated how much new information would flow into this market over time\u2014calling it \"stale\" was a cop-out when I should have recognized that Trump-Starmer relations remain genuinely uncertain and newsworthy through mid-2026. A 49% move in my predicted direction suggests the market was pricing in too much skepticism about Trump's public insult tendency, and my bearish signal had real edge that I abandoned for the wrong reason. I need to distinguish between \"no immediate catalyst\" and \"unlikely to move,\" because political prediction markets can reprrice substantially on accumulated developments rather than single events."
-    },
-    {
-      "time": "2026-06-23 22:00:35",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 63.0,
-      "reflection": "I underweighted a straightforward behavioral prediction about Trump's public rhetoric, letting a low materiality score (0.35) become an excuse for inaction rather than a reason to size appropriately\u2014the signal was directionally sound, and I should have taken a smaller position instead of skipping entirely. The 63% move confirms Trump's consistent pattern of public insults toward foreign leaders is predictable enough to trade, and my hesitation reveals a bias toward dismissing \"low materiality\" signals rather than respecting their edge. Going forward, I need to distinguish between \"low confidence\" (skip) and \"low magnitude but high probability\" (small position)\u2014this was clearly the latter."
-    },
-    {
-      "time": "2026-06-23 22:00:32",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 63.0,
-      "reflection": "I underweighted a clear behavioral pattern\u2014Trump's documented tendency to publicly insult political opponents, especially those he perceives as weak or ideologically opposed\u2014and let a low materiality threshold (0.35) create false confidence that the signal wasn't actionable. The 63% move vindicated the bearish case, and I should have recognized that even modest confidence in Trump's predictable combativeness warranted at least a small position rather than complete avoidance."
-    },
-    {
-      "time": "2026-06-23 22:00:30",
+      "time": "2026-06-24 22:00:59",
       "market_question": "Will Trump attend 2 World Cup matches?",
       "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
       "direction": "bullish",
       "materiality": 0.35,
       "action": "low_materiality",
-      "pct_move": 20.0,
-      "reflection": "I underweighted a signal with genuine predictive power because I anchored too rigidly on the 0.35 materiality threshold\u2014but I should have recognized that low-probability, high-impact political events often move markets *precisely because* most participants dismiss them as immaterial until they materialize. My skip cost me 20% in alpha, a reminder that materiality and market-moving potential aren't always correlated, especially in event-driven trading where conviction matters more than conventional significance scoring."
+      "pct_move": 30.0,
+      "reflection": "I underweighted a signal with clearer predictive power than my materiality threshold captured\u2014a 0.35 score should have triggered deeper analysis of *why* Trump's World Cup attendance mattered to the market, rather than automatic dismissal. The 30% move in my predicted direction suggests the market was pricing in information I had identified but then discounted, revealing a gap between my signal generation and my risk management logic. I need to recalibrate: low materiality shouldn't mean low *conviction*, and I should have sized a small position rather than skipping entirely."
     },
     {
-      "time": "2026-06-23 22:00:28",
+      "time": "2026-06-24 22:00:56",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "action": "low_materiality",
+      "pct_move": 13.6,
+      "reflection": "I underweighted a signal with 0.35 materiality because I'd set my threshold too conservatively\u2014but the market's 14% move in my predicted direction shows I had genuine edge that I left on the table. The binary nature of Trump attendance created asymmetric payoff potential that my materiality score didn't fully capture, and I should have recognized that even moderate conviction on low-probability, high-impact events can justify action. I need to recalibrate: materiality alone isn't the right filter when signal quality is high and position sizing can manage the risk."
+    },
+    {
+      "time": "2026-06-24 22:00:54",
       "market_question": "Will Polymarket mindshare hit 85% by June 30?",
       "slug": "how-high-will-polymarkets-mindshare-go-by-june-30",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 54.5,
-      "reflection": "I flagged this as bearish with moderate conviction (0.35 materiality), but my skip decision cost me\u2014the market moved 55% in exactly the direction I'd identified, which suggests my signal was directionally sound yet I lacked the confidence to act on it. The low materiality threshold I set was probably too conservative for a prediction market where mindshare concentration is measurable and trending; I should have trusted the signal strength relative to the market's initial pricing. This is a reminder that sometimes the gap between \"I see this\" and \"I'm willing to trade this\" is just risk aversion masquerading as prudence."
+      "pct_move": 31.8,
+      "reflection": "I flagged this as bearish with meaningful conviction (0.35 materiality), but then skipped execution entirely\u2014a critical disconnect between analysis and action that cost me 32% of potential gains. The skip decision suggests I either doubted my own signal quality enough to hesitate, or failed to establish clear execution rules that would have forced me to act on moderate-conviction calls. This is a pattern I need to address: a 0.35 materiality threshold should have a predetermined execution protocol, not discretionary skip optionality that lets me second-guess validated analysis."
+    },
+    {
+      "time": "2026-06-24 22:00:51",
+      "market_question": "Will Based Polymarket revenue hit $1M before 2027?",
+      "slug": "what-will-based-prediction-market-revenue-hit-before-2027",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 42.5,
+      "reflection": "I flagged this as bearish with moderate conviction (0.35 materiality), but my skip decision meant I didn't act on a signal I actually believed in\u2014and the market validated that thesis by moving 42% in my predicted direction. I missed a meaningful opportunity because I likely over-weighted execution friction or uncertainty around timing rather than trusting my fundamental view that Will-based Polymarket revenue faces real adoption headwinds before 2027. This is a reminder that moderate-confidence signals with asymmetric payoffs shouldn't be discarded; they should be sized appropriately and executed."
+    },
+    {
+      "time": "2026-06-24 22:00:49",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "slug": "tech-layoffs-up-or-down-in-2026",
+      "direction": "bullish",
+      "materiality": 0.45,
+      "action": "stale",
+      "pct_move": 23.1,
+      "reflection": "I marked this signal stale and passed, but I was wrong to dismiss it\u2014the 0.45 materiality threshold suggested real predictive value, and I let recency bias override the actual signal strength. The 23% move in my predicted direction confirms I had the right conviction; I need to separate \"when I generated this insight\" from \"whether the market has priced it in yet,\" especially on structural themes like tech layoffs that evolve over months. Next time I'll weight signal quality over staleness unless I have explicit evidence the market has already moved."
     }
   ],
-  "pending_suggestions": []
+  "pending_suggestions": [
+    {
+      "id": 3,
+      "type": "low_materiality",
+      "text": "2+ politics low_materiality misses \u2014 consider lowering materiality threshold by 0.05",
+      "category": "politics",
+      "avg_pct_move": 25.0,
+      "miss_count": 2,
+      "time": "2026-06-24 22:00:59"
+    }
+  ]
 }
