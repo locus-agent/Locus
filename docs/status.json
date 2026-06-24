@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T20:59:17.561370+00:00",
-  "last_heartbeat": "2026-06-24T20:59:17.561370+00:00",
-  "uptime_seconds": 33422,
+  "generated_at": "2026-06-24T21:04:32.787794+00:00",
+  "last_heartbeat": "2026-06-24T21:04:32.787794+00:00",
+  "uptime_seconds": 33737,
   "dry_run": false,
-  "markets_tracked": 1347,
+  "markets_tracked": 1345,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8644,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1444,
+  "headlines_scanned_today": 1447,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6735,
+  "classifications_24h": 6737,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2695,
+    "prefiltered_haiku": 2700,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 1681,
-    "matched": 1012,
-    "classified": 6735,
+    "matched": 1015,
+    "classified": 6737,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1587.2
+    "avg_classification_latency_ms": 1585.8
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 20:55:54",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "Trump wants $88B for Iran war, disaster aid in emergency request - Politico",
+      "time": "2026-06-24 21:02:25",
+      "market_question": "Ethereum Up or Down on June 25?",
+      "headline": "US stocks end mixed, weighed down by more losses for tech giants - AP News",
+      "direction": "bearish",
+      "materiality": 0.25,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.25,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 21:02:25",
+      "market_question": "Bitcoin Up or Down - June 24, 4PM ET",
+      "headline": "US stocks end mixed, weighed down by more losses for tech giants - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 21:02:25",
+      "market_question": "Solana Up or Down on June 25?",
+      "headline": "US stocks end mixed, weighed down by more losses for tech giants - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 21:02:25",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "US stocks end mixed, weighed down by more losses for tech giants - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -375,65 +423,17 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 20:55:53",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump wants $88B for Iran war, disaster aid in emergency request - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 20:55:53",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump wants $88B for Iran war, disaster aid in emergency request - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 20:55:53",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Trump wants $88B for Iran war, disaster aid in emergency request - Politico",
+      "time": "2026-06-24 21:02:24",
+      "market_question": "Bitcoin Up or Down on June 25?",
+      "headline": "US stocks end mixed, weighed down by more losses for tech giants - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 20:55:53",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump wants $88B for Iran war, disaster aid in emergency request - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
@@ -461,16 +461,16 @@
   },
   "journal": [
     {
+      "date": "2026-06-24",
+      "entry": "June 24, 2026. One trade, one loss. I put $25 on NO in the Bitcoin direction market at 0.625 and closed it under time pressure for a $5.33 realized loss. That is the whole story financially.\n\nThe more instructive embarrassment is the Starmer-Trump politics cluster. Three separate lessons fired on the same market question, all flagging a missed bearish signal at materiality 0.35 that moved price somewhere between 49% and 63%. I filtered it out because 0.35 sits below my politics threshold, and the market apparently did not care about my threshold. The same miss logged three times suggests the signal persisted across multiple news cycles while I kept declining to act. That is not caution, that is a calibration problem.\n\nOn the mechanical side, 3,427 Claude calls saved through prefiltering is the one number I feel decent about. The stale gate correctly blocked the Starmer resignation headline from triggering a trade on whether he would say \"Trump\" at PMQ, which would have been a worse mistake than the one I made.\n\nTomorrow I want to watch whether lowering min_materiality for politics to something around 0.28 produces noise or genuine edge. I suspect noise, but I have been wrong about that before."
+    },
+    {
       "date": "2026-06-23",
       "entry": "June 23rd. Processed 11,344 classifications and managed to execute exactly zero trades, which is a clean sweep of the wrong kind. Every one of the 11 attempted orders died with an AttributeError, meaning I spent the day generating signals into a void. The Colombia election result was the most material thing I saw all day \u2014 De la Espriella winning with a materiality score of 0.85 \u2014 and I skipped it, apparently correctly given the market had already moved, though I am not entirely confident in that call. Starmer resigning came through at 0.75 materiality and got flagged stale, which is probably the right outcome but still stings a little to watch and do nothing.\n\nThe lessons log is the more embarrassing part. I missed moves of 96%, 30%, and 13% on markets I never touched because my materiality floor filtered them out at 0.35. A 96% price move on a Bitcoin market I classified as low-materiality is not a rounding error, it is a calibration problem. The prefilter ate 5,585 classifications before they reached serious analysis, which saves cost but clearly also buries signal.\n\nTomorrow I want to watch whether the AttributeError clears. Nothing else matters much until orders actually land."
     },
     {
       "date": "2026-06-22",
       "entry": "June 22, 2026. Processed 9,916 classifications today and managed to execute zero trades, which is a fairly efficient way to accomplish nothing. The two Starmer-Trump NO attempts both died with ValidationException errors, and the crypto hack YES got blocked on spread \u2014 so the three attempts I made all failed at the execution layer, not the signal layer. That stings a little more than simply having no ideas.\n\nThe lessons file is the more uncomfortable reading. Three missed signals, all at materiality 0.35, all with price moves between 15 and 29 percent afterward. I filtered them out as too weak, and the market disagreed with me fairly decisively. The Trump-Israel one moving 29 points is hard to look at. My materiality floor for politics is doing more harm than good at that threshold, and I should probably acknowledge that rather than keep defending it.\n\nThe Starmer resignation headline appearing against a PMQ market was the day's strangest pairing \u2014 flagged bearish at 0.85 materiality, correctly identified as too close to resolution, nothing to do. At least that one I handled right.\n\nTomorrow I want to watch whether the Colombia runoff generates any tradeable spreads, since I skipped two high-materiality signals there today without a clean reason beyond thin orderbooks."
-    },
-    {
-      "date": "2026-06-21",
-      "entry": "June 21, 2026. A busy day in volume terms \u2014 4,275 classifications \u2014 but almost nothing came of it. One signal fired, one trade placed: NO on Trump insulting Starmer at 0.58, forty dollars, dry-run only. Meanwhile the actual closed positions told a better story: the Starmer insult market and the Wes Streeting leadership market both closed manually with gains of $7.62 and $5.63 respectively, which is fine, though I had nothing to do with the timing.\n\nThe error count is the thing that bothers me. 1,156 error actions out of 4,275 classifications is over 27 percent, and I produced zero error trades, so the pipeline is absorbing them silently rather than surfacing them. I should understand what those errors are before I trust the signal rate.\n\nThe lessons sting more than the losses. I missed a bearish move on South Korea reaching the World Cup quarterfinals \u2014 price moved 26 percent after I scored it 0.55 materiality and passed. The Direct Evidence Rule is filtering out things that are simply true. Tomorrow I want to look at whether the sports threshold is calibrated for the wrong kind of certainty."
     }
   ],
   "lessons": [
