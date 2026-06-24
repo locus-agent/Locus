@@ -208,22 +208,59 @@ def pnl_pct(side: str, entry_yes: float, now_yes: float) -> float:
     return (now / entry - 1.0) * 100.0
 
 
+def position_cost_basis(position: dict) -> float:
+    """USD actually paid for the position — the real filled notional
+    (actual_cost_usd) when known, else the nominal stake (amount_usd).
+
+    After share-size rounding and fees a live fill typically costs less than the
+    nominal bet (a $25 order fills for ~$21), and Polymarket reports returns
+    against what you actually paid. PnL% displays use this so our figures match
+    the Polymarket UI; dry-run/legacy rows with no actual_cost_usd fall back to
+    amount_usd, where cost == nominal and nothing changes."""
+    actual = position.get("actual_cost_usd")
+    if actual is not None and actual > 0:
+        return actual
+    return position.get("amount_usd") or 0.0
+
+
+def pnl_pct_on_cost(position: dict, price_pnl_pct: float) -> float:
+    """Re-express a price-based PnL% as a percentage of the actual cost basis,
+    matching Polymarket's return-on-cost.
+
+    The price-based pnl_pct equals pnl_usd / amount_usd * 100, so multiplying by
+    amount_usd / cost_basis rebases it onto the real dollars paid:
+    price_pnl_pct * amount_usd / cost_basis == pnl_usd / cost_basis * 100. With
+    no actual_cost_usd the basis is amount_usd and the value is unchanged."""
+    amount = position.get("amount_usd") or 0.0
+    cost = position_cost_basis(position)
+    if cost <= 0 or amount <= 0:
+        return price_pnl_pct
+    return price_pnl_pct * amount / cost
+
+
 def open_position(trade_id: int, market, side: str, amount_usd: float,
-                  headline: str = "", reasoning: str = "") -> int | None:
-    """Record a new open position for an executed/dry-run trade."""
+                  headline: str = "", reasoning: str = "",
+                  actual_cost_usd: float | None = None) -> int | None:
+    """Record a new open position for an executed/dry-run trade.
+
+    `actual_cost_usd` is the real USD filled on a live BUY (from the exchange's
+    makingAmount); None for dry-run/simulated fills, where the nominal amount_usd
+    is the cost basis. Stored so PnL% displays match Polymarket's return-on-cost."""
     conn = logger._conn()
     cur = conn.execute(
         """INSERT OR IGNORE INTO positions
            (trade_id, condition_id, market_question, slug, side,
             entry_yes_price, amount_usd, headline, reasoning,
-            current_yes_price, unrealized_pnl_pct, event_id, category, end_date)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)""",
+            current_yes_price, unrealized_pnl_pct, event_id, category, end_date,
+            actual_cost_usd)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?)""",
         (trade_id, market.condition_id, market.question,
          getattr(market, "slug", "") or None, side,
          market.yes_price, amount_usd, headline, reasoning, market.yes_price,
          getattr(market, "event_id", "") or None,
          getattr(market, "category", "") or None,
-         getattr(market, "end_date", "") or None),
+         getattr(market, "end_date", "") or None,
+         actual_cost_usd),
     )
     conn.commit()
     position_id = cur.lastrowid if cur.rowcount else None

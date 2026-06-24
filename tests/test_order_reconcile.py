@@ -111,6 +111,40 @@ def test_matched_order_is_executed(tmp_db, monkeypatch):
     assert result["order_id"] == "order-123"
 
 
+def test_filled_cost_from_making_amount():
+    # makingAmount is the USDC paid in 6-decimal base units -> /1e6 dollars.
+    assert executor._filled_cost_usd({"makingAmount": "21000000"}, 50.0, 0.5) == 21.0
+
+
+def test_filled_cost_falls_back_to_notional_without_making_amount():
+    # No makingAmount in the response -> planned notional (shares * price).
+    assert executor._filled_cost_usd({"orderID": "x"}, 42.0, 0.5) == 21.0
+
+
+def test_executed_buy_records_actual_cost(tmp_db, monkeypatch):
+    _setup(monkeypatch)
+    # post_order reports a $21 fill (makingAmount) on a nominal ~$25 bet.
+    _install_fake_clob(monkeypatch, {"status": "MATCHED", "size_matched": "50"})
+    import py_clob_client_v2 as client_mod
+    monkeypatch.setattr(
+        client_mod.ClobClient, "post_order",
+        lambda self, signed, ot: {"orderID": "order-123", "makingAmount": "21000000"},
+    )
+    result = executor.execute_trade(_signal())
+    assert result["status"] == "executed"
+    assert result["actual_cost_usd"] == 21.0
+
+
+def test_resting_buy_records_no_actual_cost(tmp_db, monkeypatch):
+    # An unfilled (resting) order is cancelled and opens no position, so it
+    # carries no real cost basis.
+    _setup(monkeypatch)
+    _install_fake_clob(monkeypatch, {"status": "LIVE", "size_matched": "0"})
+    result = executor.execute_trade(_signal())
+    assert result["status"] == "resting"
+    assert result["actual_cost_usd"] is None
+
+
 def test_filled_size_without_matched_status_is_executed(tmp_db, monkeypatch):
     _setup(monkeypatch)
     # Partially filled but still LIVE: any fill counts as executed.

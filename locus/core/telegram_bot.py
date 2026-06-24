@@ -85,23 +85,35 @@ def notify_position_opened(position: dict) -> bool:
     amount = position.get("amount_usd", position.get("amount", 0.0)) or 0.0
     edge = position.get("edge", 0.0) or 0.0
     conf = position.get("confidence", position.get("conf", 0.0)) or 0.0
+    # Live fills usually cost less than the nominal bet (size rounding/fees), so
+    # show the real filled cost alongside the nominal when they differ.
+    actual = position.get("actual_cost_usd")
+    if actual and actual > 0 and abs(actual - amount) >= 0.01:
+        amount_line = f"Amount: ${actual:.2f} (filled) | Nominal: ${amount:.2f}"
+    else:
+        amount_line = f"Amount: ${amount:.2f}"
     header = "🟢 LIVE POSITION" if not config.DRY_RUN else "🟢 NEW POSITION"
     text = (
         f"{header}\n"
         f"Market: {_q(position)}\n"
-        f"Side: {position.get('side', '?')} | Entry: {price:.3f} | Amount: ${amount:.2f}\n"
+        f"Side: {position.get('side', '?')} | Entry: {price:.3f} | {amount_line}\n"
         f"Edge: {edge * 100:.1f}% | Conf: {conf * 100:.0f}%"
     )
     return _send(text)
 
 
 def notify_position_closed(position: dict, pnl_pct: float, pnl_usd: float, reason: str) -> bool:
-    """🔴 a position fully closed. Clears any drawdown-alert dedup for it."""
+    """🔴 a position fully closed. Clears any drawdown-alert dedup for it.
+
+    `pnl_pct` is the price-based return; we rebase it onto the actual cost paid
+    (actual_cost_usd) so the % matches Polymarket's return-on-cost."""
+    from locus.core import positions
     _drawdown_alerted.discard(position.get("id"))
+    display_pct = positions.pnl_pct_on_cost(position, pnl_pct)
     text = (
         "🔴 CLOSED\n"
         f"Market: {_q(position)}\n"
-        f"PnL: {pnl_usd:+.2f} ({pnl_pct:+.1f}%) | Reason: {reason}"
+        f"PnL: {pnl_usd:+.2f} ({display_pct:+.2f}%) | Reason: {reason}"
     )
     return _send(text)
 
@@ -160,7 +172,9 @@ def _build_portfolio():
     if open_pos:
         lines = [header, ""]
         for p in open_pos:
-            pct = p.get("unrealized_pnl_pct") or 0.0
+            # Stored unrealized_pnl_pct is price-based (vs nominal stake); rebase
+            # onto the actual cost paid so the % matches the Polymarket UI.
+            pct = positions.pnl_pct_on_cost(p, p.get("unrealized_pnl_pct") or 0.0)
             lines.append(f"#{p['id']} {p['side']} {p['market_question'][:40]} ({pct:+.1f}%)")
         text = "\n".join(lines)
     else:

@@ -146,6 +146,7 @@ def init_db():
             last_reeval_at TEXT,
             last_trigger TEXT,
             end_date TEXT,
+            actual_cost_usd REAL,
             opened_at TEXT NOT NULL DEFAULT (datetime('now')),
             closed_at TEXT
         );
@@ -326,6 +327,11 @@ def _migrate_position_category(conn):
     # dry-run closes and for resolution settlements (nothing is sold).
     if "exit_order_id" not in columns:
         conn.execute("ALTER TABLE positions ADD COLUMN exit_order_id TEXT")
+    # Real USD filled on a live BUY (the exchange's makingAmount / 1e6), the
+    # cost basis Polymarket reports returns against. NULL for dry-run/legacy
+    # rows, which fall back to the nominal amount_usd.
+    if "actual_cost_usd" not in columns:
+        conn.execute("ALTER TABLE positions ADD COLUMN actual_cost_usd REAL")
     conn.commit()
 
 

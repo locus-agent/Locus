@@ -225,6 +225,29 @@ def _diagnose_order_error(exc, token_id, price, size, side, tick_size=None) -> l
     return reasons
 
 
+def _filled_cost_usd(resp, shares: float, price: float) -> float:
+    """Actual USD cost of a filled BUY.
+
+    Prefer the exchange's `makingAmount` from the post_order response — for a BUY
+    the making side is USDC collateral, in 6-decimal base units, so /1e6 is the
+    real dollars paid (typically below the nominal bet after size rounding/fees).
+    Falls back to the planned notional (shares * price) when the field is absent
+    or unparseable, so a position always records a sensible cost basis."""
+    making = None
+    if isinstance(resp, dict):
+        making = resp.get("makingAmount", resp.get("making_amount"))
+    else:
+        making = getattr(resp, "makingAmount", None) or getattr(resp, "making_amount", None)
+    try:
+        if making is not None:
+            cost = float(making) / 1_000_000
+            if cost > 0:
+                return round(cost, 2)
+    except (TypeError, ValueError):
+        pass
+    return round(shares * price, 2)
+
+
 def book_side(book, side: str) -> list:
     """Resting levels for one book side ('bids' or 'asks').
 
@@ -621,6 +644,9 @@ def _execute_live(signal: Signal) -> dict:
             raise
 
         order_id = resp.get("orderID", resp.get("id", "unknown"))
+        # Real dollars filled (makingAmount), so the position's PnL% is measured
+        # against what we actually paid — matching the Polymarket UI.
+        actual_cost = _filled_cost_usd(resp, shares, price)
         # A posted GTC order may rest unfilled — reconcile against the exchange
         # before claiming a fill (only a confirmed fill opens a local position).
         status = reconcile_order(client, order_id)
@@ -628,7 +654,9 @@ def _execute_live(signal: Signal) -> dict:
             # We open no local position for an unfilled order, so don't leave it
             # resting on the book where it could fill later untracked — cancel it.
             cancel_order_safe(client, order_id)
-        return _log_and_return(signal, status=status, order_id=order_id)
+            actual_cost = None  # nothing filled, so no real cost basis
+        return _log_and_return(signal, status=status, order_id=order_id,
+                               actual_cost_usd=actual_cost)
 
     except ImportError:
         return _log_and_return(signal, status="error_no_clob_client", order_id=None)
@@ -644,8 +672,13 @@ def _execute_live(signal: Signal) -> dict:
         return _log_and_return(signal, status=f"error_{type(e).__name__}", order_id=None)
 
 
-def _log_and_return(signal: Signal, status: str, order_id: str | None) -> dict:
-    """Log trade to SQLite and return result dict."""
+def _log_and_return(signal: Signal, status: str, order_id: str | None,
+                    actual_cost_usd: float | None = None) -> dict:
+    """Log trade to SQLite and return result dict.
+
+    `actual_cost_usd` is the real USD filled on a live BUY (None for dry-run or
+    unfilled orders); it flows into the open-position notification and the result
+    dict so positions.open_position can store it as the PnL cost basis."""
     trade_id = logger.log_trade(
         market_id=signal.market.condition_id,
         market_question=signal.market.question,
@@ -676,6 +709,7 @@ def _log_and_return(signal: Signal, status: str, order_id: str | None) -> dict:
             "side": signal.side,
             "entry_yes_price": signal.market_price,
             "amount_usd": signal.bet_amount,
+            "actual_cost_usd": actual_cost_usd,
             "edge": signal.edge,
             "confidence": signal.confidence,
         })
@@ -685,6 +719,7 @@ def _log_and_return(signal: Signal, status: str, order_id: str | None) -> dict:
         "market": signal.market.question,
         "side": signal.side,
         "amount": signal.bet_amount,
+        "actual_cost_usd": actual_cost_usd,
         "edge": signal.edge,
         "status": status,
         "order_id": order_id,

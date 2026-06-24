@@ -1295,6 +1295,7 @@ class PipelineV2:
                             result["trade_id"], signal.market, signal.side,
                             signal.bet_amount, headline=signal.headlines,
                             reasoning=signal.reasoning,
+                            actual_cost_usd=result.get("actual_cost_usd"),
                         ),
                     )
                 elif result["status"] == "resting":

@@ -117,13 +117,53 @@ def test_notify_position_opened_format(enabled):
     )
 
 
+def test_notify_position_opened_shows_filled_cost(enabled):
+    # A live fill below the nominal bet shows both the filled cost and nominal.
+    pos = {
+        "market_question": "Will BTC hit 100k?",
+        "side": "YES",
+        "entry_yes_price": 0.42,
+        "amount_usd": 25.0,
+        "actual_cost_usd": 21.0,
+        "edge": 0.10,
+        "confidence": 0.7,
+    }
+    assert telegram_bot.notify_position_opened(pos) is True
+    assert "Amount: $21.00 (filled) | Nominal: $25.00" in enabled[-1]
+
+
+def test_notify_position_opened_no_filled_line_when_cost_equals_nominal(enabled):
+    pos = {
+        "market_question": "Will BTC hit 100k?", "side": "YES",
+        "entry_yes_price": 0.42, "amount_usd": 25.0, "actual_cost_usd": 25.0,
+        "edge": 0.1, "confidence": 0.7,
+    }
+    assert telegram_bot.notify_position_opened(pos) is True
+    assert "Amount: $25.00\n" in enabled[-1]
+    assert "filled" not in enabled[-1]
+
+
 def test_notify_position_closed_format(enabled):
     pos = {"market_question": "Will X?", "side": "YES", "entry_yes_price": 0.5}
     assert telegram_bot.notify_position_closed(pos, -12.3, -4.5, "sl") is True
+    # No actual_cost_usd -> % unchanged (price-based), shown to 2 decimals.
     assert enabled[-1] == (
         "🔴 CLOSED\n"
         "Market: Will X?\n"
-        "PnL: -4.50 (-12.3%) | Reason: sl"
+        "PnL: -4.50 (-12.30%) | Reason: sl"
+    )
+
+
+def test_notify_position_closed_pct_rebased_on_actual_cost(enabled):
+    # A $25 nominal that filled for $21: a price-based +63.60% (15.90/25) is
+    # shown as Polymarket's return-on-cost +75.71% (15.90/21).
+    pos = {"market_question": "Will X?", "side": "YES", "entry_yes_price": 0.5,
+           "amount_usd": 25.0, "actual_cost_usd": 21.0}
+    assert telegram_bot.notify_position_closed(pos, 63.60, 15.90, "tp_decision") is True
+    assert enabled[-1] == (
+        "🔴 CLOSED\n"
+        "Market: Will X?\n"
+        "PnL: +15.90 (+75.71%) | Reason: tp_decision"
     )
 
 
@@ -227,6 +267,21 @@ def test_portfolio_view_has_refresh_and_balance(tmp_db):
     assert (f"🔴 Close #{pid}", f"close:{pid}") in btns
     assert ("📈 Refresh", "refresh") in btns
     assert ("💰 Balance", "balance") in btns
+
+
+def test_portfolio_pct_rebased_on_actual_cost(tmp_db):
+    # Stored unrealized_pnl_pct is price-based (vs $25 nominal); the portfolio
+    # shows it rebased onto the $21 actually paid.
+    pid = _open(1, "c1", "Will A happen?", amount=25.0)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET unrealized_pnl_pct=20.0, actual_cost_usd=21.0 WHERE id=?",
+        (pid,),
+    )
+    conn.commit()
+    conn.close()
+    text, _ = telegram_bot._build_portfolio()
+    assert "(+23.8%)" in text  # 20.0 * 25/21 = 23.81
 
 
 def test_close_confirmation_has_back_to_portfolio_button(tmp_db):

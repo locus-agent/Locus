@@ -365,3 +365,52 @@ def test_near_certain_periodic_close_without_news(tmp_db):
     assert len(closed) == 1
     assert closed[0]["status"] == "closed_near_certain"
     assert closed[0]["exit_reason"] == "near_certain_yes_0.97"
+
+
+# --- actual cost basis: PnL% matches Polymarket return-on-cost ----------------
+
+def test_position_cost_basis_prefers_actual_cost():
+    assert positions.position_cost_basis(
+        {"amount_usd": 25.0, "actual_cost_usd": 21.0}) == 21.0
+
+
+def test_position_cost_basis_falls_back_to_amount():
+    assert positions.position_cost_basis({"amount_usd": 25.0}) == 25.0
+    assert positions.position_cost_basis(
+        {"amount_usd": 25.0, "actual_cost_usd": None}) == 25.0
+    # A zero/negative actual cost is ignored (degenerate) -> nominal basis.
+    assert positions.position_cost_basis(
+        {"amount_usd": 25.0, "actual_cost_usd": 0.0}) == 25.0
+
+
+def test_pnl_pct_on_cost_rebases_to_actual_cost():
+    # price-based +63.60% (15.90/25) -> +75.71% on the $21 actually paid.
+    pos = {"amount_usd": 25.0, "actual_cost_usd": 21.0}
+    assert positions.pnl_pct_on_cost(pos, 63.60) == pytest.approx(75.714, abs=0.01)
+
+
+def test_pnl_pct_on_cost_unchanged_without_actual_cost():
+    pos = {"amount_usd": 25.0}
+    assert positions.pnl_pct_on_cost(pos, 40.0) == 40.0
+
+
+def test_open_position_stores_actual_cost(tmp_db):
+    trade_id = tmp_db.log_trade(
+        market_id="cond1", market_question="Will X happen?", claude_score=0.7,
+        market_price=0.50, edge=0.2, side="YES", amount_usd=25.0,
+        status="executed", classification="bullish", materiality=0.7,
+    )
+    positions.open_position(trade_id, MKT, "YES", 25.0, actual_cost_usd=21.0)
+    pos = positions.get_open_positions()[0]
+    assert pos["actual_cost_usd"] == 21.0
+
+
+def test_open_position_actual_cost_defaults_none(tmp_db):
+    trade_id = tmp_db.log_trade(
+        market_id="cond1", market_question="Will X happen?", claude_score=0.7,
+        market_price=0.50, edge=0.2, side="YES", amount_usd=25.0,
+        status="dry_run", classification="bullish", materiality=0.7,
+    )
+    positions.open_position(trade_id, MKT, "YES", 25.0)
+    pos = positions.get_open_positions()[0]
+    assert pos["actual_cost_usd"] is None
