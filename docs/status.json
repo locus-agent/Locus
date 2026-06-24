@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T03:45:31.797902+00:00",
-  "last_heartbeat": "2026-06-24T03:45:31.797902+00:00",
-  "uptime_seconds": 11029,
+  "generated_at": "2026-06-24T03:50:37.318161+00:00",
+  "last_heartbeat": "2026-06-24T03:50:37.318161+00:00",
+  "uptime_seconds": 11335,
   "dry_run": false,
-  "markets_tracked": 1347,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8403,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 311,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 340,
+  "headlines_last_cycle": 1,
   "signals_24h": 10,
-  "classifications_24h": 12431,
+  "classifications_24h": 12557,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4568,
+    "prefiltered_haiku": 4607,
     "stale": 20,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3206,
-    "matched": 949,
-    "classified": 12431,
+    "news": 3234,
+    "matched": 960,
+    "classified": 12557,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1376.7
+    "avg_classification_latency_ms": 1369.2
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 03:37:28",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Children facing 'very real danger' from rapid development of AI - Irish Examiner",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 03:37:25",
-      "market_question": "Will Bitcoin replace SHA-256 before 2027?",
-      "headline": "Burnham likely to replace Reeves if he becomes PM",
+      "time": "2026-06-24 03:50:35",
+      "market_question": "Will Trump and Putin meet next in South Korea?",
+      "headline": "South Korea discussing new chip investments with Samsung, SK Hynix, presidential adviser says - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,9 +375,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 03:37:25",
-      "market_question": "Will Mark Sutcliffe win the 2026 Ottawa mayoral election?",
-      "headline": "Burnham likely to replace Reeves if he becomes PM",
+      "time": "2026-06-24 03:50:35",
+      "market_question": "Will Trump and Putin meet next in South Korea?",
+      "headline": "South Korea discussing new chip investments with Samsung, SK Hynix, presidential adviser says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 03:50:35",
+      "market_question": "Peru Presidential Election Invalidated?",
+      "headline": "South Korea discussing new chip investments with Samsung, SK Hynix, presidential adviser says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 03:50:35",
+      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
+      "headline": "South Korea discussing new chip investments with Samsung, SK Hynix, presidential adviser says - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,36 +423,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 03:37:25",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Children facing 'very real danger' from rapid development of AI - Irish Examiner",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 03:50:35",
+      "market_question": "Will Donald Trump visit North Korea in 2026?",
+      "headline": "South Korea discussing new chip investments with Samsung, SK Hynix, presidential adviser says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 03:37:25",
-      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "Children facing 'very real danger' from rapid development of AI - Irish Examiner",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
