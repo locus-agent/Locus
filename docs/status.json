@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T23:32:37.685958+00:00",
-  "last_heartbeat": "2026-06-24T23:32:37.685958+00:00",
-  "uptime_seconds": 42622,
+  "generated_at": "2026-06-24T23:37:42.747221+00:00",
+  "last_heartbeat": "2026-06-24T23:37:42.747221+00:00",
+  "uptime_seconds": 42927,
   "dry_run": false,
-  "markets_tracked": 1351,
+  "markets_tracked": 1352,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8644,
@@ -82,16 +82,16 @@
       }
     ]
   },
-  "headlines_scanned_today": 1533,
+  "headlines_scanned_today": 1537,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6290,
+  "classifications_24h": 6301,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2545,
+    "prefiltered_haiku": 2552,
     "stale": 7,
     "capped": 0,
-    "too_close_to_resolution": 1,
+    "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 11,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1559,
-    "matched": 1017,
-    "classified": 6290,
+    "news": 1560,
+    "matched": 1019,
+    "classified": 6301,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1592.0
+    "avg_classification_latency_ms": 1593.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 23:24:58",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Bosnia-Herzegovina boosts chances of advancing at World Cup with 3-1 win over Qatar - AP News",
+      "time": "2026-06-24 23:36:10",
+      "market_question": "Will the Republicans win the South Dakota Senate race in 2026?",
+      "headline": "South Dakota incumbent Republican lawmaker facing felony election fraud counts - AP News",
+      "direction": "bearish",
+      "materiality": 0.18,
+      "confidence": 0.54,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.09999999999999999,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 23:36:01",
+      "market_question": "Will Larry Rhoden win the 2026 South Dakota Governor Republican primary election?",
+      "headline": "South Dakota incumbent Republican lawmaker facing felony election fraud counts - AP News",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "confidence": 0.58,
+      "edge": 0.20475000000000002,
+      "fee_cost": 0.0,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.45,
+      "action": "too_close_to_resolution",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 23:36:00",
+      "market_question": "Will Ed Gallrein win the 2026 KY-04 Republican Primary Election by between 3% and 6%?",
+      "headline": "South Dakota incumbent Republican lawmaker facing felony election fraud counts - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +407,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 23:24:58",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Bosnia-Herzegovina boosts chances of advancing at World Cup with 3-1 win over Qatar - AP News",
+      "time": "2026-06-24 23:35:59",
+      "market_question": "Will Ed Gallrein win the 2026 KY-04 Republican Primary Election by less than 3%?",
+      "headline": "South Dakota incumbent Republican lawmaker facing felony election fraud counts - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,41 +423,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 23:24:57",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Bosnia-Herzegovina boosts chances of advancing at World Cup with 3-1 win over Qatar - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 23:24:57",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Bosnia-Herzegovina boosts chances of advancing at World Cup with 3-1 win over Qatar - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 23:24:57",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Bosnia-Herzegovina boosts chances of advancing at World Cup with 3-1 win over Qatar - AP News",
+      "time": "2026-06-24 23:35:59",
+      "market_question": "Will Thomas Massie win the 2026 KY-04 Republican Primary Election by less than 3%?",
+      "headline": "South Dakota incumbent Republican lawmaker facing felony election fraud counts - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
