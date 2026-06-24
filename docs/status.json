@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T14:21:32.424810+00:00",
-  "last_heartbeat": "2026-06-24T14:21:32.424810+00:00",
-  "uptime_seconds": 9557,
+  "generated_at": "2026-06-24T14:26:38.512583+00:00",
+  "last_heartbeat": "2026-06-24T14:26:38.512583+00:00",
+  "uptime_seconds": 9863,
   "dry_run": false,
-  "markets_tracked": 1357,
+  "markets_tracked": 1360,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8475,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1052,
-  "headlines_last_cycle": 15,
+  "headlines_scanned_today": 1059,
+  "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 10614,
+  "classifications_24h": 10649,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3788,
+    "prefiltered_haiku": 3811,
     "stale": 8,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2663,
-    "matched": 1032,
-    "classified": 10614,
+    "news": 2670,
+    "matched": 1037,
+    "classified": 10649,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1576.7
+    "avg_classification_latency_ms": 1567.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,41 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 14:21:32",
-      "market_question": "Will Rick Caruso win the 2026 Los Angeles mayoral election?",
-      "headline": "What to know about a cold storage warehouse fire in Los Angeles - NPR",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 14:21:30",
-      "market_question": "Will the Democrats win the New Mexico Senate race in 2026?",
-      "headline": "Democrats' Jeffries and Mamdani wings face off in New York - Axios",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 14:21:30",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
-      "headline": "White-collar baby boomers are facing a dilemma: Embrace AI or retire early - Business Insider",
+      "time": "2026-06-24 14:25:05",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "SpaceX short selling bets increase after post-debut share selloff - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,9 +375,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 14:21:30",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "Brexit, 10 years later: 7 prime ministers, a shrinking population, and a 6%-8% smaller economy - Fortune",
+      "time": "2026-06-24 14:25:05",
+      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
+      "headline": "SpaceX short selling bets increase after post-debut share selloff - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +391,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 14:21:30",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "Brexit, 10 years later: 7 prime ministers, a shrinking population, and a 6%-8% smaller economy - Fortune",
+      "time": "2026-06-24 14:22:54",
+      "market_question": "Will the Republican Party hold fewer than 22 governorships after the 2026 midterm elections?",
+      "headline": "Fewer job offers for junior roles due to AI, Swiss study shows - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 14:22:54",
+      "market_question": "Will Likud win fewer than 20 seats in the 2026 Israeli legislative election?",
+      "headline": "Fewer job offers for junior roles due to AI, Swiss study shows - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 14:22:54",
+      "market_question": "Will United Russia win fewer than 280 seats in the next Russian State Duma election?",
+      "headline": "Fewer job offers for junior roles due to AI, Swiss study shows - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
