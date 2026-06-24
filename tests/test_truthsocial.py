@@ -21,7 +21,7 @@ def _pin_age_limits(monkeypatch):
     developer's .env overrides."""
     monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_TRUTHSOCIAL", 1800.0)
     monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_RSS", 7200.0)
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BULLISH", 0.3)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BULLISH", 0.3)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.9)
 
 

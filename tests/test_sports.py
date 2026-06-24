@@ -16,14 +16,15 @@ NOW = datetime(2026, 6, 12, 12, 0, 0, tzinfo=timezone.utc)
 def _pin_sports_config(monkeypatch):
     """Pin the sports thresholds so the tests don't depend on .env overrides."""
     monkeypatch.setattr(config, "SPORTS_ENABLED", True)
-    monkeypatch.setattr(config, "SPORTS_MATERIALITY_THRESHOLD", 0.48)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_SPORTS", 0.48)
     monkeypatch.setattr(config, "SPORTS_MIN_HOURS_TO_RESOLUTION", 10.0)
     monkeypatch.setattr(config, "MIN_HOURS_TO_RESOLUTION", 4.0)
     monkeypatch.setattr(config, "MAX_HEADLINES_PER_SPORTS_EVENT", 2)
     # Keep the standard floors well below the sports floor so a 0.45-materiality
     # signal would pass as non-sports but fail as sports.
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BULLISH", 0.3)
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BEARISH", 0.4)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_DEFAULT", 0.33)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BULLISH", 0.3)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BEARISH", 0.4)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.9)
 
 

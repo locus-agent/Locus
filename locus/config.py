@@ -215,12 +215,29 @@ MAX_VOLUME_USD = float(os.getenv("MAX_VOLUME_USD", "500000"))
 MIN_VOLUME_USD = float(os.getenv("MIN_VOLUME_USD", "1000"))
 SPEED_TARGET_SECONDS = float(os.getenv("SPEED_TARGET_SECONDS", "5"))
 
-# Direction-specific materiality floors (applied in pipeline.gate_trade).
-# Calibration on 700 graded calls showed bearish calls far less accurate
-# (11.1%, worse than random) than bullish (18.1%), so bearish signals need a
-# higher materiality bar; low-materiality bullish signals still pay off.
-MATERIALITY_THRESHOLD_BULLISH = float(os.getenv("MATERIALITY_THRESHOLD_BULLISH", "0.3"))
-MATERIALITY_THRESHOLD_BEARISH = float(os.getenv("MATERIALITY_THRESHOLD_BEARISH", "0.4"))
+# Direction- and category-aware materiality floors (applied in
+# pipeline.gate_trade via pipeline.get_materiality_threshold). Calibration showed
+# accuracy varies by both the call's direction and the market's category, so the
+# floor is chosen by category first (geopolitical/sports), then by direction
+# (bearish accuracy is worse than bullish), with a default fallback.
+#
+# Backward compat: the old MATERIALITY_THRESHOLD_BULLISH / _BEARISH env vars are
+# still honored as fallbacks for the bullish/bearish floors when the new
+# MIN_MATERIALITY_* vars are unset.
+_legacy_bullish = os.getenv("MATERIALITY_THRESHOLD_BULLISH")
+_legacy_bearish = os.getenv("MATERIALITY_THRESHOLD_BEARISH")
+MIN_MATERIALITY_DEFAULT = float(os.getenv("MIN_MATERIALITY_DEFAULT", "0.33"))
+MIN_MATERIALITY_BULLISH = float(
+    os.getenv("MIN_MATERIALITY_BULLISH", _legacy_bullish if _legacy_bullish is not None else "0.34")
+)
+MIN_MATERIALITY_BEARISH = float(
+    os.getenv("MIN_MATERIALITY_BEARISH", _legacy_bearish if _legacy_bearish is not None else "0.27")
+)
+MIN_MATERIALITY_GEOPOLITICAL = float(os.getenv("MIN_MATERIALITY_GEOPOLITICAL", "0.30"))
+_legacy_sports = os.getenv("SPORTS_MATERIALITY_THRESHOLD")
+MIN_MATERIALITY_SPORTS = float(
+    os.getenv("MIN_MATERIALITY_SPORTS", _legacy_sports if _legacy_sports is not None else "0.40")
+)
 
 # High-materiality confirmation gate: the most "obvious" news (materiality >=
 # HIGH_MATERIALITY_THRESHOLD) graded *worst* (12.0%), likely because it is
@@ -261,22 +278,14 @@ if _price_target_keywords_override:
 
 # --- Sports markets (extra-strict; see classifier SPORTS block + pipeline gates) ---
 # Sports headlines are noisy (rumors, lineup speculation, pre-game punditry), so
-# sports markets get a higher materiality bar, a tighter resolution-time floor,
-# and a per-event headline cap. SPORTS_ENABLED=false skips them entirely
+# sports markets get a higher materiality bar (MIN_MATERIALITY_SPORTS, applied
+# via pipeline.get_materiality_threshold), a tighter resolution-time floor, and a
+# per-event headline cap. SPORTS_ENABLED=false skips them entirely
 # (action 'sports_disabled') and drops 'sports' from the tracked categories.
 SPORTS_ENABLED = os.getenv("SPORTS_ENABLED", "true").lower() == "true"
-SPORTS_MATERIALITY_THRESHOLD = float(os.getenv("SPORTS_MATERIALITY_THRESHOLD", "0.48"))
 SPORTS_MAX_EXPOSURE = float(os.getenv("SPORTS_MAX_EXPOSURE", "50"))
 SPORTS_MIN_HOURS_TO_RESOLUTION = float(os.getenv("SPORTS_MIN_HOURS_TO_RESOLUTION", "4"))
 MAX_HEADLINES_PER_SPORTS_EVENT = int(os.getenv("MAX_HEADLINES_PER_SPORTS_EVENT", "2"))
-
-
-def materiality_threshold(direction: str) -> float:
-    """Direction-specific materiality floor for a would-be signal."""
-    return (
-        MATERIALITY_THRESHOLD_BEARISH if direction == "bearish"
-        else MATERIALITY_THRESHOLD_BULLISH
-    )
 
 # Trade only on fresh news: suppress signals (classification still runs and
 # is logged) when the headline was published more than this long before we

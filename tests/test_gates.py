@@ -23,8 +23,9 @@ def _pin_materiality_thresholds(monkeypatch):
     pattern used for other configs). The floor tests below are written against
     these: bullish 0.3, bearish 0.4 (bearish gets a higher bar), and the
     confirmation gate at 0.5 needing 2 distinct sources."""
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BULLISH", 0.3)
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BEARISH", 0.4)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_DEFAULT", 0.33)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BULLISH", 0.3)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BEARISH", 0.4)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.5)
     monkeypatch.setattr(config, "MIN_CONFIRMING_SOURCES", 2)
     monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_DEFAULT", 14400)

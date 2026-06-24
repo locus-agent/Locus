@@ -26,8 +26,9 @@ def _pin_filter_config(monkeypatch):
         "new all-time high", "new ath", "all time high",
         "will bitcoin reach", "will ethereum hit",
     ])
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BULLISH", 0.3)
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BEARISH", 0.4)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_DEFAULT", 0.33)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BULLISH", 0.3)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BEARISH", 0.4)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.5)
 
 

@@ -87,8 +87,12 @@ def cmd_watch(args):
         console.print("[yellow]Dry-run mode (use --live to trade for real)[/yellow]\n")
 
     if args.threshold:
-        config.MATERIALITY_THRESHOLD_BULLISH = args.threshold
-        config.MATERIALITY_THRESHOLD_BEARISH = args.threshold
+        # Uniform override of every materiality floor (direction + category).
+        config.MIN_MATERIALITY_DEFAULT = args.threshold
+        config.MIN_MATERIALITY_BULLISH = args.threshold
+        config.MIN_MATERIALITY_BEARISH = args.threshold
+        config.MIN_MATERIALITY_GEOPOLITICAL = args.threshold
+        config.MIN_MATERIALITY_SPORTS = args.threshold
 
     # Real-time Telegram notifications + interactive /portfolio bot (no-op when
     # TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID are unset). Runs in a daemon thread.

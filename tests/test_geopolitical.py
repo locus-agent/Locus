@@ -25,8 +25,10 @@ END_SOON = (NOW + timedelta(days=3)).isoformat()
 
 @pytest.fixture(autouse=True)
 def _pin_thresholds(monkeypatch):
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BULLISH", 0.3)
-    monkeypatch.setattr(config, "MATERIALITY_THRESHOLD_BEARISH", 0.4)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_DEFAULT", 0.33)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BULLISH", 0.3)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_BEARISH", 0.4)
+    monkeypatch.setattr(config, "MIN_MATERIALITY_GEOPOLITICAL", 0.30)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.5)
     monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_GEOPOLITICAL", 43200)
     # Pin the plain RSS window (6h) so the standard-window tests don't depend on

@@ -123,6 +123,31 @@ def cov_blocks(cov: dict | None) -> bool:
     )
 
 
+def get_materiality_threshold(direction: str, category: str) -> float:
+    """Materiality floor for a would-be signal, chosen by category then direction.
+
+    Priority order (first match wins):
+      - category == "geopolitical" -> MIN_MATERIALITY_GEOPOLITICAL
+      - category == "sports"       -> MIN_MATERIALITY_SPORTS
+      - direction == "bearish"     -> MIN_MATERIALITY_BEARISH
+      - direction == "bullish"     -> MIN_MATERIALITY_BULLISH
+      - otherwise                  -> MIN_MATERIALITY_DEFAULT
+
+    Category takes precedence over direction: sports headlines are noisy and
+    geopolitical markets move slowly, so those floors apply regardless of the
+    call's direction. Reads config.MIN_MATERIALITY_* at call time so runtime
+    overrides (cli --threshold) are honored."""
+    if category == "geopolitical":
+        return config.MIN_MATERIALITY_GEOPOLITICAL
+    if category == "sports":
+        return config.MIN_MATERIALITY_SPORTS
+    if direction == "bearish":
+        return config.MIN_MATERIALITY_BEARISH
+    if direction == "bullish":
+        return config.MIN_MATERIALITY_BULLISH
+    return config.MIN_MATERIALITY_DEFAULT
+
+
 def effective_materiality(signal) -> float:
     """The materiality the gates judge a signal by: the time-horizon-penalized
     adjusted_materiality when detect_edge_v2 set it, else the raw materiality
@@ -154,7 +179,8 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
 
     Sports markets are gated extra strictly: when config.SPORTS_ENABLED is
     false they are dropped entirely (action 'sports_disabled'); otherwise they
-    use config.SPORTS_MATERIALITY_THRESHOLD (not the direction-specific floor),
+    use config.MIN_MATERIALITY_SPORTS (the sports floor from
+    get_materiality_threshold, not a direction floor),
     config.SPORTS_MIN_HOURS_TO_RESOLUTION (not MIN_HOURS_TO_RESOLUTION), and a
     per-event headline cap — once sports_event_counts[event_id] reaches
     config.MAX_HEADLINES_PER_SPORTS_EVENT the market is skipped (action
@@ -180,8 +206,9 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
       "price_target_market" — market is a price-target market (e.g. "Will
                              Bitcoin reach $100k"); excluded when
                              config.EXCLUDE_PRICE_TARGET_MARKETS is set
-      "low_materiality"    — materiality below the direction-specific floor
-                             (bearish calls need a higher bar than bullish)
+      "low_materiality"    — materiality below the direction- and category-aware
+                             floor (get_materiality_threshold: geopolitical/sports
+                             categories first, then bearish > bullish)
       "needs_confirmation" — high-materiality (>= HIGH_MATERIALITY_THRESHOLD)
                              call seen from fewer than MIN_CONFIRMING_SOURCES
                              distinct sources within CONFIRMATION_WINDOW_HOURS;
@@ -259,14 +286,14 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         )
         return None, "price_target_market"
 
-    # Materiality floor. Sports use a single higher bar (noisier signal);
-    # everything else uses the direction-specific floor (calibration: bearish
-    # accuracy is far worse than bullish, so bearish needs a higher bar).
+    # Materiality floor, direction- and category-aware (get_materiality_threshold):
+    # category wins first (geopolitical markets move slowly; sports are noisy and
+    # get a higher bar), then direction (calibration: bearish accuracy is worse
+    # than bullish). `category` is the freshness category resolved above, so a
+    # long-horizon geopolitical market gets the geopolitical floor and a sports
+    # market gets the sports floor.
     direction = signal.classification
-    floor = (
-        config.SPORTS_MATERIALITY_THRESHOLD if is_sports
-        else config.materiality_threshold(direction)
-    )
+    floor = get_materiality_threshold(direction, category)
     # Judge against the time-horizon-penalized materiality (long-horizon
     # resolutions need a stronger raw read to clear the floor).
     mat = effective_materiality(signal)
@@ -387,8 +414,9 @@ class PipelineV2:
         console.print(Panel(f"Pipeline V2 Starting  |  Mode: {mode}", style="bright_green"))
         console.print(f"  Niche filter: ${config.MIN_VOLUME_USD:,.0f} - ${config.MAX_VOLUME_USD:,.0f} volume")
         console.print(
-            f"  Materiality threshold: bullish {config.MATERIALITY_THRESHOLD_BULLISH} / "
-            f"bearish {config.MATERIALITY_THRESHOLD_BEARISH} "
+            f"  Materiality floors: default {config.MIN_MATERIALITY_DEFAULT} / "
+            f"bullish {config.MIN_MATERIALITY_BULLISH} / bearish {config.MIN_MATERIALITY_BEARISH} / "
+            f"geo {config.MIN_MATERIALITY_GEOPOLITICAL} / sports {config.MIN_MATERIALITY_SPORTS} "
             f"(confirm >= {config.HIGH_MATERIALITY_THRESHOLD} from "
             f"{config.MIN_CONFIRMING_SOURCES} sources)"
         )
