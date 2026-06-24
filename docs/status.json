@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T00:34:09.891397+00:00",
-  "last_heartbeat": "2026-06-24T00:34:09.891397+00:00",
-  "uptime_seconds": 14131,
+  "generated_at": "2026-06-24T00:39:15.335293+00:00",
+  "last_heartbeat": "2026-06-24T00:39:15.335293+00:00",
+  "uptime_seconds": 14437,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1336,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 25,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 27,
+  "headlines_last_cycle": 1,
   "signals_24h": 10,
-  "classifications_24h": 11646,
+  "classifications_24h": 11628,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4263,
+    "prefiltered_haiku": 4257,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-24T00:24:01.360161+00:00"
+    "last_check": "2026-06-24T00:39:01.746862+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3011,
-    "matched": 938,
-    "classified": 11646,
+    "news": 3009,
+    "matched": 935,
+    "classified": 11628,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1384.3
+    "avg_classification_latency_ms": 1384.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 00:31:36",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "Better Artificial Intelligence (AI) Stock to Buy: SpaceX vs. Nvidia - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-24 00:35:58",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Congress passes war powers measure for first time, rebuking Trump's war with Iran",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.55,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 00:31:34",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "Better Artificial Intelligence (AI) Stock to Buy: SpaceX vs. Nvidia - The Motley Fool",
+      "time": "2026-06-24 00:35:56",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Congress passes war powers measure for first time, rebuking Trump's war with Iran",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,14 +386,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 00:31:34",
-      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
-      "headline": "Better Artificial Intelligence (AI) Stock to Buy: SpaceX vs. Nvidia - The Motley Fool",
+      "time": "2026-06-24 00:35:56",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Congress passes war powers measure for first time, rebuking Trump's war with Iran",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -402,41 +402,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 00:31:34",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "Better Artificial Intelligence (AI) Stock to Buy: SpaceX vs. Nvidia - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-24 00:35:55",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Congress passes war powers measure for first time, rebuking Trump's war with Iran",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-24 00:31:33",
-      "market_question": "Will Nvidia have a #1 AI model by June 30?",
-      "headline": "Better Artificial Intelligence (AI) Stock to Buy: SpaceX vs. Nvidia - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-24 00:35:55",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Congress passes war powers measure for first time, rebuking Trump's war with Iran",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
