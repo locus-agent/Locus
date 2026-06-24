@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-24T15:32:55.701469+00:00",
-  "last_heartbeat": "2026-06-24T15:32:55.701469+00:00",
-  "uptime_seconds": 13840,
+  "generated_at": "2026-06-24T15:38:01.378932+00:00",
+  "last_heartbeat": "2026-06-24T15:38:01.378932+00:00",
+  "uptime_seconds": 14146,
   "dry_run": false,
   "markets_tracked": 1349,
   "classify_error_streak": 0,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1148,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1153,
+  "headlines_last_cycle": 2,
   "signals_24h": 11,
-  "classifications_24h": 10710,
+  "classifications_24h": 10599,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3845,
-    "stale": 9,
+    "prefiltered_haiku": 3819,
+    "stale": 8,
     "capped": 2,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2680,
-    "matched": 1091,
-    "classified": 10710,
+    "news": 2647,
+    "matched": 1095,
+    "classified": 10599,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1600.1
+    "avg_classification_latency_ms": 1595.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 15:28:49",
-      "market_question": "Will Bitcoin have the best performance in 2026?",
-      "headline": "The 16 best robot vacuum deals available during Prime Day",
+      "time": "2026-06-24 15:37:40",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "S&P 500, Nasdaq rise in choppy trading as tech steadies, Micron results in focus - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 15:37:38",
+      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
+      "headline": "S&P 500, Nasdaq rise in choppy trading as tech steadies, Micron results in focus - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +391,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 15:28:48",
-      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
-      "headline": "The 16 best robot vacuum deals available during Prime Day",
+      "time": "2026-06-24 15:37:37",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "World Cup boom sends Polymarket volume up 300% while Kalshi sets open interest records",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 15:37:37",
+      "market_question": "Will RISE launch a token by September 30, 2026?",
+      "headline": "S&P 500, Nasdaq rise in choppy trading as tech steadies, Micron results in focus - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,52 +423,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 15:28:48",
-      "market_question": "Will Meituan have the best AI model at the end of July 2026?",
-      "headline": "The 16 best robot vacuum deals available during Prime Day",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 15:37:36",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "World Cup boom sends Polymarket volume up 300% while Kalshi sets open interest records",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 15:28:48",
-      "market_question": "Will Mistral have the best AI model at the end of July 2026?",
-      "headline": "The 16 best robot vacuum deals available during Prime Day",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 15:28:48",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "The 16 best robot vacuum deals available during Prime Day",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
