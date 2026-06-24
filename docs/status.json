@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-24T12:13:58.318699+00:00",
-  "last_heartbeat": "2026-06-24T12:13:58.318699+00:00",
-  "uptime_seconds": 1903,
+  "generated_at": "2026-06-24T12:19:10.758761+00:00",
+  "last_heartbeat": "2026-06-24T12:19:10.758761+00:00",
+  "uptime_seconds": 2215,
   "dry_run": false,
   "markets_tracked": 1358,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 834,
+  "headlines_scanned_today": 835,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 11697,
+  "classifications_24h": 11698,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4191,
+    "prefiltered_haiku": 4186,
     "stale": 11,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -106,7 +106,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 2,
+  "watched_markets_count": 3,
   "missed_opportunities_24h": 14,
   "whale": {
     "watched_wallets": 4,
@@ -119,22 +119,22 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2954,
+    "news": 2952,
     "matched": 1085,
-    "classified": 11697,
+    "classified": 11698,
     "signals": 11,
     "trades": 11
   },
   "performance": {
     "trades_total": 31,
     "deployed_usd": 605.58,
-    "open_count": 1,
-    "closed_count": 26,
+    "open_count": 0,
+    "closed_count": 27,
     "wins": 15,
-    "losses": 11,
-    "win_rate_pct": 57.7,
-    "realized_pnl_usd": 61.42,
-    "unrealized_pnl_usd": -5.33,
+    "losses": 12,
+    "win_rate_pct": 55.6,
+    "realized_pnl_usd": 56.08,
+    "unrealized_pnl_usd": 0.0,
     "total_pnl_usd": 56.08,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
@@ -145,13 +145,13 @@
     "ready": true,
     "criteria_met": 4,
     "criteria_total": 4,
-    "sharpe_days_count": 6,
+    "sharpe_days_count": 7,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 26,
+        "value": 27,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -159,15 +159,15 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 57.7,
+        "value": 55.6,
         "threshold_display": "> 55%",
         "pass": true
       },
       {
         "key": "sharpe_ratio",
-        "label": "Sharpe Ratio (preliminary)",
+        "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 8.8,
+        "value": 7.25,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -175,7 +175,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 5.0,
+        "value": 4.8,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -184,26 +184,23 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0516,
-    "sharpe_7d": 0.51
+    "drawdown_7d": 0.049,
+    "sharpe_7d": 0.4
   },
-  "open_positions": [
+  "open_positions": [],
+  "closed_positions": [
     {
-      "time": "2026-06-24 05:16:14",
+      "time": "2026-06-24T12:17:38.732256+00:00",
       "market_question": "Bitcoin Up or Down on June 24?",
       "slug": "bitcoin-up-or-down-on-june-24-2026",
       "side": "NO",
       "entry_price": 0.625,
-      "current_price": 0.7050000000000001,
-      "pnl_pct": -21.33,
-      "amount_usd": 25.0,
-      "current_value_usd": 19.67,
-      "pnl_usd": -5.33,
-      "edge_type": "momentum",
-      "event_id": "622556"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": 0.705,
+      "realized_pnl_usd": -5.333333333333331,
+      "exit_reason": "time_pressure",
+      "event_id": "622556",
+      "partial": false
+    },
     {
       "time": "2026-06-21T15:43:05.375692+00:00",
       "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
@@ -311,23 +308,11 @@
       "exit_reason": "manual",
       "event_id": "106940",
       "partial": false
-    },
-    {
-      "time": "2026-06-18T16:57:32.971158+00:00",
-      "market_question": "Trump meets with Putin by December 31?",
-      "slug": "trump-meets-with-putin-by",
-      "side": "YES",
-      "entry_price": 0.355,
-      "exit_price": 0.355,
-      "realized_pnl_usd": 0.0,
-      "exit_reason": "manual",
-      "event_id": "528413",
-      "partial": false
     }
   ],
   "exit_decisions": [
     {
-      "time": "2026-06-24 12:13:58",
+      "time": "2026-06-24 12:17:05",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
@@ -336,7 +321,7 @@
       "pnl_pct": -21.33
     },
     {
-      "time": "2026-06-24 12:13:27",
+      "time": "2026-06-24 12:16:34",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
@@ -345,110 +330,110 @@
       "pnl_pct": -24.0
     },
     {
-      "time": "2026-06-24 12:12:56",
+      "time": "2026-06-24 12:15:02",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -24.0
+      "pnl_pct": -21.33
     },
     {
-      "time": "2026-06-24 12:12:24",
+      "time": "2026-06-24 12:14:31",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -24.0
+      "pnl_pct": -21.33
     },
     {
-      "time": "2026-06-24 12:11:53",
+      "time": "2026-06-24 12:13:58",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -29.33
+      "pnl_pct": -21.33
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 12:11:09",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Even though he tried unsuccessfully to prosecute me, and despite the fact that he is a major Slimeball, I feel sorry for FORMER Congressman Dan Goldman. He is wandering aimlessly, together with the former husband of the great Kellyanne Conway, through a large field of Dumocrat Communists, trying so hard to find his way - A very sad finish for a man who has no clue, and never did!!! President DJT",
+      "time": "2026-06-24 12:17:42",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "NATO's Trump whisperer heads to the White House to soothe the president ahead of next month's summit - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-24 12:11:09",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "Even though he tried unsuccessfully to prosecute me, and despite the fact that he is a major Slimeball, I feel sorry for FORMER Congressman Dan Goldman. He is wandering aimlessly, together with the former husband of the great Kellyanne Conway, through a large field of Dumocrat Communists, trying so hard to find his way - A very sad finish for a man who has no clue, and never did!!! President DJT",
+      "time": "2026-06-24 12:17:42",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "NATO's Trump whisperer heads to the White House to soothe the president ahead of next month's summit - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 12:11:09",
-      "market_question": "Will Trump say \"Crypto / Bitcoin\" during Pennsylvania events?",
-      "headline": "AI Futurist Keynote Speaker for Events | #1 Scott Steinberg - futuristsspeakers.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 12:11:09",
-      "market_question": "Will Phil Scott win the 2026 Vermont Governor Republican primary election?",
-      "headline": "AI Futurist Keynote Speaker for Events | #1 Scott Steinberg - futuristsspeakers.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 12:17:42",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "NATO's Trump whisperer heads to the White House to soothe the president ahead of next month's summit - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 12:11:09",
-      "market_question": "Will Scott Bottoms win the 2026 Colorado Governor Republican primary election?",
-      "headline": "AI Futurist Keynote Speaker for Events | #1 Scott Steinberg - futuristsspeakers.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 12:17:42",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "NATO's Trump whisperer heads to the White House to soothe the president ahead of next month's summit - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "cached",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 12:17:42",
+      "market_question": "Will Trump and Putin meet next in Finland?",
+      "headline": "NATO's Trump whisperer heads to the White House to soothe the president ahead of next month's summit - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
