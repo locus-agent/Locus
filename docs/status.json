@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T02:49:32.960956+00:00",
-  "last_heartbeat": "2026-06-24T02:49:32.960956+00:00",
-  "uptime_seconds": 7670,
+  "generated_at": "2026-06-24T02:54:38.349793+00:00",
+  "last_heartbeat": "2026-06-24T02:54:38.349793+00:00",
+  "uptime_seconds": 7976,
   "dry_run": false,
-  "markets_tracked": 1349,
+  "markets_tracked": 1352,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8403,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 225,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 226,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 12164,
+  "classifications_24h": 12165,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4459,
+    "prefiltered_haiku": 4460,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 3140,
-    "matched": 920,
-    "classified": 12164,
+    "matched": 921,
+    "classified": 12165,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1320.3
+    "avg_classification_latency_ms": 1319.8
   },
   "live_readiness": {
     "ready": true,
@@ -359,6 +359,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-24 02:53:33",
+      "market_question": "Will the average monthly Ethereum gas price hit 40 Gwei before 2027?",
+      "headline": "Oil prices extend decline on expectations of smoother crude flows via Hormuz - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-24 02:49:17",
       "market_question": "Will Trump and Putin meet next in a Gulf country?",
       "headline": "Rubio to address Gulf allies' fears over U.S. Iran deal - Reuters",
@@ -409,22 +425,6 @@
     {
       "time": "2026-06-24 02:49:09",
       "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Rubio to address Gulf allies' fears over U.S. Iran deal - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 02:49:09",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
       "headline": "Rubio to address Gulf allies' fears over U.S. Iran deal - Reuters",
       "direction": null,
       "materiality": null,
