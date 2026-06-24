@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-24T11:31:31.763308+00:00",
-  "last_heartbeat": "2026-06-24T11:31:31.763308+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-24T11:36:39.791339+00:00",
+  "last_heartbeat": "2026-06-24T11:36:39.791339+00:00",
+  "uptime_seconds": 345,
   "dry_run": false,
-  "markets_tracked": 1354,
+  "markets_tracked": 1357,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 8431,
+    "total": 8471,
     "accuracy": 17.2,
     "by_category": {
       "other": 16.2,
       "ai": 11.1,
       "politics": 21.5,
       "technology": 12.5,
-      "crypto": 12.9,
+      "crypto": 12.7,
       "sports": 26.2
     },
     "by_source": {
@@ -24,15 +24,15 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.2,
-    "overall_total": 8431,
+    "overall_total": 8471,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4834,
+        "total": 4853,
         "correct": 339,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 11.86,
+        "avg_pnl_pct": 11.81,
         "color": "red"
       },
       {
@@ -65,30 +65,30 @@
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 457,
+        "total": 459,
         "correct": 201,
-        "accuracy_pct": 44.0,
-        "avg_pnl_pct": 3.57,
+        "accuracy_pct": 43.8,
+        "avg_pnl_pct": 3.55,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1037,
-        "correct": 189,
-        "accuracy_pct": 18.2,
-        "avg_pnl_pct": -5.52,
+        "total": 1056,
+        "correct": 195,
+        "accuracy_pct": 18.5,
+        "avg_pnl_pct": -5.4,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 633,
-  "headlines_last_cycle": 23,
+  "headlines_scanned_today": 709,
+  "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 11586,
+  "classifications_24h": 11599,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4146,
+    "prefiltered_haiku": 4156,
     "stale": 21,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2957,
-    "matched": 1066,
-    "classified": 11586,
+    "news": 2942,
+    "matched": 1077,
+    "classified": 11599,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1341.0
+    "avg_classification_latency_ms": 1470.1
   },
   "live_readiness": {
     "ready": true,
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 11:31:31",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Cboe revives S&P 500 binary options, chasing a market popularized by Polymarket, Kalshi",
+      "time": "2026-06-24 11:35:43",
+      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
+      "headline": "Andy Burnham inches closer to power in Britain as Keir Starmer seeks a legacy - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,25 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:31:31",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Cboe revives S&P 500 binary options, chasing a market popularized by Polymarket, Kalshi",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 11:31:31",
-      "market_question": "Will Donald Trump visit Germany in 2026?",
-      "headline": "Germany ditches delayed frigate programme in major blow to Rheinmetall - Reuters",
+      "time": "2026-06-24 11:35:43",
+      "market_question": "Spain snap election called by June 30, 2026?",
+      "headline": "Santander weighs up to 3,000 early retirements in Spain amid AI shift, newspaper says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,25 +406,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 11:31:30",
-      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
-      "headline": "Cboe revives S&P 500 binary options, chasing a market popularized by Polymarket, Kalshi",
+      "time": "2026-06-24 11:35:41",
+      "market_question": "Will Donald Trump visit Lebanon in 2026?",
+      "headline": "Israel, Lebanon discussing pilot scheme for handover of territory - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 11:35:41",
+      "market_question": "Will Donald Trump visit Mexico in 2026?",
+      "headline": "Mexico, like the US, extends birthright citizenship to children born on its soil - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "cached",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 11:31:30",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "Cboe revives S&P 500 binary options, chasing a market popularized by Polymarket, Kalshi",
+      "time": "2026-06-24 11:35:41",
+      "market_question": "Will the Ecologist Green Party of Mexico (PVEM) win the most seats in the 2027 Mexico legislative election?",
+      "headline": "Mexico, like the US, extends birthright citizenship to children born on its soil - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
