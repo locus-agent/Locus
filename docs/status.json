@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-24T11:42:53.076002+00:00",
-  "last_heartbeat": "2026-06-24T11:42:53.076002+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-24T11:47:59.697504+00:00",
+  "last_heartbeat": "2026-06-24T11:47:59.697504+00:00",
+  "uptime_seconds": 344,
   "dry_run": false,
-  "markets_tracked": 1357,
+  "markets_tracked": 1353,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 8471,
+    "total": 8475,
     "accuracy": 17.2,
     "by_category": {
       "other": 16.2,
       "ai": 11.1,
-      "politics": 21.5,
+      "politics": 21.6,
       "technology": 12.5,
-      "crypto": 12.7,
+      "crypto": 12.6,
       "sports": 26.2
     },
     "by_source": {
@@ -24,15 +24,15 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.2,
-    "overall_total": 8471,
+    "overall_total": 8475,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 4853,
+        "total": 4854,
         "correct": 339,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 11.81,
+        "avg_pnl_pct": 11.8,
         "color": "red"
       },
       {
@@ -74,21 +74,21 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1056,
-        "correct": 195,
+        "total": 1059,
+        "correct": 196,
         "accuracy_pct": 18.5,
-        "avg_pnl_pct": -5.4,
+        "avg_pnl_pct": -5.38,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 732,
-  "headlines_last_cycle": 20,
+  "headlines_scanned_today": 814,
+  "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 11369,
+  "classifications_24h": 11705,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4057,
+    "prefiltered_haiku": 4193,
     "stale": 21,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2871,
-    "matched": 1071,
-    "classified": 11369,
+    "news": 2949,
+    "matched": 1073,
+    "classified": 11705,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1275.5
+    "avg_classification_latency_ms": 1398.9
   },
   "live_readiness": {
     "ready": true,
@@ -374,25 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 11:42:53",
-      "market_question": "Will Trump flip the bird again in 2026?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 11:42:52",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "time": "2026-06-24 11:45:04",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -406,9 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:42:52",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "time": "2026-06-24 11:45:04",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -422,36 +406,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:42:52",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 11:42:52",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "time": "2026-06-24 11:45:03",
+      "market_question": "Will Donald Trump visit Oman in 2026?",
+      "headline": "Qatar PM in Oman to pave way for Iran-Gulf-Iraq Hormuz talks - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 11:45:03",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 11:45:03",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
