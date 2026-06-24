@@ -1,6 +1,26 @@
 {
  "decisions": [
   {
+   "time": "2026-06-24 11:06:12",
+   "market_question": "Bitcoin Up or Down on June 24?",
+   "side": "NO",
+   "trigger": "take_profit",
+   "decision": "close",
+   "pnl_pct": 53.33,
+   "yes_price": 0.42500000000000004,
+   "reasoning": "The position has captured over 50% profit and the original thesis (BTC drop thesis driving NO on 'Up') has largely played out with YES price moving from 0.625 to 0.425. With time to close unknown and thin market liquidity, locking in the realized gain now is preferable to risking mean reversion or liquidity issues at resolution."
+  },
+  {
+   "time": "2026-06-24 11:06:12",
+   "market_question": "Bitcoin Up or Down on June 24?",
+   "side": "NO",
+   "trigger": "tp_decision",
+   "decision": "close_failed",
+   "pnl_pct": 53.33,
+   "yes_price": 0.42500000000000004,
+   "reasoning": "Live SELL not confirmed (tp_decision); position kept open"
+  },
+  {
    "time": "2026-06-24 05:37:39",
    "market_question": "Bitcoin Up or Down on June 24?",
    "side": "NO",
