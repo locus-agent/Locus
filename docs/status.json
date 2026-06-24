@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T05:32:28.063968+00:00",
-  "last_heartbeat": "2026-06-24T05:32:28.063968+00:00",
-  "uptime_seconds": 17445,
+  "generated_at": "2026-06-24T05:37:39.822310+00:00",
+  "last_heartbeat": "2026-06-24T05:37:39.822310+00:00",
+  "uptime_seconds": 17757,
   "dry_run": false,
-  "markets_tracked": 1343,
+  "markets_tracked": 1348,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8413,
@@ -85,10 +85,10 @@
   "headlines_scanned_today": 394,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 12512,
+  "classifications_24h": 12504,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4554,
+    "prefiltered_haiku": 4551,
     "stale": 20,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3236,
-    "matched": 962,
-    "classified": 12512,
+    "news": 3234,
+    "matched": 960,
+    "classified": 12504,
     "signals": 11,
     "trades": 11
   },
@@ -134,8 +134,8 @@
     "losses": 11,
     "win_rate_pct": 57.7,
     "realized_pnl_usd": 61.42,
-    "unrealized_pnl_usd": -4.0,
-    "total_pnl_usd": 57.42,
+    "unrealized_pnl_usd": -8.0,
+    "total_pnl_usd": 53.42,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-24-2026",
       "side": "NO",
       "entry_price": 0.625,
-      "current_price": 0.685,
-      "pnl_pct": -16.0,
+      "current_price": 0.745,
+      "pnl_pct": -32.0,
       "amount_usd": 25.0,
-      "current_value_usd": 21.0,
-      "pnl_usd": -4.0,
+      "current_value_usd": 17.0,
+      "pnl_usd": -8.0,
       "edge_type": "momentum",
       "event_id": "622556"
     }
@@ -327,6 +327,24 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-24 05:37:39",
+      "market_question": "Bitcoin Up or Down on June 24?",
+      "side": "NO",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The original thesis (BTC dropping to $59K on liquidity concerns) has clearly failed as the YES price moved sharply against the NO position from 0.625 to 0.745, indicating strong bullish sentiment on the day. With no recorded reasoning to defend and a -32% drawdown exceeding the review threshold, there is no basis beyond hope to hold; cutting losses now preserves capital.",
+      "pnl_pct": -32.0
+    },
+    {
+      "time": "2026-06-24 05:37:39",
+      "market_question": "Bitcoin Up or Down on June 24?",
+      "side": "NO",
+      "trigger": "drawdown_decision",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (drawdown_decision); position kept open",
+      "pnl_pct": -32.0
+    },
+    {
       "time": "2026-06-21 15:43:05",
       "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
       "side": "YES",
@@ -352,24 +370,6 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 32.06
-    },
-    {
-      "time": "2026-06-19 19:04:04",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "side": "NO",
-      "trigger": "news",
-      "decision": "close_half",
-      "reasoning": "The new headline directly undermines the original thesis by suggesting a Labour leadership contest is now more plausible (Burnham's win fueling a showdown), which increases the probability Streeting would be a candidate; however, we've already captured +13% and the trigger's materiality is moderate (0.55), so locking in half the profit while letting the rest ride balances realized gains against residual uncertainty.",
-      "pnl_pct": 12.98
-    },
-    {
-      "time": "2026-06-19 17:14:38",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "side": "NO",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": 0.0
     }
   ],
   "recent_classifications": [
