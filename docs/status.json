@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T17:14:56.308697+00:00",
-  "last_heartbeat": "2026-06-24T17:14:56.308697+00:00",
-  "uptime_seconds": 19961,
+  "generated_at": "2026-06-24T17:20:03.044755+00:00",
+  "last_heartbeat": "2026-06-24T17:20:03.044755+00:00",
+  "uptime_seconds": 20267,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8531,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1219,
+  "headlines_scanned_today": 1223,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 9779,
+  "classifications_24h": 9785,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3564,
+    "prefiltered_haiku": 3568,
     "stale": 8,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 2425,
-    "matched": 1080,
-    "classified": 9779,
+    "matched": 1084,
+    "classified": 9785,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1609.4
+    "avg_classification_latency_ms": 1607.2
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 17:11:59",
-      "market_question": "Will OpenAI announce a phone in 2026?",
-      "headline": "IRS did better than expected in tax season after slashing staff, except on the phone, watchdog says - AP News",
+      "time": "2026-06-24 17:18:35",
+      "market_question": "Will Ethereum reach $2,000 June 22-28?",
+      "headline": "The top tech Prime Day deals to shop on day two",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 17:18:35",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "The top tech Prime Day deals to shop on day two",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 17:11:58",
+      "time": "2026-06-24 17:18:35",
       "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
-      "headline": "Man who died at summer solstice event named",
+      "headline": "Who is Andy Burnham's wife, Marie-France van Heel?",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,52 +407,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 17:11:58",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "IOC announces new $10,000 grant for Olympians",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 17:18:34",
+      "market_question": "Will OpenAI announce a clip-on device for clothing in 2026?",
+      "headline": "The top tech Prime Day deals to shop on day two",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-24 17:11:58",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "IOC announces new $10,000 grant for Olympians",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 17:18:34",
+      "market_question": "Hyperliquid listed on Binance by June 30, 2026?",
+      "headline": "The top tech Prime Day deals to shop on day two",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 17:11:58",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "IOC announces new $10,000 grant for Olympians",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
