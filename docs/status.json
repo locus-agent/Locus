@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T01:43:24.293971+00:00",
-  "last_heartbeat": "2026-06-24T01:43:24.293971+00:00",
-  "uptime_seconds": 3702,
+  "generated_at": "2026-06-24T01:48:29.594496+00:00",
+  "last_heartbeat": "2026-06-24T01:48:29.594496+00:00",
+  "uptime_seconds": 4007,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1349,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8403,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 196,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 198,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 12174,
+  "classifications_24h": 12183,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4472,
+    "prefiltered_haiku": 4482,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3145,
+    "news": 3144,
     "matched": 930,
-    "classified": 12174,
+    "classified": 12183,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1269.1
+    "avg_classification_latency_ms": 1290.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 01:30:16",
-      "market_question": "Will Iv\u00e1n Cepeda Castro place 1st in Bogot\u00e1 in the second round of the 2026 Colombia presidential election?",
-      "headline": "Democratic socialist Valdez wins open Brooklyn-Queens primary - Politico",
+      "time": "2026-06-24 01:47:47",
+      "market_question": "Will Vicente Ada win the 2026 Guam Governor Republican primary election?",
+      "headline": "Hoyer alum Adrian Boafo wins Maryland House primary with help of crypto, pro-Israel money - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 01:30:15",
-      "market_question": "Will Esther Charlestin win the 2026 Vermont Governor Democratic primary election?",
-      "headline": "Democratic socialist Valdez wins open Brooklyn-Queens primary - Politico",
+      "time": "2026-06-24 01:47:47",
+      "market_question": "Will Douglas Moylan win the 2026 Guam Governor Republican primary election?",
+      "headline": "Hoyer alum Adrian Boafo wins Maryland House primary with help of crypto, pro-Israel money - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -385,56 +385,56 @@
       "fee_cost": null,
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 01:47:47",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Hoyer alum Adrian Boafo wins Maryland House primary with help of crypto, pro-Israel money - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 01:47:47",
+      "market_question": "Will Steve Hershey win the 2026 Maryland Governor Republican primary election?",
+      "headline": "Hoyer alum Adrian Boafo wins Maryland House primary with help of crypto, pro-Israel money - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
       "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 01:30:15",
-      "market_question": "Will Melisa Hortman be the Democratic nominee for Senate in Minnesota?",
-      "headline": "Democratic socialist Valdez wins open Brooklyn-Queens primary - Politico",
+      "time": "2026-06-24 01:47:47",
+      "market_question": "Will Larry Hogan win the 2026 Maryland Governor Republican primary election?",
+      "headline": "Hoyer alum Adrian Boafo wins Maryland House primary with help of crypto, pro-Israel money - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 01:30:15",
-      "market_question": "Will Charity Clark win the 2026 Vermont Governor Democratic primary election?",
-      "headline": "Democratic socialist Valdez wins open Brooklyn-Queens primary - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
       "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 01:30:15",
-      "market_question": "Will David Crowley win the 2026 Wisconsin Governor Democratic primary election?",
-      "headline": "Democratic socialist Valdez wins open Brooklyn-Queens primary - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
