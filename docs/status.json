@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T05:58:00.453501+00:00",
-  "last_heartbeat": "2026-06-24T05:58:00.453501+00:00",
-  "uptime_seconds": 18978,
+  "generated_at": "2026-06-24T06:03:06.114364+00:00",
+  "last_heartbeat": "2026-06-24T06:03:06.114364+00:00",
+  "uptime_seconds": 19283,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1345,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8413,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 399,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 400,
+  "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 12484,
+  "classifications_24h": 12485,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4536,
+    "prefiltered_haiku": 4538,
     "stale": 20,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 3227,
-    "matched": 956,
-    "classified": 12484,
+    "matched": 957,
+    "classified": 12485,
     "signals": 11,
     "trades": 11
   },
@@ -134,12 +134,12 @@
     "losses": 11,
     "win_rate_pct": 57.7,
     "realized_pnl_usd": 61.42,
-    "unrealized_pnl_usd": -4.67,
-    "total_pnl_usd": 56.75,
+    "unrealized_pnl_usd": -2.67,
+    "total_pnl_usd": 58.75,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1394.4
+    "avg_classification_latency_ms": 1397.2
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-24-2026",
       "side": "NO",
       "entry_price": 0.625,
-      "current_price": 0.6950000000000001,
-      "pnl_pct": -18.67,
+      "current_price": 0.665,
+      "pnl_pct": -10.67,
       "amount_usd": 25.0,
-      "current_value_usd": 20.33,
-      "pnl_usd": -4.67,
+      "current_value_usd": 22.33,
+      "pnl_usd": -2.67,
       "edge_type": "momentum",
       "event_id": "622556"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 05:57:51",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "Chinese EV makers are shut out of India - but their tech isn't - Reuters",
+      "time": "2026-06-24 06:02:18",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Portugal's Cristiano Ronaldo makes history on Day 13 of World Cup, and other highlights in photos - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,9 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 05:57:51",
-      "market_question": "Will a Chinese AI model become #1 by June 30? ",
-      "headline": "Chinese EV makers are shut out of India - but their tech isn't - Reuters",
+      "time": "2026-06-24 06:02:16",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Portugal's Cristiano Ronaldo makes history on Day 13 of World Cup, and other highlights in photos - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -401,14 +401,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 05:57:50",
-      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
-      "headline": "Chinese EV makers are shut out of India - but their tech isn't - Reuters",
+      "time": "2026-06-24 06:02:16",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Portugal's Cristiano Ronaldo makes history on Day 13 of World Cup, and other highlights in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 06:02:16",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Portugal's Cristiano Ronaldo makes history on Day 13 of World Cup, and other highlights in photos - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 06:02:15",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Portugal's Cristiano Ronaldo makes history on Day 13 of World Cup, and other highlights in photos - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,38 +452,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 05:57:49",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Chinese EV makers are shut out of India - but their tech isn't - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 05:57:49",
-      "market_question": "Will Donald Trump visit India in 2026?",
-      "headline": "Chinese EV makers are shut out of India - but their tech isn't - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
