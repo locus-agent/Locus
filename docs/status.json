@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T06:08:11.642880+00:00",
-  "last_heartbeat": "2026-06-24T06:08:11.642880+00:00",
-  "uptime_seconds": 19589,
+  "generated_at": "2026-06-24T06:13:17.115974+00:00",
+  "last_heartbeat": "2026-06-24T06:13:17.115974+00:00",
+  "uptime_seconds": 19894,
   "dry_run": false,
-  "markets_tracked": 1341,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8413,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 404,
+  "headlines_scanned_today": 405,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 12504,
+  "classifications_24h": 12489,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4542,
+    "prefiltered_haiku": 4533,
     "stale": 20,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-24T05:57:05.434855+00:00"
+    "last_check": "2026-06-24T06:12:05.808736+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3230,
-    "matched": 960,
-    "classified": 12504,
+    "news": 3226,
+    "matched": 958,
+    "classified": 12489,
     "signals": 11,
     "trades": 11
   },
@@ -134,12 +134,12 @@
     "losses": 11,
     "win_rate_pct": 57.7,
     "realized_pnl_usd": 61.42,
-    "unrealized_pnl_usd": -3.33,
-    "total_pnl_usd": 58.08,
+    "unrealized_pnl_usd": -4.0,
+    "total_pnl_usd": 57.42,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1406.9
+    "avg_classification_latency_ms": 1416.3
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-24-2026",
       "side": "NO",
       "entry_price": 0.625,
-      "current_price": 0.675,
-      "pnl_pct": -13.33,
+      "current_price": 0.685,
+      "pnl_pct": -16.0,
       "amount_usd": 25.0,
-      "current_value_usd": 21.67,
-      "pnl_usd": -3.33,
+      "current_value_usd": 21.0,
+      "pnl_usd": -4.0,
       "edge_type": "momentum",
       "event_id": "622556"
     }
@@ -374,25 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 06:06:48",
-      "market_question": "Will ByteDance have a #1 AI model by December 31, 2026?",
-      "headline": "Qualcomm in talks to provide custom chip-design services to ByteDance, sources say - Reuters",
+      "time": "2026-06-24 06:09:01",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "UN nuclear agency boss says inspectors will visit Iran's nuclear sites under Iran-US interim deal - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 06:06:45",
-      "market_question": "Will Robert Moore win the 2026 Colorado Governor Republican primary election?",
-      "headline": "Ben McAdams defeats progressives in Utah Democratic primary as he seeks a return to US House - AP News",
+      "time": "2026-06-24 06:08:52",
+      "market_question": "Will Trump visit Pakistan by June 30?",
+      "headline": "UN nuclear agency boss says inspectors will visit Iran's nuclear sites under Iran-US interim deal - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -401,14 +401,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 06:06:45",
-      "market_question": "Will ByteDance have the best AI model at the end of July 2026?",
-      "headline": "Qualcomm in talks to provide custom chip-design services to ByteDance, sources say - Reuters",
+      "time": "2026-06-24 06:08:51",
+      "market_question": "Will Donald Trump visit Taiwan in 2026?",
+      "headline": "UN nuclear agency boss says inspectors will visit Iran's nuclear sites under Iran-US interim deal - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,9 +422,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 06:06:45",
-      "market_question": "Will Starmer say \"Trump\" during the next PMQ?",
-      "headline": "Qualcomm in talks to provide custom chip-design services to ByteDance, sources say - Reuters",
+      "time": "2026-06-24 06:08:51",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "UN nuclear agency boss says inspectors will visit Iran's nuclear sites under Iran-US interim deal - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,20 +438,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 06:06:42",
-      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
-      "headline": "Ben McAdams defeats progressives in Utah Democratic primary as he seeks a return to US House - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-24 06:08:51",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "UN nuclear agency boss says inspectors will visit Iran's nuclear sites under Iran-US interim deal - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
