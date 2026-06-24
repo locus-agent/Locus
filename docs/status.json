@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T00:03:30.242408+00:00",
-  "last_heartbeat": "2026-06-24T00:03:30.242408+00:00",
-  "uptime_seconds": 12292,
+  "generated_at": "2026-06-24T00:08:37.022847+00:00",
+  "last_heartbeat": "2026-06-24T00:08:37.022847+00:00",
+  "uptime_seconds": 12598,
   "dry_run": false,
-  "markets_tracked": 1334,
+  "markets_tracked": 1330,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 4,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 5,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 11561,
+  "classifications_24h": 11558,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4235,
+    "prefiltered_haiku": 4234,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 2997,
     "matched": 923,
-    "classified": 11561,
+    "classified": 11558,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1364.8
+    "avg_classification_latency_ms": 1365.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 00:03:04",
-      "market_question": "Will Z.ai have the best AI model at the end of July 2026?",
-      "headline": "NCO AI, a multimodal artificial intelligence (AI) company, announced on the 24th that it will develo.. - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-06-24 00:07:27",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "The economic challenges facing the next prime minister",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 00:03:04",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "COVID-19 vaccine study that was blocked from CDC journal is published elsewhere - AP News",
+      "time": "2026-06-24 00:07:26",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "The economic challenges facing the next prime minister",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 00:07:25",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "The economic challenges facing the next prime minister",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 00:03:04",
-      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "COVID-19 vaccine study that was blocked from CDC journal is published elsewhere - AP News",
+      "time": "2026-06-24 00:07:25",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "The economic challenges facing the next prime minister",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,36 +423,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 00:03:02",
-      "market_question": "Will Z.ai have a #1 AI model by June 30?",
-      "headline": "NCO AI, a multimodal artificial intelligence (AI) company, announced on the 24th that it will develo.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-24 00:07:25",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "The economic challenges facing the next prime minister",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 00:03:02",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "NCO AI, a multimodal artificial intelligence (AI) company, announced on the 24th that it will develo.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
