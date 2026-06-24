@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T11:13:50.354556+00:00",
-  "last_heartbeat": "2026-06-24T11:13:50.354556+00:00",
-  "uptime_seconds": 37928,
+  "generated_at": "2026-06-24T11:18:56.496458+00:00",
+  "last_heartbeat": "2026-06-24T11:18:56.496458+00:00",
+  "uptime_seconds": 38234,
   "dry_run": false,
-  "markets_tracked": 1354,
+  "markets_tracked": 1356,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8431,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 600,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 605,
+  "headlines_last_cycle": 2,
   "signals_24h": 11,
-  "classifications_24h": 12693,
+  "classifications_24h": 12053,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4595,
+    "prefiltered_haiku": 4335,
     "stale": 21,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3266,
-    "matched": 1067,
-    "classified": 12693,
+    "news": 3087,
+    "matched": 1064,
+    "classified": 12053,
     "signals": 11,
     "trades": 11
   },
@@ -134,12 +134,12 @@
     "losses": 11,
     "win_rate_pct": 57.7,
     "realized_pnl_usd": 61.42,
-    "unrealized_pnl_usd": 16.0,
-    "total_pnl_usd": 77.42,
+    "unrealized_pnl_usd": 14.67,
+    "total_pnl_usd": 76.08,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1506.7
+    "avg_classification_latency_ms": 1506.6
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-24-2026",
       "side": "NO",
       "entry_price": 0.625,
-      "current_price": 0.385,
-      "pnl_pct": 64.0,
+      "current_price": 0.405,
+      "pnl_pct": 58.67,
       "amount_usd": 25.0,
-      "current_value_usd": 41.0,
-      "pnl_usd": 16.0,
+      "current_value_usd": 39.67,
+      "pnl_usd": 14.67,
       "edge_type": "momentum",
       "event_id": "622556"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 11:11:58",
-      "market_question": "Will the average monthly Ethereum gas price hit 40 Gwei before 2027?",
-      "headline": "Ukraine\u2019s latest long-range strikes on Russia hit a major natural gas plant and satellite centers - AP News",
+      "time": "2026-06-24 11:18:33",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,9 +390,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:11:58",
-      "market_question": "Ukraine election called by June 30, 2026?",
-      "headline": "Ukraine says it hit a railway bridge to Crimea, seeking to isolate the Russian-held peninsula - AP News",
+      "time": "2026-06-24 11:18:33",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 11:18:32",
+      "market_question": "Will Donald Trump visit Germany in 2026?",
+      "headline": "Germany ditches delayed frigate programme in major blow to Rheinmetall - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,41 +422,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 11:11:58",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Ukraine says it hit a railway bridge to Crimea, seeking to isolate the Russian-held peninsula - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 11:11:58",
-      "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "Ukraine says it hit a railway bridge to Crimea, seeking to isolate the Russian-held peninsula - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 11:11:58",
+      "time": "2026-06-24 11:18:32",
       "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Ukraine says it hit a railway bridge to Crimea, seeking to isolate the Russian-held peninsula - AP News",
+      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 11:18:32",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
