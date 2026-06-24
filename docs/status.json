@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T14:16:26.500079+00:00",
-  "last_heartbeat": "2026-06-24T14:16:26.500079+00:00",
-  "uptime_seconds": 9251,
+  "generated_at": "2026-06-24T14:21:32.424810+00:00",
+  "last_heartbeat": "2026-06-24T14:21:32.424810+00:00",
+  "uptime_seconds": 9557,
   "dry_run": false,
-  "markets_tracked": 1365,
+  "markets_tracked": 1357,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8475,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1029,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1052,
+  "headlines_last_cycle": 15,
   "signals_24h": 11,
-  "classifications_24h": 10546,
+  "classifications_24h": 10614,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3752,
+    "prefiltered_haiku": 3788,
     "stale": 8,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2643,
-    "matched": 1012,
-    "classified": 10546,
+    "news": 2663,
+    "matched": 1032,
+    "classified": 10614,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1516.3
+    "avg_classification_latency_ms": 1576.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,57 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 14:12:04",
-      "market_question": "Will Donald Trump publicly insult Zohran Mamdani by June 30, 2026?",
-      "headline": "Mamdani proves his power with New York endorsements, plus more takeaways from Tuesday\u2019s primaries - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 14:12:03",
-      "market_question": "Will Douglas Moylan win the 2026 Guam Governor Republican primary election?",
-      "headline": "Mamdani proves his power with New York endorsements, plus more takeaways from Tuesday\u2019s primaries - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 14:12:03",
-      "market_question": "Will Deaglan McEachern win the 2026 New Hampshire Governor Democratic primary election?",
-      "headline": "Mamdani proves his power with New York endorsements, plus more takeaways from Tuesday\u2019s primaries - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 14:12:02",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Mamdani proves his power with New York endorsements, plus more takeaways from Tuesday\u2019s primaries - AP News",
+      "time": "2026-06-24 14:21:32",
+      "market_question": "Will Rick Caruso win the 2026 Los Angeles mayoral election?",
+      "headline": "What to know about a cold storage warehouse fire in Los Angeles - NPR",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 14:12:01",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "While it may mimic intelligence, AI is just that \u2013 artificial - Healthcare IT News",
+      "time": "2026-06-24 14:21:30",
+      "market_question": "Will the Democrats win the New Mexico Senate race in 2026?",
+      "headline": "Democrats' Jeffries and Mamdani wings face off in New York - Axios",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,9 +386,57 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 14:21:30",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "White-collar baby boomers are facing a dilemma: Embrace AI or retire early - Business Insider",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 14:21:30",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "Brexit, 10 years later: 7 prime ministers, a shrinking population, and a 6%-8% smaller economy - Fortune",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 14:21:30",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Brexit, 10 years later: 7 prime ministers, a shrinking population, and a 6%-8% smaller economy - Fortune",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
