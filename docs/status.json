@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-24T12:08:44.809020+00:00",
-  "last_heartbeat": "2026-06-24T12:08:44.809020+00:00",
-  "uptime_seconds": 1589,
+  "generated_at": "2026-06-24T12:13:58.318699+00:00",
+  "last_heartbeat": "2026-06-24T12:13:58.318699+00:00",
+  "uptime_seconds": 1903,
   "dry_run": false,
   "markets_tracked": 1358,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 828,
+  "headlines_scanned_today": 834,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 11693,
+  "classifications_24h": 11697,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4181,
+    "prefiltered_haiku": 4191,
     "stale": 11,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-24T11:57:30.131716+00:00"
+    "last_check": "2026-06-24T12:12:30.576805+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2951,
-    "matched": 1080,
-    "classified": 11693,
+    "news": 2954,
+    "matched": 1085,
+    "classified": 11697,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1448.3
+    "avg_classification_latency_ms": 1440.7
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "bitcoin-up-or-down-on-june-24-2026",
       "side": "NO",
       "entry_price": 0.625,
-      "current_price": 0.705,
+      "current_price": 0.7050000000000001,
       "pnl_pct": -21.33,
       "amount_usd": 25.0,
       "current_value_usd": 19.67,
@@ -327,7 +327,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-06-24 12:08:44",
+      "time": "2026-06-24 12:13:58",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
@@ -336,47 +336,79 @@
       "pnl_pct": -21.33
     },
     {
-      "time": "2026-06-24 12:07:43",
+      "time": "2026-06-24 12:13:27",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -26.67
+      "pnl_pct": -24.0
     },
     {
-      "time": "2026-06-24 12:07:11",
+      "time": "2026-06-24 12:12:56",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -26.67
+      "pnl_pct": -24.0
     },
     {
-      "time": "2026-06-24 12:06:40",
+      "time": "2026-06-24 12:12:24",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -32.0
+      "pnl_pct": -24.0
     },
     {
-      "time": "2026-06-24 12:06:09",
+      "time": "2026-06-24 12:11:53",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -34.67
+      "pnl_pct": -29.33
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 12:06:44",
-      "market_question": "OpenAI IPO closing market cap above $1.2T?",
-      "headline": "The housing bill\u2019s political closing costs - Politico",
+      "time": "2026-06-24 12:11:09",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Even though he tried unsuccessfully to prosecute me, and despite the fact that he is a major Slimeball, I feel sorry for FORMER Congressman Dan Goldman. He is wandering aimlessly, together with the former husband of the great Kellyanne Conway, through a large field of Dumocrat Communists, trying so hard to find his way - A very sad finish for a man who has no clue, and never did!!! President DJT",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 12:11:09",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Even though he tried unsuccessfully to prosecute me, and despite the fact that he is a major Slimeball, I feel sorry for FORMER Congressman Dan Goldman. He is wandering aimlessly, together with the former husband of the great Kellyanne Conway, through a large field of Dumocrat Communists, trying so hard to find his way - A very sad finish for a man who has no clue, and never did!!! President DJT",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 12:11:09",
+      "market_question": "Will Trump say \"Crypto / Bitcoin\" during Pennsylvania events?",
+      "headline": "AI Futurist Keynote Speaker for Events | #1 Scott Steinberg - futuristsspeakers.com",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -390,9 +422,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 12:06:44",
-      "market_question": "OpenAI IPO closing market cap above $800B?",
-      "headline": "The housing bill\u2019s political closing costs - Politico",
+      "time": "2026-06-24 12:11:09",
+      "market_question": "Will Phil Scott win the 2026 Vermont Governor Republican primary election?",
+      "headline": "AI Futurist Keynote Speaker for Events | #1 Scott Steinberg - futuristsspeakers.com",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,41 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 12:06:44",
-      "market_question": "OpenAI IPO closing market cap above $1.4T?",
-      "headline": "The housing bill\u2019s political closing costs - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 12:06:44",
-      "market_question": "OpenAI IPO closing market cap above $1.6T?",
-      "headline": "The housing bill\u2019s political closing costs - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 12:02:27",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Ukrainian strikes knock out power in Sevastopol in Russian-held Crimea - Reuters",
+      "time": "2026-06-24 12:11:09",
+      "market_question": "Will Scott Bottoms win the 2026 Colorado Governor Republican primary election?",
+      "headline": "AI Futurist Keynote Speaker for Events | #1 Scott Steinberg - futuristsspeakers.com",
       "direction": null,
       "materiality": null,
       "confidence": null,
