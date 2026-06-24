@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T11:24:04.332051+00:00",
-  "last_heartbeat": "2026-06-24T11:24:04.332051+00:00",
-  "uptime_seconds": 38542,
+  "generated_at": "2026-06-24T11:29:10.753346+00:00",
+  "last_heartbeat": "2026-06-24T11:29:10.753346+00:00",
+  "uptime_seconds": 38848,
   "dry_run": false,
-  "markets_tracked": 1353,
+  "markets_tracked": 1354,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8431,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 606,
+  "headlines_scanned_today": 610,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 12036,
+  "classifications_24h": 11551,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4324,
+    "prefiltered_haiku": 4126,
     "stale": 21,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-24T11:12:13.858084+00:00"
+    "last_check": "2026-06-24T11:27:14.383387+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3082,
+    "news": 2947,
     "matched": 1065,
-    "classified": 12036,
+    "classified": 11551,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1506.7
+    "avg_classification_latency_ms": 1505.4
   },
   "live_readiness": {
     "ready": true,
@@ -374,25 +374,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 11:23:02",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "World shares are mixed after a Big Tech sell-off - AP News",
+      "time": "2026-06-24 11:27:27",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "IAEA chief says Iran inspections will go ahead, working on modalities - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
       "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 11:27:24",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:23:00",
-      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
-      "headline": "World shares are mixed after a Big Tech sell-off - AP News",
+      "time": "2026-06-24 11:27:24",
+      "market_question": "Will Trump resign by December 31, 2026?",
+      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 11:27:24",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -406,52 +438,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:22:58",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World shares are mixed after a Big Tech sell-off - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 11:27:24",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 11:22:58",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World shares are mixed after a Big Tech sell-off - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-24 11:22:58",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World shares are mixed after a Big Tech sell-off - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
