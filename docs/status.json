@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T14:11:21.077164+00:00",
-  "last_heartbeat": "2026-06-24T14:11:21.077164+00:00",
-  "uptime_seconds": 8945,
+  "generated_at": "2026-06-24T14:16:26.500079+00:00",
+  "last_heartbeat": "2026-06-24T14:16:26.500079+00:00",
+  "uptime_seconds": 9251,
   "dry_run": false,
-  "markets_tracked": 1366,
+  "markets_tracked": 1365,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8475,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1026,
+  "headlines_scanned_today": 1029,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 10661,
+  "classifications_24h": 10546,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 3770,
+    "prefiltered_haiku": 3752,
     "stale": 8,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-24T13:57:34.022306+00:00"
+    "last_check": "2026-06-24T14:12:34.442881+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2672,
-    "matched": 1030,
-    "classified": 10661,
+    "news": 2643,
+    "matched": 1012,
+    "classified": 10546,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1511.9
+    "avg_classification_latency_ms": 1516.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 14:09:45",
-      "market_question": "Altcoin market cap dip to $150B before 2027?",
-      "headline": "Cerebras sinks 14% as full-year margin forecast disappoints - Reuters",
+      "time": "2026-06-24 14:12:04",
+      "market_question": "Will Donald Trump publicly insult Zohran Mamdani by June 30, 2026?",
+      "headline": "Mamdani proves his power with New York endorsements, plus more takeaways from Tuesday\u2019s primaries - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 14:09:45",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "Cerebras sinks 14% as full-year margin forecast disappoints - Reuters",
+      "time": "2026-06-24 14:12:03",
+      "market_question": "Will Douglas Moylan win the 2026 Guam Governor Republican primary election?",
+      "headline": "Mamdani proves his power with New York endorsements, plus more takeaways from Tuesday\u2019s primaries - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,52 +391,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 14:09:45",
-      "market_question": "Will Ethereum dip to $700 by December 31, 2026?",
-      "headline": "Cerebras sinks 14% as full-year margin forecast disappoints - Reuters",
+      "time": "2026-06-24 14:12:03",
+      "market_question": "Will Deaglan McEachern win the 2026 New Hampshire Governor Democratic primary election?",
+      "headline": "Mamdani proves his power with New York endorsements, plus more takeaways from Tuesday\u2019s primaries - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 14:09:44",
-      "market_question": "Will Cap launch a token by September 30, 2026?",
-      "headline": "Growing GOP support for insulin cost cap - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 14:12:02",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Mamdani proves his power with New York endorsements, plus more takeaways from Tuesday\u2019s primaries - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-24 14:09:44",
-      "market_question": "Will Cap launch a token by December 31, 2026?",
-      "headline": "Growing GOP support for insulin cost cap - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 14:12:01",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "While it may mimic intelligence, AI is just that \u2013 artificial - Healthcare IT News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
