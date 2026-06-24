@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T11:47:59.697504+00:00",
-  "last_heartbeat": "2026-06-24T11:47:59.697504+00:00",
-  "uptime_seconds": 344,
+  "generated_at": "2026-06-24T11:53:11.863058+00:00",
+  "last_heartbeat": "2026-06-24T11:53:11.863058+00:00",
+  "uptime_seconds": 656,
   "dry_run": false,
-  "markets_tracked": 1353,
+  "markets_tracked": 1356,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8475,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 814,
+  "headlines_scanned_today": 817,
   "headlines_last_cycle": 0,
   "signals_24h": 11,
-  "classifications_24h": 11705,
+  "classifications_24h": 11711,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4193,
+    "prefiltered_haiku": 4194,
     "stale": 21,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2949,
-    "matched": 1073,
-    "classified": 11705,
+    "news": 2951,
+    "matched": 1076,
+    "classified": 11711,
     "signals": 11,
     "trades": 11
   },
@@ -134,12 +134,12 @@
     "losses": 11,
     "win_rate_pct": 57.7,
     "realized_pnl_usd": 61.42,
-    "unrealized_pnl_usd": 14.67,
-    "total_pnl_usd": 76.08,
+    "unrealized_pnl_usd": -8.0,
+    "total_pnl_usd": 53.42,
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1398.9
+    "avg_classification_latency_ms": 1406.5
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-24-2026",
       "side": "NO",
       "entry_price": 0.625,
-      "current_price": 0.405,
-      "pnl_pct": 58.67,
+      "current_price": 0.745,
+      "pnl_pct": -32.0,
       "amount_usd": 25.0,
-      "current_value_usd": 39.67,
-      "pnl_usd": 14.67,
+      "current_value_usd": 17.0,
+      "pnl_usd": -8.0,
       "edge_type": "momentum",
       "event_id": "622556"
     }
@@ -327,6 +327,24 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-06-24 11:53:11",
+      "market_question": "Bitcoin Up or Down on June 24?",
+      "side": "NO",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The original thesis (BTC drop to $59K on liquidity concerns) has clearly failed with YES price moving from 0.625 to 0.745, indicating the market strongly favors Bitcoin being up on June 24; at -32% drawdown with no recorded supporting reasoning and an unknown time to close, there is no disciplined basis to hold a losing position against a strengthening opposing trend.",
+      "pnl_pct": -32.0
+    },
+    {
+      "time": "2026-06-24 11:53:11",
+      "market_question": "Bitcoin Up or Down on June 24?",
+      "side": "NO",
+      "trigger": "drawdown_decision",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (drawdown_decision); position kept open",
+      "pnl_pct": -32.0
+    },
+    {
       "time": "2026-06-24 11:06:12",
       "market_question": "Bitcoin Up or Down on June 24?",
       "side": "NO",
@@ -352,31 +370,29 @@
       "decision": "close",
       "reasoning": "The original thesis (BTC dropping to $59K on liquidity concerns) has clearly failed as the YES price moved sharply against the NO position from 0.625 to 0.745, indicating strong bullish sentiment on the day. With no recorded reasoning to defend and a -32% drawdown exceeding the review threshold, there is no basis beyond hope to hold; cutting losses now preserves capital.",
       "pnl_pct": -32.0
-    },
-    {
-      "time": "2026-06-24 05:37:39",
-      "market_question": "Bitcoin Up or Down on June 24?",
-      "side": "NO",
-      "trigger": "drawdown_decision",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (drawdown_decision); position kept open",
-      "pnl_pct": -32.0
-    },
-    {
-      "time": "2026-06-21 15:43:05",
-      "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close",
-      "reasoning": "Manual close requested by user",
-      "pnl_pct": -1.14
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 11:45:04",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
+      "time": "2026-06-24 11:51:24",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "Stocks steady as tech recovers; peace talk uncertainty boosts dollar - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 11:51:22",
+      "market_question": "Will Alibaba have the best AI model at the end of July 2026?",
+      "headline": "Intense AI use still rare among euro zone firms, ECB researchers find - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -385,46 +401,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:45:04",
-      "market_question": "Will a Chinese AI model become #1 by June 30? ",
-      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 11:45:03",
-      "market_question": "Will Donald Trump visit Oman in 2026?",
-      "headline": "Qatar PM in Oman to pave way for Iran-Gulf-Iraq Hormuz talks - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 11:45:03",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
+      "time": "2026-06-24 11:51:22",
+      "market_question": "Will Trump talk to Mojtaba Khamenei by June 30?",
+      "headline": "Stocks steady as tech recovers; peace talk uncertainty boosts dollar - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +422,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-24 11:45:03",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "First of its kind queer museum in San Francisco Chinatown amplifies Chinese LGBTQ+ artists - AP News",
+      "time": "2026-06-24 11:51:20",
+      "market_question": "Will Utah use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Intense AI use still rare among euro zone firms, ECB researchers find - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 11:51:20",
+      "market_question": "Will Virginia use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Intense AI use still rare among euro zone firms, ECB researchers find - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
