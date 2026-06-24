@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T23:58:23.812357+00:00",
-  "last_heartbeat": "2026-06-23T23:58:23.812357+00:00",
-  "uptime_seconds": 11985,
+  "generated_at": "2026-06-24T00:03:30.242408+00:00",
+  "last_heartbeat": "2026-06-24T00:03:30.242408+00:00",
+  "uptime_seconds": 12292,
   "dry_run": false,
-  "markets_tracked": 1343,
+  "markets_tracked": 1334,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8388,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 2994,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 4,
+  "headlines_last_cycle": 2,
   "signals_24h": 10,
-  "classifications_24h": 11546,
+  "classifications_24h": 11561,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4219,
+    "prefiltered_haiku": 4235,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2995,
+    "news": 2997,
     "matched": 923,
-    "classified": 11546,
+    "classified": 11561,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1369.0
+    "avg_classification_latency_ms": 1364.8
   },
   "live_readiness": {
     "ready": true,
@@ -184,8 +184,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0481,
-    "sharpe_7d": 0.38
+    "drawdown_7d": 0.0516,
+    "sharpe_7d": 0.51
   },
   "open_positions": [],
   "closed_positions": [
@@ -359,9 +359,73 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-23 23:56:29",
-      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
-      "headline": "Barclays, Stifel lift S&P 500 target to 7,800 on strong earnings outlook - Reuters",
+      "time": "2026-06-24 00:03:04",
+      "market_question": "Will Z.ai have the best AI model at the end of July 2026?",
+      "headline": "NCO AI, a multimodal artificial intelligence (AI) company, announced on the 24th that it will develo.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 00:03:04",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "COVID-19 vaccine study that was blocked from CDC journal is published elsewhere - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 00:03:04",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "COVID-19 vaccine study that was blocked from CDC journal is published elsewhere - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 00:03:02",
+      "market_question": "Will Z.ai have a #1 AI model by June 30?",
+      "headline": "NCO AI, a multimodal artificial intelligence (AI) company, announced on the 24th that it will develo.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-24 00:03:02",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "NCO AI, a multimodal artificial intelligence (AI) company, announced on the 24th that it will develo.. - \ub9e4\uc77c\uacbd\uc81c",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -373,70 +437,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-23 23:56:27",
-      "market_question": "Will Trump cut corporate taxes before 2027?",
-      "headline": "Heat pump growth stalls as government support cut, warns climate watchdog",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 23:56:27",
-      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Heat pump growth stalls as government support cut, warns climate watchdog",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 23:56:27",
-      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Heat pump growth stalls as government support cut, warns climate watchdog",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-23 23:56:27",
-      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Heat pump growth stalls as government support cut, warns climate watchdog",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
