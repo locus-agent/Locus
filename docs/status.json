@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-24T11:29:10.753346+00:00",
-  "last_heartbeat": "2026-06-24T11:29:10.753346+00:00",
-  "uptime_seconds": 38848,
+  "generated_at": "2026-06-24T11:31:31.763308+00:00",
+  "last_heartbeat": "2026-06-24T11:31:31.763308+00:00",
+  "uptime_seconds": 37,
   "dry_run": false,
   "markets_tracked": 1354,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 610,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 633,
+  "headlines_last_cycle": 23,
   "signals_24h": 11,
-  "classifications_24h": 11551,
+  "classifications_24h": 11586,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4126,
+    "prefiltered_haiku": 4146,
     "stale": 21,
     "capped": 2,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-24T11:27:14.383387+00:00"
+    "last_check": "2026-06-24T11:31:08.997973+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2947,
-    "matched": 1065,
-    "classified": 11551,
+    "news": 2957,
+    "matched": 1066,
+    "classified": 11586,
     "signals": 11,
     "trades": 11
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1505.4
+    "avg_classification_latency_ms": 1341.0
   },
   "live_readiness": {
     "ready": true,
@@ -374,25 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 11:27:27",
-      "market_question": "Will Donald Trump enter Iran by June 30?",
-      "headline": "IAEA chief says Iran inspections will go ahead, working on modalities - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 11:27:24",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "time": "2026-06-24 11:31:31",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "Cboe revives S&P 500 binary options, chasing a market popularized by Polymarket, Kalshi",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -406,9 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:27:24",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "time": "2026-06-24 11:31:31",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Cboe revives S&P 500 binary options, chasing a market popularized by Polymarket, Kalshi",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -422,36 +406,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-24 11:27:24",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
+      "time": "2026-06-24 11:31:31",
+      "market_question": "Will Donald Trump visit Germany in 2026?",
+      "headline": "Germany ditches delayed frigate programme in major blow to Rheinmetall - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 11:31:30",
+      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
+      "headline": "Cboe revives S&P 500 binary options, chasing a market popularized by Polymarket, Kalshi",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-24 11:27:24",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump turns America 250 kickoff into a campaign-style rally on the National Mall - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "cached",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-24 11:31:30",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "Cboe revives S&P 500 binary options, chasing a market popularized by Polymarket, Kalshi",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
