@@ -296,16 +296,52 @@ def _resolve_token_id(client, condition_id: str, side: str) -> str | None:
     """Resolve the outcome token_id for `side` of a market via the CLOB client.
 
     Positions only carry a condition_id (no token list), so ask the exchange.
-    Tolerates both dict and attribute-style market/token shapes."""
+    Tolerates both dict and attribute-style market/token shapes.
+
+    `side` is our positional YES/NO convention (YES = the first outcome, NO =
+    the second), the same way gamma._parse_market labels its tokens and where
+    yes_price = outcomePrices[0]. Many markets' *real* CLOB outcome labels are
+    NOT "Yes"/"No" — "Up"/"Down", "Bitcoin"/"Ethereum", team names — so a strict
+    label match finds nothing and the close silently fails with error_no_token
+    (the symptom on "Bitcoin Up or Down"). We therefore try the label first,
+    then fall back to position: YES -> first token, NO -> second. The BUY path
+    never hit this because it falls back to the cached Gamma Market.tokens (which
+    are always labeled "Yes"/"No"); a close has only a condition_id, so it must
+    resolve robustly here."""
     market = client.get_market(condition_id)
     tokens = (market.get("tokens") if isinstance(market, dict)
               else getattr(market, "tokens", None)) or []
+
+    def _tok(t):
+        return (t.get("token_id") if isinstance(t, dict)
+                else getattr(t, "token_id", None))
+
+    def _outcome(t):
+        return ((t.get("outcome") if isinstance(t, dict)
+                 else getattr(t, "outcome", "")) or "")
+
+    # 1) Exact label match — real Yes/No markets resolve here.
     for t in tokens:
-        outcome = (t.get("outcome") if isinstance(t, dict)
-                   else getattr(t, "outcome", "")) or ""
-        if outcome.upper() == side.upper():
-            return (t.get("token_id") if isinstance(t, dict)
-                    else getattr(t, "token_id", None))
+        if _outcome(t).upper() == side.upper():
+            tid = _tok(t)
+            log.info("[executor] token resolved by label: side=%s outcome=%s token_id=%s",
+                     side, _outcome(t), tid)
+            return tid
+
+    # 2) Positional fallback for the YES/NO convention on non-Yes/No markets.
+    idx = {"YES": 0, "NO": 1}.get(side.upper())
+    labels = [_outcome(t) for t in tokens]
+    if idx is not None and len(tokens) > idx:
+        tid = _tok(tokens[idx])
+        log.warning(
+            "[executor] no '%s' outcome among %s; resolving positionally to "
+            "token[%d]=%s (YES=first / NO=second convention)",
+            side, labels, idx, tid,
+        )
+        return tid
+
+    log.error("[executor] could NOT resolve token for side=%s among outcomes=%s",
+              side, labels)
     return None
 
 
@@ -323,25 +359,37 @@ def close_position_live(
     py_clob_client). Only 'executed' means the position was actually flattened —
     the caller must NOT record a local close on any other status."""
     max_spread = config.LIVE_MAX_SPREAD if max_spread is None else max_spread
+    log.info(
+        "[executor] close_position_live START: condition_id=%s side=%s shares=%.4f "
+        "max_spread=%.3f", condition_id, side, shares, max_spread,
+    )
     try:
         from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
 
         client = create_clob_client()
         token_id = _resolve_token_id(client, condition_id, side)
         if not token_id:
+            log.error("[executor] close ABORTED: no token_id for side=%s of %s "
+                      "(position stays open)", side, condition_id)
             return {"status": "error_no_token", "order_id": None, "price": None, "shares": None}
 
         book = client.get_order_book(token_id)
         best_bid, best_ask, bid_size = _bid_levels(book)
+        log.info("[executor] close book for token=%s: best_bid=%s best_ask=%s bid_size=%s",
+                 token_id, best_bid, best_ask, bid_size)
         price, sell_shares, status = plan_live_sell(
             shares, best_bid, best_ask, bid_size, max_spread
         )
         if status != "ok":
+            log.warning("[executor] close SKIPPED: plan_live_sell -> %s (no SELL placed, "
+                        "position stays open)", status)
             return {"status": status, "order_id": None, "price": None, "shares": None}
 
         tick_size = _get_tick_size(client, token_id)
         neg_risk = _get_neg_risk(client, token_id)
         price = round_to_tick(price, tick_size)
+        log.info("[executor] close order ready: SELL token=%s price=%.4f size=%.4f "
+                 "tick_size=%s neg_risk=%s", token_id, price, sell_shares, tick_size, neg_risk)
 
         order_args = OrderArgs(
             token_id=token_id,
@@ -362,11 +410,34 @@ def close_position_live(
                     "shares": None, "error": str(getattr(order_exc, "error_msg", None)
                                                  or order_exc)}
         order_id = resp.get("orderID", resp.get("id", "unknown"))
-        return {"status": "executed", "order_id": order_id, "price": price, "shares": sell_shares}
+        log.info("[executor] SELL posted: order_id=%s; reconciling in %ss",
+                 order_id, config.ORDER_RECONCILE_WAIT_SECONDS)
+
+        # A posted GTC SELL can rest unfilled (thin/illiquid niche book) — a
+        # returned order_id is NOT a fill. Mirror the BUY path: reconcile against
+        # the exchange and only claim 'executed' on a confirmed fill, so we never
+        # record a close for a sell that didn't actually flatten the position.
+        fill_status = reconcile_order(client, order_id)
+        if fill_status == "executed":
+            log.info("[executor] close CONFIRMED: SELL %.4f sh token=%s @ %.4f (order %s)",
+                     sell_shares, token_id, price, order_id)
+            return {"status": "executed", "order_id": order_id, "price": price,
+                    "shares": sell_shares}
+        # Unconfirmed (resting/unknown): the position is NOT flattened. Cancel the
+        # resting order so it can't fill later untracked, and report close_failed
+        # so the caller keeps the local position open and retries next cycle.
+        log.warning("[executor] close NOT confirmed (reconcile=%s) for order %s — "
+                    "cancelling and reporting close_failed; position stays open",
+                    fill_status, order_id)
+        cancel_order_safe(client, order_id)
+        return {"status": "close_failed", "order_id": None, "price": None, "shares": None,
+                "error": f"SELL not confirmed (reconcile={fill_status})"}
 
     except ImportError:
+        log.error("[executor] close FAILED: py_clob_client_v2 not installed")
         return {"status": "error_no_clob_client", "order_id": None, "price": None, "shares": None}
     except Exception as e:
+        log.error("[executor] close FAILED with %s: %s", type(e).__name__, e, exc_info=True)
         # Any other failure (client build, token resolve, book fetch) means the
         # SELL never went through — surface close_failed, not a recorded close.
         return {"status": "close_failed", "order_id": None, "price": None,

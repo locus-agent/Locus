@@ -115,11 +115,24 @@ def _install_fake_v2_module(monkeypatch, clob_client_cls):
     mod.Side = types.SimpleNamespace(BUY="BUY", SELL="SELL")
     mod.BalanceAllowanceParams = lambda **kw: ("params", kw)
     mod.AssetType = types.SimpleNamespace(COLLATERAL="COLLATERAL", CONDITIONAL="CONDITIONAL")
+    # cancel_order_safe builds an OrderPayload to cancel an unfilled SELL.
+    mod.OrderPayload = lambda **kw: ("payload", kw)
     monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
     return mod
 
 
-def _install_fake_clob(monkeypatch, captured, book):
+def _install_fake_clob(monkeypatch, captured, book,
+                       outcomes=("YES", "NO"),
+                       fill_result=None):
+    """Fake CLOB client. `outcomes` sets the real outcome labels get_market
+    reports (default YES/NO; pass ("Up","Down") to exercise the positional
+    fallback). `fill_result` is what get_order returns on reconcile (default a
+    fully MATCHED order, so the SELL confirms as executed)."""
+    if fill_result is None:
+        fill_result = {"status": "MATCHED", "size_matched": "9999"}
+    # The close path reconciles after ORDER_RECONCILE_WAIT_SECONDS — keep tests fast.
+    monkeypatch.setattr(config, "ORDER_RECONCILE_WAIT_SECONDS", 0)
+
     class FakeClobClient:
         def __init__(self, **kwargs):
             captured["init"] = kwargs
@@ -133,8 +146,8 @@ def _install_fake_clob(monkeypatch, captured, book):
         def get_market(self, condition_id):
             captured["get_market"] = condition_id
             return {"tokens": [
-                {"token_id": "tok-yes", "outcome": "YES"},
-                {"token_id": "tok-no", "outcome": "NO"},
+                {"token_id": "tok-yes", "outcome": outcomes[0]},
+                {"token_id": "tok-no", "outcome": outcomes[1]},
             ]}
 
         def get_order_book(self, token_id):
@@ -155,6 +168,13 @@ def _install_fake_clob(monkeypatch, captured, book):
         def post_order(self, signed, order_type):
             captured["posted"] = (signed, order_type)
             return {"orderID": "LIVE-123"}
+
+        def get_order(self, order_id):
+            captured["reconciled"] = order_id
+            return fill_result
+
+        def cancel_order(self, payload):
+            captured.setdefault("cancelled", []).append(payload)
 
     _install_fake_v2_module(monkeypatch, FakeClobClient)
 
@@ -229,6 +249,71 @@ def test_close_position_live_skips_empty_book(monkeypatch):
     result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
     assert result["status"] == "skipped_empty_book"
     assert result["order_id"] is None
+
+
+# --- token resolution: positional fallback for non-Yes/No outcome labels -------
+
+def test_resolve_token_id_label_match():
+    client = types.SimpleNamespace(get_market=lambda c: {"tokens": [
+        {"token_id": "t-yes", "outcome": "Yes"}, {"token_id": "t-no", "outcome": "No"}]})
+    assert executor._resolve_token_id(client, "cond1", "YES") == "t-yes"
+    assert executor._resolve_token_id(client, "cond1", "NO") == "t-no"
+
+
+def test_resolve_token_id_positional_fallback_up_down():
+    # "Bitcoin Up or Down" labels its tokens Up/Down, not Yes/No. Our positional
+    # YES/NO convention must still resolve: YES -> first token, NO -> second.
+    client = types.SimpleNamespace(get_market=lambda c: {"tokens": [
+        {"token_id": "t-up", "outcome": "Up"}, {"token_id": "t-down", "outcome": "Down"}]})
+    assert executor._resolve_token_id(client, "cond1", "YES") == "t-up"
+    assert executor._resolve_token_id(client, "cond1", "NO") == "t-down"
+
+
+def test_resolve_token_id_none_when_no_tokens():
+    client = types.SimpleNamespace(get_market=lambda c: {"tokens": []})
+    assert executor._resolve_token_id(client, "cond1", "YES") is None
+
+
+def test_close_position_live_resolves_up_down_market(monkeypatch):
+    # Regression: the close on an Up/Down market used to fail error_no_token
+    # because the side label "YES" matched no outcome — now it resolves
+    # positionally and places the SELL.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xfunder")
+    monkeypatch.setattr(config, "POLYMARKET_SIGNATURE_TYPE", 3)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book, outcomes=("Up", "Down"))
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "executed"
+    assert result["order_id"] == "LIVE-123"
+    # YES resolved to the first token (the "Up" side) and that token was sold
+    assert captured["book_token"] == "tok-yes"
+    assert captured["order_args"].token_id == "tok-yes"
+    assert captured["order_args"].side == "SELL"
+
+
+def test_close_position_live_resting_sell_is_close_failed(monkeypatch):
+    # A posted SELL that reconciles as resting/unfilled did NOT flatten the
+    # position — report close_failed and cancel the dangling order.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book,
+                       fill_result={"status": "LIVE", "size_matched": "0"})
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "close_failed"
+    assert result["order_id"] is None
+    assert "reconcile" in result["error"]
+    # the unfilled SELL was cancelled, not left dangling on the book
+    assert captured.get("cancelled")
 
 
 # --- _close wiring: live places a sell + records order_id, dry-run does not ----

@@ -566,11 +566,26 @@ def _live_close(position: dict, exit_reason: str, fraction: float) -> tuple[bool
     exposure. Only a confirmed 'executed' fill (or a no-sell-needed close) may
     record."""
     if config.DRY_RUN or exit_reason == "resolution":
+        log.debug(
+            "[positions] _live_close: no CLOB sell needed (dry_run=%s, exit_reason=%s) "
+            "for \"%s\"", config.DRY_RUN, exit_reason, position["market_question"][:40],
+        )
         return True, None
     shares = position_shares(position["side"], position["entry_yes_price"],
                              position["amount_usd"] * fraction)
+    log.info(
+        "[positions] _live_close: placing LIVE SELL — condition_id=%s side=%s "
+        "fraction=%.2f shares=%.4f reason=%s on \"%s\"",
+        position["condition_id"], position["side"], fraction, shares, exit_reason,
+        position["market_question"][:40],
+    )
     result = executor.close_position_live(
         position["condition_id"], position["side"], shares
+    )
+    log.info(
+        "[positions] _live_close: close_position_live returned status=%s order_id=%s "
+        "price=%s shares=%s", result["status"], result.get("order_id"),
+        result.get("price"), result.get("shares"),
     )
     if result["status"] == "executed":
         log.info(
