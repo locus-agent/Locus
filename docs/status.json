@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24T02:39:22.451525+00:00",
-  "last_heartbeat": "2026-06-24T02:39:22.451525+00:00",
-  "uptime_seconds": 7060,
+  "generated_at": "2026-06-24T02:44:27.686633+00:00",
+  "last_heartbeat": "2026-06-24T02:44:27.686633+00:00",
+  "uptime_seconds": 7365,
   "dry_run": false,
-  "markets_tracked": 1351,
+  "markets_tracked": 1352,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8403,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 216,
+  "headlines_scanned_today": 221,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 12141,
+  "classifications_24h": 12161,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 4443,
+    "prefiltered_haiku": 4459,
     "stale": 19,
     "capped": 2,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-24T02:26:59.746389+00:00"
+    "last_check": "2026-06-24T02:42:00.120116+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 3133,
-    "matched": 915,
-    "classified": 12141,
+    "news": 3138,
+    "matched": 919,
+    "classified": 12161,
     "signals": 10,
     "trades": 10
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1298.2
+    "avg_classification_latency_ms": 1303.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,84 +359,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-24 02:36:01",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "US slaps new sanctions on Cuban companies key to island\u2019s crumbling economy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 02:40:34",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "Legal tech firm sues US over order limiting foreign access to top-tier Anthropic models - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-24 02:36:01",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "US slaps new sanctions on Cuban companies key to island\u2019s crumbling economy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 02:40:31",
+      "market_question": "Anthropic acquired before 2027?",
+      "headline": "Legal tech firm sues US over order limiting foreign access to top-tier Anthropic models - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-24 02:36:01",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "US slaps new sanctions on Cuban companies key to island\u2019s crumbling economy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 02:40:31",
+      "market_question": "Will Anthropic be acquired before 2027?",
+      "headline": "Legal tech firm sues US over order limiting foreign access to top-tier Anthropic models - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-24 02:36:01",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "US slaps new sanctions on Cuban companies key to island\u2019s crumbling economy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 02:40:31",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Legal tech firm sues US over order limiting foreign access to top-tier Anthropic models - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-24 02:36:01",
-      "market_question": "Will the Republicans win the New Hampshire Senate race in 2026?",
-      "headline": "US slaps new sanctions on Cuban companies key to island\u2019s crumbling economy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-24 02:40:31",
+      "market_question": "Will Anthropic not IPO by June 30, 2026?",
+      "headline": "Legal tech firm sues US over order limiting foreign access to top-tier Anthropic models - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
