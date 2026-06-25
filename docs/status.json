@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-25T23:27:18.255666+00:00",
-  "last_heartbeat": "2026-06-25T23:27:18.255666+00:00",
-  "uptime_seconds": 128702,
+  "generated_at": "2026-06-25T23:32:24.239451+00:00",
+  "last_heartbeat": "2026-06-25T23:32:24.239451+00:00",
+  "uptime_seconds": 129008,
   "dry_run": false,
   "markets_tracked": 1307,
   "classify_error_streak": 0,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 953,
+  "headlines_scanned_today": 975,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4055,
+  "classifications_24h": 4158,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1619,
-    "stale": 7,
+    "prefiltered_haiku": 1660,
+    "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 970,
-    "matched": 858,
-    "classified": 4055,
+    "news": 992,
+    "matched": 878,
+    "classified": 4158,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 11479.7
+    "avg_classification_latency_ms": 11324.9
   },
   "live_readiness": {
     "ready": false,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-25 23:24:55",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "NFL releases dates and details for the 2027 NFL draft to be held on National Mall in Washington - AP News",
+      "time": "2026-06-25 23:31:31",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Demolition greets Sweden at its World Cup base camp during FC Dallas renovation project - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,25 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-25 23:24:55",
-      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
-      "headline": "NFL releases dates and details for the 2027 NFL draft to be held on National Mall in Washington - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 23:24:55",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "NFL releases dates and details for the 2027 NFL draft to be held on National Mall in Washington - AP News",
+      "time": "2026-06-25 23:31:30",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Demolition greets Sweden at its World Cup base camp during FC Dallas renovation project - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,9 +420,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-25 23:24:55",
-      "market_question": "US national Ethereum reserve before 2027?",
-      "headline": "NFL releases dates and details for the 2027 NFL draft to be held on National Mall in Washington - AP News",
+      "time": "2026-06-25 23:31:30",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Demolition greets Sweden at its World Cup base camp during FC Dallas renovation project - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +436,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-25 23:24:55",
-      "market_question": "US national Bitcoin reserve before 2027?",
-      "headline": "NFL releases dates and details for the 2027 NFL draft to be held on National Mall in Washington - AP News",
+      "time": "2026-06-25 23:31:30",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Demolition greets Sweden at its World Cup base camp during FC Dallas renovation project - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-25 23:31:30",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Demolition greets Sweden at its World Cup base camp during FC Dallas renovation project - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
