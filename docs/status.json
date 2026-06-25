@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-25T07:27:43.327464+00:00",
-  "last_heartbeat": "2026-06-25T07:27:43.327464+00:00",
-  "uptime_seconds": 71128,
+  "generated_at": "2026-06-25T08:36:56.391784+00:00",
+  "last_heartbeat": "2026-06-25T08:36:56.391784+00:00",
+  "uptime_seconds": 75281,
   "dry_run": false,
-  "markets_tracked": 1347,
+  "markets_tracked": 1349,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8881,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 255,
+  "headlines_scanned_today": 274,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 5501,
+  "classifications_24h": 5457,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2271,
-    "stale": 7,
+    "prefiltered_haiku": 2277,
+    "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-25T05:58:00.920317+00:00"
+    "last_check": "2026-06-25T08:18:32.163106+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1354,
-    "matched": 973,
-    "classified": 5501,
+    "news": 1347,
+    "matched": 974,
+    "classified": 5457,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1576.9
+    "avg_classification_latency_ms": 1580.3
   },
   "live_readiness": {
     "ready": true,
@@ -374,41 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-25 06:59:29",
-      "market_question": "Will Bitcoin outperform Gold in 2026?",
-      "headline": "Gold under pressure near 7-month low as Fed rate-hike bets boost dollar - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 06:59:26",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "Rubio visits Bahrain seeking Gulf backing for Iran deal - Reuters",
+      "time": "2026-06-25 08:18:31",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "The 'constant fear' of living in an overheated home with a baby",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-25 06:59:26",
-      "market_question": "Will OpenAI's valuation hit (LOW) $750B by December 31?",
-      "headline": "Gold under pressure near 7-month low as Fed rate-hike bets boost dollar - Reuters",
+      "time": "2026-06-25 08:18:31",
+      "market_question": "Will El Salvador hold $1b+ of BTC by December 31, 2026?",
+      "headline": "US rate-hike bets hold dollar near 13-month highs - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,9 +406,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-25 06:59:26",
-      "market_question": "Will OpenAI's valuation hit (LOW) $800B by December 31?",
-      "headline": "Gold under pressure near 7-month low as Fed rate-hike bets boost dollar - Reuters",
+      "time": "2026-06-25 08:18:31",
+      "market_question": "Will the Republican Party hold fewer than 22 governorships after the 2026 midterm elections?",
+      "headline": "US rate-hike bets hold dollar near 13-month highs - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +422,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-25 06:59:26",
-      "market_question": "Will Anthropic's valuation hit (LOW) $800B by December 31?",
-      "headline": "Gold under pressure near 7-month low as Fed rate-hike bets boost dollar - Reuters",
+      "time": "2026-06-25 08:18:31",
+      "market_question": "Will the Republican Party hold exactly 22 or 23 governorships after the 2026 midterm elections?",
+      "headline": "US rate-hike bets hold dollar near 13-month highs - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-25 08:18:31",
+      "market_question": "Will the Republican Party hold exactly 30 or 31 governorships after the 2026 midterm elections?",
+      "headline": "US rate-hike bets hold dollar near 13-month highs - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
