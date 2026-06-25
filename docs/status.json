@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-25T02:35:55.330995+00:00",
-  "last_heartbeat": "2026-06-25T02:35:55.330995+00:00",
-  "uptime_seconds": 53620,
+  "generated_at": "2026-06-25T02:41:01.050784+00:00",
+  "last_heartbeat": "2026-06-25T02:41:01.050784+00:00",
+  "uptime_seconds": 53925,
   "dry_run": false,
   "markets_tracked": 1359,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 120,
-  "headlines_last_cycle": 9,
+  "headlines_scanned_today": 121,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5872,
+  "classifications_24h": 5847,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2397,
+    "prefiltered_haiku": 2381,
     "stale": 7,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1455,
-    "matched": 974,
-    "classified": 5872,
+    "news": 1451,
+    "matched": 970,
+    "classified": 5847,
     "signals": 2,
     "trades": 2
   },
@@ -374,6 +374,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-25 02:37:49",
+      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
+      "headline": "Oil prices fall as tankers exit Strait of Hormuz - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-25 02:35:44",
       "market_question": "Will ByteDance have a #1 AI model by December 31, 2026?",
       "headline": "LineShine Debuts at No. 1 as the TOP500 Enters a New Global Exascale Era - TOP500",
@@ -436,22 +452,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-25 02:35:42",
-      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
-      "headline": "LineShine Debuts at No. 1 as the TOP500 Enters a New Global Exascale Era - TOP500",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
