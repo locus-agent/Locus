@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-25T21:35:11.554915+00:00",
-  "last_heartbeat": "2026-06-25T21:35:11.554915+00:00",
-  "uptime_seconds": 121976,
+  "generated_at": "2026-06-25T21:40:23.980135+00:00",
+  "last_heartbeat": "2026-06-25T21:40:23.980135+00:00",
+  "uptime_seconds": 122288,
   "dry_run": false,
-  "markets_tracked": 1345,
+  "markets_tracked": 1347,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8999,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 872,
+  "headlines_scanned_today": 875,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4028,
+  "classifications_24h": 4015,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1617,
+    "prefiltered_haiku": 1608,
     "stale": 7,
     "capped": 1,
     "too_close_to_resolution": 2,
@@ -106,12 +106,12 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 1,
+  "watched_markets_count": 2,
   "missed_opportunities_24h": 18,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-25T21:20:46.044049+00:00"
+    "last_check": "2026-06-25T21:35:46.400347+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,39 +119,39 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 959,
-    "matched": 846,
-    "classified": 4028,
+    "news": 955,
+    "matched": 843,
+    "classified": 4015,
     "signals": 3,
     "trades": 3
   },
   "performance": {
     "trades_total": 33,
     "deployed_usd": 670.58,
-    "open_count": 2,
-    "closed_count": 27,
+    "open_count": 1,
+    "closed_count": 28,
     "wins": 15,
-    "losses": 12,
-    "win_rate_pct": 55.6,
-    "realized_pnl_usd": 56.08,
-    "unrealized_pnl_usd": -10.28,
-    "total_pnl_usd": 45.8,
-    "recent_winrate": 0.6,
-    "kelly_factor": 0.775,
+    "losses": 13,
+    "win_rate_pct": 53.6,
+    "realized_pnl_usd": 48.56,
+    "unrealized_pnl_usd": -3.2,
+    "total_pnl_usd": 45.36,
+    "recent_winrate": 0.55,
+    "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 11925.2
+    "avg_classification_latency_ms": 11919.4
   },
   "live_readiness": {
-    "ready": true,
-    "criteria_met": 4,
+    "ready": false,
+    "criteria_met": 3,
     "criteria_total": 4,
-    "sharpe_days_count": 7,
+    "sharpe_days_count": 8,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 27,
+        "value": 28,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -159,15 +159,15 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 55.6,
+        "value": 53.6,
         "threshold_display": "> 55%",
-        "pass": true
+        "pass": false
       },
       {
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 7.25,
+        "value": 5.71,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -175,7 +175,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 4.8,
+        "value": 4.5,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -184,24 +184,10 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0305,
-    "sharpe_7d": -0.06
+    "drawdown_7d": 0.0371,
+    "sharpe_7d": -0.23
   },
   "open_positions": [
-    {
-      "time": "2026-06-25 16:53:16",
-      "market_question": "Bitcoin Up or Down on June 26?",
-      "slug": "bitcoin-up-or-down-on-june-26-2026",
-      "side": "NO",
-      "entry_price": 0.435,
-      "current_price": 0.595,
-      "pnl_pct": -28.32,
-      "amount_usd": 25.0,
-      "current_value_usd": 17.92,
-      "pnl_usd": -7.08,
-      "edge_type": "momentum",
-      "event_id": "629884"
-    },
     {
       "time": "2026-06-24 23:38:13",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
@@ -218,6 +204,18 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-25T21:36:20.900707+00:00",
+      "market_question": "Bitcoin Up or Down on June 26?",
+      "slug": "bitcoin-up-or-down-on-june-26-2026",
+      "side": "NO",
+      "entry_price": 0.435,
+      "exit_price": 0.605,
+      "realized_pnl_usd": -7.522123893805308,
+      "exit_reason": "drawdown_decision",
+      "event_id": "629884",
+      "partial": false
+    },
     {
       "time": "2026-06-24T12:17:38.732256+00:00",
       "market_question": "Bitcoin Up or Down on June 24?",
@@ -325,21 +323,18 @@
       "exit_reason": "manual",
       "event_id": "528020",
       "partial": false
-    },
-    {
-      "time": "2026-06-18T16:57:33.464879+00:00",
-      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
-      "slug": "trump-putin-and-zelensky-meet-together-before-2027",
-      "side": "YES",
-      "entry_price": 0.115,
-      "exit_price": 0.095,
-      "realized_pnl_usd": -2.2556521739130435,
-      "exit_reason": "manual",
-      "event_id": "106940",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-25 21:36:21",
+      "market_question": "Bitcoin Up or Down on June 26?",
+      "side": "NO",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The original thesis was bearish Bitcoin momentum based on MSTR/STRC weakness, but the YES price moving from 0.435 to 0.605 indicates the market has shifted significantly bullish on Bitcoin's June 26 direction, invalidating the thesis. With a -30% drawdown, no recorded conviction level, and unknown time to close creating asymmetric risk, cutting losses now is preferable to hoping for a reversal.",
+      "pnl_pct": -30.09
+    },
     {
       "time": "2026-06-24 12:17:05",
       "market_question": "Bitcoin Up or Down on June 24?",
@@ -375,70 +370,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -21.33
-    },
-    {
-      "time": "2026-06-24 12:13:58",
-      "market_question": "Bitcoin Up or Down on June 24?",
-      "side": "NO",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.33
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-25 21:33:59",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "Chrome Autofill rolling out deeper Google Wallet integration - 9to5Google",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 21:33:58",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "Chrome Autofill rolling out deeper Google Wallet integration - 9to5Google",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 21:33:57",
-      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
-      "headline": "Microsoft releases smaller Surface Pro with cheaper price and 90 Hz display - Notebookcheck",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 21:33:57",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Chrome Autofill rolling out deeper Google Wallet integration - 9to5Google",
+      "time": "2026-06-25 21:37:25",
+      "market_question": "Will Utah use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Home Office plan to use more military bases to house asylum seekers",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,9 +390,57 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-25 21:33:57",
-      "market_question": "Will Google have the top AI model at the end of June 2026?",
-      "headline": "Chrome Autofill rolling out deeper Google Wallet integration - 9to5Google",
+      "time": "2026-06-25 21:37:25",
+      "market_question": "Will the Republican Party hold between 220 and 224 House seats after the 2026 midterm elections?",
+      "headline": "Home Office plan to use more military bases to house asylum seekers",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-25 21:37:25",
+      "market_question": "Will Georgia use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Home Office plan to use more military bases to house asylum seekers",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-25 21:37:25",
+      "market_question": "Will Virginia use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Home Office plan to use more military bases to house asylum seekers",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-25 21:37:25",
+      "market_question": "Will Texas use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Home Office plan to use more military bases to house asylum seekers",
       "direction": null,
       "materiality": null,
       "confidence": null,
