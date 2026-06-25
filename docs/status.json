@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-25T01:14:28.735891+00:00",
-  "last_heartbeat": "2026-06-25T01:14:28.735891+00:00",
-  "uptime_seconds": 48733,
+  "generated_at": "2026-06-25T01:19:33.849301+00:00",
+  "last_heartbeat": "2026-06-25T01:19:33.849301+00:00",
+  "uptime_seconds": 49038,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1355,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8783,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 60,
+  "headlines_scanned_today": 62,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5734,
+  "classifications_24h": 5730,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2318,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1420,
+    "news": 1421,
     "matched": 940,
-    "classified": 5734,
+    "classified": 5730,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1589.1
+    "avg_classification_latency_ms": 1588.8
   },
   "live_readiness": {
     "ready": true,
@@ -374,6 +374,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-25 01:16:45",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Indiana man charged after being accused of stalking WNBA player Sophie Cunningham - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-25 01:05:47",
       "market_question": "Will Kevin Clarke win the 2026 Toronto mayoral election?",
       "headline": "'Think we're going home' - Clarke & McGinn rue Scotland mistakes",
@@ -434,22 +450,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 00:59:14",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Trump accuses big oil firms of price-gouging drivers",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
