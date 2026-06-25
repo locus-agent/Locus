@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-25T05:03:34.819400+00:00",
-  "last_heartbeat": "2026-06-25T05:03:34.819400+00:00",
-  "uptime_seconds": 62479,
+  "generated_at": "2026-06-25T05:08:39.865054+00:00",
+  "last_heartbeat": "2026-06-25T05:08:39.865054+00:00",
+  "uptime_seconds": 62784,
   "dry_run": false,
-  "markets_tracked": 1335,
+  "markets_tracked": 1341,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8881,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 193,
+  "headlines_scanned_today": 198,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5572,
+  "classifications_24h": 5584,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2277,
+    "prefiltered_haiku": 2279,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1376,
-    "matched": 966,
-    "classified": 5572,
+    "news": 1379,
+    "matched": 968,
+    "classified": 5584,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.6,
     "kelly_factor": 0.775,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1571.9
+    "avg_classification_latency_ms": 1571.6
   },
   "live_readiness": {
     "ready": true,
@@ -374,57 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-25 04:56:02",
-      "market_question": "Will Bitcoin reach $180,000 by December 31, 2026?",
-      "headline": "Bitcoin has a new line in the sand. Thursday\u2019s core PCE could stress test it.",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 04:56:02",
-      "market_question": "Will Bitcoin reach $92,500 in June?",
-      "headline": "Bitcoin has a new line in the sand. Thursday\u2019s core PCE could stress test it.",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 04:56:01",
-      "market_question": "Bitcoin Up or Down on June 25?",
-      "headline": "Bitcoin has a new line in the sand. Thursday\u2019s core PCE could stress test it.",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-25 04:55:59",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Bitcoin has a new line in the sand. Thursday\u2019s core PCE could stress test it.",
+      "time": "2026-06-25 05:04:50",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "Reeves backs Burnham to become next prime minister",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -438,9 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-25 04:55:59",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Bitcoin has a new line in the sand. Thursday\u2019s core PCE could stress test it.",
+      "time": "2026-06-25 05:04:50",
+      "market_question": "Will Anthony Albanese be Prime Minister of Australia after the next election?",
+      "headline": "Reeves backs Burnham to become next prime minister",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,6 +404,54 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-25 05:04:50",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "Reeves backs Burnham to become next prime minister",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-25 05:04:50",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Reeves backs Burnham to become next prime minister",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-25 05:04:50",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Powerful 7.2-magnitude earthquake strikes off northern Japan. No tsunami warning - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
