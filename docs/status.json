@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T11:55:30.997107+00:00",
-  "last_heartbeat": "2026-06-26T11:55:30.997107+00:00",
-  "uptime_seconds": 173595,
+  "generated_at": "2026-06-26T11:56:02.036637+00:00",
+  "last_heartbeat": "2026-06-26T11:56:02.036637+00:00",
+  "uptime_seconds": 173626,
   "dry_run": false,
-  "markets_tracked": 1357,
+  "markets_tracked": 1362,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9069,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 347,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 348,
+  "headlines_last_cycle": 1,
   "signals_24h": 4,
-  "classifications_24h": 3911,
+  "classifications_24h": 3913,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1527,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 972,
-    "matched": 842,
-    "classified": 3911,
+    "news": 973,
+    "matched": 843,
+    "classified": 3913,
     "signals": 4,
     "trades": 4
   },
@@ -402,6 +402,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 11:55:40",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "China Eastern Airlines to buy 25 Airbus A330 neo jets for $9.4 billion - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-26 11:55:40",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "China Eastern Airlines to buy 25 Airbus A330 neo jets for $9.4 billion - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-26 11:53:37",
       "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
       "headline": "Tech weakness sends weekly global equity fund inflows sharply lower - Reuters",
@@ -448,38 +480,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 11:53:32",
-      "market_question": "Will Trump's approval rating hit 30% in 2026?",
-      "headline": "On immigration, Supreme Court accedes to Trump's restrictive agenda - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 11:53:31",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "On immigration, Supreme Court accedes to Trump's restrictive agenda - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
