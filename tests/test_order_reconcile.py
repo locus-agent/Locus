@@ -119,6 +119,33 @@ def test_executed_buy_records_actual_cost(tmp_db, monkeypatch):
     result = executor.execute_trade(_signal())
     assert result["status"] == "executed"
     assert result["actual_cost_usd"] == 25.0
+    # Real filled share count = $25.00 / $0.50 = 50 shares, for the live SELL later.
+    assert result["actual_shares"] == 50.0
+
+
+def test_partial_fill_records_actual_shares(tmp_db, monkeypatch):
+    # 10 of 50 shares matched at $0.50 -> $5.00 filled / $0.50 = 10 shares held.
+    _setup(monkeypatch)
+    _install_fake_clob(monkeypatch, {"status": "LIVE", "size_matched": "10"})
+    import py_clob_client_v2 as client_mod
+    client_mod.OrderPayload = lambda orderID: ("payload", orderID)
+    monkeypatch.setattr(client_mod.ClobClient, "cancel_order",
+                        lambda self, payload: None, raising=False)
+    result = executor.execute_trade(_signal())
+    assert result["actual_cost_usd"] == 5.0
+    assert result["actual_shares"] == 10.0
+
+
+def test_resting_buy_records_no_actual_shares(tmp_db, monkeypatch):
+    # Nothing filled -> no cost basis and no share count.
+    _setup(monkeypatch)
+    _install_fake_clob(monkeypatch, {"status": "LIVE", "size_matched": "0"})
+    import py_clob_client_v2 as client_mod
+    client_mod.OrderPayload = lambda orderID: ("payload", orderID)
+    monkeypatch.setattr(client_mod.ClobClient, "cancel_order",
+                        lambda self, payload: None, raising=False)
+    result = executor.execute_trade(_signal())
+    assert result["actual_shares"] is None
 
 
 def test_partial_fill_records_filled_cost_and_cancels_remainder(tmp_db, monkeypatch):

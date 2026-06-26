@@ -709,8 +709,15 @@ def _execute_live(signal: Signal) -> dict:
         # sized to what we actually own (not the nominal bet). An unfilled order is
         # cancelled and carries no cost basis (None).
         status, actual_cost = reconcile_order(client, order_id, shares, price)
+        # Real filled share count = filled cost / fill price. Stored on the
+        # position so a later live SELL flattens exactly what we own, instead of
+        # re-deriving shares from amount_usd / entry_yes_price (which over-counts:
+        # the BUY filled at the higher ask). None when nothing filled.
+        actual_shares = (round(actual_cost / price, 4)
+                         if actual_cost is not None and price else None)
         return _log_and_return(signal, status=status, order_id=order_id,
-                               actual_cost_usd=actual_cost)
+                               actual_cost_usd=actual_cost,
+                               actual_shares=actual_shares)
 
     except ImportError:
         return _log_and_return(signal, status="error_no_clob_client", order_id=None)
@@ -727,12 +734,16 @@ def _execute_live(signal: Signal) -> dict:
 
 
 def _log_and_return(signal: Signal, status: str, order_id: str | None,
-                    actual_cost_usd: float | None = None) -> dict:
+                    actual_cost_usd: float | None = None,
+                    actual_shares: float | None = None) -> dict:
     """Log trade to SQLite and return result dict.
 
     `actual_cost_usd` is the real USD filled on a live BUY (None for dry-run or
     unfilled orders); it flows into the open-position notification and the result
-    dict so positions.open_position can store it as the PnL cost basis."""
+    dict so positions.open_position can store it as the PnL cost basis.
+    `actual_shares` is the real filled token count (None for dry-run/unfilled),
+    stored as the position's token_count so a later live SELL flattens exactly
+    what we own."""
     trade_id = logger.log_trade(
         market_id=signal.market.condition_id,
         market_question=signal.market.question,
@@ -774,6 +785,7 @@ def _log_and_return(signal: Signal, status: str, order_id: str | None,
         "side": signal.side,
         "amount": signal.bet_amount,
         "actual_cost_usd": actual_cost_usd,
+        "actual_shares": actual_shares,
         "edge": signal.edge,
         "status": status,
         "order_id": order_id,

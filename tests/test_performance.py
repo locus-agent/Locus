@@ -7,6 +7,7 @@ from locus import config
 from locus.core import performance
 from locus.core.performance import (
     position_pnl,
+    position_shares,
     compute_performance,
     compute_circuit_breaker,
     compute_live_readiness,
@@ -42,6 +43,25 @@ def test_no_position_pnl():
 def test_extreme_entry_is_clamped_not_infinite():
     pnl = position_pnl("YES", 0.0, 1.0, 25.0)
     assert pnl > 0 and pnl != float("inf")
+
+
+def test_position_shares_derives_from_amount_when_no_token_count():
+    # $25 of YES at 0.50 -> 50 shares (the legacy/dry-run derivation).
+    assert position_shares("YES", 0.50, 25.0) == pytest.approx(50.0)
+    # NO at yes=0.80 (NO costs 0.20): $25 / 0.20 = 125 shares.
+    assert position_shares("NO", 0.80, 25.0) == pytest.approx(125.0)
+
+
+def test_position_shares_prefers_token_count_when_known():
+    # The BUY filled at the ask, so the real holding (42) is below the naive
+    # amount/entry derivation (50); token_count wins.
+    assert position_shares("YES", 0.50, 25.0, token_count=42.0) == pytest.approx(42.0)
+
+
+def test_position_shares_ignores_nonpositive_token_count():
+    # A zero/None token_count is "unknown" and must not zero out the holding.
+    assert position_shares("YES", 0.50, 25.0, token_count=0.0) == pytest.approx(50.0)
+    assert position_shares("YES", 0.50, 25.0, token_count=None) == pytest.approx(50.0)
 
 
 def _position(tmp_db, mid, side, price, amount=25.0):

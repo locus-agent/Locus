@@ -240,7 +240,8 @@ def pnl_pct_on_cost(position: dict, price_pnl_pct: float) -> float:
 
 def open_position(trade_id: int, market, side: str, amount_usd: float,
                   headline: str = "", reasoning: str = "",
-                  actual_cost_usd: float | None = None) -> int | None:
+                  actual_cost_usd: float | None = None,
+                  token_count: float | None = None) -> int | None:
     """Record a new open position for an executed/dry-run trade.
 
     `actual_cost_usd` is the real USD that filled on a live BUY (filled_shares *
@@ -249,7 +250,11 @@ def open_position(trade_id: int, market, side: str, amount_usd: float,
     the nominal bet — becomes the position's notional: a GTC order can fill only
     partially (e.g. $4.41 of a $32.81 bet), and the held share count, exposure, and
     PnL must reflect what we actually own, not what we asked for. It's also stored
-    in actual_cost_usd so PnL% displays match Polymarket's return-on-cost."""
+    in actual_cost_usd so PnL% displays match Polymarket's return-on-cost.
+
+    `token_count` is the real filled share count (filled_cost / fill_price). Stored
+    so a live SELL flattens exactly the tokens we own; None for dry-run/simulated
+    fills, where position_shares falls back to amount_usd / entry_yes_price."""
     notional = (actual_cost_usd if (actual_cost_usd is not None and actual_cost_usd > 0)
                 else amount_usd)
     conn = logger._conn()
@@ -258,15 +263,15 @@ def open_position(trade_id: int, market, side: str, amount_usd: float,
            (trade_id, condition_id, market_question, slug, side,
             entry_yes_price, amount_usd, headline, reasoning,
             current_yes_price, unrealized_pnl_pct, event_id, category, end_date,
-            actual_cost_usd)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?)""",
+            actual_cost_usd, token_count)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)""",
         (trade_id, market.condition_id, market.question,
          getattr(market, "slug", "") or None, side,
          market.yes_price, notional, headline, reasoning, market.yes_price,
          getattr(market, "event_id", "") or None,
          getattr(market, "category", "") or None,
          getattr(market, "end_date", "") or None,
-         actual_cost_usd),
+         actual_cost_usd, token_count),
     )
     conn.commit()
     position_id = cur.lastrowid if cur.rowcount else None
@@ -621,8 +626,13 @@ def _live_close(position: dict, exit_reason: str, fraction: float) -> tuple[bool
             config.DRY_RUN, exit_reason, position["market_question"][:40],
         )
         return True, None
-    shares = position_shares(position["side"], position["entry_yes_price"],
-                             position["amount_usd"] * fraction)
+    # Prefer the real filled token_count (the BUY filled at the ask, so deriving
+    # shares from amount_usd / entry_yes_price over-counts); scale by the close
+    # fraction. Falls back to the derivation for dry-run/legacy positions.
+    shares = position_shares(
+        position["side"], position["entry_yes_price"], position["amount_usd"],
+        token_count=position.get("token_count"),
+    ) * fraction
     log.info(
         "[positions] _live_close: placing LIVE SELL — condition_id=%s side=%s "
         "fraction=%.2f shares=%.4f reason=%s on \"%s\"",

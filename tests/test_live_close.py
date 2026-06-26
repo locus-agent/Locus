@@ -19,13 +19,13 @@ def _level(p, s):
     return types.SimpleNamespace(price=str(p), size=str(s))
 
 
-def _open(tmp_db, side="YES", entry=0.50, amount=25.0):
+def _open(tmp_db, side="YES", entry=0.50, amount=25.0, token_count=None):
     trade_id = tmp_db.log_trade(
         market_id="cond1", market_question="Will X happen?", claude_score=0.7,
         market_price=entry, edge=0.2, side=side, amount_usd=amount,
         status="executed", classification="bullish", materiality=0.7,
     )
-    positions.open_position(trade_id, MKT, side, amount)
+    positions.open_position(trade_id, MKT, side, amount, token_count=token_count)
     return positions.get_open_positions()[0]
 
 
@@ -353,6 +353,55 @@ def test_live_close_places_order_and_records_id(tmp_db, monkeypatch):
     conn.close()
     assert row["exit_order_id"] == "LIVE-999"
     assert row["status"] == "closed_manual"
+
+
+def test_live_close_sells_recorded_token_count(tmp_db, monkeypatch):
+    # When token_count was recorded at open (the real filled shares), the close
+    # sells exactly that, NOT the inflated amount_usd / entry_yes_price (50 here).
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    calls = []
+
+    def fake_close(condition_id, side, shares, max_spread=None):
+        calls.append((condition_id, side, round(shares, 4)))
+        return {"status": "executed", "order_id": "LIVE-777", "price": 0.6, "shares": shares}
+
+    monkeypatch.setattr(executor, "close_position_live", fake_close)
+
+    # $25 at 0.50 would derive 50 shares, but only 42 actually filled.
+    pos = _open(tmp_db, side="YES", entry=0.50, amount=25.0, token_count=42.0)
+    res = positions.close_manual(pos["id"])
+
+    assert res is not None
+    assert calls == [("cond1", "YES", 42.0)]  # held count, not the derived 50
+
+
+def test_open_position_stores_token_count(tmp_db):
+    pos = _open(tmp_db, side="YES", entry=0.50, amount=25.0, token_count=42.0)
+    conn = tmp_db._conn()
+    stored = conn.execute(
+        "SELECT token_count FROM positions WHERE id=?", (pos["id"],)
+    ).fetchone()["token_count"]
+    conn.close()
+    assert stored == pytest.approx(42.0)
+
+
+def test_half_close_sells_half_the_token_count(tmp_db, monkeypatch):
+    # A close_half on a token_count position sells half the real holding.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    calls = []
+    monkeypatch.setattr(
+        executor, "close_position_live",
+        lambda cid, side, shares, max_spread=None: calls.append(round(shares, 4)) or
+        {"status": "executed", "order_id": "LIVE-H", "price": 0.6, "shares": shares},
+    )
+
+    pos = _open(tmp_db, side="YES", entry=0.50, amount=25.0, token_count=42.0)
+    conn = tmp_db._conn()
+    positions._close(conn, pos, 0.60, "", "", fraction=0.5)
+    conn.commit()
+    conn.close()
+
+    assert calls == [21.0]  # half of the 42 held, not half of the derived 50
 
 
 def test_dry_run_close_does_not_hit_exchange(tmp_db, monkeypatch):

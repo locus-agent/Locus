@@ -1296,6 +1296,7 @@ class PipelineV2:
                             signal.bet_amount, headline=signal.headlines,
                             reasoning=signal.reasoning,
                             actual_cost_usd=result.get("actual_cost_usd"),
+                            token_count=result.get("actual_shares"),
                         ),
                     )
                 elif result["status"] == "resting":

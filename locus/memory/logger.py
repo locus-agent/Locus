@@ -147,6 +147,7 @@ def init_db():
             last_trigger TEXT,
             end_date TEXT,
             actual_cost_usd REAL,
+            token_count REAL,
             opened_at TEXT NOT NULL DEFAULT (datetime('now')),
             closed_at TEXT
         );
@@ -332,6 +333,13 @@ def _migrate_position_category(conn):
     # rows, which fall back to the nominal amount_usd.
     if "actual_cost_usd" not in columns:
         conn.execute("ALTER TABLE positions ADD COLUMN actual_cost_usd REAL")
+    # Real outcome-token (CTF) share count that filled on a live BUY
+    # (filled_cost / fill_price). The source of truth for how many shares a live
+    # SELL must flatten — deriving it from amount_usd / entry_yes_price over-counts
+    # because the BUY filled at the higher ask. NULL for dry-run/legacy rows,
+    # which fall back to that derivation.
+    if "token_count" not in columns:
+        conn.execute("ALTER TABLE positions ADD COLUMN token_count REAL")
     conn.commit()
 
 
