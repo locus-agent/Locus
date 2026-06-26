@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T03:57:07.765271+00:00",
-  "last_heartbeat": "2026-06-26T03:57:07.765271+00:00",
-  "uptime_seconds": 144892,
+  "generated_at": "2026-06-26T04:02:13.560829+00:00",
+  "last_heartbeat": "2026-06-26T04:02:13.560829+00:00",
+  "uptime_seconds": 145198,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1349,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9024,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 92,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 93,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 3826,
+  "classifications_24h": 3795,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1522,
+    "prefiltered_haiku": 1513,
     "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 917,
-    "matched": 810,
-    "classified": 3826,
+    "news": 910,
+    "matched": 803,
+    "classified": 3795,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 10798.3
+    "avg_classification_latency_ms": 10796.0
   },
   "live_readiness": {
     "ready": false,
@@ -388,6 +388,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 04:01:03",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Anderson's journey to England star and  potential record signing",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 04:01:02",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "headline": "Anderson's journey to England star and  potential record signing",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-26 03:56:43",
       "market_question": "Will Ethereum reach $2,200 in June?",
       "headline": "Sharplink buys Ethereum for first time in 8 months, adding 5,000 ETH: onchain analyst",
@@ -422,38 +454,6 @@
     {
       "time": "2026-06-26 03:56:42",
       "market_question": "Will Ethereum reach $2,400 in June?",
-      "headline": "Sharplink buys Ethereum for first time in 8 months, adding 5,000 ETH: onchain analyst",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 03:56:42",
-      "market_question": "Will Ethereum reach $2,500 in June?",
-      "headline": "Sharplink buys Ethereum for first time in 8 months, adding 5,000 ETH: onchain analyst",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 03:56:42",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
       "headline": "Sharplink buys Ethereum for first time in 8 months, adding 5,000 ETH: onchain analyst",
       "direction": "neutral",
       "materiality": 0.05,
