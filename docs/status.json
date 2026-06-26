@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T10:47:18.997115+00:00",
-  "last_heartbeat": "2026-06-26T10:47:18.997115+00:00",
-  "uptime_seconds": 169503,
+  "generated_at": "2026-06-26T10:47:50.220832+00:00",
+  "last_heartbeat": "2026-06-26T10:47:50.220832+00:00",
+  "uptime_seconds": 169534,
   "dry_run": false,
   "markets_tracked": 1351,
   "classify_error_streak": 0,
@@ -83,12 +83,12 @@
     ]
   },
   "headlines_scanned_today": 314,
-  "headlines_last_cycle": 2,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 3991,
+  "classifications_24h": 3992,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1549,
+    "prefiltered_haiku": 1550,
     "stale": 8,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 989,
     "matched": 860,
-    "classified": 3991,
+    "classified": 3992,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 9883.5
+    "avg_classification_latency_ms": 9882.2
   },
   "live_readiness": {
     "ready": false,
@@ -402,6 +402,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 10:47:20",
+      "market_question": "Solana Up or Down on June 26?",
+      "headline": "Japan braces for double storms, torrential rains shut down parts of Taiwan - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-26 10:47:18",
       "market_question": "Ethereum Up or Down on June 26?",
       "headline": "Japan braces for double storms, torrential rains shut down parts of Taiwan - Reuters",
@@ -464,22 +480,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 10:47:16",
-      "market_question": "Ukraine election called by June 30, 2026?",
-      "headline": "Ukraine unleashes one of its heaviest drone bombardments of Russia - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
