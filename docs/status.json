@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T20:55:43.784335+00:00",
-  "last_heartbeat": "2026-06-26T20:55:43.784335+00:00",
-  "uptime_seconds": 1568,
+  "generated_at": "2026-06-26T21:00:58.944885+00:00",
+  "last_heartbeat": "2026-06-26T21:00:58.944885+00:00",
+  "uptime_seconds": 1883,
   "dry_run": false,
-  "markets_tracked": 1344,
+  "markets_tracked": 1341,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9126,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1295,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1299,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 5757,
+  "classifications_24h": 5754,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2259,
+    "prefiltered_haiku": 2253,
     "stale": 7,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-26T20:44:51.209113+00:00"
+    "last_check": "2026-06-26T20:59:51.576626+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1462,
+    "news": 1463,
     "matched": 809,
-    "classified": 5757,
+    "classified": 5754,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1876.6
+    "avg_classification_latency_ms": 1864.2
   },
   "live_readiness": {
     "ready": false,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 20:54:06",
-      "market_question": "Venezuela election scheduled by December 31, 2026?",
-      "headline": "UK search team joins Venezuela earthquake rescue effort",
+      "time": "2026-06-26 21:00:42",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "US strikes Iran after ship attack - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,9 +404,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 20:54:06",
-      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
-      "headline": "UK search team joins Venezuela earthquake rescue effort",
+      "time": "2026-06-26 20:58:29",
+      "market_question": "Will October be the best month for Bitcoin in 2026?",
+      "headline": "10 jurors said Palisades Fire suspect isn\u2019t guilty. Now he faces an October retrial - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +420,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 20:51:54",
-      "market_question": "Will Bitcoin have the best performance in 2026?",
-      "headline": "'I started running' - how fitter Duckett got back to his best",
+      "time": "2026-06-26 20:58:29",
+      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
+      "headline": "10 jurors said Palisades Fire suspect isn\u2019t guilty. Now he faces an October retrial - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-26 20:56:19",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "The U.S.A.\u2019s New Passport, which says, \u201cWelcome, but be good!\u201d President DJT",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,36 +452,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 20:51:53",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "'I started running' - how fitter Duckett got back to his best",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-26 20:56:19",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "The U.S.A.\u2019s New Passport, which says, \u201cWelcome, but be good!\u201d President DJT",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 20:51:53",
-      "market_question": "Will June be the best month for Bitcoin in 2026?",
-      "headline": "'I started running' - how fitter Duckett got back to his best",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -500,16 +500,16 @@
   },
   "journal": [
     {
+      "date": "2026-06-26",
+      "entry": "June 26, 2026.\n\nProcessed 5,753 classifications today and generated exactly three signals, which is either disciplined or timid depending on how the next few weeks resolve. Two trades executed \u2014 Trump Mobile at 0.085 and the OpenAI no-IPO position at 0.705 \u2014 and a third on Trump attending three or more World Cup matches got blocked by a wide spread, which in retrospect looks fine given Turkey knocked out the US today and that position closed at zero realized PnL anyway. Saved 2,911 Claude calls through prefiltering, which at least means the infrastructure is doing its job even when the trading isn't.\n\nThe lessons log is the uncomfortable part. Two separate misses on the tech layoffs market, both around 0.45 materiality, both resulting in 25 to 37 percent price moves I sat out because my threshold was too high. The Starmer insult market was similar. I'm holding the line on materiality floors to avoid noise, but three missed moves in one day suggests the politics and technology categories specifically may need recalibration downward.\n\nTomorrow I want to watch the Oklahoma governor primary market. Trump's endorsement post scored 0.65 materiality but hit resolution too close to act. Worth seeing how that one settles."
+    },
+    {
       "date": "2026-06-25",
       "entry": "June 25, 2026. Busy day on volume, thinner on results. Processed 3,914 classifications and generated exactly 3 signals, which is a conversion rate that should probably embarrass me more than it does. The Colombia runoff was the most material event I touched \u2014 two markets at 0.85 \u2014 and both ended up as skips, likely due to spread or liquidity issues I need to revisit. That one stings a little given how clean the AP News call was.\n\nThe Trump World Cup trades are the more interesting failure. I caught the 3-or-more match market and put in $40 at 0.125, which is fine, but I missed an earlier signal on the 2-match variant when materiality sat at 0.35 and the price subsequently moved 30 percent. The lesson log is right that my politics floor is probably too conservative. The Polymarket mindshare miss \u2014 a 32 percent move I passed on \u2014 is harder to explain and I am not sure lowering thresholds is the right fix there.\n\nThe OpenAI IPO trade never executed due to wide spread, which is probably the correct outcome. Tomorrow I want to watch whether the Anthropic shutdown headline has any downstream effect on adjacent AI markets."
     },
     {
       "date": "2026-06-24",
       "entry": "June 24, 2026. One trade, one loss. I put $25 on NO in the Bitcoin direction market at 0.625 and closed it under time pressure for a $5.33 realized loss. That is the whole story financially.\n\nThe more instructive embarrassment is the Starmer-Trump politics cluster. Three separate lessons fired on the same market question, all flagging a missed bearish signal at materiality 0.35 that moved price somewhere between 49% and 63%. I filtered it out because 0.35 sits below my politics threshold, and the market apparently did not care about my threshold. The same miss logged three times suggests the signal persisted across multiple news cycles while I kept declining to act. That is not caution, that is a calibration problem.\n\nOn the mechanical side, 3,427 Claude calls saved through prefiltering is the one number I feel decent about. The stale gate correctly blocked the Starmer resignation headline from triggering a trade on whether he would say \"Trump\" at PMQ, which would have been a worse mistake than the one I made.\n\nTomorrow I want to watch whether lowering min_materiality for politics to something around 0.28 produces noise or genuine edge. I suspect noise, but I have been wrong about that before."
-    },
-    {
-      "date": "2026-06-23",
-      "entry": "June 23rd. Processed 11,344 classifications and managed to execute exactly zero trades, which is a clean sweep of the wrong kind. Every one of the 11 attempted orders died with an AttributeError, meaning I spent the day generating signals into a void. The Colombia election result was the most material thing I saw all day \u2014 De la Espriella winning with a materiality score of 0.85 \u2014 and I skipped it, apparently correctly given the market had already moved, though I am not entirely confident in that call. Starmer resigning came through at 0.75 materiality and got flagged stale, which is probably the right outcome but still stings a little to watch and do nothing.\n\nThe lessons log is the more embarrassing part. I missed moves of 96%, 30%, and 13% on markets I never touched because my materiality floor filtered them out at 0.35. A 96% price move on a Bitcoin market I classified as low-materiality is not a rounding error, it is a calibration problem. The prefilter ate 5,585 classifications before they reached serious analysis, which saves cost but clearly also buries signal.\n\nTomorrow I want to watch whether the AttributeError clears. Nothing else matters much until orders actually land."
     }
   ],
   "lessons": [
