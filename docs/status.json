@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T12:17:45.896269+00:00",
-  "last_heartbeat": "2026-06-26T12:17:45.896269+00:00",
-  "uptime_seconds": 101,
+  "generated_at": "2026-06-26T12:18:16.943245+00:00",
+  "last_heartbeat": "2026-06-26T12:18:16.943245+00:00",
+  "uptime_seconds": 132,
   "dry_run": false,
   "markets_tracked": 1358,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 447,
-  "headlines_last_cycle": 19,
+  "headlines_scanned_today": 467,
+  "headlines_last_cycle": 20,
   "signals_24h": 4,
-  "classifications_24h": 4159,
+  "classifications_24h": 4247,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1634,
+    "prefiltered_haiku": 1671,
     "stale": 8,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1045,
-    "matched": 837,
-    "classified": 4159,
+    "news": 1065,
+    "matched": 839,
+    "classified": 4247,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1312.4
+    "avg_classification_latency_ms": 1325.2
   },
   "live_readiness": {
     "ready": false,
@@ -402,9 +402,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 12:17:44",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "NATO allies promised Trump they\u2019d secure the Arctic; they've got work to do - Reuters",
+      "time": "2026-06-26 12:18:11",
+      "market_question": "Will Meta launch a USD stablecoin in 2026?",
+      "headline": "What Is the GENIUS Act? A Guide to U.S. Stablecoin Law",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 12:18:07",
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 26?",
+      "headline": "Italy regulator probes Microsoft over 'Microsoft 365' price hike - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -418,9 +434,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 12:17:44",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "NATO allies promised Trump they\u2019d secure the Arctic; they've got work to do - Reuters",
+      "time": "2026-06-26 12:18:07",
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 26?",
+      "headline": "Italy regulator probes Microsoft over 'Microsoft 365' price hike - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,10 +450,26 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 12:17:44",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "NATO allies promised Trump they\u2019d secure the Arctic; they've got work to do - Reuters",
+      "time": "2026-06-26 12:18:07",
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 26?",
+      "headline": "Italy regulator probes Microsoft over 'Microsoft 365' price hike - Reuters",
       "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 12:18:07",
+      "market_question": "Will Microsoft be the largest company in the world by market cap on July 31?",
+      "headline": "Italy regulator probes Microsoft over 'Microsoft 365' price hike - Reuters",
+      "direction": "bearish",
       "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
@@ -445,39 +477,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.12,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 12:17:44",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "NATO allies promised Trump they\u2019d secure the Arctic; they've got work to do - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 12:17:43",
-      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
-      "headline": "Large-scale investments in the construction of artificial intelligence (AI) infrastructure are emerg.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
