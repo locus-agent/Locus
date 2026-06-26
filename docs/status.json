@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T12:16:43.169335+00:00",
-  "last_heartbeat": "2026-06-26T12:16:43.169335+00:00",
-  "uptime_seconds": 38,
+  "generated_at": "2026-06-26T12:17:14.750638+00:00",
+  "last_heartbeat": "2026-06-26T12:17:14.750638+00:00",
+  "uptime_seconds": 70,
   "dry_run": false,
   "markets_tracked": 1358,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 391,
-  "headlines_last_cycle": 26,
+  "headlines_scanned_today": 428,
+  "headlines_last_cycle": 37,
   "signals_24h": 4,
-  "classifications_24h": 3940,
+  "classifications_24h": 4072,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1550,
+    "prefiltered_haiku": 1593,
     "stale": 8,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 989,
-    "matched": 834,
-    "classified": 3940,
+    "news": 1026,
+    "matched": 836,
+    "classified": 4072,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1261.1
+    "avg_classification_latency_ms": 1314.6
   },
   "live_readiness": {
     "ready": false,
@@ -194,7 +194,7 @@
       "slug": "will-trump-mobile-release-a-phone-by",
       "side": "YES",
       "entry_price": 0.085,
-      "current_price": 0.1,
+      "current_price": 0.09999999999999998,
       "pnl_pct": 17.65,
       "amount_usd": 4.41,
       "current_value_usd": 5.19,
@@ -402,9 +402,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 12:16:42",
-      "market_question": "USDC depeg by December 31?",
-      "headline": "It\u2019s the last day of Prime Day \u2014 here are over 130 great deals to choose from",
+      "time": "2026-06-26 12:17:14",
+      "market_question": "Will Trump's approval rating hit 30% in 2026?",
+      "headline": "The Secret Mission of the World's Weirdest Regime to Trump's Backyard - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 12:17:13",
+      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
+      "headline": "Artificial Intelligence Market Witnesses Strong Growth Worldwide - vocal.media",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 12:17:10",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Artificial Intelligence Market Witnesses Strong Growth Worldwide - vocal.media",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -418,9 +450,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 12:16:42",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "It\u2019s the last day of Prime Day \u2014 here are over 130 great deals to choose from",
+      "time": "2026-06-26 12:17:10",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Artificial Intelligence Market Witnesses Strong Growth Worldwide - vocal.media",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,52 +466,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 12:16:42",
-      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "GOP faithful head to Hollywood - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-26 12:17:09",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "Artificial Intelligence Market Witnesses Strong Growth Worldwide - vocal.media",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 12:16:42",
-      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "GOP faithful head to Hollywood - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 12:16:42",
-      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "GOP faithful head to Hollywood - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
