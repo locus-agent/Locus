@@ -243,9 +243,15 @@ def open_position(trade_id: int, market, side: str, amount_usd: float,
                   actual_cost_usd: float | None = None) -> int | None:
     """Record a new open position for an executed/dry-run trade.
 
-    `actual_cost_usd` is the real USD filled on a live BUY (from the exchange's
-    makingAmount); None for dry-run/simulated fills, where the nominal amount_usd
-    is the cost basis. Stored so PnL% displays match Polymarket's return-on-cost."""
+    `actual_cost_usd` is the real USD that filled on a live BUY (filled_shares *
+    price from the exchange reconcile); None for dry-run/simulated fills, where the
+    nominal amount_usd is the cost basis. When it's known, that filled cost — not
+    the nominal bet — becomes the position's notional: a GTC order can fill only
+    partially (e.g. $4.41 of a $32.81 bet), and the held share count, exposure, and
+    PnL must reflect what we actually own, not what we asked for. It's also stored
+    in actual_cost_usd so PnL% displays match Polymarket's return-on-cost."""
+    notional = (actual_cost_usd if (actual_cost_usd is not None and actual_cost_usd > 0)
+                else amount_usd)
     conn = logger._conn()
     cur = conn.execute(
         """INSERT OR IGNORE INTO positions
@@ -256,7 +262,7 @@ def open_position(trade_id: int, market, side: str, amount_usd: float,
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?)""",
         (trade_id, market.condition_id, market.question,
          getattr(market, "slug", "") or None, side,
-         market.yes_price, amount_usd, headline, reasoning, market.yes_price,
+         market.yes_price, notional, headline, reasoning, market.yes_price,
          getattr(market, "event_id", "") or None,
          getattr(market, "category", "") or None,
          getattr(market, "end_date", "") or None,

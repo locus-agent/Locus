@@ -225,29 +225,6 @@ def _diagnose_order_error(exc, token_id, price, size, side, tick_size=None) -> l
     return reasons
 
 
-def _filled_cost_usd(resp, shares: float, price: float) -> float:
-    """Actual USD cost of a filled BUY.
-
-    Prefer the exchange's `makingAmount` from the post_order response — for a BUY
-    the making side is USDC collateral, in 6-decimal base units, so /1e6 is the
-    real dollars paid (typically below the nominal bet after size rounding/fees).
-    Falls back to the planned notional (shares * price) when the field is absent
-    or unparseable, so a position always records a sensible cost basis."""
-    making = None
-    if isinstance(resp, dict):
-        making = resp.get("makingAmount", resp.get("making_amount"))
-    else:
-        making = getattr(resp, "makingAmount", None) or getattr(resp, "making_amount", None)
-    try:
-        if making is not None:
-            cost = float(making) / 1_000_000
-            if cost > 0:
-                return round(cost, 2)
-    except (TypeError, ValueError):
-        pass
-    return round(shares * price, 2)
-
-
 def book_side(book, side: str) -> list:
     """Resting levels for one book side ('bids' or 'asks').
 
@@ -440,7 +417,8 @@ def close_position_live(
         # returned order_id is NOT a fill. Mirror the BUY path: reconcile against
         # the exchange and only claim 'executed' on a confirmed fill, so we never
         # record a close for a sell that didn't actually flatten the position.
-        fill_status = reconcile_order(client, order_id)
+        # (A partial sell fill counts as executed and reconcile cancels the rest.)
+        fill_status, _ = reconcile_order(client, order_id, sell_shares, price)
         if fill_status == "executed":
             log.info("[executor] close CONFIRMED: SELL %.4f sh token=%s @ %.4f (order %s)",
                      sell_shares, token_id, price, order_id)
@@ -551,47 +529,83 @@ def cancel_order_safe(client, order_id: str) -> bool:
         return False
 
 
-def reconcile_order(client, order_id: str) -> str:
-    """Re-query a just-posted GTC order to learn its real fill status.
+def reconcile_order(client, order_id: str, total_shares: float | None = None,
+                    price: float | None = None) -> tuple[str, float | None]:
+    """Re-query a just-posted GTC order to learn its real fill, returning
+    (status, filled_cost_usd).
 
-    A GTC order can rest unfilled on the book — post_order returning an order_id
-    does NOT mean we got a fill. After ORDER_RECONCILE_WAIT_SECONDS we ask the
-    exchange (matching is case-insensitive; the v2 fill field has several
+    A GTC order can rest fully OR partially unfilled — post_order returning an
+    order_id is not a fill, and the maker amount it echoes back is the *order*
+    size, not what actually filled (the partial-fill bug: a $32.81 order that
+    fills $4.41 would otherwise open a $32.81 position and leave the rest live).
+    After ORDER_RECONCILE_WAIT_SECONDS we ask the exchange for the real matched
+    size and map it (matching is case-insensitive; the v2 fill field has several
     spellings):
-      - status MATCHED/FILLED, or any matched/filled size > 0 -> "executed"
-      - status LIVE (resting, unfilled)                       -> "resting"
-      - order not found / query error                         -> "error_not_found"
-    """
+      - terminal MATCHED/FILLED status            -> ("executed", full filled cost)
+      - 0 < matched < total, order still resting   -> cancel the unfilled remainder
+        (so it can't fill later untracked) and report ("executed", partial cost)
+      - matched == 0 (resting) / unknown status    -> cancel and ("resting", None)
+      - order not found / query error              -> ("error_not_found", None)
+
+    filled_cost_usd is the real notional that filled (filled_shares * price), so a
+    partial fill opens a position sized to what we actually own — None when nothing
+    filled, or when total_shares/price weren't supplied (legacy callers)."""
     time.sleep(config.ORDER_RECONCILE_WAIT_SECONDS)
     try:
         order = _fetch_order(client, order_id)
     except Exception as e:
         log.error("[executor] order reconcile failed for %s: %s", order_id, e)
-        return "error_not_found"
+        return "error_not_found", None
     if not order:
         log.error("[executor] order %s not found on reconcile", order_id)
-        return "error_not_found"
+        return "error_not_found", None
 
     status = (_field(order, "status") or "").upper()
-    # v2 fill field varies: size_matched (snake) / filledAmount (camel) / etc.
+    # v2 fill field varies: size_matched (snake) / filledAmount (camel) /
+    # takingAmount (outcome tokens received on a BUY) / etc.
     filled_raw = _field(order, "size_matched", "filled_size", "matched_size",
-                        "filledAmount", "filled")
+                        "filledAmount", "filled", "takingAmount")
     try:
         filled = float(filled_raw) if filled_raw is not None else 0.0
     except (TypeError, ValueError):
         filled = 0.0
 
-    if status in ("MATCHED", "FILLED") or filled > 0:
-        log.info("[executor] order %s reconciled: filled (status=%s, filled=%s)",
-                 order_id, status or "?", filled)
-        return "executed"
+    def _cost(shares: float | None) -> float | None:
+        if shares and shares > 0 and price:
+            return round(shares * price, 2)
+        return None
+
+    # Terminal fill: the whole order matched. A MATCHED/FILLED status with no
+    # size field reported means the full order size filled.
+    if status in ("MATCHED", "FILLED"):
+        filled_shares = filled if filled > 0 else (total_shares or 0.0)
+        log.info("[executor] order %s reconciled: filled (status=%s, filled=%s sh)",
+                 order_id, status, filled_shares)
+        return "executed", _cost(filled_shares)
+
+    # Partial fill still resting on the book: keep the filled part, cancel the rest.
+    if filled > 0:
+        if total_shares is not None and filled + 1e-9 < total_shares:
+            log.warning(
+                "[executor] order %s PARTIALLY filled: %.4f of %.4f sh — cancelling "
+                "the unfilled remainder, opening on the filled part",
+                order_id, filled, total_shares,
+            )
+            cancel_order_safe(client, order_id)
+        else:
+            log.info("[executor] order %s reconciled: filled %.4f sh", order_id, filled)
+        return "executed", _cost(filled)
+
+    # Nothing filled — resting or an unknown status. Cancel so it can't fill later
+    # untracked; we open no position for it.
     if status == "LIVE":
         log.warning("[executor] order %s reconciled: resting/unfilled on the book",
                     order_id)
-        return "resting"
-    # Unknown/other status with no fill — treat as not confirmed.
-    log.warning("[executor] order %s reconciled: status=%s, no fill", order_id, status or "?")
-    return "resting"
+    else:
+        log.warning("[executor] order %s reconciled: status=%s, no fill",
+                    order_id, status or "?")
+    cancel_order_safe(client, order_id)
+    return "resting", None
 
 
 def _execute_live(signal: Signal) -> dict:
@@ -644,17 +658,13 @@ def _execute_live(signal: Signal) -> dict:
             raise
 
         order_id = resp.get("orderID", resp.get("id", "unknown"))
-        # Real dollars filled (makingAmount), so the position's PnL% is measured
-        # against what we actually paid — matching the Polymarket UI.
-        actual_cost = _filled_cost_usd(resp, shares, price)
-        # A posted GTC order may rest unfilled — reconcile against the exchange
-        # before claiming a fill (only a confirmed fill opens a local position).
-        status = reconcile_order(client, order_id)
-        if status == "resting":
-            # We open no local position for an unfilled order, so don't leave it
-            # resting on the book where it could fill later untracked — cancel it.
-            cancel_order_safe(client, order_id)
-            actual_cost = None  # nothing filled, so no real cost basis
+        # A posted GTC order may rest fully OR partially unfilled — reconcile
+        # against the exchange before claiming a fill. reconcile_order returns the
+        # real filled cost (filled_shares * price): for a partial fill it cancels
+        # the unfilled remainder and reports only what filled, so the position is
+        # sized to what we actually own (not the nominal bet). An unfilled order is
+        # cancelled and carries no cost basis (None).
+        status, actual_cost = reconcile_order(client, order_id, shares, price)
         return _log_and_return(signal, status=status, order_id=order_id,
                                actual_cost_usd=actual_cost)
 

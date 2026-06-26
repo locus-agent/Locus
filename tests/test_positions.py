@@ -400,9 +400,13 @@ def test_open_position_stores_actual_cost(tmp_db):
         market_price=0.50, edge=0.2, side="YES", amount_usd=25.0,
         status="executed", classification="bullish", materiality=0.7,
     )
+    # A real filled cost (e.g. a partial fill) becomes the position's notional —
+    # amount_usd is the filled cost, not the $25 nominal bet — and is also stored
+    # in actual_cost_usd for the return-on-cost display.
     positions.open_position(trade_id, MKT, "YES", 25.0, actual_cost_usd=21.0)
     pos = positions.get_open_positions()[0]
     assert pos["actual_cost_usd"] == 21.0
+    assert pos["amount_usd"] == 21.0
 
 
 def test_open_position_actual_cost_defaults_none(tmp_db):

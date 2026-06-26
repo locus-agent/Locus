@@ -111,28 +111,71 @@ def test_matched_order_is_executed(tmp_db, monkeypatch):
     assert result["order_id"] == "order-123"
 
 
-def test_filled_cost_from_making_amount():
-    # makingAmount is the USDC paid in 6-decimal base units -> /1e6 dollars.
-    assert executor._filled_cost_usd({"makingAmount": "21000000"}, 50.0, 0.5) == 21.0
-
-
-def test_filled_cost_falls_back_to_notional_without_making_amount():
-    # No makingAmount in the response -> planned notional (shares * price).
-    assert executor._filled_cost_usd({"orderID": "x"}, 42.0, 0.5) == 21.0
-
-
 def test_executed_buy_records_actual_cost(tmp_db, monkeypatch):
     _setup(monkeypatch)
-    # post_order reports a $21 fill (makingAmount) on a nominal ~$25 bet.
+    # A full fill: 50 shares matched at $0.50 -> $25.00 real filled notional,
+    # taken from the reconciled matched size (not the unreliable post_order body).
     _install_fake_clob(monkeypatch, {"status": "MATCHED", "size_matched": "50"})
-    import py_clob_client_v2 as client_mod
-    monkeypatch.setattr(
-        client_mod.ClobClient, "post_order",
-        lambda self, signed, ot: {"orderID": "order-123", "makingAmount": "21000000"},
-    )
     result = executor.execute_trade(_signal())
     assert result["status"] == "executed"
-    assert result["actual_cost_usd"] == 21.0
+    assert result["actual_cost_usd"] == 25.0
+
+
+def test_partial_fill_records_filled_cost_and_cancels_remainder(tmp_db, monkeypatch):
+    # Regression: a GTC buy that fills only part of the order ($4.41 of a $32.81
+    # bet in the wild) must open a position sized to what actually filled, and the
+    # unfilled remainder must be cancelled — not left live on the book.
+    _setup(monkeypatch)
+    # 25/0.50 = 50 shares ordered, but only 10 matched -> 10 * 0.50 = $5.00 filled.
+    _install_fake_clob(monkeypatch, {"status": "LIVE", "size_matched": "10"})
+
+    cancelled = []
+    import py_clob_client_v2 as client_mod
+    client_mod.OrderPayload = lambda orderID: ("payload", orderID)
+    monkeypatch.setattr(
+        client_mod.ClobClient, "cancel_order",
+        lambda self, payload: cancelled.append(payload), raising=False,
+    )
+
+    result = executor.execute_trade(_signal())
+    assert result["status"] == "executed"
+    assert result["actual_cost_usd"] == 5.0          # filled part only, not the $25 nominal
+    assert cancelled == [("payload", "order-123")]   # remainder cancelled
+
+
+def test_reconcile_returns_status_and_cost(monkeypatch):
+    # reconcile_order now returns (status, filled_cost_usd). A resting order has
+    # no cost basis; the tuple shape is what _execute_live unpacks.
+    monkeypatch.setattr(config, "ORDER_RECONCILE_WAIT_SECONDS", 0)
+
+    class FakeClient:
+        def get_order(self, oid):
+            return {"status": "LIVE", "size_matched": "0"}
+
+        def cancel_order(self, payload):
+            pass
+
+    mod = types.ModuleType("py_clob_client_v2")
+    mod.OrderPayload = lambda **kw: ("payload", kw)
+    monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
+
+    status, cost = executor.reconcile_order(FakeClient(), "o1", total_shares=50, price=0.5)
+    assert status == "resting"
+    assert cost is None
+
+
+def test_reconcile_full_fill_returns_notional_cost(monkeypatch):
+    # A fully matched order with no size field reported -> the full ordered size
+    # is taken as filled, cost = total_shares * price.
+    monkeypatch.setattr(config, "ORDER_RECONCILE_WAIT_SECONDS", 0)
+
+    class FakeClient:
+        def get_order(self, oid):
+            return {"status": "MATCHED"}
+
+    status, cost = executor.reconcile_order(FakeClient(), "o1", total_shares=40, price=0.25)
+    assert status == "executed"
+    assert cost == 10.0
 
 
 def test_resting_buy_records_no_actual_cost(tmp_db, monkeypatch):
