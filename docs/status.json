@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T18:52:12.272974+00:00",
-  "last_heartbeat": "2026-06-26T18:52:12.272974+00:00",
-  "uptime_seconds": 12603,
+  "generated_at": "2026-06-26T18:57:17.991105+00:00",
+  "last_heartbeat": "2026-06-26T18:57:17.991105+00:00",
+  "uptime_seconds": 12909,
   "dry_run": false,
-  "markets_tracked": 1347,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9074,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1080,
+  "headlines_scanned_today": 1084,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 5089,
+  "classifications_24h": 5105,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2029,
+    "prefiltered_haiku": 2037,
     "stale": 7,
     "capped": 1,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-26T18:37:29.236361+00:00"
+    "last_check": "2026-06-26T18:52:29.606279+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1302,
-    "matched": 792,
-    "classified": 5089,
+    "news": 1306,
+    "matched": 796,
+    "classified": 5105,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1488.3
+    "avg_classification_latency_ms": 1486.4
   },
   "live_readiness": {
     "ready": false,
@@ -388,9 +388,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 18:44:28",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "Our 36 favorite gaming deals on Prime Day for Switch, PS5, and Xbox",
+      "time": "2026-06-26 18:55:31",
+      "market_question": "Will the next UK election be called by June 30, 2026?",
+      "headline": "UK forecast for the week ahead",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 18:55:30",
+      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
+      "headline": "2 Battered Artificial Intelligence (AI) Stocks Near 52-Week Lows That Are Screaming Buys Now - The Globe and Mail",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 18:55:30",
+      "market_question": "Will ECDSA.fail get at least 50% ahead of Google\u2019s classified circuit by June 30, 2026?",
+      "headline": "UK forecast for the week ahead",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,68 +436,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 18:44:28",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "Our 36 favorite gaming deals on Prime Day for Switch, PS5, and Xbox",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-26 18:55:28",
+      "market_question": "Will Google have the best Math AI model at the end of June 2026?",
+      "headline": "2 Battered Artificial Intelligence (AI) Stocks Near 52-Week Lows That Are Screaming Buys Now - The Globe and Mail",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-26 18:44:28",
-      "market_question": "Will Anthony Albanese be Prime Minister of Australia after the next election?",
-      "headline": "Our 36 favorite gaming deals on Prime Day for Switch, PS5, and Xbox",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-26 18:55:28",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "2 Battered Artificial Intelligence (AI) Stocks Near 52-Week Lows That Are Screaming Buys Now - The Globe and Mail",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 18:44:28",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Our 36 favorite gaming deals on Prime Day for Switch, PS5, and Xbox",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 18:44:28",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Our 36 favorite gaming deals on Prime Day for Switch, PS5, and Xbox",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
