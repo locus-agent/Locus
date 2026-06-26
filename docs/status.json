@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T04:02:13.560829+00:00",
-  "last_heartbeat": "2026-06-26T04:02:13.560829+00:00",
-  "uptime_seconds": 145198,
+  "generated_at": "2026-06-26T04:07:19.297273+00:00",
+  "last_heartbeat": "2026-06-26T04:07:19.297273+00:00",
+  "uptime_seconds": 145504,
   "dry_run": false,
-  "markets_tracked": 1349,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9024,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 93,
+  "headlines_scanned_today": 110,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 3795,
+  "classifications_24h": 3839,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1513,
+    "prefiltered_haiku": 1538,
     "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-26T03:50:56.217850+00:00"
+    "last_check": "2026-06-26T04:05:56.598629+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 910,
-    "matched": 803,
-    "classified": 3795,
+    "news": 924,
+    "matched": 814,
+    "classified": 3839,
     "signals": 3,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 53.6,
     "realized_pnl_usd": 48.56,
-    "unrealized_pnl_usd": -2.49,
-    "total_pnl_usd": 46.07,
+    "unrealized_pnl_usd": -2.85,
+    "total_pnl_usd": 45.72,
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 10796.0
+    "avg_classification_latency_ms": 10734.7
   },
   "live_readiness": {
     "ready": false,
@@ -194,11 +194,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.705,
-      "current_price": 0.725,
-      "pnl_pct": 2.84,
+      "current_price": 0.715,
+      "pnl_pct": 1.42,
       "amount_usd": 25.0,
-      "current_value_usd": 25.71,
-      "pnl_usd": 0.71,
+      "current_value_usd": 25.35,
+      "pnl_usd": 0.35,
       "edge_type": "momentum",
       "event_id": "48292"
     },
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 04:01:03",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Anderson's journey to England star and  potential record signing",
+      "time": "2026-06-26 04:02:51",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Google is finally opening the Play Store to outside payments - The Verge",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 04:01:02",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "Anderson's journey to England star and  potential record signing",
+      "time": "2026-06-26 04:02:51",
+      "market_question": "Will Google Gemini score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "Google is finally opening the Play Store to outside payments - The Verge",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 04:02:51",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Google is finally opening the Play Store to outside payments - The Verge",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 04:02:50",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "Israel deliberately targeted Palestinian children in Gaza, U.N. commission says - The Washington Post",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,52 +452,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 03:56:43",
-      "market_question": "Will Ethereum reach $2,200 in June?",
-      "headline": "Sharplink buys Ethereum for first time in 8 months, adding 5,000 ETH: onchain analyst",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-26 04:02:50",
+      "market_question": "Mahmoud Abbas out as Palestinian President by June 30?",
+      "headline": "Israel deliberately targeted Palestinian children in Gaza, U.N. commission says - The Washington Post",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 03:56:42",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "Sharplink buys Ethereum for first time in 8 months, adding 5,000 ETH: onchain analyst",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 03:56:42",
-      "market_question": "Will Ethereum reach $2,400 in June?",
-      "headline": "Sharplink buys Ethereum for first time in 8 months, adding 5,000 ETH: onchain analyst",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
