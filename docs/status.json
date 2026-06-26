@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T01:34:36.651942+00:00",
-  "last_heartbeat": "2026-06-26T01:34:36.651942+00:00",
-  "uptime_seconds": 136341,
+  "generated_at": "2026-06-26T01:39:41.874374+00:00",
+  "last_heartbeat": "2026-06-26T01:39:41.874374+00:00",
+  "uptime_seconds": 136646,
   "dry_run": false,
   "markets_tracked": 1328,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 48,
+  "headlines_scanned_today": 50,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4017,
+  "classifications_24h": 4027,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1609,
+    "prefiltered_haiku": 1613,
     "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-26T01:20:52.440095+00:00"
+    "last_check": "2026-06-26T01:35:52.815056+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 962,
-    "matched": 853,
-    "classified": 4017,
+    "news": 964,
+    "matched": 855,
+    "classified": 4027,
     "signals": 3,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 53.6,
     "realized_pnl_usd": 48.56,
-    "unrealized_pnl_usd": -3.2,
-    "total_pnl_usd": 45.36,
+    "unrealized_pnl_usd": -3.02,
+    "total_pnl_usd": 45.54,
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 11046.2
+    "avg_classification_latency_ms": 11036.3
   },
   "live_readiness": {
     "ready": false,
@@ -194,11 +194,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.705,
-      "current_price": 0.705,
-      "pnl_pct": 0.0,
+      "current_price": 0.71,
+      "pnl_pct": 0.71,
       "amount_usd": 25.0,
-      "current_value_usd": 25.0,
-      "pnl_usd": 0.0,
+      "current_value_usd": 25.18,
+      "pnl_usd": 0.18,
       "edge_type": "momentum",
       "event_id": "48292"
     },
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 01:25:33",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Beccacece goes from brink to World Cup history with Ecuador",
+      "time": "2026-06-26 01:38:44",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "AI on the Factory Floor: A Primer for Manufacturers - The National Law Review",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 01:38:44",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "AI on the Factory Floor: A Primer for Manufacturers - The National Law Review",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +420,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 01:25:33",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Beccacece goes from brink to World Cup history with Ecuador",
+      "time": "2026-06-26 01:38:44",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "AI on the Factory Floor: A Primer for Manufacturers - The National Law Review",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +436,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 01:25:33",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Beccacece goes from brink to World Cup history with Ecuador",
+      "time": "2026-06-26 01:38:44",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "AI on the Factory Floor: A Primer for Manufacturers - The National Law Review",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -431,41 +447,25 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 01:25:33",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Beccacece goes from brink to World Cup history with Ecuador",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-26 01:38:43",
+      "market_question": "Will the National Movement of Independents win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "AI on the Factory Floor: A Primer for Manufacturers - The National Law Review",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 01:25:33",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Beccacece goes from brink to World Cup history with Ecuador",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
