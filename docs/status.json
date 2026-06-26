@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T16:24:03.271279+00:00",
-  "last_heartbeat": "2026-06-26T16:24:03.271279+00:00",
-  "uptime_seconds": 3714,
+  "generated_at": "2026-06-26T16:29:09.663258+00:00",
+  "last_heartbeat": "2026-06-26T16:29:09.663258+00:00",
+  "uptime_seconds": 4020,
   "dry_run": false,
-  "markets_tracked": 1355,
+  "markets_tracked": 1352,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9074,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 914,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 922,
+  "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 5117,
+  "classifications_24h": 5132,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1996,
+    "prefiltered_haiku": 2003,
     "stale": 10,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1320,
-    "matched": 822,
-    "classified": 5117,
+    "news": 1322,
+    "matched": 823,
+    "classified": 5132,
     "signals": 5,
     "trades": 5
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 53.6,
     "realized_pnl_usd": 48.56,
-    "unrealized_pnl_usd": 3.44,
-    "total_pnl_usd": 52.0,
+    "unrealized_pnl_usd": 3.79,
+    "total_pnl_usd": 52.35,
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1397.6
+    "avg_classification_latency_ms": 1394.4
   },
   "live_readiness": {
     "ready": false,
@@ -208,11 +208,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.705,
-      "current_price": 0.78,
-      "pnl_pct": 10.64,
+      "current_price": 0.79,
+      "pnl_pct": 12.06,
       "amount_usd": 25.0,
-      "current_value_usd": 27.66,
-      "pnl_usd": 2.66,
+      "current_value_usd": 28.01,
+      "pnl_usd": 3.01,
       "edge_type": "momentum",
       "event_id": "48292"
     }
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 16:23:58",
-      "market_question": "US national Bitcoin reserve before 2027?",
-      "headline": "Newsom urges a national \u2018billionaires\u2019 tax\u2019 while fighting one in California - AP News",
+      "time": "2026-06-26 16:28:21",
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 27?",
+      "headline": "You won&#8217;t have long to get these iPad deals before Apple&#8217;s price hike",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 16:23:58",
-      "market_question": "US national Ethereum reserve before 2027?",
-      "headline": "Newsom urges a national \u2018billionaires\u2019 tax\u2019 while fighting one in California - AP News",
+      "time": "2026-06-26 16:28:21",
+      "market_question": "Will Love Island USA be #2 Free App in the US Apple App Store on June 26?",
+      "headline": "You won&#8217;t have long to get these iPad deals before Apple&#8217;s price hike",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 16:28:21",
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 27?",
+      "headline": "You won&#8217;t have long to get these iPad deals before Apple&#8217;s price hike",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,25 +436,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 16:23:57",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Ireland stun world champions India in T20 opener",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 16:23:57",
-      "market_question": "Will the National Movement of Independents win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "Newsom urges a national \u2018billionaires\u2019 tax\u2019 while fighting one in California - AP News",
+      "time": "2026-06-26 16:28:21",
+      "market_question": "Will Google Gemini score at least 50% on Humanity\u2019s Last Exam?",
+      "headline": "Lagos building collapse kills at least nine, authorities say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,9 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 16:23:57",
-      "market_question": "Will the National Union for Democracy and Progress win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "Newsom urges a national \u2018billionaires\u2019 tax\u2019 while fighting one in California - AP News",
+      "time": "2026-06-26 16:28:21",
+      "market_question": "Will Google Gemini score at least 55% on Humanity\u2019s Last Exam?",
+      "headline": "Lagos building collapse kills at least nine, authorities say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
