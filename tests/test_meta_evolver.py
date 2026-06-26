@@ -96,6 +96,10 @@ def _patch_llm(monkeypatch, text):
 
 GOOD_PROMPT = classifier.CLASSIFICATION_PROMPT + "\n\n(Evolved: be calibrated.)"
 
+# evolve_prompt() appends the JSON output contract to whatever the model returns,
+# so the persisted prompt is the model output plus the fixed suffix.
+SAVED_PROMPT = GOOD_PROMPT + meta_evolver.REQUIRED_JSON_SUFFIX
+
 
 def test_evolve_saves_version_file_and_row(tmp_db, monkeypatch):
     _add_lesson(tmp_db, _ts(10))
@@ -104,10 +108,27 @@ def test_evolve_saves_version_file_and_row(tmp_db, monkeypatch):
     result = asyncio.run(meta_evolver.evolve_prompt())
     assert result["version"] == 1
     assert result["lessons_count"] == 1
-    assert (meta_evolver.PROMPTS_DIR / "classification_prompt_v1.txt").read_text() == GOOD_PROMPT
+    assert (meta_evolver.PROMPTS_DIR / "classification_prompt_v1.txt").read_text() == SAVED_PROMPT
 
     row = tmp_db.get_latest_prompt_version()
-    assert row["version"] == 1 and row["prompt_text"] == GOOD_PROMPT
+    assert row["version"] == 1 and row["prompt_text"] == SAVED_PROMPT
+
+
+def test_evolve_appends_json_contract_when_model_truncates(tmp_db, monkeypatch):
+    # Model returns a body with all placeholders but no JSON contract (truncated).
+    # The appended suffix must restore it so the prompt validates and is saved.
+    truncated = (
+        "Classify {question}. {threshold_line}Price {yes_price:.3f}. "
+        "Time {time_remaining}. News {headline} from {source}. {track_record}"
+    )
+    assert meta_evolver.prompt_is_valid(truncated) is False  # no JSON on its own
+    _patch_llm(monkeypatch, truncated)
+
+    result = asyncio.run(meta_evolver.evolve_prompt())
+    assert result is not None
+    saved = tmp_db.get_latest_prompt_version()["prompt_text"]
+    assert saved == truncated + meta_evolver.REQUIRED_JSON_SUFFIX
+    assert '"direction"' in saved and '"materiality"' in saved
 
 
 def test_evolve_increments_version(tmp_db, monkeypatch):
@@ -138,7 +159,7 @@ def test_evolve_rejects_invalid_prompt(tmp_db, monkeypatch):
 def test_evolve_strips_code_fences(tmp_db, monkeypatch):
     _patch_llm(monkeypatch, "```\n" + GOOD_PROMPT + "\n```")
     asyncio.run(meta_evolver.evolve_prompt())
-    assert tmp_db.get_latest_prompt_version()["prompt_text"] == GOOD_PROMPT
+    assert tmp_db.get_latest_prompt_version()["prompt_text"] == SAVED_PROMPT
 
 
 def test_evolve_returns_none_on_generation_error(tmp_db, monkeypatch):
@@ -162,7 +183,7 @@ def test_evolve_retries_once_with_stricter_system(tmp_db, monkeypatch):
     assert result["version"] == 1
     assert calls[0] is None  # first attempt: no system prompt
     assert calls[1] == meta_evolver._STRICT_RETRY_SYSTEM  # retry tightens the contract
-    assert tmp_db.get_latest_prompt_version()["prompt_text"] == GOOD_PROMPT
+    assert tmp_db.get_latest_prompt_version()["prompt_text"] == SAVED_PROMPT
 
 
 def test_evolve_gives_up_after_max_retries(tmp_db, monkeypatch):
@@ -256,7 +277,7 @@ def test_get_active_prompt_defaults_to_hardcoded(tmp_db):
 def test_get_active_prompt_loads_latest_version(tmp_db, monkeypatch):
     _patch_llm(monkeypatch, GOOD_PROMPT)
     asyncio.run(meta_evolver.evolve_prompt())
-    assert classifier.get_active_prompt() == GOOD_PROMPT
+    assert classifier.get_active_prompt() == SAVED_PROMPT
 
 
 def test_get_active_prompt_falls_back_on_load_error(tmp_db, monkeypatch):
@@ -320,7 +341,8 @@ def test_build_meta_prompt_includes_lessons_and_stats():
     assert "2 lessons" in mp
     assert "Don't chase momentum." in mp
     assert "crypto 31.6%" in mp and "bearish 11.1%" in mp
-    assert "keep the JSON output format unchanged" in mp
+    # The JSON contract is appended automatically, so the model is told to omit it.
+    assert "appended automatically" in mp
     assert "Return ONLY the improved prompt text" in mp
 
 
