@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T08:04:36.162301+00:00",
-  "last_heartbeat": "2026-06-26T08:04:36.162301+00:00",
-  "uptime_seconds": 159740,
+  "generated_at": "2026-06-26T08:05:07.067996+00:00",
+  "last_heartbeat": "2026-06-26T08:05:07.067996+00:00",
+  "uptime_seconds": 159771,
   "dry_run": false,
   "markets_tracked": 1339,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 244,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 245,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 3902,
+  "classifications_24h": 3905,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1550,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 958,
-    "matched": 834,
-    "classified": 3902,
+    "news": 959,
+    "matched": 835,
+    "classified": 3905,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 10110.5
+    "avg_classification_latency_ms": 10108.6
   },
   "live_readiness": {
     "ready": false,
@@ -388,6 +388,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 08:04:43",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Iran deal grants access to nuclear inspectors, IAEA chief says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 08:04:40",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Iran deal grants access to nuclear inspectors, IAEA chief says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-26 08:04:40",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Iran deal grants access to nuclear inspectors, IAEA chief says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-26 08:00:18",
       "market_question": "Will Anthropic or OpenAI IPO first?",
       "headline": "Suitcase-sized satellites are scanning for Greek wildfires in a global first - AP News",
@@ -418,54 +466,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 08:00:17",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Taiwan's Evergreen says ship was hit by unknown object off Oman - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 08:00:17",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Taiwan's Evergreen says ship was hit by unknown object off Oman - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 08:00:17",
-      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
-      "headline": "Taiwan's Evergreen says ship was hit by unknown object off Oman - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
