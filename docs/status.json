@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T07:38:14.286451+00:00",
-  "last_heartbeat": "2026-06-26T07:38:14.286451+00:00",
-  "uptime_seconds": 158159,
+  "generated_at": "2026-06-26T07:38:45.780038+00:00",
+  "last_heartbeat": "2026-06-26T07:38:45.780038+00:00",
+  "uptime_seconds": 158190,
   "dry_run": false,
   "markets_tracked": 1345,
   "classify_error_streak": 0,
@@ -83,12 +83,12 @@
     ]
   },
   "headlines_scanned_today": 222,
-  "headlines_last_cycle": 1,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 3847,
+  "classifications_24h": 3848,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1546,
+    "prefiltered_haiku": 1547,
     "stale": 7,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 949,
     "matched": 823,
-    "classified": 3847,
+    "classified": 3848,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 10184.6
+    "avg_classification_latency_ms": 10182.5
   },
   "live_readiness": {
     "ready": false,
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 07:38:15",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "King Charles becomes first monarch to reveal tax bill",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-26 07:38:13",
       "market_question": "U.S. enacts AI safety bill before 2027?",
       "headline": "King Charles becomes first monarch to reveal tax bill",
@@ -439,22 +455,6 @@
       "time": "2026-06-26 07:38:13",
       "market_question": "Will Bill Cassidy be the republican nominee for Senate in Louisiana?",
       "headline": "King Charles becomes first monarch to reveal tax bill",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 07:31:39",
-      "market_question": "Will OpenAI announce a head-mounted display in 2026?",
-      "headline": "NATO summit should display unity and pledges to defense, deputy NATO chief tells AP - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
