@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T00:33:29.547815+00:00",
-  "last_heartbeat": "2026-06-26T00:33:29.547815+00:00",
-  "uptime_seconds": 132674,
+  "generated_at": "2026-06-26T00:38:35.190249+00:00",
+  "last_heartbeat": "2026-06-26T00:38:35.190249+00:00",
+  "uptime_seconds": 132979,
   "dry_run": false,
-  "markets_tracked": 1320,
+  "markets_tracked": 1317,
   "classify_error_streak": 0,
   "track_record": {
     "total": 8999,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 13,
+  "headlines_scanned_today": 15,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4040,
+  "classifications_24h": 4044,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1621,
+    "prefiltered_haiku": 1619,
     "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-26T00:20:50.790640+00:00"
+    "last_check": "2026-06-26T00:35:51.179981+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 964,
-    "matched": 855,
-    "classified": 4040,
+    "news": 965,
+    "matched": 856,
+    "classified": 4044,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 11243.8
+    "avg_classification_latency_ms": 11233.6
   },
   "live_readiness": {
     "ready": false,
@@ -388,57 +388,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 00:32:56",
-      "market_question": "Will Jared Moskowitz be the Democratic nominee for Senate in Florida?",
-      "headline": "74-year-old man becomes oldest inmate executed in modern Florida history - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 00:32:56",
-      "market_question": "Will Josh Weil be the Democratic nominee for Senate in Florida?",
-      "headline": "74-year-old man becomes oldest inmate executed in modern Florida history - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 00:30:46",
-      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
-      "headline": "Todd Blanche \u2018conceded\u2019 violating law on Epstein files, judge finds - Politico",
+      "time": "2026-06-26 00:37:20",
+      "market_question": "Will JPMorgan Chase or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "JPMorgan sets a new succession plan but Dimon plans to stay on - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 00:30:44",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "Todd Blanche \u2018conceded\u2019 violating law on Epstein files, judge finds - Politico",
+      "time": "2026-06-26 00:37:20",
+      "market_question": "Will Susie Wiles leave the Trump administration before 2027?",
+      "headline": "JPMorgan sets a new succession plan but Dimon plans to stay on - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 00:37:20",
+      "market_question": "Will JPMorgan Chase or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "JPMorgan sets a new succession plan but Dimon plans to stay on - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 00:37:19",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "JPMorgan sets a new succession plan but Dimon plans to stay on - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,9 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 00:30:44",
-      "market_question": "Trump declassifies new UFO files by July 31?",
-      "headline": "Todd Blanche \u2018conceded\u2019 violating law on Epstein files, judge finds - Politico",
+      "time": "2026-06-26 00:37:19",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "JPMorgan sets a new succession plan but Dimon plans to stay on - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
