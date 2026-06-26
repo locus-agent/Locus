@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T21:57:03.968833+00:00",
-  "last_heartbeat": "2026-06-26T21:57:03.968833+00:00",
-  "uptime_seconds": 5248,
+  "generated_at": "2026-06-26T22:02:08.921298+00:00",
+  "last_heartbeat": "2026-06-26T22:02:08.921298+00:00",
+  "uptime_seconds": 5553,
   "dry_run": false,
-  "markets_tracked": 1337,
+  "markets_tracked": 1344,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9126,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1400,
-  "headlines_last_cycle": 12,
+  "headlines_scanned_today": 1401,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 5791,
+  "classifications_24h": 5770,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2291,
+    "prefiltered_haiku": 2288,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -97,7 +97,7 @@
     "price_target_market": 28,
     "correlation_block": 0,
     "category_limit": 0,
-    "orderbook_skip": 7,
+    "orderbook_skip": 4,
     "already_priced_in": 0,
     "needs_confirmation": 0,
     "event_exposure_block": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-26T21:44:52.727487+00:00"
+    "last_check": "2026-06-26T21:59:53.118116+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1475,
-    "matched": 802,
-    "classified": 5791,
+    "news": 1472,
+    "matched": 799,
+    "classified": 5770,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1911.2
+    "avg_classification_latency_ms": 1911.1
   },
   "live_readiness": {
     "ready": false,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 21:56:44",
-      "market_question": "Will the price of Solana be above $70 on June 27?",
-      "headline": "Oil prices drop near $70 a barrel \u2014 lowest level since before Iran war \u2014 on hopes for Strait of Hormuz plan - New York Post",
+      "time": "2026-06-26 21:57:54",
+      "market_question": "Will Trump cut corporate taxes before 2027?",
+      "headline": "Trump threatens 100% tariff on European nations over tech tax",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 21:57:49",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Trump threatens 100% tariff on European nations over tech tax",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +420,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 21:56:43",
-      "market_question": "Will Trump speak to Elon Musk in June?",
-      "headline": "Elon Musk is the richest loser in the history of capitalism - New Statesman",
+      "time": "2026-06-26 21:57:49",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "Trump threatens 100% tariff on European nations over tech tax",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 21:57:48",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump threatens 100% tariff on European nations over tech tax",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +452,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 21:56:43",
-      "market_question": "Will Trump pardon Elon Musk before 2027?",
-      "headline": "Elon Musk is the richest loser in the history of capitalism - New Statesman",
+      "time": "2026-06-26 21:57:48",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Trump threatens 100% tariff on European nations over tech tax",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,38 +466,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 21:56:43",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "USPS staves off immediate cash crisis, but warns of continuing financial woes - Federal News Network",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 21:56:43",
-      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
-      "headline": "USPS staves off immediate cash crisis, but warns of continuing financial woes - Federal News Network",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -514,91 +514,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-25 22:00:42",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +30%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-25 22:00:39",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "time": "2026-06-26 22:00:37",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.45) on 'Tech Layoffs Up or Down in 20\u200b26?' \u2014 price moved +37%. Consider lowering min_materiality for technology category."
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Anthropic or OpenAI IPO first?' \u2014 price moved +17%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-06-25 22:00:37",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "time": "2026-06-26 22:00:31",
+      "market_question": "OpenAI $1t+ IPO before 2027?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'OpenAI $1t+ IPO before 2027?' \u2014 price moved +32%. Consider lowering min_materiality for ai category."
+    },
+    {
+      "time": "2026-06-26 22:00:29",
+      "market_question": "Will Trump deport 400-500k people?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.45) on 'Tech Layoffs Up or Down in 20\u200b26?' \u2014 price moved +25%. Consider lowering min_materiality for technology category."
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump deport 400-500k people?' \u2014 price moved +20%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-25 22:00:35",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Donald Trump publicly insult Keir Starmer by ' \u2014 price moved +26%. Consider lowering min_materiality for politics category."
+      "time": "2026-06-26 22:00:26",
+      "market_question": "Will Trump deport 400-500k people?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump deport 400-500k people?' \u2014 price moved +20%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-25 22:00:32",
-      "market_question": "Will the price of Bitcoin be above $62,000 on June 27?",
+      "time": "2026-06-26 22:00:23",
+      "market_question": "Will Bitcoin reach $65,000 in June?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will the price of Bitcoin be above $62,000 on June' \u2014 price moved +79%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Bitcoin reach $65,000 in June?' \u2014 price moved +50%. Consider lowering min_materiality for crypto category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-25 22:00:42",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
+      "time": "2026-06-26 22:00:37",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "slug": "will-anthropic-or-openai-ipo-first",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "action": "low_materiality",
+      "pct_move": 16.7,
+      "reflection": "I passed on a bullish signal with only 0.35 materiality, treating it as noise\u2014but I underweighted how binary and time-sensitive IPO events are; a 17% move shows the market repriced significant probability, and I should have recognized that even low-materiality signals can compound into outsized moves when they touch existential corporate events. My threshold logic failed here because materiality scoring doesn't account for volatility clustering around discrete catalysts, and I let a mechanical cutoff override the signal's actual information content. I need to recalibrate: low materiality doesn't mean low edge when the underlying event is structurally high-variance."
+    },
+    {
+      "time": "2026-06-26 22:00:31",
+      "market_question": "OpenAI $1t+ IPO before 2027?",
+      "slug": "openai-1t-ipo-before-2027",
       "direction": "bearish",
       "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 30.0,
-      "reflection": "I underweighted a genuinely predictive signal on Trump's behavioral patterns\u2014his public insults toward foreign leaders are remarkably consistent and low-cost for him politically, making the bearish case stronger than my 0.35 materiality suggested. My skip decision reveals I was probably anchored on false equivalence (treating this like generic political prediction) rather than modeling Trump's specific incentive structure and track record of inflammatory rhetoric toward peers he views as ideological opponents. I should have trusted the signal's directional clarity even if uncertain on magnitude, rather than sitting on the sidelines waiting for false precision."
+      "action": "low_materiality",
+      "pct_move": 32.1,
+      "reflection": "I underweighted a signal with 0.35 materiality because I'd calibrated my threshold too conservatively\u2014but 32% directional movement shows the market priced real optionality I dismissed. The bearish case on OpenAI's $1t+ IPO valuation before 2027 had genuine structural merit (burn rate, competitive pressure, regulatory risk), and I should have taken the position even at lower materiality rather than hiding behind a mechanical cutoff. I let process override judgment: low materiality doesn't mean low edge, especially on binary catalysts where being right matters more than being right often."
     },
     {
-      "time": "2026-06-25 22:00:39",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "slug": "tech-layoffs-up-or-down-in-2026",
+      "time": "2026-06-26 22:00:29",
+      "market_question": "Will Trump deport 400-500k people?",
+      "slug": "how-many-people-will-trump-deport-in-2026-823",
       "direction": "bullish",
-      "materiality": 0.45,
-      "action": "stale",
-      "pct_move": 37.0,
-      "reflection": "I flagged this signal as stale and passed, but that was a mistake\u2014the layoff narrative clearly had more runway than my recency bias suggested, and a 0.45 materiality score warranted at least a small position despite the dated sourcing. I let process override judgment; just because information wasn't fresh didn't mean the market hadn't priced it in yet, and I should have weighted the directional conviction more heavily against my staleness filter."
+      "materiality": 0.35,
+      "action": "low_materiality",
+      "pct_move": 20.3,
+      "reflection": "I underweighted a signal with 0.35 materiality on a binary political outcome that clearly had outsized market impact\u2014the 20% move proves the market priced this as far more material than my threshold suggested. My low_materiality skip was a mechanical error: I treated materiality as a fixed calibration problem when I should have recognized that immigration policy directly moves multiple asset classes, and a 35% materiality score on a Trump policy question during his presidency warranted engagement regardless of my baseline thresholds. I need to recalibrate what \"low\" means in high-stakes political markets where binary outcomes can cascade through markets faster than my risk-aversion assumptions account for."
     },
     {
-      "time": "2026-06-25 22:00:37",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "slug": "tech-layoffs-up-or-down-in-2026",
+      "time": "2026-06-26 22:00:26",
+      "market_question": "Will Trump deport 400-500k people?",
+      "slug": "how-many-people-will-trump-deport-in-2026-823",
       "direction": "bullish",
-      "materiality": 0.45,
-      "action": "stale",
-      "pct_move": 25.4,
-      "reflection": "I marked this signal stale and walked away, but I missed that layoff cycles move slower than I account for\u2014the 0.45 materiality suggested real conviction, and I was too quick to dismiss timing on a macro trend that doesn't refresh daily like earnings or Fed announcements. The 25% move in my predicted direction stings because it reveals I'm conflating \"stale data\" with \"stale thesis,\" when the real question should have been whether the underlying logic still held, not whether the timestamp felt fresh."
+      "materiality": 0.35,
+      "action": "low_materiality",
+      "pct_move": 20.3,
+      "reflection": "I underweighted a signal that had clearer predictive power than my materiality threshold captured\u2014a 0.35 score should have flagged the gap between my confidence calibration and actual market sensitivity to immigration policy outcomes. The 20% move revealed that political deportation announcements carry outsized market impact beyond what my linear materiality model accounts for, likely because they cascade into labor costs, sector rotation, and inflation expectations. I need to recalibrate how I weight policy signals that touch multiple economic vectors, not just their isolated importance."
     },
     {
-      "time": "2026-06-25 22:00:35",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
+      "time": "2026-06-26 22:00:23",
+      "market_question": "Will Bitcoin reach $65,000 in June?",
+      "slug": "what-price-will-bitcoin-hit-in-june-2026",
       "direction": "bearish",
       "materiality": 0.45,
       "action": "skip",
-      "pct_move": 26.3,
-      "reflection": "I underweighted a straightforward behavioral prediction about Trump's public rhetoric, despite having a clear bearish signal with moderate conviction (0.45 materiality). My skip decision suggests I was either overthinking the political complexity or defaulting to caution when I should have trusted the signal's directional clarity\u2014Trump's documented pattern of public insults is one of his most consistent traits, and Starmer as a prominent opposing leader made this a high-probability event that the market was underpricing. I need to recognize when I have legitimate edge on personality-based predictions and execute rather than hedge through inaction."
-    },
-    {
-      "time": "2026-06-25 22:00:32",
-      "market_question": "Will the price of Bitcoin be above $62,000 on June 27?",
-      "slug": "bitcoin-above-on-june-27-2026",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "action": "stale",
-      "pct_move": 78.8,
-      "reflection": "I flagged this as stale data and passed, but I should have recognized that a 0.45 materiality signal\u2014even on older information\u2014still represented meaningful conviction that deserved execution; the 79% move in my predicted direction shows I had the directional read right, and my dismissal of the signal's age was overly rigid when the underlying thesis remained sound. My threshold for \"staleness\" was too conservative relative to the actual edge I'd identified, and I let process override judgment rather than adjusting position size if freshness was genuinely a concern."
+      "pct_move": 50.0,
+      "reflection": "I issued a bearish signal with only moderate conviction (0.45 materiality), then skipped acting on it entirely\u2014and Bitcoin moved exactly as I predicted, gaining 50% toward that $65k target. My hesitation cost me real opportunity: I had the directional thesis right but lacked the confidence to commit, revealing a gap between my analysis and my risk tolerance that I need to examine. The skip wasn't caution; it was indecision masquerading as prudence."
     }
   ],
   "pending_suggestions": [
