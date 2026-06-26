@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T01:49:53.176340+00:00",
-  "last_heartbeat": "2026-06-26T01:49:53.176340+00:00",
-  "uptime_seconds": 137257,
+  "generated_at": "2026-06-26T01:54:58.692872+00:00",
+  "last_heartbeat": "2026-06-26T01:54:58.692872+00:00",
+  "uptime_seconds": 137563,
   "dry_run": false,
-  "markets_tracked": 1329,
+  "markets_tracked": 1331,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9024,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 54,
+  "headlines_scanned_today": 55,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
   "classifications_24h": 4036,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1610,
+    "prefiltered_haiku": 1609,
     "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-26T01:35:52.815056+00:00"
+    "last_check": "2026-06-26T01:50:53.169003+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -119,7 +119,7 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 964,
+    "news": 963,
     "matched": 856,
     "classified": 4036,
     "signals": 3,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 11014.1
+    "avg_classification_latency_ms": 11001.9
   },
   "live_readiness": {
     "ready": false,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 01:47:29",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "US moves ahead with $700 million jet engine sale to Turkey despite lawmaker concerns - Reuters",
+      "time": "2026-06-26 01:54:05",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "World Cup sets all-time attendance record, surpassing 1994 mark - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 01:54:03",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "World Cup sets all-time attendance record, surpassing 1994 mark - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,68 +420,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 01:47:28",
-      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
-      "headline": "The man who set a Virginia city council member on fire gets 40 years in prison - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-26 01:54:03",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "World Cup sets all-time attendance record, surpassing 1994 mark - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-26 01:47:28",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "The man who set a Virginia city council member on fire gets 40 years in prison - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-26 01:54:03",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "World Cup sets all-time attendance record, surpassing 1994 mark - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-26 01:47:28",
-      "market_question": "Will City Protocol launch a token by June 30, 2026?",
-      "headline": "The man who set a Virginia city council member on fire gets 40 years in prison - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-26 01:54:03",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "World Cup sets all-time attendance record, surpassing 1994 mark - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 01:47:28",
-      "market_question": "Will City Protocol launch a token by December 31, 2026?",
-      "headline": "The man who set a Virginia city council member on fire gets 40 years in prison - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
