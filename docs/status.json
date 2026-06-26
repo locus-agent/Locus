@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T11:37:56.836191+00:00",
-  "last_heartbeat": "2026-06-26T11:37:56.836191+00:00",
-  "uptime_seconds": 172541,
+  "generated_at": "2026-06-26T11:38:27.769880+00:00",
+  "last_heartbeat": "2026-06-26T11:38:27.769880+00:00",
+  "uptime_seconds": 172572,
   "dry_run": false,
   "markets_tracked": 1356,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 336,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 341,
+  "headlines_last_cycle": 5,
   "signals_24h": 4,
-  "classifications_24h": 3937,
+  "classifications_24h": 3957,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1532,
+    "prefiltered_haiku": 1549,
     "stale": 8,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 980,
-    "matched": 849,
-    "classified": 3937,
+    "news": 985,
+    "matched": 853,
+    "classified": 3957,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 9798.6
+    "avg_classification_latency_ms": 9765.5
   },
   "live_readiness": {
     "ready": false,
@@ -194,7 +194,7 @@
       "slug": "will-trump-mobile-release-a-phone-by",
       "side": "YES",
       "entry_price": 0.085,
-      "current_price": 0.09999999999999998,
+      "current_price": 0.1,
       "pnl_pct": 17.65,
       "amount_usd": 32.81,
       "current_value_usd": 38.6,
@@ -402,25 +402,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 11:15:56",
-      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
-      "headline": "Apple\u2019s most powerful Macs might be waiting until 2027 for big processor upgrades",
+      "time": "2026-06-26 11:38:12",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Hart explains how goalkeepers are struggling with World Cup ball",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 11:15:56",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "Europe on high alert as killer heat spreads - Reuters",
+      "time": "2026-06-26 11:38:12",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Hart explains how goalkeepers are struggling with World Cup ball",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 11:38:12",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Watch: Moment woman pulled from rubble alive",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -434,9 +450,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 11:15:56",
-      "market_question": "Solana all time high by June 30, 2026?",
-      "headline": "Europe on high alert as killer heat spreads - Reuters",
+      "time": "2026-06-26 11:38:12",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "Watch: Moment woman pulled from rubble alive",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -450,36 +466,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 11:15:56",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
-      "headline": "Europe on high alert as killer heat spreads - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-26 11:38:11",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Hart explains how goalkeepers are struggling with World Cup ball",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 11:15:56",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $1.75T by December 31?",
-      "headline": "Europe on high alert as killer heat spreads - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
