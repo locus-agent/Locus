@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T21:46:52.175926+00:00",
-  "last_heartbeat": "2026-06-26T21:46:52.175926+00:00",
-  "uptime_seconds": 4636,
+  "generated_at": "2026-06-26T21:51:58.027973+00:00",
+  "last_heartbeat": "2026-06-26T21:51:58.027973+00:00",
+  "uptime_seconds": 4942,
   "dry_run": false,
   "markets_tracked": 1338,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1373,
+  "headlines_scanned_today": 1374,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 5786,
+  "classifications_24h": 5684,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2280,
+    "prefiltered_haiku": 2240,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1476,
-    "matched": 813,
-    "classified": 5786,
+    "news": 1452,
+    "matched": 791,
+    "classified": 5684,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1946.3
+    "avg_classification_latency_ms": 1944.4
   },
   "live_readiness": {
     "ready": false,
@@ -194,7 +194,7 @@
       "slug": "will-trump-mobile-release-a-phone-by",
       "side": "YES",
       "entry_price": 0.085,
-      "current_price": 0.1,
+      "current_price": 0.09999999999999998,
       "pnl_pct": 17.65,
       "amount_usd": 4.41,
       "current_value_usd": 5.19,
@@ -388,6 +388,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 21:49:02",
+      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
+      "headline": "S&P 500 ends lower; chips tumble and Moderna rallies - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 21:49:01",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "S&P 500 ends lower; chips tumble and Moderna rallies - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-26 21:42:26",
       "market_question": "Trump x Greenland deal signed by December 31?",
       "headline": "Onsemi buying cash-strapped Synaptics in $7 billion all-stock deal \u2014 smart power meets edge AI hardware - Tom's Hardware",
@@ -422,38 +454,6 @@
     {
       "time": "2026-06-26 21:42:26",
       "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Onsemi buying cash-strapped Synaptics in $7 billion all-stock deal \u2014 smart power meets edge AI hardware - Tom's Hardware",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 21:42:26",
-      "market_question": "Trump meets with Putin by September 30?",
-      "headline": "Onsemi buying cash-strapped Synaptics in $7 billion all-stock deal \u2014 smart power meets edge AI hardware - Tom's Hardware",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 21:42:26",
-      "market_question": "Trump meets with Mojtaba Khamenei by June 30?",
       "headline": "Onsemi buying cash-strapped Synaptics in $7 billion all-stock deal \u2014 smart power meets edge AI hardware - Tom's Hardware",
       "direction": null,
       "materiality": null,
