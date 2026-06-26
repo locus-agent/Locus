@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T18:21:31.248201+00:00",
-  "last_heartbeat": "2026-06-26T18:21:31.248201+00:00",
-  "uptime_seconds": 10762,
+  "generated_at": "2026-06-26T18:26:38.054520+00:00",
+  "last_heartbeat": "2026-06-26T18:26:38.054520+00:00",
+  "uptime_seconds": 11069,
   "dry_run": false,
-  "markets_tracked": 1348,
+  "markets_tracked": 1342,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9074,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1055,
+  "headlines_scanned_today": 1057,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 5124,
+  "classifications_24h": 5086,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2039,
-    "stale": 10,
+    "prefiltered_haiku": 2037,
+    "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-26T18:07:28.237069+00:00"
+    "last_check": "2026-06-26T18:22:28.840420+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1303,
-    "matched": 796,
-    "classified": 5124,
+    "news": 1294,
+    "matched": 788,
+    "classified": 5086,
     "signals": 4,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 53.6,
     "realized_pnl_usd": 48.56,
-    "unrealized_pnl_usd": 3.62,
-    "total_pnl_usd": 52.18,
+    "unrealized_pnl_usd": 3.79,
+    "total_pnl_usd": 52.35,
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1463.8
+    "avg_classification_latency_ms": 1465.1
   },
   "live_readiness": {
     "ready": false,
@@ -194,7 +194,7 @@
       "slug": "will-trump-mobile-release-a-phone-by",
       "side": "YES",
       "entry_price": 0.085,
-      "current_price": 0.1,
+      "current_price": 0.09999999999999998,
       "pnl_pct": 17.65,
       "amount_usd": 4.41,
       "current_value_usd": 5.19,
@@ -208,11 +208,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.705,
-      "current_price": 0.785,
-      "pnl_pct": 11.35,
+      "current_price": 0.79,
+      "pnl_pct": 12.06,
       "amount_usd": 25.0,
-      "current_value_usd": 27.84,
-      "pnl_usd": 2.84,
+      "current_value_usd": 28.01,
+      "pnl_usd": 3.01,
       "edge_type": "momentum",
       "event_id": "48292"
     }
@@ -388,25 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 18:20:23",
+      "time": "2026-06-26 18:24:46",
+      "market_question": "Will Donald Trump enter Iran by June 30?",
+      "headline": "Trump accuses Iran of ceasefire breach after Strait of Hormuz attack",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 18:24:44",
       "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Curtains go up at AT&T Stadium for the World Cup, a glare-blocking move rejected by Jerry Jones - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 18:20:21",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Curtains go up at AT&T Stadium for the World Cup, a glare-blocking move rejected by Jerry Jones - AP News",
+      "headline": "Trump accuses Iran of ceasefire breach after Strait of Hormuz attack",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,25 +420,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 18:20:21",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Curtains go up at AT&T Stadium for the World Cup, a glare-blocking move rejected by Jerry Jones - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 18:20:21",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Curtains go up at AT&T Stadium for the World Cup, a glare-blocking move rejected by Jerry Jones - AP News",
+      "time": "2026-06-26 18:24:44",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump accuses Iran of ceasefire breach after Strait of Hormuz attack",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,16 +436,32 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 18:20:21",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Curtains go up at AT&T Stadium for the World Cup, a glare-blocking move rejected by Jerry Jones - AP News",
+      "time": "2026-06-26 18:24:43",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Trump accuses Iran of ceasefire breach after Strait of Hormuz attack",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 18:24:43",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Trump accuses Iran of ceasefire breach after Strait of Hormuz attack",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
