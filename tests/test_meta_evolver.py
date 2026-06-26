@@ -89,7 +89,7 @@ def test_interval_is_configurable(tmp_db, monkeypatch):
 # --- version saving + never-overwrite ------------------------------------
 
 def _patch_llm(monkeypatch, text):
-    async def fake(meta_prompt):
+    async def fake(meta_prompt, system=None):
         return text
     monkeypatch.setattr(meta_evolver, "_generate_improved_prompt", fake)
 
@@ -142,10 +142,35 @@ def test_evolve_strips_code_fences(tmp_db, monkeypatch):
 
 
 def test_evolve_returns_none_on_generation_error(tmp_db, monkeypatch):
-    async def boom(meta_prompt):
+    async def boom(meta_prompt, system=None):
         raise RuntimeError("api down")
     monkeypatch.setattr(meta_evolver, "_generate_improved_prompt", boom)
     assert asyncio.run(meta_evolver.evolve_prompt()) is None
+
+
+def test_evolve_retries_once_with_stricter_system(tmp_db, monkeypatch):
+    # First call returns a prompt missing {headline}; the retry returns a good one.
+    bad = GOOD_PROMPT.replace("{headline}", "the news")
+    calls = []
+
+    async def fake(meta_prompt, system=None):
+        calls.append(system)
+        return bad if len(calls) == 1 else GOOD_PROMPT
+    monkeypatch.setattr(meta_evolver, "_generate_improved_prompt", fake)
+
+    result = asyncio.run(meta_evolver.evolve_prompt())
+    assert result["version"] == 1
+    assert calls[0] is None  # first attempt: no system prompt
+    assert calls[1] == meta_evolver._STRICT_RETRY_SYSTEM  # retry tightens the contract
+    assert tmp_db.get_latest_prompt_version()["prompt_text"] == GOOD_PROMPT
+
+
+def test_evolve_gives_up_after_max_retries(tmp_db, monkeypatch):
+    _add_lesson(tmp_db, _ts(10))
+    _patch_llm(monkeypatch, "still broken, no placeholders or JSON")
+    monkeypatch.setattr(config, "EVOLVE_MAX_RETRIES", 2)
+    assert asyncio.run(meta_evolver.evolve_prompt()) is None
+    assert tmp_db.get_latest_prompt_version() is None
 
 
 # --- prompt validation ---------------------------------------------------
@@ -166,6 +191,60 @@ def test_validation_rejects_missing_placeholder():
 def test_validation_rejects_dropped_json_contract():
     no_json = "Classify {question} {threshold_line}{yes_price} {time_remaining} {headline} {source} {track_record}"
     assert meta_evolver.prompt_is_valid(no_json) is False
+
+
+# A minimal prompt that satisfies every requirement: all placeholders + JSON contract.
+ALL_PLACEHOLDERS_PROMPT = (
+    "Classify {question}. {threshold_line}Price {yes_price:.3f}. "
+    "Time {time_remaining}. News {headline} from {source}. {track_record} "
+    'Return {{"direction": "...", "materiality": 0.0}}.'
+)
+
+
+def test_validate_prompt_passes_with_all_placeholders():
+    assert meta_evolver.validate_prompt(ALL_PLACEHOLDERS_PROMPT) == []
+    assert meta_evolver.prompt_is_valid(ALL_PLACEHOLDERS_PROMPT) is True
+
+
+def test_validate_prompt_names_missing_placeholders():
+    dropped = ALL_PLACEHOLDERS_PROMPT.replace("{headline}", "the news").replace(
+        "{track_record}", "no record")
+    problems = meta_evolver.validate_prompt(dropped)
+    assert len(problems) == 1
+    assert "missing required placeholders" in problems[0]
+    assert "{headline}" in problems[0] and "{track_record}" in problems[0]
+    # placeholders that ARE present must not be reported as missing
+    assert "{question}" not in problems[0]
+
+
+def test_validate_prompt_yes_price_with_format_spec_counts():
+    # {yes_price:.3f} must satisfy the {yes_price} requirement.
+    assert "yes_price" not in " ".join(
+        meta_evolver.validate_prompt(ALL_PLACEHOLDERS_PROMPT))
+
+
+def test_validate_prompt_reports_missing_json_fields():
+    no_json = ALL_PLACEHOLDERS_PROMPT.replace(
+        'Return {{"direction": "...", "materiality": 0.0}}.', "Return a verdict.")
+    problems = meta_evolver.validate_prompt(no_json)
+    assert any('"direction"' in p for p in problems)
+    assert any('"materiality"' in p for p in problems)
+
+
+def test_validate_prompt_reports_unknown_placeholder():
+    problems = meta_evolver.validate_prompt(ALL_PLACEHOLDERS_PROMPT + " {mystery}")
+    assert any("prompt.format() failed" in p for p in problems)
+
+
+def test_validate_prompt_empty():
+    assert meta_evolver.validate_prompt("   ") == ["prompt is empty"]
+
+
+@pytest.mark.parametrize("fence", ["```", "```text", "```markdown"])
+def test_validate_strips_markdown_fences(fence):
+    wrapped = f"{fence}\n{ALL_PLACEHOLDERS_PROMPT}\n```"
+    assert meta_evolver._strip_fences(wrapped) == ALL_PLACEHOLDERS_PROMPT
+    assert meta_evolver.prompt_is_valid(meta_evolver._strip_fences(wrapped)) is True
 
 
 # --- dynamic prompt loading + fallback -----------------------------------

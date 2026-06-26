@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import string
 from datetime import datetime, timedelta, timezone
 
 import anthropic
@@ -38,6 +39,19 @@ _VALIDATION_KWARGS = dict(
     headline="Some breaking news",
     source="rss",
     track_record="No resolved classifications yet.",
+)
+
+# Placeholders classifier.classify() fills in — every one must survive evolution
+# or the runtime .format() blows up. Stored as bare field names (no braces, no
+# format spec) so {yes_price:.3f} still counts as {yes_price}.
+REQUIRED_PLACEHOLDERS = (
+    "question",
+    "yes_price",
+    "time_remaining",
+    "headline",
+    "source",
+    "track_record",
+    "threshold_line",
 )
 
 
@@ -135,29 +149,78 @@ def _strip_fences(text: str) -> str:
     return text
 
 
-def prompt_is_valid(prompt: str) -> bool:
-    """A candidate prompt is usable only if it still formats with the real
-    kwargs (every placeholder present, no stray braces) and keeps the JSON
-    output contract."""
-    if not prompt or '"direction"' not in prompt or '"materiality"' not in prompt:
-        return False
+def _placeholder_names(prompt: str) -> set[str]:
+    """The set of {field} names a prompt references, ignoring format specs and
+    escaped {{ }} braces. Raises ValueError on malformed braces."""
+    names: set[str] = set()
+    for _literal, field_name, _spec, _conv in string.Formatter().parse(prompt):
+        if field_name:  # None for literal text, "" for positional {}
+            names.add(field_name.split(".")[0].split("[")[0])
+    return names
+
+
+def validate_prompt(prompt: str) -> list[str]:
+    """Return a list of human-readable reasons a candidate prompt is unusable;
+    an empty list means it is valid. A prompt is usable only if it keeps every
+    required placeholder, keeps the JSON output contract, and still .format()s
+    cleanly with the real runtime kwargs (no stray/unknown braces)."""
+    if not prompt or not prompt.strip():
+        return ["prompt is empty"]
+
+    problems: list[str] = []
+    try:
+        present = _placeholder_names(prompt)
+    except ValueError as e:
+        return [f"malformed format string (unbalanced braces?): {e}"]
+
+    missing = [f"{{{name}}}" for name in REQUIRED_PLACEHOLDERS if name not in present]
+    if missing:
+        problems.append("missing required placeholders: " + ", ".join(missing))
+
+    for field in ('"direction"', '"materiality"'):
+        if field not in prompt:
+            problems.append(f'JSON output contract missing the {field} field')
+
     try:
         prompt.format(**_VALIDATION_KWARGS)
-    except (KeyError, IndexError, ValueError):
-        return False
-    return True
+    except (KeyError, IndexError, ValueError) as e:
+        problems.append(f"prompt.format() failed: {type(e).__name__}: {e}")
+
+    return problems
 
 
-async def _generate_improved_prompt(meta_prompt: str) -> str:
-    """Call Sonnet for the improved prompt (off the event loop)."""
+def prompt_is_valid(prompt: str) -> bool:
+    """Boolean form of validate_prompt()."""
+    return not validate_prompt(prompt)
+
+
+# Tacked onto the meta-prompt on a retry, after a first attempt produced an
+# unusable prompt — it spells out the contract more forcefully than build_meta_prompt.
+_STRICT_RETRY_SYSTEM = (
+    "You are editing a Python str.format() template. Output ONLY the raw template "
+    "text: no markdown, no ``` code fences, no preamble, no commentary. You MUST "
+    "keep every curly-brace placeholder exactly as written and introduce no new ones. "
+    "The required placeholders are: {question}, {threshold_line}, {yes_price}, "
+    "{time_remaining}, {headline}, {source}, {track_record}. The JSON output block "
+    'must still contain the "direction" and "materiality" fields. A response that '
+    "drops or renames any placeholder is unusable."
+)
+
+
+async def _generate_improved_prompt(meta_prompt: str, system: str | None = None) -> str:
+    """Call Sonnet for the improved prompt (off the event loop). An optional
+    system prompt is used to tighten the contract on retries."""
     def _call() -> str:
         client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
-        resp = client.messages.create(
+        kwargs = dict(
             model=config.SCORING_MODEL,
             max_tokens=2048,
             temperature=0.4,
             messages=[{"role": "user", "content": meta_prompt}],
         )
+        if system:
+            kwargs["system"] = system
+        resp = client.messages.create(**kwargs)
         return resp.content[0].text.strip()
 
     return await asyncio.get_event_loop().run_in_executor(None, _call)
@@ -173,15 +236,36 @@ async def evolve_prompt() -> dict | None:
     current_prompt = _current_prompt()
     meta_prompt = build_meta_prompt(current_prompt, lessons, stats)
 
-    try:
-        candidate = _strip_fences(await _generate_improved_prompt(meta_prompt))
-    except Exception as e:
-        log.warning(f"[meta_evolver] Prompt generation failed: {e}")
-        return None
+    max_attempts = max(1, config.EVOLVE_MAX_RETRIES)
+    candidate = ""
+    problems: list[str] = []
+    for attempt in range(1, max_attempts + 1):
+        # First attempt uses the plain meta-prompt; later ones add a stricter
+        # system prompt that re-states the placeholder/JSON contract.
+        system = _STRICT_RETRY_SYSTEM if attempt > 1 else None
+        try:
+            raw = await _generate_improved_prompt(meta_prompt, system=system)
+        except Exception as e:
+            log.warning(f"[meta_evolver] Prompt generation failed (attempt {attempt}): {e}")
+            return None
 
-    if not prompt_is_valid(candidate):
+        candidate = _strip_fences(raw)
+        problems = validate_prompt(candidate)
+        if not problems:
+            break
+
         log.warning(
-            "[meta_evolver] Evolved prompt failed validation (placeholders/JSON); not saving"
+            "[meta_evolver] Evolved prompt failed validation "
+            f"(attempt {attempt}/{max_attempts}): {'; '.join(problems)}"
+        )
+        log.warning(
+            "[meta_evolver] Generated prompt (first 500 chars):\n%s",
+            candidate[:500],
+        )
+    else:
+        log.warning(
+            f"[meta_evolver] Evolved prompt still invalid after {max_attempts} "
+            f"attempt(s); not saving. Last problems: {'; '.join(problems)}"
         )
         return None
 

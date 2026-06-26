@@ -492,6 +492,10 @@ MISSED_ADJUSTMENT_DECAY_DAYS = int(os.getenv("MISSED_ADJUSTMENT_DECAY_DAYS", "30
 # to keep the hardcoded prompt.
 PROMPT_EVOLUTION_ENABLED = os.getenv("PROMPT_EVOLUTION_ENABLED", "true").lower() == "true"
 PROMPT_EVOLUTION_INTERVAL_DAYS = float(os.getenv("PROMPT_EVOLUTION_INTERVAL_DAYS", "7"))
+# How many times to ask Sonnet for an evolved prompt before giving up. The first
+# attempt is the normal request; later attempts add a stricter system prompt that
+# spells out the required placeholders. 2 = one initial try plus one retry.
+EVOLVE_MAX_RETRIES = int(os.getenv("EVOLVE_MAX_RETRIES", "2"))
 
 # --- Dashboard ---
 # Pipeline start time (UTC), set by `cli.py watch` at launch so export_status
