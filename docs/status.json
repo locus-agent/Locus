@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T14:28:52.212430+00:00",
-  "last_heartbeat": "2026-06-26T14:28:52.212430+00:00",
-  "uptime_seconds": 7967,
+  "generated_at": "2026-06-26T15:05:41.569954+00:00",
+  "last_heartbeat": "2026-06-26T15:05:41.569954+00:00",
+  "uptime_seconds": 10177,
   "dry_run": false,
-  "markets_tracked": 1365,
+  "markets_tracked": 1355,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9074,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 539,
-  "headlines_last_cycle": 17,
+  "headlines_scanned_today": 584,
+  "headlines_last_cycle": 25,
   "signals_24h": 4,
-  "classifications_24h": 4433,
+  "classifications_24h": 4532,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1762,
+    "prefiltered_haiku": 1805,
     "stale": 8,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -100,13 +100,13 @@
     "orderbook_skip": 5,
     "already_priced_in": 0,
     "needs_confirmation": 1,
-    "event_exposure_block": 0,
+    "event_exposure_block": 1,
     "low_consensus": 0,
     "circuit_breaker": 0,
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 2,
+  "watched_markets_count": 3,
   "missed_opportunities_24h": 10,
   "whale": {
     "watched_wallets": 4,
@@ -119,16 +119,16 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1114,
-    "matched": 876,
-    "classified": 4433,
+    "news": 1148,
+    "matched": 891,
+    "classified": 4532,
     "signals": 4,
     "trades": 4
   },
   "performance": {
     "trades_total": 35,
     "deployed_usd": 728.39,
-    "open_count": 3,
+    "open_count": 2,
     "closed_count": 28,
     "wins": 15,
     "losses": 13,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1403.5
+    "avg_classification_latency_ms": 2128.5
   },
   "live_readiness": {
     "ready": false,
@@ -184,8 +184,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0634,
-    "sharpe_7d": -0.21
+    "drawdown_7d": 0.0531,
+    "sharpe_7d": -0.19
   },
   "open_positions": [
     {
@@ -215,23 +215,21 @@
       "pnl_usd": 2.48,
       "edge_type": "momentum",
       "event_id": "48292"
-    },
+    }
+  ],
+  "closed_positions": [
     {
-      "time": "2026-06-24 23:38:13",
+      "time": "2026-06-26T15:03:10.353456+00:00",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
       "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
       "side": "YES",
       "entry_price": 0.125,
-      "current_price": 0.125,
-      "pnl_pct": 0.0,
-      "amount_usd": 40.0,
-      "current_value_usd": 40.0,
-      "pnl_usd": 0.0,
-      "edge_type": "momentum",
-      "event_id": "581574"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": 0.125,
+      "realized_pnl_usd": 0.0,
+      "exit_reason": "news_decision",
+      "event_id": "581574",
+      "partial": false
+    },
     {
       "time": "2026-06-25T21:36:20.900707+00:00",
       "market_question": "Bitcoin Up or Down on June 26?",
@@ -339,21 +337,18 @@
       "exit_reason": "manual",
       "event_id": "86832",
       "partial": false
-    },
-    {
-      "time": "2026-06-18T18:34:13.100938+00:00",
-      "market_question": "Will Donald Trump publicly insult Benjamin Netanyahu by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
-      "side": "YES",
-      "entry_price": 0.355,
-      "exit_price": 0.365,
-      "realized_pnl_usd": 0.7042253521126751,
-      "exit_reason": "manual",
-      "event_id": "528020",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-26 15:03:10",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "side": "YES",
+      "trigger": "news",
+      "decision": "close",
+      "reasoning": "The headline 'Why has Trump stayed away from the World Cup?' directly contradicts the thesis that Trump would attend 3+ matches, and with no unrealized profit to protect and a materiality score suggesting real bearish signal, there's no edge remaining to justify holding a position that entered at fair value and now faces a deteriorating narrative.",
+      "pnl_pct": 0.0
+    },
     {
       "time": "2026-06-25 21:36:21",
       "market_question": "Bitcoin Up or Down on June 26?",
@@ -389,86 +384,77 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -21.33
-    },
-    {
-      "time": "2026-06-24 12:14:31",
-      "market_question": "Bitcoin Up or Down on June 24?",
-      "side": "NO",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.33
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 14:28:50",
-      "market_question": "Will Donald Trump visit South Korea in 2026?",
-      "headline": "South Korea says it will train 500,000 'drone warriors' to counter North Korea - Reuters",
+      "time": "2026-06-26 15:04:52",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "France confirms first Ebola case in doctor returning from DR Congo - Al Jazeera",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 14:28:50",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Mediators worked through threats and strikes to broker the US-Iran deal, and challenges remain - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 14:28:50",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "Mediators worked through threats and strikes to broker the US-Iran deal, and challenges remain - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 14:28:50",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "Mediators worked through threats and strikes to broker the US-Iran deal, and challenges remain - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 14:28:50",
+      "time": "2026-06-26 15:04:52",
       "market_question": "Will FOX One: Live News, Sports, TV be #2 Free App in the US Apple App Store on June 26?",
-      "headline": "Mediators worked through threats and strikes to broker the US-Iran deal, and challenges remain - AP News",
+      "headline": "What was in the COVID-19 vaccine study CDC withheld? - Deseret News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-26 15:04:52",
+      "market_question": "Will Sam Altman get OpenAI equity by June 30?",
+      "headline": "Micro-workouts: how to get fitter and healthier in 5 minutes - The Times",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-26 15:04:52",
+      "market_question": "Will ECDSA.fail get at least 50% ahead of Google\u2019s classified circuit by June 30, 2026?",
+      "headline": "Micro-workouts: how to get fitter and healthier in 5 minutes - The Times",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-26 15:04:52",
+      "market_question": "Will OpenAI release a social network in 2026?",
+      "headline": "Galaxy Z Fold 8 Release Date: Samsung Devices Get New Confirmation - Forbes",
       "direction": null,
       "materiality": null,
       "confidence": null,
