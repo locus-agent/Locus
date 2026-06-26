@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T07:11:53.986120+00:00",
-  "last_heartbeat": "2026-06-26T07:11:53.986120+00:00",
-  "uptime_seconds": 156578,
+  "generated_at": "2026-06-26T07:12:25.322981+00:00",
+  "last_heartbeat": "2026-06-26T07:12:25.322981+00:00",
+  "uptime_seconds": 156610,
   "dry_run": false,
   "markets_tracked": 1343,
   "classify_error_streak": 0,
@@ -83,9 +83,9 @@
     ]
   },
   "headlines_scanned_today": 196,
-  "headlines_last_cycle": 1,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 3779,
+  "classifications_24h": 3780,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1512,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 923,
     "matched": 806,
-    "classified": 3779,
+    "classified": 3780,
     "signals": 3,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 10272.1
+    "avg_classification_latency_ms": 10270.1
   },
   "live_readiness": {
     "ready": false,
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 07:11:55",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "Corporate Bitcoin Treasuries Explained: Why Public Companies Hold Bitcoin",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-26 07:11:52",
       "market_question": "Will Bitcoin reach $62,000 on June 26?",
       "headline": "Corporate Bitcoin Treasuries Explained: Why Public Companies Hold Bitcoin",
@@ -438,22 +454,6 @@
     {
       "time": "2026-06-26 07:11:52",
       "market_question": "Will Bitcoin reach $62,500 in June?",
-      "headline": "Corporate Bitcoin Treasuries Explained: Why Public Companies Hold Bitcoin",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 07:11:52",
-      "market_question": "Will Bitcoin reach $63,000 on June 26?",
       "headline": "Corporate Bitcoin Treasuries Explained: Why Public Companies Hold Bitcoin",
       "direction": "neutral",
       "materiality": 0.15,
