@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T07:52:43.398398+00:00",
-  "last_heartbeat": "2026-06-26T07:52:43.398398+00:00",
-  "uptime_seconds": 159028,
+  "generated_at": "2026-06-26T07:53:14.543082+00:00",
+  "last_heartbeat": "2026-06-26T07:53:14.543082+00:00",
+  "uptime_seconds": 159059,
   "dry_run": false,
   "markets_tracked": 1343,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 233,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 236,
+  "headlines_last_cycle": 3,
   "signals_24h": 3,
-  "classifications_24h": 3844,
+  "classifications_24h": 3854,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1533,
+    "prefiltered_haiku": 1534,
     "stale": 7,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 947,
-    "matched": 824,
-    "classified": 3844,
+    "news": 950,
+    "matched": 826,
+    "classified": 3854,
     "signals": 3,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 53.6,
     "realized_pnl_usd": 48.56,
-    "unrealized_pnl_usd": 0.18,
-    "total_pnl_usd": 48.74,
+    "unrealized_pnl_usd": 0.53,
+    "total_pnl_usd": 49.09,
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 10168.2
+    "avg_classification_latency_ms": 10166.2
   },
   "live_readiness": {
     "ready": false,
@@ -194,11 +194,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.705,
-      "current_price": 0.71,
-      "pnl_pct": 0.71,
+      "current_price": 0.72,
+      "pnl_pct": 2.13,
       "amount_usd": 25.0,
-      "current_value_usd": 25.18,
-      "pnl_usd": 0.18,
+      "current_value_usd": 25.53,
+      "pnl_usd": 0.53,
       "edge_type": "momentum",
       "event_id": "48292"
     },
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 07:51:21",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "Mbappe v Haaland: Who is more important for their country?",
+      "time": "2026-06-26 07:53:13",
+      "market_question": "Will HYPE flip SOL by December 31?",
+      "headline": "Skip the Prime Day Hype and Shop These 50+ Major Walmart Deals Instead - CNET",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 07:53:12",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "We Sifted Through Thousands of Prime Day Deals, and These 281+ Are Actually Worth Buying - NBC News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,9 +420,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 07:51:21",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Mbappe v Haaland: Who is more important for their country?",
+      "time": "2026-06-26 07:53:12",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "We Sifted Through Thousands of Prime Day Deals, and These 281+ Are Actually Worth Buying - NBC News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 07:51:21",
-      "market_question": "Will Trump and Putin meet next in another country?",
-      "headline": "Mbappe v Haaland: Who is more important for their country?",
+      "time": "2026-06-26 07:53:12",
+      "market_question": "Will Anthony Albanese be Prime Minister of Australia after the next election?",
+      "headline": "We Sifted Through Thousands of Prime Day Deals, and These 281+ Are Actually Worth Buying - NBC News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,25 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 07:51:21",
-      "market_question": "Will Trump and Putin meet next in another EU country?",
-      "headline": "Mbappe v Haaland: Who is more important for their country?",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 07:51:21",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "Mbappe v Haaland: Who is more important for their country?",
+      "time": "2026-06-26 07:53:12",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "We Sifted Through Thousands of Prime Day Deals, and These 281+ Are Actually Worth Buying - NBC News",
       "direction": null,
       "materiality": null,
       "confidence": null,
