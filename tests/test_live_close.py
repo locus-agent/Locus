@@ -123,11 +123,15 @@ def _install_fake_v2_module(monkeypatch, clob_client_cls):
 
 def _install_fake_clob(monkeypatch, captured, book,
                        outcomes=("YES", "NO"),
-                       fill_result=None):
+                       fill_result=None,
+                       held_balance=None):
     """Fake CLOB client. `outcomes` sets the real outcome labels get_market
     reports (default YES/NO; pass ("Up","Down") to exercise the positional
     fallback). `fill_result` is what get_order returns on reconcile (default a
-    fully MATCHED order, so the SELL confirms as executed)."""
+    fully MATCHED order, so the SELL confirms as executed). `held_balance`, when
+    given (in shares), makes get_balance_allowance report that on-chain holding
+    so the close's balance-cap can be exercised; None (default) omits the method
+    entirely, matching a client release that lacks it (no cap applied)."""
     if fill_result is None:
         fill_result = {"status": "MATCHED", "size_matched": "9999"}
     # The close path reconciles after ORDER_RECONCILE_WAIT_SECONDS — keep tests fast.
@@ -175,6 +179,13 @@ def _install_fake_clob(monkeypatch, captured, book,
 
         def cancel_order(self, payload):
             captured.setdefault("cancelled", []).append(payload)
+
+    if held_balance is not None:
+        # 6-decimal base units, mirroring the real CLOB collateral/token balances.
+        def get_balance_allowance(self, params):
+            captured["balance_params"] = params
+            return {"balance": str(int(held_balance * 1_000_000))}
+        FakeClobClient.get_balance_allowance = get_balance_allowance
 
     _install_fake_v2_module(monkeypatch, FakeClobClient)
 
@@ -432,6 +443,54 @@ def test_close_position_live_order_rejection_returns_close_failed(monkeypatch):
     assert result["status"] == "close_failed"
     assert result["order_id"] is None
     assert "not enough balance" in result["error"]
+
+
+# --- balance cap: never request more tokens than we own on-chain ---------------
+
+def test_close_caps_sell_to_held_token_balance(monkeypatch):
+    # The share count from amount_usd / entry_yes_price over-counts what we own
+    # (the BUY filled at the higher ask). The close must cap the SELL to the real
+    # on-chain holding so the order isn't rejected "not enough balance".
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xfunder")
+    monkeypatch.setattr(config, "POLYMARKET_SIGNATURE_TYPE", 3)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    # We try to sell 66.64 sh but only hold 60.0 on-chain.
+    _install_fake_clob(monkeypatch, captured, book, held_balance=60.0)
+
+    result = executor.close_position_live("cond1", "YES", 66.64, max_spread=0.05)
+
+    assert result["status"] == "executed"
+    # the SELL was placed for the held 60 shares, not the inflated 66.64
+    assert captured["order_args"].size == 60.0
+    assert result["shares"] == 60.0
+
+
+def test_close_does_not_upsize_when_request_below_balance(monkeypatch):
+    # The cap only ever shrinks the order: a half-close (small request) against a
+    # large holding must keep the requested size, not balloon to the full balance.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xfunder")
+    monkeypatch.setattr(config, "POLYMARKET_SIGNATURE_TYPE", 3)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book, held_balance=100.0)
+
+    result = executor.close_position_live("cond1", "YES", 30.0, max_spread=0.05)
+
+    assert result["status"] == "executed"
+    assert captured["order_args"].size == 30.0  # unchanged; well under the 100 held
+
+
+def test_held_token_shares_none_on_missing_method(monkeypatch):
+    # A client release without get_balance_allowance must not raise — the cap is
+    # best-effort and simply doesn't apply (None).
+    _install_fake_balance_types(monkeypatch)
+    client = types.SimpleNamespace()  # no get_balance_allowance
+    assert executor.held_token_shares(client, "tok-yes") is None
 
 
 # --- the close path must NOT flatten the local position on an unconfirmed sell -

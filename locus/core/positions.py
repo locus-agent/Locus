@@ -608,10 +608,17 @@ def _live_close(position: dict, exit_reason: str, fraction: float) -> tuple[bool
     CRITICAL: a recorded close on an unconfirmed sell silently hides live
     exposure. Only a confirmed 'executed' fill (or a no-sell-needed close) may
     record."""
+    log.info(
+        "[positions] _live_close ENTER: condition_id=%s side=%s exit_reason=%s "
+        "fraction=%.2f config.DRY_RUN=%s on \"%s\"",
+        position["condition_id"], position["side"], exit_reason, fraction,
+        config.DRY_RUN, position["market_question"][:40],
+    )
     if config.DRY_RUN or exit_reason == "resolution":
-        log.debug(
-            "[positions] _live_close: no CLOB sell needed (dry_run=%s, exit_reason=%s) "
-            "for \"%s\"", config.DRY_RUN, exit_reason, position["market_question"][:40],
+        log.info(
+            "[positions] _live_close: NO CLOB sell placed (dry_run=%s, exit_reason=%s) "
+            "— close recorded locally only for \"%s\"",
+            config.DRY_RUN, exit_reason, position["market_question"][:40],
         )
         return True, None
     shares = position_shares(position["side"], position["entry_yes_price"],
@@ -652,9 +659,23 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
            fraction: float = 1.0) -> float:
     """Realize `fraction` of the position at yes_price. Live trading places a
     real CLOB sell to flatten the shares; dry-run simulates the fill."""
+    log.info(
+        "[positions] _close ENTER: position_id=%s side=%s status=%s exit_reason=%s "
+        "fraction=%.2f yes_price=%s config.DRY_RUN=%s on \"%s\"",
+        position["id"], position["side"], status, exit_reason, fraction, yes_price,
+        config.DRY_RUN, position["market_question"][:40],
+    )
     realized = position_pnl(position["side"], position["entry_yes_price"],
                             yes_price, position["amount_usd"] * fraction)
+    log.info(
+        "[positions] _close: calling _live_close (position_id=%s, exit_reason=%s, "
+        "fraction=%.2f)", position["id"], exit_reason, fraction,
+    )
     recorded_ok, exit_order_id = _live_close(position, exit_reason, fraction)
+    log.info(
+        "[positions] _close: _live_close returned recorded_ok=%s exit_order_id=%s "
+        "(position_id=%s)", recorded_ok, exit_order_id, position["id"],
+    )
     if not recorded_ok:
         # Live SELL not confirmed — we still hold this position. Record the failed
         # attempt for tracking (status 'close_failed'), keep the row open, and

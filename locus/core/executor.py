@@ -367,11 +367,25 @@ def close_position_live(
         from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
 
         client = create_clob_client()
+        log.info("[executor] close_position_live: CLOB client built; resolving token "
+                 "for condition_id=%s side=%s", condition_id, side)
         token_id = _resolve_token_id(client, condition_id, side)
         if not token_id:
             log.error("[executor] close ABORTED: no token_id for side=%s of %s "
                       "(position stays open)", side, condition_id)
             return {"status": "error_no_token", "order_id": None, "price": None, "shares": None}
+
+        # Cap to what we actually own on-chain. The requested `shares` is derived
+        # from amount_usd / entry_yes_price, which over-counts (the BUY filled at
+        # the higher ask), so an uncapped SELL is rejected "not enough balance".
+        held = held_token_shares(client, token_id)
+        if held is not None:
+            log.info("[executor] on-chain token balance for token=%s: %.4f sh "
+                     "(close requested %.4f sh)", token_id, held, shares)
+            if shares > held:
+                log.warning("[executor] capping SELL %.4f -> %.4f sh to on-chain "
+                            "holding for token=%s", shares, held, token_id)
+                shares = held
 
         book = client.get_order_book(token_id)
         best_bid, best_ask, bid_size = _bid_levels(book)
@@ -443,6 +457,36 @@ def close_position_live(
         # SELL never went through — surface close_failed, not a recorded close.
         return {"status": "close_failed", "order_id": None, "price": None,
                 "shares": None, "error": f"{type(e).__name__}: {e}"}
+
+
+def held_token_shares(client, token_id: str) -> float | None:
+    """Real outcome-token (CTF ERC1155) balance held for `token_id`, in shares,
+    or None on any error.
+
+    A live BUY fills at the best ASK, but a position's share count is later
+    re-derived as amount_usd / entry_yes_price — and entry_yes_price (the cached
+    Gamma mid at open) is BELOW the ask we actually paid, so that quotient
+    OVER-counts the tokens we own. Selling that inflated count makes the CLOB
+    reject the close as "not enough balance / allowance" (e.g. balance 60.0,
+    order 66.64), and the position never flattens. The close caps the SELL to
+    this real holding so the order is always sellable. Best-effort: returns None
+    (no cap) when the client lacks the call or it errors, leaving prior behaviour
+    unchanged."""
+    try:
+        from py_clob_client_v2 import BalanceAllowanceParams, AssetType
+
+        resp = client.get_balance_allowance(
+            BalanceAllowanceParams(asset_type=AssetType.CONDITIONAL, token_id=token_id)
+        )
+        raw = (resp.get("balance") if isinstance(resp, dict)
+               else getattr(resp, "balance", None))
+        if raw is None:
+            return None
+        return float(raw) / 1_000_000
+    except Exception as e:
+        log.warning("[executor] token balance fetch failed for %s (%s); SELL not "
+                    "capped to on-chain holding", token_id, e)
+        return None
 
 
 def get_live_balance() -> float | None:
