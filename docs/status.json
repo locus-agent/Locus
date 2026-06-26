@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T08:33:01.115647+00:00",
-  "last_heartbeat": "2026-06-26T08:33:01.115647+00:00",
-  "uptime_seconds": 161445,
+  "generated_at": "2026-06-26T08:33:32.042799+00:00",
+  "last_heartbeat": "2026-06-26T08:33:32.042799+00:00",
+  "uptime_seconds": 161476,
   "dry_run": false,
   "markets_tracked": 1343,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 254,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 255,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 3906,
+  "classifications_24h": 3907,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1545,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 962,
-    "matched": 836,
-    "classified": 3906,
+    "news": 963,
+    "matched": 837,
+    "classified": 3907,
     "signals": 3,
     "trades": 3
   },
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 08:33:13",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "Japanese financial services giant SBI Holdings to buy Bitbank for $289 million",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-26 08:26:41",
       "market_question": "Will Bitcoin reach $62,500 in June?",
       "headline": "Grant Cardone says he will keep buying bitcoin using real estate cash flows",
@@ -446,22 +462,6 @@
       "fee_cost": null,
       "time_horizon": "medium",
       "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 08:26:39",
-      "market_question": "Will Bitcoin reach $65,000 in June?",
-      "headline": "Grant Cardone says he will keep buying bitcoin using real estate cash flows",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
