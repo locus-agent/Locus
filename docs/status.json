@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T23:08:23.561498+00:00",
-  "last_heartbeat": "2026-06-26T23:08:23.561498+00:00",
-  "uptime_seconds": 9528,
+  "generated_at": "2026-06-26T23:13:30.422889+00:00",
+  "last_heartbeat": "2026-06-26T23:13:30.422889+00:00",
+  "uptime_seconds": 9834,
   "dry_run": false,
-  "markets_tracked": 1336,
+  "markets_tracked": 1335,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9126,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1438,
-  "headlines_last_cycle": 16,
+  "headlines_scanned_today": 1445,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5803,
+  "classifications_24h": 5842,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2291,
+    "prefiltered_haiku": 2314,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1479,
-    "matched": 800,
-    "classified": 5803,
+    "news": 1485,
+    "matched": 803,
+    "classified": 5842,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1890.7
+    "avg_classification_latency_ms": 1895.6
   },
   "live_readiness": {
     "ready": false,
@@ -194,7 +194,7 @@
       "slug": "will-trump-mobile-release-a-phone-by",
       "side": "YES",
       "entry_price": 0.085,
-      "current_price": 0.09999999999999998,
+      "current_price": 0.1,
       "pnl_pct": 17.65,
       "amount_usd": 4.41,
       "current_value_usd": 5.19,
@@ -388,25 +388,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 23:08:23",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Cassidy says he passed a note to Witkoff to request briefing during heated Trump meeting - CBS News",
+      "time": "2026-06-26 23:12:43",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "Most of Wall Street rises, but sinking AI stocks send it lower for the week - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 23:08:23",
-      "market_question": "Will Donald Trump visit Russia in 2026?",
-      "headline": "Zelenskyy says Russia is shifting air defenses to Moscow and other key sites after drone strikes - AP News",
+      "time": "2026-06-26 23:12:38",
+      "market_question": "Ethereum Up or Down - June 26, 7:00PM-7:15PM ET",
+      "headline": "Most of Wall Street rises, but sinking AI stocks send it lower for the week - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 23:12:32",
+      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
+      "headline": "Most of Wall Street rises, but sinking AI stocks send it lower for the week - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 23:08:23",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "headline": "Zelenskyy says Russia is shifting air defenses to Moscow and other key sites after drone strikes - AP News",
+      "time": "2026-06-26 23:12:32",
+      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
+      "headline": "Most of Wall Street rises, but sinking AI stocks send it lower for the week - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,25 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 23:08:23",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Zelenskyy says Russia is shifting air defenses to Moscow and other key sites after drone strikes - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 23:08:23",
-      "market_question": "Will United Russia (ER) win the second-most seats in the next Russian parliamentary election?",
-      "headline": "Zelenskyy says Russia is shifting air defenses to Moscow and other key sites after drone strikes - AP News",
+      "time": "2026-06-26 23:12:32",
+      "market_question": "Will CDU win the most seats in the 2026 Sachsen-Anhalt parliamentary elections?",
+      "headline": "Most of Wall Street rises, but sinking AI stocks send it lower for the week - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
