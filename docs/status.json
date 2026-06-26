@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-26T09:25:42.652323+00:00",
-  "last_heartbeat": "2026-06-26T09:25:42.652323+00:00",
-  "uptime_seconds": 164607,
+  "generated_at": "2026-06-26T09:26:13.575680+00:00",
+  "last_heartbeat": "2026-06-26T09:26:13.575680+00:00",
+  "uptime_seconds": 164638,
   "dry_run": false,
   "markets_tracked": 1340,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 276,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 277,
+  "headlines_last_cycle": 1,
   "signals_24h": 4,
-  "classifications_24h": 3926,
+  "classifications_24h": 3928,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1551,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 961,
-    "matched": 838,
-    "classified": 3926,
+    "news": 962,
+    "matched": 839,
+    "classified": 3928,
     "signals": 4,
     "trades": 4
   },
@@ -402,6 +402,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-26 09:25:56",
+      "market_question": "Will Solana Sierra be the 2026 Women\u2019s Wimbledon Winner?",
+      "headline": "Williams to start Wimbledon comeback against Joint",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-26 09:25:56",
+      "market_question": "Will Cl\u00e9mentine Autain be the joint left nominee for the 2027 French presidential election?",
+      "headline": "Williams to start Wimbledon comeback against Joint",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-26 09:19:26",
       "market_question": "Will a Chinese AI model become #1 by June 30? ",
       "headline": "Chinese AI, chip firms are driving an onshore IPO rebound - Reuters",
@@ -446,38 +478,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 09:19:23",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "Chinese AI, chip firms are driving an onshore IPO rebound - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-26 09:19:23",
-      "market_question": "Will OpenAI IPO by August 31 2026?",
-      "headline": "Chinese AI, chip firms are driving an onshore IPO rebound - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
