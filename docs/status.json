@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T10:23:01.849773+00:00",
-  "last_heartbeat": "2026-06-26T10:23:01.849773+00:00",
-  "uptime_seconds": 168046,
+  "generated_at": "2026-06-26T10:23:32.802421+00:00",
+  "last_heartbeat": "2026-06-26T10:23:32.802421+00:00",
+  "uptime_seconds": 168077,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1347,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9069,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 297,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 299,
+  "headlines_last_cycle": 2,
   "signals_24h": 4,
-  "classifications_24h": 3934,
+  "classifications_24h": 3944,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1530,
+    "prefiltered_haiku": 1533,
     "stale": 8,
     "capped": 1,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 972,
-    "matched": 846,
-    "classified": 3934,
+    "news": 974,
+    "matched": 848,
+    "classified": 3944,
     "signals": 4,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 9921.5
+    "avg_classification_latency_ms": 9914.2
   },
   "live_readiness": {
     "ready": false,
@@ -402,9 +402,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-26 10:21:04",
-      "market_question": "FDA approves Arcalyst technology transfer?",
-      "headline": "Greece bets on space technology to contain wildfires - AP News",
+      "time": "2026-06-26 10:23:12",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Australia clinches knockout round spot with 0-0 draw; Paraguay also likely to advance - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -418,11 +418,27 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 10:21:02",
-      "market_question": "Hyperliquid listed on Binance in 2026?",
-      "headline": "Binance tells EU users it will no longer provide services after failing to secure MiCA license",
+      "time": "2026-06-26 10:23:11",
+      "market_question": "Will Trump and Putin meet next in South Korea?",
+      "headline": "South Korea court gives ex-First Lady Kim Keon Hee 7-year jail term for bribery - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-26 10:23:11",
+      "market_question": "Will Donald Trump visit South Korea in 2026?",
+      "headline": "South Korea court gives ex-First Lady Kim Keon Hee 7-year jail term for bribery - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
@@ -434,9 +450,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-26 10:21:02",
-      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Wes Moore\u2019s vision for America - Politico",
+      "time": "2026-06-26 10:23:11",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Australia clinches knockout round spot with 0-0 draw; Paraguay also likely to advance - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -450,9 +466,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-26 10:21:02",
-      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Wes Moore\u2019s vision for America - Politico",
+      "time": "2026-06-26 10:23:11",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Australia clinches knockout round spot with 0-0 draw; Paraguay also likely to advance - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,22 +480,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-26 10:21:00",
-      "market_question": "Hyperliquid listed on Binance by June 30, 2026?",
-      "headline": "Binance tells EU users it will no longer provide services after failing to secure MiCA license",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
