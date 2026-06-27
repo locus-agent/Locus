@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T10:46:07.298093+00:00",
-  "last_heartbeat": "2026-06-27T10:46:07.298093+00:00",
-  "uptime_seconds": 51391,
+  "generated_at": "2026-06-27T10:51:12.485475+00:00",
+  "last_heartbeat": "2026-06-27T10:51:12.485475+00:00",
+  "uptime_seconds": 51697,
   "dry_run": false,
-  "markets_tracked": 1316,
+  "markets_tracked": 1315,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9187,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 239,
+  "headlines_scanned_today": 240,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5625,
+  "classifications_24h": 5608,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2249,
+    "prefiltered_haiku": 2237,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1407,
+    "news": 1405,
     "matched": 804,
-    "classified": 5625,
+    "classified": 5608,
     "signals": 2,
     "trades": 2
   },
@@ -134,8 +134,8 @@
     "losses": 13,
     "win_rate_pct": 53.6,
     "realized_pnl_usd": 48.56,
-    "unrealized_pnl_usd": 3.08,
-    "total_pnl_usd": 51.64,
+    "unrealized_pnl_usd": 3.26,
+    "total_pnl_usd": 51.82,
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
@@ -208,11 +208,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.705,
-      "current_price": 0.77,
-      "pnl_pct": 9.22,
+      "current_price": 0.775,
+      "pnl_pct": 9.93,
       "amount_usd": 25.0,
-      "current_value_usd": 27.3,
-      "pnl_usd": 2.3,
+      "current_value_usd": 27.48,
+      "pnl_usd": 2.48,
       "edge_type": "momentum",
       "event_id": "48292"
     }
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-27 10:48:59",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Iran coach criticizes US travel restrictions after Egypt match - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-27 10:40:13",
       "market_question": "Will Trump be impeached before his term ends?",
       "headline": "Amber extreme heat warning extended before cooldown ends record-breaking heatwave",
@@ -450,22 +466,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 10:35:49",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "Rare light aircraft crash in Beijing kills pilot, injures 13 people - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
