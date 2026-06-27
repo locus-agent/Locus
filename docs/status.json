@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T03:38:22.945095+00:00",
-  "last_heartbeat": "2026-06-27T03:38:22.945095+00:00",
-  "uptime_seconds": 25727,
+  "generated_at": "2026-06-27T03:43:28.620142+00:00",
+  "last_heartbeat": "2026-06-27T03:43:28.620142+00:00",
+  "uptime_seconds": 26033,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1340,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9160,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 95,
+  "headlines_scanned_today": 97,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5894,
+  "classifications_24h": 5886,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2325,
+    "prefiltered_haiku": 2314,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1492,
-    "matched": 813,
-    "classified": 5894,
+    "news": 1491,
+    "matched": 812,
+    "classified": 5886,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1933.3
+    "avg_classification_latency_ms": 1933.8
   },
   "live_readiness": {
     "ready": false,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 03:36:04",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "Cody Johnson's country music is only getting bigger. On 'Banks of the Trinity,' he'll take you home - AP News",
+      "time": "2026-06-27 03:42:45",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Spain wins World Cup group, beating Uruguay 1-0 as Muslera\u2019s error sends 2-time champion home - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 03:42:45",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Venezuela oil output steady after quakes; power outages persist - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,9 +420,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-27 03:36:04",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Cody Johnson's country music is only getting bigger. On 'Banks of the Trinity,' he'll take you home - AP News",
+      "time": "2026-06-27 03:42:45",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "Venezuela oil output steady after quakes; power outages persist - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,52 +436,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-27 03:36:04",
-      "market_question": "Will Trump and Putin meet next in another country?",
-      "headline": "Cody Johnson's country music is only getting bigger. On 'Banks of the Trinity,' he'll take you home - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-27 03:42:40",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Spain wins World Cup group, beating Uruguay 1-0 as Muslera\u2019s error sends 2-time champion home - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-27 03:36:04",
-      "market_question": "Will Trump and Putin meet next in another EU country?",
-      "headline": "Cody Johnson's country music is only getting bigger. On 'Banks of the Trinity,' he'll take you home - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-27 03:42:40",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Spain wins World Cup group, beating Uruguay 1-0 as Muslera\u2019s error sends 2-time champion home - AP News",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 03:36:04",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "Cody Johnson's country music is only getting bigger. On 'Banks of the Trinity,' he'll take you home - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
