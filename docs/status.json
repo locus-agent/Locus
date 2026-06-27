@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-27T14:25:11.716257+00:00",
-  "last_heartbeat": "2026-06-27T14:25:11.716257+00:00",
-  "uptime_seconds": 64536,
+  "generated_at": "2026-06-27T14:30:17.814687+00:00",
+  "last_heartbeat": "2026-06-27T14:30:17.814687+00:00",
+  "uptime_seconds": 64842,
   "dry_run": false,
   "markets_tracked": 1316,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 345,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 355,
+  "headlines_last_cycle": 6,
   "signals_24h": 2,
-  "classifications_24h": 5269,
+  "classifications_24h": 5247,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2081,
+    "prefiltered_haiku": 2071,
     "stale": 13,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1304,
-    "matched": 826,
-    "classified": 5269,
+    "news": 1296,
+    "matched": 834,
+    "classified": 5247,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2100.4
+    "avg_classification_latency_ms": 2101.8
   },
   "live_readiness": {
     "ready": false,
@@ -194,7 +194,7 @@
       "slug": "will-trump-mobile-release-a-phone-by",
       "side": "YES",
       "entry_price": 0.085,
-      "current_price": 0.1,
+      "current_price": 0.09999999999999998,
       "pnl_pct": 17.65,
       "amount_usd": 4.41,
       "current_value_usd": 5.19,
@@ -388,9 +388,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 14:22:15",
-      "market_question": "Will Donald Trump visit North Korea in 2026?",
-      "headline": "Explosive drone targets Iranian Kurdish opposition camp north of Iraq's Erbil, security sources say - Reuters",
+      "time": "2026-06-27 14:30:17",
+      "market_question": "Will Apple release a foldable iPhone before 2027?",
+      "headline": "Apple has new \u2018iRing\u2019 wearable product in the works, says leaker - 9to5Mac",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 14:30:17",
+      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
+      "headline": "Apple has new \u2018iRing\u2019 wearable product in the works, says leaker - 9to5Mac",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 14:30:16",
+      "market_question": "Will OpenAI announce a necklace-style wearable in 2026?",
+      "headline": "Apple has new \u2018iRing\u2019 wearable product in the works, says leaker - 9to5Mac",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-27 14:22:15",
-      "market_question": "Will the Republicans win the North Carolina Senate race in 2026?",
-      "headline": "Explosive drone targets Iranian Kurdish opposition camp north of Iraq's Erbil, security sources say - Reuters",
+      "time": "2026-06-27 14:30:16",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Apple has new \u2018iRing\u2019 wearable product in the works, says leaker - 9to5Mac",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,52 +452,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-27 14:22:15",
-      "market_question": "Will Trump say \"Buy Dell Computer / Buy a Dell Computer\" in June?",
-      "headline": "Explosive drone targets Iranian Kurdish opposition camp north of Iraq's Erbil, security sources say - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-27 14:30:15",
+      "market_question": "Will Grok AI beat T1 in 2026? ",
+      "headline": "Steam Summer Sale 2026 arrives: 10 deals to know - Mashable",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 14:17:51",
-      "market_question": "Ukraine election called by June 30, 2026?",
-      "headline": "Ukraine strikes industrial facility in Volgograd; Russian drone kills man in Sumy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 14:17:51",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Ukraine strikes industrial facility in Volgograd; Russian drone kills man in Sumy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
