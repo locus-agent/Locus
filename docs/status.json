@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T15:56:55.336819+00:00",
-  "last_heartbeat": "2026-06-27T15:56:55.336819+00:00",
-  "uptime_seconds": 70039,
+  "generated_at": "2026-06-27T16:02:01.534530+00:00",
+  "last_heartbeat": "2026-06-27T16:02:01.534530+00:00",
+  "uptime_seconds": 70346,
   "dry_run": false,
-  "markets_tracked": 1319,
+  "markets_tracked": 1321,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9219,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 377,
-  "headlines_last_cycle": 5,
-  "signals_24h": 2,
-  "classifications_24h": 4108,
+  "headlines_scanned_today": 398,
+  "headlines_last_cycle": 0,
+  "signals_24h": 1,
+  "classifications_24h": 4173,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1645,
+    "prefiltered_haiku": 1659,
     "stale": 21,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -111,19 +111,19 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-27T15:45:25.162112+00:00"
+    "last_check": "2026-06-27T16:00:25.478661+00:00"
   },
   "edge_types_24h": {
-    "news": 2,
+    "news": 1,
     "momentum": 0,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 999,
-    "matched": 738,
-    "classified": 4108,
-    "signals": 2,
-    "trades": 2
+    "news": 1014,
+    "matched": 755,
+    "classified": 4173,
+    "signals": 1,
+    "trades": 1
   },
   "performance": {
     "trades_total": 35,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2112.4
+    "avg_classification_latency_ms": 2121.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 15:56:55",
-      "market_question": "OpenAI IPO closing market cap above $1.4T?",
-      "headline": "Stock market today: Dow, S&P 500, Nasdaq slide as report of OpenAI IPO delay rattles techs - Yahoo Finance",
+      "time": "2026-06-27 15:59:12",
+      "market_question": "Will Hezbollah win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "Lebanon\u2019s deal with Israel requires Hezbollah to disarm -- but that might be difficult - AP News",
       "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.62,
-      "edge": 0.12600000000000003,
-      "fee_cost": 0.008064000000000002,
+      "materiality": 0.05,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
       "time_horizon": "long_term",
-      "adjusted_materiality": 0.37,
-      "action": "stale",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 15:56:55",
-      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "The strawberry moon will soon rise. When to look up. - The Washington Post",
+      "time": "2026-06-27 15:59:12",
+      "market_question": "Will Popular Nasserist Organization win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "Lebanon\u2019s deal with Israel requires Hezbollah to disarm -- but that might be difficult - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 15:59:12",
+      "market_question": "Will the Union for Central African Renewal win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Central Europe sizzles as heat records are smashed in Switzerland, Denmark and Czech Republic - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,52 +407,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-27 15:56:52",
-      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
-      "headline": "Stock market today: Dow, S&P 500, Nasdaq slide as report of OpenAI IPO delay rattles techs - Yahoo Finance",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
+      "time": "2026-06-27 15:59:12",
+      "market_question": "Will the Central African Democratic Rally win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Central Europe sizzles as heat records are smashed in Switzerland, Denmark and Czech Republic - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.06999999999999999,
-      "action": "skip",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-27 15:56:51",
-      "market_question": "OpenAI IPO closing market cap above $1.6T?",
-      "headline": "Stock market today: Dow, S&P 500, Nasdaq slide as report of OpenAI IPO delay rattles techs - Yahoo Finance",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.62,
-      "edge": 0.12375000000000001,
-      "fee_cost": 0.007975000000000001,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.37,
-      "action": "stale",
-      "match_source": "embedding",
+      "time": "2026-06-27 15:59:12",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Central Europe sizzles as heat records are smashed in Switzerland, Denmark and Czech Republic - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 15:56:49",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "Stock market today: Dow, S&P 500, Nasdaq slide as report of OpenAI IPO delay rattles techs - Yahoo Finance",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "confidence": 0.65,
-      "edge": 0.14575000000000002,
-      "fee_cost": 0.007791,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.47000000000000003,
-      "action": "stale",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
