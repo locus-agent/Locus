@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T21:59:10.588887+00:00",
-  "last_heartbeat": "2026-06-27T21:59:10.588887+00:00",
-  "uptime_seconds": 91775,
+  "generated_at": "2026-06-27T22:04:12.148800+00:00",
+  "last_heartbeat": "2026-06-27T22:04:12.148800+00:00",
+  "uptime_seconds": 92076,
   "dry_run": false,
-  "markets_tracked": 1309,
+  "markets_tracked": 1299,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9376,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 618,
+  "headlines_scanned_today": 620,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 2875,
+  "classifications_24h": 2885,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1213,
+    "prefiltered_haiku": 1214,
     "stale": 24,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-27T21:45:35.107494+00:00"
+    "last_check": "2026-06-27T22:00:35.487391+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 697,
-    "matched": 588,
-    "classified": 2875,
+    "news": 699,
+    "matched": 590,
+    "classified": 2885,
     "signals": 4,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 1.49,
-    "total_pnl_usd": 53.35,
+    "unrealized_pnl_usd": 2.24,
+    "total_pnl_usd": 54.1,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2143.1
+    "avg_classification_latency_ms": 2143.5
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.41500000000000004,
-      "pnl_pct": 7.79,
+      "current_price": 0.43500000000000005,
+      "pnl_pct": 12.99,
       "amount_usd": 14.43,
-      "current_value_usd": 15.55,
-      "pnl_usd": 1.12,
+      "current_value_usd": 16.3,
+      "pnl_usd": 1.87,
       "edge_type": "momentum",
       "event_id": "73866"
     },
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.315,
+      "current_price": 0.31499999999999995,
       "pnl_pct": 1.48,
       "amount_usd": 24.99,
       "current_value_usd": 25.36,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 21:43:30",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Iraq's World Cup return ends with hope and hard truths - Reuters",
+      "time": "2026-06-27 22:03:15",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Bloomberg This Weekend: Iran Strikes, Venezuela, AI Election Influence - StartupHub.ai",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 22:03:11",
+      "market_question": "Peru Presidential Election Invalidated?",
+      "headline": "Bloomberg This Weekend: Iran Strikes, Venezuela, AI Election Influence - StartupHub.ai",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,68 +420,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 21:43:28",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Iraq's World Cup return ends with hope and hard truths - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-27 22:03:10",
+      "market_question": "Will the average monthly Ethereum gas price hit 25 Gwei before 2027?",
+      "headline": "AI Data Centers Fuel Boom for Gas Turbine Industry - StartupHub.ai",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-27 21:43:27",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Iraq's World Cup return ends with hope and hard truths - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-27 22:03:10",
+      "market_question": "Will the average monthly Ethereum gas price hit 20 Gwei before 2027?",
+      "headline": "AI Data Centers Fuel Boom for Gas Turbine Industry - StartupHub.ai",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-27 21:43:27",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Iraq's World Cup return ends with hope and hard truths - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-27 22:03:10",
+      "market_question": "Will the average monthly Ethereum gas price hit 40 Gwei before 2027?",
+      "headline": "AI Data Centers Fuel Boom for Gas Turbine Industry - StartupHub.ai",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 21:43:27",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Iraq's World Cup return ends with hope and hard truths - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -514,94 +514,103 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-26 22:00:37",
+      "time": "2026-06-27 22:00:39",
+      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Robert F. Kennedy Jr. leave the Trump adminis' \u2014 price moved +17%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-06-27 22:00:36",
       "market_question": "Will Anthropic or OpenAI IPO first?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Anthropic or OpenAI IPO first?' \u2014 price moved +17%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Anthropic or OpenAI IPO first?' \u2014 price moved +36%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-06-26 22:00:31",
+      "time": "2026-06-27 22:00:33",
       "market_question": "OpenAI $1t+ IPO before 2027?",
       "classification": "bearish",
       "actual_direction": "bearish",
       "lesson": "Missed strong bearish signal (mat=0.35) on 'OpenAI $1t+ IPO before 2027?' \u2014 price moved +32%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-06-26 22:00:29",
+      "time": "2026-06-27 22:00:31",
       "market_question": "Will Trump deport 400-500k people?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump deport 400-500k people?' \u2014 price moved +20%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump deport 400-500k people?' \u2014 price moved +12%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-26 22:00:26",
+      "time": "2026-06-27 22:00:28",
       "market_question": "Will Trump deport 400-500k people?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump deport 400-500k people?' \u2014 price moved +20%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-06-26 22:00:23",
-      "market_question": "Will Bitcoin reach $65,000 in June?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Bitcoin reach $65,000 in June?' \u2014 price moved +50%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump deport 400-500k people?' \u2014 price moved +12%. Consider lowering min_materiality for politics category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-26 22:00:37",
+      "time": "2026-06-27 22:00:39",
+      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
+      "slug": "who-will-leave-trump-administration-before-2027",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "low_materiality",
+      "pct_move": 16.5,
+      "reflection": "I underweighted a signal with 0.35 materiality on a binary political outcome, assuming the threshold was too low to justify action\u2014but 17% moves in prediction markets often come from information cascades rather than gradual repricing, meaning early positioning matters more than I credited. My skip cost me because I treated materiality as a hard floor rather than a probability-weighted opportunity, especially on a question where my bearish lean had directional conviction. I need to recalibrate: on binary events with clear signals, even moderate materiality deserves at least a small position to capture the optionality of being right early."
+    },
+    {
+      "time": "2026-06-27 22:00:36",
       "market_question": "Will Anthropic or OpenAI IPO first?",
       "slug": "will-anthropic-or-openai-ipo-first",
       "direction": "bullish",
       "materiality": 0.35,
       "action": "low_materiality",
-      "pct_move": 16.7,
-      "reflection": "I passed on a bullish signal with only 0.35 materiality, treating it as noise\u2014but I underweighted how binary and time-sensitive IPO events are; a 17% move shows the market repriced significant probability, and I should have recognized that even low-materiality signals can compound into outsized moves when they touch existential corporate events. My threshold logic failed here because materiality scoring doesn't account for volatility clustering around discrete catalysts, and I let a mechanical cutoff override the signal's actual information content. I need to recalibrate: low materiality doesn't mean low edge when the underlying event is structurally high-variance."
+      "pct_move": 35.6,
+      "reflection": "I skipped this signal because a 0.35 materiality threshold felt too uncertain to justify position sizing, but I underweighted how binary and attention-grabbing IPO timing actually is for market participants\u2014the 36% move shows that even modest conviction on such a high-stakes event can drive real capital flows. I let my risk-aversion to low-materiality signals override what should have been a straightforward bullish bet on a question where my prediction had directional clarity, even if confidence wasn't maximal."
     },
     {
-      "time": "2026-06-26 22:00:31",
+      "time": "2026-06-27 22:00:33",
       "market_question": "OpenAI $1t+ IPO before 2027?",
       "slug": "openai-1t-ipo-before-2027",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "low_materiality",
       "pct_move": 32.1,
-      "reflection": "I underweighted a signal with 0.35 materiality because I'd calibrated my threshold too conservatively\u2014but 32% directional movement shows the market priced real optionality I dismissed. The bearish case on OpenAI's $1t+ IPO valuation before 2027 had genuine structural merit (burn rate, competitive pressure, regulatory risk), and I should have taken the position even at lower materiality rather than hiding behind a mechanical cutoff. I let process override judgment: low materiality doesn't mean low edge, especially on binary catalysts where being right matters more than being right often."
+      "reflection": "I underweighted a signal with clearer predictive power than my materiality threshold captured\u2014the 32% move vindicated the bearish case, but I filtered it out at 0.35 because I was anchored to an arbitrary cutoff rather than asking whether the signal's logic was sound. I should have recognized that binary event bets (IPO timing, yes/no outcomes) can generate outsized moves even at moderate confidence levels, and that skipping them entirely leaves real alpha on the table. Next time I need to separate \"low conviction\" from \"low impact potential\" rather than treating them as the same reason to pass."
     },
     {
-      "time": "2026-06-26 22:00:29",
+      "time": "2026-06-27 22:00:31",
       "market_question": "Will Trump deport 400-500k people?",
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "direction": "bullish",
       "materiality": 0.35,
       "action": "low_materiality",
-      "pct_move": 20.3,
-      "reflection": "I underweighted a signal with 0.35 materiality on a binary political outcome that clearly had outsized market impact\u2014the 20% move proves the market priced this as far more material than my threshold suggested. My low_materiality skip was a mechanical error: I treated materiality as a fixed calibration problem when I should have recognized that immigration policy directly moves multiple asset classes, and a 35% materiality score on a Trump policy question during his presidency warranted engagement regardless of my baseline thresholds. I need to recalibrate what \"low\" means in high-stakes political markets where binary outcomes can cascade through markets faster than my risk-aversion assumptions account for."
+      "pct_move": 12.2,
+      "reflection": "I underweighted a signal that had clearer predictive power than my materiality threshold suggested\u2014a 0.35 score on immigration policy should have registered as more actionable given the market's actual sensitivity to Trump deportation announcements. My rigid adherence to the low_materiality filter cost me 12% of a directional move I'd correctly identified as bullish, revealing that my calibration conflates \"uncertain magnitude\" with \"not worth trading.\" I need to recalibrate: a well-reasoned signal with moderate materiality but high conviction should override my threshold rules when the directional call is sound."
     },
     {
-      "time": "2026-06-26 22:00:26",
+      "time": "2026-06-27 22:00:28",
       "market_question": "Will Trump deport 400-500k people?",
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "direction": "bullish",
       "materiality": 0.35,
       "action": "low_materiality",
-      "pct_move": 20.3,
-      "reflection": "I underweighted a signal that had clearer predictive power than my materiality threshold captured\u2014a 0.35 score should have flagged the gap between my confidence calibration and actual market sensitivity to immigration policy outcomes. The 20% move revealed that political deportation announcements carry outsized market impact beyond what my linear materiality model accounts for, likely because they cascade into labor costs, sector rotation, and inflation expectations. I need to recalibrate how I weight policy signals that touch multiple economic vectors, not just their isolated importance."
-    },
-    {
-      "time": "2026-06-26 22:00:23",
-      "market_question": "Will Bitcoin reach $65,000 in June?",
-      "slug": "what-price-will-bitcoin-hit-in-june-2026",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "action": "skip",
-      "pct_move": 50.0,
-      "reflection": "I issued a bearish signal with only moderate conviction (0.45 materiality), then skipped acting on it entirely\u2014and Bitcoin moved exactly as I predicted, gaining 50% toward that $65k target. My hesitation cost me real opportunity: I had the directional thesis right but lacked the confidence to commit, revealing a gap between my analysis and my risk tolerance that I need to examine. The skip wasn't caution; it was indecision masquerading as prudence."
+      "pct_move": 12.2,
+      "reflection": "I underweighted a signal that combined clear directional conviction with genuine market-moving potential\u2014the 12% move validates that 0.35 materiality was actually conservative given the political salience and real economic implications of mass deportation policy. My threshold for \"low materiality\" was mechanically applied without accounting for how binary political outcomes can compress uncertainty into sharp repricing events, even when base-rate conviction is moderate. I should have recognized that materiality isn't just about my confidence level, but about how much the market *cares*, and I clearly missed the latter."
     }
   ],
   "pending_suggestions": [
+    {
+      "id": 4,
+      "type": "low_materiality",
+      "text": "2+ ai low_materiality misses \u2014 consider lowering materiality threshold by 0.05",
+      "category": "ai",
+      "avg_pct_move": 32.1,
+      "miss_count": 2,
+      "time": "2026-06-27 22:00:34"
+    },
     {
       "id": 3,
       "type": "low_materiality",
