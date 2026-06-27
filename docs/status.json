@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T08:54:03.091997+00:00",
-  "last_heartbeat": "2026-06-27T08:54:03.091997+00:00",
-  "uptime_seconds": 44667,
+  "generated_at": "2026-06-27T08:59:08.741571+00:00",
+  "last_heartbeat": "2026-06-27T08:59:08.741571+00:00",
+  "uptime_seconds": 44973,
   "dry_run": false,
-  "markets_tracked": 1318,
+  "markets_tracked": 1320,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9187,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 189,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 191,
+  "headlines_last_cycle": 2,
   "signals_24h": 1,
-  "classifications_24h": 5589,
+  "classifications_24h": 5587,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2196,
+    "prefiltered_haiku": 2198,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1402,
+    "news": 1403,
     "matched": 774,
-    "classified": 5589,
+    "classified": 5587,
     "signals": 1,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1991.6
+    "avg_classification_latency_ms": 1988.3
   },
   "live_readiness": {
     "ready": false,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 08:48:07",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "LVMH and Accor's Orient Express sets its sights on new tech billionaire class - Reuters",
+      "time": "2026-06-27 08:59:08",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Egypt advances past group stage at the World Cup after a 1-1 draw with Iran - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,25 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 08:48:07",
-      "market_question": "Will Bitmine announce that it holds more than 9M ETH before 2027?",
-      "headline": "LVMH and Accor's Orient Express sets its sights on new tech billionaire class - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 08:48:07",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "LVMH and Accor's Orient Express sets its sights on new tech billionaire class - Reuters",
+      "time": "2026-06-27 08:59:08",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Egypt advances past group stage at the World Cup after a 1-1 draw with Iran - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,36 +420,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 08:48:06",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "LVMH and Accor's Orient Express sets its sights on new tech billionaire class - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-27 08:59:07",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Egypt advances past group stage at the World Cup after a 1-1 draw with Iran - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-27 08:48:06",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "LVMH and Accor's Orient Express sets its sights on new tech billionaire class - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-27 08:59:07",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Egypt advances past group stage at the World Cup after a 1-1 draw with Iran - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 08:59:07",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Egypt advances past group stage at the World Cup after a 1-1 draw with Iran - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
