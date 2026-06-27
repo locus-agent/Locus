@@ -1,94 +1,94 @@
 {
-  "generated_at": "2026-06-27T12:33:05.268057+00:00",
-  "last_heartbeat": "2026-06-27T12:33:05.268057+00:00",
-  "uptime_seconds": 57809,
+  "generated_at": "2026-06-27T12:38:11.378989+00:00",
+  "last_heartbeat": "2026-06-27T12:38:11.378989+00:00",
+  "uptime_seconds": 58115,
   "dry_run": false,
-  "markets_tracked": 1317,
+  "markets_tracked": 1315,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9187,
-    "accuracy": 17.7,
+    "total": 9219,
+    "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
       "ai": 11.7,
       "politics": 21.2,
-      "technology": 13.0,
-      "crypto": 15.5,
+      "technology": 12.8,
+      "crypto": 15.4,
       "sports": 26.2
     },
     "by_source": {
-      "rss": 17.7,
+      "rss": 17.6,
       "newsapi": 18.3,
       "truthsocial": 8.2
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 17.7,
-    "overall_total": 9187,
+    "overall_accuracy": 17.6,
+    "overall_total": 9219,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5219,
+        "total": 5233,
         "correct": 364,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 10.92,
+        "avg_pnl_pct": 10.83,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 805,
+        "total": 807,
         "correct": 293,
-        "accuracy_pct": 36.4,
-        "avg_pnl_pct": 26.15,
+        "accuracy_pct": 36.3,
+        "avg_pnl_pct": 26.08,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 967,
+        "total": 969,
         "correct": 369,
-        "accuracy_pct": 38.2,
-        "avg_pnl_pct": 4.32,
+        "accuracy_pct": 38.1,
+        "avg_pnl_pct": 4.3,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 522,
+        "total": 525,
         "correct": 146,
-        "accuracy_pct": 28.0,
-        "avg_pnl_pct": -1.08,
+        "accuracy_pct": 27.8,
+        "avg_pnl_pct": -1.28,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 496,
+        "total": 505,
         "correct": 221,
-        "accuracy_pct": 44.6,
-        "avg_pnl_pct": 3.5,
+        "accuracy_pct": 43.8,
+        "avg_pnl_pct": 2.25,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1178,
+        "total": 1180,
         "correct": 232,
         "accuracy_pct": 19.7,
-        "avg_pnl_pct": -2.47,
+        "avg_pnl_pct": -2.64,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 280,
+  "headlines_scanned_today": 291,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5128,
+  "classifications_24h": 5161,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2042,
+    "prefiltered_haiku": 2051,
     "stale": 13,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1279,
-    "matched": 776,
-    "classified": 5128,
+    "news": 1288,
+    "matched": 783,
+    "classified": 5161,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2050.9
+    "avg_classification_latency_ms": 2051.4
   },
   "live_readiness": {
     "ready": false,
@@ -388,57 +388,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 12:10:31",
-      "market_question": "Will Bitcoin reach $61,000 on June 27?",
-      "headline": "Strategy's valuation has fallen below the value of its bitcoin holdings",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-27 12:36:44",
+      "market_question": "Will Trump say \"Buy Dell Computer / Buy a Dell Computer\" in June?",
+      "headline": "Small plane crash at Beijing high-rise kills the pilot and injures 13, authorities say - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-27 12:10:31",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "Strategy's valuation has fallen below the value of its bitcoin holdings",
+      "time": "2026-06-27 12:35:10",
+      "market_question": "Ethereum all time high by June 30, 2026?",
+      "headline": "June's strawberry full moon peaks next week. Here's when and how to see it. - Yahoo",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 12:10:30",
-      "market_question": "Will Bitcoin reach $62,500 in June?",
-      "headline": "Strategy's valuation has fallen below the value of its bitcoin holdings",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 12:10:26",
-      "market_question": "Will Bitcoin reach $62,000 on June 27?",
-      "headline": "Strategy's valuation has fallen below the value of its bitcoin holdings",
+      "time": "2026-06-27 12:35:09",
+      "market_question": "Will Trump visit Pakistan by June 30?",
+      "headline": "Bangladesh, China agree to deepen Teesta cooperation during Rahman's Beijing visit - The Times of India",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +436,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 12:10:25",
-      "market_question": "Bitcoin Up or Down on June 27?",
-      "headline": "Strategy's valuation has fallen below the value of its bitcoin holdings",
+      "time": "2026-06-27 12:35:09",
+      "market_question": "Will Donald Trump visit India in 2026?",
+      "headline": "Bangladesh, China agree to deepen Teesta cooperation during Rahman's Beijing visit - The Times of India",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -466,6 +450,22 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 12:35:09",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "June's strawberry full moon peaks next week. Here's when and how to see it. - Yahoo",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
