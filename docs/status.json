@@ -1,94 +1,94 @@
 {
-  "generated_at": "2026-06-27T20:32:21.168834+00:00",
-  "last_heartbeat": "2026-06-27T20:32:21.168834+00:00",
-  "uptime_seconds": 86565,
+  "generated_at": "2026-06-27T20:37:27.577675+00:00",
+  "last_heartbeat": "2026-06-27T20:37:27.577675+00:00",
+  "uptime_seconds": 86872,
   "dry_run": false,
   "markets_tracked": 1302,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9311,
-    "accuracy": 17.5,
+    "total": 9376,
+    "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
-      "ai": 11.7,
-      "politics": 21.0,
-      "technology": 12.6,
-      "crypto": 15.2,
+      "ai": 11.6,
+      "politics": 20.9,
+      "technology": 12.7,
+      "crypto": 15.6,
       "sports": 26.2
     },
     "by_source": {
-      "rss": 17.5,
-      "newsapi": 18.1,
-      "truthsocial": 6.6
+      "rss": 17.6,
+      "newsapi": 18.3,
+      "truthsocial": 7.0
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 17.5,
-    "overall_total": 9311,
+    "overall_accuracy": 17.6,
+    "overall_total": 9376,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5281,
-        "correct": 365,
+        "total": 5317,
+        "correct": 368,
         "accuracy_pct": 6.9,
-        "avg_pnl_pct": 10.71,
+        "avg_pnl_pct": 10.57,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 820,
-        "correct": 293,
-        "accuracy_pct": 35.7,
-        "avg_pnl_pct": 25.42,
+        "total": 826,
+        "correct": 294,
+        "accuracy_pct": 35.6,
+        "avg_pnl_pct": 25.23,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 975,
-        "correct": 369,
-        "accuracy_pct": 37.8,
-        "avg_pnl_pct": 4.27,
+        "total": 990,
+        "correct": 379,
+        "accuracy_pct": 38.3,
+        "avg_pnl_pct": 4.63,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 534,
-        "correct": 150,
-        "accuracy_pct": 28.1,
-        "avg_pnl_pct": -1.24,
+        "total": 538,
+        "correct": 154,
+        "accuracy_pct": 28.6,
+        "avg_pnl_pct": -0.98,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 513,
+        "total": 515,
         "correct": 221,
-        "accuracy_pct": 43.1,
-        "avg_pnl_pct": 1.66,
+        "accuracy_pct": 42.9,
+        "avg_pnl_pct": 1.62,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1188,
+        "total": 1190,
         "correct": 232,
         "accuracy_pct": 19.5,
-        "avg_pnl_pct": -2.89,
+        "avg_pnl_pct": -2.87,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 563,
+  "headlines_scanned_today": 566,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 3176,
+  "classifications_24h": 3083,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1310,
+    "prefiltered_haiku": 1289,
     "stale": 27,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 782,
-    "matched": 665,
-    "classified": 3176,
+    "news": 761,
+    "matched": 644,
+    "classified": 3083,
     "signals": 3,
     "trades": 3
   },
@@ -374,9 +374,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 20:31:04",
+      "time": "2026-06-27 20:35:27",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Blues acquire D Brandon Carlo from Maple Leafs - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-27 20:35:27",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "Blues acquire D Brandon Carlo from Maple Leafs - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-27 20:33:15",
       "market_question": "Venezuela election scheduled by December 31, 2026?",
-      "headline": "'Every person saved is a miracle': Families call to trapped loved ones in region devastated by Venezuela quakes",
+      "headline": "Frustration grows in Venezuela as earthquake death toll reaches 1,430 - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -390,9 +422,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-27 20:31:04",
+      "time": "2026-06-27 20:33:15",
       "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
-      "headline": "'Every person saved is a miracle': Families call to trapped loved ones in region devastated by Venezuela quakes",
+      "headline": "Frustration grows in Venezuela as earthquake death toll reaches 1,430 - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,9 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-27 20:31:04",
-      "market_question": "Will another person win the first round of the 2026 Brazilian presidential election?",
-      "headline": "'Every person saved is a miracle': Families call to trapped loved ones in region devastated by Venezuela quakes",
+      "time": "2026-06-27 20:33:15",
+      "market_question": "Will Solana Sierra be the 2026 Women\u2019s Wimbledon Winner?",
+      "headline": "Zverev and Andreeva ride Paris highs into Wimbledon - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,38 +452,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 20:13:35",
-      "market_question": "Will the price of Bitcoin be above $62,000 on June 28?",
-      "headline": "(BIDG.O) | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 20:13:34",
-      "market_question": "Will the price of Bitcoin be above $60,000 on June 28?",
-      "headline": "(BIDG.O) | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
