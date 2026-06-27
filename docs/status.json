@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T18:04:26.431019+00:00",
-  "last_heartbeat": "2026-06-27T18:04:26.431019+00:00",
-  "uptime_seconds": 77690,
+  "generated_at": "2026-06-27T18:09:32.888052+00:00",
+  "last_heartbeat": "2026-06-27T18:09:32.888052+00:00",
+  "uptime_seconds": 77997,
   "dry_run": false,
-  "markets_tracked": 1305,
+  "markets_tracked": 1301,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9311,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 466,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 485,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3666,
+  "classifications_24h": 3750,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1462,
-    "stale": 21,
+    "prefiltered_haiku": 1496,
+    "stale": 24,
     "capped": 0,
     "too_close_to_resolution": 4,
     "sports_disabled": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 904,
-    "matched": 712,
-    "classified": 3666,
+    "news": 919,
+    "matched": 728,
+    "classified": 3750,
     "signals": 2,
     "trades": 2
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 56.7,
     "realized_pnl_usd": 51.47,
-    "unrealized_pnl_usd": 0.67,
-    "total_pnl_usd": 52.13,
+    "unrealized_pnl_usd": 0.56,
+    "total_pnl_usd": 52.02,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2140.8
+    "avg_classification_latency_ms": 2162.2
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-28-2026",
       "side": "NO",
       "entry_price": 0.465,
-      "current_price": 0.345,
-      "pnl_pct": 22.43,
+      "current_price": 0.365,
+      "pnl_pct": 18.69,
       "amount_usd": 2.97,
-      "current_value_usd": 3.64,
-      "pnl_usd": 0.67,
+      "current_value_usd": 3.53,
+      "pnl_usd": 0.56,
       "edge_type": "news",
       "event_id": "637204"
     }
@@ -374,25 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 18:04:16",
-      "market_question": "Aleksandar Vu\u010di\u0107 out as Serbian President by June 30, 2026?",
-      "headline": "Serbia President Vucic says to resign within weeks, one year before end of mandate - Reuters",
-      "direction": "bullish",
-      "materiality": 0.75,
-      "confidence": 0.82,
-      "edge": 0.6375,
-      "fee_cost": 0.0051,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.75,
-      "action": "needs_confirmation",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 18:04:14",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Serbia President Vucic says to resign within weeks, one year before end of mandate - Reuters",
+      "time": "2026-06-27 18:07:10",
+      "market_question": "FDA approves Arcalyst technology transfer?",
+      "headline": "IBM Unveils World\u2019s First Sub-1-Nanometer Chip Technology - Gizmodo",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -406,9 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 18:04:11",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Serbia President Vucic says to resign within weeks, one year before end of mandate - Reuters",
+      "time": "2026-06-27 18:07:10",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "IBM Unveils World\u2019s First Sub-1-Nanometer Chip Technology - Gizmodo",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -422,36 +406,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 18:04:10",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "Serbia President Vucic says to resign within weeks, one year before end of mandate - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-27 18:07:09",
+      "market_question": "Will Solana Sierra be the 2026 Women\u2019s Wimbledon Winner?",
+      "headline": "GMC introduces the most advanced, luxurious, and powerful Sierra 1500 Ever - GMC Newsroom",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-27 18:04:10",
-      "market_question": "Miguel D\u00edaz-Canel out as President of Cuba by June 30?",
-      "headline": "Serbia President Vucic says to resign within weeks, one year before end of mandate - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-27 18:07:09",
+      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
+      "headline": "GMC introduces the most advanced, luxurious, and powerful Sierra 1500 Ever - GMC Newsroom",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-27 18:07:09",
+      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
+      "headline": "GMC introduces the most advanced, luxurious, and powerful Sierra 1500 Ever - GMC Newsroom",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
