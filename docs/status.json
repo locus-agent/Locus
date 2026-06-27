@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T22:19:29.766974+00:00",
-  "last_heartbeat": "2026-06-27T22:19:29.766974+00:00",
-  "uptime_seconds": 92994,
+  "generated_at": "2026-06-27T22:24:35.551283+00:00",
+  "last_heartbeat": "2026-06-27T22:24:35.551283+00:00",
+  "uptime_seconds": 93300,
   "dry_run": false,
-  "markets_tracked": 1302,
+  "markets_tracked": 1299,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9376,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 631,
+  "headlines_scanned_today": 632,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 2893,
+  "classifications_24h": 2887,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1227,
+    "prefiltered_haiku": 1225,
     "stale": 24,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 703,
     "matched": 591,
-    "classified": 2893,
+    "classified": 2887,
     "signals": 4,
     "trades": 4
   },
@@ -134,8 +134,8 @@
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 1.87,
-    "total_pnl_usd": 53.72,
+    "unrealized_pnl_usd": 2.24,
+    "total_pnl_usd": 54.1,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -194,11 +194,11 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.425,
-      "pnl_pct": 10.39,
+      "current_price": 0.435,
+      "pnl_pct": 12.99,
       "amount_usd": 14.43,
-      "current_value_usd": 15.93,
-      "pnl_usd": 1.5,
+      "current_value_usd": 16.3,
+      "pnl_usd": 1.87,
       "edge_type": "momentum",
       "event_id": "73866"
     },
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-27 22:22:55",
+      "market_question": "Will Eric Vaughan advance to the general election for WA-03?",
+      "headline": "England's lack of overs when batting is 'not good enough' - Vaughan",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-27 22:18:34",
       "market_question": "Will Alycia Gruenhagen be the Republican nominee for Senate in Minnesota?",
       "headline": "Minnesota - AP News",
@@ -450,22 +466,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 22:18:32",
-      "market_question": "Will Melisa Hortman be the Democratic nominee for Senate in Minnesota?",
-      "headline": "Minnesota - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
