@@ -1,94 +1,94 @@
 {
-  "generated_at": "2026-06-27T00:35:02.593466+00:00",
-  "last_heartbeat": "2026-06-27T00:35:02.593466+00:00",
-  "uptime_seconds": 14727,
+  "generated_at": "2026-06-27T00:40:08.615404+00:00",
+  "last_heartbeat": "2026-06-27T00:40:08.615404+00:00",
+  "uptime_seconds": 15033,
   "dry_run": false,
-  "markets_tracked": 1343,
+  "markets_tracked": 1341,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9154,
+    "total": 9160,
     "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
       "ai": 11.7,
       "politics": 21.2,
-      "technology": 13.0,
+      "technology": 12.9,
       "crypto": 15.2,
       "sports": 26.2
     },
     "by_source": {
       "rss": 17.6,
-      "newsapi": 18.4,
+      "newsapi": 18.3,
       "truthsocial": 8.2
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 17.5,
-    "overall_total": 9126,
+    "overall_accuracy": 17.6,
+    "overall_total": 9160,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5192,
-        "correct": 362,
+        "total": 5207,
+        "correct": 363,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 11.0,
+        "avg_pnl_pct": 10.96,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 799,
+        "total": 802,
         "correct": 293,
-        "accuracy_pct": 36.7,
-        "avg_pnl_pct": 26.44,
+        "accuracy_pct": 36.5,
+        "avg_pnl_pct": 26.33,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 955,
-        "correct": 357,
-        "accuracy_pct": 37.4,
-        "avg_pnl_pct": 4.04,
+        "total": 962,
+        "correct": 364,
+        "accuracy_pct": 37.8,
+        "avg_pnl_pct": 4.1,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 515,
-        "correct": 142,
-        "accuracy_pct": 27.6,
-        "avg_pnl_pct": -0.84,
+        "total": 520,
+        "correct": 145,
+        "accuracy_pct": 27.9,
+        "avg_pnl_pct": -0.92,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 491,
-        "correct": 216,
-        "accuracy_pct": 44.0,
-        "avg_pnl_pct": 3.46,
+        "total": 493,
+        "correct": 218,
+        "accuracy_pct": 44.2,
+        "avg_pnl_pct": 3.49,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1174,
+        "total": 1176,
         "correct": 231,
-        "accuracy_pct": 19.7,
-        "avg_pnl_pct": -2.51,
+        "accuracy_pct": 19.6,
+        "avg_pnl_pct": -2.5,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 10,
+  "headlines_scanned_today": 17,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5846,
+  "classifications_24h": 5849,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2331,
+    "prefiltered_haiku": 2336,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1477,
-    "matched": 797,
-    "classified": 5846,
+    "news": 1481,
+    "matched": 799,
+    "classified": 5849,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1933.5
+    "avg_classification_latency_ms": 1928.6
   },
   "live_readiness": {
     "ready": false,
@@ -388,57 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 00:33:46",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "Religion row as Texas makes Bible stories required reading in schools",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 00:33:46",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "Religion row as Texas makes Bible stories required reading in schools",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 00:33:46",
-      "market_question": "Will Texas use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Religion row as Texas makes Bible stories required reading in schools",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 00:29:24",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "How completing the World Cup sticker book is like having a second job",
+      "time": "2026-06-27 00:38:10",
+      "market_question": "Will Trump launch a coin by December 31?",
+      "headline": "Why GTA 6 will launch without a disc - and what it means for gamers",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 00:29:24",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "How completing the World Cup sticker book is like having a second job",
+      "time": "2026-06-27 00:38:10",
+      "market_question": "Will OpenAI launch a token before 2027?",
+      "headline": "Why GTA 6 will launch without a disc - and what it means for gamers",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -466,6 +418,54 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 00:38:10",
+      "market_question": "Will X launch a USD stablecoin in 2026?",
+      "headline": "Why GTA 6 will launch without a disc - and what it means for gamers",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 00:38:10",
+      "market_question": "Will the Republicans win the West Virginia Senate race in 2026?",
+      "headline": "They quit the West for Russia's traditional values, but it wasn't what they expected",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-27 00:38:09",
+      "market_question": "Will there be no Somaliland parliamentary election before 2027?",
+      "headline": "Going to a festival as a neurodivergent person can be tough - but there are ways to recharge",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
