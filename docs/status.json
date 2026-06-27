@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T02:27:04.309452+00:00",
-  "last_heartbeat": "2026-06-27T02:27:04.309452+00:00",
-  "uptime_seconds": 21448,
+  "generated_at": "2026-06-27T02:32:10.092542+00:00",
+  "last_heartbeat": "2026-06-27T02:32:10.092542+00:00",
+  "uptime_seconds": 21754,
   "dry_run": false,
-  "markets_tracked": 1340,
+  "markets_tracked": 1344,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9160,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 59,
+  "headlines_scanned_today": 75,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5830,
+  "classifications_24h": 5866,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2309,
+    "prefiltered_haiku": 2318,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-27T02:15:02.043021+00:00"
+    "last_check": "2026-06-27T02:30:02.375450+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1478,
-    "matched": 798,
-    "classified": 5830,
+    "news": 1491,
+    "matched": 807,
+    "classified": 5866,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.55,
     "kelly_factor": 0.7,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1937.5
+    "avg_classification_latency_ms": 1934.3
   },
   "live_readiness": {
     "ready": false,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-27 02:21:25",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "France looks like team to beat and Senegal routs Iraq on Day 16 of the World Cup, in photos - AP News",
+      "time": "2026-06-27 02:30:18",
+      "market_question": "Will Trump and Putin meet next in United States?",
+      "headline": "Joint Statement Following the Ministerial Meeting of the United States and the Gulf Cooperation Council (GCC) - U.S. Department of State (.gov)",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,68 +404,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-27 02:21:25",
+      "time": "2026-06-27 02:30:18",
+      "market_question": "Will Trump and Putin meet next in United States?",
+      "headline": "Joint Statement Following the Ministerial Meeting of the United States and the Gulf Cooperation Council (GCC) - U.S. Department of State (.gov)",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 02:30:18",
+      "market_question": "Will Trump say \"Buy Dell Computer / Buy a Dell Computer\" in June?",
+      "headline": "12-year-old boy rushed to hospital after shark attacks him in Bahamas, police say - Fox News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-27 02:30:18",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Even 5-Minute Movement Breaks Can Boost Your Mood And Fight Fatigue - U.S. News & World Report",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-27 02:30:18",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "France looks like team to beat and Senegal routs Iraq on Day 16 of the World Cup, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "headline": "Even 5-Minute Movement Breaks Can Boost Your Mood And Fight Fatigue - U.S. News & World Report",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 02:21:25",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "France looks like team to beat and Senegal routs Iraq on Day 16 of the World Cup, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 02:21:25",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "France looks like team to beat and Senegal routs Iraq on Day 16 of the World Cup, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 02:21:25",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "France looks like team to beat and Senegal routs Iraq on Day 16 of the World Cup, in photos - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
