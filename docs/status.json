@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-27T15:05:58.634835+00:00",
-  "last_heartbeat": "2026-06-27T15:05:58.634835+00:00",
-  "uptime_seconds": 66983,
+  "generated_at": "2026-06-27T15:11:05.048772+00:00",
+  "last_heartbeat": "2026-06-27T15:11:05.048772+00:00",
+  "uptime_seconds": 67289,
   "dry_run": false,
-  "markets_tracked": 1317,
+  "markets_tracked": 1319,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9219,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 365,
+  "headlines_scanned_today": 366,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5135,
+  "classifications_24h": 5108,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2031,
+    "prefiltered_haiku": 2020,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1259,
-    "matched": 823,
-    "classified": 5135,
+    "news": 1256,
+    "matched": 822,
+    "classified": 5108,
     "signals": 2,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2093.2
+    "avg_classification_latency_ms": 2095.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,6 +359,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-27 15:08:27",
+      "market_question": "Will Trump visit Pakistan by June 30?",
+      "headline": "Strong earthquake hits Hindu Kush, shaking Afghanistan and Pakistan - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-27 15:08:21",
+      "market_question": "Will Donald Trump visit Pakistan in 2026?",
+      "headline": "Strong earthquake hits Hindu Kush, shaking Afghanistan and Pakistan - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-27 15:03:59",
       "market_question": "Will Michael Minogue win the 2026 Massachusetts Governor Republican primary election?",
       "headline": "Is the next Mamdani in Michigan? - Politico",
@@ -405,38 +437,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-27 15:03:58",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Is the next Mamdani in Michigan? - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-27 15:03:58",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "Is the next Mamdani in Michigan? - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
