@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T02:19:00.486081+00:00",
-  "last_heartbeat": "2026-06-28T02:19:00.486081+00:00",
-  "uptime_seconds": 107365,
+  "generated_at": "2026-06-28T02:24:07.208051+00:00",
+  "last_heartbeat": "2026-06-28T02:24:07.208051+00:00",
+  "uptime_seconds": 107671,
   "dry_run": false,
-  "markets_tracked": 1321,
+  "markets_tracked": 1322,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9402,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 92,
+  "headlines_scanned_today": 99,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 2974,
+  "classifications_24h": 2999,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1227,
+    "prefiltered_haiku": 1243,
     "stale": 23,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 729,
-    "matched": 608,
-    "classified": 2974,
+    "news": 734,
+    "matched": 613,
+    "classified": 2999,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2125.9
+    "avg_classification_latency_ms": 2122.6
   },
   "live_readiness": {
     "ready": true,
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.3,
+      "current_price": 0.30000000000000004,
       "pnl_pct": 3.7,
       "amount_usd": 24.99,
       "current_value_usd": 25.92,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 02:17:21",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Harry Kane scores vs. Panama to become England\u2019s all-time World Cup goal-scoring leader - AP News",
+      "time": "2026-06-28 02:21:45",
+      "market_question": "Will Ronaldo Caiado finish in third place in the first round of the 2026 Brazilian presidential election?",
+      "headline": "Ronaldo, Portugal now know their path in Round of 32 of this World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -399,30 +399,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 02:17:20",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Harry Kane scores vs. Panama to become England\u2019s all-time World Cup goal-scoring leader - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 02:17:20",
+      "time": "2026-06-28 02:21:44",
       "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Harry Kane scores vs. Panama to become England\u2019s all-time World Cup goal-scoring leader - AP News",
+      "headline": "Ronaldo, Portugal now know their path in Round of 32 of this World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,9 +420,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 02:17:20",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Harry Kane scores vs. Panama to become England\u2019s all-time World Cup goal-scoring leader - AP News",
+      "time": "2026-06-28 02:21:44",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Ronaldo, Portugal now know their path in Round of 32 of this World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +436,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 02:17:20",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Harry Kane scores vs. Panama to become England\u2019s all-time World Cup goal-scoring leader - AP News",
+      "time": "2026-06-28 02:21:44",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Ronaldo, Portugal now know their path in Round of 32 of this World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,6 +448,22 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 02:21:44",
+      "market_question": "Will Carlos Roberto Massa J\u00fanior finish in third place in the first round of the 2026 Brazilian presidential election?",
+      "headline": "Ronaldo, Portugal now know their path in Round of 32 of this World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
