@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T11:49:43.951575+00:00",
-  "last_heartbeat": "2026-06-28T11:49:43.951575+00:00",
-  "uptime_seconds": 141608,
+  "generated_at": "2026-06-28T11:54:50.323737+00:00",
+  "last_heartbeat": "2026-06-28T11:54:50.323737+00:00",
+  "uptime_seconds": 141914,
   "dry_run": false,
-  "markets_tracked": 1332,
+  "markets_tracked": 1333,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9421,
@@ -85,7 +85,7 @@
   "headlines_scanned_today": 387,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 3254,
+  "classifications_24h": 3251,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1400,
@@ -119,23 +119,23 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 809,
-    "matched": 670,
-    "classified": 3254,
+    "news": 806,
+    "matched": 669,
+    "classified": 3251,
     "signals": 4,
     "trades": 3
   },
   "performance": {
     "trades_total": 38,
     "deployed_usd": 808.31,
-    "open_count": 2,
+    "open_count": 0,
     "closed_count": 31,
     "wins": 18,
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 1.86,
-    "total_pnl_usd": 53.72,
+    "unrealized_pnl_usd": 0.0,
+    "total_pnl_usd": 51.85,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -184,40 +184,35 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0617,
+    "drawdown_7d": 0.052,
     "sharpe_7d": 0.08
   },
-  "open_positions": [
+  "open_positions": [],
+  "closed_positions": [
     {
-      "time": "2026-06-27 20:40:00",
-      "market_question": "Will Trump deport 400-500k people?",
-      "slug": "how-many-people-will-trump-deport-in-2026-823",
-      "side": "YES",
-      "entry_price": 0.385,
-      "current_price": 0.41500000000000004,
-      "pnl_pct": 7.79,
-      "amount_usd": 14.43,
-      "current_value_usd": 15.55,
-      "pnl_usd": 1.12,
-      "edge_type": "momentum",
-      "event_id": "73866"
-    },
-    {
-      "time": "2026-06-27 18:37:15",
+      "time": "2026-06-28 11:54:33",
       "market_question": "Will Dan Sullivan win the Alaska Senate race in 2026?",
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.305,
-      "pnl_pct": 2.96,
-      "amount_usd": 24.99,
-      "current_value_usd": 25.73,
-      "pnl_usd": 0.74,
-      "edge_type": "news",
-      "event_id": "59233"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": null,
+      "realized_pnl_usd": 0.0,
+      "exit_reason": "phantom_position",
+      "event_id": "59233",
+      "partial": false
+    },
+    {
+      "time": "2026-06-28 11:54:33",
+      "market_question": "Will Trump deport 400-500k people?",
+      "slug": "how-many-people-will-trump-deport-in-2026-823",
+      "side": "YES",
+      "entry_price": 0.385,
+      "exit_price": null,
+      "realized_pnl_usd": 0.0,
+      "exit_reason": "phantom_position",
+      "event_id": "73866",
+      "partial": false
+    },
     {
       "time": "2026-06-27T19:12:55.829761+00:00",
       "market_question": "Bitcoin Up or Down on June 28?",
@@ -312,30 +307,6 @@
       "realized_pnl_usd": 7.619047619047619,
       "exit_reason": "manual",
       "event_id": "528020",
-      "partial": false
-    },
-    {
-      "time": "2026-06-21T14:03:31.526898+00:00",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "slug": "candidates-in-next-labour-leadership-election",
-      "side": "NO",
-      "entry_price": 0.345,
-      "exit_price": 0.135,
-      "realized_pnl_usd": 5.629770992366409,
-      "exit_reason": "UPD: \u00bd closed +13% \u2192 fully closed +32%",
-      "event_id": "481681",
-      "partial": true
-    },
-    {
-      "time": "2026-06-19T17:14:37.987454+00:00",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "slug": "maine-senate-election-winner",
-      "side": "NO",
-      "entry_price": 0.375,
-      "exit_price": 0.375,
-      "realized_pnl_usd": 0.0,
-      "exit_reason": "manual",
-      "event_id": "57650",
       "partial": false
     }
   ],
