@@ -98,6 +98,40 @@ def test_parse_offset_date_normalized_to_utc():
     assert dt == datetime(2026, 6, 23, 12, 30, tzinfo=timezone.utc)
 
 
+def test_parse_rfc822_with_zone_name():
+    dt = scraper._parse_rss_date(_Entry(published="Tue, 23 Jun 2026 14:30:00 UTC"))
+    assert dt == datetime(2026, 6, 23, 14, 30, tzinfo=timezone.utc)
+
+
+def test_parse_iso_zulu_pubdate():
+    dt = scraper._parse_rss_date(_Entry(pubDate="2026-06-23T14:30:00Z"))
+    assert dt == datetime(2026, 6, 23, 14, 30, tzinfo=timezone.utc)
+
+
+def test_parse_date_only_pubdate():
+    dt = scraper._parse_rss_date(_Entry(published="2026-06-23"))
+    assert dt == datetime(2026, 6, 23, 0, 0, tzinfo=timezone.utc)
+
+
+def test_parse_no_weekday_pubdate():
+    dt = scraper._parse_rss_date(_Entry(published="23 Jun 2026 14:30:00"))
+    assert dt == datetime(2026, 6, 23, 14, 30, tzinfo=timezone.utc)
+
+
+@pytest.mark.parametrize("raw,expected", [
+    ("Tue, 23 Jun 2026 14:30:00 GMT", datetime(2026, 6, 23, 14, 30, tzinfo=timezone.utc)),
+    ("2026-06-23T14:30:00+00:00", datetime(2026, 6, 23, 14, 30, tzinfo=timezone.utc)),
+    ("2026-06-23T16:30:00+02:00", datetime(2026, 6, 23, 14, 30, tzinfo=timezone.utc)),
+    ("2026-06-23 14:30:00", datetime(2026, 6, 23, 14, 30, tzinfo=timezone.utc)),
+])
+def test_parse_one_date_multiple_formats(raw, expected):
+    assert scraper._parse_one_date(raw) == expected
+
+
+def test_parse_one_date_unparseable_returns_none():
+    assert scraper._parse_one_date("definitely not a date") is None
+
+
 def test_unparseable_pubdate_returns_none():
     assert scraper._parse_rss_date(_Entry(published="not a date at all !!!")) is None
 

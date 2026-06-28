@@ -11,22 +11,52 @@ from dateutil import parser as date_parser
 from locus import config
 
 
-def _parse_rss_date(entry) -> datetime | None:
-    """Best-effort parse of an RSS item's raw <pubDate> when feedparser's own
-    struct_time parse failed (non-standard date formats). Tries dateutil across
-    the common raw date fields with multiple format fallbacks; returns a
-    tz-aware UTC datetime, or None when nothing parses."""
-    for field_name in ("published", "pubDate", "updated", "created", "date"):
-        raw = entry.get(field_name) if hasattr(entry, "get") else None
-        if not raw or not isinstance(raw, str):
-            continue
+# Explicit strptime fallbacks for the rare feed whose <pubDate> dateutil can't
+# parse on its own (non-standard separators / ordering). Tried in order only
+# after a plain dateutil.parser.parse fails.
+_PUBDATE_FORMATS = (
+    "%a, %d %b %Y %H:%M:%S %z",      # RFC 822 with numeric offset
+    "%a, %d %b %Y %H:%M:%S %Z",      # RFC 822 with zone name (GMT/UTC)
+    "%Y-%m-%dT%H:%M:%S%z",           # ISO 8601 with offset
+    "%Y-%m-%dT%H:%M:%SZ",            # ISO 8601 Zulu
+    "%Y-%m-%d %H:%M:%S",             # space-separated, naive
+    "%Y-%m-%d",                      # date only
+    "%d %b %Y %H:%M:%S",             # no weekday
+)
+
+
+def _parse_one_date(raw: str) -> datetime | None:
+    """Parse a single raw date string: dateutil first, then the explicit
+    strptime formats. Returns a tz-aware UTC datetime, or None when nothing
+    parses. Naive results are assumed UTC."""
+    candidates = [lambda: date_parser.parse(raw)]
+    candidates += [
+        (lambda fmt=fmt: datetime.strptime(raw, fmt)) for fmt in _PUBDATE_FORMATS
+    ]
+    for parse in candidates:
         try:
-            dt = date_parser.parse(raw)
+            dt = parse()
         except (ValueError, OverflowError, TypeError):
             continue
         if dt.tzinfo is None:
             dt = dt.replace(tzinfo=timezone.utc)
         return dt.astimezone(timezone.utc)
+    return None
+
+
+def _parse_rss_date(entry) -> datetime | None:
+    """Best-effort parse of an RSS item's raw <pubDate> when feedparser's own
+    struct_time parse failed (non-standard date formats). Tries the common raw
+    date fields with multiple format fallbacks (dateutil, then explicit
+    strptime formats); returns a tz-aware UTC datetime, or None when nothing
+    parses."""
+    for field_name in ("published", "pubDate", "updated", "created", "date"):
+        raw = entry.get(field_name) if hasattr(entry, "get") else None
+        if not raw or not isinstance(raw, str):
+            continue
+        dt = _parse_one_date(raw)
+        if dt is not None:
+            return dt
     return None
 
 

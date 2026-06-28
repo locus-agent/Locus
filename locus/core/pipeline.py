@@ -65,14 +65,37 @@ def _hours_since(ts: str | None, now: datetime | None = None) -> float:
     return (now - dt).total_seconds() / 3600.0
 
 
-def news_age_seconds(event: NewsEvent, now: datetime | None = None) -> float | None:
-    """Age of the news at this moment (publication -> now), or None when the
-    publication time is unknown (latency_ms == -1 sentinel). Computed at
-    decision time, not receipt time, so queue dwell counts against it."""
-    if event.latency_ms is not None and event.latency_ms < 0:
-        return None
+def news_age(event: NewsEvent, now: datetime | None = None) -> tuple[float, str]:
+    """Age of the news at this moment and the timestamp basis it was measured
+    from. Prefers the publication time (published_at); falls back to the receipt
+    time (received_at) when the source gave no usable publication time — either a
+    None published_at or the latency_ms == -1 sentinel (e.g. an RSS item with no
+    parseable <pubDate>). Computed at decision time, not receipt time, so queue
+    dwell counts against it.
+
+    Returns (age_seconds, "published_at" | "received_at")."""
     now = now or datetime.now(timezone.utc)
-    return (now - event.published_at).total_seconds()
+    published = getattr(event, "published_at", None)
+    unknown_pub = published is None or (event.latency_ms is not None and event.latency_ms < 0)
+    if unknown_pub:
+        return (now - event.received_at).total_seconds(), "received_at"
+    return (now - published).total_seconds(), "published_at"
+
+
+def news_age_seconds(event: NewsEvent, now: datetime | None = None) -> float:
+    """Age of the news in seconds (see news_age), without the timestamp basis."""
+    return news_age(event, now)[0]
+
+
+def known_published_at(event: NewsEvent) -> str | None:
+    """The event's publication time as an ISO 8601 string when the source gave a
+    usable one, else None — so the classifications.published_at column records a
+    real publication time and stays NULL when we only have receipt time (the
+    None published_at / latency_ms == -1 sentinel; see news_age)."""
+    published = getattr(event, "published_at", None)
+    if published is None or (event.latency_ms is not None and event.latency_ms < 0):
+        return None
+    return published.isoformat()
 
 
 def is_price_target_market(question: str) -> bool:
@@ -194,9 +217,11 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
       "stale"              — would-be signal, but the headline is older than
                              the source-specific freshness limit
                              (config.get_max_age_seconds) as of *now*
-                             (including time spent in the queue), or its
-                             publication time is unknown; we classify old news
-                             for calibration but never trade on it
+                             (including time spent in the queue). Age is measured
+                             from published_at when the source gave a usable
+                             publication time, else from received_at (see
+                             news_age); we classify old news for calibration but
+                             never trade on it
       "capped"             — this headline already produced a trade; one
                              headline matching N markets must not open N
                              correlated positions
@@ -224,7 +249,11 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     if signal is None:
         return None, "skip"
     market = signal.market
-    age = news_age_seconds(event, now)
+    age, age_basis = news_age(event, now)
+    if age_basis == "published_at":
+        log.info(f"Using published_at | {event.source} | age {age / 60:.0f}m | {market.slug}")
+    else:
+        log.info(f"Using received_at (no pubDate) | {event.source} | age {age / 60:.0f}m | {market.slug}")
     # Geopolitical markets move slowly: a long-horizon (resolution > 7 days out)
     # diplomatic/military/political story stays tradeable for far longer than a
     # typical breaking headline, so flag it as the 'geopolitical' category to
@@ -244,7 +273,7 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     max_age = config.get_max_age_seconds(
         signal.news_source, category, hours_to_resolution
     )
-    if age is None or age > max_age:
+    if age > max_age:
         return None, "stale"
     if event.headline in traded_headlines:
         return None, "capped"
@@ -873,14 +902,15 @@ class PipelineV2:
                         event_id=getattr(market, "event_id", "") or None,
                         consensus_score=classification.consensus_score,
                         ensemble_used=classification.ensemble_used,
+                        published_at=known_published_at(event),
                     )
 
                     if action in ("stale", "capped", "needs_confirmation"):
-                        age = news_age_seconds(event)
-                        age_min = age / 60 if age is not None else -1
+                        age, age_basis = news_age(event)
+                        basis_note = "" if age_basis == "published_at" else ", no pubDate"
                         console.print(
                             f"  [dim]{action.upper()}: suppressed would-be signal "
-                            f"({event.source}, news age {'unknown' if age is None else f'{age_min:.0f}m'}) "
+                            f"({event.source}, news age {age / 60:.0f}m{basis_note}) "
                             f"on \"{market.question[:40]}\"[/dim]"
                         )
 
@@ -1185,6 +1215,7 @@ class PipelineV2:
             edge_type="whale",
             confidence=classification.confidence if not classification.error else None,
             event_id=getattr(market, "event_id", "") or None,
+            published_at=known_published_at(whale_event),
         )
 
         if signal is not None:

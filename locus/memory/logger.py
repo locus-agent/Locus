@@ -111,6 +111,7 @@ def init_db():
             adjusted_materiality REAL,
             action TEXT NOT NULL,
             match_source TEXT,
+            published_at TEXT,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
 
@@ -276,6 +277,11 @@ def _migrate_classification_columns(conn):
         # horizon-penalized materiality the gates check against.
         ("time_horizon", "TEXT"),
         ("adjusted_materiality", "REAL"),
+        # The news item's publication time (ISO 8601, UTC) when the source gave
+        # a usable one — distinct from created_at (when we logged the row). NULL
+        # when the source had no parseable publication time and we fell back to
+        # receipt time for the freshness gate.
+        ("published_at", "TEXT"),
     ]
     for col_name, col_type in new_cols:
         if col_name not in columns:
@@ -887,6 +893,7 @@ def log_classification(
     fee_cost: float | None = None,
     time_horizon: str | None = None,
     adjusted_materiality: float | None = None,
+    published_at: str | None = None,
 ) -> int:
     conn = _conn()
     cur = conn.execute(
@@ -894,14 +901,15 @@ def log_classification(
            (market_question, headline, news_source, direction, materiality, edge, action,
             match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
             event_id, consensus_score, ensemble_used, expected_edge, vol_adj, fee_cost,
-            time_horizon, adjusted_materiality)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            time_horizon, adjusted_materiality, published_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (market_question, headline, news_source, direction, materiality, edge, action,
          match_source, condition_id, yes_price, yes_token_id, edge_type, confidence,
          event_id,
          consensus_score,
          None if ensemble_used is None else int(ensemble_used),
-         expected_edge, vol_adj, fee_cost, time_horizon, adjusted_materiality),
+         expected_edge, vol_adj, fee_cost, time_horizon, adjusted_materiality,
+         published_at),
     )
     classification_id = cur.lastrowid
     conn.commit()

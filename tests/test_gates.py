@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 import pytest
 
 from locus import config
-from locus.core.pipeline import gate_trade, news_age_seconds, consume_headline
+from locus.core.pipeline import gate_trade, news_age, consume_headline
 from locus.core.edge import Signal
 from locus.markets.gamma import Market
 from locus.sources.news_stream import NewsEvent
@@ -80,11 +80,42 @@ def test_queue_dwell_counts():
     assert s is None and a == "stale"
 
 
-def test_unknown_publication_time_is_stale():
+def test_unknown_publication_time_falls_back_to_received_at():
+    # No usable publication time (latency -1 sentinel): age is measured from
+    # received_at instead of treating the item as undated/stale. Received at NOW
+    # -> fresh -> trades.
     event = ev("undated", 0, latency_ms=-1)
-    assert news_age_seconds(event, NOW) is None
+    age, basis = news_age(event, NOW)
+    assert basis == "received_at" and age == 0
+    s, a = gate_trade(event, SIG, set(), now=NOW)
+    assert s is SIG and a == "signal"
+
+
+def test_none_published_at_falls_back_to_received_at():
+    # published_at itself is None (no pubDate at all) -> measure from received_at.
+    event = NewsEvent(headline="no pubdate", source="rss", url="",
+                      received_at=NOW, published_at=None, latency_ms=-1)
+    age, basis = news_age(event, NOW)
+    assert basis == "received_at" and age == 0
+    s, a = gate_trade(event, SIG, set(), now=NOW)
+    assert s is SIG and a == "signal"
+
+
+def test_old_undated_news_stale_by_received_at():
+    # An undated item that has dwelled in the queue for 26h (received 26h ago)
+    # is stale by received_at, even with no publication time.
+    received = NOW - timedelta(hours=26)
+    event = NewsEvent(headline="stale undated", source="rss", url="",
+                      received_at=received, published_at=None, latency_ms=-1)
     s, a = gate_trade(event, SIG, set(), now=NOW)
     assert s is None and a == "stale"
+
+
+def test_known_publication_time_uses_published_at():
+    # A known publication time (latency >= 0) is measured from published_at.
+    event = ev("dated", 60, latency_ms=60_000)
+    age, basis = news_age(event, NOW)
+    assert basis == "published_at" and age == 60
 
 
 def src_sig(news_source):
