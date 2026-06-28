@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-28T09:57:36.669017+00:00",
-  "last_heartbeat": "2026-06-28T09:57:36.669017+00:00",
-  "uptime_seconds": 134881,
+  "generated_at": "2026-06-28T10:02:42.518711+00:00",
+  "last_heartbeat": "2026-06-28T10:02:42.518711+00:00",
+  "uptime_seconds": 135187,
   "dry_run": false,
   "markets_tracked": 1330,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 327,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 331,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 3268,
+  "classifications_24h": 3264,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1419,
+    "prefiltered_haiku": 1422,
     "stale": 25,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T09:45:54.536835+00:00"
+    "last_check": "2026-06-28T10:00:54.932072+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 797,
-    "matched": 662,
-    "classified": 3268,
+    "news": 800,
+    "matched": 664,
+    "classified": 3264,
     "signals": 4,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2069.6
+    "avg_classification_latency_ms": 2069.0
   },
   "live_readiness": {
     "ready": true,
@@ -388,6 +388,70 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-28 10:01:47",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Iraqi officials, including lawmakers, arrested on corruption charges in overnight raid - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 09:59:36",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "Heatwave watch: smart tech helps keep Rome's elderly safe - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 09:59:35",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Thai family mourns teen girl found dead in suitcase as Australian arrested - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 09:59:34",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "Thai family mourns teen girl found dead in suitcase as Australian arrested - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-28 09:46:28",
       "market_question": "President Trump to Attend World Cup Final?",
       "headline": "FIFA World Cup 2026 - Group J - Algeria v Austria - Reuters",
@@ -402,70 +466,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 09:46:28",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "FIFA World Cup 2026 - Group J - Algeria v Austria - Reuters",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 09:46:28",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "The US lags other countries in social media restrictions for kids, but a reform push is growing - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 09:46:28",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "The US lags other countries in social media restrictions for kids, but a reform push is growing - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 09:46:28",
-      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
-      "headline": "The US lags other countries in social media restrictions for kids, but a reform push is growing - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
