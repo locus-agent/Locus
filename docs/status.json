@@ -1,38 +1,38 @@
 {
-  "generated_at": "2026-06-28T00:32:00.725121+00:00",
-  "last_heartbeat": "2026-06-28T00:32:00.725121+00:00",
-  "uptime_seconds": 100945,
+  "generated_at": "2026-06-28T00:37:06.704844+00:00",
+  "last_heartbeat": "2026-06-28T00:37:06.704844+00:00",
+  "uptime_seconds": 101251,
   "dry_run": false,
   "markets_tracked": 1300,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9376,
+    "total": 9402,
     "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
       "ai": 11.6,
       "politics": 20.9,
-      "technology": 12.7,
+      "technology": 13.0,
       "crypto": 15.6,
       "sports": 26.2
     },
     "by_source": {
       "rss": 17.6,
       "newsapi": 18.3,
-      "truthsocial": 7.0
+      "truthsocial": 7.4
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.6,
-    "overall_total": 9376,
+    "overall_total": 9402,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5317,
+        "total": 5336,
         "correct": 368,
         "accuracy_pct": 6.9,
-        "avg_pnl_pct": 10.57,
+        "avg_pnl_pct": 10.52,
         "color": "red"
       },
       {
@@ -47,8 +47,8 @@
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 990,
-        "correct": 379,
+        "total": 993,
+        "correct": 380,
         "accuracy_pct": 38.3,
         "avg_pnl_pct": 4.63,
         "color": "green"
@@ -56,10 +56,10 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 538,
-        "correct": 154,
-        "accuracy_pct": 28.6,
-        "avg_pnl_pct": -0.98,
+        "total": 540,
+        "correct": 156,
+        "accuracy_pct": 28.9,
+        "avg_pnl_pct": -0.91,
         "color": "green"
       },
       {
@@ -74,21 +74,21 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1190,
+        "total": 1192,
         "correct": 232,
         "accuracy_pct": 19.5,
-        "avg_pnl_pct": -2.87,
+        "avg_pnl_pct": -2.86,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 21,
+  "headlines_scanned_today": 36,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 2830,
+  "classifications_24h": 2896,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1139,
+    "prefiltered_haiku": 1165,
     "stale": 23,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 706,
-    "matched": 588,
-    "classified": 2830,
+    "news": 717,
+    "matched": 598,
+    "classified": 2896,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2152.2
+    "avg_classification_latency_ms": 2146.1
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": 12.99,
       "amount_usd": 14.43,
       "current_value_usd": 16.3,
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.30500000000000005,
+      "current_price": 0.305,
       "pnl_pct": 2.96,
       "amount_usd": 24.99,
       "current_value_usd": 25.73,
@@ -388,15 +388,15 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 00:25:44",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Colombia-Portugal World Cup match draws sky-high ticket prices, some fans make financial sacrifices - AP News",
+      "time": "2026-06-28 00:36:40",
+      "market_question": "Ukraine election called by June 30, 2026?",
+      "headline": "[No Title] - Post from June 28, 2026",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
       "action": "skip",
       "match_source": "keyword",
@@ -404,41 +404,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 00:25:44",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Colombia-Portugal World Cup match draws sky-high ticket prices, some fans make financial sacrifices - AP News",
+      "time": "2026-06-28 00:36:40",
+      "market_question": "Will Betmoar launch a token by June 30, 2026?",
+      "headline": "[No Title] - Post from June 28, 2026",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 00:25:43",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Colombia-Portugal World Cup match draws sky-high ticket prices, some fans make financial sacrifices - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 00:25:40",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Colombia-Portugal World Cup match draws sky-high ticket prices, some fans make financial sacrifices - AP News",
+      "time": "2026-06-28 00:36:37",
+      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
+      "headline": "[No Title] - Post from June 28, 2026",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +436,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 00:25:40",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Colombia-Portugal World Cup match draws sky-high ticket prices, some fans make financial sacrifices - AP News",
+      "time": "2026-06-28 00:36:37",
+      "market_question": "Will Anthropic not IPO by June 30, 2026?",
+      "headline": "[No Title] - Post from June 28, 2026",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 00:36:37",
+      "market_question": "Will Meituan have the top AI model at the end of June 2026?",
+      "headline": "[No Title] - Post from June 28, 2026",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
