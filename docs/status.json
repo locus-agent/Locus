@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T04:51:52.613195+00:00",
-  "last_heartbeat": "2026-06-28T04:51:52.613195+00:00",
-  "uptime_seconds": 116537,
+  "generated_at": "2026-06-28T04:56:58.294983+00:00",
+  "last_heartbeat": "2026-06-28T04:56:58.294983+00:00",
+  "uptime_seconds": 116842,
   "dry_run": false,
-  "markets_tracked": 1318,
+  "markets_tracked": 1320,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9408,
@@ -82,7 +82,7 @@
       }
     ]
   },
-  "headlines_scanned_today": 176,
+  "headlines_scanned_today": 177,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
   "classifications_24h": 3039,
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 2.99,
-    "total_pnl_usd": 54.84,
+    "unrealized_pnl_usd": 2.61,
+    "total_pnl_usd": 54.47,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2105.3
+    "avg_classification_latency_ms": 2103.8
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.44499999999999995,
-      "pnl_pct": 15.58,
+      "current_price": 0.43500000000000005,
+      "pnl_pct": 12.99,
       "amount_usd": 14.43,
-      "current_value_usd": 16.68,
-      "pnl_usd": 2.25,
+      "current_value_usd": 16.3,
+      "pnl_usd": 1.87,
       "edge_type": "momentum",
       "event_id": "73866"
     },
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.305,
+      "current_price": 0.30499999999999994,
       "pnl_pct": 2.96,
       "amount_usd": 24.99,
       "current_value_usd": 25.73,
@@ -388,25 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 04:48:30",
-      "market_question": "Will OpenAI not IPO by December 31, 2027?",
-      "headline": "IPLAy.SG - | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 04:48:30",
-      "market_question": "Will the price of Bitcoin be above $60,000 on June 28?",
-      "headline": "IPLAy.SG - | Stock Price & Latest News - Reuters",
+      "time": "2026-06-28 04:55:05",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Messi becomes first player to score in seven consecutive World Cup matches - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 04:48:30",
-      "market_question": "Will the price of Bitcoin be above $64,000 on June 28?",
-      "headline": "IPLAy.SG - | Stock Price & Latest News - Reuters",
+      "time": "2026-06-28 04:55:04",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Messi becomes first player to score in seven consecutive World Cup matches - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,9 +420,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 04:48:29",
-      "market_question": "Will the price of Bitcoin be above $56,000 on June 28?",
-      "headline": "IPLAy.SG - | Stock Price & Latest News - Reuters",
+      "time": "2026-06-28 04:55:04",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Messi becomes first player to score in seven consecutive World Cup matches - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +436,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 04:48:29",
-      "market_question": "Will the price of Bitcoin be above $66,000 on June 28?",
-      "headline": "IPLAy.SG - | Stock Price & Latest News - Reuters",
+      "time": "2026-06-28 04:55:04",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Messi becomes first player to score in seven consecutive World Cup matches - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 04:55:04",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Messi becomes first player to score in seven consecutive World Cup matches - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
