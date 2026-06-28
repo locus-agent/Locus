@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-28T12:44:45.009293+00:00",
-  "last_heartbeat": "2026-06-28T12:44:45.009293+00:00",
-  "uptime_seconds": 347,
+  "generated_at": "2026-06-28T12:46:27.833586+00:00",
+  "last_heartbeat": "2026-06-28T12:46:27.833586+00:00",
+  "uptime_seconds": 37,
   "dry_run": false,
   "markets_tracked": 1329,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 610,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 650,
+  "headlines_last_cycle": 40,
   "signals_24h": 4,
-  "classifications_24h": 3825,
+  "classifications_24h": 3928,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1612,
+    "prefiltered_haiku": 1652,
     "stale": 22,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T12:39:16.114778+00:00"
+    "last_check": "2026-06-28T12:46:03.248996+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1013,
-    "matched": 672,
-    "classified": 3825,
+    "news": 1053,
+    "matched": 673,
+    "classified": 3928,
     "signals": 4,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1190.5
+    "avg_classification_latency_ms": 1157.5
   },
   "live_readiness": {
     "ready": true,
@@ -374,73 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 12:43:41",
-      "market_question": "Will Hezbollah win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Hezbollah - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 12:43:41",
-      "market_question": "Will Donald Trump visit Lebanon in 2026?",
-      "headline": "Hezbollah - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 12:43:41",
-      "market_question": "Will Islamic Charitable Projects Association win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Hezbollah - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 12:43:41",
-      "market_question": "Will Arab Socialist Ba'ath Party in Lebanon win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Hezbollah - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 12:43:40",
-      "market_question": "Will the price of Bitcoin be above $58,000 on June 28?",
-      "headline": "(EGHAR.O) | Stock Price & Latest News - Reuters",
+      "time": "2026-06-28 12:46:26",
+      "market_question": "Will Anthropic have the second best AI model at the end of June 2026?",
+      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -449,9 +385,73 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 12:46:26",
+      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
+      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 12:46:26",
+      "market_question": "Will Anthropic have the best Math AI model at the end of June 2026?",
+      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 12:46:26",
+      "market_question": "Ukraine election called by June 30, 2026?",
+      "headline": "Ukraine hits two Russian oil refineries overnight - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-28 12:46:26",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Ukraine hits two Russian oil refineries overnight - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
