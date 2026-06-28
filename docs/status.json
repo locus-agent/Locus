@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-28T21:27:20.670936+00:00",
-  "last_heartbeat": "2026-06-28T21:27:20.670936+00:00",
-  "uptime_seconds": 31290,
+  "generated_at": "2026-06-28T21:32:27.393482+00:00",
+  "last_heartbeat": "2026-06-28T21:32:27.393482+00:00",
+  "uptime_seconds": 31597,
   "dry_run": false,
   "markets_tracked": 1323,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1063,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 1064,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4196,
+  "classifications_24h": 4116,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1719,
+    "prefiltered_haiku": 1687,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T21:16:17.662457+00:00"
+    "last_check": "2026-06-28T21:31:18.086958+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1162,
-    "matched": 656,
-    "classified": 4196,
+    "news": 1144,
+    "matched": 646,
+    "classified": 4116,
     "signals": 1,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1992.5
+    "avg_classification_latency_ms": 1993.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,25 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 21:27:17",
-      "market_question": "Will OpenAI's valuation hit (HIGH) $2.0T by December 31?",
-      "headline": "This Nvidia-Backed Artificial Intelligence (AI) Infrastructure Stock Has Multibagger Potential. It Is Trading at an Incredibly Attractive Valuation Right Now - The Globe and Mail",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 21:27:17",
-      "market_question": "Will Polymarket mindshare hit 90% by June 30?",
-      "headline": "This Nvidia-Backed Artificial Intelligence (AI) Infrastructure Stock Has Multibagger Potential. It Is Trading at an Incredibly Attractive Valuation Right Now - The Globe and Mail",
+      "time": "2026-06-28 21:29:29",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Volkswagen plans to end automated driving tie-up with Bosch, Bild reports - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -386,14 +370,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 21:27:17",
-      "market_question": "Venezuela election scheduled by December 31, 2026?",
-      "headline": "Teams scramble to locate survivors 4 days after Venezuela earthquakes - AP News",
+      "time": "2026-06-28 21:29:27",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Volkswagen plans to end automated driving tie-up with Bosch, Bild reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,9 +391,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 21:27:17",
-      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
-      "headline": "Teams scramble to locate survivors 4 days after Venezuela earthquakes - AP News",
+      "time": "2026-06-28 21:29:27",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Volkswagen plans to end automated driving tie-up with Bosch, Bild reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +407,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 21:27:17",
-      "market_question": "Will Donald Trump visit Israel in 2026?",
-      "headline": "Israel destroys Hezbollah underground infrastructure in southern Lebanon - Reuters",
+      "time": "2026-06-28 21:29:27",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Volkswagen plans to end automated driving tie-up with Bosch, Bild reports - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-28 21:29:27",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "Volkswagen plans to end automated driving tie-up with Bosch, Bild reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
