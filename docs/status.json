@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T10:23:05.012164+00:00",
-  "last_heartbeat": "2026-06-28T10:23:05.012164+00:00",
-  "uptime_seconds": 136409,
+  "generated_at": "2026-06-28T10:28:11.033321+00:00",
+  "last_heartbeat": "2026-06-28T10:28:11.033321+00:00",
+  "uptime_seconds": 136715,
   "dry_run": false,
-  "markets_tracked": 1331,
+  "markets_tracked": 1332,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9421,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 332,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 349,
+  "headlines_last_cycle": 1,
   "signals_24h": 4,
-  "classifications_24h": 3230,
+  "classifications_24h": 3288,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1401,
+    "prefiltered_haiku": 1423,
     "stale": 25,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 792,
-    "matched": 656,
-    "classified": 3230,
+    "news": 809,
+    "matched": 669,
+    "classified": 3288,
     "signals": 4,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2066.3
+    "avg_classification_latency_ms": 2061.7
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 10:06:09",
+      "time": "2026-06-28 10:26:12",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "Alzheimer's: Anti-inflammatory diet may help reduce risk by up to 29% - Medical News Today",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 10:26:11",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "Alzheimer's: Anti-inflammatory diet may help reduce risk by up to 29% - Medical News Today",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 10:26:10",
       "market_question": "Will the price of Bitcoin be above $64,000 on June 28?",
-      "headline": "AMDC.N - | Stock Price & Latest News - Reuters",
+      "headline": "\u201cThe Cheaper the Better,\u201d Says Valve About its Steam Machine Pricing, but Don\u2019t Expect a Price Decrease \u201cAny Time Soon\u201d - Wccftech",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,41 +436,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 10:06:09",
-      "market_question": "Will the price of Bitcoin be above $60,000 on June 28?",
-      "headline": "AMDC.N - | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 10:06:09",
-      "market_question": "Will the price of Bitcoin be above $58,000 on June 28?",
-      "headline": "AMDC.N - | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 10:06:09",
+      "time": "2026-06-28 10:26:10",
       "market_question": "Will the price of Bitcoin be above $62,000 on June 28?",
-      "headline": "AMDC.N - | Stock Price & Latest News - Reuters",
+      "headline": "\u201cThe Cheaper the Better,\u201d Says Valve About its Steam Machine Pricing, but Don\u2019t Expect a Price Decrease \u201cAny Time Soon\u201d - Wccftech",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +452,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 10:06:09",
-      "market_question": "Will the price of Bitcoin be above $56,000 on June 28?",
-      "headline": "AMDC.N - | Stock Price & Latest News - Reuters",
+      "time": "2026-06-28 10:26:10",
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 28?",
+      "headline": "\u201cThe Cheaper the Better,\u201d Says Valve About its Steam Machine Pricing, but Don\u2019t Expect a Price Decrease \u201cAny Time Soon\u201d - Wccftech",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
