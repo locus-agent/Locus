@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T05:22:27.515432+00:00",
-  "last_heartbeat": "2026-06-28T05:22:27.515432+00:00",
-  "uptime_seconds": 118372,
+  "generated_at": "2026-06-28T05:27:33.905904+00:00",
+  "last_heartbeat": "2026-06-28T05:27:33.905904+00:00",
+  "uptime_seconds": 118678,
   "dry_run": false,
-  "markets_tracked": 1316,
+  "markets_tracked": 1319,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9408,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 188,
+  "headlines_scanned_today": 203,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 3093,
+  "classifications_24h": 3146,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1335,
+    "prefiltered_haiku": 1355,
     "stale": 23,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 750,
-    "matched": 630,
-    "classified": 3093,
+    "news": 765,
+    "matched": 641,
+    "classified": 3146,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2098.3
+    "avg_classification_latency_ms": 2092.6
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 05:19:08",
+      "time": "2026-06-28 05:23:39",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 05:23:38",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Final day of group play at the World Cup sets the field for the round of 32, in photos - AP News",
+      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +420,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 05:19:08",
+      "time": "2026-06-28 05:23:38",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 05:23:38",
       "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Final day of group play at the World Cup sets the field for the round of 32, in photos - AP News",
+      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,52 +452,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 05:19:08",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Hovland flips the script on Scheffler and takes the lead at Travelers Championship - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-28 05:23:38",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 05:19:08",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Hovland flips the script on Scheffler and takes the lead at Travelers Championship - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 05:19:08",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Hovland flips the script on Scheffler and takes the lead at Travelers Championship - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
