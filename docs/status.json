@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T12:46:27.833586+00:00",
-  "last_heartbeat": "2026-06-28T12:46:27.833586+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-06-28T12:51:34.745311+00:00",
+  "last_heartbeat": "2026-06-28T12:51:34.745311+00:00",
+  "uptime_seconds": 344,
   "dry_run": false,
-  "markets_tracked": 1329,
+  "markets_tracked": 1330,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9444,
@@ -82,19 +82,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 650,
-  "headlines_last_cycle": 40,
+  "headlines_scanned_today": 678,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 3928,
+  "classifications_24h": 4010,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1652,
+    "prefiltered_haiku": 1678,
     "stale": 22,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 11,
+    "price_target_market": 12,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 0,
@@ -119,27 +119,27 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1053,
+    "news": 1080,
     "matched": 673,
-    "classified": 3928,
+    "classified": 4010,
     "signals": 4,
     "trades": 3
   },
   "performance": {
     "trades_total": 38,
     "deployed_usd": 808.31,
-    "open_count": 1,
+    "open_count": 0,
     "closed_count": 31,
     "wins": 18,
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 0.37,
-    "total_pnl_usd": 52.22,
+    "unrealized_pnl_usd": 0.0,
+    "total_pnl_usd": 51.85,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1157.5
+    "avg_classification_latency_ms": 1256.7
   },
   "live_readiness": {
     "ready": true,
@@ -184,26 +184,23 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0577,
+    "drawdown_7d": 0.052,
     "sharpe_7d": 0.08
   },
-  "open_positions": [
+  "open_positions": [],
+  "closed_positions": [
     {
-      "time": "2026-06-27 18:37:15",
+      "time": "2026-06-28 12:47:20",
       "market_question": "Will Dan Sullivan win the Alaska Senate race in 2026?",
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.32,
-      "current_price": 0.31,
-      "pnl_pct": 1.47,
-      "amount_usd": 25.0,
-      "current_value_usd": 25.37,
-      "pnl_usd": 0.37,
-      "edge_type": "news",
-      "event_id": "59233"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": null,
+      "realized_pnl_usd": 0.0,
+      "exit_reason": "manual",
+      "event_id": "59233",
+      "partial": false
+    },
     {
       "time": "2026-06-28 11:54:33",
       "market_question": "Will Trump deport 400-500k people?",
@@ -311,18 +308,6 @@
       "exit_reason": "manual",
       "event_id": "528020",
       "partial": false
-    },
-    {
-      "time": "2026-06-21T14:03:31.526898+00:00",
-      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
-      "slug": "candidates-in-next-labour-leadership-election",
-      "side": "NO",
-      "entry_price": 0.345,
-      "exit_price": 0.135,
-      "realized_pnl_usd": 5.629770992366409,
-      "exit_reason": "UPD: \u00bd closed +13% \u2192 fully closed +32%",
-      "event_id": "481681",
-      "partial": true
     }
   ],
   "exit_decisions": [
@@ -374,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 12:46:26",
-      "market_question": "Will Anthropic have the second best AI model at the end of June 2026?",
-      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-06-28 12:50:32",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "America split from monarchy 250 years ago. Trump\u2019s presidency is testing how far it\u2019s come - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -385,14 +370,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 12:46:26",
-      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
-      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-06-28 12:50:31",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "America split from monarchy 250 years ago. Trump\u2019s presidency is testing how far it\u2019s come - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -401,30 +386,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 12:46:26",
-      "market_question": "Will Anthropic have the best Math AI model at the end of June 2026?",
-      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 12:46:26",
-      "market_question": "Ukraine election called by June 30, 2026?",
-      "headline": "Ukraine hits two Russian oil refineries overnight - Reuters",
+      "time": "2026-06-28 12:50:30",
+      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "America split from monarchy 250 years ago. Trump\u2019s presidency is testing how far it\u2019s come - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +407,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 12:46:26",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Ukraine hits two Russian oil refineries overnight - Reuters",
+      "time": "2026-06-28 12:50:30",
+      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "America split from monarchy 250 years ago. Trump\u2019s presidency is testing how far it\u2019s come - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,6 +421,22 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-06-28 12:48:30",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Scotland coach Steve Clarke leaves after World Cup elimination despite new contract - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
