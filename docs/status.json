@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T10:53:40.105746+00:00",
-  "last_heartbeat": "2026-06-28T10:53:40.105746+00:00",
-  "uptime_seconds": 138244,
+  "generated_at": "2026-06-28T10:58:45.731766+00:00",
+  "last_heartbeat": "2026-06-28T10:58:45.731766+00:00",
+  "uptime_seconds": 138550,
   "dry_run": false,
-  "markets_tracked": 1329,
+  "markets_tracked": 1330,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9421,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 365,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 367,
+  "headlines_last_cycle": 1,
   "signals_24h": 4,
-  "classifications_24h": 3339,
+  "classifications_24h": 3334,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1429,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 819,
-    "matched": 680,
-    "classified": 3339,
+    "news": 818,
+    "matched": 679,
+    "classified": 3334,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 1.49,
-    "total_pnl_usd": 53.35,
+    "unrealized_pnl_usd": 1.68,
+    "total_pnl_usd": 53.53,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2059.9
+    "avg_classification_latency_ms": 2059.8
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.41000000000000003,
-      "pnl_pct": 6.49,
+      "current_price": 0.41500000000000004,
+      "pnl_pct": 7.79,
       "amount_usd": 14.43,
-      "current_value_usd": 15.37,
-      "pnl_usd": 0.94,
+      "current_value_usd": 15.55,
+      "pnl_usd": 1.12,
       "edge_type": "momentum",
       "event_id": "73866"
     },
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.31,
+      "current_price": 0.31000000000000005,
       "pnl_pct": 2.22,
       "amount_usd": 24.99,
       "current_value_usd": 25.55,
@@ -388,25 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 10:45:32",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "Agassi, Wozniacki serve up Wimbledon Centre Court in Central Park - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 10:45:32",
+      "time": "2026-06-28 10:58:43",
       "market_question": "Will Solana Sierra be the 2026 Women\u2019s Wimbledon Winner?",
-      "headline": "Agassi, Wozniacki serve up Wimbledon Centre Court in Central Park - Reuters",
+      "headline": "Will the weather stay dry for week one of Wimbledon?",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 10:54:19",
+      "market_question": "French election called by June 30, 2026?",
+      "headline": "French authorities responding to incident involving civilian aircraft - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +420,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 10:45:32",
-      "market_question": "Will the Union for Central African Renewal win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "Agassi, Wozniacki serve up Wimbledon Centre Court in Central Park - Reuters",
+      "time": "2026-06-28 10:54:19",
+      "market_question": "French election called by July 31, 2026?",
+      "headline": "French authorities responding to incident involving civilian aircraft - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 10:45:32",
-      "market_question": "Will the Central African Democratic Rally win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "Agassi, Wozniacki serve up Wimbledon Centre Court in Central Park - Reuters",
+      "time": "2026-06-28 10:54:19",
+      "market_question": "Will G\u00e9rard Larcher be reelected as President of the French Senate?",
+      "headline": "French authorities responding to incident involving civilian aircraft - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,9 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 10:45:32",
-      "market_question": "Will the Movement for the Liberation of the Central African People win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "Agassi, Wozniacki serve up Wimbledon Centre Court in Central Park - Reuters",
+      "time": "2026-06-28 10:54:19",
+      "market_question": "Will Jean-Luc M\u00e9lenchon be on the ballot for the 2027 French presidential election?",
+      "headline": "French authorities responding to incident involving civilian aircraft - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
