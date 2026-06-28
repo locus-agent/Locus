@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T03:55:48.370888+00:00",
-  "last_heartbeat": "2026-06-28T03:55:48.370888+00:00",
-  "uptime_seconds": 113172,
+  "generated_at": "2026-06-28T04:00:54.338267+00:00",
+  "last_heartbeat": "2026-06-28T04:00:54.338267+00:00",
+  "uptime_seconds": 113478,
   "dry_run": false,
-  "markets_tracked": 1314,
+  "markets_tracked": 1315,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9402,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 143,
+  "headlines_scanned_today": 153,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 3015,
+  "classifications_24h": 3047,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1270,
+    "prefiltered_haiku": 1291,
     "stale": 23,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T03:45:45.129746+00:00"
+    "last_check": "2026-06-28T04:00:45.585521+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 738,
-    "matched": 617,
-    "classified": 3015,
+    "news": 746,
+    "matched": 625,
+    "classified": 3047,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2107.0
+    "avg_classification_latency_ms": 2110.7
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 03:42:47",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Messi is out of the starting lineup but could play in Argentina\u2019s group finale against Jordan - AP News",
+      "time": "2026-06-28 04:00:14",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "Magic waive Jonathan Isaac, their No. 6 pick in the 2017 draft who battled injuries - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-28 03:56:58",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "First Look: Breguet Releases 3 new Tourbillon Watches for the 225th Anniversary of its Invention - Monochrome Watches",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,68 +420,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 03:42:47",
-      "market_question": "Will Facundo Manes win the 2027 Argentina presidential election?",
-      "headline": "Messi is out of the starting lineup but could play in Argentina\u2019s group finale against Jordan - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 03:56:58",
+      "market_question": "Will Mary Peltola win the 2026 Alaska governor election?",
+      "headline": "Dave & Buster\u2019s Is Fighting to Survive. Its Hail Mary Idea Could Be a Lifesaver. It Might Also Change the Brand Forever. - Slate Magazine",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-28 03:42:47",
-      "market_question": "Will Javier Milei win the 2027 Argentina presidential election?",
-      "headline": "Messi is out of the starting lineup but could play in Argentina\u2019s group finale against Jordan - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 03:56:58",
+      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Dave & Buster\u2019s Is Fighting to Survive. Its Hail Mary Idea Could Be a Lifesaver. It Might Also Change the Brand Forever. - Slate Magazine",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-28 03:42:47",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Messi is out of the starting lineup but could play in Argentina\u2019s group finale against Jordan - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 03:56:58",
+      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Dave & Buster\u2019s Is Fighting to Survive. Its Hail Mary Idea Could Be a Lifesaver. It Might Also Change the Brand Forever. - Slate Magazine",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 03:42:47",
-      "market_question": "Claudio Tapia out as AFA President by July 19, 2026?",
-      "headline": "Messi is out of the starting lineup but could play in Argentina\u2019s group finale against Jordan - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
