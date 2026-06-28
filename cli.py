@@ -13,6 +13,7 @@ Usage:
     python cli.py markets              # Browse all active markets
     python cli.py trades               # View trade log
     python cli.py close <position_id>  # Manually close an open position
+    python cli.py reconcile-positions  # Sync DB open positions with on-chain state (--fix to apply)
     python cli.py stats                # Performance statistics
     python cli.py evolve               # Manually evolve the classification prompt
     python cli.py suggestion list      # List pending threshold-adjustment suggestions
@@ -520,6 +521,49 @@ def cmd_close(args):
     )
 
 
+def cmd_reconcile_positions(args):
+    """Reconcile DB open positions against real Polymarket (on-chain) state.
+
+    Dry-run by default (report only); --fix closes confirmed phantom positions
+    (held=0 on the exchange) as closed_reconciled. UNKNOWN positions (balance
+    not verifiable) are never auto-closed."""
+    from locus.core import positions
+
+    report = positions.reconcile_positions(fix=args.fix)
+    entries = report["entries"]
+
+    if not entries:
+        console.print("[green]No open positions to reconcile.[/green]")
+        return
+
+    for entry in entries:
+        state = entry["state"]
+        color = {"ok": "green", "mismatch": "red", "unknown": "yellow"}.get(state, "white")
+        console.print(f"  [{color}]{entry['line']}[/{color}]")
+
+    n_ok = len(report["ok"])
+    n_mismatch = len(report["mismatches"])
+    n_unknown = len(report["unknown"])
+    console.print(
+        f"\n{len(entries)} open position(s): "
+        f"[green]{n_ok} OK[/green], "
+        f"[red]{n_mismatch} mismatch[/red], "
+        f"[yellow]{n_unknown} unknown[/yellow]"
+    )
+
+    if args.fix:
+        if report["fixed"]:
+            console.print(
+                f"[red bold]FIXED[/red bold] — closed {len(report['fixed'])} "
+                f"phantom position(s) as closed_reconciled: "
+                f"{', '.join(f'#{i}' for i in report['fixed'])}"
+            )
+        else:
+            console.print("[green]Nothing to fix — no mismatches.[/green]")
+    elif n_mismatch:
+        console.print("[dim]run with --fix to apply (close the mismatches above)[/dim]")
+
+
 def cmd_stats(args):
     from locus.memory import logger
 
@@ -655,6 +699,17 @@ def main():
     p_close = sub.add_parser("close", help="Manually close an open position by id")
     p_close.add_argument("position_id", type=int, help="Position id to close")
     p_close.set_defaults(func=cmd_close)
+
+    # reconcile-positions
+    p_recon = sub.add_parser(
+        "reconcile-positions",
+        help="Sync DB open positions with real Polymarket on-chain state",
+    )
+    p_recon.add_argument(
+        "--fix", action="store_true",
+        help="Close confirmed phantom positions (held=0); default is report-only",
+    )
+    p_recon.set_defaults(func=cmd_reconcile_positions)
 
     # stats
     p_stats = sub.add_parser("stats", help="Performance statistics")

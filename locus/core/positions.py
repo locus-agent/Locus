@@ -821,6 +821,129 @@ def close_manual(position_id: int) -> dict | None:
     }
 
 
+def _mark_reconciled_closed(conn, position_id: int) -> None:
+    """Flip an open position to closed_reconciled (a no-fill bookkeeping close):
+    the on-chain token balance says we never really held it, so realize $0 and
+    stamp closed_at. Distinct status/exit_reason so it's auditable and excluded
+    from the win-rate denominator (realized_pnl_usd=0)."""
+    now_iso = datetime.now(timezone.utc).isoformat()
+    conn.execute(
+        """UPDATE positions
+           SET status='closed_reconciled', exit_reason='reconcile_mismatch',
+               realized_pnl_usd=0, unrealized_pnl_pct=0, closed_at=?
+           WHERE id=?""",
+        (now_iso, position_id),
+    )
+
+
+def _verify_position_holding(client, position: dict) -> tuple[str, float | None]:
+    """Verify one open position against its real on-chain token balance.
+
+    Resolves the position's outcome token_id from its condition_id/side, then
+    asks the exchange for the held share count. Returns (state, held):
+      - ("ok", shares)        held > 0 — genuinely open
+      - ("mismatch", 0.0)     held == 0 — DB says open, exchange holds nothing
+      - ("unknown", None)     balance couldn't be verified (no client, token
+                              unresolved, or held_token_shares returned None —
+                              e.g. the client lacks the call); never auto-closed
+    """
+    if client is None:
+        return "unknown", None
+    try:
+        token_id = executor._resolve_token_id(
+            client, position["condition_id"], position["side"]
+        )
+    except Exception as e:
+        log.warning("[positions] reconcile: token resolve failed for position %s (%s)",
+                    position["id"], e)
+        return "unknown", None
+    if not token_id:
+        return "unknown", None
+
+    held = executor.held_token_shares(client, token_id)
+    if held is None:
+        return "unknown", None
+    if held <= 0:
+        return "mismatch", 0.0
+    return "ok", held
+
+
+def reconcile_positions(fix: bool = False, client=None) -> dict:
+    """Sync DB open positions against actual Polymarket (on-chain) state.
+
+    For each status='open' position, check the real held token balance via
+    executor.held_token_shares. A position the exchange holds nothing for is a
+    MISMATCH (a phantom open — e.g. an order that never actually filled, or a
+    close that updated the chain but not the DB). A position with a positive
+    balance is OK. A position whose balance can't be verified (no CLOB client,
+    token unresolved, or the client lacks the balance call) is UNKNOWN and is
+    NEVER auto-closed — reconciliation only ever closes positions it has
+    positively confirmed are empty.
+
+    `fix=False` (default) reports only. `fix=True` closes each MISMATCH as
+    closed_reconciled / reconcile_mismatch with realized PnL $0. `client` is the
+    CLOB client; built via executor.create_clob_client() when omitted (injectable
+    for tests). Returns a report dict:
+        {"entries": [{"id", "market_question", "state", "held", "line"}, ...],
+         "ok": [ids], "mismatches": [ids], "unknown": [ids], "fixed": [ids]}
+    """
+    open_positions = get_open_positions()
+    if client is None and open_positions:
+        try:
+            client = executor.create_clob_client()
+        except Exception as e:
+            # No usable client — every position becomes UNKNOWN (never closed).
+            log.warning("[positions] reconcile: CLOB client unavailable (%s); "
+                        "all positions will report UNKNOWN", e)
+            client = None
+
+    entries: list[dict] = []
+    ok_ids: list[int] = []
+    mismatch_ids: list[int] = []
+    unknown_ids: list[int] = []
+
+    for position in open_positions:
+        pid = position["id"]
+        state, held = _verify_position_holding(client, position)
+        if state == "ok":
+            ok_ids.append(pid)
+            line = f"OK: ID={pid} held={held:g} tokens — matches DB"
+        elif state == "mismatch":
+            mismatch_ids.append(pid)
+            line = f"MISMATCH: ID={pid} DB says open but held=0 on Polymarket"
+        else:
+            unknown_ids.append(pid)
+            line = f"UNKNOWN: could not verify ID={pid}"
+        entries.append({
+            "id": pid,
+            "market_question": position["market_question"],
+            "state": state,
+            "held": held,
+            "line": line,
+        })
+
+    fixed_ids: list[int] = []
+    if fix and mismatch_ids:
+        conn = logger._conn()
+        try:
+            for pid in mismatch_ids:
+                _mark_reconciled_closed(conn, pid)
+                fixed_ids.append(pid)
+                log.info("[positions] reconcile FIX: position %s closed_reconciled "
+                         "(reconcile_mismatch, realized $0)", pid)
+            conn.commit()
+        finally:
+            conn.close()
+
+    return {
+        "entries": entries,
+        "ok": ok_ids,
+        "mismatches": mismatch_ids,
+        "unknown": unknown_ids,
+        "fixed": fixed_ids,
+    }
+
+
 def _format_time_remaining_for(condition_id: str) -> str:
     return "unknown"  # end date isn't stored on positions; kept simple
 
