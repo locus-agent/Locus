@@ -54,7 +54,9 @@ Add your keys to `.env`:
 ANTHROPIC_API_KEY=sk-ant-...         # Required
 TWITTER_BEARER_TOKEN=...             # Optional — real-time news stream
 TELEGRAM_BOT_TOKEN=...               # Optional — channel monitoring
-POLYMARKET_API_KEY=...               # Optional — live trading only
+POLYMARKET_PRIVATE_KEY=0x...         # Optional — live trading only (signing wallet key)
+POLYMARKET_FUNDER_ADDRESS=0x...      # Optional — deposit wallet that holds the USDC
+POLYMARKET_SIGNATURE_TYPE=3          # 3 = POLY_1271 deposit wallet (default); omit funder for a plain EOA
 ```
 
 ### Verify
@@ -62,6 +64,22 @@ POLYMARKET_API_KEY=...               # Optional — live trading only
 ```bash
 python cli.py verify
 ```
+
+### Live trading (optional)
+
+Dry-run needs nothing extra. Live order placement uses the Polymarket CLOB v2 SDK, which
+is **not** installed by `requirements.txt` (it's commented out there) — install it
+separately and set `DRY_RUN=false`:
+
+```bash
+pip install py-clob-client-v2
+```
+
+`executor.create_clob_client` signs with `POLYMARKET_PRIVATE_KEY`. For a funded deposit
+wallet, also set `POLYMARKET_FUNDER_ADDRESS` (the address holding the USDC) and
+`POLYMARKET_SIGNATURE_TYPE` (default `3` = POLY_1271 deposit wallet; `0` = plain EOA). The
+API credentials are derived at runtime, so no `POLYMARKET_API_KEY` is needed. If the SDK
+isn't installed, live mode logs the trade but places no real order.
 
 ---
 
@@ -78,6 +96,11 @@ python cli.py watch --live
 ```
 
 The `watch` command runs indefinitely. It connects to your configured news sources (Twitter, Telegram, RSS fallback), matches breaking headlines to niche Polymarket markets, classifies each with Claude, and executes trades when it finds edge.
+
+It self-heals on two levels: `supervisor.py` restarts any individual async task that
+crashes, and the whole pipeline is wrapped in `run_with_watchdog` — if the process aborts
+for any reason other than a clean exit or Ctrl-C (e.g. a loky semaphore-leak abort on
+macOS), it's logged and relaunched automatically, up to a restart cap.
 
 ### Live Dashboard
 
@@ -129,6 +152,10 @@ pages hang off the dashboard:
 | `python cli.py markets` | Browse all active markets |
 | `python cli.py trades` | View trade log |
 | `python cli.py stats` | Performance + latency + calibration stats |
+| `python cli.py close <id>` | Manually close an open position by id |
+| `python cli.py reconcile-positions` | Sync DB open positions with real on-chain state (`--fix` to apply) |
+| `python cli.py evolve` | Manually evolve the classification prompt |
+| `python cli.py suggestion list` | List pending threshold-adjustment suggestions |
 
 ---
 
@@ -182,7 +209,7 @@ project root, resolved via `config.PROJECT_ROOT` — run everything from the rep
                    ▼              half-Kelly sizing │
              executor.py          dry-run or live   │
                    │              CLOB order,       │
-                   ▼              daily loss limit  │
+                   ▼              daily spend limit │
           logger.py (trades.db)                     │
                    │                                │
                    ├──► calibrator.py ──► memory.py ┘
@@ -210,10 +237,13 @@ history before classifying the next headline.
 | `locus/core/market_index.py` | Persistent Chroma index of markets, embedded locally (MiniLM) |
 | `locus/core/edge.py` | Turns classifications into signals; confidence-based half-Kelly position sizing |
 | `locus/core/orderbook.py` | Live CLOB orderbook imbalance gate — skips trading into strong opposing flow |
-| `locus/core/positions.py` | Open-position tracking + exits (hard stop-loss, rule-triggered Claude re-evaluations); correlation-risk check |
-| `locus/core/performance.py` | Dry-run PnL aggregation (realized/unrealized) and the live-readiness metrics |
+| `locus/core/event_context.py` | Per-event exposure cap + best-outcome switching across sibling outcomes of one Gamma event |
+| `locus/core/whale_tracker.py` | Shadows `WHALE_WALLETS`, investigates niche markets a tracked whale moved that we missed |
+| `locus/core/positions.py` | Open-position tracking + exits (hard stop-loss, rule-triggered Claude re-evaluations); correlation/category gates; re-entry; `reconcile-positions` |
+| `locus/core/performance.py` | Dry-run PnL aggregation (realized/unrealized), the live-readiness metrics, and the circuit breaker |
 | `locus/core/journal.py` | Daily retrospective — Claude writes one journal entry per day (21:00 UTC) |
-| `locus/core/executor.py` | Executes trades — dry-run log or live CLOB order; daily loss limit |
+| `locus/core/telegram_bot.py` | Telegram trade notifications + interactive `/portfolio` bot |
+| `locus/core/executor.py` | Executes trades — dry-run log or live CLOB order; daily spend limit |
 | `locus/core/export_status.py` | Writes `docs/status.json` (+ journal/decisions archives) for the public GitHub Pages dashboard |
 | `locus/supervisor.py` | Supervises the async pipeline tasks and restarts them on crash |
 | `locus/sources/news_stream.py` | Aggregates Twitter stream, RSS, NewsAPI, and Telegram into one deduped queue |
@@ -223,18 +253,20 @@ history before classifying the next headline.
 | `locus/memory/__init__.py` | Track record + lessons — the classifier's feedback loop |
 | `locus/memory/logger.py` | SQLite store (`trades.db`): trades, news events, classifications, calibration |
 | `locus/memory/calibrator.py` | Grades classifications once markets resolve |
+| `locus/memory/meta_evolver.py` | Weekly self-rewrite of the classification prompt from accumulated lessons |
+| `locus/core/multi_classifier.py` | Claude + Grok ensemble classification — **parked**, off unless `ENSEMBLE_ENABLED` |
 | `locus/backtest/real.py` | Backtest pilot on real data (parked: historical news coverage gap) |
 | `locus/ui/tui.py` | Textual TUI dashboard — read-only live view over `trades.db` |
 
 ### How a Headline Becomes a Trade Decision
 
-1. **A headline arrives** — say, from the Twitter stream. `news_stream.py` dedupes it against recent events and stamps how long it took to arrive.
+1. **A headline arrives** — say, from the Twitter stream. `news_stream.py` dedupes it against recent events and records its publication time when the source gives one (RSS `<pubDate>` is parsed by `scraper.py` with `dateutil` plus explicit format fallbacks), so news age is measured from when it was *published*, not just when we received it.
 2. **Matching** — `matcher.py` compares its words against every tracked niche market's question and keeps the few markets it might be about. No API call, just keyword overlap unioned with semantic hits from the market index.
-3. **Classification** — for each candidate market, `classifier.py` asks Claude one question: does this news make the market *more likely YES*, *more likely NO*, or is it *not relevant*? Claude also scores **materiality** (how much this news should move the price) and **confidence** (the 0.5–1.0 probability the market resolves in the predicted direction), and sees its own historical accuracy and recent mistakes before answering.
+3. **Classification** — for each candidate market, `classifier.py` asks Claude one question: does this news make the market *more likely YES*, *more likely NO*, or is it *not relevant*? Claude also scores **materiality** (how much this news should move the price) and **confidence** (the 0.5–1.0 probability the market resolves in the predicted direction), and sees its own historical accuracy and recent mistakes before answering. This runs **tiered** by default: a cheap Haiku prefilter triages each candidate against a per-category materiality floor (`HAIKU_MATERIALITY_BY_CATEGORY` — geopolitical/politics get a lower bar, sports a higher one), and only survivors get the deeper Sonnet read.
 4. **Edge check** — `edge.py` drops the signal unless the direction is non-neutral, materiality clears the threshold, and the price actually has room to move (no buying YES at 0.95).
-5. **Risk gates** — a would-be signal still has to clear, in order: **freshness** (news older than the limit is classified but never traded), the **headline cap** (one headline opens at most one position), the **correlation check** (`positions.py` blocks a trade that would over-concentrate the book in one topic — by shared keywords or combined exposure), and the **orderbook imbalance** check (`orderbook.py` fetches the live CLOB book and skips trading into strong opposing flow; it fails open if the CLOB is unreachable). Each gate that fires is logged with its own action so the dashboard can count them.
-6. **Edge type + sizing** — `classifier.py` tags the surviving signal with an **edge type** (`news` by default, `momentum` when the YES price has already moved >10% in 24h), and `edge.py` sizes it with **confidence-based half-Kelly**: stake = `KELLY_BANKROLL_USD × (p·b − q)/b ÷ 2` from the market odds and Claude's confidence, capped at `MAX_BET_USD`, floored at $1. Sizing now reflects conviction, not just how big the news is.
-7. **Execution** — `executor.py` checks the daily loss limit, then either logs a dry-run trade (default) or places a real CLOB order.
+5. **Risk gates** — a would-be signal still has to clear, in order: **freshness** (news older than a **source-aware window** — `config.get_max_age_seconds`, e.g. Twitter 3h / Truth Social 2h / RSS 6h / NewsAPI 5h, widening to 24h for slow geopolitical markets — is classified but never traded), the **direction- and category-aware materiality floor** (bullish ≥ `0.34`, bearish ≥ `0.27`, plus geopolitical/sports floors), **multi-source confirmation** for the most "obvious" high-materiality calls, the **headline cap** (one headline opens at most one position), the **correlation** and **category-exposure** checks (`positions.py` blocks over-concentrating the book in one topic or category), the **per-event exposure cap** (`event_context.py`, across sibling outcomes), the **orderbook imbalance** check (`orderbook.py`, fails open if the CLOB is unreachable), a Chain-of-Verification **novelty** check (is the news already priced in?), the **re-entry** gate for markets recently exited, and finally the **circuit breaker** (`performance.py` holds every trade when recent realized drawdown/Sharpe breaches its limits). Each gate that fires is logged with its own action so the dashboard can count them.
+6. **Edge type + sizing** — `classifier.py` tags the surviving signal with an **edge type** (`news` by default, `momentum` when the YES price has already moved >10% in 24h), and `edge.py` sizes it with **confidence-based half-Kelly**: a base stake from `KELLY_BANKROLL_USD × (p·b − q)/b ÷ 2` (market odds and Claude's confidence), then scaled by a **dynamic recent-win-rate factor**, capped at `MAX_BET_USD`, floored at $1. Sizing reflects both conviction and how the strategy has actually been performing.
+7. **Execution** — `executor.py` checks the daily spend limit (`DAILY_SPEND_LIMIT_USD`, total notional deployed per day), then either logs a dry-run trade (default) or places a real CLOB order.
 8. **Logging** — the trade, the headline, the confidence/edge-type, and the news-to-decision latency land in `trades.db`, and the public dashboard updates.
 9. **Learning** — when the market eventually resolves, `calibrator.py` grades the call. Wrong calls become one-line lessons that Claude reads next time, closing the loop.
 
@@ -268,25 +300,38 @@ computed yet (e.g. Sharpe before 7 days) show as N/A rather than failing.
 | `EDGE_THRESHOLD` | `0.10` | Minimum edge to trigger trade |
 | `MAX_VOLUME_USD` | `500000` | Only trade markets below this volume |
 | `MIN_VOLUME_USD` | `1000` | Skip dead markets |
-| `MATERIALITY_THRESHOLD_BULLISH` | `0.3` | Min materiality to act on a bullish call |
-| `MATERIALITY_THRESHOLD_BEARISH` | `0.4` | Min materiality to act on a bearish call (bearish accuracy is lower, so it needs a higher bar) |
+| `MIN_MATERIALITY_DEFAULT` | `0.33` | Base materiality floor to act on a call |
+| `MIN_MATERIALITY_BULLISH` | `0.34` | Min materiality for a bullish call |
+| `MIN_MATERIALITY_BEARISH` | `0.27` | Min materiality for a bearish call (calibration set this *below* the bullish bar) |
+| `MIN_MATERIALITY_GEOPOLITICAL` / `MIN_MATERIALITY_SPORTS` | `0.30` / `0.40` | Category floors (take precedence over the direction floors) |
 | `HIGH_MATERIALITY_THRESHOLD` | `0.5` | At/above this, a signal needs multi-source confirmation before trading |
 | `CONFIRMATION_WINDOW_HOURS` | `2` | Window for counting confirming sources |
 | `MIN_CONFIRMING_SOURCES` | `2` | Distinct sources required to confirm a high-materiality signal |
 | `MAX_POSITIONS_PER_EVENT` | `1` | Max open positions across one Gamma event (sibling outcomes) |
+| `MAX_NEWS_AGE_SECONDS_*` | per source | Source-aware freshness windows (Twitter `10800`, Truth Social `7200`, RSS `21600`, NewsAPI `18000`, default `14400`, geopolitical `86400`) |
+| `CIRCUIT_BREAKER_DD` / `CIRCUIT_BREAKER_SHARPE` | `0.20` / `-1.0` | Trip the circuit breaker when the 7-day realized drawdown/Sharpe breaches these |
+| `WHALE_WALLETS` | — | Comma-separated wallets to shadow (empty disables whale tracking) |
 | `SPEED_TARGET_SECONDS` | `5` | Target news-to-trade latency |
+
+> The legacy `MATERIALITY_THRESHOLD_BULLISH` / `MATERIALITY_THRESHOLD_BEARISH` env vars are
+> still honored as fallbacks for the bullish/bearish floors, but the live settings are the
+> `MIN_MATERIALITY_*` names above.
 
 ---
 
 ## Safety
 
 - Dry-run mode ON by default
-- $25 max single bet, $100 daily limit
-- Confidence-based half-Kelly position sizing
-- Correlation and orderbook-imbalance gates before every trade
+- $25 max single bet, $100 daily spend limit (total notional/day, not realized losses)
+- Confidence-based half-Kelly sizing, scaled down by a dynamic recent-win-rate factor
+- Correlation, category-exposure, per-event-exposure, and orderbook-imbalance gates before every trade
+- **Circuit breaker** — holds all trading when recent realized drawdown/Sharpe deteriorates
 - Niche market filter prevents competing against sophisticated bots
 - Calibration tracking — auto-detects if strategy accuracy drops
 - Live-readiness bar gates the move from dry-run to real capital
+- **Whale tracking** (optional) — shadows configured wallets to surface niche moves we missed
+- **Position reconciliation** — `reconcile-positions` re-syncs the DB against real on-chain balances
+- Crash watchdog auto-restarts the pipeline; per-task supervisor restarts individual tasks
 - All API keys in `.env`, never committed
 
 ---

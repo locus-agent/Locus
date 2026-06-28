@@ -6,7 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 An AI-powered Polymarket trading pipeline. It detects breaking news, classifies its
 directional impact on niche prediction markets via Claude, sizes positions with
-quarter-Kelly, and executes trades (dry-run by default).
+half-Kelly (scaled by a dynamic recent-win-rate factor), and executes trades
+(dry-run by default).
 
 ## Setup & running
 
@@ -29,7 +30,22 @@ python cli.py markets         # browse all active markets in target categories
 python cli.py trades          # view trade log from trades.db
 python cli.py stats           # latency + calibration + exposure stats
 python cli.py scrape          # test the RSS/NewsAPI scraper only
+python cli.py close <id>      # manually close an open position by id
+python cli.py reconcile-positions  # sync DB open positions with real on-chain state (--fix to apply)
+python cli.py evolve          # manually evolve the classification prompt
+python cli.py suggestion list # list pending threshold-adjustment suggestions
 ```
+
+`cli.py watch` wraps `run_pipeline_v2()` in `run_with_watchdog` — a clean return or
+KeyboardInterrupt stops, but any other crash (e.g. a loky semaphore-leak abort on
+macOS) is logged and the pipeline is restarted, up to `max_restarts` times. This is the
+outer whole-process net; `locus/supervisor.py` is the inner per-task restart layer.
+
+`reconcile-positions` audits each `status='open'` position against its real on-chain
+token balance (`executor.held_token_shares`): held > 0 is OK, held == 0 is a phantom
+open (MISMATCH), and an unverifiable balance is UNKNOWN and never auto-closed. Default
+is report-only; `--fix` closes confirmed phantoms as `closed_reconciled`
+(`reconcile_positions` in `locus/core/positions.py`).
 
 Run the test suite with `python -m pytest tests/` (no network or API keys needed —
 the DB is a tmp fixture and external calls are faked). It covers the trade risk
@@ -94,8 +110,17 @@ PipelineV2._execute_signals:
   (`match_news_to_markets_hybrid`; the match source — keyword/embedding/both — is
   logged per classification).
 - `core/pipeline.py: gate_trade` applies trade-time risk gates after classification:
-  headlines older than `MAX_NEWS_AGE_SECONDS` are classified but never traded
-  (action `stale`), and one headline opens at most one position (action `capped`).
+  headlines older than the source-aware freshness window are classified but never
+  traded (action `stale`), and one headline opens at most one position (action
+  `capped`). News age is measured from the item's publication time when known —
+  `sources/scraper.py` parses each RSS `<pubDate>` with `dateutil` (plus explicit
+  `strptime` fallbacks) into `NewsEvent.published_at` — and falls back to receipt time
+  when no publication time is available (see `pipeline.news_age` + the
+  `classifications.published_at` column). The window itself is per-source via
+  `config.get_max_age_seconds(source, category, hours_to_resolution)`: real-time feeds
+  (Twitter 3h, Truth Social 2h) get a tighter bound than slow aggregators (RSS 6h,
+  NewsAPI 5h), unknown sources fall back to `MAX_NEWS_AGE_SECONDS_DEFAULT` (4h), and
+  geopolitical / far-resolution markets widen to `MAX_NEWS_AGE_SECONDS_GEOPOLITICAL` (24h).
 - `core/classifier.py` asks Claude a *classification* question — "does this news make the
   market MORE likely YES / NO / NOT RELEVANT", plus a 0-1 materiality score. This is
   the core philosophical difference from V1 (see README "What Changed From V1"). Each
@@ -108,13 +133,18 @@ PipelineV2._execute_signals:
   market price has room to move in that direction (skips YES if price > 0.85, skips NO
   if price < 0.15). The materiality floor is direction-specific and enforced downstream
   in `gate_trade` (so every classification is still logged/calibrated). `size_position`
-  applies quarter-Kelly, capped at `MAX_BET_USD`.
+  applies half-Kelly (via `_base_kelly_size`, from Claude's confidence and the market
+  odds), then scales it by a dynamic recent-win-rate factor, capped at `MAX_BET_USD`.
 - `core/pipeline.py: gate_trade` (continued) also applies calibration-driven materiality
-  gates: bullish signals need materiality >= `MATERIALITY_THRESHOLD_BULLISH`, bearish
-  need >= `MATERIALITY_THRESHOLD_BEARISH` (bearish accuracy is lower, so a higher bar;
-  action `low_materiality`), and any signal at/above `HIGH_MATERIALITY_THRESHOLD` must be
-  seen in the same direction from `MIN_CONFIRMING_SOURCES` distinct news sources within
-  `CONFIRMATION_WINDOW_HOURS` or it is held (action `needs_confirmation`).
+  gates via `get_materiality_threshold(direction, category)`: category wins first
+  (`MIN_MATERIALITY_GEOPOLITICAL` 0.30, `MIN_MATERIALITY_SPORTS` 0.40), then direction —
+  `MIN_MATERIALITY_BULLISH` (0.34) vs `MIN_MATERIALITY_BEARISH` (0.27), else
+  `MIN_MATERIALITY_DEFAULT` (0.33); below the floor is action `low_materiality`. Any
+  signal at/above `HIGH_MATERIALITY_THRESHOLD` (0.5) must be seen in the same direction
+  from `MIN_CONFIRMING_SOURCES` distinct news sources within `CONFIRMATION_WINDOW_HOURS`
+  or it is held (action `needs_confirmation`). (The legacy `MATERIALITY_THRESHOLD_BULLISH`
+  / `_BEARISH` env vars are still honored as fallbacks for the new `MIN_MATERIALITY_*`
+  floors, but are not `config` attributes.)
 - `core/event_context.py` runs after a signal clears the gates: markets sharing a Gamma
   `event_id` (added to the `Market` dataclass, populated in `gamma.fetch_active_markets`)
   are sibling outcomes of one event. `get_event_exposure` enforces a per-event position
@@ -132,19 +162,30 @@ PipelineV2._execute_signals:
   Claude `decide_investigation` call; on "investigate" the market runs the normal
   classify -> gates path and is logged with action `whale_triggered`, `edge_type='whale'`.
   Empty `WHALE_WALLETS` disables the task (clean return).
-- `core/reentry.py` — re-entry logic. Every non-resolution close writes a row to
-  `watched_closed_positions` (via `positions._close` -> `logger.watch_closed_position`),
-  watched for `REENTRY_WATCH_HOURS`. When a later classification clears the
-  direction/materiality gates on a watched market, `check_reentry_opportunity` decides by
-  close reason: `news` re-enters at materiality >= `REENTRY_NEWS_MATERIALITY` on the
-  original side, `sl` is stricter (>= `REENTRY_SL_MATERIALITY` and >=
-  `REENTRY_SL_MIN_SOURCES` sources), `tp` never. A re-entry is labeled `edge_type='reentry'`
-  / action `reentry_triggered` (and consumes one of `MAX_REENTRY_PER_MARKET`); a watched
-  market that fails the bar is suppressed (action `reentry_blocked`).
+- Re-entry logic lives in `core/positions.py` (`check_reentry_opportunity`, with the
+  pipeline calling `_check_reentry`) — there is no separate `core/reentry.py`. Every
+  non-resolution close writes a row to `watched_closed_positions` (via `positions._close`
+  -> `logger.watch_closed_position`), watched for `REENTRY_WATCH_HOURS` (72h). When a
+  later classification clears the direction/materiality gates on a watched market,
+  `check_reentry_opportunity` decides from the position's `exit_reason`: it must be on
+  `config.REENTRY_ALLOWED_REASONS` and not on `config.REENTRY_BLOCKED_REASONS`, clear
+  `REENTRY_MIN_MATERIALITY` (0.45), and stay under the per-market (`MAX_REENTRY_PER_MARKET`)
+  and per-event (`REENTRY_MAX_PER_EVENT`) caps. A re-entry is sized down by
+  `REENTRY_SIZE_FACTOR` (0.7x), labeled `edge_type='reentry'` / action `reentry_triggered`;
+  a watched market that fails the bar is suppressed (action `reentry_blocked`).
+- `core/performance.py: compute_circuit_breaker` is the final gate before any position
+  opens (and is re-checked under the per-event lock in `_recheck_risk_gates`): when recent
+  realized performance has deteriorated past the limits — 7-day drawdown > `CIRCUIT_BREAKER_DD`
+  (0.20) or a known 7-day Sharpe < `CIRCUIT_BREAKER_SHARPE` (-1.0) — every would-be trade is
+  held (action `circuit_breaker`) until it recovers. `CIRCUIT_BREAKER_ENABLED=false` disables
+  it; the latest read also drives the dashboard status line.
 - `core/executor.py` enforces `DAILY_SPEND_LIMIT_USD` (total notional deployed per day,
   not realized losses; checked via `logger.get_daily_pnl`, which counts `dry_run` rows too),
-  then either logs a `dry_run` row or places a live order via `py_clob_client_v2`
-  (optional dependency, commented out in requirements.txt — install separately).
+  then either logs a `dry_run` row or places a live order via `py_clob_client_v2`. The CLOB
+  SDK is an optional dependency, commented out in `requirements.txt` — install it separately
+  for live trading. `executor.create_clob_client` signs with `POLYMARKET_PRIVATE_KEY` and,
+  for a funded deposit wallet, `POLYMARKET_FUNDER_ADDRESS` + `POLYMARKET_SIGNATURE_TYPE`
+  (default 3 = POLY_1271 deposit wallet; omit the funder for a plain EOA wallet).
 
 The read-only Textual dashboard (`cli.py dashboard`) lives in `ui/tui.py` and renders
 `trades.db` / `docs/status.json` without scanning, classifying, or trading.
@@ -153,12 +194,12 @@ The read-only Textual dashboard (`cli.py dashboard`) lives in `ui/tui.py` and re
 
 - `config.py` — loads `.env`, defines all thresholds/keys/categories and
   `PROJECT_ROOT`: `DRY_RUN`, `MAX_BET_USD`, `DAILY_SPEND_LIMIT_USD`, `EDGE_THRESHOLD`,
-  `MAX_VOLUME_USD`/`MIN_VOLUME_USD`/`MATERIALITY_THRESHOLD_BULLISH`/
-  `MATERIALITY_THRESHOLD_BEARISH`/`HIGH_MATERIALITY_THRESHOLD`/`SPEED_TARGET_SECONDS`, and
-  more. `cli.py` mutates `config.DRY_RUN` / `config.MATERIALITY_THRESHOLD_BULLISH` +
-  `config.MATERIALITY_THRESHOLD_BEARISH` (via `--threshold`) / `config.EDGE_THRESHOLD` at
-  runtime based on CLI flags — modules must read these as `config.X` (not via
-  `from locus.config import X`) to see overrides.
+  `MAX_VOLUME_USD`/`MIN_VOLUME_USD`/`MIN_MATERIALITY_DEFAULT`/`MIN_MATERIALITY_BULLISH`/
+  `MIN_MATERIALITY_BEARISH`/`MIN_MATERIALITY_GEOPOLITICAL`/`MIN_MATERIALITY_SPORTS`/
+  `HIGH_MATERIALITY_THRESHOLD`/`SPEED_TARGET_SECONDS`, and more. `cli.py --threshold`
+  mutates `config.DRY_RUN` / `config.MIN_MATERIALITY_DEFAULT` + `config.MIN_MATERIALITY_BULLISH`
+  / `config.EDGE_THRESHOLD` at runtime based on CLI flags — modules must read these as
+  `config.X` (not via `from locus.config import X`) to see overrides.
 - `memory/logger.py` — SQLite (`trades.db`, WAL mode). `init_db()` runs at import time
   and auto-migrates newer columns (`_migrate_v2_columns`,
   `_migrate_classification_columns`). Tables: `trades`, `outcomes`, `pipeline_runs`,
