@@ -82,11 +82,6 @@ def news_age(event: NewsEvent, now: datetime | None = None) -> tuple[float, str]
     return (now - published).total_seconds(), "published_at"
 
 
-def news_age_seconds(event: NewsEvent, now: datetime | None = None) -> float:
-    """Age of the news in seconds (see news_age), without the timestamp basis."""
-    return news_age(event, now)[0]
-
-
 def known_published_at(event: NewsEvent) -> str | None:
     """The event's publication time as an ISO 8601 string when the source gave a
     usable one, else None — so the classifications.published_at column records a

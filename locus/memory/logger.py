@@ -836,13 +836,6 @@ def get_latest_prompt_version() -> dict | None:
     return dict(row) if row else None
 
 
-def get_prompt_version_count() -> int:
-    conn = _conn()
-    n = conn.execute("SELECT COUNT(*) AS c FROM prompt_versions").fetchone()["c"]
-    conn.close()
-    return n
-
-
 def get_all_prompt_versions() -> list[dict]:
     """Every evolved prompt version, oldest first — backs the dashboard's
     evolution timeline and the version-over-version 'what changed' diff."""
@@ -1137,31 +1130,6 @@ def get_news_event_count_since(since: str) -> int:
     ).fetchone()
     conn.close()
     return row["c"]
-
-
-def log_run_start() -> int:
-    conn = _conn()
-    now = datetime.now(timezone.utc).isoformat()
-    cur = conn.execute(
-        "INSERT INTO pipeline_runs (started_at) VALUES (?)", (now,)
-    )
-    run_id = cur.lastrowid
-    conn.commit()
-    conn.close()
-    return run_id
-
-
-def log_run_end(run_id: int, markets_scanned: int, signals_found: int, trades_placed: int, status: str = "completed"):
-    conn = _conn()
-    now = datetime.now(timezone.utc).isoformat()
-    conn.execute(
-        """UPDATE pipeline_runs
-           SET finished_at=?, markets_scanned=?, signals_found=?, trades_placed=?, status=?
-           WHERE id=?""",
-        (now, markets_scanned, signals_found, trades_placed, status, run_id),
-    )
-    conn.commit()
-    conn.close()
 
 
 def get_daily_pnl() -> float:

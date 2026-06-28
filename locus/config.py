@@ -28,9 +28,6 @@ ENSEMBLE_ENABLED = os.getenv("ENSEMBLE_ENABLED", "false").lower() == "true"
 ENSEMBLE_MIN_CONSENSUS = float(os.getenv("ENSEMBLE_MIN_CONSENSUS", "0.5"))
 
 # --- Polymarket CLOB ---
-POLYMARKET_API_KEY = os.getenv("POLYMARKET_API_KEY", "")
-POLYMARKET_API_SECRET = os.getenv("POLYMARKET_API_SECRET", "")
-POLYMARKET_API_PASSPHRASE = os.getenv("POLYMARKET_API_PASSPHRASE", "")
 POLYMARKET_PRIVATE_KEY = os.getenv("POLYMARKET_PRIVATE_KEY", "")
 # Funded-wallet trading: the deposit wallet ADDRESS that holds the USDC and its
 # signature type (0 = EOA, 1 = email/Magic proxy a.k.a. POLY_PROXY, 2 = browser
@@ -473,9 +470,8 @@ MISSED_MIN_ENTRY_PRICE = float(os.getenv("MISSED_MIN_ENTRY_PRICE", "0.08"))
 # --- Missed-opportunity-driven threshold suggestions (conservative mode) ---
 # When the calibrator detects a *recurring* pattern of misses, it stores a
 # human-readable suggestion (e.g. "loosen the geopolitical freshness window")
-# rather than silently changing a threshold. AUTO_ADJUST stays off: these are
-# suggestions for a human to review on the dashboard, never auto-applied.
-MISSED_OPPORTUNITY_AUTO_ADJUST_ENABLED = os.getenv("MISSED_OPPORTUNITY_AUTO_ADJUST_ENABLED", "false").lower() == "true"
+# rather than silently changing a threshold. These are suggestions for a human
+# to review on the dashboard, never auto-applied.
 # Recurrence bars: N qualifying misses within the window before we suggest.
 MISSED_STALE_GEOPOLITICAL_THRESHOLD = int(os.getenv("MISSED_STALE_GEOPOLITICAL_THRESHOLD", "3"))   # in 14 days
 MISSED_MATERIALITY_THRESHOLD = int(os.getenv("MISSED_MATERIALITY_THRESHOLD", "2"))                  # per category, 7 days
