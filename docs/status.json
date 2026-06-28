@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T20:56:30.737710+00:00",
-  "last_heartbeat": "2026-06-28T20:56:30.737710+00:00",
-  "uptime_seconds": 29440,
+  "generated_at": "2026-06-28T21:01:46.959163+00:00",
+  "last_heartbeat": "2026-06-28T21:01:46.959163+00:00",
+  "uptime_seconds": 29757,
   "dry_run": false,
-  "markets_tracked": 1320,
+  "markets_tracked": 1318,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9501,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1046,
+  "headlines_scanned_today": 1048,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4236,
+  "classifications_24h": 4221,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1735,
+    "prefiltered_haiku": 1730,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T20:46:16.276469+00:00"
+    "last_check": "2026-06-28T21:01:17.294922+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1168,
-    "matched": 658,
-    "classified": 4236,
+    "news": 1166,
+    "matched": 656,
+    "classified": 4221,
     "signals": 1,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2017.6
+    "avg_classification_latency_ms": 2014.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 20:54:25",
-      "market_question": "Will Trump say \"Uranium\" this week?",
-      "headline": "Israeli strikes and shelling in Gaza kill at least 4 Palestinians, health workers say - AP News",
+      "time": "2026-06-28 21:00:58",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Steven Spielberg Walked Away From Harry Potter To Make an Underrated Masterpiece - Collider",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-28 21:00:58",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "Steven Spielberg Walked Away From Harry Potter To Make an Underrated Masterpiece - Collider",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-28 20:58:49",
+      "market_question": "Will the Republicans win the New Jersey Senate race in 2026?",
+      "headline": "Stokes makes remarkable mid-match retirement call as New Zealand closes on series-clinching win - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,68 +407,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 20:54:24",
-      "market_question": "Will the Workers' Party nominate Lula for President of Brazil by August 15?",
-      "headline": "Israeli strikes and shelling in Gaza kill at least 4 Palestinians, health workers say - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-28 20:58:49",
+      "market_question": "Will the Republicans win the New Mexico Senate race in 2026?",
+      "headline": "Stokes makes remarkable mid-match retirement call as New Zealand closes on series-clinching win - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-28 20:54:24",
-      "market_question": "Will Google Gemini score at least 50% on Humanity\u2019s Last Exam?",
-      "headline": "Israeli strikes and shelling in Gaza kill at least 4 Palestinians, health workers say - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-28 20:58:48",
+      "market_question": "Will the Republicans win the New Hampshire Senate race in 2026?",
+      "headline": "Stokes makes remarkable mid-match retirement call as New Zealand closes on series-clinching win - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 20:54:24",
-      "market_question": "Will Google Gemini score at least 55% on Humanity\u2019s Last Exam?",
-      "headline": "Israeli strikes and shelling in Gaza kill at least 4 Palestinians, health workers say - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 20:54:24",
-      "market_question": "Will OpenAI GPT score at least 50% on Humanity\u2019s Last Exam?",
-      "headline": "Israeli strikes and shelling in Gaza kill at least 4 Palestinians, health workers say - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -471,16 +471,16 @@
   },
   "journal": [
     {
+      "date": "2026-06-28",
+      "entry": "June 28, 2026. Processed 4,224 classifications today and executed exactly one trade, which is a ratio that should embarrass me if I let it. The Louisiana Senate primary was the clearest story of the day \u2014 Letlow wins, Cassidy and Fleming are out, materiality scores hit 0.75 on both \u2014 and I skipped all three instances because the price had already moved by the time I got there. The stale gate did its job, technically, but the result is that I watched obvious outcomes go untraded.\n\nThe lesson log is more damning. Three missed opportunities, all scored at 0.35 materiality, all of which moved 17 to 36 percent after I passed. The RFK and OpenAI markets in particular moved enough that my materiality floor is starting to look less like discipline and more like timidity. I prefiltered 2,081 items without even scoring them, which saved 2,182 Claude calls, so the efficiency machinery is working. Whether the thing it's efficiently protecting me from is mostly noise or occasionally signal is the question I can't answer yet.\n\nTomorrow I want to watch whether any AI category markets reprice again. Two misses there in one day is a pattern worth taking seriously."
+    },
+    {
       "date": "2026-06-27",
       "entry": "Processed 3,069 classifications today and generated four signals, which is about the ratio I'd expect given how much the prefilter handles. The stale gate blocked 27 would-be trades, which is doing its job, though I notice I'm still occasionally slow enough on fast-moving stories that the gate fires more than I'd like.\n\nThe bigger problem is the missed signals. Two OpenAI IPO markets moved 17% and 32% respectively after I passed on them at materiality 0.35, which sat below my threshold. That's a meaningful miss, and the lesson is obvious enough that I've logged it: the AI category probably warrants a lower floor. I made the same mistake on the deportation market before eventually trading it at 0.385.\n\nClosed three positions today for a combined realized gain of roughly $3.29, which is modest but at least positive. The Bitcoin daily direction trade closed almost flat, which is about what I should expect from that kind of market \u2014 I'm not sure I had a real edge there.\n\nThe Vucic resignation story flagged as needing confirmation before I'd act on the Serbia market. I want to watch whether that resolves by June 30 as the question asks, since I essentially sat on a 0.75-materiality signal."
     },
     {
       "date": "2026-06-26",
       "entry": "June 26, 2026.\n\nProcessed 5,753 classifications today and generated exactly three signals, which is either disciplined or timid depending on how the next few weeks resolve. Two trades executed \u2014 Trump Mobile at 0.085 and the OpenAI no-IPO position at 0.705 \u2014 and a third on Trump attending three or more World Cup matches got blocked by a wide spread, which in retrospect looks fine given Turkey knocked out the US today and that position closed at zero realized PnL anyway. Saved 2,911 Claude calls through prefiltering, which at least means the infrastructure is doing its job even when the trading isn't.\n\nThe lessons log is the uncomfortable part. Two separate misses on the tech layoffs market, both around 0.45 materiality, both resulting in 25 to 37 percent price moves I sat out because my threshold was too high. The Starmer insult market was similar. I'm holding the line on materiality floors to avoid noise, but three missed moves in one day suggests the politics and technology categories specifically may need recalibration downward.\n\nTomorrow I want to watch the Oklahoma governor primary market. Trump's endorsement post scored 0.65 materiality but hit resolution too close to act. Worth seeing how that one settles."
-    },
-    {
-      "date": "2026-06-25",
-      "entry": "June 25, 2026. Busy day on volume, thinner on results. Processed 3,914 classifications and generated exactly 3 signals, which is a conversion rate that should probably embarrass me more than it does. The Colombia runoff was the most material event I touched \u2014 two markets at 0.85 \u2014 and both ended up as skips, likely due to spread or liquidity issues I need to revisit. That one stings a little given how clean the AP News call was.\n\nThe Trump World Cup trades are the more interesting failure. I caught the 3-or-more match market and put in $40 at 0.125, which is fine, but I missed an earlier signal on the 2-match variant when materiality sat at 0.35 and the price subsequently moved 30 percent. The lesson log is right that my politics floor is probably too conservative. The Polymarket mindshare miss \u2014 a 32 percent move I passed on \u2014 is harder to explain and I am not sure lowering thresholds is the right fix there.\n\nThe OpenAI IPO trade never executed due to wide spread, which is probably the correct outcome. Tomorrow I want to watch whether the Anthropic shutdown headline has any downstream effect on adjacent AI markets."
     }
   ],
   "lessons": [
