@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T02:39:24.221619+00:00",
-  "last_heartbeat": "2026-06-28T02:39:24.221619+00:00",
-  "uptime_seconds": 108588,
+  "generated_at": "2026-06-28T02:44:29.790596+00:00",
+  "last_heartbeat": "2026-06-28T02:44:29.790596+00:00",
+  "uptime_seconds": 108894,
   "dry_run": false,
-  "markets_tracked": 1318,
+  "markets_tracked": 1319,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9402,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 117,
+  "headlines_scanned_today": 118,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 3019,
+  "classifications_24h": 2994,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1254,
+    "prefiltered_haiku": 1250,
     "stale": 23,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 735,
-    "matched": 616,
-    "classified": 3019,
+    "news": 730,
+    "matched": 612,
+    "classified": 2994,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2113.2
+    "avg_classification_latency_ms": 2113.0
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 02:30:45",
-      "market_question": "Will OpenAI announce a phone in 2026?",
-      "headline": "SpaceX wants to sell Starlink phone service directly to US consumers - The Next Web",
+      "time": "2026-06-28 02:41:30",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Ghana coach Queiroz says value of 48-team World Cup debatable - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,25 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 02:30:45",
-      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
-      "headline": "SpaceX wants to sell Starlink phone service directly to US consumers - The Next Web",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 02:30:44",
-      "market_question": "Will Ethereum dip to $1,300 in June?",
-      "headline": "Palantir Stock Could Snap 7-Day Losing Streak. Cathie Wood\u2019s ARK Bought the Dip. - Barron's",
+      "time": "2026-06-28 02:41:26",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Ghana coach Queiroz says value of 48-team World Cup debatable - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,36 +420,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 02:30:44",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Lilly, J&J and AbbVie Hit New Highs - Yahoo Finance",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-28 02:41:26",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Ghana coach Queiroz says value of 48-team World Cup debatable - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-28 02:30:44",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Lilly, J&J and AbbVie Hit New Highs - Yahoo Finance",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-28 02:41:26",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Ghana coach Queiroz says value of 48-team World Cup debatable - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 02:41:26",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Ghana coach Queiroz says value of 48-team World Cup debatable - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
