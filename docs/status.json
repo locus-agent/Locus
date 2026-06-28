@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T04:21:18.042844+00:00",
-  "last_heartbeat": "2026-06-28T04:21:18.042844+00:00",
-  "uptime_seconds": 114702,
+  "generated_at": "2026-06-28T04:26:23.665720+00:00",
+  "last_heartbeat": "2026-06-28T04:26:23.665720+00:00",
+  "uptime_seconds": 115008,
   "dry_run": false,
-  "markets_tracked": 1313,
+  "markets_tracked": 1317,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9402,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 165,
+  "headlines_scanned_today": 167,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 3035,
+  "classifications_24h": 3032,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1297,
+    "prefiltered_haiku": 1296,
     "stale": 23,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 739,
-    "matched": 620,
-    "classified": 3035,
+    "matched": 619,
+    "classified": 3032,
     "signals": 5,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 2.8,
-    "total_pnl_usd": 54.66,
+    "unrealized_pnl_usd": 3.36,
+    "total_pnl_usd": 55.22,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2111.4
+    "avg_classification_latency_ms": 2111.0
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.43999999999999995,
-      "pnl_pct": 14.29,
+      "current_price": 0.44999999999999996,
+      "pnl_pct": 16.88,
       "amount_usd": 14.43,
-      "current_value_usd": 16.49,
-      "pnl_usd": 2.06,
+      "current_value_usd": 16.87,
+      "pnl_usd": 2.44,
       "edge_type": "momentum",
       "event_id": "73866"
     },
@@ -208,11 +208,11 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.30500000000000005,
-      "pnl_pct": 2.96,
+      "current_price": 0.3,
+      "pnl_pct": 3.7,
       "amount_usd": 24.99,
-      "current_value_usd": 25.73,
-      "pnl_usd": 0.74,
+      "current_value_usd": 25.92,
+      "pnl_usd": 0.93,
       "edge_type": "news",
       "event_id": "59233"
     }
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 04:17:46",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Bills decline to honor O.J. Simpson in making the move to new stadium - AP News",
+      "time": "2026-06-28 04:22:11",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "US & International Top News Stories Today - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 04:22:09",
+      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
+      "headline": "US & International Top News Stories Today - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,9 +420,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 04:17:46",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Bills decline to honor O.J. Simpson in making the move to new stadium - AP News",
+      "time": "2026-06-28 04:22:09",
+      "market_question": "Will Meituan have the top AI model at the end of June 2026?",
+      "headline": "US & International Top News Stories Today - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 04:17:46",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "Bills decline to honor O.J. Simpson in making the move to new stadium - AP News",
+      "time": "2026-06-28 04:22:09",
+      "market_question": "Will Moonshot have the top AI model at the end of June 2026?",
+      "headline": "US & International Top News Stories Today - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,25 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 04:17:46",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Bills decline to honor O.J. Simpson in making the move to new stadium - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 04:17:46",
-      "market_question": "Trump declassifies new UFO files by July 31?",
-      "headline": "Bills decline to honor O.J. Simpson in making the move to new stadium - AP News",
+      "time": "2026-06-28 04:22:09",
+      "market_question": "Will DeepSeek have the top AI model at the end of June 2026?",
+      "headline": "US & International Top News Stories Today - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
