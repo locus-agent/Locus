@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T11:54:50.323737+00:00",
-  "last_heartbeat": "2026-06-28T11:54:50.323737+00:00",
-  "uptime_seconds": 141914,
+  "generated_at": "2026-06-28T11:59:56.494035+00:00",
+  "last_heartbeat": "2026-06-28T11:59:56.494035+00:00",
+  "uptime_seconds": 142221,
   "dry_run": false,
-  "markets_tracked": 1333,
+  "markets_tracked": 1334,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9421,
@@ -128,14 +128,14 @@
   "performance": {
     "trades_total": 38,
     "deployed_usd": 808.31,
-    "open_count": 0,
+    "open_count": 1,
     "closed_count": 31,
     "wins": 18,
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 0.0,
-    "total_pnl_usd": 51.85,
+    "unrealized_pnl_usd": 0.37,
+    "total_pnl_usd": 52.22,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -184,23 +184,26 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.052,
+    "drawdown_7d": 0.0577,
     "sharpe_7d": 0.08
   },
-  "open_positions": [],
-  "closed_positions": [
+  "open_positions": [
     {
-      "time": "2026-06-28 11:54:33",
+      "time": "2026-06-27 18:37:15",
       "market_question": "Will Dan Sullivan win the Alaska Senate race in 2026?",
       "slug": "alaska-senate-election-winner",
       "side": "NO",
-      "entry_price": 0.325,
-      "exit_price": null,
-      "realized_pnl_usd": 0.0,
-      "exit_reason": "phantom_position",
-      "event_id": "59233",
-      "partial": false
-    },
+      "entry_price": 0.32,
+      "current_price": 0.31,
+      "pnl_pct": 1.47,
+      "amount_usd": 25.0,
+      "current_value_usd": 25.37,
+      "pnl_usd": 0.37,
+      "edge_type": "news",
+      "event_id": "59233"
+    }
+  ],
+  "closed_positions": [
     {
       "time": "2026-06-28 11:54:33",
       "market_question": "Will Trump deport 400-500k people?",
@@ -308,6 +311,18 @@
       "exit_reason": "manual",
       "event_id": "528020",
       "partial": false
+    },
+    {
+      "time": "2026-06-21T14:03:31.526898+00:00",
+      "market_question": "Will Wes Streeting be a candidate in the next Labour Party leadership election?",
+      "slug": "candidates-in-next-labour-leadership-election",
+      "side": "NO",
+      "entry_price": 0.345,
+      "exit_price": 0.135,
+      "realized_pnl_usd": 5.629770992366409,
+      "exit_reason": "UPD: \u00bd closed +13% \u2192 fully closed +32%",
+      "event_id": "481681",
+      "partial": true
     }
   ],
   "exit_decisions": [
