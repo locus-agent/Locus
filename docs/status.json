@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-28T17:22:12.877850+00:00",
-  "last_heartbeat": "2026-06-28T17:22:12.877850+00:00",
-  "uptime_seconds": 16582,
+  "generated_at": "2026-06-28T17:27:19.020609+00:00",
+  "last_heartbeat": "2026-06-28T17:27:19.020609+00:00",
+  "uptime_seconds": 16889,
   "dry_run": false,
   "markets_tracked": 1311,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 946,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 949,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4370,
+  "classifications_24h": 4377,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1797,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1191,
-    "matched": 682,
-    "classified": 4370,
+    "news": 1193,
+    "matched": 683,
+    "classified": 4377,
     "signals": 3,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2042.8
+    "avg_classification_latency_ms": 2033.5
   },
   "live_readiness": {
     "ready": true,
@@ -359,41 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 17:21:50",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "China claims the world&#8217;s fastest supercomputer",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 17:15:23",
-      "market_question": "Aleksandar Vu\u010di\u0107 out as Serbian President by June 30, 2026?",
-      "headline": "Serbians to keep up protest after President Vucic says he will step down - Reuters",
-      "direction": "bullish",
-      "materiality": 0.15,
-      "confidence": 0.72,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.15,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 17:15:21",
-      "market_question": "Ethereum Up or Down on June 29?",
-      "headline": "Serbians to keep up protest after President Vucic says he will step down - Reuters",
+      "time": "2026-06-28 17:24:03",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Uruguay's Ugarte suffers serious knee injury at World Cup - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 17:15:21",
-      "market_question": "Bitcoin Up or Down - June 28, 1:05PM-1:10PM ET",
-      "headline": "Serbians to keep up protest after President Vucic says he will step down - Reuters",
+      "time": "2026-06-28 17:24:03",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Uruguay's Ugarte suffers serious knee injury at World Cup - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -423,9 +391,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 17:15:18",
-      "market_question": "Bitcoin Up or Down - June 28, 12PM ET",
-      "headline": "Serbians to keep up protest after President Vucic says he will step down - Reuters",
+      "time": "2026-06-28 17:24:03",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Uruguay's Ugarte suffers serious knee injury at World Cup - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 17:24:03",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Uruguay's Ugarte suffers serious knee injury at World Cup - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 17:24:03",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Uruguay's Ugarte suffers serious knee injury at World Cup - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
