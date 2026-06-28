@@ -579,17 +579,24 @@ def reconcile_order(client, order_id: str, total_shares: float | None = None,
     (status, filled_cost_usd).
 
     A GTC order can rest fully OR partially unfilled — post_order returning an
-    order_id is not a fill, and the maker amount it echoes back is the *order*
-    size, not what actually filled (the partial-fill bug: a $32.81 order that
-    fills $4.41 would otherwise open a $32.81 position and leave the rest live).
-    After ORDER_RECONCILE_WAIT_SECONDS we ask the exchange for the real matched
-    size and map it (matching is case-insensitive; the v2 fill field has several
-    spellings):
-      - terminal MATCHED/FILLED status            -> ("executed", full filled cost)
-      - 0 < matched < total, order still resting   -> cancel the unfilled remainder
-        (so it can't fill later untracked) and report ("executed", partial cost)
-      - matched == 0 (resting) / unknown status    -> cancel and ("resting", None)
-      - order not found / query error              -> ("error_not_found", None)
+    order_id (and even a status='live' body) is NOT a fill. Worse, a resting
+    order's response echoes back order-sized amount fields (takingAmount /
+    size echoes), so trusting any non-zero fill field on a *resting* order opens
+    a phantom position: the DB shows a fill while nothing matched on Polymarket.
+
+    So we re-query the exchange after ORDER_RECONCILE_WAIT_SECONDS and map the
+    status conservatively (matching is case-insensitive):
+      - LIVE                     -> ("resting", None)  ALWAYS, regardless of any
+        echoed fill field (this is the phantom-position fix). Cancel the order.
+      - FILLED                   -> ("executed", filled cost; full order size if
+        no fill field is reported, since FILLED is terminal/complete).
+      - MATCHED                  -> ("executed", filled cost) ONLY if a fill
+        field is > 0; a partial match still resting cancels the remainder so it
+        can't fill later untracked. MATCHED with no reported fill -> ("resting").
+      - any unknown status       -> ("resting", None)  conservative default. Cancel.
+      - order not found          -> ("resting", None)  we can't confirm a fill, so
+        default to resting (never executed).
+      - query error (exception)  -> ("error_not_found", None).
 
     filled_cost_usd is the real notional that filled (filled_shares * price), so a
     partial fill opens a position sized to what we actually own — None when nothing
@@ -601,10 +608,17 @@ def reconcile_order(client, order_id: str, total_shares: float | None = None,
         log.error("[executor] order reconcile failed for %s: %s", order_id, e)
         return "error_not_found", None
     if not order:
-        log.error("[executor] order %s not found on reconcile", order_id)
-        return "error_not_found", None
+        # Order not found on query: we cannot confirm any fill. Default to
+        # resting (never executed) so no phantom position is opened.
+        log.warning("[reconcile] order_id=%s status=not_found filled=? → result=resting",
+                    order_id)
+        return "resting", None
 
-    status = (_field(order, "status") or "").upper()
+    # Log the FULL order response so any future status/field surprise is visible.
+    log.info("[reconcile] full order response for order_id=%s: %r", order_id, order)
+
+    status_raw = _field(order, "status") or ""
+    status = str(status_raw).upper()
     # v2 fill field varies: size_matched (snake) / filledAmount (camel) /
     # takingAmount (outcome tokens received on a BUY) / etc.
     filled_raw = _field(order, "size_matched", "filled_size", "matched_size",
@@ -619,37 +633,44 @@ def reconcile_order(client, order_id: str, total_shares: float | None = None,
             return round(shares * price, 2)
         return None
 
-    # Terminal fill: the whole order matched. A MATCHED/FILLED status with no
-    # size field reported means the full order size filled.
-    if status in ("MATCHED", "FILLED"):
-        filled_shares = filled if filled > 0 else (total_shares or 0.0)
-        log.info("[executor] order %s reconciled: filled (status=%s, filled=%s sh)",
-                 order_id, status, filled_shares)
-        return "executed", _cost(filled_shares)
+    def _done(result: str, cost: float | None) -> tuple[str, float | None]:
+        log.info("[reconcile] order_id=%s status=%s filled=%s → result=%s",
+                 order_id, status_raw or "?", filled, result)
+        return result, cost
 
-    # Partial fill still resting on the book: keep the filled part, cancel the rest.
-    if filled > 0:
-        if total_shares is not None and filled + 1e-9 < total_shares:
-            log.warning(
-                "[executor] order %s PARTIALLY filled: %.4f of %.4f sh — cancelling "
-                "the unfilled remainder, opening on the filled part",
-                order_id, filled, total_shares,
-            )
-            cancel_order_safe(client, order_id)
-        else:
-            log.info("[executor] order %s reconciled: filled %.4f sh", order_id, filled)
-        return "executed", _cost(filled)
-
-    # Nothing filled — resting or an unknown status. Cancel so it can't fill later
-    # untracked; we open no position for it.
+    # LIVE -> ALWAYS resting, even if a fill field is echoed back. A resting
+    # order's response carries order-sized amount fields, not a real fill, so
+    # trusting them here is exactly what opened phantom positions. Cancel it.
     if status == "LIVE":
-        log.warning("[executor] order %s reconciled: resting/unfilled on the book",
-                    order_id)
-    else:
-        log.warning("[executor] order %s reconciled: status=%s, no fill",
-                    order_id, status or "?")
+        cancel_order_safe(client, order_id)
+        return _done("resting", None)
+
+    # FILLED is terminal/complete: executed even when no size field is reported
+    # (then the full order size filled).
+    if status == "FILLED":
+        filled_shares = filled if filled > 0 else (total_shares or 0.0)
+        return _done("executed", _cost(filled_shares))
+
+    # MATCHED: executed ONLY if a fill is actually reported. A partial match
+    # still resting cancels the unfilled remainder, opening on the filled part.
+    if status == "MATCHED":
+        if filled > 0:
+            if total_shares is not None and filled + 1e-9 < total_shares:
+                log.warning(
+                    "[executor] order %s PARTIALLY filled: %.4f of %.4f sh — "
+                    "cancelling the unfilled remainder, opening on the filled part",
+                    order_id, filled, total_shares,
+                )
+                cancel_order_safe(client, order_id)
+            return _done("executed", _cost(filled))
+        # MATCHED with no reported fill — ambiguous; default to resting.
+        cancel_order_safe(client, order_id)
+        return _done("resting", None)
+
+    # Unknown status — conservative default to resting. Cancel so it can't fill
+    # later untracked; we open no position for it.
     cancel_order_safe(client, order_id)
-    return "resting", None
+    return _done("resting", None)
 
 
 def _execute_live(signal: Signal) -> dict:

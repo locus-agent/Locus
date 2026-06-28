@@ -1286,6 +1286,18 @@ class PipelineV2:
                 result = await execute_trade_async(signal)
                 self.stats["trades_executed"] += 1
 
+                # Sanity check: a live "executed" with no real fill cost is a
+                # phantom fill (the order rested but was mis-reported). Downgrade
+                # it to "resting" so we never open a position with no money behind
+                # it. dry_run legitimately has no fill cost, so it's exempt.
+                if result["status"] == "executed" and not result.get("actual_cost_usd"):
+                    log.warning(
+                        "[pipeline] Sanity check failed: executed but no fill cost "
+                        "— treating as resting (order %s, \"%s\")",
+                        result.get("order_id"), market.question[:40],
+                    )
+                    result["status"] = "resting"
+
                 if result["status"] in ("dry_run", "executed"):
                     # Only a confirmed fill (or a dry-run simulation) opens a
                     # local position.

@@ -120,6 +120,39 @@ def test_acquire_position_lock_is_stable_per_key(tmp_db):
     assert l1 is not l3      # different key -> different lock
 
 
+def test_executed_with_no_fill_cost_is_downgraded_to_resting(tmp_db, monkeypatch):
+    # Phantom-fill guard in the pipeline: a live "executed" result that carries
+    # no real fill cost must be treated as resting and open NO position.
+    async def fake_exec(signal):
+        return {
+            "trade_id": 1, "market": signal.market.question, "side": signal.side,
+            "amount": signal.bet_amount, "actual_cost_usd": None, "edge": 0.2,
+            "status": "executed", "order_id": "order-x", "latency_ms": 0,
+        }
+
+    monkeypatch.setattr(pl, "execute_trade_async", fake_exec)
+    p = pl.PipelineV2()
+    result = asyncio.run(p._execute_with_lock(sig(mkt("a", event_id="e1"))))
+    assert result["status"] == "resting"
+    assert tmp_db_open_positions() == []
+
+
+def test_executed_with_real_fill_cost_opens_position(tmp_db, monkeypatch):
+    # Control: a live "executed" WITH a real fill cost passes the guard and opens.
+    async def fake_exec(signal):
+        return {
+            "trade_id": 1, "market": signal.market.question, "side": signal.side,
+            "amount": signal.bet_amount, "actual_cost_usd": 24.5, "actual_shares": 49.0,
+            "edge": 0.2, "status": "executed", "order_id": "order-x", "latency_ms": 0,
+        }
+
+    monkeypatch.setattr(pl, "execute_trade_async", fake_exec)
+    p = pl.PipelineV2()
+    result = asyncio.run(p._execute_with_lock(sig(mkt("a", event_id="e1"))))
+    assert result["status"] == "executed"
+    assert len(tmp_db_open_positions()) == 1
+
+
 def tmp_db_open_positions():
     """Helper: current open positions from the active (tmp) DB."""
     from locus.core import positions

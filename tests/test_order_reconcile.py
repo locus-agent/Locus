@@ -1,10 +1,15 @@
 """Order reconciliation after a GTC post: a posted order_id is not a fill.
 
 _execute_live re-queries the exchange (client.get_order) after a short wait and
-maps the real order state to a status:
-  - MATCHED / filled_size > 0 -> "executed"
-  - LIVE (resting, unfilled)  -> "resting"
-  - missing / query error     -> "error_not_found"
+maps the real order state to a status, conservatively (LIVE never opens a
+position, even if a fill field is echoed back — the phantom-position fix):
+  - FILLED                    -> "executed" (terminal/complete)
+  - MATCHED with fill > 0     -> "executed"
+  - MATCHED with no fill      -> "resting"
+  - LIVE (resting)            -> "resting" ALWAYS
+  - unknown status            -> "resting" (conservative default)
+  - order not found           -> "resting"
+  - query error (exception)   -> "error_not_found"
 
 py_clob_client_v2 is an optional dependency, so we inject fakes into sys.modules.
 """
@@ -125,8 +130,9 @@ def test_executed_buy_records_actual_cost(tmp_db, monkeypatch):
 
 def test_partial_fill_records_actual_shares(tmp_db, monkeypatch):
     # 10 of 50 shares matched at $0.50 -> $5.00 filled / $0.50 = 10 shares held.
+    # A partial fill is reported with status MATCHED (LIVE always rests now).
     _setup(monkeypatch)
-    _install_fake_clob(monkeypatch, {"status": "LIVE", "size_matched": "10"})
+    _install_fake_clob(monkeypatch, {"status": "MATCHED", "size_matched": "10"})
     import py_clob_client_v2 as client_mod
     client_mod.OrderPayload = lambda orderID: ("payload", orderID)
     monkeypatch.setattr(client_mod.ClobClient, "cancel_order",
@@ -154,7 +160,8 @@ def test_partial_fill_records_filled_cost_and_cancels_remainder(tmp_db, monkeypa
     # unfilled remainder must be cancelled — not left live on the book.
     _setup(monkeypatch)
     # 25/0.50 = 50 shares ordered, but only 10 matched -> 10 * 0.50 = $5.00 filled.
-    _install_fake_clob(monkeypatch, {"status": "LIVE", "size_matched": "10"})
+    # A partial fill is reported MATCHED (not LIVE, which always rests now).
+    _install_fake_clob(monkeypatch, {"status": "MATCHED", "size_matched": "10"})
 
     cancelled = []
     import py_clob_client_v2 as client_mod
@@ -168,6 +175,51 @@ def test_partial_fill_records_filled_cost_and_cancels_remainder(tmp_db, monkeypa
     assert result["status"] == "executed"
     assert result["actual_cost_usd"] == 5.0          # filled part only, not the $25 nominal
     assert cancelled == [("payload", "order-123")]   # remainder cancelled
+
+
+def test_unknown_status_defaults_to_resting(monkeypatch):
+    # A status we don't recognise is treated conservatively as resting (and the
+    # order is cancelled so it can't fill later untracked).
+    monkeypatch.setattr(config, "ORDER_RECONCILE_WAIT_SECONDS", 0)
+
+    cancelled = []
+
+    class FakeClient:
+        def get_order(self, oid):
+            return {"status": "PENDING_NEW", "size_matched": "0"}
+
+        def cancel_order(self, payload):
+            cancelled.append(payload)
+
+    mod = types.ModuleType("py_clob_client_v2")
+    mod.OrderPayload = lambda **kw: ("payload", kw)
+    monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
+
+    status, cost = executor.reconcile_order(FakeClient(), "o1", total_shares=50, price=0.5)
+    assert status == "resting"
+    assert cost is None
+    assert cancelled  # the unknown-status order was cancelled
+
+
+def test_matched_with_no_fill_rests(monkeypatch):
+    # MATCHED but no fill field reported is ambiguous -> rest (don't assume a
+    # full fill), unlike a terminal FILLED status.
+    monkeypatch.setattr(config, "ORDER_RECONCILE_WAIT_SECONDS", 0)
+
+    class FakeClient:
+        def get_order(self, oid):
+            return {"status": "MATCHED"}
+
+        def cancel_order(self, payload):
+            pass
+
+    mod = types.ModuleType("py_clob_client_v2")
+    mod.OrderPayload = lambda **kw: ("payload", kw)
+    monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
+
+    status, cost = executor.reconcile_order(FakeClient(), "o1", total_shares=50, price=0.5)
+    assert status == "resting"
+    assert cost is None
 
 
 def test_reconcile_returns_status_and_cost(monkeypatch):
@@ -192,13 +244,14 @@ def test_reconcile_returns_status_and_cost(monkeypatch):
 
 
 def test_reconcile_full_fill_returns_notional_cost(monkeypatch):
-    # A fully matched order with no size field reported -> the full ordered size
-    # is taken as filled, cost = total_shares * price.
+    # A terminal FILLED order with no size field reported -> the full ordered
+    # size is taken as filled, cost = total_shares * price. (MATCHED with no
+    # fill is ambiguous and now rests; only FILLED implies a complete fill.)
     monkeypatch.setattr(config, "ORDER_RECONCILE_WAIT_SECONDS", 0)
 
     class FakeClient:
         def get_order(self, oid):
-            return {"status": "MATCHED"}
+            return {"status": "FILLED"}
 
     status, cost = executor.reconcile_order(FakeClient(), "o1", total_shares=40, price=0.25)
     assert status == "executed"
@@ -215,12 +268,18 @@ def test_resting_buy_records_no_actual_cost(tmp_db, monkeypatch):
     assert result["actual_cost_usd"] is None
 
 
-def test_filled_size_without_matched_status_is_executed(tmp_db, monkeypatch):
+def test_live_status_with_fill_field_still_rests(tmp_db, monkeypatch):
+    # Phantom-position fix: a LIVE order echoing a non-zero fill field is NOT a
+    # real fill (resting orders echo order-sized amounts) — it must rest.
     _setup(monkeypatch)
-    # Partially filled but still LIVE: any fill counts as executed.
     _install_fake_clob(monkeypatch, {"status": "LIVE", "size_matched": "10"})
+    import py_clob_client_v2 as client_mod
+    client_mod.OrderPayload = lambda orderID: ("payload", orderID)
+    monkeypatch.setattr(client_mod.ClobClient, "cancel_order",
+                        lambda self, payload: None, raising=False)
     result = executor.execute_trade(_signal())
-    assert result["status"] == "executed"
+    assert result["status"] == "resting"
+    assert result["actual_cost_usd"] is None
 
 
 def test_resting_order_is_resting(tmp_db, monkeypatch):
@@ -230,11 +289,14 @@ def test_resting_order_is_resting(tmp_db, monkeypatch):
     assert result["status"] == "resting"
 
 
-def test_missing_order_is_error_not_found(tmp_db, monkeypatch):
+def test_missing_order_defaults_to_resting(tmp_db, monkeypatch):
+    # Order not found on query: we can't confirm a fill, so default to resting
+    # (never executed) rather than opening a phantom position.
     _setup(monkeypatch)
     _install_fake_clob(monkeypatch, None)
     result = executor.execute_trade(_signal())
-    assert result["status"] == "error_not_found"
+    assert result["status"] == "resting"
+    assert result["actual_cost_usd"] is None
 
 
 def test_buy_resolves_token_from_clob_not_gamma(tmp_db, monkeypatch):
@@ -335,9 +397,9 @@ def test_lowercase_filled_status_is_executed(tmp_db, monkeypatch):
 
 
 def test_camelcase_filled_amount_counts_as_fill(tmp_db, monkeypatch):
-    # No matched status, but a camelCase filledAmount > 0 still means a fill.
+    # A camelCase filledAmount > 0 on a MATCHED order still means a fill.
     _setup(monkeypatch)
-    _install_fake_clob(monkeypatch, {"status": "LIVE", "filledAmount": "12"})
+    _install_fake_clob(monkeypatch, {"status": "MATCHED", "filledAmount": "12"})
     result = executor.execute_trade(_signal())
     assert result["status"] == "executed"
 
@@ -351,7 +413,8 @@ def test_reconcile_falls_back_to_open_orders_when_get_order_missing(tmp_db, monk
     monkeypatch.setattr(
         client_mod.ClobClient, "get_open_orders",
         lambda self, *a, **k: [{"orderID": "other", "status": "LIVE"},
-                               {"orderID": "order-123", "status": "MATCHED"}],
+                               {"orderID": "order-123", "status": "MATCHED",
+                                "size_matched": "50"}],
         raising=False,
     )
     result = executor.execute_trade(_signal())
