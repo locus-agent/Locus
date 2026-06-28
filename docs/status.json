@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T10:33:16.869488+00:00",
-  "last_heartbeat": "2026-06-28T10:33:16.869488+00:00",
-  "uptime_seconds": 137021,
+  "generated_at": "2026-06-28T10:38:22.597903+00:00",
+  "last_heartbeat": "2026-06-28T10:38:22.597903+00:00",
+  "uptime_seconds": 137327,
   "dry_run": false,
-  "markets_tracked": 1330,
+  "markets_tracked": 1331,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9421,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 351,
+  "headlines_scanned_today": 352,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 3291,
+  "classifications_24h": 3287,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1423,
+    "prefiltered_haiku": 1419,
     "stale": 25,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 809,
     "matched": 670,
-    "classified": 3291,
+    "classified": 3287,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 2.05,
-    "total_pnl_usd": 53.91,
+    "unrealized_pnl_usd": 1.87,
+    "total_pnl_usd": 53.72,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2061.7
+    "avg_classification_latency_ms": 2061.4
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.425,
-      "pnl_pct": 10.39,
+      "current_price": 0.42000000000000004,
+      "pnl_pct": 9.09,
       "amount_usd": 14.43,
-      "current_value_usd": 15.93,
-      "pnl_usd": 1.5,
+      "current_value_usd": 15.74,
+      "pnl_usd": 1.31,
       "edge_type": "momentum",
       "event_id": "73866"
     },
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.31000000000000005,
+      "current_price": 0.31,
       "pnl_pct": 2.22,
       "amount_usd": 24.99,
       "current_value_usd": 25.55,
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-28 10:36:47",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "BIS says debt, AI boom and fragilities raise global risks - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-28 10:30:12",
       "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
       "headline": "Iraq arrests politicians and government officials in anti-corruption crackdown - Reuters",
@@ -438,22 +454,6 @@
     {
       "time": "2026-06-28 10:26:12",
       "market_question": "Solana Up or Down - May 20, 6AM ET",
-      "headline": "Alzheimer's: Anti-inflammatory diet may help reduce risk by up to 29% - Medical News Today",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 10:26:11",
-      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
       "headline": "Alzheimer's: Anti-inflammatory diet may help reduce risk by up to 29% - Medical News Today",
       "direction": "neutral",
       "materiality": 0.0,
