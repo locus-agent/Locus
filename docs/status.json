@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T04:11:06.432386+00:00",
-  "last_heartbeat": "2026-06-28T04:11:06.432386+00:00",
-  "uptime_seconds": 114090,
+  "generated_at": "2026-06-28T04:16:12.281312+00:00",
+  "last_heartbeat": "2026-06-28T04:16:12.281312+00:00",
+  "uptime_seconds": 114396,
   "dry_run": false,
-  "markets_tracked": 1314,
+  "markets_tracked": 1316,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9402,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 156,
+  "headlines_scanned_today": 164,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 3043,
+  "classifications_24h": 3035,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1298,
+    "prefiltered_haiku": 1297,
     "stale": 23,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T04:00:45.585521+00:00"
+    "last_check": "2026-06-28T04:15:45.970618+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 742,
-    "matched": 624,
-    "classified": 3043,
+    "news": 739,
+    "matched": 620,
+    "classified": 3035,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2106.1
+    "avg_classification_latency_ms": 2111.4
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 04:06:50",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Nationals pull out win in 10th over Orioles to end skid - Reuters",
+      "time": "2026-06-28 04:11:40",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "Why breakthrough GLP-1 weight loss pills may be a bad thing for employer insurance coverage - CNBC",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 04:06:48",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Nationals pull out win in 10th over Orioles to end skid - Reuters",
+      "time": "2026-06-28 04:11:40",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "Why breakthrough GLP-1 weight loss pills may be a bad thing for employer insurance coverage - CNBC",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 04:11:40",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "Bayer/Monsanto Wins Roundup Case as Supreme Court Blocks Suit over Link Between Herbicide & Cancer - Democracy Now!",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 04:06:48",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Nationals pull out win in 10th over Orioles to end skid - Reuters",
+      "time": "2026-06-28 04:11:40",
+      "market_question": "Will the National Union for Democracy and Progress win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Bayer/Monsanto Wins Roundup Case as Supreme Court Blocks Suit over Link Between Herbicide & Cancer - Democracy Now!",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,36 +452,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 04:06:48",
-      "market_question": "Miguel D\u00edaz-Canel out as President of Cuba by June 30?",
-      "headline": "Nationals pull out win in 10th over Orioles to end skid - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-28 04:11:39",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Wall Street regulator investigating prediction market giant Polymarket - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-28 04:06:48",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "Nationals pull out win in 10th over Orioles to end skid - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
