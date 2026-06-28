@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T17:57:55.259854+00:00",
-  "last_heartbeat": "2026-06-28T17:57:55.259854+00:00",
-  "uptime_seconds": 18725,
+  "generated_at": "2026-06-28T18:03:00.774499+00:00",
+  "last_heartbeat": "2026-06-28T18:03:00.774499+00:00",
+  "uptime_seconds": 19030,
   "dry_run": false,
-  "markets_tracked": 1308,
+  "markets_tracked": 1305,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9476,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 953,
+  "headlines_scanned_today": 954,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4325,
+  "classifications_24h": 4331,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1769,
+    "prefiltered_haiku": 1771,
     "stale": 16,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T17:46:11.254492+00:00"
+    "last_check": "2026-06-28T18:01:11.662588+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1183,
-    "matched": 676,
-    "classified": 4325,
+    "news": 1184,
+    "matched": 677,
+    "classified": 4331,
     "signals": 3,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2026.1
+    "avg_classification_latency_ms": 2029.2
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 17:45:58",
-      "market_question": "Will Trump deport 900k-1m people?",
-      "headline": "This is what happens to people who desecrate, or even think about desecrating, our Great Monuments, Statues, or Fountains!",
+      "time": "2026-06-28 18:01:21",
+      "market_question": "Will Trump meet with Pope Leo XIV in 2026?",
+      "headline": "Vatican Commission on AI meets for first time - Vatican News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 18:01:17",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Vatican Commission on AI meets for first time - Vatican News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,68 +391,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 17:45:58",
-      "market_question": "Will Trump deport less than 200k people?",
-      "headline": "This is what happens to people who desecrate, or even think about desecrating, our Great Monuments, Statues, or Fountains!",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 18:01:16",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Vatican Commission on AI meets for first time - Vatican News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-28 17:45:58",
-      "market_question": "Will Trump deport 400-500k people?",
-      "headline": "This is what happens to people who desecrate, or even think about desecrating, our Great Monuments, Statues, or Fountains!",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 18:01:16",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Vatican Commission on AI meets for first time - Vatican News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-28 17:45:58",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "This is what happens to people who desecrate, or even think about desecrating, our Great Monuments, Statues, or Fountains!",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 18:01:16",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Vatican Commission on AI meets for first time - Vatican News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 17:45:57",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "This is what happens to people who desecrate, or even think about desecrating, our Great Monuments, Statues, or Fountains!",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
