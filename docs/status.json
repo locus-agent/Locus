@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T21:57:59.980599+00:00",
-  "last_heartbeat": "2026-06-28T21:57:59.980599+00:00",
-  "uptime_seconds": 33130,
+  "generated_at": "2026-06-28T22:03:24.333090+00:00",
+  "last_heartbeat": "2026-06-28T22:03:24.333090+00:00",
+  "uptime_seconds": 33454,
   "dry_run": false,
-  "markets_tracked": 1320,
+  "markets_tracked": 1318,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9501,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1071,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 1072,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4138,
+  "classifications_24h": 4134,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1706,
+    "prefiltered_haiku": 1708,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -107,11 +107,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 4,
-  "missed_opportunities_24h": 10,
+  "missed_opportunities_24h": 7,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T21:46:18.438984+00:00"
+    "last_check": "2026-06-28T22:01:18.947215+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1147,
-    "matched": 649,
-    "classified": 4138,
+    "news": 1146,
+    "matched": 648,
+    "classified": 4134,
     "signals": 1,
     "trades": 0
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1977.7
+    "avg_classification_latency_ms": 1976.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,8 +359,40 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 21:57:59",
-      "market_question": "Will Trump attend 2 World Cup matches?",
+      "time": "2026-06-28 21:58:03",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Canada beats South Africa 1-0 in World Cup's first knockout match on late goal by Stephen Eust\u00e1quio - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 21:58:03",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Canada beats South Africa 1-0 in World Cup's first knockout match on late goal by Stephen Eust\u00e1quio - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 21:58:02",
+      "market_question": "Will Trump attend 1 World Cup match?",
       "headline": "South Korea coach quits after early World Cup exit prompts fierce criticism from president - AP News",
       "direction": "neutral",
       "materiality": 0.0,
@@ -375,68 +407,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 21:57:59",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "South Korea coach quits after early World Cup exit prompts fierce criticism from president - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 21:58:02",
+      "market_question": "Another Canada election called by June 30?",
+      "headline": "Canada beats South Africa 1-0 in World Cup's first knockout match on late goal by Stephen Eust\u00e1quio - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-28 21:57:59",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "South Korea coach quits after early World Cup exit prompts fierce criticism from president - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 21:58:02",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Canada beats South Africa 1-0 in World Cup's first knockout match on late goal by Stephen Eust\u00e1quio - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 21:57:59",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "South Korea coach quits after early World Cup exit prompts fierce criticism from president - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 21:57:57",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Canada into last 16 with late winner against South Africa",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -485,91 +485,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-27 22:00:39",
-      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
+      "time": "2026-06-28 22:00:22",
+      "market_question": "Will Bitcoin reach $62,500 in June?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Robert F. Kennedy Jr. leave the Trump adminis' \u2014 price moved +17%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.38) on 'Will Bitcoin reach $62,500 in June?' \u2014 price moved +46%. Consider lowering min_materiality for crypto category."
     },
     {
-      "time": "2026-06-27 22:00:36",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Anthropic or OpenAI IPO first?' \u2014 price moved +36%. Consider lowering min_materiality for ai category."
-    },
-    {
-      "time": "2026-06-27 22:00:33",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
+      "time": "2026-06-28 22:00:19",
+      "market_question": "Will Apple be the third-largest company in the world by market cap on June 30?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'OpenAI $1t+ IPO before 2027?' \u2014 price moved +32%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.40) on 'Will Apple be the third-largest company in the wor' \u2014 price moved +28%. Consider lowering min_materiality for technology category."
     },
     {
-      "time": "2026-06-27 22:00:31",
-      "market_question": "Will Trump deport 400-500k people?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump deport 400-500k people?' \u2014 price moved +12%. Consider lowering min_materiality for politics category."
+      "time": "2026-06-28 22:00:17",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump attend 3 or more World Cup matches?' \u2014 price moved +26%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-06-27 22:00:28",
-      "market_question": "Will Trump deport 400-500k people?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Trump deport 400-500k people?' \u2014 price moved +12%. Consider lowering min_materiality for politics category."
+      "time": "2026-06-28 22:00:14",
+      "market_question": "Will Bitcoin reach $65,000 in June?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Bitcoin reach $65,000 in June?' \u2014 price moved +68%. Consider lowering min_materiality for crypto category."
+    },
+    {
+      "time": "2026-06-28 22:00:12",
+      "market_question": "Will OpenAI IPO by September 30 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will OpenAI IPO by September 30 2026?' \u2014 price moved +48%. Consider lowering min_materiality for ai category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-27 22:00:39",
-      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
-      "slug": "who-will-leave-trump-administration-before-2027",
+      "time": "2026-06-28 22:00:22",
+      "market_question": "Will Bitcoin reach $62,500 in June?",
+      "slug": "what-price-will-bitcoin-hit-in-june-2026",
       "direction": "bearish",
-      "materiality": 0.35,
-      "action": "low_materiality",
-      "pct_move": 16.5,
-      "reflection": "I underweighted a signal with 0.35 materiality on a binary political outcome, assuming the threshold was too low to justify action\u2014but 17% moves in prediction markets often come from information cascades rather than gradual repricing, meaning early positioning matters more than I credited. My skip cost me because I treated materiality as a hard floor rather than a probability-weighted opportunity, especially on a question where my bearish lean had directional conviction. I need to recalibrate: on binary events with clear signals, even moderate materiality deserves at least a small position to capture the optionality of being right early."
+      "materiality": 0.38,
+      "action": "stale",
+      "pct_move": 45.6,
+      "reflection": "I marked that Bitcoin signal as stale and walked away, but I fundamentally misjudged the signal's relevance window\u2014a 46% move in my predicted direction within June proved the bearish thesis was sound, just ahead of my timeline expectations. My materiality threshold of 0.38 should have warranted at least a small position rather than complete dismissal, since even low-confidence directional calls can compound into significant returns. I let process rigidity override probabilistic thinking: being cautious about stale data is wise, but I should have scaled into the trade rather than skipping it entirely."
     },
     {
-      "time": "2026-06-27 22:00:36",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "slug": "will-anthropic-or-openai-ipo-first",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "action": "low_materiality",
-      "pct_move": 35.6,
-      "reflection": "I skipped this signal because a 0.35 materiality threshold felt too uncertain to justify position sizing, but I underweighted how binary and attention-grabbing IPO timing actually is for market participants\u2014the 36% move shows that even modest conviction on such a high-stakes event can drive real capital flows. I let my risk-aversion to low-materiality signals override what should have been a straightforward bullish bet on a question where my prediction had directional clarity, even if confidence wasn't maximal."
-    },
-    {
-      "time": "2026-06-27 22:00:33",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
-      "slug": "openai-1t-ipo-before-2027",
+      "time": "2026-06-28 22:00:19",
+      "market_question": "Will Apple be the third-largest company in the world by market cap on June 30?",
+      "slug": "3rd-largest-company-end-of-june",
       "direction": "bearish",
-      "materiality": 0.35,
-      "action": "low_materiality",
-      "pct_move": 32.1,
-      "reflection": "I underweighted a signal with clearer predictive power than my materiality threshold captured\u2014the 32% move vindicated the bearish case, but I filtered it out at 0.35 because I was anchored to an arbitrary cutoff rather than asking whether the signal's logic was sound. I should have recognized that binary event bets (IPO timing, yes/no outcomes) can generate outsized moves even at moderate confidence levels, and that skipping them entirely leaves real alpha on the table. Next time I need to separate \"low conviction\" from \"low impact potential\" rather than treating them as the same reason to pass."
+      "materiality": 0.4,
+      "action": "stale",
+      "pct_move": 27.9,
+      "reflection": "I flagged Apple as bearish with moderate conviction, but dismissed the signal as stale without reassessing whether the underlying thesis had strengthened or weakened in the interim\u2014a lazy shortcut that cost me 28% of potential gains. The materiality of 0.40 suggested real edge, yet I let the \"stale\" label override the actual market movement that vindicated my directional call. I need to distinguish between stale *data* and stale *theses*: the former requires caution, but the latter demands active re-evaluation, not automatic dismissal."
     },
     {
-      "time": "2026-06-27 22:00:31",
-      "market_question": "Will Trump deport 400-500k people?",
-      "slug": "how-many-people-will-trump-deport-in-2026-823",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "action": "low_materiality",
-      "pct_move": 12.2,
-      "reflection": "I underweighted a signal that had clearer predictive power than my materiality threshold suggested\u2014a 0.35 score on immigration policy should have registered as more actionable given the market's actual sensitivity to Trump deportation announcements. My rigid adherence to the low_materiality filter cost me 12% of a directional move I'd correctly identified as bullish, revealing that my calibration conflates \"uncertain magnitude\" with \"not worth trading.\" I need to recalibrate: a well-reasoned signal with moderate materiality but high conviction should override my threshold rules when the directional call is sound."
+      "time": "2026-06-28 22:00:17",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "action": "skip",
+      "pct_move": 26.1,
+      "reflection": "I flagged this as bearish with moderate conviction (0.45 materiality), but I chose to skip\u2014likely because I underweighted how concrete Trump's recent sports attendance patterns have been and overestimated the uncertainty around his World Cup schedule. The 26% move in my predicted direction stings because the signal had real edge: I identified the correct direction but failed to commit when my confidence, while not overwhelming, was still meaningfully above the noise threshold. I need to recalibrate my skip threshold\u2014passing on moderate-conviction calls leaves money on the table when I'm actually right about direction."
     },
     {
-      "time": "2026-06-27 22:00:28",
-      "market_question": "Will Trump deport 400-500k people?",
-      "slug": "how-many-people-will-trump-deport-in-2026-823",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "action": "low_materiality",
-      "pct_move": 12.2,
-      "reflection": "I underweighted a signal that combined clear directional conviction with genuine market-moving potential\u2014the 12% move validates that 0.35 materiality was actually conservative given the political salience and real economic implications of mass deportation policy. My threshold for \"low materiality\" was mechanically applied without accounting for how binary political outcomes can compress uncertainty into sharp repricing events, even when base-rate conviction is moderate. I should have recognized that materiality isn't just about my confidence level, but about how much the market *cares*, and I clearly missed the latter."
+      "time": "2026-06-28 22:00:14",
+      "market_question": "Will Bitcoin reach $65,000 in June?",
+      "slug": "what-price-will-bitcoin-hit-in-june-2026",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "action": "skip",
+      "pct_move": 67.7,
+      "reflection": "I issued a bearish signal with only moderate conviction (0.45 materiality), then skipped acting on it entirely\u2014and watched Bitcoin surge past $65,000, validating my directional bias but exposing a critical gap in my decision logic. My skip threshold was too conservative relative to my signal strength; I should have either committed to the bearish position if I believed in it, or reconsidered the signal itself rather than sitting idle. This miss taught me that indecision compounds losses\u2014a weak signal acted upon beats a reasonable signal abandoned."
+    },
+    {
+      "time": "2026-06-28 22:00:12",
+      "market_question": "Will OpenAI IPO by September 30 2026?",
+      "slug": "openai-ipo-by",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "action": "skip",
+      "pct_move": 47.6,
+      "reflection": "I signaled bearish on OpenAI's IPO timeline with moderate conviction (0.45), but skipped the trade entirely\u2014and the market moved 48% in my predicted direction, which stings. My skip likely reflected uncertainty about execution risk or timing precision rather than fundamental disagreement with the thesis, yet I let that caution override a directionally sound view with meaningful materiality. I need to recalibrate: moderate conviction paired with high-probability directional moves warrants at least a scaled position, not paralysis."
     }
   ],
   "pending_suggestions": [
