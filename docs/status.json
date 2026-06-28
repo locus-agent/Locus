@@ -1,54 +1,54 @@
 {
-  "generated_at": "2026-06-28T08:36:05.561820+00:00",
-  "last_heartbeat": "2026-06-28T08:36:05.561820+00:00",
-  "uptime_seconds": 129990,
+  "generated_at": "2026-06-28T08:41:11.099308+00:00",
+  "last_heartbeat": "2026-06-28T08:41:11.099308+00:00",
+  "uptime_seconds": 130295,
   "dry_run": false,
-  "markets_tracked": 1319,
+  "markets_tracked": 1324,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9408,
+    "total": 9421,
     "accuracy": 17.5,
     "by_category": {
       "other": 16.2,
       "ai": 11.6,
       "politics": 20.9,
-      "technology": 12.9,
+      "technology": 13.0,
       "crypto": 15.6,
       "sports": 26.2
     },
     "by_source": {
       "rss": 17.6,
-      "newsapi": 18.2,
+      "newsapi": 18.3,
       "truthsocial": 7.4
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.5,
-    "overall_total": 9408,
+    "overall_total": 9421,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5342,
+        "total": 5352,
         "correct": 368,
         "accuracy_pct": 6.9,
-        "avg_pnl_pct": 10.51,
+        "avg_pnl_pct": 10.49,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 826,
+        "total": 827,
         "correct": 294,
         "accuracy_pct": 35.6,
-        "avg_pnl_pct": 25.23,
+        "avg_pnl_pct": 25.2,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 993,
-        "correct": 380,
+        "total": 994,
+        "correct": 381,
         "accuracy_pct": 38.3,
         "avg_pnl_pct": 4.63,
         "color": "green"
@@ -65,9 +65,9 @@
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 515,
-        "correct": 221,
-        "accuracy_pct": 42.9,
+        "total": 516,
+        "correct": 222,
+        "accuracy_pct": 43.0,
         "avg_pnl_pct": 1.62,
         "color": "green"
       },
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 286,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 287,
+  "headlines_last_cycle": 1,
   "signals_24h": 5,
-  "classifications_24h": 3255,
+  "classifications_24h": 3263,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1425,
+    "prefiltered_haiku": 1433,
     "stale": 22,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 794,
-    "matched": 663,
-    "classified": 3255,
+    "news": 795,
+    "matched": 664,
+    "classified": 3263,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2068.9
+    "avg_classification_latency_ms": 2066.4
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": 15.58,
       "amount_usd": 14.43,
       "current_value_usd": 16.68,
@@ -388,57 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 08:34:07",
-      "market_question": "Will Z.ai have the top AI model at the end of June 2026?",
-      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 08:34:07",
-      "market_question": "Will Anthropic have the second best AI model at the end of June 2026?",
-      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 08:34:07",
-      "market_question": "Will Anthropic have the best Math AI model at the end of June 2026?",
-      "headline": "As the era of artificial intelligence (AI) agents is in full swing, the competition axis of the AI i.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 08:23:09",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Best team, moments, matches and players of World Cup group stage",
+      "time": "2026-06-28 08:40:44",
+      "market_question": "Will the price of Bitcoin be above $62,000 on June 28?",
+      "headline": "ASTT.N - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,9 +404,57 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 08:23:08",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Best team, moments, matches and players of World Cup group stage",
+      "time": "2026-06-28 08:40:44",
+      "market_question": "Will the price of Bitcoin be above $58,000 on June 28?",
+      "headline": "ASTT.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 08:40:44",
+      "market_question": "Will the price of Bitcoin be above $56,000 on June 28?",
+      "headline": "ASTT.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 08:40:44",
+      "market_question": "Will the price of Bitcoin be above $64,000 on June 28?",
+      "headline": "ASTT.N - | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 08:40:44",
+      "market_question": "Will the price of Bitcoin be above $54,000 on June 28?",
+      "headline": "ASTT.N - | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
