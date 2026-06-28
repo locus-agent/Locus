@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T16:51:36.194725+00:00",
-  "last_heartbeat": "2026-06-28T16:51:36.194725+00:00",
-  "uptime_seconds": 14746,
+  "generated_at": "2026-06-28T16:56:42.807220+00:00",
+  "last_heartbeat": "2026-06-28T16:56:42.807220+00:00",
+  "uptime_seconds": 15052,
   "dry_run": false,
-  "markets_tracked": 1306,
+  "markets_tracked": 1302,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9476,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 935,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 937,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4361,
+  "classifications_24h": 4355,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1796,
+    "prefiltered_haiku": 1797,
     "stale": 17,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 1188,
-    "matched": 679,
-    "classified": 4361,
+    "matched": 678,
+    "classified": 4355,
     "signals": 3,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2037.7
+    "avg_classification_latency_ms": 2036.7
   },
   "live_readiness": {
     "ready": true,
@@ -359,6 +359,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-28 16:55:36",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Record heatwave disrupts Europe as France warns death toll to rise - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 16:55:34",
+      "market_question": "Will RISE launch a token by September 30, 2026?",
+      "headline": "Record heatwave disrupts Europe as France warns death toll to rise - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-28 16:51:18",
       "market_question": "Will Amazon have a #1 AI model by December 31, 2026?",
       "headline": "SpaceX Just Spent $60 Billion on Artificial Intelligence (AI). Could Elon Musk Be Building the Next Amazon? - The Motley Fool",
@@ -403,38 +435,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 16:51:13",
-      "market_question": "Will Trump speak to Elon Musk in June?",
-      "headline": "SpaceX Just Spent $60 Billion on Artificial Intelligence (AI). Could Elon Musk Be Building the Next Amazon? - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 16:51:13",
-      "market_question": "Will Alibaba have the top AI model at the end of June 2026?",
-      "headline": "SpaceX Just Spent $60 Billion on Artificial Intelligence (AI). Could Elon Musk Be Building the Next Amazon? - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
