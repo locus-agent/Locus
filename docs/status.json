@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T05:32:39.315207+00:00",
-  "last_heartbeat": "2026-06-28T05:32:39.315207+00:00",
-  "uptime_seconds": 118983,
+  "generated_at": "2026-06-28T05:37:45.495640+00:00",
+  "last_heartbeat": "2026-06-28T05:37:45.495640+00:00",
+  "uptime_seconds": 119290,
   "dry_run": false,
-  "markets_tracked": 1316,
+  "markets_tracked": 1311,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9408,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 203,
+  "headlines_scanned_today": 205,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 3141,
+  "classifications_24h": 3153,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1350,
+    "prefiltered_haiku": 1358,
     "stale": 23,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 764,
-    "matched": 641,
-    "classified": 3141,
+    "news": 765,
+    "matched": 642,
+    "classified": 3153,
     "signals": 5,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2092.6
+    "avg_classification_latency_ms": 2089.9
   },
   "live_readiness": {
     "ready": true,
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.31000000000000005,
+      "current_price": 0.31,
       "pnl_pct": 2.22,
       "amount_usd": 24.99,
       "current_value_usd": 25.55,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 05:23:39",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
+      "time": "2026-06-28 05:36:39",
+      "market_question": "Will DeepSeek have a #1 AI model by December 31, 2026?",
+      "headline": "New hedge funds are using AI bots to rival industry giant - Moneyweb",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -399,14 +399,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 05:23:38",
+      "time": "2026-06-28 05:36:39",
+      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
+      "headline": "New hedge funds are using AI bots to rival industry giant - Moneyweb",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 05:36:39",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "New hedge funds are using AI bots to rival industry giant - Moneyweb",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 05:36:38",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
+      "headline": "Messi subs in and scores again as defending World Cup champ Argentina beats Jordan to sweep group - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,52 +452,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 05:23:38",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-28 05:36:38",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New hedge funds are using AI bots to rival industry giant - Moneyweb",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 05:23:38",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 05:23:38",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Austria draw with Algeria in World Cup thriller to progress and send Iran home - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
