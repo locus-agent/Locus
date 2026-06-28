@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T23:45:20.755487+00:00",
-  "last_heartbeat": "2026-06-28T23:45:20.755487+00:00",
-  "uptime_seconds": 39570,
+  "generated_at": "2026-06-28T23:50:27.527025+00:00",
+  "last_heartbeat": "2026-06-28T23:50:27.527025+00:00",
+  "uptime_seconds": 39877,
   "dry_run": false,
-  "markets_tracked": 1309,
+  "markets_tracked": 1306,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9501,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1118,
+  "headlines_scanned_today": 1135,
   "headlines_last_cycle": 0,
-  "signals_24h": 0,
-  "classifications_24h": 4110,
+  "signals_24h": 2,
+  "classifications_24h": 4168,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1729,
-    "stale": 11,
+    "prefiltered_haiku": 1743,
+    "stale": 13,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
@@ -106,52 +106,52 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 4,
+  "watched_markets_count": 5,
   "missed_opportunities_24h": 7,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T23:31:21.327008+00:00"
+    "last_check": "2026-06-28T23:46:21.744471+00:00"
   },
   "edge_types_24h": {
-    "news": 0,
+    "news": 2,
     "momentum": 0,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1130,
-    "matched": 646,
-    "classified": 4110,
-    "signals": 0,
-    "trades": 0
+    "news": 1144,
+    "matched": 657,
+    "classified": 4168,
+    "signals": 2,
+    "trades": 1
   },
   "performance": {
-    "trades_total": 38,
-    "deployed_usd": 808.31,
+    "trades_total": 39,
+    "deployed_usd": 834.55,
     "open_count": 0,
-    "closed_count": 31,
-    "wins": 18,
+    "closed_count": 32,
+    "wins": 19,
     "losses": 13,
-    "win_rate_pct": 58.1,
-    "realized_pnl_usd": 51.85,
+    "win_rate_pct": 59.4,
+    "realized_pnl_usd": 53.08,
     "unrealized_pnl_usd": 0.0,
-    "total_pnl_usd": 51.85,
-    "recent_winrate": 0.65,
-    "kelly_factor": 0.85,
+    "total_pnl_usd": 53.08,
+    "recent_winrate": 0.7,
+    "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1965.2
+    "avg_classification_latency_ms": 1988.4
   },
   "live_readiness": {
     "ready": true,
     "criteria_met": 4,
     "criteria_total": 4,
-    "sharpe_days_count": 9,
+    "sharpe_days_count": 10,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 31,
+        "value": 32,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -159,7 +159,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 58.1,
+        "value": 59.4,
         "threshold_display": "> 55%",
         "pass": true
       },
@@ -167,7 +167,7 @@
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 5.79,
+        "value": 5.64,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -175,7 +175,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 4.3,
+        "value": 4.1,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -184,11 +184,23 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.052,
-    "sharpe_7d": 0.08
+    "drawdown_7d": 0.0473,
+    "sharpe_7d": 0.11
   },
   "open_positions": [],
   "closed_positions": [
+    {
+      "time": "2026-06-28T23:48:37.291128+00:00",
+      "market_question": "Will Trump deport 400-500k people?",
+      "slug": "how-many-people-will-trump-deport-in-2026-823",
+      "side": "YES",
+      "entry_price": 0.415,
+      "exit_price": 0.435,
+      "realized_pnl_usd": 1.2226506024096426,
+      "exit_reason": "manual",
+      "event_id": "73866",
+      "partial": false
+    },
     {
       "time": "2026-06-28 12:47:20",
       "market_question": "Will Dan Sullivan win the Alaska Senate race in 2026?",
@@ -296,21 +308,18 @@
       "exit_reason": "manual",
       "event_id": "527505",
       "partial": false
-    },
-    {
-      "time": "2026-06-21T14:04:11.712093+00:00",
-      "market_question": "Will Donald Trump publicly insult Keir Starmer by June 30, 2026?",
-      "slug": "who-will-trump-publicly-insult-by-june-30",
-      "side": "NO",
-      "entry_price": 0.58,
-      "exit_price": 0.5,
-      "realized_pnl_usd": 7.619047619047619,
-      "exit_reason": "manual",
-      "event_id": "528020",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-28 23:48:37",
+      "market_question": "Will Trump deport 400-500k people?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 4.82
+    },
     {
       "time": "2026-06-28 00:45:09",
       "market_question": "Will Trump deport 400-500k people?",
@@ -346,70 +355,29 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (manual); position kept open",
       "pnl_pct": 12.99
-    },
-    {
-      "time": "2026-06-28 00:43:46",
-      "market_question": "Will Trump deport 400-500k people?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (manual); position kept open",
-      "pnl_pct": 12.99
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 23:36:34",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "UK scraps plans to replace destroyers with focus on drone warships - Reuters",
+      "time": "2026-06-28 23:49:17",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "Google was the dream job in tech. These workers decided to leave anyway. - Business Insider",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 23:36:34",
-      "market_question": "Will Bitcoin replace SHA-256 before 2027?",
-      "headline": "UK scraps plans to replace destroyers with focus on drone warships - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 23:36:33",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "South Africa's World Cup dream ends as coach blames lack of power and speed - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 23:36:33",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "Astros score 4 in 10th, fend off Tigers to win series - Reuters",
+      "time": "2026-06-28 23:49:17",
+      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
+      "headline": "NASA Identifies More Than 40 Space Technologies for Collaboration - NASA (.gov)",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,20 +391,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 23:36:33",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "Astros score 4 in 10th, fend off Tigers to win series - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-28 23:49:09",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Google was the dream job in tech. These workers decided to leave anyway. - Business Insider",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 23:49:09",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Google was the dream job in tech. These workers decided to leave anyway. - Business Insider",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-28 23:49:08",
+      "market_question": "Will Donald Trump visit South Korea in 2026?",
+      "headline": "Chinese dissident who fled by dinghy to South Korea arrives in Canada, his friend says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
