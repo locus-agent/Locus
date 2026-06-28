@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T02:59:46.769498+00:00",
-  "last_heartbeat": "2026-06-28T02:59:46.769498+00:00",
-  "uptime_seconds": 109811,
+  "generated_at": "2026-06-28T03:04:52.481989+00:00",
+  "last_heartbeat": "2026-06-28T03:04:52.481989+00:00",
+  "uptime_seconds": 110117,
   "dry_run": false,
-  "markets_tracked": 1314,
+  "markets_tracked": 1317,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9402,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 122,
+  "headlines_scanned_today": 123,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 2978,
+  "classifications_24h": 2980,
   "selectivity_pct": 0.2,
   "gates_24h": {
     "prefiltered_haiku": 1255,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-28T02:45:43.469833+00:00"
+    "last_check": "2026-06-28T03:00:43.901746+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 726,
-    "matched": 607,
-    "classified": 2978,
+    "news": 727,
+    "matched": 608,
+    "classified": 2980,
     "signals": 5,
     "trades": 4
   },
@@ -134,8 +134,8 @@
     "losses": 13,
     "win_rate_pct": 58.1,
     "realized_pnl_usd": 51.85,
-    "unrealized_pnl_usd": 2.43,
-    "total_pnl_usd": 54.28,
+    "unrealized_pnl_usd": 2.61,
+    "total_pnl_usd": 54.47,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -194,11 +194,11 @@
       "slug": "how-many-people-will-trump-deport-in-2026-823",
       "side": "YES",
       "entry_price": 0.385,
-      "current_price": 0.43,
-      "pnl_pct": 11.69,
+      "current_price": 0.43500000000000005,
+      "pnl_pct": 12.99,
       "amount_usd": 14.43,
-      "current_value_usd": 16.12,
-      "pnl_usd": 1.69,
+      "current_value_usd": 16.3,
+      "pnl_usd": 1.87,
       "edge_type": "momentum",
       "event_id": "73866"
     },
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.325,
-      "current_price": 0.305,
+      "current_price": 0.30500000000000005,
       "pnl_pct": 2.96,
       "amount_usd": 24.99,
       "current_value_usd": 25.73,
@@ -388,6 +388,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-28 03:03:16",
+      "market_question": "Will the Republicans win the Kentucky Senate race in 2026?",
+      "headline": "Kentucky - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-28 03:03:16",
+      "market_question": "Will the Democrats win the Kentucky Senate race in 2026?",
+      "headline": "Kentucky - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-28 02:56:46",
       "market_question": "Will Trump attend 1 World Cup match?",
       "headline": "Vlasic header sends Croatia into World Cup knockouts with 2-1 win over Ghana - Reuters",
@@ -422,38 +454,6 @@
     {
       "time": "2026-06-28 02:56:45",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Vlasic header sends Croatia into World Cup knockouts with 2-1 win over Ghana - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 02:56:45",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Vlasic header sends Croatia into World Cup knockouts with 2-1 win over Ghana - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 02:56:45",
-      "market_question": "Will Trump attend 0 World Cup matches?",
       "headline": "Vlasic header sends Croatia into World Cup knockouts with 2-1 win over Ghana - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
