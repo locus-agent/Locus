@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T18:30:35.108390+00:00",
-  "last_heartbeat": "2026-06-29T18:30:35.108390+00:00",
-  "uptime_seconds": 107085,
+  "generated_at": "2026-06-29T18:35:41.759016+00:00",
+  "last_heartbeat": "2026-06-29T18:35:41.759016+00:00",
+  "uptime_seconds": 107391,
   "dry_run": false,
   "markets_tracked": 1321,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 807,
+  "headlines_scanned_today": 823,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 3853,
+  "classifications_24h": 3907,
   "selectivity_pct": 0.3,
   "gates_24h": {
-    "prefiltered_haiku": 1664,
+    "prefiltered_haiku": 1683,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T18:16:53.374586+00:00"
+    "last_check": "2026-06-29T18:31:53.760092+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 983,
-    "matched": 824,
-    "classified": 3853,
+    "news": 998,
+    "matched": 836,
+    "classified": 3907,
     "signals": 10,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": 0.23,
-    "total_pnl_usd": 45.25,
+    "unrealized_pnl_usd": 0.17,
+    "total_pnl_usd": 45.2,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2296.2
+    "avg_classification_latency_ms": 2291.2
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.07150000000000001,
-      "pnl_pct": 2.88,
+      "current_price": 0.07100000000000001,
+      "pnl_pct": 2.16,
       "amount_usd": 8.03,
-      "current_value_usd": 8.26,
-      "pnl_usd": 0.23,
+      "current_value_usd": 8.2,
+      "pnl_usd": 0.17,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 18:26:58",
-      "market_question": "Venezuela election scheduled by December 31, 2026?",
-      "headline": "Five days after Venezuela's earthquakes, some communities still await help - Reuters",
+      "time": "2026-06-29 18:33:38",
+      "market_question": "Will Phil Weiser win the 2026 Colorado Governor Democratic primary election?",
+      "headline": "Democrats' Colorado redistricting hopes killed in court - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 18:33:33",
+      "market_question": "Will Julie Gonzales be the Democratic nominee for Senate in Colorado?",
+      "headline": "Democrats' Colorado redistricting hopes killed in court - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,25 +406,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 18:18:08",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "New packaging for Apple's A20 Pro chip should keep the iPhone 18 Pro series feeling cool - PhoneArena",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 18:18:03",
-      "market_question": "Will Apple release a foldable iPhone before 2027?",
-      "headline": "New packaging for Apple's A20 Pro chip should keep the iPhone 18 Pro series feeling cool - PhoneArena",
+      "time": "2026-06-29 18:33:33",
+      "market_question": "Will Brashad Hasley be the Democratic nominee for Senate in Colorado?",
+      "headline": "Democrats' Colorado redistricting hopes killed in court - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -417,14 +417,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 18:18:02",
-      "market_question": "Will Trump pardon SBF by July 31?",
-      "headline": "Sweltering days ahead for US East, Midwest ahead of July 4 weekend - USA Today",
+      "time": "2026-06-29 18:33:33",
+      "market_question": "Will the Democrats win the Colorado Senate race in 2026?",
+      "headline": "Democrats' Colorado redistricting hopes killed in court - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -433,25 +433,25 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 18:18:02",
-      "market_question": "Will the price of Bitcoin be above $70,000 on July 1?",
-      "headline": "Sweltering days ahead for US East, Midwest ahead of July 4 weekend - USA Today",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 18:33:32",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "Democrats' Colorado redistricting hopes killed in court - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
