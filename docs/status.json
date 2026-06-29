@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T08:35:37.693184+00:00",
-  "last_heartbeat": "2026-06-29T08:35:37.693184+00:00",
-  "uptime_seconds": 71387,
+  "generated_at": "2026-06-29T08:40:43.824145+00:00",
+  "last_heartbeat": "2026-06-29T08:40:43.824145+00:00",
+  "uptime_seconds": 71693,
   "dry_run": false,
-  "markets_tracked": 1291,
+  "markets_tracked": 1290,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9537,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 303,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 304,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4211,
+  "classifications_24h": 4214,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1761,
+    "prefiltered_haiku": 1764,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1154,
-    "matched": 718,
-    "classified": 4211,
+    "news": 1155,
+    "matched": 719,
+    "classified": 4214,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1989.3
+    "avg_classification_latency_ms": 1988.0
   },
   "live_readiness": {
     "ready": true,
@@ -359,6 +359,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-29 08:37:27",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Nigeria Launches AI Scaling Hub to Accelerate Artificial Intelligence Development - TechAfrica News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 08:37:27",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Nigeria Launches AI Scaling Hub to Accelerate Artificial Intelligence Development - TechAfrica News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 08:37:27",
+      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
+      "headline": "Nigeria Launches AI Scaling Hub to Accelerate Artificial Intelligence Development - TechAfrica News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-29 08:35:16",
       "market_question": "Will Trump and Putin meet next in South Korea?",
       "headline": "South Korea to invest nearly $1.2tn in chips, AI data centres - Punch Newspapers",
@@ -389,54 +437,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 08:35:16",
-      "market_question": "Will Donald Trump visit South Korea in 2026?",
-      "headline": "South Korea to invest nearly $1.2tn in chips, AI data centres - Punch Newspapers",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 08:35:16",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "South Korea to invest nearly $1.2tn in chips, AI data centres - Punch Newspapers",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 08:35:15",
-      "market_question": "Will Donald Trump visit North Korea in 2026?",
-      "headline": "South Korea to invest nearly $1.2tn in chips, AI data centres - Punch Newspapers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
