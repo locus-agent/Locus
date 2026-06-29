@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T13:26:49.817998+00:00",
-  "last_heartbeat": "2026-06-29T13:26:49.817998+00:00",
-  "uptime_seconds": 88859,
+  "generated_at": "2026-06-29T13:31:56.212554+00:00",
+  "last_heartbeat": "2026-06-29T13:31:56.212554+00:00",
+  "uptime_seconds": 89166,
   "dry_run": false,
-  "markets_tracked": 1313,
+  "markets_tracked": 1314,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9572,
@@ -82,19 +82,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 550,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 571,
+  "headlines_last_cycle": 2,
   "signals_24h": 4,
-  "classifications_24h": 3930,
+  "classifications_24h": 4015,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1660,
+    "prefiltered_haiku": 1697,
     "stale": 15,
     "capped": 0,
-    "too_close_to_resolution": 1,
+    "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 9,
+    "price_target_market": 10,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T13:16:43.799466+00:00"
+    "last_check": "2026-06-29T13:31:44.166873+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 989,
-    "matched": 827,
-    "classified": 3930,
+    "news": 1010,
+    "matched": 842,
+    "classified": 4015,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.29,
-    "total_pnl_usd": 44.73,
+    "unrealized_pnl_usd": -0.23,
+    "total_pnl_usd": 44.79,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2177.4
+    "avg_classification_latency_ms": 2187.4
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.067,
-      "pnl_pct": -3.6,
+      "current_price": 0.0675,
+      "pnl_pct": -2.88,
       "amount_usd": 8.03,
-      "current_value_usd": 7.74,
-      "pnl_usd": -0.29,
+      "current_value_usd": 7.8,
+      "pnl_usd": -0.23,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 13:25:18",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Stokes' England career ends with NZ series defeat",
+      "time": "2026-06-29 13:31:55",
+      "market_question": "MicroStrategy announces >1000 BTC purchase June 23-29?",
+      "headline": "Bernstein says prediction-market infrastructure rush could spark wave of M&A across consumer platforms",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -385,14 +385,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 13:25:17",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Stokes' England career ends with NZ series defeat",
+      "time": "2026-06-29 13:31:54",
+      "market_question": "Will Apple be the third-largest company in the world by market cap on June 30?",
+      "headline": "Bernstein says prediction-market infrastructure rush could spark wave of M&A across consumer platforms",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 13:31:53",
+      "market_question": "Will Microsoft be the third-largest company in the world by market cap on June 30?",
+      "headline": "Bernstein says prediction-market infrastructure rush could spark wave of M&A across consumer platforms",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 13:31:52",
+      "market_question": "Will Spark launch a token by December 31, 2027?",
+      "headline": "Bernstein says prediction-market infrastructure rush could spark wave of M&A across consumer platforms",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,41 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 13:25:17",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Stokes' England career ends with NZ series defeat",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 13:25:17",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Stokes' England career ends with NZ series defeat",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 13:25:17",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Stokes' England career ends with NZ series defeat",
+      "time": "2026-06-29 13:31:52",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "Bernstein says prediction-market infrastructure rush could spark wave of M&A across consumer platforms",
       "direction": null,
       "materiality": null,
       "confidence": null,
