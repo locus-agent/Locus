@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T09:01:09.828173+00:00",
-  "last_heartbeat": "2026-06-29T09:01:09.828173+00:00",
-  "uptime_seconds": 72919,
+  "generated_at": "2026-06-29T09:06:16.554193+00:00",
+  "last_heartbeat": "2026-06-29T09:06:16.554193+00:00",
+  "uptime_seconds": 73226,
   "dry_run": false,
-  "markets_tracked": 1295,
+  "markets_tracked": 1293,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 328,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 333,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 4294,
+  "classifications_24h": 4301,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1790,
+    "prefiltered_haiku": 1787,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T08:46:35.884962+00:00"
+    "last_check": "2026-06-29T09:01:36.302300+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1174,
-    "matched": 733,
-    "classified": 4294,
+    "news": 1178,
+    "matched": 737,
+    "classified": 4301,
     "signals": 3,
     "trades": 2
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2007.6
+    "avg_classification_latency_ms": 2009.1
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.06899999999999995,
+      "current_price": 0.069,
       "pnl_pct": -0.72,
       "amount_usd": 8.03,
       "current_value_usd": 7.97,
@@ -374,25 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 08:57:13",
-      "market_question": "Will Tarcisio de Freitas win the first round of the 2026 Brazilian presidential election?",
-      "headline": "How the new Brazil is taking shape and why Cunha is key",
+      "time": "2026-06-29 09:06:04",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "\u2018Tokenmaxxing\u2019 is dead: How the hardware shortage is blowing up AI budgets - SMH.com.au",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 08:57:13",
-      "market_question": "Will Ronaldo Caiado finish in second place in the first round of the 2026 Brazilian presidential election?",
-      "headline": "How the new Brazil is taking shape and why Cunha is key",
+      "time": "2026-06-29 09:05:59",
+      "market_question": "Will Ostium launch a token by December 31, 2026?",
+      "headline": "\u2018Tokenmaxxing\u2019 is dead: How the hardware shortage is blowing up AI budgets - SMH.com.au",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -406,25 +406,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 08:57:13",
-      "market_question": "Will Ronaldo Caiado finish in third place in the first round of the 2026 Brazilian presidential election?",
-      "headline": "How the new Brazil is taking shape and why Cunha is key",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 08:57:11",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "South Korea unveils $880bn chip and AI investment plan",
+      "time": "2026-06-29 09:05:59",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "\u2018Tokenmaxxing\u2019 is dead: How the hardware shortage is blowing up AI budgets - SMH.com.au",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -433,25 +417,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 09:03:46",
+      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "African banks in hot pursuit of Kenya's profits face tough local rivals - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-29 08:57:11",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "South Korea unveils $880bn chip and AI investment plan",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 09:03:46",
+      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "African banks in hot pursuit of Kenya's profits face tough local rivals - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
