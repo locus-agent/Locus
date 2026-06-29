@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T07:14:01.401946+00:00",
-  "last_heartbeat": "2026-06-29T07:14:01.401946+00:00",
-  "uptime_seconds": 66491,
+  "generated_at": "2026-06-29T07:19:07.328200+00:00",
+  "last_heartbeat": "2026-06-29T07:19:07.328200+00:00",
+  "uptime_seconds": 66797,
   "dry_run": false,
-  "markets_tracked": 1283,
+  "markets_tracked": 1285,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9537,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 248,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 251,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 4137,
+  "classifications_24h": 4118,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1735,
+    "prefiltered_haiku": 1731,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T07:01:33.102142+00:00"
+    "last_check": "2026-06-29T07:16:33.453163+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1133,
-    "matched": 693,
-    "classified": 4137,
+    "news": 1128,
+    "matched": 691,
+    "classified": 4118,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1963.9
+    "avg_classification_latency_ms": 1971.8
   },
   "live_readiness": {
     "ready": true,
@@ -359,73 +359,73 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 07:12:01",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Saudi federation president Al-Misehal stands down after World Cup exit - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 07:12:01",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Saudi federation president Al-Misehal stands down after World Cup exit - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 07:12:01",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Saudi federation president Al-Misehal stands down after World Cup exit - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 07:12:01",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Saudi federation president Al-Misehal stands down after World Cup exit - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 07:12:01",
+      "time": "2026-06-29 07:18:39",
       "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Saudi federation president Al-Misehal stands down after World Cup exit - Reuters",
+      "headline": "FIFA Women's World Cup 2023 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 07:18:39",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "FIFA Women's World Cup 2023 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 07:18:39",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "FIFA Women's World Cup 2023 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 07:18:39",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "FIFA Women's World Cup 2023 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 07:18:37",
+      "market_question": "Claudio Tapia out as AFA President by July 19, 2026?",
+      "headline": "FIFA Women's World Cup 2023 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,7 +434,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
