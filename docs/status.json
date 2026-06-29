@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T12:56:10.430541+00:00",
-  "last_heartbeat": "2026-06-29T12:56:10.430541+00:00",
-  "uptime_seconds": 87020,
+  "generated_at": "2026-06-29T13:01:17.169205+00:00",
+  "last_heartbeat": "2026-06-29T13:01:17.169205+00:00",
+  "uptime_seconds": 87327,
   "dry_run": false,
-  "markets_tracked": 1312,
+  "markets_tracked": 1311,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9572,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 514,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 524,
+  "headlines_last_cycle": 4,
   "signals_24h": 4,
-  "classifications_24h": 3846,
+  "classifications_24h": 3884,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1640,
+    "prefiltered_haiku": 1651,
     "stale": 15,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 972,
-    "matched": 805,
-    "classified": 3846,
+    "news": 979,
+    "matched": 813,
+    "classified": 3884,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.0,
-    "total_pnl_usd": 45.02,
+    "unrealized_pnl_usd": -0.69,
+    "total_pnl_usd": 44.33,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2156.3
+    "avg_classification_latency_ms": 2172.3
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.0694999999999999,
-      "pnl_pct": 0.0,
+      "current_price": 0.0635,
+      "pnl_pct": -8.63,
       "amount_usd": 8.03,
-      "current_value_usd": 8.03,
-      "pnl_usd": -0.0,
+      "current_value_usd": 7.34,
+      "pnl_usd": -0.69,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 12:52:18",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "MCA AI Day highlights the growing role of Artificial Intelligence in business transformation - Gulf News",
+      "time": "2026-06-29 13:01:01",
+      "market_question": "Will Hibachi launch a token by December 31, 2026?",
+      "headline": "As JPMorgan succession takes shape, insiders say this time it is for real - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,25 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 12:52:18",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "MCA AI Day highlights the growing role of Artificial Intelligence in business transformation - Gulf News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 12:52:18",
-      "market_question": "Will Alibaba have the top AI model at the end of June 2026?",
-      "headline": "MCA AI Day highlights the growing role of Artificial Intelligence in business transformation - Gulf News",
+      "time": "2026-06-29 13:01:01",
+      "market_question": "Will JPMorgan Chase or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "As JPMorgan succession takes shape, insiders say this time it is for real - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -422,9 +406,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 12:52:18",
-      "market_question": "Will Alibaba have a #1 AI model by June 30?",
-      "headline": "MCA AI Day highlights the growing role of Artificial Intelligence in business transformation - Gulf News",
+      "time": "2026-06-29 13:01:00",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "As JPMorgan succession takes shape, insiders say this time it is for real - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -438,9 +422,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 12:52:18",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "MCA AI Day highlights the growing role of Artificial Intelligence in business transformation - Gulf News",
+      "time": "2026-06-29 13:01:00",
+      "market_question": "Will JPMorgan Chase or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "As JPMorgan succession takes shape, insiders say this time it is for real - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -449,7 +433,23 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 13:00:59",
+      "market_question": "Will Robert Moore win the 2026 Colorado Governor Republican primary election?",
+      "headline": "AP Decision Notes: What to expect in Colorado\u2019s state primary - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
