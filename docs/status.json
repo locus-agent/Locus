@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T01:12:03.442529+00:00",
-  "last_heartbeat": "2026-06-29T01:12:03.442529+00:00",
-  "uptime_seconds": 44773,
+  "generated_at": "2026-06-29T01:17:08.663526+00:00",
+  "last_heartbeat": "2026-06-29T01:17:08.663526+00:00",
+  "uptime_seconds": 45078,
   "dry_run": false,
-  "markets_tracked": 1317,
+  "markets_tracked": 1320,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9520,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 55,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 56,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 4170,
+  "classifications_24h": 4173,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1773,
+    "prefiltered_haiku": 1776,
     "stale": 13,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T01:01:23.647878+00:00"
+    "last_check": "2026-06-29T01:16:24.046505+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1139,
-    "matched": 660,
-    "classified": 4170,
+    "news": 1140,
+    "matched": 661,
+    "classified": 4173,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1972.2
+    "avg_classification_latency_ms": 1969.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,6 +359,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-29 01:17:08",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Cape Verde's World Cup magic has Italy great Materazzi spellbound - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 01:17:08",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Cape Verde's World Cup magic has Italy great Materazzi spellbound - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 01:17:08",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Cape Verde's World Cup magic has Italy great Materazzi spellbound - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-29 01:06:11",
       "market_question": "Will Partido Liberal (PL) hold the most seats as a result of the next Brazilian Senate election?",
       "headline": "Latin American News | Latest Latin American News - AP News",
@@ -389,54 +437,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 01:04:01",
-      "market_question": "Will Tom Cotton be the next Senate Majority Leader?",
-      "headline": "UK's likely next leader Burnham to unveil plan to shift power from London - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 01:04:01",
-      "market_question": "Will Mark Kelly be the next Senate Majority Leader?",
-      "headline": "UK's likely next leader Burnham to unveil plan to shift power from London - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 01:04:00",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "UK's likely next leader Burnham to unveil plan to shift power from London - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
