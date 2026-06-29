@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T16:43:12.829725+00:00",
-  "last_heartbeat": "2026-06-29T16:43:12.829725+00:00",
-  "uptime_seconds": 100642,
+  "generated_at": "2026-06-29T16:48:20.366918+00:00",
+  "last_heartbeat": "2026-06-29T16:48:20.366918+00:00",
+  "uptime_seconds": 100950,
   "dry_run": false,
-  "markets_tracked": 1305,
+  "markets_tracked": 1306,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9572,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 756,
+  "headlines_scanned_today": 760,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 3788,
+  "classifications_24h": 3795,
   "selectivity_pct": 0.3,
   "gates_24h": {
-    "prefiltered_haiku": 1640,
+    "prefiltered_haiku": 1645,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T16:31:49.172337+00:00"
+    "last_check": "2026-06-29T16:46:49.756393+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 964,
-    "matched": 811,
-    "classified": 3788,
+    "matched": 812,
+    "classified": 3795,
     "signals": 10,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.29,
-    "total_pnl_usd": 44.73,
+    "unrealized_pnl_usd": -0.46,
+    "total_pnl_usd": 44.56,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2282.9
+    "avg_classification_latency_ms": 2281.8
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.067,
-      "pnl_pct": -3.6,
+      "current_price": 0.0655,
+      "pnl_pct": -5.76,
       "amount_usd": 8.03,
-      "current_value_usd": 7.74,
-      "pnl_usd": -0.29,
+      "current_value_usd": 7.57,
+      "pnl_usd": -0.46,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 16:41:40",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Strategy\u2019s MSTR, STRC shares recover after brutal week as Saylor unveils new buyback plans",
+      "time": "2026-06-29 16:46:02",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Resident doctors in England accept pay deal and end strikes",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -390,9 +390,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 16:41:40",
-      "market_question": "Will Trump post \"UFC\" on Truth Social this week?",
-      "headline": "Strategy\u2019s MSTR, STRC shares recover after brutal week as Saylor unveils new buyback plans",
+      "time": "2026-06-29 16:46:02",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Resident doctors in England accept pay deal and end strikes",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,9 +406,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 16:41:40",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Strategy\u2019s MSTR, STRC shares recover after brutal week as Saylor unveils new buyback plans",
+      "time": "2026-06-29 16:43:54",
+      "market_question": "Will July be the best month for Bitcoin in 2026?",
+      "headline": "The best July 4th sales we found so far",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 16:43:54",
+      "market_question": "Will Donald Trump visit South Carolina in 2026?",
+      "headline": "AI tool measures \u2018heart age\u2019 - FOX Carolina News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,25 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 16:41:40",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "Strategy\u2019s MSTR, STRC shares recover after brutal week as Saylor unveils new buyback plans",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 16:41:40",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Strategy\u2019s MSTR, STRC shares recover after brutal week as Saylor unveils new buyback plans",
+      "time": "2026-06-29 16:43:54",
+      "market_question": "Will the Republicans win the North Carolina Senate race in 2026?",
+      "headline": "AI tool measures \u2018heart age\u2019 - FOX Carolina News",
       "direction": null,
       "materiality": null,
       "confidence": null,
