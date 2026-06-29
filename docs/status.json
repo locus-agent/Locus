@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-29T04:51:14.194951+00:00",
-  "last_heartbeat": "2026-06-29T04:51:14.194951+00:00",
-  "uptime_seconds": 57924,
+  "generated_at": "2026-06-29T04:56:19.619631+00:00",
+  "last_heartbeat": "2026-06-29T04:56:19.619631+00:00",
+  "uptime_seconds": 58229,
   "dry_run": false,
-  "markets_tracked": 1299,
+  "markets_tracked": 1294,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9520,
+    "total": 9537,
     "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
@@ -19,29 +19,29 @@
     "by_source": {
       "rss": 17.6,
       "newsapi": 18.3,
-      "truthsocial": 7.7
+      "truthsocial": 7.5
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.6,
-    "overall_total": 9520,
+    "overall_total": 9537,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5401,
+        "total": 5414,
         "correct": 375,
         "accuracy_pct": 6.9,
-        "avg_pnl_pct": 10.45,
+        "avg_pnl_pct": 10.43,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 842,
-        "correct": 296,
+        "total": 843,
+        "correct": 297,
         "accuracy_pct": 35.2,
-        "avg_pnl_pct": 25.4,
+        "avg_pnl_pct": 25.37,
         "color": "green"
       },
       {
@@ -74,21 +74,21 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1201,
+        "total": 1204,
         "correct": 232,
         "accuracy_pct": 19.3,
-        "avg_pnl_pct": -2.92,
+        "avg_pnl_pct": -2.91,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 192,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 193,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
   "classifications_24h": 4228,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1789,
+    "prefiltered_haiku": 1785,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1928.4
+    "avg_classification_latency_ms": 1927.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 04:47:22",
-      "market_question": "Ethereum Up or Down - June 29, 12:30AM-12:45AM ET",
-      "headline": "Morning Bid: Markets swivel on tech, Mideast angst - Reuters",
+      "time": "2026-06-29 04:56:06",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Asia stocks adrift as Middle East worries meet rate-hike bets - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -369,74 +369,74 @@
       "fee_cost": null,
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 04:47:21",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "Morning Bid: Markets swivel on tech, Mideast angst - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 04:47:21",
-      "market_question": "Ethereum Up or Down - June 29, 12:40AM-12:45AM ET",
-      "headline": "Morning Bid: Markets swivel on tech, Mideast angst - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-29 04:56:05",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "Asia stocks adrift as Middle East worries meet rate-hike bets - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-29 04:47:21",
-      "market_question": "Will Ethereum dip to $500 by December 31, 2026?",
-      "headline": "Morning Bid: Markets swivel on tech, Mideast angst - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 04:56:05",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Asia stocks adrift as Middle East worries meet rate-hike bets - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-29 04:45:10",
-      "market_question": "Will Trump visit Pakistan by June 30?",
-      "headline": "Pakistan launches deadly strikes along Afghan border",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-29 04:56:05",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Asia stocks adrift as Middle East worries meet rate-hike bets - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 04:56:05",
+      "market_question": "Will Trump and Putin meet next in Japan?",
+      "headline": "Asia stocks adrift as Middle East worries meet rate-hike bets - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
