@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T20:28:06.751212+00:00",
-  "last_heartbeat": "2026-06-29T20:28:06.751212+00:00",
-  "uptime_seconds": 114136,
+  "generated_at": "2026-06-29T20:33:14.228078+00:00",
+  "last_heartbeat": "2026-06-29T20:33:14.228078+00:00",
+  "uptime_seconds": 114444,
   "dry_run": false,
-  "markets_tracked": 1310,
+  "markets_tracked": 1309,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9601,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 928,
-  "headlines_last_cycle": 8,
+  "headlines_scanned_today": 930,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 4063,
+  "classifications_24h": 4066,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1756,
+    "prefiltered_haiku": 1752,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T20:16:56.586649+00:00"
+    "last_check": "2026-06-29T20:31:57.030790+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1038,
-    "matched": 873,
-    "classified": 4063,
+    "news": 1039,
+    "matched": 874,
+    "classified": 4066,
     "signals": 10,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": 1.62,
-    "total_pnl_usd": 46.64,
+    "unrealized_pnl_usd": 1.44,
+    "total_pnl_usd": 46.47,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2284.9
+    "avg_classification_latency_ms": 2287.7
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.08349999999999991,
-      "pnl_pct": 20.14,
+      "current_price": 0.08199999999999999,
+      "pnl_pct": 17.99,
       "amount_usd": 8.03,
-      "current_value_usd": 9.65,
-      "pnl_usd": 1.62,
+      "current_value_usd": 9.47,
+      "pnl_usd": 1.44,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,41 +374,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 20:28:04",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Supreme Court ruling gives a reprieve to states with grace periods for receiving mail ballots - AP News",
+      "time": "2026-06-29 20:32:14",
+      "market_question": "Will Trump and Putin meet next in a Gulf country?",
+      "headline": "Keeping Qatar talks strait - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 20:28:03",
-      "market_question": "Will Trump pardon SBF by July 31?",
-      "headline": "Nio opens pre-orders for five-seat ES8, sets July 9 launch - CnEVPost",
+      "time": "2026-06-29 20:32:14",
+      "market_question": "Will Trump and Putin meet next in a Gulf country?",
+      "headline": "Keeping Qatar talks strait - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 20:28:03",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "Supreme Court ruling gives a reprieve to states with grace periods for receiving mail ballots - AP News",
+      "time": "2026-06-29 20:29:56",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Oil rig explosion in Venezuela leaves at least 17 workers injured, sources say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,9 +422,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 20:28:03",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Supreme Court ruling gives a reprieve to states with grace periods for receiving mail ballots - AP News",
+      "time": "2026-06-29 20:29:56",
+      "market_question": "Will the Workers' Party nominate Lula for President of Brazil by August 15?",
+      "headline": "Oil rig explosion in Venezuela leaves at least 17 workers injured, sources say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 20:28:03",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Supreme Court ruling gives a reprieve to states with grace periods for receiving mail ballots - AP News",
+      "time": "2026-06-29 20:29:56",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "Oil rig explosion in Venezuela leaves at least 17 workers injured, sources say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
