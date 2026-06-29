@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T00:36:21.520218+00:00",
-  "last_heartbeat": "2026-06-29T00:36:21.520218+00:00",
-  "uptime_seconds": 42631,
+  "generated_at": "2026-06-29T00:41:27.932378+00:00",
+  "last_heartbeat": "2026-06-29T00:41:27.932378+00:00",
+  "uptime_seconds": 42937,
   "dry_run": false,
-  "markets_tracked": 1318,
+  "markets_tracked": 1322,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9501,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 42,
+  "headlines_scanned_today": 43,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4206,
+  "classifications_24h": 4199,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1800,
+    "prefiltered_haiku": 1794,
     "stale": 13,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 1144,
-    "matched": 663,
-    "classified": 4206,
+    "matched": 664,
+    "classified": 4199,
     "signals": 2,
     "trades": 1
   },
@@ -359,6 +359,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-29 00:37:42",
+      "market_question": "Will Democrats win all \"core four\" senate races?",
+      "headline": "Father and son rescued after four days buried under rubble of Venezuela's earthquakes - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-29 00:33:25",
       "market_question": "Will Trump and Putin meet next in Ukraine?",
       "headline": "Putin says Russia will press on with front-line campaign regardless of Ukraine proposals - Reuters",
@@ -419,22 +435,6 @@
       "adjusted_materiality": 0.0,
       "action": "skip",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 00:33:20",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Putin says Russia will press on with front-line campaign regardless of Ukraine proposals - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
