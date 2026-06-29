@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T08:15:13.271093+00:00",
-  "last_heartbeat": "2026-06-29T08:15:13.271093+00:00",
-  "uptime_seconds": 70163,
+  "generated_at": "2026-06-29T08:20:19.385602+00:00",
+  "last_heartbeat": "2026-06-29T08:20:19.385602+00:00",
+  "uptime_seconds": 70469,
   "dry_run": false,
   "markets_tracked": 1288,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 291,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 294,
+  "headlines_last_cycle": 2,
   "signals_24h": 2,
-  "classifications_24h": 4183,
+  "classifications_24h": 4188,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1761,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T08:01:34.536743+00:00"
+    "last_check": "2026-06-29T08:16:35.082829+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1146,
-    "matched": 709,
-    "classified": 4183,
+    "news": 1148,
+    "matched": 711,
+    "classified": 4188,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1992.0
+    "avg_classification_latency_ms": 1992.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,57 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 08:13:30",
-      "market_question": "Will xAI have the top AI model at the end of June 2026?",
-      "headline": "xFusion scales enterprise AI from edge workstations to liquid-cooled data centres - AI News",
+      "time": "2026-06-29 08:19:58",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "UN ambassador Lametti: Canada pushing for safety, equity in artificial intelligence - Narcity",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 08:13:30",
-      "market_question": "Will xAI have the best AI model at the end of July 2026?",
-      "headline": "xFusion scales enterprise AI from edge workstations to liquid-cooled data centres - AI News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 08:13:30",
-      "market_question": "Will xAI have a #1 AI model by December 31, 2026?",
-      "headline": "xFusion scales enterprise AI from edge workstations to liquid-cooled data centres - AI News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 08:13:30",
-      "market_question": "Will Donald Trump be confirmed to have visited Epstein\u2019s island?",
-      "headline": "Congo says number of confirmed Ebola cases at 1,274, including 360 deaths - Reuters",
+      "time": "2026-06-29 08:19:58",
+      "market_question": "Will Trump cut corporate taxes before 2027?",
+      "headline": "British American Tobacco to cut 5,500 jobs globally in restructuring push - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +391,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 08:13:30",
-      "market_question": "Nguesso out as President of the Republic of the Congo by December 31, 2026?",
-      "headline": "Congo says number of confirmed Ebola cases at 1,274, including 360 deaths - Reuters",
+      "time": "2026-06-29 08:19:57",
+      "market_question": "Will Sam Altman get OpenAI equity by June 30?",
+      "headline": "UN ambassador Lametti: Canada pushing for safety, equity in artificial intelligence - Narcity",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 08:19:55",
+      "market_question": "Another Canada election called by June 30?",
+      "headline": "UN ambassador Lametti: Canada pushing for safety, equity in artificial intelligence - Narcity",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 08:19:55",
+      "market_question": "Will Donald Trump visit Canada in 2026?",
+      "headline": "UN ambassador Lametti: Canada pushing for safety, equity in artificial intelligence - Narcity",
       "direction": null,
       "materiality": null,
       "confidence": null,
