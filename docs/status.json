@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T11:59:59.740601+00:00",
-  "last_heartbeat": "2026-06-29T11:59:59.740601+00:00",
-  "uptime_seconds": 83649,
+  "generated_at": "2026-06-29T12:05:06.184114+00:00",
+  "last_heartbeat": "2026-06-29T12:05:06.184114+00:00",
+  "uptime_seconds": 83956,
   "dry_run": false,
-  "markets_tracked": 1300,
+  "markets_tracked": 1301,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,19 +82,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 461,
+  "headlines_scanned_today": 476,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4448,
+  "classifications_24h": 4323,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1858,
-    "stale": 10,
+    "prefiltered_haiku": 1819,
+    "stale": 15,
     "capped": 0,
-    "too_close_to_resolution": 2,
+    "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 15,
+    "price_target_market": 11,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 1,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T11:46:40.919651+00:00"
+    "last_check": "2026-06-29T12:01:41.364270+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1210,
-    "matched": 817,
-    "classified": 4448,
+    "news": 1159,
+    "matched": 829,
+    "classified": 4323,
     "signals": 4,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2089.3
+    "avg_classification_latency_ms": 2119.7
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.06799999999999995,
-      "pnl_pct": -2.16,
+      "current_price": 0.069,
+      "pnl_pct": -0.72,
       "amount_usd": 8.03,
-      "current_value_usd": 7.86,
-      "pnl_usd": -0.17,
+      "current_value_usd": 7.97,
+      "pnl_usd": -0.06,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 11:55:03",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Prosus profit jumps 84% as deal spree sets stage for European push - Reuters",
+      "time": "2026-06-29 12:03:53",
+      "market_question": "Will Meta have the best AI model at the end of July 2026?",
+      "headline": "7 Costco Must-Haves To Look For In July 2026 - Daily Meal",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 12:03:53",
+      "market_question": "Will \"Trump\" be said 10+ times during the next episode of the Storytime with the Second Lady Podcast?",
+      "headline": "Fife man dies after being shot 'multiple times' in Caribbean",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -390,68 +406,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 11:55:03",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "Prosus profit jumps 84% as deal spree sets stage for European push - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 12:03:52",
+      "market_question": "Will OpenAI IPO by July 31 2026?",
+      "headline": "7 Costco Must-Haves To Look For In July 2026 - Daily Meal",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-29 11:52:51",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Italy and Balkans hit by heatwave as wildfire fears rise - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 12:03:52",
+      "market_question": "Will xAI have the best AI model at the end of July 2026?",
+      "headline": "7 Costco Must-Haves To Look For In July 2026 - Daily Meal",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-29 11:52:51",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Italy and Balkans hit by heatwave as wildfire fears rise - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 12:03:52",
+      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
+      "headline": "7 Costco Must-Haves To Look For In July 2026 - Daily Meal",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 11:52:51",
-      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
-      "headline": "Italy and Balkans hit by heatwave as wildfire fears rise - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
