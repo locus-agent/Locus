@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T12:30:38.548323+00:00",
-  "last_heartbeat": "2026-06-29T12:30:38.548323+00:00",
-  "uptime_seconds": 85488,
+  "generated_at": "2026-06-29T12:35:45.126401+00:00",
+  "last_heartbeat": "2026-06-29T12:35:45.126401+00:00",
+  "uptime_seconds": 85795,
   "dry_run": false,
-  "markets_tracked": 1303,
+  "markets_tracked": 1304,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 500,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 502,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4193,
+  "classifications_24h": 4179,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1772,
+    "prefiltered_haiku": 1763,
     "stale": 15,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T12:16:41.782881+00:00"
+    "last_check": "2026-06-29T12:31:42.251701+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1102,
+    "news": 1096,
     "matched": 844,
-    "classified": 4193,
+    "classified": 4179,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.12,
-    "total_pnl_usd": 44.91,
+    "unrealized_pnl_usd": -0.17,
+    "total_pnl_usd": 44.85,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2137.6
+    "avg_classification_latency_ms": 2136.6
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.0685,
-      "pnl_pct": -1.44,
+      "current_price": 0.068,
+      "pnl_pct": -2.16,
       "amount_usd": 8.03,
-      "current_value_usd": 7.91,
-      "pnl_usd": -0.12,
+      "current_value_usd": 7.86,
+      "pnl_usd": -0.17,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 12:30:12",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "'Big brother' Van Dijk key to Dutch World Cup dreams",
+      "time": "2026-06-29 12:32:24",
+      "market_question": "Will Uni\u00e3o Brasil (UNI\u00c3O) win the most seats in the next Brazilian Senate election?",
+      "headline": "A new Brazil is taking shape - and Cunha is key",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -385,14 +385,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 12:30:12",
-      "market_question": "Will Trump say \"Buy Dell Computer / Buy a Dell Computer\" in June?",
-      "headline": "Rocket Lab to buy satellite communications firm Iridium in $8 billion deal - Reuters",
+      "time": "2026-06-29 12:32:24",
+      "market_question": "Will Ronaldo Caiado finish in third place in the first round of the 2026 Brazilian presidential election?",
+      "headline": "A new Brazil is taking shape - and Cunha is key",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 12:32:24",
+      "market_question": "Will Ronaldo Caiado finish in second place in the first round of the 2026 Brazilian presidential election?",
+      "headline": "A new Brazil is taking shape - and Cunha is key",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 12:32:22",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "A new Brazil is taking shape - and Cunha is key",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,41 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 12:30:12",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Rocket Lab to buy satellite communications firm Iridium in $8 billion deal - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 12:30:12",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "Rocket Lab to buy satellite communications firm Iridium in $8 billion deal - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 12:30:12",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Rocket Lab to buy satellite communications firm Iridium in $8 billion deal - Reuters",
+      "time": "2026-06-29 12:32:22",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "A new Brazil is taking shape - and Cunha is key",
       "direction": null,
       "materiality": null,
       "confidence": null,
