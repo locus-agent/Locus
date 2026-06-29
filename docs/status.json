@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T20:02:33.296653+00:00",
-  "last_heartbeat": "2026-06-29T20:02:33.296653+00:00",
-  "uptime_seconds": 112603,
+  "generated_at": "2026-06-29T20:07:39.646016+00:00",
+  "last_heartbeat": "2026-06-29T20:07:39.646016+00:00",
+  "uptime_seconds": 112909,
   "dry_run": false,
-  "markets_tracked": 1311,
+  "markets_tracked": 1308,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9601,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 891,
+  "headlines_scanned_today": 892,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 3963,
+  "classifications_24h": 3958,
   "selectivity_pct": 0.3,
   "gates_24h": {
-    "prefiltered_haiku": 1701,
+    "prefiltered_haiku": 1699,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1021,
-    "matched": 853,
-    "classified": 3963,
+    "news": 1019,
+    "matched": 852,
+    "classified": 3958,
     "signals": 10,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2296.9
+    "avg_classification_latency_ms": 2297.3
   },
   "live_readiness": {
     "ready": true,
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 19:59:26",
-      "market_question": "SCOTUS bars counting mail ballots after election day?",
-      "headline": "State Supreme Court - Politico",
+      "time": "2026-06-29 20:05:53",
+      "market_question": "Will Microsoft be the largest company in the world by market cap on December 31?",
+      "headline": "Down 35% on Artificial Intelligence (AI) Panic: Why Smart Investors Are Loading Up on Microsoft Stock - The Motley Fool",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -390,9 +390,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 19:59:20",
-      "market_question": "Will Carlos Roberto Massa J\u00fanior win the first round of the 2026 Brazilian presidential election?",
-      "headline": "Martinelli scores a stoppage-time winner to send Brazil through to last 16",
+      "time": "2026-06-29 20:05:52",
+      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
+      "headline": "Down 35% on Artificial Intelligence (AI) Panic: Why Smart Investors Are Loading Up on Microsoft Stock - The Motley Fool",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 20:05:48",
+      "market_question": "Bitcoin Up or Down - June 29, 4:00PM-4:05PM ET",
+      "headline": "Down 35% on Artificial Intelligence (AI) Panic: Why Smart Investors Are Loading Up on Microsoft Stock - The Motley Fool",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 20:05:47",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "Down 35% on Artificial Intelligence (AI) Panic: Why Smart Investors Are Loading Up on Microsoft Stock - The Motley Fool",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -401,14 +433,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 19:59:20",
-      "market_question": "Will Tarcisio de Freitas win the first round of the 2026 Brazilian presidential election?",
-      "headline": "Martinelli scores a stoppage-time winner to send Brazil through to last 16",
+      "time": "2026-06-29 20:05:47",
+      "market_question": "Bitcoin Up or Down - June 29, 3PM ET",
+      "headline": "Down 35% on Artificial Intelligence (AI) Panic: Why Smart Investors Are Loading Up on Microsoft Stock - The Motley Fool",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -417,41 +449,9 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 19:59:20",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "State Supreme Court - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 19:59:20",
-      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
-      "headline": "State Supreme Court - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
