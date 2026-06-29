@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T14:28:20.345029+00:00",
-  "last_heartbeat": "2026-06-29T14:28:20.345029+00:00",
-  "uptime_seconds": 92550,
+  "generated_at": "2026-06-29T14:33:26.327050+00:00",
+  "last_heartbeat": "2026-06-29T14:33:26.327050+00:00",
+  "uptime_seconds": 92856,
   "dry_run": false,
-  "markets_tracked": 1318,
+  "markets_tracked": 1315,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9572,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 619,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 623,
+  "headlines_last_cycle": 2,
   "signals_24h": 5,
-  "classifications_24h": 3679,
+  "classifications_24h": 3689,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1593,
+    "prefiltered_haiku": 1594,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T14:16:45.401806+00:00"
+    "last_check": "2026-06-29T14:31:45.840579+00:00"
   },
   "edge_types_24h": {
     "news": 5,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 919,
-    "matched": 772,
-    "classified": 3679,
+    "news": 923,
+    "matched": 775,
+    "classified": 3689,
     "signals": 5,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.12,
-    "total_pnl_usd": 44.91,
+    "unrealized_pnl_usd": -0.17,
+    "total_pnl_usd": 44.85,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2234.6
+    "avg_classification_latency_ms": 2235.8
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.0685,
-      "pnl_pct": -1.44,
+      "current_price": 0.068,
+      "pnl_pct": -2.16,
       "amount_usd": 8.03,
-      "current_value_usd": 7.91,
-      "pnl_usd": -0.12,
+      "current_value_usd": 7.86,
+      "pnl_usd": -0.17,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,25 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 14:26:34",
-      "market_question": "Will Kamala Harris announce a 2028 run for President by June 30?",
-      "headline": "UC Berkeley is establishing the Nancy Pelosi Institute to address democracy\u2019s challenges - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 14:26:34",
-      "market_question": "Will Donald Trump visit Germany in 2026?",
-      "headline": "Germany says it wants to prevent Volkswagen plant closures - Reuters",
+      "time": "2026-06-29 14:33:07",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Mamdani announces $15 million to bolster gender-affirming care access - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,52 +390,68 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 14:24:39",
-      "market_question": "SCOTUS bars counting mail ballots after election day?",
-      "headline": "Supreme Court rules states can count late-arriving mailed ballots, rejecting Trump-led challenge - AP News",
+      "time": "2026-06-29 14:33:07",
+      "market_question": "MicroStrategy announces >1000 BTC purchase June 23-29?",
+      "headline": "Mamdani announces $15 million to bolster gender-affirming care access - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 14:33:07",
+      "market_question": "Will Donald Trump publicly insult Zohran Mamdani by June 30, 2026?",
+      "headline": "Mamdani announces $15 million to bolster gender-affirming care access - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 14:31:04",
+      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
+      "headline": "Supreme Court widens Trump\u2019s power to fire agency leaders \u2014 except the Fed - Politico",
       "direction": "bearish",
-      "materiality": 0.65,
-      "confidence": 0.9,
+      "materiality": 0.45,
+      "confidence": 0.62,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.65,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.38,
       "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 14:24:33",
-      "market_question": "Will Utah use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Supreme Court rules states can count late-arriving mailed ballots, rejecting Trump-led challenge - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 14:24:32",
-      "market_question": "Will Trump and Putin meet next in United States?",
-      "headline": "Supreme Court rules states can count late-arriving mailed ballots, rejecting Trump-led challenge - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 14:31:04",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "US and Iran pause strikes but disagree over next steps on talks - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
