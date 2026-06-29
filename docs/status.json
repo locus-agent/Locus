@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T07:29:19.849452+00:00",
-  "last_heartbeat": "2026-06-29T07:29:19.849452+00:00",
-  "uptime_seconds": 67409,
+  "generated_at": "2026-06-29T07:34:25.731336+00:00",
+  "last_heartbeat": "2026-06-29T07:34:25.731336+00:00",
+  "uptime_seconds": 67715,
   "dry_run": false,
-  "markets_tracked": 1285,
+  "markets_tracked": 1284,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9537,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 261,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 266,
+  "headlines_last_cycle": 3,
   "signals_24h": 2,
-  "classifications_24h": 4134,
+  "classifications_24h": 4125,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1738,
+    "prefiltered_haiku": 1737,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T07:16:33.453163+00:00"
+    "last_check": "2026-06-29T07:31:33.818238+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1135,
-    "matched": 695,
-    "classified": 4134,
+    "news": 1134,
+    "matched": 694,
+    "classified": 4125,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1978.0
+    "avg_classification_latency_ms": 1981.3
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 07:27:21",
-      "market_question": "Will Brashad Hasley be the Democratic nominee for Senate in Colorado?",
-      "headline": "Colorado - AP News",
+      "time": "2026-06-29 07:34:00",
+      "market_question": "Will the Democrats win the New Jersey Senate race in 2026?",
+      "headline": "New Jersey - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -370,46 +370,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 07:27:21",
-      "market_question": "Will John Hickenlooper be the Democratic nominee for Senate in Colorado?",
-      "headline": "Colorado - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 07:27:21",
-      "market_question": "Will Julie Gonzales be the Democratic nominee for Senate in Colorado?",
-      "headline": "Colorado - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 07:27:21",
-      "market_question": "Will Donald Trump visit Germany in 2026?",
-      "headline": "Germany fans dream of beating France, once past Paraguay - Reuters",
+      "time": "2026-06-29 07:34:00",
+      "market_question": "Will ECDSA.fail get at least 50% ahead of Google\u2019s classified circuit by June 30, 2026?",
+      "headline": "Pound steady ahead of Burnham speech on economic plan - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,9 +391,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 07:27:20",
-      "market_question": "Will Brycen Garrison win the 2026 Colorado Governor Republican primary election?",
-      "headline": "Colorado - AP News",
+      "time": "2026-06-29 07:33:57",
+      "market_question": "Will the Republicans win the New Jersey Senate race in 2026?",
+      "headline": "New Jersey - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,9 +402,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 07:33:57",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New Jersey - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 07:33:55",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "New Jersey - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
