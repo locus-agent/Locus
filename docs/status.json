@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T04:05:21.969284+00:00",
-  "last_heartbeat": "2026-06-29T04:05:21.969284+00:00",
-  "uptime_seconds": 55172,
+  "generated_at": "2026-06-29T04:10:27.637812+00:00",
+  "last_heartbeat": "2026-06-29T04:10:27.637812+00:00",
+  "uptime_seconds": 55477,
   "dry_run": false,
   "markets_tracked": 1312,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 178,
+  "headlines_scanned_today": 181,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4268,
+  "classifications_24h": 4280,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1818,
+    "prefiltered_haiku": 1821,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1160,
-    "matched": 688,
-    "classified": 4268,
+    "news": 1162,
+    "matched": 690,
+    "classified": 4280,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1909.5
+    "avg_classification_latency_ms": 1932.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 03:52:37",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "South Korea football coach quits as president calls for probe into World Cup loss",
+      "time": "2026-06-29 04:08:12",
+      "market_question": "Will John Braun advance to the general election for WA-03?",
+      "headline": "John Oliver gets his soap opera wish with 'General Hospital' role - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -375,9 +375,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 03:52:37",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "South Korea football coach quits as president calls for probe into World Cup loss",
+      "time": "2026-06-29 04:08:12",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "John Oliver gets his soap opera wish with 'General Hospital' role - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -391,52 +391,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 03:52:37",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "South Korea football coach quits as president calls for probe into World Cup loss",
+      "time": "2026-06-29 04:08:11",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "Prediction: This Artificial Intelligence (AI) Semiconductor Stock Will Join the $1 Trillion Club by 2028 - The Motley Fool",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 03:52:36",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "South Korea football coach quits as president calls for probe into World Cup loss",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 04:08:11",
+      "market_question": "Peru General Election invalidated by June 30?",
+      "headline": "John Oliver gets his soap opera wish with 'General Hospital' role - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-29 03:52:36",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "South Korea football coach quits as president calls for probe into World Cup loss",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 04:08:11",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "John Oliver gets his soap opera wish with 'General Hospital' role - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
