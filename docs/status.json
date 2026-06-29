@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T23:55:33.133477+00:00",
-  "last_heartbeat": "2026-06-28T23:55:33.133477+00:00",
-  "uptime_seconds": 40183,
+  "generated_at": "2026-06-29T00:00:38.743124+00:00",
+  "last_heartbeat": "2026-06-29T00:00:38.743124+00:00",
+  "uptime_seconds": 40488,
   "dry_run": false,
-  "markets_tracked": 1305,
+  "markets_tracked": 1304,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9501,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1136,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 4166,
+  "classifications_24h": 4149,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1743,
+    "prefiltered_haiku": 1747,
     "stale": 13,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1143,
-    "matched": 655,
-    "classified": 4166,
+    "news": 1138,
+    "matched": 651,
+    "classified": 4149,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1988.4
+    "avg_classification_latency_ms": 1982.3
   },
   "live_readiness": {
     "ready": true,
@@ -184,8 +184,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0473,
-    "sharpe_7d": 0.11
+    "drawdown_7d": 0.0687,
+    "sharpe_7d": -0.37
   },
   "open_positions": [],
   "closed_positions": [
@@ -359,25 +359,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-28 23:49:17",
-      "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
-      "headline": "Google was the dream job in tech. These workers decided to leave anyway. - Business Insider",
+      "time": "2026-06-29 00:00:31",
+      "market_question": "Will Trump say \"Uranium\" this week?",
+      "headline": "Temperatures to drop this week but relief from heat may be short-lived",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-28 23:49:17",
-      "market_question": "Trump Media x TAE Technologies merger closed by June 30?",
-      "headline": "NASA Identifies More Than 40 Space Technologies for Collaboration - NASA (.gov)",
+      "time": "2026-06-29 00:00:31",
+      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
+      "headline": "Temperatures to drop this week but relief from heat may be short-lived",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 00:00:30",
+      "market_question": "Solana Up or Down - May 20, 6AM ET",
+      "headline": "Temperatures to drop this week but relief from heat may be short-lived",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 00:00:29",
+      "market_question": "Will Trump post \"UFC\" on Truth Social this week?",
+      "headline": "Temperatures to drop this week but relief from heat may be short-lived",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -391,52 +423,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-28 23:49:09",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "Google was the dream job in tech. These workers decided to leave anyway. - Business Insider",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 00:00:29",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Temperatures to drop this week but relief from heat may be short-lived",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 23:49:09",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "Google was the dream job in tech. These workers decided to leave anyway. - Business Insider",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-28 23:49:08",
-      "market_question": "Will Donald Trump visit South Korea in 2026?",
-      "headline": "Chinese dissident who fled by dinghy to South Korea arrives in Canada, his friend says - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
