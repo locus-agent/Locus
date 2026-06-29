@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T23:17:09.366802+00:00",
-  "last_heartbeat": "2026-06-29T23:17:09.366802+00:00",
-  "uptime_seconds": 124279,
+  "generated_at": "2026-06-29T23:22:16.557477+00:00",
+  "last_heartbeat": "2026-06-29T23:22:16.557477+00:00",
+  "uptime_seconds": 124586,
   "dry_run": false,
-  "markets_tracked": 1302,
+  "markets_tracked": 1303,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9608,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1086,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1101,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 4226,
+  "classifications_24h": 4273,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1782,
+    "prefiltered_haiku": 1806,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1114,
-    "matched": 907,
-    "classified": 4226,
+    "news": 1128,
+    "matched": 918,
+    "classified": 4273,
     "signals": 10,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": 1.85,
-    "total_pnl_usd": 46.87,
+    "unrealized_pnl_usd": 1.91,
+    "total_pnl_usd": 46.93,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2277.1
+    "avg_classification_latency_ms": 2270.7
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.08549999999999999,
-      "pnl_pct": 23.02,
+      "current_price": 0.086,
+      "pnl_pct": 23.74,
       "amount_usd": 8.03,
-      "current_value_usd": 9.88,
-      "pnl_usd": 1.85,
+      "current_value_usd": 9.94,
+      "pnl_usd": 1.91,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 23:14:44",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Alex Murdaugh\u2019s true crime saga returns as the date for his new murder trial is set - AP News",
+      "time": "2026-06-29 23:20:39",
+      "market_question": "Will Bitcoin have the best performance in 2026?",
+      "headline": "Watch Alan Jackson\u2019s Final Performance of \u2018Chattahoochee\u2019 at Farewell Concert - Rolling Stone",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,9 +390,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 23:14:42",
-      "market_question": "Ethereum all time high by June 30, 2026?",
-      "headline": "Homes harder to sell as high mortgage rates frustrate buyers",
+      "time": "2026-06-29 23:20:39",
+      "market_question": "Will OpenAI announce a watch in 2026?",
+      "headline": "Watch Alan Jackson\u2019s Final Performance of \u2018Chattahoochee\u2019 at Farewell Concert - Rolling Stone",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 23:20:39",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Suspected brain cancer turns out to be pork tapeworm infestation - Boing Boing",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,9 +422,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 23:14:42",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
-      "headline": "Homes harder to sell as high mortgage rates frustrate buyers",
+      "time": "2026-06-29 23:20:39",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Suspected brain cancer turns out to be pork tapeworm infestation - Boing Boing",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,25 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 23:14:42",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $1.75T by December 31?",
-      "headline": "Homes harder to sell as high mortgage rates frustrate buyers",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 23:14:42",
-      "market_question": "Ethereum all time high by September 30, 2026?",
-      "headline": "Homes harder to sell as high mortgage rates frustrate buyers",
+      "time": "2026-06-29 23:20:39",
+      "market_question": "Miguel D\u00edaz-Canel out as President of Cuba by June 30?",
+      "headline": "Suspected brain cancer turns out to be pork tapeworm infestation - Boing Boing",
       "direction": null,
       "materiality": null,
       "confidence": null,
