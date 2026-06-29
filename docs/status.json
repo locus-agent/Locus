@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T12:05:06.184114+00:00",
-  "last_heartbeat": "2026-06-29T12:05:06.184114+00:00",
-  "uptime_seconds": 83956,
+  "generated_at": "2026-06-29T12:10:12.708987+00:00",
+  "last_heartbeat": "2026-06-29T12:10:12.708987+00:00",
+  "uptime_seconds": 84262,
   "dry_run": false,
-  "markets_tracked": 1301,
+  "markets_tracked": 1302,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 476,
+  "headlines_scanned_today": 480,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4323,
+  "classifications_24h": 4322,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1819,
+    "prefiltered_haiku": 1822,
     "stale": 15,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1159,
-    "matched": 829,
-    "classified": 4323,
+    "news": 1157,
+    "matched": 831,
+    "classified": 4322,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.17,
-    "total_pnl_usd": 44.85,
+    "unrealized_pnl_usd": -0.12,
+    "total_pnl_usd": 44.91,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2119.7
+    "avg_classification_latency_ms": 2116.2
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.069,
-      "pnl_pct": -0.72,
+      "current_price": 0.0685,
+      "pnl_pct": -1.44,
       "amount_usd": 8.03,
-      "current_value_usd": 7.97,
-      "pnl_usd": -0.06,
+      "current_value_usd": 7.91,
+      "pnl_usd": -0.12,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,25 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 12:03:53",
-      "market_question": "Will Meta have the best AI model at the end of July 2026?",
-      "headline": "7 Costco Must-Haves To Look For In July 2026 - Daily Meal",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 12:03:53",
-      "market_question": "Will \"Trump\" be said 10+ times during the next episode of the Storytime with the Second Lady Podcast?",
-      "headline": "Fife man dies after being shot 'multiple times' in Caribbean",
+      "time": "2026-06-29 12:08:13",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "Reunited and it feel so good, in Texas - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,9 +390,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 12:03:52",
-      "market_question": "Will OpenAI IPO by July 31 2026?",
-      "headline": "7 Costco Must-Haves To Look For In July 2026 - Daily Meal",
+      "time": "2026-06-29 12:08:13",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "Reunited and it feel so good, in Texas - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 12:08:13",
+      "market_question": "Will Texas use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Reunited and it feel so good, in Texas - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 12:06:05",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Why 'big brother' Van Dijk is key to Dutch World Cup dreams",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -422,25 +438,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 12:03:52",
-      "market_question": "Will xAI have the best AI model at the end of July 2026?",
-      "headline": "7 Costco Must-Haves To Look For In July 2026 - Daily Meal",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 12:03:52",
-      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
-      "headline": "7 Costco Must-Haves To Look For In July 2026 - Daily Meal",
+      "time": "2026-06-29 12:06:05",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Why 'big brother' Van Dijk is key to Dutch World Cup dreams",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
