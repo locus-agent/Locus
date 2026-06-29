@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T18:25:29.341036+00:00",
-  "last_heartbeat": "2026-06-29T18:25:29.341036+00:00",
-  "uptime_seconds": 106779,
+  "generated_at": "2026-06-29T18:30:35.108390+00:00",
+  "last_heartbeat": "2026-06-29T18:30:35.108390+00:00",
+  "uptime_seconds": 107085,
   "dry_run": false,
-  "markets_tracked": 1319,
+  "markets_tracked": 1321,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9601,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 805,
+  "headlines_scanned_today": 807,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 3857,
+  "classifications_24h": 3853,
   "selectivity_pct": 0.3,
   "gates_24h": {
     "prefiltered_haiku": 1664,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 982,
+    "news": 983,
     "matched": 824,
-    "classified": 3857,
+    "classified": 3853,
     "signals": 10,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2296.6
+    "avg_classification_latency_ms": 2296.2
   },
   "live_readiness": {
     "ready": true,
@@ -374,6 +374,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-29 18:26:58",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Five days after Venezuela's earthquakes, some communities still await help - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-29 18:18:08",
       "market_question": "Will Apple release a new product line before 2027?",
       "headline": "New packaging for Apple's A20 Pro chip should keep the iPhone 18 Pro series feeling cool - PhoneArena",
@@ -424,22 +440,6 @@
     {
       "time": "2026-06-29 18:18:02",
       "market_question": "Will the price of Bitcoin be above $70,000 on July 1?",
-      "headline": "Sweltering days ahead for US East, Midwest ahead of July 4 weekend - USA Today",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 18:18:02",
-      "market_question": "Will OpenAI IPO by July 31 2026?",
       "headline": "Sweltering days ahead for US East, Midwest ahead of July 4 weekend - USA Today",
       "direction": "neutral",
       "materiality": 0.0,
