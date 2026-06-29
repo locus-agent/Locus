@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T09:57:17.826836+00:00",
-  "last_heartbeat": "2026-06-29T09:57:17.826836+00:00",
-  "uptime_seconds": 76287,
+  "generated_at": "2026-06-29T10:02:23.574560+00:00",
+  "last_heartbeat": "2026-06-29T10:02:23.574560+00:00",
+  "uptime_seconds": 76593,
   "dry_run": false,
-  "markets_tracked": 1298,
+  "markets_tracked": 1297,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 353,
+  "headlines_scanned_today": 355,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4250,
+  "classifications_24h": 4252,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1762,
+    "prefiltered_haiku": 1763,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T09:46:37.514434+00:00"
+    "last_check": "2026-06-29T10:01:37.898086+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1164,
-    "matched": 743,
-    "classified": 4250,
+    "news": 1161,
+    "matched": 745,
+    "classified": 4252,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 59.4,
     "realized_pnl_usd": 53.08,
-    "unrealized_pnl_usd": -4.18,
-    "total_pnl_usd": 48.9,
+    "unrealized_pnl_usd": -5.85,
+    "total_pnl_usd": 47.23,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2068.2
+    "avg_classification_latency_ms": 2066.9
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "bitcoin-up-or-down-on-june-29-2026",
       "side": "NO",
       "entry_price": 0.535,
-      "current_price": 0.615,
-      "pnl_pct": -17.2,
+      "current_price": 0.645,
+      "pnl_pct": -23.66,
       "amount_usd": 24.97,
-      "current_value_usd": 20.67,
-      "pnl_usd": -4.3,
+      "current_value_usd": 19.06,
+      "pnl_usd": -5.91,
       "edge_type": "news",
       "event_id": "641220"
     },
@@ -208,11 +208,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.07050000000000001,
-      "pnl_pct": 1.44,
+      "current_price": 0.06999999999999995,
+      "pnl_pct": 0.72,
       "amount_usd": 8.03,
-      "current_value_usd": 8.15,
-      "pnl_usd": 0.12,
+      "current_value_usd": 8.09,
+      "pnl_usd": 0.06,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 09:54:18",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Mum rescued from rubble with newborn baby tells BBC how he helped her survive",
+      "time": "2026-06-29 10:00:54",
+      "market_question": "Solana all time high by December 31, 2026?",
+      "headline": "Michael Jackson movie becomes highest-grossing biopic of all time",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 09:54:16",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Mum rescued from rubble with newborn baby tells BBC how he helped her survive",
+      "time": "2026-06-29 10:00:54",
+      "market_question": "Ethereum all time high by September 30, 2026?",
+      "headline": "Michael Jackson movie becomes highest-grossing biopic of all time",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 10:00:54",
+      "market_question": "Solana all time high by September 30, 2026?",
+      "headline": "Michael Jackson movie becomes highest-grossing biopic of all time",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 10:00:54",
+      "market_question": "Will Trump cut corporate taxes before 2027?",
+      "headline": "British American Tobacco to cut 9,000 jobs",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,52 +452,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 09:54:16",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Mum rescued from rubble with newborn baby tells BBC how he helped her survive",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 10:00:53",
+      "market_question": "Ethereum all time high by June 30, 2026?",
+      "headline": "Michael Jackson movie becomes highest-grossing biopic of all time",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 09:54:16",
-      "market_question": "Trump meets with Putin by June 30?",
-      "headline": "Mum rescued from rubble with newborn baby tells BBC how he helped her survive",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 09:54:16",
-      "market_question": "Trump meets with Putin by September 30?",
-      "headline": "Mum rescued from rubble with newborn baby tells BBC how he helped her survive",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
