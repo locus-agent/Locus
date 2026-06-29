@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T10:07:29.729375+00:00",
-  "last_heartbeat": "2026-06-29T10:07:29.729375+00:00",
-  "uptime_seconds": 76899,
+  "generated_at": "2026-06-29T10:12:43.835491+00:00",
+  "last_heartbeat": "2026-06-29T10:12:43.835491+00:00",
+  "uptime_seconds": 77213,
   "dry_run": false,
-  "markets_tracked": 1298,
+  "markets_tracked": 1299,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 359,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 363,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4263,
+  "classifications_24h": 4279,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1757,
+    "prefiltered_haiku": 1762,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -106,7 +106,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 5,
+  "watched_markets_count": 6,
   "missed_opportunities_24h": 7,
   "whale": {
     "watched_wallets": 4,
@@ -119,39 +119,39 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1164,
-    "matched": 748,
-    "classified": 4263,
+    "news": 1168,
+    "matched": 752,
+    "classified": 4279,
     "signals": 4,
     "trades": 3
   },
   "performance": {
     "trades_total": 41,
     "deployed_usd": 899.55,
-    "open_count": 2,
-    "closed_count": 32,
+    "open_count": 1,
+    "closed_count": 33,
     "wins": 19,
-    "losses": 13,
-    "win_rate_pct": 59.4,
-    "realized_pnl_usd": 53.08,
-    "unrealized_pnl_usd": -7.04,
-    "total_pnl_usd": 46.04,
-    "recent_winrate": 0.7,
-    "kelly_factor": 0.925,
+    "losses": 14,
+    "win_rate_pct": 57.6,
+    "realized_pnl_usd": 45.02,
+    "unrealized_pnl_usd": 0.0,
+    "total_pnl_usd": 45.02,
+    "recent_winrate": 0.65,
+    "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2076.4
+    "avg_classification_latency_ms": 2074.5
   },
   "live_readiness": {
     "ready": true,
     "criteria_met": 4,
     "criteria_total": 4,
-    "sharpe_days_count": 10,
+    "sharpe_days_count": 11,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 32,
+        "value": 33,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -159,7 +159,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 59.4,
+        "value": 57.6,
         "threshold_display": "> 55%",
         "pass": true
       },
@@ -167,7 +167,7 @@
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 5.64,
+        "value": 4.46,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -175,7 +175,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 4.1,
+        "value": 4.5,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -184,40 +184,38 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0687,
-    "sharpe_7d": -0.37
+    "drawdown_7d": 0.0773,
+    "sharpe_7d": -0.56
   },
   "open_positions": [
-    {
-      "time": "2026-06-29 09:43:29",
-      "market_question": "Bitcoin Up or Down on June 29?",
-      "slug": "bitcoin-up-or-down-on-june-29-2026",
-      "side": "NO",
-      "entry_price": 0.535,
-      "current_price": 0.665,
-      "pnl_pct": -27.96,
-      "amount_usd": 24.97,
-      "current_value_usd": 17.99,
-      "pnl_usd": -6.98,
-      "edge_type": "news",
-      "event_id": "641220"
-    },
     {
       "time": "2026-06-29 08:48:35",
       "market_question": "Will Julie Gonzales be the Democratic nominee for Senate in Colorado?",
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.069,
-      "pnl_pct": -0.72,
+      "current_price": 0.0695,
+      "pnl_pct": 0.0,
       "amount_usd": 8.03,
-      "current_value_usd": 7.97,
-      "pnl_usd": -0.06,
+      "current_value_usd": 8.03,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "80037"
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-06-29T10:09:40.830878+00:00",
+      "market_question": "Bitcoin Up or Down on June 29?",
+      "slug": "bitcoin-up-or-down-on-june-29-2026",
+      "side": "NO",
+      "entry_price": 0.535,
+      "exit_price": 0.685,
+      "realized_pnl_usd": -8.054838709677421,
+      "exit_reason": "drawdown_decision",
+      "event_id": "641220",
+      "partial": false
+    },
     {
       "time": "2026-06-28T23:48:37.291128+00:00",
       "market_question": "Will Trump deport 400-500k people?",
@@ -325,21 +323,18 @@
       "exit_reason": "time_pressure",
       "event_id": "622556",
       "partial": false
-    },
-    {
-      "time": "2026-06-21T15:43:05.375692+00:00",
-      "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
-      "slug": "who-will-win-the-dem-nomination-for-ann-arbor-mayor",
-      "side": "YES",
-      "entry_price": 0.44,
-      "exit_price": 0.43500000000000005,
-      "realized_pnl_usd": -0.28409090909090606,
-      "exit_reason": "manual",
-      "event_id": "527505",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-29 10:09:41",
+      "market_question": "Bitcoin Up or Down on June 29?",
+      "side": "NO",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The original thesis was bearish on Bitcoin based on a technical breakdown narrative, but price has moved sharply against the NO position with YES now at 0.685, suggesting strong upward momentum has invalidated that thesis. With a -32.3% unrealized loss, no recorded conviction reasoning to lean on, and an unknown time to close creating unquantifiable tail risk, cutting the loss now is preferable to hoping for a reversal.",
+      "pnl_pct": -32.26
+    },
     {
       "time": "2026-06-28 23:48:37",
       "market_question": "Will Trump deport 400-500k people?",
@@ -375,22 +370,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (manual); position kept open",
       "pnl_pct": 12.99
-    },
-    {
-      "time": "2026-06-28 00:44:06",
-      "market_question": "Will Trump deport 400-500k people?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (manual); position kept open",
-      "pnl_pct": 12.99
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 10:07:28",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Mum rescued from Venezuela rubble with newborn baby tells BBC how he helped her survive",
+      "time": "2026-06-29 10:11:51",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Decision to resign after World Cup exit was easy - Clarke",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,68 +390,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 10:07:27",
-      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
-      "headline": "Bank of England's Pill adds voice to those concerned about 'scenario' forecasts - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 10:11:51",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Decision to resign after World Cup exit was easy - Clarke",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-29 10:07:27",
-      "market_question": "Will Deutsche Bank or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Bank of England's Pill adds voice to those concerned about 'scenario' forecasts - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 10:11:51",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Decision to resign after World Cup exit was easy - Clarke",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-29 10:07:27",
-      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Bank of England's Pill adds voice to those concerned about 'scenario' forecasts - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 10:11:51",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Decision to resign after World Cup exit was easy - Clarke",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-29 10:07:27",
-      "market_question": "Will Deutsche Bank or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Bank of England's Pill adds voice to those concerned about 'scenario' forecasts - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 10:11:51",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Decision to resign after World Cup exit was easy - Clarke",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
