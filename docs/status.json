@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-29T11:34:25.922816+00:00",
-  "last_heartbeat": "2026-06-29T11:34:25.922816+00:00",
-  "uptime_seconds": 82115,
+  "generated_at": "2026-06-29T11:39:32.443091+00:00",
+  "last_heartbeat": "2026-06-29T11:39:32.443091+00:00",
+  "uptime_seconds": 82422,
   "dry_run": false,
-  "markets_tracked": 1299,
-  "classify_error_streak": 23,
+  "markets_tracked": 1300,
+  "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
     "accuracy": 17.6,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 416,
+  "headlines_scanned_today": 440,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4264,
+  "classifications_24h": 4364,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1778,
+    "prefiltered_haiku": 1815,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1169,
-    "matched": 778,
-    "classified": 4264,
+    "news": 1193,
+    "matched": 798,
+    "classified": 4364,
     "signals": 4,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2096.6
+    "avg_classification_latency_ms": 2092.9
   },
   "live_readiness": {
     "ready": true,
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 11:33:08",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "South Korea unveils $1tn chip and AI investment plan - BBC",
+      "time": "2026-06-29 11:37:31",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,9 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 11:33:08",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "South Korea unveils $1tn chip and AI investment plan - BBC",
+      "time": "2026-06-29 11:37:31",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -406,9 +406,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 11:33:08",
-      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
-      "headline": "South Korea unveils $1tn chip and AI investment plan - BBC",
+      "time": "2026-06-29 11:37:31",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -417,39 +417,39 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 11:33:08",
-      "market_question": "Will Bitcoin kimchi premium hit 8% in 2026?",
-      "headline": "South Korea unveils $1tn chip and AI investment plan - BBC",
+      "time": "2026-06-29 11:37:31",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 11:33:08",
-      "market_question": "Will a Chinese AI model become #1 by June 30? ",
-      "headline": "South Korea unveils $1tn chip and AI investment plan - BBC",
+      "time": "2026-06-29 11:37:31",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
