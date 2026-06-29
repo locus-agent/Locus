@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T22:31:12.886608+00:00",
-  "last_heartbeat": "2026-06-29T22:31:12.886608+00:00",
-  "uptime_seconds": 121522,
+  "generated_at": "2026-06-29T22:36:18.678767+00:00",
+  "last_heartbeat": "2026-06-29T22:36:18.678767+00:00",
+  "uptime_seconds": 121828,
   "dry_run": false,
   "markets_tracked": 1296,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1047,
+  "headlines_scanned_today": 1049,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 4149,
+  "classifications_24h": 4150,
   "selectivity_pct": 0.2,
   "gates_24h": {
     "prefiltered_haiku": 1747,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T22:16:59.847563+00:00"
+    "last_check": "2026-06-29T22:32:00.191621+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1087,
-    "matched": 890,
-    "classified": 4149,
+    "news": 1088,
+    "matched": 891,
+    "classified": 4150,
     "signals": 10,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": 2.2,
-    "total_pnl_usd": 47.22,
+    "unrealized_pnl_usd": 2.25,
+    "total_pnl_usd": 47.28,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2278.4
+    "avg_classification_latency_ms": 2279.5
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.08850000000000002,
-      "pnl_pct": 27.34,
+      "current_price": 0.089,
+      "pnl_pct": 28.06,
       "amount_usd": 8.03,
-      "current_value_usd": 10.23,
-      "pnl_usd": 2.2,
+      "current_value_usd": 10.28,
+      "pnl_usd": 2.25,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,57 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 22:26:27",
-      "market_question": "Solana Up or Down - May 20, 6AM ET",
-      "headline": "Happy birthday, America? At 250, nation may be too divided to celebrate as one - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 22:26:27",
-      "market_question": "Bitcoin Up or Down - May 20, 6AM ET",
-      "headline": "Happy birthday, America? At 250, nation may be too divided to celebrate as one - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 22:26:26",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Top Trump officials face bipartisan questions in first all-member Iran briefing - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 22:26:26",
-      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Happy birthday, America? At 250, nation may be too divided to celebrate as one - Reuters",
+      "time": "2026-06-29 22:33:05",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "Tax - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +390,57 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 22:26:26",
-      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Happy birthday, America? At 250, nation may be too divided to celebrate as one - Reuters",
+      "time": "2026-06-29 22:33:04",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "National Security Advisor - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 22:33:03",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "National Security Advisor - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 22:32:58",
+      "market_question": "Will the National Movement of Independents win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "National Security Advisor - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 22:32:58",
+      "market_question": "Will the National Union for Democracy and Progress win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "National Security Advisor - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
