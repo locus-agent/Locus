@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T14:38:33.456926+00:00",
-  "last_heartbeat": "2026-06-29T14:38:33.456926+00:00",
-  "uptime_seconds": 93163,
+  "generated_at": "2026-06-29T14:43:39.773561+00:00",
+  "last_heartbeat": "2026-06-29T14:43:39.773561+00:00",
+  "uptime_seconds": 93469,
   "dry_run": false,
-  "markets_tracked": 1315,
+  "markets_tracked": 1317,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9572,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 629,
+  "headlines_scanned_today": 630,
   "headlines_last_cycle": 0,
   "signals_24h": 5,
-  "classifications_24h": 3688,
+  "classifications_24h": 3684,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1587,
+    "prefiltered_haiku": 1588,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 927,
     "matched": 777,
-    "classified": 3688,
+    "classified": 3684,
     "signals": 5,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.12,
-    "total_pnl_usd": 44.91,
+    "unrealized_pnl_usd": -0.17,
+    "total_pnl_usd": 44.85,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2235.2
+    "avg_classification_latency_ms": 2234.9
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.0685,
-      "pnl_pct": -1.44,
+      "current_price": 0.068,
+      "pnl_pct": -2.16,
       "amount_usd": 8.03,
-      "current_value_usd": 7.91,
-      "pnl_usd": -0.12,
+      "current_value_usd": 7.86,
+      "pnl_usd": -0.17,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,6 +374,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-29 14:39:44",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "Gender-bending is now part of menswear. Paris runways show how mainstream it has become - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-29 14:37:32",
       "market_question": "Will Solana reach $300 by December 31, 2026?",
       "headline": "Supreme Court won\u2019t revive Alan Dershowitz\u2019s $300 million suit against CNN - AP News",
@@ -436,22 +452,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 14:35:19",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "DR Congo bans mass gatherings in the  capital to prevent spread of Ebola",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
