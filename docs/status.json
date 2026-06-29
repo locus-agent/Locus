@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T22:56:43.420097+00:00",
-  "last_heartbeat": "2026-06-29T22:56:43.420097+00:00",
-  "uptime_seconds": 123053,
+  "generated_at": "2026-06-29T23:01:49.849796+00:00",
+  "last_heartbeat": "2026-06-29T23:01:49.849796+00:00",
+  "uptime_seconds": 123359,
   "dry_run": false,
   "markets_tracked": 1305,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1060,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1069,
+  "headlines_last_cycle": 2,
   "signals_24h": 10,
-  "classifications_24h": 4166,
+  "classifications_24h": 4188,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1762,
+    "prefiltered_haiku": 1766,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1094,
-    "matched": 894,
-    "classified": 4166,
+    "news": 1100,
+    "matched": 897,
+    "classified": 4188,
     "signals": 10,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": 2.37,
-    "total_pnl_usd": 47.39,
+    "unrealized_pnl_usd": 1.27,
+    "total_pnl_usd": 46.29,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2275.3
+    "avg_classification_latency_ms": 2280.4
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.09,
-      "pnl_pct": 29.5,
+      "current_price": 0.0805,
+      "pnl_pct": 15.83,
       "amount_usd": 8.03,
-      "current_value_usd": 10.4,
-      "pnl_usd": 2.37,
+      "current_value_usd": 9.3,
+      "pnl_usd": 1.27,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 22:52:45",
+      "time": "2026-06-29 23:01:31",
       "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "First 100 Days: Technology - Politico",
+      "headline": "First 100 Days: Defense - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,25 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 22:52:45",
-      "market_question": "FDA approves Arcalyst technology transfer?",
-      "headline": "First 100 Days: Technology - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 22:52:44",
+      "time": "2026-06-29 23:01:30",
       "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "First 100 Days: Technology - Politico",
+      "headline": "First 100 Days: Defense - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,9 +406,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 22:52:44",
+      "time": "2026-06-29 23:01:30",
       "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "First 100 Days: Technology - Politico",
+      "headline": "First 100 Days: Defense - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +422,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 22:52:44",
+      "time": "2026-06-29 23:01:30",
       "market_question": "Will the Ethereum Volatility Index hit 100 by June 30?",
-      "headline": "First 100 Days: Technology - Politico",
+      "headline": "First 100 Days: Defense - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 23:01:30",
+      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
+      "headline": "First 100 Days: Defense - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
