@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T12:25:32.182413+00:00",
-  "last_heartbeat": "2026-06-29T12:25:32.182413+00:00",
-  "uptime_seconds": 85182,
+  "generated_at": "2026-06-29T12:30:38.548323+00:00",
+  "last_heartbeat": "2026-06-29T12:30:38.548323+00:00",
+  "uptime_seconds": 85488,
   "dry_run": false,
-  "markets_tracked": 1305,
+  "markets_tracked": 1303,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 494,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 500,
+  "headlines_last_cycle": 2,
   "signals_24h": 4,
-  "classifications_24h": 4167,
+  "classifications_24h": 4193,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1762,
+    "prefiltered_haiku": 1772,
     "stale": 15,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1097,
-    "matched": 838,
-    "classified": 4167,
+    "news": 1102,
+    "matched": 844,
+    "classified": 4193,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.17,
-    "total_pnl_usd": 44.85,
+    "unrealized_pnl_usd": -0.12,
+    "total_pnl_usd": 44.91,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2140.1
+    "avg_classification_latency_ms": 2137.6
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.068,
-      "pnl_pct": -2.16,
+      "current_price": 0.0685,
+      "pnl_pct": -1.44,
       "amount_usd": 8.03,
-      "current_value_usd": 7.86,
-      "pnl_usd": -0.17,
+      "current_value_usd": 7.91,
+      "pnl_usd": -0.12,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,25 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 12:23:51",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Kremlin says Russia's stance on conditions for a Ukraine peace deal has not changed since 2024 - Reuters",
+      "time": "2026-06-29 12:30:12",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "'Big brother' Van Dijk key to Dutch World Cup dreams",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 12:23:51",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
-      "headline": "Europe rethinks how it fights war as Russian threat looms - Reuters",
+      "time": "2026-06-29 12:30:12",
+      "market_question": "Will Trump say \"Buy Dell Computer / Buy a Dell Computer\" in June?",
+      "headline": "Rocket Lab to buy satellite communications firm Iridium in $8 billion deal - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,9 +406,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 12:23:51",
-      "market_question": "Will Rodina win the most seats in the next Russian parliamentary election?",
-      "headline": "Europe rethinks how it fights war as Russian threat looms - Reuters",
+      "time": "2026-06-29 12:30:12",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Rocket Lab to buy satellite communications firm Iridium in $8 billion deal - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,9 +422,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 12:23:51",
-      "market_question": "Will Rodina win the second-most seats in the next Russian parliamentary election?",
-      "headline": "Europe rethinks how it fights war as Russian threat looms - Reuters",
+      "time": "2026-06-29 12:30:12",
+      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
+      "headline": "Rocket Lab to buy satellite communications firm Iridium in $8 billion deal - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 12:23:51",
-      "market_question": "Will Civic Platform (GP) win the most seats in the next Russian parliamentary election?",
-      "headline": "Europe rethinks how it fights war as Russian threat looms - Reuters",
+      "time": "2026-06-29 12:30:12",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "Rocket Lab to buy satellite communications firm Iridium in $8 billion deal - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
