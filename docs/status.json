@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T06:07:45.244521+00:00",
-  "last_heartbeat": "2026-06-29T06:07:45.244521+00:00",
-  "uptime_seconds": 62515,
+  "generated_at": "2026-06-29T06:12:51.024029+00:00",
+  "last_heartbeat": "2026-06-29T06:12:51.024029+00:00",
+  "uptime_seconds": 62821,
   "dry_run": false,
-  "markets_tracked": 1284,
+  "markets_tracked": 1286,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9537,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 226,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 228,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 4154,
+  "classifications_24h": 4150,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1761,
+    "prefiltered_haiku": 1753,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 1138,
     "matched": 687,
-    "classified": 4154,
+    "classified": 4150,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1948.5
+    "avg_classification_latency_ms": 1947.8
   },
   "live_readiness": {
     "ready": true,
@@ -359,41 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 06:06:13",
-      "market_question": "Will the Republicans win the North Carolina Senate race in 2026?",
-      "headline": "North Carolina - AP News",
+      "time": "2026-06-29 06:12:46",
+      "market_question": "Will OpenAI announce a computer (Laptop/Desktop) in 2026?",
+      "headline": "Nvidia\u2019s AI chip sales in China stall, as local chipmakers like Huawei take the lead - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.12,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 06:06:13",
-      "market_question": "Will Donald Trump visit South Carolina in 2026?",
-      "headline": "North Carolina - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 06:06:12",
-      "market_question": "Will OpenAI's valuation hit (HIGH) $1.75T by December 31?",
-      "headline": "About T Rowe Price Active Core US Equity ETF (TACU.N) - Reuters",
+      "time": "2026-06-29 06:12:45",
+      "market_question": "Will OpenAI announce a phone in 2026?",
+      "headline": "Nvidia\u2019s AI chip sales in China stall, as local chipmakers like Huawei take the lead - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -407,9 +391,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 06:06:12",
-      "market_question": "Will Donald Trump visit North Korea in 2026?",
-      "headline": "North Carolina - AP News",
+      "time": "2026-06-29 06:12:44",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "Nvidia\u2019s AI chip sales in China stall, as local chipmakers like Huawei take the lead - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -423,20 +407,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 06:06:11",
-      "market_question": "Will the price of Bitcoin be above $56,000 on June 29?",
-      "headline": "About T Rowe Price Active Core US Equity ETF (TACU.N) - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 06:12:44",
+      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Nvidia\u2019s AI chip sales in China stall, as local chipmakers like Huawei take the lead - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 06:12:44",
+      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Nvidia\u2019s AI chip sales in China stall, as local chipmakers like Huawei take the lead - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
