@@ -1,56 +1,56 @@
 {
-  "generated_at": "2026-06-29T16:48:20.366918+00:00",
-  "last_heartbeat": "2026-06-29T16:48:20.366918+00:00",
-  "uptime_seconds": 100950,
+  "generated_at": "2026-06-29T16:53:26.795229+00:00",
+  "last_heartbeat": "2026-06-29T16:53:26.795229+00:00",
+  "uptime_seconds": 101256,
   "dry_run": false,
   "markets_tracked": 1306,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9572,
+    "total": 9601,
     "accuracy": 17.7,
     "by_category": {
       "other": 16.2,
       "ai": 11.5,
       "politics": 20.9,
-      "technology": 13.1,
+      "technology": 12.9,
       "crypto": 16.5,
       "sports": 26.2
     },
     "by_source": {
       "rss": 17.8,
-      "newsapi": 18.3,
+      "newsapi": 18.1,
       "truthsocial": 7.5
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.7,
-    "overall_total": 9572,
+    "overall_total": 9601,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5419,
+        "total": 5435,
         "correct": 377,
-        "accuracy_pct": 7.0,
-        "avg_pnl_pct": 10.48,
+        "accuracy_pct": 6.9,
+        "avg_pnl_pct": 10.45,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 843,
-        "correct": 297,
+        "total": 846,
+        "correct": 298,
         "accuracy_pct": 35.2,
-        "avg_pnl_pct": 25.37,
+        "avg_pnl_pct": 25.29,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1008,
+        "total": 1010,
         "correct": 389,
-        "accuracy_pct": 38.6,
-        "avg_pnl_pct": 4.81,
+        "accuracy_pct": 38.5,
+        "avg_pnl_pct": 4.8,
         "color": "green"
       },
       {
@@ -65,30 +65,30 @@
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 528,
+        "total": 533,
         "correct": 227,
-        "accuracy_pct": 43.0,
-        "avg_pnl_pct": 3.91,
+        "accuracy_pct": 42.6,
+        "avg_pnl_pct": 3.86,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1204,
+        "total": 1207,
         "correct": 232,
-        "accuracy_pct": 19.3,
-        "avg_pnl_pct": -2.91,
+        "accuracy_pct": 19.2,
+        "avg_pnl_pct": -2.89,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 760,
+  "headlines_scanned_today": 763,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 3795,
+  "classifications_24h": 3803,
   "selectivity_pct": 0.3,
   "gates_24h": {
-    "prefiltered_haiku": 1645,
+    "prefiltered_haiku": 1648,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 964,
-    "matched": 812,
-    "classified": 3795,
+    "news": 965,
+    "matched": 813,
+    "classified": 3803,
     "signals": 10,
     "trades": 4
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.46,
-    "total_pnl_usd": 44.56,
+    "unrealized_pnl_usd": -0.29,
+    "total_pnl_usd": 44.73,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2281.8
+    "avg_classification_latency_ms": 2279.4
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.0655,
-      "pnl_pct": -5.76,
+      "current_price": 0.067,
+      "pnl_pct": -3.6,
       "amount_usd": 8.03,
-      "current_value_usd": 7.57,
-      "pnl_usd": -0.46,
+      "current_value_usd": 7.74,
+      "pnl_usd": -0.29,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,41 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 16:46:02",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Resident doctors in England accept pay deal and end strikes",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 16:46:02",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "Resident doctors in England accept pay deal and end strikes",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 16:43:54",
-      "market_question": "Will July be the best month for Bitcoin in 2026?",
-      "headline": "The best July 4th sales we found so far",
+      "time": "2026-06-29 16:52:43",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "'C'mon queen!': Naomi Osaka wows Wimbledon crowd with latest fashion creation - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -417,14 +385,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 16:43:54",
-      "market_question": "Will Donald Trump visit South Carolina in 2026?",
-      "headline": "AI tool measures \u2018heart age\u2019 - FOX Carolina News",
+      "time": "2026-06-29 16:52:43",
+      "market_question": "Will Solana Sierra be the 2026 Women\u2019s Wimbledon Winner?",
+      "headline": "'C'mon queen!': Naomi Osaka wows Wimbledon crowd with latest fashion creation - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 16:52:42",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "California Dems claim win over Trump in Supreme Court ruling on ballots - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 16:52:42",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "'C'mon queen!': Naomi Osaka wows Wimbledon crowd with latest fashion creation - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 16:43:54",
-      "market_question": "Will the Republicans win the North Carolina Senate race in 2026?",
-      "headline": "AI tool measures \u2018heart age\u2019 - FOX Carolina News",
+      "time": "2026-06-29 16:52:42",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "'C'mon queen!': Naomi Osaka wows Wimbledon crowd with latest fashion creation - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
