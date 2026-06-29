@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T00:31:15.866973+00:00",
-  "last_heartbeat": "2026-06-29T00:31:15.866973+00:00",
-  "uptime_seconds": 42325,
+  "generated_at": "2026-06-29T00:36:21.520218+00:00",
+  "last_heartbeat": "2026-06-29T00:36:21.520218+00:00",
+  "uptime_seconds": 42631,
   "dry_run": false,
   "markets_tracked": 1318,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 41,
+  "headlines_scanned_today": 42,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4266,
+  "classifications_24h": 4206,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1822,
+    "prefiltered_haiku": 1800,
     "stale": 13,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T00:16:22.521737+00:00"
+    "last_check": "2026-06-29T00:31:22.906335+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1157,
-    "matched": 671,
-    "classified": 4266,
+    "news": 1144,
+    "matched": 663,
+    "classified": 4206,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1978.8
+    "avg_classification_latency_ms": 1987.1
   },
   "live_readiness": {
     "ready": true,
@@ -359,9 +359,73 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 00:24:34",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Gretchen Walsh tops training partner Kate Douglass' world record - Reuters",
+      "time": "2026-06-29 00:33:25",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Putin says Russia will press on with front-line campaign regardless of Ukraine proposals - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 00:33:25",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "Putin says Russia will press on with front-line campaign regardless of Ukraine proposals - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 00:33:24",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Putin says Russia will press on with front-line campaign regardless of Ukraine proposals - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 00:33:24",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Putin says Russia will press on with front-line campaign regardless of Ukraine proposals - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 00:33:20",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "Putin says Russia will press on with front-line campaign regardless of Ukraine proposals - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -370,73 +434,9 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 00:24:34",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Injured Raducanu pulls out of Wimbledon in latest bitter setback",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 00:24:34",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Injured Raducanu pulls out of Wimbledon in latest bitter setback",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 00:24:34",
-      "market_question": "Miguel D\u00edaz-Canel out as President of Cuba by June 30?",
-      "headline": "Injured Raducanu pulls out of Wimbledon in latest bitter setback",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 00:24:34",
-      "market_question": "Claudia Sheinbaum out as President of Mexico by June 30?",
-      "headline": "Injured Raducanu pulls out of Wimbledon in latest bitter setback",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
