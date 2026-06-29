@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T09:36:52.101053+00:00",
-  "last_heartbeat": "2026-06-29T09:36:52.101053+00:00",
-  "uptime_seconds": 75062,
+  "generated_at": "2026-06-29T09:41:59.322119+00:00",
+  "last_heartbeat": "2026-06-29T09:41:59.322119+00:00",
+  "uptime_seconds": 75369,
   "dry_run": false,
-  "markets_tracked": 1292,
+  "markets_tracked": 1293,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 344,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 347,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4251,
+  "classifications_24h": 4266,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1769,
+    "prefiltered_haiku": 1776,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1167,
-    "matched": 739,
-    "classified": 4251,
+    "news": 1168,
+    "matched": 742,
+    "classified": 4266,
     "signals": 3,
     "trades": 2
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 59.4,
     "realized_pnl_usd": 53.08,
-    "unrealized_pnl_usd": -0.06,
-    "total_pnl_usd": 53.02,
+    "unrealized_pnl_usd": 0.0,
+    "total_pnl_usd": 53.08,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2023.6
+    "avg_classification_latency_ms": 2046.5
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.069,
-      "pnl_pct": -0.72,
+      "current_price": 0.0695,
+      "pnl_pct": 0.0,
       "amount_usd": 8.03,
-      "current_value_usd": 7.97,
-      "pnl_usd": -0.06,
+      "current_value_usd": 8.03,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,9 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 09:36:51",
-      "market_question": "Will April be the best month for Bitcoin in 2026?",
-      "headline": "Dollar set for best month in nearly a year as bulls grow confident - Reuters",
+      "time": "2026-06-29 09:39:20",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Crypto exchange BitMEX loses CEO, CFO and head of growth",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -390,9 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 09:36:51",
-      "market_question": "Will October be the best month for Bitcoin in 2026?",
-      "headline": "Dollar set for best month in nearly a year as bulls grow confident - Reuters",
+      "time": "2026-06-29 09:39:10",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "Crypto exchange BitMEX loses CEO, CFO and head of growth",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -406,9 +406,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 09:36:50",
-      "market_question": "Will December be the best month for Bitcoin in 2026?",
-      "headline": "Dollar set for best month in nearly a year as bulls grow confident - Reuters",
+      "time": "2026-06-29 09:39:10",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Crypto exchange BitMEX loses CEO, CFO and head of growth",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -417,14 +417,14 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 09:36:50",
-      "market_question": "Will November be the best month for Bitcoin in 2026?",
-      "headline": "Dollar set for best month in nearly a year as bulls grow confident - Reuters",
+      "time": "2026-06-29 09:39:10",
+      "market_question": "Over $1.5B crypto hack value in 2026?",
+      "headline": "Crypto exchange BitMEX loses CEO, CFO and head of growth",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -433,23 +433,23 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 09:36:50",
-      "market_question": "Will June be the best month for Bitcoin in 2026?",
-      "headline": "Dollar set for best month in nearly a year as bulls grow confident - Reuters",
+      "time": "2026-06-29 09:39:10",
+      "market_question": "Over $1B crypto hack value in 2026?",
+      "headline": "Crypto exchange BitMEX loses CEO, CFO and head of growth",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
