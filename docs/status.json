@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T10:17:50.407161+00:00",
-  "last_heartbeat": "2026-06-29T10:17:50.407161+00:00",
-  "uptime_seconds": 77520,
+  "generated_at": "2026-06-29T10:22:56.095161+00:00",
+  "last_heartbeat": "2026-06-29T10:22:56.095161+00:00",
+  "uptime_seconds": 77826,
   "dry_run": false,
-  "markets_tracked": 1301,
+  "markets_tracked": 1300,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9543,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 366,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 368,
+  "headlines_last_cycle": 2,
   "signals_24h": 4,
-  "classifications_24h": 4285,
+  "classifications_24h": 4291,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1763,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1171,
-    "matched": 754,
-    "classified": 4285,
+    "news": 1173,
+    "matched": 756,
+    "classified": 4291,
     "signals": 4,
     "trades": 3
   },
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": -0.12,
-    "total_pnl_usd": 44.91,
+    "unrealized_pnl_usd": 0.06,
+    "total_pnl_usd": 45.08,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2074.1
+    "avg_classification_latency_ms": 2077.4
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.0685,
-      "pnl_pct": -1.44,
+      "current_price": 0.07,
+      "pnl_pct": 0.72,
       "amount_usd": 8.03,
-      "current_value_usd": 7.91,
-      "pnl_usd": -0.12,
+      "current_value_usd": 8.09,
+      "pnl_usd": 0.06,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,25 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 10:16:14",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Prompt injection to deepfakes: How AI rewrites rules of enterprise security - Business Standard",
+      "time": "2026-06-29 10:22:55",
+      "market_question": "Will Google have the best Math AI model at the end of June 2026?",
+      "headline": "Cheaper AI is better: Soaring bills are reshaping how businesses choose models - Reuters",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 10:14:00",
-      "market_question": "Will the Ethereum Volatility Index dip to 35 by June 30?",
-      "headline": "Europe could be a 'compelling story' J.P. Morgan says, lifts equity index targets - Reuters",
+      "time": "2026-06-29 10:22:55",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Middle East producers push on with oil, LNG loadings despite ship attacks - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,9 +406,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 10:14:00",
-      "market_question": "Will the Bitcoin Volatility Index hit 70 by June 30?",
-      "headline": "Europe could be a 'compelling story' J.P. Morgan says, lifts equity index targets - Reuters",
+      "time": "2026-06-29 10:22:55",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Middle East producers push on with oil, LNG loadings despite ship attacks - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,9 +422,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 10:14:00",
-      "market_question": "Will the Bitcoin Volatility Index dip to 30 by June 30?",
-      "headline": "Europe could be a 'compelling story' J.P. Morgan says, lifts equity index targets - Reuters",
+      "time": "2026-06-29 10:22:55",
+      "market_question": "Trump meets with Putin by June 30?",
+      "headline": "Middle East producers push on with oil, LNG loadings despite ship attacks - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +438,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 10:14:00",
-      "market_question": "Will Sam Altman get OpenAI equity by June 30?",
-      "headline": "Europe could be a 'compelling story' J.P. Morgan says, lifts equity index targets - Reuters",
+      "time": "2026-06-29 10:22:55",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "Middle East producers push on with oil, LNG loadings despite ship attacks - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
