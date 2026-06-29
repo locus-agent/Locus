@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T20:43:29.858073+00:00",
-  "last_heartbeat": "2026-06-29T20:43:29.858073+00:00",
-  "uptime_seconds": 115059,
+  "generated_at": "2026-06-29T20:48:37.446947+00:00",
+  "last_heartbeat": "2026-06-29T20:48:37.446947+00:00",
+  "uptime_seconds": 115367,
   "dry_run": false,
-  "markets_tracked": 1305,
+  "markets_tracked": 1306,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9601,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 937,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 941,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 4032,
+  "classifications_24h": 4038,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1733,
+    "prefiltered_haiku": 1734,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T20:31:57.030790+00:00"
+    "last_check": "2026-06-29T20:46:57.407329+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1030,
-    "matched": 869,
-    "classified": 4032,
+    "news": 1033,
+    "matched": 870,
+    "classified": 4038,
     "signals": 10,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2291.7
+    "avg_classification_latency_ms": 2291.4
   },
   "live_readiness": {
     "ready": true,
@@ -374,73 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 20:43:16",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "US Supreme Court to issue final rulings of term on Tuesday - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 20:43:16",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "US Supreme Court to issue final rulings of term on Tuesday - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 20:43:16",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "US Supreme Court to issue final rulings of term on Tuesday - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 20:43:15",
-      "market_question": "FDA approves Arcalyst technology transfer?",
-      "headline": "FDA panel on peptides will include experts who promote the unproven chemicals favored by RFK Jr. - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 20:43:09",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Experts warn World Cup fans about AI-powered travel and ticket scams - KSAT",
+      "time": "2026-06-29 20:45:20",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "headline": "Iran says this. The U.S. says that. A look at the trickiest issues in the unresolved conflict - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -449,9 +385,73 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 20:45:19",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Iran says this. The U.S. says that. A look at the trickiest issues in the unresolved conflict - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 20:45:19",
+      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
+      "headline": "Iran says this. The U.S. says that. A look at the trickiest issues in the unresolved conflict - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 20:45:19",
+      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
+      "headline": "Iran says this. The U.S. says that. A look at the trickiest issues in the unresolved conflict - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 20:45:19",
+      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 6% and 8%?",
+      "headline": "Iran says this. The U.S. says that. A look at the trickiest issues in the unresolved conflict - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
