@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T21:44:57.101563+00:00",
-  "last_heartbeat": "2026-06-29T21:44:57.101563+00:00",
-  "uptime_seconds": 118747,
+  "generated_at": "2026-06-29T21:50:04.361694+00:00",
+  "last_heartbeat": "2026-06-29T21:50:04.361694+00:00",
+  "uptime_seconds": 119054,
   "dry_run": false,
   "markets_tracked": 1301,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 993,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 998,
+  "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 4118,
+  "classifications_24h": 4137,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1743,
+    "prefiltered_haiku": 1752,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -97,7 +97,7 @@
     "price_target_market": 10,
     "correlation_block": 0,
     "category_limit": 0,
-    "orderbook_skip": 1,
+    "orderbook_skip": 2,
     "already_priced_in": 0,
     "needs_confirmation": 0,
     "event_exposure_block": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-29T21:31:58.707932+00:00"
+    "last_check": "2026-06-29T21:46:59.094427+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1062,
-    "matched": 885,
-    "classified": 4118,
+    "news": 1067,
+    "matched": 888,
+    "classified": 4137,
     "signals": 10,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2279.3
+    "avg_classification_latency_ms": 2280.2
   },
   "live_readiness": {
     "ready": true,
@@ -374,9 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 21:44:35",
-      "market_question": "Will Trump post \"UFC\" on Truth Social this week?",
-      "headline": "Trump's AI controls spark free speech debate - Politico",
+      "time": "2026-06-29 21:49:21",
+      "market_question": "Serbian Parliamentary Election called before 2027?",
+      "headline": "Serbia\u2019s President Vucic says elections will be held in the next 3 to 4 months - AP News",
+      "direction": "bullish",
+      "materiality": 0.7,
+      "confidence": 0.82,
+      "edge": 0.22749999999999995,
+      "fee_cost": 0.0,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.6299999999999999,
+      "action": "orderbook_skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 21:49:02",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "Serbia\u2019s President Vucic says elections will be held in the next 3 to 4 months - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -385,73 +401,57 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 21:44:35",
-      "market_question": "Will Trump speak to Nicol\u00e1s Maduro in June?",
-      "headline": "Trump's AI controls spark free speech debate - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 21:44:35",
-      "market_question": "Will Trump speak to Elon Musk in June?",
-      "headline": "Trump's AI controls spark free speech debate - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 21:44:33",
-      "market_question": "Will Donald Trump visit Germany in 2026?",
-      "headline": "'That might just wake Germany up' - Paraguay take shock lead through Enciso",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-29 21:44:33",
-      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the most seats in the next Russian parliamentary election?",
-      "headline": "'That might just wake Germany up' - Paraguay take shock lead through Enciso",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-29 21:49:02",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "Serbia\u2019s President Vucic says elections will be held in the next 3 to 4 months - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 21:49:02",
+      "market_question": "Ukraine election held by December 31, 2026?",
+      "headline": "Serbia\u2019s President Vucic says elections will be held in the next 3 to 4 months - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 21:49:02",
+      "market_question": "Will Vassil Terziev win the next Bulgarian presidential election?",
+      "headline": "Serbia\u2019s President Vucic says elections will be held in the next 3 to 4 months - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
