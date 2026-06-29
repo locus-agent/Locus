@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T04:41:02.079780+00:00",
-  "last_heartbeat": "2026-06-29T04:41:02.079780+00:00",
-  "uptime_seconds": 57312,
+  "generated_at": "2026-06-29T04:46:07.886569+00:00",
+  "last_heartbeat": "2026-06-29T04:46:07.886569+00:00",
+  "uptime_seconds": 57617,
   "dry_run": false,
-  "markets_tracked": 1302,
+  "markets_tracked": 1300,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9520,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 188,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 191,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 4238,
+  "classifications_24h": 4232,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1800,
+    "prefiltered_haiku": 1793,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 1154,
     "matched": 688,
-    "classified": 4238,
+    "classified": 4232,
     "signals": 2,
     "trades": 1
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1931.0
+    "avg_classification_latency_ms": 1929.9
   },
   "live_readiness": {
     "ready": true,
@@ -359,41 +359,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-29 04:27:41",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Switzerland's Werro believes women's 800m record is within reach - Reuters",
+      "time": "2026-06-29 04:45:10",
+      "market_question": "Will Trump visit Pakistan by June 30?",
+      "headline": "Pakistan launches deadly strikes along Afghan border",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 04:25:36",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "China's Momenta kicks off Hong Kong IPO, targets up to $751 million - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-29 04:25:36",
-      "market_question": "Will the National Action Party (PAN) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Resident doctors take strike action over pay",
+      "time": "2026-06-29 04:45:09",
+      "market_question": "Will Donald Trump visit Pakistan in 2026?",
+      "headline": "Pakistan launches deadly strikes along Afghan border",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -407,9 +391,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-29 04:25:30",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "China's Momenta kicks off Hong Kong IPO, targets up to $751 million - Reuters",
+      "time": "2026-06-29 04:42:59",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "First dinosaur bone from Antarctica found in a drawer",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -418,25 +402,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-29 04:25:30",
-      "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
-      "headline": "China's Momenta kicks off Hong Kong IPO, targets up to $751 million - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-29 04:42:58",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "First dinosaur bone from Antarctica found in a drawer",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-29 04:42:58",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "First dinosaur bone from Antarctica found in a drawer",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
