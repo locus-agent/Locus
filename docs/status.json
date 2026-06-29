@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-29T08:50:56.973354+00:00",
-  "last_heartbeat": "2026-06-29T08:50:56.973354+00:00",
-  "uptime_seconds": 72307,
+  "generated_at": "2026-06-29T08:56:03.734317+00:00",
+  "last_heartbeat": "2026-06-29T08:56:03.734317+00:00",
+  "uptime_seconds": 72613,
   "dry_run": false,
-  "markets_tracked": 1291,
+  "markets_tracked": 1290,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9537,
+    "total": 9543,
     "accuracy": 17.6,
     "by_category": {
       "other": 16.2,
@@ -24,15 +24,15 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.6,
-    "overall_total": 9537,
+    "overall_total": 9543,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5414,
-        "correct": 375,
+        "total": 5415,
+        "correct": 376,
         "accuracy_pct": 6.9,
-        "avg_pnl_pct": 10.43,
+        "avg_pnl_pct": 10.45,
         "color": "red"
       },
       {
@@ -56,10 +56,10 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 547,
-        "correct": 159,
-        "accuracy_pct": 29.1,
-        "avg_pnl_pct": -0.66,
+        "total": 552,
+        "correct": 160,
+        "accuracy_pct": 29.0,
+        "avg_pnl_pct": -0.65,
         "color": "green"
       },
       {
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 322,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 324,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4290,
+  "classifications_24h": 4279,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1790,
+    "prefiltered_haiku": 1782,
     "stale": 14,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1171,
-    "matched": 732,
-    "classified": 4290,
+    "news": 1170,
+    "matched": 731,
+    "classified": 4279,
     "signals": 3,
     "trades": 2
   },
@@ -134,12 +134,12 @@
     "losses": 13,
     "win_rate_pct": 59.4,
     "realized_pnl_usd": 53.08,
-    "unrealized_pnl_usd": 0.0,
-    "total_pnl_usd": 53.08,
+    "unrealized_pnl_usd": -0.06,
+    "total_pnl_usd": 53.02,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2007.3
+    "avg_classification_latency_ms": 2010.8
   },
   "live_readiness": {
     "ready": true,
@@ -194,11 +194,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.0695,
-      "pnl_pct": 0.0,
+      "current_price": 0.06899999999999995,
+      "pnl_pct": -0.72,
       "amount_usd": 8.03,
-      "current_value_usd": 8.03,
-      "pnl_usd": 0.0,
+      "current_value_usd": 7.97,
+      "pnl_usd": -0.06,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -374,6 +374,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-29 08:52:53",
+      "market_question": "Will X launch a USD stablecoin in 2026?",
+      "headline": "BIS warns stablecoins are more like ETFs than actual money, and they're creating FX risk",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-29 08:52:53",
+      "market_question": "Will Meta launch a USD stablecoin in 2026?",
+      "headline": "BIS warns stablecoins are more like ETFs than actual money, and they're creating FX risk",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.03,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-29 08:50:43",
       "market_question": "Tech Layoffs Up or Down in 20\u200b26?",
       "headline": "Australia gives regulator more power to pursue Big Tech over under-16 ban - Reuters",
@@ -408,38 +440,6 @@
     {
       "time": "2026-06-29 08:50:42",
       "market_question": "Will Trump and Putin meet next in Australia?",
-      "headline": "Australia gives regulator more power to pursue Big Tech over under-16 ban - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 08:50:42",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "Australia gives regulator more power to pursue Big Tech over under-16 ban - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-29 08:50:42",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
       "headline": "Australia gives regulator more power to pursue Big Tech over under-16 ban - Reuters",
       "direction": null,
       "materiality": null,
