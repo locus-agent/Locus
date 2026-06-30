@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T13:15:28.311720+00:00",
-  "last_heartbeat": "2026-06-30T13:15:28.311720+00:00",
-  "uptime_seconds": 961,
+  "generated_at": "2026-06-30T13:20:35.641755+00:00",
+  "last_heartbeat": "2026-06-30T13:20:35.641755+00:00",
+  "uptime_seconds": 1268,
   "dry_run": false,
   "markets_tracked": 1300,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1019,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1024,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 5214,
+  "classifications_24h": 5190,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 2038,
+    "prefiltered_haiku": 2025,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1628,
-    "matched": 908,
-    "classified": 5214,
+    "news": 1625,
+    "matched": 901,
+    "classified": 5190,
     "signals": 8,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1651.5
+    "avg_classification_latency_ms": 1722.4
   },
   "live_readiness": {
     "ready": true,
@@ -389,41 +389,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 13:13:02",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "U.S. envoys arrive in Qatar for meetings on Iran amid tensions following weekend attacks - AP News",
+      "time": "2026-06-30 13:19:32",
+      "market_question": "Will Otzma Yehudit win the most seats in the 2026 Israeli legislative election?",
+      "headline": "Gaza - Politico",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 13:13:02",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "U.S. envoys arrive in Qatar for meetings on Iran amid tensions following weekend attacks - AP News",
+      "time": "2026-06-30 13:17:28",
+      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
+      "headline": "Stocks surge in stellar quarter; dollar hits gold and yen - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 13:13:02",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "U.S. envoys arrive in Qatar for meetings on Iran amid tensions following weekend attacks - AP News",
+      "time": "2026-06-30 13:17:26",
+      "market_question": "Will Nvidia have a #1 AI model by June 30?",
+      "headline": "Rocky week for AI as shares slump but no sign of crash \u2013 yet - The Guardian",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -437,9 +437,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 13:12:55",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "U.S. envoys arrive in Qatar for meetings on Iran amid tensions following weekend attacks - AP News",
+      "time": "2026-06-30 13:17:26",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Airline SAS orders 18 new Airbus A330neo amid wider fleet renewal - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -453,9 +453,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 13:12:55",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "U.S. envoys arrive in Qatar for meetings on Iran amid tensions following weekend attacks - AP News",
+      "time": "2026-06-30 13:17:26",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Airline SAS orders 18 new Airbus A330neo amid wider fleet renewal - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
