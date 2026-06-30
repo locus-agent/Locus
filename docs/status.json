@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T04:13:05.419849+00:00",
-  "last_heartbeat": "2026-06-30T04:13:05.419849+00:00",
-  "uptime_seconds": 142035,
+  "generated_at": "2026-06-30T04:18:11.318249+00:00",
+  "last_heartbeat": "2026-06-30T04:18:11.318249+00:00",
+  "uptime_seconds": 142341,
   "dry_run": false,
-  "markets_tracked": 1296,
+  "markets_tracked": 1290,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9622,
@@ -82,23 +82,23 @@
       }
     ]
   },
-  "headlines_scanned_today": 228,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 232,
+  "headlines_last_cycle": 3,
   "signals_24h": 9,
-  "classifications_24h": 4069,
+  "classifications_24h": 4081,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1680,
+    "prefiltered_haiku": 1683,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 10,
+    "price_target_market": 16,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 2,
-    "already_priced_in": 0,
+    "already_priced_in": 2,
     "needs_confirmation": 0,
     "event_exposure_block": 1,
     "low_consensus": 0,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T04:02:08.890507+00:00"
+    "last_check": "2026-06-30T04:17:09.220771+00:00"
   },
   "edge_types_24h": {
     "news": 8,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1194,
-    "matched": 902,
-    "classified": 4069,
+    "news": 1196,
+    "matched": 904,
+    "classified": 4081,
     "signals": 9,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2221.1
+    "avg_classification_latency_ms": 2228.8
   },
   "live_readiness": {
     "ready": true,
@@ -194,7 +194,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.3,
+      "current_price": 0.30000000000000004,
       "pnl_pct": -0.71,
       "amount_usd": 24.85,
       "current_value_usd": 24.67,
@@ -374,57 +374,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 04:09:10",
-      "market_question": "Will the Institutional Revolutionary Party (PRI) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Mexico City - Politico",
+      "time": "2026-06-30 04:18:10",
+      "market_question": "Will Republican House incumbents not win in between seven and nine nominating elections in the 2026 cycle?",
+      "headline": "Republican Primaries - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 04:09:07",
-      "market_question": "Will Citizens\u2019 Movement (MC) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Mexico City - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 04:09:07",
-      "market_question": "Will the Labor Party (PT) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Mexico City - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 04:09:06",
-      "market_question": "Will Donald Trump visit Mexico in 2026?",
-      "headline": "Mexico City - Politico",
+      "time": "2026-06-30 04:18:10",
+      "market_question": "Will Chris Coons be the Democratic nominee for Senate in Delaware?",
+      "headline": "Chris Wallace - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -438,9 +406,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 04:09:06",
-      "market_question": "Claudia Sheinbaum out as President of Mexico by June 30?",
-      "headline": "Mexico City - Politico",
+      "time": "2026-06-30 04:18:10",
+      "market_question": "Will Chris Madel win the 2026 Minnesota Governor Republican primary election?",
+      "headline": "Chris Wallace - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,6 +420,38 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 04:18:09",
+      "market_question": "Will Republican House incumbents not win in between ten and twelve nominating elections in the 2026 cycle?",
+      "headline": "Republican Primaries - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 04:18:04",
+      "market_question": "Will Timothy Wilcox win the 2026 Connecticut Governor Republican primary election?",
+      "headline": "Republican Primaries - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
