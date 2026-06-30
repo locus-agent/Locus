@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T11:21:48.307735+00:00",
-  "last_heartbeat": "2026-06-30T11:21:48.307735+00:00",
-  "uptime_seconds": 167758,
+  "generated_at": "2026-06-30T11:26:54.589553+00:00",
+  "last_heartbeat": "2026-06-30T11:26:54.589553+00:00",
+  "uptime_seconds": 168064,
   "dry_run": false,
-  "markets_tracked": 1308,
+  "markets_tracked": 1310,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9636,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 541,
+  "headlines_scanned_today": 543,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 4240,
+  "classifications_24h": 4232,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1745,
+    "prefiltered_haiku": 1736,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -120,8 +120,8 @@
   },
   "pipeline_24h": {
     "news": 1277,
-    "matched": 950,
-    "classified": 4240,
+    "matched": 949,
+    "classified": 4232,
     "signals": 8,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2251.1
+    "avg_classification_latency_ms": 2250.8
   },
   "live_readiness": {
     "ready": true,
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.31,
+      "current_price": 0.31000000000000005,
       "pnl_pct": -2.13,
       "amount_usd": 24.85,
       "current_value_usd": 24.32,
@@ -388,6 +388,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-30 11:24:04",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "EXCLUSIVE: US working on ban targeting Chinese energy inverters, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 11:24:03",
+      "market_question": "Will Trump say \"Buy Dell Computer / Buy a Dell Computer\" in June?",
+      "headline": "EXCLUSIVE: US working on ban targeting Chinese energy inverters, sources say - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-30 11:19:46",
       "market_question": "Bitcoin Up or Down on June 30?",
       "headline": "Bitcoin $4.4 billion supply overhang emerges as institutional demand wilts",
@@ -432,38 +464,6 @@
       "adjusted_materiality": 0.31,
       "action": "price_target_market",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 11:19:44",
-      "market_question": "Will Bitcoin reach $62,500 in June?",
-      "headline": "Bitcoin $4.4 billion supply overhang emerges as institutional demand wilts",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.55,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.15,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 11:19:43",
-      "market_question": "Will Bitcoin reach $61,000 on June 30?",
-      "headline": "Bitcoin $4.4 billion supply overhang emerges as institutional demand wilts",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "confidence": 0.65,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.55,
-      "action": "skip",
-      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
