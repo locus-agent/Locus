@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T12:36:30.578671+00:00",
-  "last_heartbeat": "2026-06-30T12:36:30.578671+00:00",
-  "uptime_seconds": 347,
+  "generated_at": "2026-06-30T12:41:37.716701+00:00",
+  "last_heartbeat": "2026-06-30T12:41:37.716701+00:00",
+  "uptime_seconds": 655,
   "dry_run": false,
   "markets_tracked": 1314,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 714,
+  "headlines_scanned_today": 723,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 4395,
+  "classifications_24h": 4396,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1764,
+    "prefiltered_haiku": 1766,
     "stale": 0,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1359,
-    "matched": 918,
-    "classified": 4395,
+    "news": 1363,
+    "matched": 917,
+    "classified": 4396,
     "signals": 8,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2015.4
+    "avg_classification_latency_ms": 2015.9
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 12:35:34",
-      "market_question": "Will JPMorgan Chase or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "JPMorgan Chase - Politico",
+      "time": "2026-06-30 12:39:49",
+      "market_question": "Will Titan launch a token by December 31, 2026?",
+      "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 12:35:34",
-      "market_question": "Will JPMorgan Chase or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "JPMorgan Chase - Politico",
+      "time": "2026-06-30 12:39:49",
+      "market_question": "Will Titan launch a token by December 31, 2027?",
+      "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +420,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 12:35:32",
-      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
-      "headline": "Senate: California - Politico",
+      "time": "2026-06-30 12:39:48",
+      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -431,41 +431,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 12:35:32",
-      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by less than 5%?",
-      "headline": "Senate: California - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-30 12:39:46",
+      "market_question": "Will Titan launch a token by June 30, 2026?",
+      "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-30 12:35:32",
-      "market_question": "Will Matt Mahan finish first in the 2026 California Governor primary election?",
-      "headline": "Senate: California - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-30 12:39:46",
+      "market_question": "Will Titan launch a token by September 30, 2026?",
+      "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
