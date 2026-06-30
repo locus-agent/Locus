@@ -492,6 +492,20 @@ def _is_geopolitical_question(question: str) -> bool:
     return any(kw in text for kw in config.GEOPOLITICAL_KEYWORDS)
 
 
+def is_coinflip_market(question: str) -> bool:
+    """True when a market question is a short-term "Up or Down" coin-flip (e.g.
+    "Bitcoin Up or Down on June 29?"). These graded as near-random coin flips and
+    lost money in live trading, so they're excluded from the tradeable set when
+    config.EXCLUDE_COINFLIP_MARKETS is set. Matched case-insensitively against
+    config.COINFLIP_PATTERNS. Shared by market_watcher (niche filter) and
+    pipeline.gate_trade (trade-time safety net) — lives here to avoid a
+    gamma<-pipeline import cycle, mirroring _is_geopolitical_question."""
+    if not config.EXCLUDE_COINFLIP_MARKETS:
+        return False
+    q = (question or "").lower()
+    return any(p.lower() in q for p in config.COINFLIP_PATTERNS)
+
+
 def _fee_rate_for_category(category: str, question: str = "") -> float:
     """Per-share Polymarket fee rate for an inferred category. Geopolitical
     markets (matched on the question text) are fee-free regardless of category,

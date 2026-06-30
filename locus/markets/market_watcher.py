@@ -16,7 +16,9 @@ import certifi
 
 from locus import config
 from locus.core.market_index import MarketIndex
-from locus.markets.gamma import Market, fetch_active_markets, filter_by_categories
+from locus.markets.gamma import (
+    Market, fetch_active_markets, filter_by_categories, is_coinflip_market,
+)
 
 log = logging.getLogger(__name__)
 
@@ -68,6 +70,9 @@ class MarketWatcher:
         self._index_syncing = False
         self._refresh_interval = 300  # refresh market list every 5 min
         self._ws_connected = False
+        # Coinflip markets dropped on the most recent niche filter pass, surfaced
+        # in the refresh funnel log (see get_niche_markets / refresh_markets).
+        self._last_coinflip_excluded = 0
         self.stats = {
             "ws_messages": 0,
             "price_updates": 0,
@@ -75,12 +80,23 @@ class MarketWatcher:
         }
 
     def get_niche_markets(self, markets: list[Market]) -> list[Market]:
-        """Filter to niche markets within volume bounds."""
-        return [
+        """Filter to niche markets within volume bounds, then drop short-term
+        "Up or Down" coin-flip markets (config.EXCLUDE_COINFLIP_MARKETS): they
+        graded as near-random and lost money live. The count dropped this pass is
+        recorded on self._last_coinflip_excluded for the refresh funnel log."""
+        in_band = [
             m for m in markets
             if config.MIN_VOLUME_USD <= m.volume <= config.MAX_VOLUME_USD
             and m.active
         ]
+        kept = [m for m in in_band if not is_coinflip_market(m.question)]
+        self._last_coinflip_excluded = len(in_band) - len(kept)
+        if self._last_coinflip_excluded:
+            log.info(
+                f"[watcher] excluded_coinflip: dropped {self._last_coinflip_excluded} "
+                f"'Up or Down' coin-flip market(s) from the niche set"
+            )
+        return kept
 
     async def refresh_markets(self):
         """Fetch and filter markets from Gamma API."""
@@ -168,6 +184,7 @@ class MarketWatcher:
                 f"[watcher] Fetched {len(all_markets)} markets in volume band "
                 f"${config.MIN_VOLUME_USD:,.0f}-${config.MAX_VOLUME_USD:,.0f} "
                 f"in {fetch_secs:.1f}s -> {len(categorized)} in target categories "
+                f"-> excluded {self._last_coinflip_excluded} coinflip "
                 f"-> tracking {len(self.tracked_markets)} niche markets"
             )
 

@@ -272,6 +272,15 @@ if _price_target_keywords_override:
     except (ValueError, TypeError):
         pass  # malformed override -> keep the defaults above
 
+# Skip short-term "Up or Down" coin-flip markets (e.g. "Bitcoin Up or Down on
+# June 29?"). Live calibration: these graded as near-random coin flips and lost
+# money (8 closed Up-or-Down trades = 25% win, -$32.14; all other markets = 55%
+# win, +$79.70). Excluded from the niche set (action 'excluded_coinflip') and,
+# as a safety net, at trade time (action 'coinflip_market'). Case-insensitive
+# substring match on the market question.
+EXCLUDE_COINFLIP_MARKETS = os.getenv("EXCLUDE_COINFLIP_MARKETS", "true").lower() == "true"
+COINFLIP_PATTERNS = ["up or down"]  # case-insensitive substring match on market question
+
 
 # --- Sports markets (extra-strict; see classifier SPORTS block + pipeline gates) ---
 # Sports headlines are noisy (rumors, lineup speculation, pre-game punditry), so

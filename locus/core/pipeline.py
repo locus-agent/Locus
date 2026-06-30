@@ -16,7 +16,7 @@ from locus import config
 from locus.memory import logger
 from locus.core.export_status import export_status
 from locus.core.performance import compute_circuit_breaker
-from locus.markets.gamma import get_token_id
+from locus.markets.gamma import get_token_id, is_coinflip_market
 from locus.core.edge import detect_edge_v2, Signal
 from locus.core.executor import execute_trade_async
 from locus.supervisor import supervise
@@ -226,6 +226,10 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
       "price_target_market" — market is a price-target market (e.g. "Will
                              Bitcoin reach $100k"); excluded when
                              config.EXCLUDE_PRICE_TARGET_MARKETS is set
+      "coinflip_market"    — short-term "Up or Down" coin-flip market (e.g.
+                             "Bitcoin Up or Down on June 29?"); normally dropped
+                             from the niche set, blocked here as a safety net when
+                             config.EXCLUDE_COINFLIP_MARKETS is set
       "low_materiality"    — materiality below the direction- and category-aware
                              floor (get_materiality_threshold: geopolitical/sports
                              categories first, then bearish > bullish)
@@ -309,6 +313,15 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
             f"question: {market.question[:70]}..."
         )
         return None, "price_target_market"
+    # Safety net: short-term "Up or Down" coin-flips are normally dropped from the
+    # niche set (market_watcher.get_niche_markets), but if one reaches here it's
+    # still classified for calibration yet never traded.
+    if is_coinflip_market(market.question):
+        log.info(
+            f"Filtered: coinflip_market | {market.slug} | "
+            f"question: {market.question[:70]}..."
+        )
+        return None, "coinflip_market"
 
     # Materiality floor, direction- and category-aware (get_materiality_threshold):
     # category wins first (geopolitical markets move slowly; sports are noisy and

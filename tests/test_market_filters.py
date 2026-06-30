@@ -8,7 +8,7 @@ import pytest
 from locus import config
 from locus.core.pipeline import gate_trade, is_price_target_market
 from locus.core.edge import Signal
-from locus.markets.gamma import Market
+from locus.markets.gamma import Market, is_coinflip_market
 from locus.sources.news_stream import NewsEvent
 
 NOW = datetime(2026, 6, 12, 12, 0, 0, tzinfo=timezone.utc)
@@ -26,6 +26,8 @@ def _pin_filter_config(monkeypatch):
         "new all-time high", "new ath", "all time high",
         "will bitcoin reach", "will ethereum hit",
     ])
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", True)
+    monkeypatch.setattr(config, "COINFLIP_PATTERNS", ["up or down"])
     monkeypatch.setattr(config, "MIN_MATERIALITY_DEFAULT", 0.33)
     monkeypatch.setattr(config, "MIN_MATERIALITY_BULLISH", 0.3)
     monkeypatch.setattr(config, "MIN_MATERIALITY_BEARISH", 0.4)
@@ -158,3 +160,56 @@ def test_price_target_logging_format(caplog):
         gate_trade(ev(), sig(mkt(question=q, end_date=end_in_hours(48),
                                  slug="btc-reach-100k")), set(), now=NOW)
     assert f"Filtered: price_target_market | btc-reach-100k | question: {q[:70]}..." in caplog.text
+
+
+# --- Coinflip gate (safety net; primary filter is market_watcher) ---------
+
+COINFLIP_QUESTIONS = [
+    "Bitcoin Up or Down on June 29?",
+    "Ethereum Up or Down today?",
+    "Bitcoin UP OR DOWN on June 30?",   # case-insensitive
+]
+
+
+@pytest.mark.parametrize("question", COINFLIP_QUESTIONS)
+def test_coinflip_helper_matches_case_insensitively(question):
+    assert is_coinflip_market(question)
+    assert is_coinflip_market(question.upper())
+    assert is_coinflip_market(question.lower())
+
+
+def test_coinflip_gate_blocks_in_gate_trade():
+    s, a = gate_trade(ev(), sig(mkt(question="Bitcoin Up or Down on June 29?",
+                                    end_date=end_in_hours(48))), set(), now=NOW)
+    assert s is None and a == "coinflip_market"
+
+
+def test_non_coinflip_market_allowed():
+    assert not is_coinflip_market("Will the Fed cut rates in July?")
+    s, a = gate_trade(ev(), sig(mkt(question="Will the Fed cut rates in July?",
+                                    end_date=end_in_hours(48))), set(), now=NOW)
+    assert s is not None and a == "signal"
+
+
+def test_coinflip_disabled_bypasses_filter(monkeypatch):
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", False)
+    assert not is_coinflip_market("Bitcoin Up or Down on June 29?")
+    s, a = gate_trade(ev(), sig(mkt(question="Bitcoin Up or Down on June 29?",
+                                    end_date=end_in_hours(48))), set(), now=NOW)
+    assert s is not None and a == "signal"
+
+
+def test_coinflip_does_not_consume_headline_cap():
+    traded = set()
+    gate_trade(ev("flip"),
+               sig(mkt(question="Bitcoin Up or Down on June 29?", end_date=end_in_hours(48))),
+               traded, now=NOW)
+    assert "flip" not in traded
+
+
+def test_coinflip_logging_format(caplog):
+    q = "Bitcoin Up or Down on June 29 at exactly noon eastern time and onward?"
+    with caplog.at_level(logging.INFO, logger="locus.core.pipeline"):
+        gate_trade(ev(), sig(mkt(question=q, end_date=end_in_hours(48),
+                                 slug="btc-up-down")), set(), now=NOW)
+    assert f"Filtered: coinflip_market | btc-up-down | question: {q[:70]}..." in caplog.text

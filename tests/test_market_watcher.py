@@ -1,6 +1,8 @@
-"""WS price updates: O(1) token lookup, momentum, unknown assets ignored."""
+"""WS price updates: O(1) token lookup, momentum, unknown assets ignored.
+Plus the niche filter's coinflip ("Up or Down") exclusion."""
 from datetime import datetime, timedelta, timezone
 
+from locus import config
 from locus.markets.gamma import Market
 from locus.markets.market_watcher import MarketWatcher, MarketSnapshot
 
@@ -211,3 +213,52 @@ def test_refresh_does_not_recount_unchanged_price(monkeypatch):
     asyncio.run(w.refresh_markets())
     assert w.snapshots["cond1"].last_price == 0.50
     assert w.stats["price_updates"] == before    # unchanged -> not counted
+
+
+# --- Niche filter: coinflip ("Up or Down") exclusion ----------------------
+
+def _mkt(question, volume=5000, active=True):
+    return Market("c", question, "crypto", 0.5, 0.5, volume, "", active,
+                  tokens=[{"token_id": "t", "outcome": "Yes"}])
+
+
+def test_get_niche_markets_excludes_coinflip(monkeypatch):
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", True)
+    monkeypatch.setattr(config, "COINFLIP_PATTERNS", ["up or down"])
+    w = MarketWatcher()
+    markets = [
+        _mkt("Bitcoin Up or Down on June 29?"),
+        _mkt("Will the Fed cut rates in July?"),
+    ]
+    kept = w.get_niche_markets(markets)
+    questions = [m.question for m in kept]
+    assert "Bitcoin Up or Down on June 29?" not in questions
+    assert "Will the Fed cut rates in July?" in questions
+    # the drop is counted for the funnel log
+    assert w._last_coinflip_excluded == 1
+
+
+def test_get_niche_markets_keeps_normal_markets(monkeypatch):
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", True)
+    w = MarketWatcher()
+    markets = [_mkt("Will Trump sign the Iran deal?"), _mkt("Will the Fed cut?")]
+    kept = w.get_niche_markets(markets)
+    assert len(kept) == 2
+    assert w._last_coinflip_excluded == 0
+
+
+def test_get_niche_markets_coinflip_case_insensitive(monkeypatch):
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", True)
+    monkeypatch.setattr(config, "COINFLIP_PATTERNS", ["up or down"])
+    w = MarketWatcher()
+    kept = w.get_niche_markets([_mkt("Bitcoin UP OR DOWN on June 30?")])
+    assert kept == []
+    assert w._last_coinflip_excluded == 1
+
+
+def test_get_niche_markets_toggle_off_lets_coinflips_through(monkeypatch):
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", False)
+    w = MarketWatcher()
+    kept = w.get_niche_markets([_mkt("Bitcoin Up or Down on June 29?")])
+    assert len(kept) == 1
+    assert w._last_coinflip_excluded == 0
