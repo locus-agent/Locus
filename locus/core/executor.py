@@ -13,6 +13,10 @@ from locus.markets.gamma import get_token_id
 
 log = logging.getLogger(__name__)
 
+# Shares remaining after a SELL below this count are treated as fully flat (dust),
+# so on-chain rounding remainders can't keep a closed position open forever.
+CLOSE_DUST_SHARES = 1.0
+
 
 def execute_trade(signal: Signal) -> dict:
     """Execute a trade on Polymarket or log a dry-run. Synchronous."""
@@ -352,12 +356,21 @@ def close_position_live(
 
     Mirrors _execute_live (buy) for the sell direction: build the client,
     resolve the token, read the live book, sell into the best bid (depth- and
-    spread-guarded), and return {status, order_id, price, shares}. Status is
-    'executed' ONLY when the SELL is confirmed/placed; a 'skipped_*' reason when
-    the book can't support the sell; 'close_failed' (with an 'error' detail) when
-    the order is rejected/errors; or 'error_*' on setup failure (incl. no
-    py_clob_client). Only 'executed' means the position was actually flattened —
-    the caller must NOT record a local close on any other status."""
+    spread-guarded), and return {status, order_id, price, shares, sold_shares,
+    remaining_shares}. Status is:
+      - 'executed'      — the SELL fully flattened the holding (remaining shares
+                          below CLOSE_DUST_SHARES). Safe to record a close.
+      - 'partial_close' — the SELL filled, but the on-chain balance shows tokens
+                          STILL HELD (thin book / partial fill). The caller must
+                          KEEP the position open and shrink it to remaining_shares,
+                          else the DB shows flat while we still hold tokens.
+      - 'close_failed'  — nothing sold / the order was rejected or unconfirmed.
+      - 'skipped_*'     — the book can't support the sell (no SELL placed).
+      - 'error_*'       — setup failure (incl. no py_clob_client).
+    `sold_shares` is the size that actually matched; `remaining_shares` is what we
+    still hold on-chain afterwards (the source of truth). Only 'executed' means the
+    position was actually flattened — on 'partial_close' the caller shrinks but
+    keeps the row open; on any other status it leaves the position untouched."""
     max_spread = config.LIVE_MAX_SPREAD if max_spread is None else max_spread
     log.info(
         "[executor] close_position_live START: condition_id=%s side=%s shares=%.4f "
@@ -432,12 +445,48 @@ def close_position_live(
         # the exchange and only claim 'executed' on a confirmed fill, so we never
         # record a close for a sell that didn't actually flatten the position.
         # (A partial sell fill counts as executed and reconcile cancels the rest.)
-        fill_status, _ = reconcile_order(client, order_id, sell_shares, price)
+        # `shares` is now what we INTEND to flatten (the request, capped to the
+        # on-chain holding). plan_live_sell may further downsize to `sell_shares`
+        # when the book is thin, so anything we don't actually match still leaves
+        # tokens held — measure the real fill and compare against the intent.
+        intended_shares = shares
+        fill_status, fill_cost = reconcile_order(client, order_id, sell_shares, price)
         if fill_status == "executed":
-            log.info("[executor] close CONFIRMED: SELL %.4f sh token=%s @ %.4f (order %s)",
-                     sell_shares, token_id, price, order_id)
-            return {"status": "executed", "order_id": order_id, "price": price,
-                    "shares": sell_shares}
+            # A reconciled 'executed' can still be a PARTIAL sell: a thin book caps
+            # the matched size below what we meant to flatten. Read the ACTUAL
+            # matched size (from the reconciled fill cost) rather than trusting the
+            # requested size.
+            if fill_cost and price:
+                sold_shares = min(fill_cost / price, sell_shares)
+            else:
+                # FILLED with no reported size field → the full ordered size matched.
+                sold_shares = sell_shares
+            # Decision: did we sell everything we set out to? (Comparing against the
+            # intent, not the holding, so an intentional fractional close that fully
+            # fills its slice still reads as a clean close.)
+            unsold_intent = max(intended_shares - sold_shares, 0.0)
+            # token_count truth: what we STILL HOLD on-chain after the sell — the
+            # real holding minus what matched (falls back to the intent remainder
+            # when the balance is unavailable). The recorded token_count can itself
+            # be inflated (a partial open), so prefer the on-chain figure.
+            base_held = held if held is not None else intended_shares
+            remaining_shares = max(base_held - sold_shares, 0.0)
+
+            if unsold_intent < CLOSE_DUST_SHARES:
+                log.info("[executor] close CONFIRMED (flat): sold %.4f sh token=%s @ "
+                         "%.4f (order %s); %.4f sh intent unsold (dust)", sold_shares,
+                         token_id, price, order_id, unsold_intent)
+                return {"status": "executed", "order_id": order_id, "price": price,
+                        "shares": sold_shares, "sold_shares": sold_shares,
+                        "remaining_shares": remaining_shares}
+
+            log.warning("[executor] PARTIAL close: sold %.4f of intended %.4f sh — "
+                        "%.4f sh REMAIN held for token=%s (order %s); position must "
+                        "stay open", sold_shares, intended_shares, remaining_shares,
+                        token_id, order_id)
+            return {"status": "partial_close", "order_id": order_id, "price": price,
+                    "shares": sold_shares, "sold_shares": sold_shares,
+                    "remaining_shares": remaining_shares}
         # Unconfirmed (resting/unknown): the position is NOT flattened. Cancel the
         # resting order so it can't fill later untracked, and report close_failed
         # so the caller keeps the local position open and retries next cycle.

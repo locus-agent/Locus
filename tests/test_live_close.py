@@ -602,6 +602,99 @@ def test_skipped_book_also_keeps_position_open(tmp_db, monkeypatch):
     assert status == "open"
 
 
+# --- partial close: a SELL that only fills part of the holding keeps it open ---
+
+def test_close_position_live_partial_fill_is_partial_close(monkeypatch):
+    # We hold 40 on-chain and try to flatten all 40, but the book only matches 10.
+    # That is NOT a full close — report partial_close with the 30 still held so the
+    # caller keeps the position open (the live phantom-tokens bug).
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book, held_balance=40.0,
+                       fill_result={"status": "MATCHED", "size_matched": "10"})
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "partial_close"
+    assert result["sold_shares"] == pytest.approx(10.0)
+    assert result["remaining_shares"] == pytest.approx(30.0)  # 40 held - 10 sold
+
+
+def test_close_position_live_dust_remainder_is_full_close(monkeypatch):
+    # 39.7 of an intended 40 sh match — the 0.3 sh remainder is dust (< 1 share),
+    # so the position is treated as fully flat, not held open forever on rounding.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book,
+                       fill_result={"status": "MATCHED", "size_matched": "39.7"})
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "executed"
+    assert result["sold_shares"] == pytest.approx(39.7)
+
+
+def test_partial_close_keeps_position_open_with_reduced_token_count(tmp_db, monkeypatch):
+    # A partial_close from the executor must NOT mark the position closed: it stays
+    # open with token_count shrunk to the real on-chain remainder, and realizes
+    # nothing. This is the DB-says-closed / Polymarket-says-open bug.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(
+        executor, "close_position_live",
+        lambda *a, **k: {"status": "partial_close", "order_id": "LIVE-P",
+                         "price": 0.6, "shares": 10.0, "sold_shares": 10.0,
+                         "remaining_shares": 30.0},
+    )
+
+    pos = _open(tmp_db, side="YES", entry=0.50, amount=25.0, token_count=40.0)
+    res = positions.close_manual(pos["id"])
+
+    # manual close surfaces that the flatten didn't complete
+    assert res["close_failed"] is True
+
+    conn = tmp_db._conn()
+    row = conn.execute(
+        "SELECT status, token_count, realized_pnl_usd FROM positions WHERE id=?",
+        (pos["id"],),
+    ).fetchone()
+    decisions = [d["decision"] for d in conn.execute(
+        "SELECT decision FROM exit_decisions WHERE position_id=?", (pos["id"],)
+    ).fetchall()]
+    conn.close()
+
+    assert row["status"] == "open"                       # still held
+    assert row["token_count"] == pytest.approx(30.0)     # shrunk to the remainder
+    assert (row["realized_pnl_usd"] or 0) == 0           # nothing realized
+    assert "partial_close" in decisions                  # tracked as a partial
+
+
+def test_full_close_marks_position_closed(tmp_db, monkeypatch):
+    # The complement: an executed close that fully flattens marks the row closed.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(
+        executor, "close_position_live",
+        lambda *a, **k: {"status": "executed", "order_id": "LIVE-OK", "price": 0.6,
+                         "shares": 40.0, "sold_shares": 40.0, "remaining_shares": 0.0},
+    )
+
+    pos = _open(tmp_db, side="YES", entry=0.50, amount=25.0, token_count=40.0)
+    res = positions.close_manual(pos["id"])
+
+    assert res["close_failed"] is False
+    conn = tmp_db._conn()
+    status = conn.execute(
+        "SELECT status FROM positions WHERE id=?", (pos["id"],)
+    ).fetchone()["status"]
+    conn.close()
+    assert status == "closed_manual"
+
+
 def test_stop_loss_does_not_close_on_failed_sell(tmp_db, monkeypatch):
     # The hard stop-loss path must also refuse to record a close when the live
     # SELL can't be confirmed (otherwise we hide live exposure on a loser).
