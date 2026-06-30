@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T15:59:08.243919+00:00",
-  "last_heartbeat": "2026-06-30T15:59:08.243919+00:00",
-  "uptime_seconds": 10781,
+  "generated_at": "2026-06-30T16:04:15.142787+00:00",
+  "last_heartbeat": "2026-06-30T16:04:15.142787+00:00",
+  "uptime_seconds": 11088,
   "dry_run": false,
-  "markets_tracked": 1302,
+  "markets_tracked": 1307,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9667,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1292,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1296,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 5498,
+  "classifications_24h": 5501,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2166,
+    "prefiltered_haiku": 2168,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T15:44:45.500794+00:00"
+    "last_check": "2026-06-30T15:59:45.976759+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1722,
-    "matched": 904,
-    "classified": 5498,
+    "news": 1720,
+    "matched": 903,
+    "classified": 5501,
     "signals": 3,
     "trades": 3
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -1.06,
-    "total_pnl_usd": 46.51,
+    "unrealized_pnl_usd": -0.79,
+    "total_pnl_usd": 46.77,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1972.0
+    "avg_classification_latency_ms": 1984.4
   },
   "live_readiness": {
     "ready": true,
@@ -209,11 +209,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.525,
-      "pnl_pct": 0.0,
+      "current_price": 0.52,
+      "pnl_pct": 1.05,
       "amount_usd": 24.99,
-      "current_value_usd": 24.99,
-      "pnl_usd": 0.0,
+      "current_value_usd": 25.25,
+      "pnl_usd": 0.26,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -223,7 +223,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.325,
+      "current_price": 0.32499999999999996,
       "pnl_pct": -4.26,
       "amount_usd": 24.85,
       "current_value_usd": 23.79,
@@ -403,9 +403,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 15:55:24",
-      "market_question": "Will Ghislaine Maxwell Testify to Congress about Epstein?",
-      "headline": "Consumer confidence ticks up as gas prices fall but Americans remain gloomy about the economy - AP News",
+      "time": "2026-06-30 16:04:13",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 16:04:11",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 16:04:10",
+      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
+      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -419,9 +451,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 15:55:24",
-      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
-      "headline": "Consumer confidence ticks up as gas prices fall but Americans remain gloomy about the economy - AP News",
+      "time": "2026-06-30 16:04:10",
+      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
+      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -435,41 +467,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 15:55:24",
-      "market_question": "Will the average monthly Ethereum gas price hit 25 Gwei before 2027?",
-      "headline": "Consumer confidence ticks up as gas prices fall but Americans remain gloomy about the economy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 15:55:24",
-      "market_question": "Will the average monthly Ethereum gas price hit 20 Gwei before 2027?",
-      "headline": "Consumer confidence ticks up as gas prices fall but Americans remain gloomy about the economy - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 15:55:24",
-      "market_question": "Will the average monthly Ethereum gas price hit 40 Gwei before 2027?",
-      "headline": "Consumer confidence ticks up as gas prices fall but Americans remain gloomy about the economy - AP News",
+      "time": "2026-06-30 16:04:10",
+      "market_question": "Will OpenAI\u2019s market cap be between $1T and $1.25T at market close on IPO day?",
+      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
