@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T09:14:12.005877+00:00",
-  "last_heartbeat": "2026-06-30T09:14:12.005877+00:00",
-  "uptime_seconds": 160102,
+  "generated_at": "2026-06-30T09:19:18.491810+00:00",
+  "last_heartbeat": "2026-06-30T09:19:18.491810+00:00",
+  "uptime_seconds": 160408,
   "dry_run": false,
-  "markets_tracked": 1297,
+  "markets_tracked": 1303,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9636,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 450,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 455,
+  "headlines_last_cycle": 1,
   "signals_24h": 9,
-  "classifications_24h": 4152,
+  "classifications_24h": 4168,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1679,
+    "prefiltered_haiku": 1691,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T09:02:16.513515+00:00"
+    "last_check": "2026-06-30T09:17:16.972797+00:00"
   },
   "edge_types_24h": {
     "news": 8,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1261,
-    "matched": 934,
-    "classified": 4152,
+    "news": 1265,
+    "matched": 938,
+    "classified": 4168,
     "signals": 9,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2235.5
+    "avg_classification_latency_ms": 2234.0
   },
   "live_readiness": {
     "ready": true,
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.31000000000000005,
+      "current_price": 0.31,
       "pnl_pct": -2.13,
       "amount_usd": 24.85,
       "current_value_usd": 24.32,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 09:12:12",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump said gas prices would fall after the war, defying the experts. So far, he\u2019s right. - Politico",
+      "time": "2026-06-30 09:18:50",
+      "market_question": "Will Solana dip to $10 in June?",
+      "headline": "SAS orders Airbus widebody aircraft for more than $10 billion - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,9 +404,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 09:12:12",
+      "time": "2026-06-30 09:18:48",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "WhatsApp to let people chat by swapping usernames instead of phone numbers",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 09:18:48",
+      "market_question": "Will Trump deport 200-300k people?",
+      "headline": "WhatsApp to let people chat by swapping usernames instead of phone numbers",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 09:18:47",
       "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump said gas prices would fall after the war, defying the experts. So far, he\u2019s right. - Politico",
+      "headline": "WhatsApp to let people chat by swapping usernames instead of phone numbers",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +452,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 09:12:12",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump said gas prices would fall after the war, defying the experts. So far, he\u2019s right. - Politico",
+      "time": "2026-06-30 09:18:47",
+      "market_question": "Will Trump deport 400-500k people?",
+      "headline": "WhatsApp to let people chat by swapping usernames instead of phone numbers",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -434,38 +466,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 09:12:12",
-      "market_question": "Will Donald Trump visit Syria in 2026?",
-      "headline": "Israeli troops face resistance from residents as they push into a town in Syria - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 09:12:12",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Israeli troops face resistance from residents as they push into a town in Syria - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
