@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T06:15:31.630495+00:00",
-  "last_heartbeat": "2026-06-30T06:15:31.630495+00:00",
-  "uptime_seconds": 149381,
+  "generated_at": "2026-06-30T06:20:37.700601+00:00",
+  "last_heartbeat": "2026-06-30T06:20:37.700601+00:00",
+  "uptime_seconds": 149687,
   "dry_run": false,
   "markets_tracked": 1291,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 322,
+  "headlines_scanned_today": 331,
   "headlines_last_cycle": 0,
   "signals_24h": 10,
-  "classifications_24h": 4125,
+  "classifications_24h": 4151,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1678,
+    "prefiltered_haiku": 1682,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T06:02:11.695541+00:00"
+    "last_check": "2026-06-30T06:17:12.099678+00:00"
   },
   "edge_types_24h": {
     "news": 9,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1240,
-    "matched": 913,
-    "classified": 4125,
+    "news": 1248,
+    "matched": 919,
+    "classified": 4151,
     "signals": 10,
     "trades": 5
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2233.5
+    "avg_classification_latency_ms": 2233.1
   },
   "live_readiness": {
     "ready": true,
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.31,
+      "current_price": 0.31000000000000005,
       "pnl_pct": -2.13,
       "amount_usd": 24.85,
       "current_value_usd": 24.32,
@@ -388,9 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 06:14:13",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "President Donald Trump - Politico",
+      "time": "2026-06-30 06:18:23",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Belkin launches new 14-in-1 Thunderbolt 5 dock with 140W charging and triple 4K display support - Notebookcheck",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,68 +404,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 06:14:13",
-      "market_question": "Will Donald Trump visit Turkey in 2026?",
-      "headline": "President Donald Trump - Politico",
+      "time": "2026-06-30 06:18:22",
+      "market_question": "Will Microsoft be the third-largest company in the world by market cap on June 30?",
+      "headline": "Microsoft released Windows 11 KB5102558, KB5095615 Setup and Recovery updates - Neowin",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 06:14:12",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "President Donald Trump - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-30 06:18:22",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Belkin launches new 14-in-1 Thunderbolt 5 dock with 140W charging and triple 4K display support - Notebookcheck",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-30 06:14:12",
-      "market_question": "Will Donald Trump visit Taiwan in 2026?",
-      "headline": "President Donald Trump - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-30 06:18:22",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Belkin launches new 14-in-1 Thunderbolt 5 dock with 140W charging and triple 4K display support - Notebookcheck",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-30 06:14:12",
-      "market_question": "Will Donald Trump visit Italy in 2026?",
-      "headline": "President Donald Trump - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-30 06:18:22",
+      "market_question": "Will OpenAI announce a head-mounted display in 2026?",
+      "headline": "Belkin launches new 14-in-1 Thunderbolt 5 dock with 140W charging and triple 4K display support - Notebookcheck",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
