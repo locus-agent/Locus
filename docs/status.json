@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T12:41:37.716701+00:00",
-  "last_heartbeat": "2026-06-30T12:41:37.716701+00:00",
-  "uptime_seconds": 655,
+  "generated_at": "2026-06-30T12:46:45.172183+00:00",
+  "last_heartbeat": "2026-06-30T12:46:45.172183+00:00",
+  "uptime_seconds": 962,
   "dry_run": false,
-  "markets_tracked": 1314,
+  "markets_tracked": 1313,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9663,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 723,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 726,
+  "headlines_last_cycle": 1,
   "signals_24h": 8,
-  "classifications_24h": 4396,
+  "classifications_24h": 4399,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1766,
+    "prefiltered_haiku": 1769,
     "stale": 0,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T12:31:01.654578+00:00"
+    "last_check": "2026-06-30T12:46:02.018963+00:00"
   },
   "edge_types_24h": {
     "news": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1363,
-    "matched": 917,
-    "classified": 4396,
+    "news": 1364,
+    "matched": 918,
+    "classified": 4399,
     "signals": 8,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2015.9
+    "avg_classification_latency_ms": 2004.2
   },
   "live_readiness": {
     "ready": true,
@@ -388,6 +388,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-30 12:46:23",
+      "market_question": "Bitcoin Up or Down - June 30, 8:40AM-8:45AM ET",
+      "headline": "Morning Bid: Doubled by halftime - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 12:46:23",
+      "market_question": "Bitcoin Up or Down - June 30, 8:45AM-8:50AM ET",
+      "headline": "Morning Bid: Doubled by halftime - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 12:46:22",
+      "market_question": "Bitcoin Up or Down - June 30, 8:45AM-9:00AM ET",
+      "headline": "Morning Bid: Doubled by halftime - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-06-30 12:39:49",
       "market_question": "Will Titan launch a token by December 31, 2026?",
       "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
@@ -418,54 +466,6 @@
       "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 12:39:48",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 12:39:46",
-      "market_question": "Will Titan launch a token by June 30, 2026?",
-      "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 12:39:46",
-      "market_question": "Will Titan launch a token by September 30, 2026?",
-      "headline": "Trident Digital pushes AI into its government identity systems - Stock Titan",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
