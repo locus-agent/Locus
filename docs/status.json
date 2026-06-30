@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T22:49:36.532392+00:00",
-  "last_heartbeat": "2026-06-30T22:49:36.532392+00:00",
-  "uptime_seconds": 35409,
+  "generated_at": "2026-06-30T22:54:42.994465+00:00",
+  "last_heartbeat": "2026-06-30T22:54:42.994465+00:00",
+  "uptime_seconds": 35716,
   "dry_run": false,
-  "markets_tracked": 1272,
+  "markets_tracked": 1270,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9708,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1773,
+  "headlines_scanned_today": 1775,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 6195,
+  "classifications_24h": 6199,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2483,
+    "prefiltered_haiku": 2488,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1863,
-    "matched": 1052,
-    "classified": 6195,
+    "news": 1862,
+    "matched": 1053,
+    "classified": 6199,
     "signals": 4,
     "trades": 4
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -5.0,
-    "total_pnl_usd": 42.56,
+    "unrealized_pnl_usd": -4.47,
+    "total_pnl_usd": 43.09,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1994.8
+    "avg_classification_latency_ms": 1996.2
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -237,11 +237,11 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.35,
-      "pnl_pct": -7.8,
+      "current_price": 0.33499999999999996,
+      "pnl_pct": -5.67,
       "amount_usd": 24.85,
-      "current_value_usd": 22.91,
-      "pnl_usd": -1.94,
+      "current_value_usd": 23.44,
+      "pnl_usd": -1.41,
       "edge_type": "news",
       "event_id": "59233"
     }
@@ -417,9 +417,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 22:48:03",
-      "market_question": "Will SoundHound AI announce bankruptcy before 2027?",
-      "headline": "Dish files for bankruptcy, but not shutting down",
+      "time": "2026-06-30 22:52:22",
+      "market_question": "Will Solana Sierra be the 2026 Women\u2019s Wimbledon Winner?",
+      "headline": "Serena Williams 'enjoyed the moment' despite 3-set loss at Wimbledon in comeback at age 44 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 22:50:17",
+      "market_question": "Will Trump launch a coin by December 31?",
+      "headline": "Trump filing shows he took in about $1.2 billion from crypto businesses last year - AP News",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.03,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 22:50:17",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "Trump filing shows he took in about $1.2 billion from crypto businesses last year - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -428,14 +460,14 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 22:47:59",
-      "market_question": "Will Anthropic announce bankruptcy before 2027?-kuQe",
-      "headline": "Dish files for bankruptcy, but not shutting down",
+      "time": "2026-06-30 22:50:10",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Trump filing shows he took in about $1.2 billion from crypto businesses last year - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -449,9 +481,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 22:47:59",
-      "market_question": "Will OpenAI announce bankruptcy before 2027?",
-      "headline": "Dish files for bankruptcy, but not shutting down",
+      "time": "2026-06-30 22:50:10",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump filing shows he took in about $1.2 billion from crypto businesses last year - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -463,38 +495,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 22:47:59",
-      "market_question": "Will Perplexity AI announce bankruptcy before 2027?",
-      "headline": "Dish files for bankruptcy, but not shutting down",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 22:47:58",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "Dish files for bankruptcy, but not shutting down",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
