@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T09:39:43.433089+00:00",
-  "last_heartbeat": "2026-06-30T09:39:43.433089+00:00",
-  "uptime_seconds": 161633,
+  "generated_at": "2026-06-30T09:44:49.396188+00:00",
+  "last_heartbeat": "2026-06-30T09:44:49.396188+00:00",
+  "uptime_seconds": 161939,
   "dry_run": false,
-  "markets_tracked": 1291,
+  "markets_tracked": 1293,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9636,
@@ -82,19 +82,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 480,
+  "headlines_scanned_today": 487,
   "headlines_last_cycle": 0,
-  "signals_24h": 9,
-  "classifications_24h": 4210,
+  "signals_24h": 8,
+  "classifications_24h": 4223,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1720,
+    "prefiltered_haiku": 1728,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 14,
+    "price_target_market": 13,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 2,
@@ -114,16 +114,16 @@
     "last_check": "2026-06-30T09:32:17.349389+00:00"
   },
   "edge_types_24h": {
-    "news": 8,
+    "news": 7,
     "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1280,
-    "matched": 950,
-    "classified": 4210,
-    "signals": 9,
-    "trades": 4
+    "news": 1286,
+    "matched": 953,
+    "classified": 4223,
+    "signals": 8,
+    "trades": 3
   },
   "performance": {
     "trades_total": 43,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2227.8
+    "avg_classification_latency_ms": 2226.3
   },
   "live_readiness": {
     "ready": true,
@@ -388,25 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 09:32:00",
-      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
-      "headline": "Bitcoin's correlation with dollar-yen rate hits -0.90, undercutting 'carry trade' theory",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 09:32:00",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Bitcoin's correlation with dollar-yen rate hits -0.90, undercutting 'carry trade' theory",
+      "time": "2026-06-30 09:39:57",
+      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
+      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +404,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 09:31:59",
-      "market_question": "Will Rodina win the second-most seats in the next Russian parliamentary election?",
-      "headline": "RNC Chair - Politico",
+      "time": "2026-06-30 09:39:57",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -431,41 +415,57 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 09:31:59",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Bitcoin's correlation with dollar-yen rate hits -0.90, undercutting 'carry trade' theory",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 09:39:57",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 09:31:59",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Bitcoin's correlation with dollar-yen rate hits -0.90, undercutting 'carry trade' theory",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 09:39:57",
+      "market_question": "Anthropic CEO arrested?",
+      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 09:39:57",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
