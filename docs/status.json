@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T16:24:42.338715+00:00",
-  "last_heartbeat": "2026-06-30T16:24:42.338715+00:00",
-  "uptime_seconds": 12315,
+  "generated_at": "2026-06-30T16:29:49.671236+00:00",
+  "last_heartbeat": "2026-06-30T16:29:49.671236+00:00",
+  "uptime_seconds": 12622,
   "dry_run": false,
-  "markets_tracked": 1305,
+  "markets_tracked": 1298,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9667,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1332,
+  "headlines_scanned_today": 1335,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 5623,
+  "classifications_24h": 5630,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2214,
+    "prefiltered_haiku": 2219,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T16:14:46.369065+00:00"
+    "last_check": "2026-06-30T16:29:46.923576+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1743,
-    "matched": 926,
-    "classified": 5623,
+    "news": 1744,
+    "matched": 928,
+    "classified": 5630,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2000.0
+    "avg_classification_latency_ms": 2010.2
   },
   "live_readiness": {
     "ready": true,
@@ -403,9 +403,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 16:23:54",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Will the UK's plan for defence help it hit Nato's spending target?",
+      "time": "2026-06-30 16:26:17",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "UAE exports record oil volumes after OPEC exit, ship-tracking data shows - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 16:26:16",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "The Supreme Court upheld Birthright Citizenship, which is too bad for our Country, but we can easily make it up in Congress through Legislation, with the support of the President, that has now been determined during this process. No long and unwieldy Constitutional Amendment is necessary! Congress should start TODAY to work on ending expensive and unfair to our Country, Birthright Citizenship. They will have my Complete and Total Support! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 16:26:16",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Aid workers warn of infectious diseases and overwhelmed hospitals after Venezuela quakes - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -419,9 +451,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 16:23:54",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Will the UK's plan for defence help it hit Nato's spending target?",
+      "time": "2026-06-30 16:26:16",
+      "market_question": "Will the Workers' Party nominate Lula for President of Brazil by August 15?",
+      "headline": "Aid workers warn of infectious diseases and overwhelmed hospitals after Venezuela quakes - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -435,41 +467,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 16:23:54",
-      "market_question": "Will Polymarket mindshare hit 85% by June 30?",
-      "headline": "Will the UK's plan for defence help it hit Nato's spending target?",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 16:23:54",
-      "market_question": "Will Polymarket mindshare hit 90% by June 30?",
-      "headline": "Will the UK's plan for defence help it hit Nato's spending target?",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 16:23:54",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "Will the UK's plan for defence help it hit Nato's spending target?",
+      "time": "2026-06-30 16:26:16",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "Aid workers warn of infectious diseases and overwhelmed hospitals after Venezuela quakes - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
