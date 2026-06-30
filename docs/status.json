@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T16:09:22.647330+00:00",
-  "last_heartbeat": "2026-06-30T16:09:22.647330+00:00",
-  "uptime_seconds": 11395,
+  "generated_at": "2026-06-30T16:14:29.605837+00:00",
+  "last_heartbeat": "2026-06-30T16:14:29.605837+00:00",
+  "uptime_seconds": 11702,
   "dry_run": false,
-  "markets_tracked": 1307,
+  "markets_tracked": 1301,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9667,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1324,
+  "headlines_scanned_today": 1330,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 5600,
+  "classifications_24h": 5631,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2198,
+    "prefiltered_haiku": 2215,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1744,
-    "matched": 923,
-    "classified": 5600,
+    "news": 1748,
+    "matched": 928,
+    "classified": 5631,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2010.1
+    "avg_classification_latency_ms": 2000.0
   },
   "live_readiness": {
     "ready": true,
@@ -223,7 +223,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.32499999999999996,
+      "current_price": 0.325,
       "pnl_pct": -4.26,
       "amount_usd": 24.85,
       "current_value_usd": 23.79,
@@ -403,9 +403,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 16:07:31",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Why Aren\u2019t Gas Prices Falling Faster? Chevron CFO Responds As Trump Turns Up The Heat On Big Oil: 'Doing Everything That We Can...' - Yahoo Finance",
+      "time": "2026-06-30 16:13:07",
+      "market_question": "Will Amazon have a #1 AI model by December 31, 2026?",
+      "headline": "Amazon\u2019s AWS commits $1 billion toward new unit for embedded AI engineers - Reuters",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.03,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 16:13:01",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Amazon\u2019s AWS commits $1 billion toward new unit for embedded AI engineers - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 16:13:00",
+      "market_question": "Will Chuck Smith be the Republican nominee for Senate in Virginia?",
+      "headline": "Republican Tom Kean Jr. said he was treated for depression during absence from Congress - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -419,25 +451,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 16:07:31",
-      "market_question": "Will Michael Ford win the 2026 Toronto mayoral election?",
-      "headline": "Ford rehires \u2018gray beard\u2019 engineers after AI falls short - TechCrunch",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 16:07:28",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "Why Aren\u2019t Gas Prices Falling Faster? Chevron CFO Responds As Trump Turns Up The Heat On Big Oil: 'Doing Everything That We Can...' - Yahoo Finance",
+      "time": "2026-06-30 16:13:00",
+      "market_question": "Will Michele Tafoya be the Republican nominee for Senate in Minnesota?",
+      "headline": "Republican Tom Kean Jr. said he was treated for depression during absence from Congress - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -451,25 +467,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 16:07:28",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Why Aren\u2019t Gas Prices Falling Faster? Chevron CFO Responds As Trump Turns Up The Heat On Big Oil: 'Doing Everything That We Can...' - Yahoo Finance",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 16:07:28",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Why Aren\u2019t Gas Prices Falling Faster? Chevron CFO Responds As Trump Turns Up The Heat On Big Oil: 'Doing Everything That We Can...' - Yahoo Finance",
+      "time": "2026-06-30 16:13:00",
+      "market_question": "Will Adam Schwarze be the Republican nominee for Senate in Minnesota?",
+      "headline": "Republican Tom Kean Jr. said he was treated for depression during absence from Congress - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
