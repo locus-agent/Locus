@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T11:57:31.230421+00:00",
-  "last_heartbeat": "2026-06-30T11:57:31.230421+00:00",
-  "uptime_seconds": 169901,
+  "generated_at": "2026-06-30T12:02:37.526445+00:00",
+  "last_heartbeat": "2026-06-30T12:02:37.526445+00:00",
+  "uptime_seconds": 170207,
   "dry_run": false,
-  "markets_tracked": 1310,
+  "markets_tracked": 1312,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9636,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 565,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 571,
+  "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 4067,
+  "classifications_24h": 4080,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1653,
+    "prefiltered_haiku": 1662,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T11:47:22.154756+00:00"
+    "last_check": "2026-06-30T12:02:22.511606+00:00"
   },
   "edge_types_24h": {
     "news": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1251,
-    "matched": 920,
-    "classified": 4067,
+    "news": 1254,
+    "matched": 923,
+    "classified": 4080,
     "signals": 8,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2249.2
+    "avg_classification_latency_ms": 2250.8
   },
   "live_readiness": {
     "ready": true,
@@ -208,7 +208,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.31,
+      "current_price": 0.31000000000000005,
       "pnl_pct": -2.13,
       "amount_usd": 24.85,
       "current_value_usd": 24.32,
@@ -388,73 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 11:57:19",
-      "market_question": "US Treasury transactions on blockchain by June 30?",
-      "headline": "Department Of Treasury - Politico",
+      "time": "2026-06-30 12:02:01",
+      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
+      "headline": "California governor - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 11:57:18",
-      "market_question": "Over $1B crypto hack value in 2026?",
-      "headline": "Bitcoin\u2019s quiet $59,000-$60,000 range is starting to look dangerous",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 11:57:17",
-      "market_question": "Over $1.5B crypto hack value in 2026?",
-      "headline": "Bitcoin\u2019s quiet $59,000-$60,000 range is starting to look dangerous",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 11:57:17",
-      "market_question": "Another crypto hack over $100m by September 30?",
-      "headline": "Bitcoin\u2019s quiet $59,000-$60,000 range is starting to look dangerous",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 11:48:30",
-      "market_question": "Will Donald Trump visit Germany in 2026?",
-      "headline": "Germany fans in need of hope as prospect of Klopp looms",
+      "time": "2026-06-30 12:02:01",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Venezuela health system strained after earthquakes, WHO says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -466,6 +418,54 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 12:02:01",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "Venezuela health system strained after earthquakes, WHO says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 12:02:01",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "Venezuela health system strained after earthquakes, WHO says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 12:01:59",
+      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
+      "headline": "California governor - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
