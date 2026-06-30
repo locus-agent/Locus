@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T09:44:49.396188+00:00",
-  "last_heartbeat": "2026-06-30T09:44:49.396188+00:00",
-  "uptime_seconds": 161939,
+  "generated_at": "2026-06-30T09:49:55.647286+00:00",
+  "last_heartbeat": "2026-06-30T09:49:55.647286+00:00",
+  "uptime_seconds": 162245,
   "dry_run": false,
-  "markets_tracked": 1293,
+  "markets_tracked": 1290,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9636,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 487,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 491,
+  "headlines_last_cycle": 1,
   "signals_24h": 8,
-  "classifications_24h": 4223,
+  "classifications_24h": 4229,
   "selectivity_pct": 0.2,
   "gates_24h": {
     "prefiltered_haiku": 1728,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T09:32:17.349389+00:00"
+    "last_check": "2026-06-30T09:47:17.744408+00:00"
   },
   "edge_types_24h": {
     "news": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1286,
-    "matched": 953,
-    "classified": 4223,
+    "news": 1288,
+    "matched": 956,
+    "classified": 4229,
     "signals": 8,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2226.3
+    "avg_classification_latency_ms": 2229.1
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 09:39:57",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
+      "time": "2026-06-30 09:49:29",
+      "market_question": "Nguesso out as President of the Republic of the Congo by December 31, 2026?",
+      "headline": "Pick Kobbie Mainoo over Elliot Anderson against DR Congo, says Wayne Rooney",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 09:47:26",
+      "market_question": "Will Solana Sierra be the 2026 Women\u2019s Wimbledon Winner?",
+      "headline": "Serena Williams on Maya Joint match and return to Wimbledon",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -399,71 +415,55 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 09:47:25",
+      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
+      "headline": "Tech selloff stirs bubble fears in US stock market - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 09:39:57",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
+      "time": "2026-06-30 09:47:25",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Tech selloff stirs bubble fears in US stock market - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 09:39:57",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
+      "time": "2026-06-30 09:47:25",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "Tech selloff stirs bubble fears in US stock market - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 09:39:57",
-      "market_question": "Anthropic CEO arrested?",
-      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 09:39:57",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Sony Interactive Entertainment president and CEO hasn't given up on live-service games just yet - Eurogamer",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
