@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T11:26:54.589553+00:00",
-  "last_heartbeat": "2026-06-30T11:26:54.589553+00:00",
-  "uptime_seconds": 168064,
+  "generated_at": "2026-06-30T11:32:00.694441+00:00",
+  "last_heartbeat": "2026-06-30T11:32:00.694441+00:00",
+  "uptime_seconds": 168370,
   "dry_run": false,
-  "markets_tracked": 1310,
+  "markets_tracked": 1309,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9636,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 543,
+  "headlines_scanned_today": 545,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 4232,
+  "classifications_24h": 4227,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1736,
+    "prefiltered_haiku": 1730,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -121,7 +121,7 @@
   "pipeline_24h": {
     "news": 1277,
     "matched": 949,
-    "classified": 4232,
+    "classified": 4227,
     "signals": 8,
     "trades": 3
   },
@@ -388,6 +388,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-30 11:30:54",
+      "market_question": "Will Michael Ford win the 2026 Toronto mayoral election?",
+      "headline": "Ford to recall over 741,000 US vehicles due to park system issue, NHTSA says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-30 11:24:04",
       "market_question": "Will a Chinese AI model become #1 by June 30? ",
       "headline": "EXCLUSIVE: US working on ban targeting Chinese energy inverters, sources say - Reuters",
@@ -447,22 +463,6 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.18,
       "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 11:19:44",
-      "market_question": "Will Bitcoin reach $75,000 by December 31, 2026?",
-      "headline": "Bitcoin $4.4 billion supply overhang emerges as institutional demand wilts",
-      "direction": "bearish",
-      "materiality": 0.38,
-      "confidence": 0.55,
-      "edge": 0.1843,
-      "fee_cost": 0.01748425,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.31,
-      "action": "price_target_market",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
