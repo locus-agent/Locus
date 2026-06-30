@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T03:57:47.664921+00:00",
-  "last_heartbeat": "2026-06-30T03:57:47.664921+00:00",
-  "uptime_seconds": 141117,
+  "generated_at": "2026-06-30T04:02:53.556928+00:00",
+  "last_heartbeat": "2026-06-30T04:02:53.556928+00:00",
+  "uptime_seconds": 141423,
   "dry_run": false,
-  "markets_tracked": 1305,
+  "markets_tracked": 1301,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9622,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 220,
+  "headlines_scanned_today": 225,
   "headlines_last_cycle": 0,
   "signals_24h": 9,
-  "classifications_24h": 4070,
+  "classifications_24h": 4077,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1678,
+    "prefiltered_haiku": 1681,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T03:47:08.540252+00:00"
+    "last_check": "2026-06-30T04:02:08.890507+00:00"
   },
   "edge_types_24h": {
     "news": 8,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1189,
-    "matched": 900,
-    "classified": 4070,
+    "news": 1194,
+    "matched": 903,
+    "classified": 4077,
     "signals": 9,
     "trades": 4
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2221.2
+    "avg_classification_latency_ms": 2221.0
   },
   "live_readiness": {
     "ready": true,
@@ -374,25 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 03:56:00",
-      "market_question": "Will the Republicans win the Alabama Senate race in 2026?",
-      "headline": "Senate: Georgia - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 03:56:00",
-      "market_question": "Will Georgia use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Senate: Georgia - Politico",
+      "time": "2026-06-30 03:58:16",
+      "market_question": "Will Kash Patel leave the Trump administration before 2027?",
+      "headline": "Kash Patel - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -406,9 +390,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 03:56:00",
-      "market_question": "Will Mo Ivory win the 2026 Fulton Commission Chair election?",
-      "headline": "Senate: Georgia - Politico",
+      "time": "2026-06-30 03:58:15",
+      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
+      "headline": "California Influence - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -417,14 +401,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 03:55:59",
-      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
-      "headline": "Senate GOP - Politico",
+      "time": "2026-06-30 03:58:15",
+      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by less than 5%?",
+      "headline": "California Influence - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -433,25 +417,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 03:58:14",
+      "market_question": "FDA approves Arcalyst technology transfer?",
+      "headline": "Technology still needs humans - tribune.net.ph",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 03:55:59",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Senate GOP - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-06-30 03:58:14",
+      "market_question": "Will Steve Hilton finish first in the 2026 California Governor primary election?",
+      "headline": "California Influence - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
