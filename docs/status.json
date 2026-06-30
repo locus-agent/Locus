@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T08:43:33.714231+00:00",
-  "last_heartbeat": "2026-06-30T08:43:33.714231+00:00",
-  "uptime_seconds": 158263,
+  "generated_at": "2026-06-30T08:48:39.989796+00:00",
+  "last_heartbeat": "2026-06-30T08:48:39.989796+00:00",
+  "uptime_seconds": 158570,
   "dry_run": false,
-  "markets_tracked": 1299,
+  "markets_tracked": 1300,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9627,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 431,
+  "headlines_scanned_today": 435,
   "headlines_last_cycle": 0,
-  "signals_24h": 10,
-  "classifications_24h": 4193,
+  "signals_24h": 9,
+  "classifications_24h": 4178,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1707,
+    "prefiltered_haiku": 1697,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,19 +111,19 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T08:32:15.615630+00:00"
+    "last_check": "2026-06-30T08:47:16.092358+00:00"
   },
   "edge_types_24h": {
-    "news": 9,
+    "news": 8,
     "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1266,
+    "news": 1264,
     "matched": 936,
-    "classified": 4193,
-    "signals": 10,
-    "trades": 5
+    "classified": 4178,
+    "signals": 9,
+    "trades": 4
   },
   "performance": {
     "trades_total": 43,
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2236.0
+    "avg_classification_latency_ms": 2237.4
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 08:41:21",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Don't Say Gay bill - Politico",
+      "time": "2026-06-30 08:45:56",
+      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
+      "headline": "Stocks surge in stellar quarter; dollar sinks gold and yen - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 08:45:56",
+      "market_question": "Mahmoud Abbas out as Palestinian President by June 30?",
+      "headline": "How some in Palestinian diaspora find connection, identity and resilience in traditional embroidery - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -404,57 +420,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 08:41:21",
-      "market_question": "Will Trump say \"Buy Dell Computer / Buy a Dell Computer\" in June?",
-      "headline": "Don't Say Gay bill - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 08:45:55",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "Stocks surge in stellar quarter; dollar sinks gold and yen - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 08:41:21",
-      "market_question": "Will Bill Gates Jr. win the 2026 Minnesota Governor Democratic primary election?",
-      "headline": "Don't Say Gay bill - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 08:45:49",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Stocks surge in stellar quarter; dollar sinks gold and yen - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 08:39:10",
-      "market_question": "Ukraine election called by June 30, 2026?",
-      "headline": "Bird nests of fibre-optic cables show war's impact on Ukraine - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 08:39:10",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Bird nests of fibre-optic cables show war's impact on Ukraine - Reuters",
+      "time": "2026-06-30 08:45:47",
+      "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
+      "headline": "Stocks surge in stellar quarter; dollar sinks gold and yen - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
