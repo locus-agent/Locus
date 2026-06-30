@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T21:58:30.652683+00:00",
-  "last_heartbeat": "2026-06-30T21:58:30.652683+00:00",
-  "uptime_seconds": 32343,
+  "generated_at": "2026-06-30T22:03:34.720545+00:00",
+  "last_heartbeat": "2026-06-30T22:03:34.720545+00:00",
+  "uptime_seconds": 32647,
   "dry_run": false,
-  "markets_tracked": 1276,
+  "markets_tracked": 1275,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9708,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1715,
+  "headlines_scanned_today": 1716,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
   "classifications_24h": 6082,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2406,
+    "prefiltered_haiku": 2407,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -108,11 +108,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 3,
-  "missed_opportunities_24h": 6,
+  "missed_opportunities_24h": 11,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T21:44:56.335495+00:00"
+    "last_check": "2026-06-30T21:59:56.785130+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -120,7 +120,7 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1850,
+    "news": 1847,
     "matched": 1030,
     "classified": 6082,
     "signals": 4,
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -4.39,
-    "total_pnl_usd": 43.17,
+    "unrealized_pnl_usd": -4.57,
+    "total_pnl_usd": 43.0,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2013.0
+    "avg_classification_latency_ms": 2012.3
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -237,11 +237,11 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.345,
-      "pnl_pct": -7.09,
+      "current_price": 0.35,
+      "pnl_pct": -7.8,
       "amount_usd": 24.85,
-      "current_value_usd": 23.09,
-      "pnl_usd": -1.76,
+      "current_value_usd": 22.91,
+      "pnl_usd": -1.94,
       "edge_type": "news",
       "event_id": "59233"
     }
@@ -417,6 +417,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-06-30 22:01:51",
+      "market_question": "Will Trump visit Pakistan by June 30?",
+      "headline": "Pakistan warns India against water weaponization at Indus Waters Treaty seminar - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 22:01:50",
+      "market_question": "Will Donald Trump visit India in 2026?",
+      "headline": "Pakistan warns India against water weaponization at Indus Waters Treaty seminar - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 22:01:50",
+      "market_question": "Will Donald Trump visit Pakistan in 2026?",
+      "headline": "Pakistan warns India against water weaponization at Indus Waters Treaty seminar - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-06-30 21:55:17",
       "market_question": "Will Pete Hegseth leave the Trump administration before 2027?",
       "headline": "Trump administration seeks to stomp out all fires quickly, reviving policy that has been discredited - AP News",
@@ -447,54 +495,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 21:55:17",
-      "market_question": "Will Donald Trump be the next leader out before 2027?",
-      "headline": "Trump administration seeks to stomp out all fires quickly, reviving policy that has been discredited - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 21:55:17",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Trump administration seeks to stomp out all fires quickly, reviving policy that has been discredited - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 21:55:17",
-      "market_question": "Venezuela election scheduled by December 31, 2026?",
-      "headline": "Three-year-old rescued and taken to hospital six days after Venezuela quake",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -543,91 +543,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-06-29 22:00:34",
-      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "time": "2026-06-30 22:00:32",
+      "market_question": "Will Apple be the second-largest company in the world by market cap on June 30?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.38) on 'Will OpenAI have a #1 AI model by December 31, 202' \u2014 price moved +14%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Apple be the second-largest company in the wo' \u2014 price moved +100%. Consider lowering min_materiality for technology category."
     },
     {
-      "time": "2026-06-29 22:00:30",
+      "time": "2026-06-30 22:00:29",
       "market_question": "OpenAI $1t+ IPO before 2027?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.40) on 'OpenAI $1t+ IPO before 2027?' \u2014 price moved +15%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.38) on 'OpenAI $1t+ IPO before 2027?' \u2014 price moved +15%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-06-29 22:00:27",
-      "market_question": "Will Trump attend 0 World Cup matches?",
+      "time": "2026-06-30 22:00:26",
+      "market_question": "Will Bitcoin reach $61,000 on June 30?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +55%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will Bitcoin reach $61,000 on June 30?' \u2014 price moved +97%. Consider lowering min_materiality for crypto category."
     },
     {
-      "time": "2026-06-29 22:00:25",
-      "market_question": "Will Bitcoin reach $62,000 on June 29?",
+      "time": "2026-06-30 22:00:26",
+      "market_question": "Will Bitcoin reach $61,000 on June 30?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will Bitcoin reach $62,000 on June 29?' \u2014 price moved +75%. Consider lowering min_materiality for crypto category."
+      "lesson": "High-materiality skip on crypto missed 97% \u2014 Direct Evidence Rule may be too strict"
     },
     {
-      "time": "2026-06-29 22:00:25",
-      "market_question": "Will Bitcoin reach $62,000 on June 29?",
+      "time": "2026-06-30 22:00:23",
+      "market_question": "Will Bitcoin reach $62,500 in June?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "High-materiality skip on crypto missed 75% \u2014 Direct Evidence Rule may be too strict"
+      "lesson": "Missed strong bearish signal (mat=0.55) on 'Will Bitcoin reach $62,500 in June?' \u2014 price moved +98%. Consider lowering min_materiality for crypto category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-06-29 22:00:34",
-      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
-      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
+      "time": "2026-06-30 22:00:32",
+      "market_question": "Will Apple be the second-largest company in the world by market cap on June 30?",
+      "slug": "2nd-largest-company-end-of-june-849",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "stale",
+      "pct_move": 99.9,
+      "reflection": "I flagged Apple as bearish with moderate conviction, but dismissed the signal as stale\u2014a decision that cost me dearly when the market moved decisively in my predicted direction. My error wasn't in the analysis itself, but in conflating \"older data\" with \"wrong data\"; I should have recognized that a 0.35 materiality threshold meant the signal still carried meaningful edge despite its age. This is a hard lesson in distinguishing between signal decay and signal dismissal\u2014I let recency bias override my own probabilistic judgment."
+    },
+    {
+      "time": "2026-06-30 22:00:29",
+      "market_question": "OpenAI $1t+ IPO before 2027?",
+      "slug": "openai-1t-ipo-before-2027",
       "direction": "bearish",
       "materiality": 0.38,
-      "action": "stale",
-      "pct_move": 13.8,
-      "reflection": "I flagged this as stale and sat out, but I underweighted how much the underlying fundamentals\u2014OpenAI's release cadence and competitive positioning\u2014were still evolving in real time, even if my signal felt dated. The 14% move in my predicted direction suggests the market was repricing something material about their model development trajectory that I dismissed rather than reassessed. I should have either refreshed my analysis or taken a smaller position rather than defaulting to inaction\u2014stale signals can still contain valid insights if the core drivers haven't actually changed."
-    },
-    {
-      "time": "2026-06-29 22:00:30",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
-      "slug": "openai-1t-ipo-before-2027",
-      "direction": "bearish",
-      "materiality": 0.4,
       "action": "skip",
       "pct_move": 15.1,
-      "reflection": "I flagged this as bearish with moderate conviction (0.40 materiality), but my skip decision cost me\u2014the market moved 15% exactly as I'd predicted, yet I failed to act on my own analysis. My hesitation likely stemmed from uncertainty about IPO timing and regulatory variables that felt too binary, but I underweighted the signal strength I *did* have; a directional call with that conviction should have warranted at least a modest position. This is a clean lesson: I need to distinguish between \"uncertain about magnitude\" and \"uncertain about direction\"\u2014the former shouldn't paralyze execution on the latter."
+      "reflection": "I flagged this OpenAI IPO signal as bearish with moderate conviction (0.38 materiality), but I skipped execution\u2014likely because the low materiality threshold made me hesitant to commit capital when I wasn't confident enough in the timing or magnitude. In hindsight, I was right directionally (15% move confirmed my bearish lean), but my risk-aversion cost me: I let uncertainty about *when* the move would happen override the signal's actual predictive value. I should have either raised my conviction threshold before signaling, or trusted my analysis enough to take a smaller position rather than sitting out entirely."
     },
     {
-      "time": "2026-06-29 22:00:27",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "action": "skip",
-      "pct_move": 55.4,
-      "reflection": "I flagged this as bearish with moderate confidence but skipped execution\u2014a critical mistake given the signal's accuracy. The 55% move in my predicted direction reveals I was right about the market's direction but wrong about my risk tolerance, likely second-guessing a lower-materiality call when I should have trusted my analysis and sized accordingly. This is a humbling reminder that conviction and execution matter as much as directional accuracy; a half-correct trader who acts beats a fully correct one paralyzed by doubt."
-    },
-    {
-      "time": "2026-06-29 22:00:25",
-      "market_question": "Will Bitcoin reach $62,000 on June 29?",
-      "slug": "what-price-will-bitcoin-hit-on-june-29",
+      "time": "2026-06-30 22:00:26",
+      "market_question": "Will Bitcoin reach $61,000 on June 30?",
+      "slug": "what-price-will-bitcoin-hit-on-june-30",
       "direction": "bearish",
       "materiality": 0.55,
       "action": "skip",
-      "pct_move": 75.3,
-      "reflection": "I issued a bearish signal with moderate conviction (0.55 materiality) but chose to skip execution entirely\u2014a decision that cost me 75% of the move I'd actually predicted correctly. My hesitation likely stemmed from that middling confidence level, but skipping a trade I fundamentally believed in was the wrong response; I should have sized down rather than opted out completely. This is a clear lesson that conviction and position sizing are separate decisions\u2014I can act on moderate signals with appropriate risk management instead of letting uncertainty paralyze me into inaction."
+      "pct_move": 97.1,
+      "reflection": "I issued a bearish signal with moderate conviction (0.55 materiality) but then skipped the trade entirely\u2014a critical disconnect that cost me. Bitcoin moved 97% in my predicted direction, meaning my directional analysis was sound, yet I failed to execute on it, likely due to overcautious risk management or uncertainty about position sizing at that confidence level. This is a humbling reminder that a skipped trade on a correct call is worse than a small loss on a wrong one, and I need to commit more decisively when my analysis reaches the threshold for action."
     },
     {
-      "time": "2026-06-29 22:00:22",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
-      "slug": "openai-1t-ipo-before-2027",
+      "time": "2026-06-30 22:00:23",
+      "market_question": "Will Bitcoin reach $62,500 in June?",
+      "slug": "what-price-will-bitcoin-hit-in-june-2026",
       "direction": "bearish",
       "materiality": 0.55,
-      "action": "stale",
-      "pct_move": 15.1,
-      "reflection": "I flagged this bearish at 0.55 materiality but dismissed it as stale data\u2014a mistake that cost me 15% of potential gains in the predicted direction. The signal had legitimate conviction despite aging, and I let recency bias override the actual analytical weight I'd assigned to it. I need to separate \"data freshness\" from \"signal validity\" going forward; staleness should downweight confidence, not eliminate positions entirely."
+      "action": "skip",
+      "pct_move": 98.1,
+      "reflection": "I issued a bearish signal with moderate conviction (0.55 materiality) on Bitcoin reaching $62,500 in June, but then skipped acting on it\u2014and the market moved 98% in my predicted direction, meaning Bitcoin fell well short of that target. I missed a straightforward win because I hesitated at the execution layer despite having directional clarity, which suggests my skip logic is too conservative and is filtering out valid, moderately-confident trades that actually pan out. Going forward, I need to distinguish between signals I'm uncertain about versus signals I'm confident in but psychologically reluctant to commit to."
+    },
+    {
+      "time": "2026-06-30 22:00:21",
+      "market_question": "Will Bitcoin reach $61,000 on June 30?",
+      "slug": "what-price-will-bitcoin-hit-on-june-30",
+      "direction": "bearish",
+      "materiality": 0.62,
+      "action": "skip",
+      "pct_move": 97.4,
+      "reflection": "I issued a bearish signal with solid conviction (0.62 materiality) but then skipped execution entirely\u2014a failure of follow-through that cost me the opportunity to capture a 97% directional win. The disconnect between my analysis and action suggests I either doubted my own signal at the last moment or lacked the confidence framework to commit when it mattered, which is precisely when discipline matters most. This miss highlights that in trading, conviction without execution is just expensive self-doubt."
     }
   ],
   "pending_suggestions": [
