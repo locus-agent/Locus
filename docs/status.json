@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T02:25:55.728219+00:00",
-  "last_heartbeat": "2026-06-30T02:25:55.728219+00:00",
-  "uptime_seconds": 135605,
+  "generated_at": "2026-06-30T02:31:02.217515+00:00",
+  "last_heartbeat": "2026-06-30T02:31:02.217515+00:00",
+  "uptime_seconds": 135912,
   "dry_run": false,
-  "markets_tracked": 1309,
+  "markets_tracked": 1311,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9622,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 133,
+  "headlines_scanned_today": 139,
   "headlines_last_cycle": 0,
   "signals_24h": 9,
-  "classifications_24h": 4141,
+  "classifications_24h": 4148,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1724,
+    "prefiltered_haiku": 1736,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -106,7 +106,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 5,
+  "watched_markets_count": 6,
   "missed_opportunities_24h": 6,
   "whale": {
     "watched_wallets": 4,
@@ -119,39 +119,39 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1169,
-    "matched": 906,
-    "classified": 4141,
+    "news": 1172,
+    "matched": 907,
+    "classified": 4148,
     "signals": 9,
     "trades": 4
   },
   "performance": {
     "trades_total": 42,
     "deployed_usd": 924.55,
-    "open_count": 2,
-    "closed_count": 33,
-    "wins": 19,
+    "open_count": 1,
+    "closed_count": 34,
+    "wins": 20,
     "losses": 14,
-    "win_rate_pct": 57.6,
-    "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": 2.37,
+    "win_rate_pct": 58.8,
+    "realized_pnl_usd": 47.56,
+    "unrealized_pnl_usd": -0.18,
     "total_pnl_usd": 47.39,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2245.0
+    "avg_classification_latency_ms": 2242.6
   },
   "live_readiness": {
     "ready": true,
     "criteria_met": 4,
     "criteria_total": 4,
-    "sharpe_days_count": 11,
+    "sharpe_days_count": 12,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 33,
+        "value": 34,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -159,7 +159,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 57.6,
+        "value": 58.8,
         "threshold_display": "> 55%",
         "pass": true
       },
@@ -167,7 +167,7 @@
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 4.46,
+        "value": 4.53,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -175,7 +175,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 4.5,
+        "value": 4.4,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -184,8 +184,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0773,
-    "sharpe_7d": -0.56
+    "drawdown_7d": 0.0745,
+    "sharpe_7d": -0.41
   },
   "open_positions": [
     {
@@ -201,23 +201,21 @@
       "pnl_usd": -0.18,
       "edge_type": "news",
       "event_id": "59233"
-    },
+    }
+  ],
+  "closed_positions": [
     {
-      "time": "2026-06-29 08:48:35",
+      "time": "2026-06-30T02:27:00.081379+00:00",
       "market_question": "Will Julie Gonzales be the Democratic nominee for Senate in Colorado?",
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.0915,
-      "pnl_pct": 31.65,
-      "amount_usd": 8.03,
-      "current_value_usd": 10.57,
-      "pnl_usd": 2.54,
-      "edge_type": "news",
-      "event_id": "80037"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": 0.0915,
+      "realized_pnl_usd": 2.5418705035971207,
+      "exit_reason": "manual",
+      "event_id": "80037",
+      "partial": false
+    },
     {
       "time": "2026-06-29T10:09:40.830878+00:00",
       "market_question": "Bitcoin Up or Down on June 29?",
@@ -325,21 +323,18 @@
       "exit_reason": "drawdown_decision",
       "event_id": "629884",
       "partial": false
-    },
-    {
-      "time": "2026-06-24T12:17:38.732256+00:00",
-      "market_question": "Bitcoin Up or Down on June 24?",
-      "slug": "bitcoin-up-or-down-on-june-24-2026",
-      "side": "NO",
-      "entry_price": 0.625,
-      "exit_price": 0.705,
-      "realized_pnl_usd": -5.333333333333331,
-      "exit_reason": "time_pressure",
-      "event_id": "622556",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-06-30 02:27:00",
+      "market_question": "Will Julie Gonzales be the Democratic nominee for Senate in Colorado?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 31.65
+    },
     {
       "time": "2026-06-29 10:09:41",
       "market_question": "Bitcoin Up or Down on June 29?",
@@ -375,97 +370,88 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (manual); position kept open",
       "pnl_pct": 12.99
-    },
-    {
-      "time": "2026-06-28 00:44:09",
-      "market_question": "Will Trump deport 400-500k people?",
-      "side": "YES",
-      "trigger": "manual",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (manual); position kept open",
-      "pnl_pct": 12.99
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 02:23:48",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 02:30:25",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Paraguay stun Germany on penalties to reach World Cup last 16 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 02:23:48",
-      "market_question": "Will the Democrats win the Virginia Senate race in 2026?",
-      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 02:30:24",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Paraguay stun Germany on penalties to reach World Cup last 16 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 02:23:48",
-      "market_question": "Will Chuck Smith be the Republican nominee for Senate in Virginia?",
-      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 02:30:24",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Paraguay stun Germany on penalties to reach World Cup last 16 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 02:23:48",
-      "market_question": "Will Alex De Paula be the Republican nominee for Senate in Virginia?",
-      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 02:30:24",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Paraguay stun Germany on penalties to reach World Cup last 16 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 02:23:48",
-      "market_question": "Will the Republicans win the West Virginia Senate race in 2026?",
-      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 02:30:24",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Paraguay stun Germany on penalties to reach World Cup last 16 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
