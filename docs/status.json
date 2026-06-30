@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T16:04:15.142787+00:00",
-  "last_heartbeat": "2026-06-30T16:04:15.142787+00:00",
-  "uptime_seconds": 11088,
+  "generated_at": "2026-06-30T16:09:22.647330+00:00",
+  "last_heartbeat": "2026-06-30T16:09:22.647330+00:00",
+  "uptime_seconds": 11395,
   "dry_run": false,
   "markets_tracked": 1307,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1296,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1324,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 5501,
+  "classifications_24h": 5600,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2168,
+    "prefiltered_haiku": 2198,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1720,
-    "matched": 903,
-    "classified": 5501,
+    "news": 1744,
+    "matched": 923,
+    "classified": 5600,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1984.4
+    "avg_classification_latency_ms": 2010.1
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -403,9 +403,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 16:04:13",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day?",
-      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
+      "time": "2026-06-30 16:07:31",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Why Aren\u2019t Gas Prices Falling Faster? Chevron CFO Responds As Trump Turns Up The Heat On Big Oil: 'Doing Everything That We Can...' - Yahoo Finance",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -419,9 +419,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 16:04:11",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
+      "time": "2026-06-30 16:07:31",
+      "market_question": "Will Michael Ford win the 2026 Toronto mayoral election?",
+      "headline": "Ford rehires \u2018gray beard\u2019 engineers after AI falls short - TechCrunch",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 16:07:28",
+      "market_question": "Will Trump resign by December 31, 2026?",
+      "headline": "Why Aren\u2019t Gas Prices Falling Faster? Chevron CFO Responds As Trump Turns Up The Heat On Big Oil: 'Doing Everything That We Can...' - Yahoo Finance",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -435,52 +451,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 16:04:10",
-      "market_question": "Will Anthropic\u2019s market cap be $600B or greater at market close on IPO day?",
-      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 16:07:28",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Why Aren\u2019t Gas Prices Falling Faster? Chevron CFO Responds As Trump Turns Up The Heat On Big Oil: 'Doing Everything That We Can...' - Yahoo Finance",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 16:04:10",
-      "market_question": "Will Anthropic\u2019s market cap be between $400B and $600B at market close on IPO day?",
-      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 16:07:28",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Why Aren\u2019t Gas Prices Falling Faster? Chevron CFO Responds As Trump Turns Up The Heat On Big Oil: 'Doing Everything That We Can...' - Yahoo Finance",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 16:04:10",
-      "market_question": "Will OpenAI\u2019s market cap be between $1T and $1.25T at market close on IPO day?",
-      "headline": "Job openings stayed at a surprisingly strong 7.6 million in May; U.S. labor market proves resilient - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
