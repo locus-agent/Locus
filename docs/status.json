@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T13:56:24.553875+00:00",
-  "last_heartbeat": "2026-06-30T13:56:24.553875+00:00",
-  "uptime_seconds": 3417,
+  "generated_at": "2026-06-30T14:01:31.988431+00:00",
+  "last_heartbeat": "2026-06-30T14:01:31.988431+00:00",
+  "uptime_seconds": 3725,
   "dry_run": false,
-  "markets_tracked": 1301,
+  "markets_tracked": 1299,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9667,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 1052,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1101,
+  "headlines_last_cycle": 12,
   "signals_24h": 8,
-  "classifications_24h": 5073,
+  "classifications_24h": 5236,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1985,
-    "stale": 1,
+    "prefiltered_haiku": 2070,
+    "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T13:44:42.171600+00:00"
+    "last_check": "2026-06-30T13:59:42.565722+00:00"
   },
   "edge_types_24h": {
     "news": 7,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1604,
-    "matched": 878,
-    "classified": 5073,
+    "news": 1651,
+    "matched": 900,
+    "classified": 5236,
     "signals": 8,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1798.6
+    "avg_classification_latency_ms": 1832.6
   },
   "live_readiness": {
     "ready": true,
@@ -389,41 +389,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 13:52:27",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "UK may intervene in $110 billion Paramount-Warner Bros Discovery deal - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 13:52:27",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "UK may intervene in $110 billion Paramount-Warner Bros Discovery deal - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 13:48:05",
-      "market_question": "Bitmine sells any Ethereum in 2026?",
-      "headline": "Signed Paul McCartney book found in  charity shop sells for nearly \u00a31,000",
+      "time": "2026-06-30 14:01:28",
+      "market_question": "Will Bitcoin reach $62,500 in June?",
+      "headline": "Interested Parties Memo: Spending - through June 29 - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -437,36 +405,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 13:48:04",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Signed Paul McCartney book found in  charity shop sells for nearly \u00a31,000",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 14:01:28",
+      "market_question": "Will Ethereum reach $2,400 in June?",
+      "headline": "Interested Parties Memo: Spending - through June 29 - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-06-30 13:48:04",
-      "market_question": "Trump-Denmark Greenland deal signed by June 30?",
-      "headline": "Signed Paul McCartney book found in  charity shop sells for nearly \u00a31,000",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 14:01:28",
+      "market_question": "Will OpenAI have a #1 AI model by June 30?",
+      "headline": "Interested Parties Memo: Spending - through June 29 - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 14:01:28",
+      "market_question": "Will Trump be impeached by June 30?",
+      "headline": "Interested Parties Memo: Spending - through June 29 - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 14:01:28",
+      "market_question": "Will Ethereum reach $2,800 in June?",
+      "headline": "Interested Parties Memo: Spending - through June 29 - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
