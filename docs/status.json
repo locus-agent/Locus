@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T02:20:49.172895+00:00",
-  "last_heartbeat": "2026-06-30T02:20:49.172895+00:00",
-  "uptime_seconds": 135299,
+  "generated_at": "2026-06-30T02:25:55.728219+00:00",
+  "last_heartbeat": "2026-06-30T02:25:55.728219+00:00",
+  "uptime_seconds": 135605,
   "dry_run": false,
   "markets_tracked": 1309,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 127,
+  "headlines_scanned_today": 133,
   "headlines_last_cycle": 0,
   "signals_24h": 9,
   "classifications_24h": 4141,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1722,
+    "prefiltered_haiku": 1724,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,8 +119,8 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1165,
-    "matched": 905,
+    "news": 1169,
+    "matched": 906,
     "classified": 4141,
     "signals": 9,
     "trades": 4
@@ -134,12 +134,12 @@
     "losses": 14,
     "win_rate_pct": 57.6,
     "realized_pnl_usd": 45.02,
-    "unrealized_pnl_usd": 1.96,
-    "total_pnl_usd": 46.98,
+    "unrealized_pnl_usd": 2.37,
+    "total_pnl_usd": 47.39,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2246.2
+    "avg_classification_latency_ms": 2245.0
   },
   "live_readiness": {
     "ready": true,
@@ -208,11 +208,11 @@
       "slug": "colorado-democratic-senate-primary-winner",
       "side": "YES",
       "entry_price": 0.0695,
-      "current_price": 0.088,
-      "pnl_pct": 26.62,
+      "current_price": 0.0915,
+      "pnl_pct": 31.65,
       "amount_usd": 8.03,
-      "current_value_usd": 10.17,
-      "pnl_usd": 2.14,
+      "current_value_usd": 10.57,
+      "pnl_usd": 2.54,
       "edge_type": "news",
       "event_id": "80037"
     }
@@ -388,25 +388,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 02:19:30",
-      "market_question": "Will Trump meet with Kim Jong Un in 2026?",
-      "headline": "Kim Jong Un - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 02:19:25",
+      "time": "2026-06-30 02:23:48",
       "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Kim Jong Un - Politico",
+      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +404,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 02:19:25",
-      "market_question": "Will Kim Kataguiri win the 2026 S\u00e3o Paulo gubernatorial election?",
-      "headline": "Kim Jong Un - Politico",
+      "time": "2026-06-30 02:23:48",
+      "market_question": "Will the Democrats win the Virginia Senate race in 2026?",
+      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,36 +420,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 02:17:18",
-      "market_question": "Ethereum Up or Down - June 29, 10:10PM-10:15PM ET",
-      "headline": "Stocks and oil prices rise with eyes on Iran; yen touches 40-year low vs dollar - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-30 02:23:48",
+      "market_question": "Will Chuck Smith be the Republican nominee for Senate in Virginia?",
+      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-30 02:17:18",
-      "market_question": "Ethereum Up or Down - June 29, 10:00PM-10:15PM ET",
-      "headline": "Stocks and oil prices rise with eyes on Iran; yen touches 40-year low vs dollar - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-06-30 02:23:48",
+      "market_question": "Will Alex De Paula be the Republican nominee for Senate in Virginia?",
+      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 02:23:48",
+      "market_question": "Will the Republicans win the West Virginia Senate race in 2026?",
+      "headline": "Digital Realty to pay Blackstone $3.5 billion for stake in Virginia data centers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
