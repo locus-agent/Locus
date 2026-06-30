@@ -1,56 +1,56 @@
 {
-  "generated_at": "2026-06-30T00:49:01.332188+00:00",
-  "last_heartbeat": "2026-06-30T00:49:01.332188+00:00",
-  "uptime_seconds": 129791,
+  "generated_at": "2026-06-30T00:54:06.982123+00:00",
+  "last_heartbeat": "2026-06-30T00:54:06.982123+00:00",
+  "uptime_seconds": 130097,
   "dry_run": false,
-  "markets_tracked": 1306,
+  "markets_tracked": 1307,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9608,
+    "total": 9622,
     "accuracy": 17.7,
     "by_category": {
       "other": 16.2,
       "ai": 11.5,
-      "politics": 20.9,
-      "technology": 12.9,
-      "crypto": 16.6,
+      "politics": 20.8,
+      "technology": 12.8,
+      "crypto": 16.5,
       "sports": 26.2
     },
     "by_source": {
       "rss": 17.8,
-      "newsapi": 18.1,
-      "truthsocial": 7.5
+      "newsapi": 18.0,
+      "truthsocial": 7.4
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.7,
-    "overall_total": 9608,
+    "overall_total": 9622,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5437,
+        "total": 5444,
         "correct": 377,
         "accuracy_pct": 6.9,
-        "avg_pnl_pct": 10.45,
+        "avg_pnl_pct": 10.43,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 847,
+        "total": 848,
         "correct": 299,
         "accuracy_pct": 35.3,
-        "avg_pnl_pct": 25.28,
+        "avg_pnl_pct": 25.25,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1012,
+        "total": 1014,
         "correct": 389,
         "accuracy_pct": 38.4,
-        "avg_pnl_pct": 4.79,
+        "avg_pnl_pct": 4.78,
         "color": "green"
       },
       {
@@ -65,30 +65,30 @@
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 533,
+        "total": 534,
         "correct": 227,
-        "accuracy_pct": 42.6,
-        "avg_pnl_pct": 3.86,
+        "accuracy_pct": 42.5,
+        "avg_pnl_pct": 3.85,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1209,
-        "correct": 233,
+        "total": 1212,
+        "correct": 234,
         "accuracy_pct": 19.3,
-        "avg_pnl_pct": -2.88,
+        "avg_pnl_pct": -2.89,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 42,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 45,
+  "headlines_last_cycle": 2,
   "signals_24h": 8,
-  "classifications_24h": 4154,
+  "classifications_24h": 4158,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1723,
+    "prefiltered_haiku": 1719,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1141,
-    "matched": 906,
-    "classified": 4154,
+    "news": 1143,
+    "matched": 908,
+    "classified": 4158,
     "signals": 8,
     "trades": 3
   },
@@ -374,25 +374,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 00:43:01",
-      "market_question": "Zelenskyy out as Ukraine president by June 30, 2026?",
-      "headline": "Volodymyr Zelenskyy - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 00:43:01",
-      "market_question": "Will Trump pardon Young Thug before 2027?",
-      "headline": "Todd Young - Politico",
+      "time": "2026-06-30 00:53:52",
+      "market_question": "Will Ed Gallrein win the 2026 KY-04 Republican Primary Election by between 3% and 6%?",
+      "headline": "GOP Primary - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -406,9 +390,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 00:43:01",
-      "market_question": "Will the Republicans win the West Virginia Senate race in 2026?",
-      "headline": "Ye, better known as Kanye West - Politico",
+      "time": "2026-06-30 00:53:52",
+      "market_question": "Will Ed Gallrein win the 2026 KY-04 Republican Primary Election by less than 3%?",
+      "headline": "GOP Primary - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -422,36 +406,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 00:43:00",
-      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Gerrymandering - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-30 00:53:52",
+      "market_question": "Will Thomas Massie win the 2026 KY-04 Republican Primary Election by less than 3%?",
+      "headline": "GOP Primary - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-06-30 00:43:00",
-      "market_question": "Will Georgia use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Gerrymandering - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-06-30 00:53:52",
+      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
+      "headline": "GOP Primary - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 00:53:52",
+      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by less than 5%?",
+      "headline": "GOP Primary - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
