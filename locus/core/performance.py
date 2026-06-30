@@ -13,6 +13,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
 import httpx
+from dateutil import parser as date_parser
 
 from locus import config
 from locus.memory import logger
@@ -276,6 +277,26 @@ MATERIALITY_BUCKETS = [
 # Category print order (matches MARKET_CATEGORIES); anything else after these.
 CATEGORY_ORDER = ["politics", "crypto", "tech", "ai", "sports", "geopolitical", "other"]
 
+# Entry-price (YES) buckets for longshot analysis. Cheap longshots (a 0.07 YES)
+# are a known loss pattern; this surfaces whether they bleed systematically.
+ENTRY_PRICE_BUCKETS = [
+    (0.0, 0.15, "[<0.15 longshot]"),
+    (0.15, 0.35, "[0.15-0.35]"),
+    (0.35, 0.65, "[0.35-0.65]"),
+    (0.65, 0.85, "[0.65-0.85]"),
+    (0.85, float("inf"), "[>0.85]"),
+]
+
+# Time-to-resolution buckets, in hours (end_date - opened_at).
+TTR_BUCKETS = [
+    (0.0, 24.0, "[<24h]"),
+    (24.0, 168.0, "[1-7 days]"),
+    (168.0, float("inf"), "[>7 days]"),
+]
+
+# How many trades to list in the best/worst leaderboards.
+TOP_TRADES_N = 5
+
 # Below this many closed trades the report is not statistically meaningful.
 CALIBRATION_MIN_SAMPLE = 25
 
@@ -314,6 +335,32 @@ def _materiality_label(m: float | None) -> str:
     return MATERIALITY_BUCKETS[-1][2]
 
 
+def _range_label(v: float | None, buckets: list[tuple]) -> str:
+    """Half-open [lo, hi) bucket label for a numeric value; NULL/out-of-range ->
+    'unknown' so nothing is silently dropped."""
+    if v is None:
+        return "unknown"
+    for lo, hi, label in buckets:
+        if lo <= v < hi:
+            return label
+    return "unknown"
+
+
+def _hours_to_resolution(opened_at, end_date) -> float | None:
+    """Hours from a position's open to its market's resolution (end_date), or
+    None when either timestamp is missing/unparseable. opened_at is stored as
+    naive UTC and end_date as ISO-with-Z; both are flattened to naive UTC so the
+    subtraction never raises on a tz mismatch."""
+    if not opened_at or not str(end_date).strip():
+        return None
+    try:
+        o = date_parser.parse(str(opened_at)).replace(tzinfo=None)
+        e = date_parser.parse(str(end_date)).replace(tzinfo=None)
+    except (ValueError, TypeError, OverflowError):
+        return None
+    return (e - o).total_seconds() / 3600.0
+
+
 def _grouped(rows: list[dict], key_fn, order: list[str] | None = None) -> list[dict]:
     """Group rows by key_fn(row) and return [{'label', **stats}], ordered by
     `order` first (only labels that occur) then any remaining labels sorted."""
@@ -339,17 +386,22 @@ def calibration_report() -> dict:
     Returns a structured dict (rendered by format_calibration_report):
       - summary: n, wins, win_rate, total_pnl, small_sample flag + threshold
       - by_materiality / by_category / by_direction / by_fill_quality /
-        by_exit_reason: each a list of {label, n, wins, win_rate, total_pnl, avg_pnl}
+        by_exit_reason / by_entry_price / by_time_to_resolution: each a list of
+        {label, n, wins, win_rate, total_pnl, avg_pnl}
+      - best_trades / worst_trades: up to TOP_TRADES_N {market_question, direction,
+        entry_yes_price, realized_pnl_usd} sorted by realized PnL
 
     Missing/NULL fields are tolerated: materiality/direction/category/exit_reason
-    fall back to an 'unknown' bucket, and positions without actual_cost_usd are
-    reported as a separate 'unknown' fill-quality group rather than misclassified.
+    and out-of-range entry price / unparseable resolution times fall back to an
+    'unknown' bucket, and positions without actual_cost_usd are reported as a
+    separate 'unknown' fill-quality group rather than misclassified.
     """
     conn = logger._conn()
     rows = [
         dict(r) for r in conn.execute(
             """SELECT p.status, p.category, p.side, p.entry_yes_price, p.amount_usd,
                       p.actual_cost_usd, p.realized_pnl_usd, p.exit_reason,
+                      p.market_question, p.opened_at, p.end_date,
                       t.materiality AS materiality, t.classification AS direction
                FROM positions p
                LEFT JOIN trades t ON p.trade_id = t.id
@@ -396,6 +448,36 @@ def calibration_report() -> dict:
                "unknown (no cost data)"],
     )
 
+    by_entry_price = _grouped(
+        rows, lambda r: _range_label(r.get("entry_yes_price"), ENTRY_PRICE_BUCKETS),
+        order=[b[2] for b in ENTRY_PRICE_BUCKETS] + ["unknown"],
+    )
+    by_time_to_resolution = _grouped(
+        rows,
+        lambda r: _range_label(
+            _hours_to_resolution(r.get("opened_at"), r.get("end_date")), TTR_BUCKETS),
+        order=[b[2] for b in TTR_BUCKETS] + ["unknown"],
+    )
+
+    # Best/worst leaderboards: sort by realized PnL (NULL treated as 0.0). Best is
+    # highest-first, worst is lowest-first; with < 2*TOP_TRADES_N closed trades the
+    # two lists naturally overlap, which is fine for a small book.
+    def _pnl(r: dict) -> float:
+        return r.get("realized_pnl_usd") or 0.0
+
+    by_pnl = sorted(rows, key=_pnl)
+
+    def _trade_entry(r: dict) -> dict:
+        return {
+            "market_question": r.get("market_question") or "(unknown market)",
+            "direction": (r.get("direction") or "").strip() or "unknown",
+            "entry_yes_price": r.get("entry_yes_price"),
+            "realized_pnl_usd": round(_pnl(r), 2),
+        }
+
+    worst_trades = [_trade_entry(r) for r in by_pnl[:TOP_TRADES_N]]
+    best_trades = [_trade_entry(r) for r in by_pnl[::-1][:TOP_TRADES_N]]
+
     return {
         "summary": summary,
         "by_materiality": by_materiality,
@@ -403,6 +485,10 @@ def calibration_report() -> dict:
         "by_direction": by_direction,
         "by_fill_quality": by_fill_quality,
         "by_exit_reason": by_exit_reason,
+        "by_entry_price": by_entry_price,
+        "by_time_to_resolution": by_time_to_resolution,
+        "best_trades": best_trades,
+        "worst_trades": worst_trades,
     }
 
 
@@ -431,6 +517,27 @@ def _render_table(title: str, entries: list[dict], label_header: str,
         lines.append(
             f"  {e['label']:<28}{e['n']:>5}{_fmt_pct(e['win_rate']):>9}"
             f"{_fmt_usd(e['total_pnl']):>14}{_fmt_usd(e['avg_pnl']):>13}"
+        )
+    return lines
+
+
+def _render_trade_list(title: str, trades: list[dict]) -> list[str]:
+    """Render a best/worst leaderboard as a fixed-width plain-text table."""
+    lines = ["", title]
+    if not trades:
+        lines.append("  (no data)")
+        return lines
+    lines.append(
+        f"  {'Market':<45}{'Direction':>10}{'Entry':>8}{'PnL':>13}"
+    )
+    lines.append("  " + "-" * 74)
+    for t in trades:
+        q = (t["market_question"] or "")[:44]
+        entry = t["entry_yes_price"]
+        entry_s = f"{entry:.3f}" if entry is not None else "—"
+        lines.append(
+            f"  {q:<45}{t['direction']:>10}{entry_s:>8}"
+            f"{_fmt_usd(t['realized_pnl_usd']):>13}"
         )
     return lines
 
@@ -467,6 +574,18 @@ def format_calibration_report(report: dict) -> str:
         purpose="are illiquid/partial-fill markets costing us money?",
     )
     out += _render_table("5. EXIT REASON BREAKDOWN", report["by_exit_reason"], "Exit reason")
+    out += _render_table(
+        "7. BREAKDOWN BY ENTRY PRICE BUCKET (longshot analysis)",
+        report["by_entry_price"], "Entry price",
+        purpose="are cheap longshots systematically losing money?",
+    )
+    out += _render_table(
+        "8. BREAKDOWN BY TIME TO RESOLUTION", report["by_time_to_resolution"],
+        "Time to resolve",
+        purpose="end_date - opened_at; NULL end_date shown as 'unknown'.",
+    )
+    out += _render_trade_list("9. TOP 5 BEST TRADES", report["best_trades"])
+    out += _render_trade_list("   TOP 5 WORST TRADES", report["worst_trades"])
     out.append("")
     return "\n".join(out)
 
