@@ -15,6 +15,7 @@ Usage:
     python cli.py close <position_id>  # Manually close an open position
     python cli.py reconcile-positions  # Sync DB open positions with on-chain state (--fix to apply)
     python cli.py stats                # Performance statistics
+    python cli.py calibration-report   # Read-only calibration analytics (closed positions)
     python cli.py evolve               # Manually evolve the classification prompt
     python cli.py suggestion list      # List pending threshold-adjustment suggestions
     python cli.py suggestion review <id>  # Mark a suggestion as reviewed
@@ -590,6 +591,14 @@ def cmd_stats(args):
         console.print(f"    Accuracy: {cal['accuracy']:.1f}% ({cal['total']} resolved)")
 
 
+def cmd_calibration_report(args):
+    """Read-only calibration analytics over closed positions (no writes)."""
+    from locus.core import performance
+
+    report = performance.calibration_report()
+    print(performance.format_calibration_report(report))
+
+
 def cmd_evolve(args):
     """Manually trigger a meta-prompt evolution (normally weekly, after journal)."""
     import asyncio
@@ -714,6 +723,13 @@ def main():
     # stats
     p_stats = sub.add_parser("stats", help="Performance statistics")
     p_stats.set_defaults(func=cmd_stats)
+
+    # calibration-report (read-only analytics over closed positions)
+    p_calrep = sub.add_parser(
+        "calibration-report",
+        help="Read-only calibration analytics over closed positions",
+    )
+    p_calrep.set_defaults(func=cmd_calibration_report)
 
     # evolve
     p_evolve = sub.add_parser("evolve", help="Manually evolve the classification prompt")

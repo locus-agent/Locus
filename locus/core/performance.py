@@ -260,6 +260,217 @@ def compute_circuit_breaker() -> dict:
     }
 
 
+# --- calibration-report analytics (read-only) --------------------------------
+
+# Predicted-materiality buckets for the calibration report. Lower edge is the
+# trade floor (MIN_MATERIALITY_BEARISH 0.27); anything below that or NULL lands
+# in a catch-all so no closed trade is silently dropped from the tables.
+MATERIALITY_BUCKETS = [
+    (0.27, 0.40, "[0.27-0.40)"),
+    (0.40, 0.50, "[0.40-0.50)"),
+    (0.50, 0.60, "[0.50-0.60)"),
+    (0.60, 0.70, "[0.60-0.70)"),
+    (0.70, float("inf"), "[0.70+]"),
+]
+
+# Category print order (matches MARKET_CATEGORIES); anything else after these.
+CATEGORY_ORDER = ["politics", "crypto", "tech", "ai", "sports", "geopolitical", "other"]
+
+# Below this many closed trades the report is not statistically meaningful.
+CALIBRATION_MIN_SAMPLE = 25
+
+
+def _is_win(row: dict) -> bool:
+    """A trade is a win iff its realized PnL is strictly positive. NULL/0 (a
+    break-even or never-realized close) is not a win."""
+    return (row.get("realized_pnl_usd") or 0.0) > 0
+
+
+def _group_stats(rows: list[dict]) -> dict:
+    """n / wins / win-rate% / total PnL / avg PnL for a group of closed positions.
+    Empty group yields zero counts and None rates so callers render '—' not 0%."""
+    n = len(rows)
+    total = sum((r.get("realized_pnl_usd") or 0.0) for r in rows)
+    wins = sum(1 for r in rows if _is_win(r))
+    return {
+        "n": n,
+        "wins": wins,
+        "win_rate": round(wins / n * 100, 1) if n else None,
+        "total_pnl": round(total, 2),
+        "avg_pnl": round(total / n, 2) if n else None,
+    }
+
+
+def _materiality_label(m: float | None) -> str:
+    """Bucket label for a predicted materiality, gracefully handling NULL and
+    sub-floor (legacy 0.25) values so they're surfaced, not dropped."""
+    if m is None:
+        return "unknown"
+    if m < MATERIALITY_BUCKETS[0][0]:
+        return "[<0.27]"
+    for lo, hi, label in MATERIALITY_BUCKETS:
+        if lo <= m < hi:
+            return label
+    return MATERIALITY_BUCKETS[-1][2]
+
+
+def _grouped(rows: list[dict], key_fn, order: list[str] | None = None) -> list[dict]:
+    """Group rows by key_fn(row) and return [{'label', **stats}], ordered by
+    `order` first (only labels that occur) then any remaining labels sorted."""
+    buckets: dict[str, list[dict]] = defaultdict(list)
+    for r in rows:
+        buckets[key_fn(r)].append(r)
+    labels = list(buckets.keys())
+    if order:
+        ranked = [l for l in order if l in buckets]
+        ranked += sorted(l for l in labels if l not in order)
+    else:
+        ranked = sorted(labels)
+    return [{"label": l, **_group_stats(buckets[l])} for l in ranked]
+
+
+def calibration_report() -> dict:
+    """Read-only calibration analysis of CLOSED positions (status LIKE 'closed%')
+    joined to their trade's classification data.
+
+    Pure read: opens its own connection, runs a single SELECT, and never writes,
+    migrates, or touches trading logic — safe to run while the live agent trades.
+
+    Returns a structured dict (rendered by format_calibration_report):
+      - summary: n, wins, win_rate, total_pnl, small_sample flag + threshold
+      - by_materiality / by_category / by_direction / by_fill_quality /
+        by_exit_reason: each a list of {label, n, wins, win_rate, total_pnl, avg_pnl}
+
+    Missing/NULL fields are tolerated: materiality/direction/category/exit_reason
+    fall back to an 'unknown' bucket, and positions without actual_cost_usd are
+    reported as a separate 'unknown' fill-quality group rather than misclassified.
+    """
+    conn = logger._conn()
+    rows = [
+        dict(r) for r in conn.execute(
+            """SELECT p.status, p.category, p.side, p.entry_yes_price, p.amount_usd,
+                      p.actual_cost_usd, p.realized_pnl_usd, p.exit_reason,
+                      t.materiality AS materiality, t.classification AS direction
+               FROM positions p
+               LEFT JOIN trades t ON p.trade_id = t.id
+               WHERE p.status LIKE 'closed%'"""
+        ).fetchall()
+    ]
+    conn.close()
+
+    summary = _group_stats(rows)
+    summary["small_sample"] = summary["n"] < CALIBRATION_MIN_SAMPLE
+    summary["small_sample_threshold"] = CALIBRATION_MIN_SAMPLE
+
+    by_materiality = _grouped(
+        rows, lambda r: _materiality_label(r.get("materiality")),
+        order=[b[2] for b in MATERIALITY_BUCKETS] + ["[<0.27]", "unknown"],
+    )
+    by_category = _grouped(
+        rows, lambda r: (r.get("category") or "").strip() or "unknown",
+        order=CATEGORY_ORDER + ["unknown"],
+    )
+    by_direction = _grouped(
+        rows, lambda r: (r.get("direction") or "").strip() or "unknown",
+        order=["bullish", "bearish", "neutral", "unknown"],
+    )
+    by_exit_reason = _grouped(
+        rows, lambda r: (r.get("exit_reason") or "").strip() or "unknown",
+    )
+
+    # Fill quality: a fill that cost < 50% of the position's nominal size was a
+    # thin/partial fill. actual_cost_usd is NULL for legacy/dry-run rows — those
+    # can't be judged, so they're their own 'unknown' group, never lumped in.
+    def _fill_label(r: dict) -> str:
+        cost = r.get("actual_cost_usd")
+        nominal = r.get("amount_usd") or 0.0
+        if cost is None:
+            return "unknown (no cost data)"
+        if nominal > 0 and cost < 0.5 * nominal:
+            return "partial fill (<50% nominal)"
+        return "full fill (>=50% nominal)"
+
+    by_fill_quality = _grouped(
+        rows, _fill_label,
+        order=["partial fill (<50% nominal)", "full fill (>=50% nominal)",
+               "unknown (no cost data)"],
+    )
+
+    return {
+        "summary": summary,
+        "by_materiality": by_materiality,
+        "by_category": by_category,
+        "by_direction": by_direction,
+        "by_fill_quality": by_fill_quality,
+        "by_exit_reason": by_exit_reason,
+    }
+
+
+def _fmt_pct(v: float | None) -> str:
+    return f"{v:.1f}%" if v is not None else "—"
+
+
+def _fmt_usd(v: float | None) -> str:
+    return f"${v:+,.2f}" if v is not None else "—"
+
+
+def _render_table(title: str, entries: list[dict], label_header: str,
+                  purpose: str | None = None) -> list[str]:
+    """Render one section as a fixed-width plain-text table."""
+    lines = ["", title]
+    if purpose:
+        lines.append(f"  Purpose: {purpose}")
+    if not entries:
+        lines.append("  (no data)")
+        return lines
+    lines.append(
+        f"  {label_header:<28}{'N':>5}{'Win%':>9}{'TotalPnL':>14}{'AvgPnL':>13}"
+    )
+    lines.append("  " + "-" * 67)
+    for e in entries:
+        lines.append(
+            f"  {e['label']:<28}{e['n']:>5}{_fmt_pct(e['win_rate']):>9}"
+            f"{_fmt_usd(e['total_pnl']):>14}{_fmt_usd(e['avg_pnl']):>13}"
+        )
+    return lines
+
+
+def format_calibration_report(report: dict) -> str:
+    """Render calibration_report() output as a plain-text report (no rich markup)."""
+    s = report["summary"]
+    out: list[str] = []
+    out.append("=" * 69)
+    out.append("  CALIBRATION REPORT  (read-only — closed positions only)")
+    out.append("=" * 69)
+    out.append("")
+    out.append(f"  Total closed trades : {s['n']}")
+    out.append(f"  Overall win rate    : {_fmt_pct(s['win_rate'])} ({s['wins']}/{s['n']} wins)")
+    out.append(f"  Total realized PnL  : {_fmt_usd(s['total_pnl'])}")
+    if s["small_sample"]:
+        out.append("")
+        out.append("  " + "!" * 65)
+        out.append(f"  !! SMALL SAMPLE WARNING: only {s['n']} closed trades "
+                   f"(< {s['small_sample_threshold']}).")
+        out.append("  !! Win rates and per-bucket PnL below are NOT statistically")
+        out.append("  !! reliable — treat every number as directional, not conclusive.")
+        out.append("  " + "!" * 65)
+
+    out += _render_table(
+        "1. CALIBRATION BY MATERIALITY BUCKET", report["by_materiality"],
+        "Materiality",
+        purpose="does higher predicted materiality mean a higher win rate?",
+    )
+    out += _render_table("2. BREAKDOWN BY CATEGORY", report["by_category"], "Category")
+    out += _render_table("3. BREAKDOWN BY DIRECTION", report["by_direction"], "Direction")
+    out += _render_table(
+        "4. FILL QUALITY ANALYSIS", report["by_fill_quality"], "Fill group",
+        purpose="are illiquid/partial-fill markets costing us money?",
+    )
+    out += _render_table("5. EXIT REASON BREAKDOWN", report["by_exit_reason"], "Exit reason")
+    out.append("")
+    return "\n".join(out)
+
+
 def position_pnl(side: str, entry_yes_price: float, yes_price_now: float, amount_usd: float) -> float:
     """PnL of a position opened with amount_usd, marked at yes_price_now.
 
