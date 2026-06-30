@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T10:00:08.853920+00:00",
-  "last_heartbeat": "2026-06-30T10:00:08.853920+00:00",
-  "uptime_seconds": 162858,
+  "generated_at": "2026-06-30T10:05:15.520195+00:00",
+  "last_heartbeat": "2026-06-30T10:05:15.520195+00:00",
+  "uptime_seconds": 163165,
   "dry_run": false,
-  "markets_tracked": 1291,
+  "markets_tracked": 1288,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9636,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 504,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 506,
+  "headlines_last_cycle": 1,
   "signals_24h": 8,
-  "classifications_24h": 4271,
+  "classifications_24h": 4266,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1743,
+    "prefiltered_haiku": 1747,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 2,
@@ -111,7 +111,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T09:47:17.744408+00:00"
+    "last_check": "2026-06-30T10:02:18.282258+00:00"
   },
   "edge_types_24h": {
     "news": 7,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1298,
-    "matched": 964,
-    "classified": 4271,
+    "news": 1296,
+    "matched": 962,
+    "classified": 4266,
     "signals": 8,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2231.5
+    "avg_classification_latency_ms": 2229.5
   },
   "live_readiness": {
     "ready": true,
@@ -388,73 +388,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 09:58:20",
-      "market_question": "Will Donald Trump visit Turkey in 2026?",
-      "headline": "EXCLUSIVE: Turkey says NATO adjusting to security landscape, US not withdrawing - Reuters",
+      "time": "2026-06-30 10:04:55",
+      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
+      "headline": "UK regulator considers opening Apple, Google app stores to rival payments - Reuters",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 09:58:18",
-      "market_question": "Will Islamic Charitable Projects Association win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Experts explain why enterprise AI projects struggle to move beyond pilots - Business Standard",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 09:58:18",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "EXCLUSIVE: Turkey says NATO adjusting to security landscape, US not withdrawing - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 09:56:15",
+      "time": "2026-06-30 10:04:54",
       "market_question": "Will Apple release a foldable iPhone before 2027?",
-      "headline": "This could be our best look yet at Samsung\u2019s new wide foldable",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 09:56:15",
-      "market_question": "Will Bitcoin have the best performance in 2026?",
-      "headline": "This could be our best look yet at Samsung\u2019s new wide foldable",
+      "headline": "UK regulator considers opening Apple, Google app stores to rival payments - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -466,6 +418,54 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 10:04:54",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "UK regulator considers opening Apple, Google app stores to rival payments - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 10:04:54",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "UK regulator considers opening Apple, Google app stores to rival payments - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 10:04:53",
+      "market_question": "Will Google have the top AI model at the end of June 2026?",
+      "headline": "UK regulator considers opening Apple, Google app stores to rival payments - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
