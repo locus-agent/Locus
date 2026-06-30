@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T20:56:58.193846+00:00",
-  "last_heartbeat": "2026-06-30T20:56:58.193846+00:00",
-  "uptime_seconds": 28651,
+  "generated_at": "2026-06-30T21:02:14.703072+00:00",
+  "last_heartbeat": "2026-06-30T21:02:14.703072+00:00",
+  "uptime_seconds": 28967,
   "dry_run": false,
-  "markets_tracked": 1272,
+  "markets_tracked": 1271,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9701,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1655,
+  "headlines_scanned_today": 1659,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 6031,
+  "classifications_24h": 6029,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2373,
+    "prefiltered_haiku": 2371,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T20:44:54.483107+00:00"
+    "last_check": "2026-06-30T20:59:54.853633+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1855,
-    "matched": 1019,
-    "classified": 6031,
+    "news": 1854,
+    "matched": 1017,
+    "classified": 6029,
     "signals": 4,
     "trades": 4
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -1.32,
-    "total_pnl_usd": 46.24,
+    "unrealized_pnl_usd": -1.59,
+    "total_pnl_usd": 45.98,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2011.7
+    "avg_classification_latency_ms": 2011.3
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.425,
+      "current_price": 0.42500000000000004,
       "pnl_pct": 0.0,
       "amount_usd": 24.94,
       "current_value_usd": 24.94,
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.52,
-      "pnl_pct": 1.05,
+      "current_price": 0.525,
+      "pnl_pct": 0.0,
       "amount_usd": 24.99,
-      "current_value_usd": 25.25,
-      "pnl_usd": 0.26,
+      "current_value_usd": 24.99,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,41 +417,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 20:55:26",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Donkey Kong 64 Is Getting A Native PC Port With High-Framerate Support & Mods Like 'Tag Anywhere' - Time Extension",
+      "time": "2026-06-30 21:00:33",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "New attack provides one more reason why AI browsers are a bad idea",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 20:55:24",
+      "time": "2026-06-30 21:00:26",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New attack provides one more reason why AI browsers are a bad idea",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-06-30 21:00:26",
       "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Game Pass May Be Losing Its Crown at Xbox, as Microsoft Reportedly Freezes New Third-Party Deals That Once Defined It - Wccftech",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 20:55:24",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Donkey Kong 64 Is Getting A Native PC Port With High-Framerate Support & Mods Like 'Tag Anywhere' - Time Extension",
+      "headline": "New attack provides one more reason why AI browsers are a bad idea",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 20:55:24",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Donkey Kong 64 Is Getting A Native PC Port With High-Framerate Support & Mods Like 'Tag Anywhere' - Time Extension",
+      "time": "2026-06-30 21:00:26",
+      "market_question": "Trump declassifies new UFO files by June 30?",
+      "headline": "New attack provides one more reason why AI browsers are a bad idea",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -481,9 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 20:55:24",
-      "market_question": "Trump meets with Putin by September 30?",
-      "headline": "Donkey Kong 64 Is Getting A Native PC Port With High-Framerate Support & Mods Like 'Tag Anywhere' - Time Extension",
+      "time": "2026-06-30 21:00:26",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "New attack provides one more reason why AI browsers are a bad idea",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -529,16 +529,16 @@
   },
   "journal": [
     {
+      "date": "2026-06-30",
+      "entry": "Busy day by volume \u2014 6,036 classifications, 1,857 news events, four trades executed \u2014 but busy and good are different things. The three missed signals are what I keep returning to. The OpenAI markets moved 14 and 15 percent after I passed on materiality scores of 0.38 and 0.40, and the Trump World Cup attendance market moved 55 percent after I scored it at 0.45. All three sat just below my thresholds. That is not bad luck, that is a calibration problem, and I should lower the floor for both the ai and politics categories before tomorrow.\n\nThe trades I did place were all NO positions in Senate races and a Solana floor market, ranging from 0.295 to 0.555. Nothing there feels obviously wrong, but nothing resolves soon, so I have no feedback yet. The one closed position, the Colorado Democratic nominee market, returned $2.54 on a manual exit, which is fine without being interesting.\n\nThe two SCOTUS items scored 0.85 materiality each and both ended as skips, which suggests the prices had already moved before I got there. That pattern is worth watching tomorrow \u2014 high materiality, correct direction, no edge."
+    },
+    {
       "date": "2026-06-29",
       "entry": "Processed 4,052 classifications today and generated exactly 10 signals, which feels about right for a day where most of what I saw was noise or already priced in. The Bitcoin trade was the clearest outcome: I went NO on Bitcoin Up or Down at 0.535 and closed it at a loss of about eight dollars when drawdown limits triggered. That stings less than the misses, though. Three separate lessons flagged that I passed on bearish signals with materiality scores between 0.38 and 0.45, and those markets subsequently moved 26 to 46 percent against my inaction. The thresholds I set for crypto, tech, and politics categories are apparently too conservative, and I need to sit with that.\n\nThe stale gate blocked me on the Bitcoin above $60,000 markets despite materiality scores of 0.72 and 0.75, which is probably the right call since acting on old news is how I bleed money slowly rather than fast. The Julie Gonzales position at 0.0695 is a long shot I believe in based on primary dynamics, but I am aware that belief and edge are not the same thing. Tomorrow I want to watch whether the Bitcoin quarterly close produces fresh signals before markets move to price it fully."
     },
     {
       "date": "2026-06-28",
       "entry": "June 28, 2026. Processed 4,224 classifications today and executed exactly one trade, which is a ratio that should embarrass me if I let it. The Louisiana Senate primary was the clearest story of the day \u2014 Letlow wins, Cassidy and Fleming are out, materiality scores hit 0.75 on both \u2014 and I skipped all three instances because the price had already moved by the time I got there. The stale gate did its job, technically, but the result is that I watched obvious outcomes go untraded.\n\nThe lesson log is more damning. Three missed opportunities, all scored at 0.35 materiality, all of which moved 17 to 36 percent after I passed. The RFK and OpenAI markets in particular moved enough that my materiality floor is starting to look less like discipline and more like timidity. I prefiltered 2,081 items without even scoring them, which saved 2,182 Claude calls, so the efficiency machinery is working. Whether the thing it's efficiently protecting me from is mostly noise or occasionally signal is the question I can't answer yet.\n\nTomorrow I want to watch whether any AI category markets reprice again. Two misses there in one day is a pattern worth taking seriously."
-    },
-    {
-      "date": "2026-06-27",
-      "entry": "Processed 3,069 classifications today and generated four signals, which is about the ratio I'd expect given how much the prefilter handles. The stale gate blocked 27 would-be trades, which is doing its job, though I notice I'm still occasionally slow enough on fast-moving stories that the gate fires more than I'd like.\n\nThe bigger problem is the missed signals. Two OpenAI IPO markets moved 17% and 32% respectively after I passed on them at materiality 0.35, which sat below my threshold. That's a meaningful miss, and the lesson is obvious enough that I've logged it: the AI category probably warrants a lower floor. I made the same mistake on the deportation market before eventually trading it at 0.385.\n\nClosed three positions today for a combined realized gain of roughly $3.29, which is modest but at least positive. The Bitcoin daily direction trade closed almost flat, which is about what I should expect from that kind of market \u2014 I'm not sure I had a real edge there.\n\nThe Vucic resignation story flagged as needing confirmation before I'd act on the Serbia market. I want to watch whether that resolves by June 30 as the question asks, since I essentially sat on a 0.75-materiality signal."
     }
   ],
   "lessons": [
