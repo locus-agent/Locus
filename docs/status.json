@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T14:42:25.788985+00:00",
-  "last_heartbeat": "2026-06-30T14:42:25.788985+00:00",
-  "uptime_seconds": 6179,
+  "generated_at": "2026-06-30T14:47:32.329766+00:00",
+  "last_heartbeat": "2026-06-30T14:47:32.329766+00:00",
+  "uptime_seconds": 6485,
   "dry_run": false,
-  "markets_tracked": 1302,
+  "markets_tracked": 1299,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9667,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1203,
-  "headlines_last_cycle": 0,
-  "signals_24h": 7,
-  "classifications_24h": 5558,
+  "headlines_scanned_today": 1208,
+  "headlines_last_cycle": 3,
+  "signals_24h": 6,
+  "classifications_24h": 5559,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2192,
+    "prefiltered_haiku": 2187,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,18 +112,18 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T14:29:43.504544+00:00"
+    "last_check": "2026-06-30T14:44:43.915882+00:00"
   },
   "edge_types_24h": {
-    "news": 6,
+    "news": 5,
     "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1720,
-    "matched": 912,
-    "classified": 5558,
-    "signals": 7,
+    "news": 1721,
+    "matched": 914,
+    "classified": 5559,
+    "signals": 6,
     "trades": 2
   },
   "performance": {
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1867.2
+    "avg_classification_latency_ms": 1884.7
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.32000000000000006,
+      "current_price": 0.32,
       "pnl_pct": -3.55,
       "amount_usd": 24.85,
       "current_value_usd": 23.97,
@@ -389,25 +389,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 14:34:23",
-      "market_question": "Another crypto hack over $100m by December 31?",
-      "headline": "Takeaways from AP/'FRONTLINE\u2019 investigation into how US tech is abused for global scams - AP News",
+      "time": "2026-06-30 14:47:27",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "Supreme Court rejects Trump\u2019s bid to end birthright citizenship - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 14:34:23",
-      "market_question": "Thai Constitutional Court invalidates election?",
-      "headline": "Supreme Court upholds laws banning trans athletes from women's sports - Politico",
+      "time": "2026-06-30 14:47:26",
+      "market_question": "SCOTUS strikes down Trump's Birthright Citizenship EO?",
+      "headline": "The Supreme Court stops Trump&#8217;s attempt to end birthright citizenship",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.95,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.15,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 14:47:26",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New Zcash nonprofit Sovright unveils ZEC wallet recovery tool",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -421,9 +437,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 14:34:23",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Supreme Court upholds laws banning trans athletes from women's sports - Politico",
+      "time": "2026-06-30 14:47:26",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "New Zcash nonprofit Sovright unveils ZEC wallet recovery tool",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -437,25 +453,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-06-30 14:34:23",
-      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "Supreme Court upholds laws banning trans athletes from women's sports - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 14:34:23",
-      "market_question": "Will Donald Trump visit Italy in 2026?",
-      "headline": "Italy displays paintings from an ancient Etruscan tomb, its latest cultural acquisition - AP News",
+      "time": "2026-06-30 14:47:26",
+      "market_question": "Trump declassifies new UFO files by June 30?",
+      "headline": "New Zcash nonprofit Sovright unveils ZEC wallet recovery tool",
       "direction": null,
       "materiality": null,
       "confidence": null,
