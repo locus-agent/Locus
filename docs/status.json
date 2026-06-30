@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T12:55:51.140926+00:00",
-  "last_heartbeat": "2026-06-30T12:55:51.140926+00:00",
-  "uptime_seconds": 345,
+  "generated_at": "2026-06-30T13:00:05.548658+00:00",
+  "last_heartbeat": "2026-06-30T13:00:05.548658+00:00",
+  "uptime_seconds": 38,
   "dry_run": false,
-  "markets_tracked": 1314,
+  "markets_tracked": 1296,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9667,
@@ -82,19 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 874,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 894,
+  "headlines_last_cycle": 15,
   "signals_24h": 8,
-  "classifications_24h": 4820,
+  "classifications_24h": 4880,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 1904,
+    "prefiltered_haiku": 1937,
     "stale": 0,
     "capped": 0,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 18,
+    "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
     "orderbook_skip": 1,
@@ -111,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-06-30T12:50:19.824316+00:00"
+    "last_check": "2026-06-30T12:59:40.903593+00:00"
   },
   "edge_types_24h": {
     "news": 7,
@@ -119,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1507,
-    "matched": 919,
-    "classified": 4820,
+    "news": 1521,
+    "matched": 916,
+    "classified": 4880,
     "signals": 8,
     "trades": 3
   },
@@ -139,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1731.6
+    "avg_classification_latency_ms": 1508.7
   },
   "live_readiness": {
     "ready": true,
@@ -388,9 +389,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 12:55:12",
-      "market_question": "Will Barbara Kirkmeyer win the 2026 Colorado Governor Republican primary election?",
-      "headline": "Democratic Primary - Politico",
+      "time": "2026-06-30 13:00:05",
+      "market_question": "Will Ethereum reach $3,500 by December 31, 2026?",
+      "headline": "US stock futures tick up as strong quarter nears end - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,41 +405,57 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 12:55:12",
-      "market_question": "Will Jake Merrick win the 2026 Oklahoma Governor Republican primary election?",
-      "headline": "Jake Tapper - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-06-30 13:00:04",
+      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
+      "headline": "US stock futures tick up as strong quarter nears end - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 13:00:03",
+      "market_question": "Will Ethereum reach $6,500 by December 31, 2026?",
+      "headline": "US stock futures tick up as strong quarter nears end - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 13:00:02",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "New York Life makes first tokenized move partnering with Centrifuge on high-yield corporate bond strategy",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 12:55:10",
-      "market_question": "Will Civic Platform (GP) win the second-most seats in the next Russian parliamentary election?",
-      "headline": "Democratic Primary - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 12:55:10",
-      "market_question": "Will Phil Weiser win the 2026 Colorado Governor Democratic primary election?",
-      "headline": "Democratic Primary - Politico",
+      "time": "2026-06-30 13:00:01",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "New York Life makes first tokenized move partnering with Centrifuge on high-yield corporate bond strategy",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -447,23 +464,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 12:55:10",
-      "market_question": "Will Daniel Thomas win the 2026 Colorado Governor Republican primary election?",
-      "headline": "Democratic Primary - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
