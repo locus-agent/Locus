@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T00:08:13.581742+00:00",
-  "last_heartbeat": "2026-06-30T00:08:13.581742+00:00",
-  "uptime_seconds": 127343,
+  "generated_at": "2026-06-30T00:13:19.717649+00:00",
+  "last_heartbeat": "2026-06-30T00:13:19.717649+00:00",
+  "uptime_seconds": 127649,
   "dry_run": false,
   "markets_tracked": 1304,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 7,
+  "headlines_scanned_today": 15,
   "headlines_last_cycle": 0,
   "signals_24h": 8,
-  "classifications_24h": 4227,
+  "classifications_24h": 4232,
   "selectivity_pct": 0.2,
   "gates_24h": {
     "prefiltered_haiku": 1772,
@@ -119,9 +119,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1137,
-    "matched": 913,
-    "classified": 4227,
+    "news": 1144,
+    "matched": 915,
+    "classified": 4232,
     "signals": 8,
     "trades": 3
   },
@@ -139,7 +139,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2259.9
+    "avg_classification_latency_ms": 2258.1
   },
   "live_readiness": {
     "ready": true,
@@ -374,9 +374,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-06-30 00:03:10",
-      "market_question": "Will Donald Trump visit Israel in 2026?",
-      "headline": "Israel Defense Forces - Politico",
+      "time": "2026-06-30 00:09:45",
+      "market_question": "Will the Democrats win the Mississippi Senate race in 2026?",
+      "headline": "Florida Democratic Party - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 00:09:45",
+      "market_question": "Will the Republicans win the Arkansas Senate race in 2026?",
+      "headline": "Florida Democratic Party - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 00:09:45",
+      "market_question": "Will the Republicans win the Louisiana Senate race in 2026?",
+      "headline": "Florida Democratic Party - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-06-30 00:09:45",
+      "market_question": "Will Josh Weil be the Democratic nominee for Senate in Florida?",
+      "headline": "Florida Democratic Party - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -390,9 +438,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-06-30 00:03:10",
-      "market_question": "Netanyahu drops out of Israel election by July 31?",
-      "headline": "Israel Defense Forces - Politico",
+      "time": "2026-06-30 00:09:45",
+      "market_question": "Will Jared Moskowitz be the Democratic nominee for Senate in Florida?",
+      "headline": "Florida Democratic Party - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -404,54 +452,6 @@
       "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-06-30 00:03:10",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "U.S. Capitol Police - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 00:03:10",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "U.S. Capitol Police - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-06-30 00:03:10",
-      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
-      "headline": "U.S. Capitol Police - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
