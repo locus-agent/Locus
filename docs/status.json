@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T21:37:45.226888+00:00",
-  "last_heartbeat": "2026-07-01T21:37:45.226888+00:00",
-  "uptime_seconds": 655,
+  "generated_at": "2026-07-01T21:43:02.064032+00:00",
+  "last_heartbeat": "2026-07-01T21:43:02.064032+00:00",
+  "uptime_seconds": 37,
   "dry_run": false,
-  "markets_tracked": 1246,
+  "markets_tracked": 1242,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9885,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1114,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1148,
+  "headlines_last_cycle": 27,
   "signals_24h": 3,
-  "classifications_24h": 4705,
+  "classifications_24h": 4810,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2002,
+    "prefiltered_haiku": 2035,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-01T21:27:04.676270+00:00"
+    "last_check": "2026-07-01T21:42:37.303702+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1217,
-    "matched": 887,
-    "classified": 4705,
+    "news": 1246,
+    "matched": 888,
+    "classified": 4810,
     "signals": 3,
     "trades": 3
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -5.09,
-    "total_pnl_usd": 42.47,
+    "unrealized_pnl_usd": -4.92,
+    "total_pnl_usd": 42.65,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1611.6
+    "avg_classification_latency_ms": 1331.5
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.44499999999999995,
+      "current_price": 0.445,
       "pnl_pct": -3.48,
       "amount_usd": 24.94,
       "current_value_usd": 24.07,
@@ -223,7 +223,7 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": -4.21,
       "amount_usd": 24.99,
       "current_value_usd": 23.94,
@@ -237,11 +237,11 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.385,
-      "pnl_pct": -12.77,
+      "current_price": 0.38,
+      "pnl_pct": -12.06,
       "amount_usd": 24.85,
-      "current_value_usd": 21.68,
-      "pnl_usd": -3.17,
+      "current_value_usd": 21.85,
+      "pnl_usd": -3.0,
       "edge_type": "news",
       "event_id": "59233"
     }
@@ -417,9 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 21:35:52",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Aunt of Venezuelan boy pulled from rubble tells BBC she will give him 'mother's warmth'",
+      "time": "2026-07-01 21:43:01",
+      "market_question": "Will Trump and Putin meet next in a Gulf country?",
+      "headline": "U.S., Iran talks conclude in Doha, focused on Strait - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 21:43:01",
+      "market_question": "Will Alibaba have the best AI model at the end of July 2026?",
+      "headline": "Alibaba to pay $600 million to resolve US drug sales probe - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -433,9 +449,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 21:35:52",
-      "market_question": "Will Click Bishop advance from the 2026 Alaska Governor primary election?",
-      "headline": "Aunt of Venezuelan boy pulled from rubble tells BBC she will give him 'mother's warmth'",
+      "time": "2026-07-01 21:42:59",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "CDC urges people to prevent mosquito bites as West Nile virus season hits a strong, early start - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 21:42:59",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "U.S., Iran talks conclude in Doha, focused on Strait - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,41 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 21:35:52",
-      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "Aunt of Venezuelan boy pulled from rubble tells BBC she will give him 'mother's warmth'",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 21:35:52",
-      "market_question": "Will Spark launch a token by December 31, 2027?",
-      "headline": "Did hydration breaks spark England comeback?",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 21:35:52",
-      "market_question": "Quantum breaks Bitcoin by December 31, 2027?",
-      "headline": "Did hydration breaks spark England comeback?",
+      "time": "2026-07-01 21:42:59",
+      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
+      "headline": "U.S., Iran talks conclude in Doha, focused on Strait - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
