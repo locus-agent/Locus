@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T06:29:14.024998+00:00",
-  "last_heartbeat": "2026-07-01T06:29:14.024998+00:00",
-  "uptime_seconds": 62987,
+  "generated_at": "2026-07-01T06:34:20.580421+00:00",
+  "last_heartbeat": "2026-07-01T06:34:20.580421+00:00",
+  "uptime_seconds": 63293,
   "dry_run": false,
-  "markets_tracked": 1250,
+  "markets_tracked": 1246,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9737,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 256,
+  "headlines_scanned_today": 258,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 6162,
+  "classifications_24h": 6095,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2479,
+    "prefiltered_haiku": 2438,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-01T06:15:09.916015+00:00"
+    "last_check": "2026-07-01T06:30:10.318880+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1727,
-    "matched": 1049,
-    "classified": 6162,
+    "news": 1709,
+    "matched": 1043,
+    "classified": 6095,
     "signals": 4,
     "trades": 4
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -2.89,
-    "total_pnl_usd": 44.67,
+    "unrealized_pnl_usd": -3.16,
+    "total_pnl_usd": 44.41,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2074.7
+    "avg_classification_latency_ms": 2074.2
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": -1.74,
       "amount_usd": 24.94,
       "current_value_usd": 24.51,
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.5549999999999999,
-      "pnl_pct": -6.32,
+      "current_price": 0.56,
+      "pnl_pct": -7.37,
       "amount_usd": 24.99,
-      "current_value_usd": 23.41,
-      "pnl_usd": -1.58,
+      "current_value_usd": 23.15,
+      "pnl_usd": -1.84,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,9 +417,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 06:26:36",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "How AI Sovereignty and Algorithmic Control Shape the New Geopolitical Order - Frontline Magazine",
+      "time": "2026-07-01 06:33:13",
+      "market_question": "Will Bitcoin kimchi premium hit 8% in 2026?",
+      "headline": "South Korean tech giants to build a $518 billion chipmaking hub to serve soaring AI demand - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 06:33:12",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "South Korean tech giants to build a $518 billion chipmaking hub to serve soaring AI demand - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 06:33:11",
+      "market_question": "Will Trump and Putin meet next in South Korea?",
+      "headline": "South Korean tech giants to build a $518 billion chipmaking hub to serve soaring AI demand - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -433,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 06:26:36",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "How AI Sovereignty and Algorithmic Control Shape the New Geopolitical Order - Frontline Magazine",
+      "time": "2026-07-01 06:33:11",
+      "market_question": "Will Donald Trump visit South Carolina in 2026?",
+      "headline": "South Korean tech giants to build a $518 billion chipmaking hub to serve soaring AI demand - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,41 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 06:26:36",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "How AI Sovereignty and Algorithmic Control Shape the New Geopolitical Order - Frontline Magazine",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 06:26:36",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "How AI Sovereignty and Algorithmic Control Shape the New Geopolitical Order - Frontline Magazine",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 06:26:36",
-      "market_question": "Trump declassifies new UFO files by July 31?",
-      "headline": "How AI Sovereignty and Algorithmic Control Shape the New Geopolitical Order - Frontline Magazine",
+      "time": "2026-07-01 06:33:11",
+      "market_question": "Will Donald Trump visit South Dakota in 2026?",
+      "headline": "South Korean tech giants to build a $518 billion chipmaking hub to serve soaring AI demand - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
