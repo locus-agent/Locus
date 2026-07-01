@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T15:46:19.173744+00:00",
-  "last_heartbeat": "2026-07-01T15:46:19.173744+00:00",
-  "uptime_seconds": 96412,
+  "generated_at": "2026-07-01T15:51:25.482515+00:00",
+  "last_heartbeat": "2026-07-01T15:51:25.482515+00:00",
+  "uptime_seconds": 96718,
   "dry_run": false,
-  "markets_tracked": 1244,
+  "markets_tracked": 1245,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9764,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 644,
+  "headlines_scanned_today": 649,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4529,
+  "classifications_24h": 4537,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1861,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1179,
-    "matched": 966,
-    "classified": 4529,
+    "news": 1181,
+    "matched": 967,
+    "classified": 4537,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 6974.9
+    "avg_classification_latency_ms": 6972.6
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.74,
       "amount_usd": 24.94,
       "current_value_usd": 24.51,
@@ -417,9 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 15:40:41",
-      "market_question": "Will Republican House incumbents not win in between seven and nine nominating elections in the 2026 cycle?",
-      "headline": "Republican Primaries - Politico",
+      "time": "2026-07-01 15:47:15",
+      "market_question": "Will Donald Trump visit Mexico in 2026?",
+      "headline": "The US, Canada and Mexico begin bumpy negotiations to renew North American trade pact - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -428,46 +428,14 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 15:40:40",
-      "market_question": "Will Republican House incumbents not win in between ten and twelve nominating elections in the 2026 cycle?",
-      "headline": "Republican Primaries - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 15:40:35",
-      "market_question": "Will Timothy Wilcox win the 2026 Connecticut Governor Republican primary election?",
-      "headline": "Republican Primaries - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 15:40:33",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Republican Primaries - Politico",
+      "time": "2026-07-01 15:47:15",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Judge orders Pentagon to lift policy that New York Times journalists be accompanied by an escort - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -481,9 +449,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 15:40:33",
-      "market_question": "Will Bryce Reeves be the Republican nominee for Senate in Virginia?",
-      "headline": "Republican Primaries - Politico",
+      "time": "2026-07-01 15:47:15",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Judge orders Pentagon to lift policy that New York Times journalists be accompanied by an escort - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-01 15:47:15",
+      "market_question": "Trump declassifies new UFO files by June 30?",
+      "headline": "Judge orders Pentagon to lift policy that New York Times journalists be accompanied by an escort - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-01 15:47:15",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "Judge orders Pentagon to lift policy that New York Times journalists be accompanied by an escort - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
