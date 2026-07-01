@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T01:38:08.849807+00:00",
-  "last_heartbeat": "2026-07-01T01:38:08.849807+00:00",
-  "uptime_seconds": 45522,
+  "generated_at": "2026-07-01T01:43:15.372471+00:00",
+  "last_heartbeat": "2026-07-01T01:43:15.372471+00:00",
+  "uptime_seconds": 45828,
   "dry_run": false,
-  "markets_tracked": 1265,
+  "markets_tracked": 1262,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9720,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 74,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 80,
+  "headlines_last_cycle": 5,
   "signals_24h": 4,
-  "classifications_24h": 6115,
+  "classifications_24h": 6138,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2473,
+    "prefiltered_haiku": 2483,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1797,
-    "matched": 1033,
-    "classified": 6115,
+    "news": 1801,
+    "matched": 1039,
+    "classified": 6138,
     "signals": 4,
     "trades": 4
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2034.4
+    "avg_classification_latency_ms": 2031.8
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.74,
       "amount_usd": 24.94,
       "current_value_usd": 24.51,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -417,25 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 01:37:02",
-      "market_question": "Will Betmoar launch a token by June 30, 2026?",
-      "headline": "[No Title] - Post from July 1, 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 01:36:58",
-      "market_question": "Will xAI have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 1, 2026",
+      "time": "2026-07-01 01:43:15",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Germany vs Paraguay LIVE: Watch FIFA World Cup stream, penalties, score, commentary & updates - BBC",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -449,9 +433,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 01:36:58",
-      "market_question": "Will Meta have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 1, 2026",
+      "time": "2026-07-01 01:43:15",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Germany vs Paraguay LIVE: Watch FIFA World Cup stream, penalties, score, commentary & updates - BBC",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -465,9 +449,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 01:36:58",
-      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 1, 2026",
+      "time": "2026-07-01 01:43:15",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Germany vs Paraguay LIVE: Watch FIFA World Cup stream, penalties, score, commentary & updates - BBC",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -481,9 +465,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 01:36:58",
-      "market_question": "Bitcoin BIP-360 implemented in 2026?",
-      "headline": "[No Title] - Post from July 1, 2026",
+      "time": "2026-07-01 01:43:14",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "Supreme Court expands Trump\u2019s power over the federal bureaucracy - The Washington Post",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -492,7 +476,23 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 01:43:13",
+      "market_question": "Will Trump post \"UFC\" on Truth Social this week?",
+      "headline": "Supreme Court expands Trump\u2019s power over the federal bureaucracy - The Washington Post",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
