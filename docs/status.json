@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T06:54:47.374119+00:00",
-  "last_heartbeat": "2026-07-01T06:54:47.374119+00:00",
-  "uptime_seconds": 64520,
+  "generated_at": "2026-07-01T06:59:53.865802+00:00",
+  "last_heartbeat": "2026-07-01T06:59:53.865802+00:00",
+  "uptime_seconds": 64827,
   "dry_run": false,
-  "markets_tracked": 1237,
+  "markets_tracked": 1240,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9737,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 278,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 284,
+  "headlines_last_cycle": 4,
   "signals_24h": 4,
-  "classifications_24h": 6153,
+  "classifications_24h": 6165,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2460,
+    "prefiltered_haiku": 2461,
     "stale": 4,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1721,
-    "matched": 1055,
-    "classified": 6153,
+    "news": 1725,
+    "matched": 1057,
+    "classified": 6165,
     "signals": 4,
     "trades": 4
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -3.33,
-    "total_pnl_usd": 44.23,
+    "unrealized_pnl_usd": -3.07,
+    "total_pnl_usd": 44.5,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2068.1
+    "avg_classification_latency_ms": 2076.6
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.74,
       "amount_usd": 24.94,
       "current_value_usd": 24.51,
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.56,
-      "pnl_pct": -7.37,
+      "current_price": 0.555,
+      "pnl_pct": -6.32,
       "amount_usd": 24.99,
-      "current_value_usd": 23.15,
-      "pnl_usd": -1.84,
+      "current_value_usd": 23.41,
+      "pnl_usd": -1.58,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,9 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 06:52:56",
-      "market_question": "Trump orders federal review of AI model releases by June 30?",
-      "headline": "Girl reveals rape trauma ahead of sentence review",
+      "time": "2026-07-01 06:59:41",
+      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
+      "headline": "Iran nuclear deal - Politico",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.03,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 06:59:32",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Iran nuclear deal - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -433,9 +449,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 06:52:56",
-      "market_question": "Will ECDSA.fail get at least 50% ahead of Google\u2019s classified circuit by June 30, 2026?",
-      "headline": "Girl reveals rape trauma ahead of sentence review",
+      "time": "2026-07-01 06:57:20",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "EXCLUSIVE: Russia approved secret China military training at top level, sources say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 06:52:56",
-      "market_question": "Will Donald Trump publicly insult someone on June 30, 2026?",
-      "headline": "In a warning sign, analysis shows publicly traded credit funds are unprofitable - Reuters",
+      "time": "2026-07-01 06:57:20",
+      "market_question": "Will Donald Trump visit Russia in 2026?",
+      "headline": "EXCLUSIVE: Russia approved secret China military training at top level, sources say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,25 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 06:52:56",
-      "market_question": "Will Donald Trump publicly insult Elon Musk by June 30, 2026?",
-      "headline": "In a warning sign, analysis shows publicly traded credit funds are unprofitable - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 06:52:56",
-      "market_question": "Will Donald Trump publicly insult Emmanuel Macron by June 30, 2026?",
-      "headline": "In a warning sign, analysis shows publicly traded credit funds are unprofitable - Reuters",
+      "time": "2026-07-01 06:57:20",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "headline": "EXCLUSIVE: Russia approved secret China military training at top level, sources say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
