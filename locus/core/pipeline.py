@@ -217,9 +217,11 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
                              publication time, else from received_at (see
                              news_age); we classify old news for calibration but
                              never trade on it
-      "capped"             — this headline already produced a trade; one
-                             headline matching N markets must not open N
-                             correlated positions
+      "capped"             — this headline already produced a trade, or another
+                             in-flight candidate currently holds its
+                             reservation (see "signal" below); one headline
+                             matching N markets must not open N correlated
+                             positions
       "too_close_to_resolution" — market resolves within
                              config.MIN_HOURS_TO_RESOLUTION hours; the thesis
                              has too little time to play out
@@ -238,12 +240,19 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
                              distinct sources within CONFIRMATION_WINDOW_HOURS;
                              obvious news is the least accurate, so hold until
                              a second source agrees
-      "signal"             — approved by these gates. The headline is NOT
-                             recorded here: the one-position-per-headline cap is
-                             consumed only after the remaining gates pass and the
-                             trade is opened (see consume_headline), so a late
-                             gate (CoV, orderbook, ...) blocking this match
-                             doesn't waste the headline for other markets.
+      "signal"             — approved by these gates. The headline is RESERVED
+                             into traded_headlines here, in the same synchronous
+                             step as the "capped" check above (gate_trade never
+                             awaits, so check-and-reserve is atomic under the
+                             event loop): candidates for the same headline
+                             evaluated concurrently can never both pass. The
+                             reservation becomes permanent only when a position
+                             actually opens; every later failure — a late gate
+                             (CoV, orderbook, exposure, ...), execution
+                             (resting/skipped/error), or a crash — must release
+                             it via release_headline so the headline stays
+                             available to other candidates. Policy: the cap is
+                             one POSITION per headline, not one attempt.
     """
     if signal is None:
         return None, "skip"
@@ -352,23 +361,29 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         if len(sources) < config.MIN_CONFIRMING_SOURCES:
             return None, "needs_confirmation"
 
+    # Reserve the headline NOW, atomically with the "capped" check at the top:
+    # gate_trade is fully synchronous (no awaits), so under asyncio's
+    # single-threaded loop no other candidate can run between that check and
+    # this add — concurrent candidates for the same headline can never both
+    # pass. The caller owns the reservation from here: it is committed by an
+    # actual position open, and MUST be released (release_headline) on every
+    # other outcome so a failed candidate doesn't burn the headline.
+    traded_headlines.add(event.headline)
     return signal, "signal"
 
 
-def consume_headline(traded_headlines: set[str], headline: str, signal) -> bool:
-    """Record a headline against the one-position-per-headline cap, but only
-    once a signal has cleared EVERY gate and is being opened (signal is not
-    None at the terminal step — the confirmed trade-open state, distinct from
-    the earlier "signal" gate_trade returns).
+def release_headline(traded_headlines: set[str], headline: str) -> None:
+    """Release a headline reservation taken by gate_trade.
 
-    A would-be signal that a late gate (CoV, orderbook, correlation, category,
-    event exposure, circuit breaker) blocked leaves the headline free, so other
-    markets matched to the same headline can still be evaluated. Returns True
-    when the headline was newly recorded."""
-    if signal is None:
-        return False
-    traded_headlines.add(headline)
-    return True
+    Called on every path where a gate-approved candidate does NOT end in an
+    open position — a later gate block (low consensus, re-entry, correlation,
+    category, orderbook, CoV, event exposure, circuit breaker), a lost
+    execute-time race, an unfilled/skipped/errored order, or an exception —
+    so the headline stays available: the cap is one POSITION per headline, not
+    one attempt, and a later candidate may then reserve and open. A confirmed
+    open never releases, making the reservation permanent. Discard-based, so
+    releasing an unreserved headline is a harmless no-op."""
+    traded_headlines.discard(headline)
 
 
 CALIBRATION_STARTUP_DELAY_SECONDS = 300.0
@@ -529,11 +544,22 @@ class PipelineV2:
             self.stats["markets_matched"] += len(matched)
 
             # Classify each matched market as its own coroutine, so a headline
-            # matching N markets doesn't serialize N model calls. The per-
-            # candidate gates are synchronous and never yield mid-check, so the
-            # one-position-per-headline cap in gate_trade still holds under the
-            # concurrent gather below.
+            # matching N markets doesn't serialize N model calls. All of these
+            # candidates share ONE headline, so the one-position-per-headline
+            # cap must hold under the concurrent gather below: gate_trade
+            # check-and-RESERVES the headline synchronously (no await between
+            # check and reserve), so only one candidate can hold it at a time.
+            # The reservation is committed by an actual position open
+            # (_execute_with_lock) and released on every other outcome — see
+            # the finally below and release_headline.
             async def process_candidate(market, match_source, match_score):
+                # Reservation bookkeeping: set once gate_trade approves (it has
+                # reserved the headline), cleared from this candidate's hands
+                # when the signal is enqueued (ownership passes to
+                # _execute_with_lock). The finally releases a reservation this
+                # candidate still owns, so no blocked/crashed path leaks one.
+                reserved_headline = None
+                enqueued = False
                 try:
                     # Cheap pre-classification gate: weak keyword-only matches
                     # with no topic overlap aren't worth a Claude call.
@@ -611,6 +637,10 @@ class PipelineV2:
                             event, raw_signal, self._traded_headlines,
                             sports_event_counts=self._sports_event_counts,
                         )
+                        # gate_trade reserved the headline iff it approved; this
+                        # candidate owns that reservation until it enqueues.
+                        if signal is not None:
+                            reserved_headline = event.headline
 
                         # Multi-LLM consensus gate: when the two models disagree
                         # (consensus below the floor), don't trust the call —
@@ -933,11 +963,6 @@ class PipelineV2:
                         )
 
                     if signal:
-                        # Headline marked used only after all gates pass — earlier
-                        # marking prevents other markets from being evaluated on the
-                        # same headline when a late gate (CoV, orderbook) blocks the
-                        # first match.
-                        consume_headline(self._traded_headlines, event.headline, signal)
                         # Count this traded headline against the sports per-event
                         # cap (the switched signal's market is the one we open).
                         if (getattr(signal.market, "category", "") or "") == "sports":
@@ -947,7 +972,11 @@ class PipelineV2:
                                     self._sports_event_counts.get(ev_id, 0) + 1
                                 )
                         self.stats["signals_found"] += 1
+                        # Ownership of the headline reservation passes to
+                        # _execute_with_lock: it commits on a confirmed open and
+                        # releases on any execution failure.
                         await self.signal_queue.put(signal)
+                        enqueued = True
                         console.print(
                             f"  [bright_green]SIGNAL[/bright_green] "
                             f"[{event.source}] {classification.direction.upper()} "
@@ -958,6 +987,13 @@ class PipelineV2:
                         )
                 except Exception as e:
                     log.warning(f"[pipeline] Classification error: {e}")
+                finally:
+                    # A reservation this candidate still owns (approved by
+                    # gate_trade but blocked by a later gate, or crashed before
+                    # enqueueing) is released so the headline isn't burned by a
+                    # candidate that never opened.
+                    if reserved_headline is not None and not enqueued:
+                        release_headline(self._traded_headlines, reserved_headline)
 
             # Run the candidates concurrently in batches of PARALLEL_BATCH_SIZE.
             batch_size = max(1, config.PARALLEL_BATCH_SIZE)
@@ -1141,105 +1177,121 @@ class PipelineV2:
         )
 
         signal = None
+        # Headline-reservation bookkeeping, mirroring process_candidate:
+        # gate_trade reserves the whale headline when it approves; the
+        # reservation passes to _execute_with_lock at enqueue, and any other
+        # outcome (a blocked gate below, or an exception) releases it in the
+        # finally so a failed investigation doesn't burn the headline for a
+        # later look at the same opportunity.
+        reserved = False
+        enqueued = False
         # WHALE_TRADING_ENABLED is the master safety switch: investigations still
         # run and are logged below, but no trade is queued when it's off.
-        if config.WHALE_TRADING_ENABLED and not classification.error:
-            # Circuit breaker first: if recent realized performance has
-            # deteriorated, hold whale trades too — and skip the rest of the
-            # gate work entirely.
-            breaker = await loop.run_in_executor(None, compute_circuit_breaker)
-            self._circuit_breaker = breaker
-            if breaker["triggered"]:
-                console.print(
-                    f"  [red]CIRCUIT BREAKER ACTIVE[/red]: {breaker['reason']} — "
-                    f"holding whale trade on \"{market.question[:40]}\""
-                )
-            else:
-                edge_metrics = detect_edge_v2(market, classification, whale_event)
-                raw_signal = edge_metrics.signal if edge_metrics else None
-                signal, _ = gate_trade(whale_event, raw_signal, self._traded_headlines)
+        try:
+            if config.WHALE_TRADING_ENABLED and not classification.error:
+                # Circuit breaker first: if recent realized performance has
+                # deteriorated, hold whale trades too — and skip the rest of the
+                # gate work entirely.
+                breaker = await loop.run_in_executor(None, compute_circuit_breaker)
+                self._circuit_breaker = breaker
+                if breaker["triggered"]:
+                    console.print(
+                        f"  [red]CIRCUIT BREAKER ACTIVE[/red]: {breaker['reason']} — "
+                        f"holding whale trade on \"{market.question[:40]}\""
+                    )
+                else:
+                    edge_metrics = detect_edge_v2(market, classification, whale_event)
+                    raw_signal = edge_metrics.signal if edge_metrics else None
+                    signal, _ = gate_trade(whale_event, raw_signal, self._traded_headlines)
+                    reserved = signal is not None
 
-                if signal is not None:
-                    open_positions = await loop.run_in_executor(None, positions.get_open_positions)
-                    # Correlation + category-exposure gates (category exposure
-                    # was previously missing on the whale path).
-                    corr = positions.check_correlation_risk(
-                        market.question, signal.side, open_positions
-                    )
-                    cat_exp = positions.check_category_exposure(
-                        getattr(market, "category", "") or "other", open_positions
-                    )
-                    if corr["risk_level"] == "high":
-                        signal = None
-                    elif not cat_exp["allowed"]:
-                        signal = None
-                    else:
-                        # CoV novelty + orderbook imbalance in parallel (same
-                        # pattern as the main pipeline). CoV was missing here.
-                        run_cov = should_verify_novelty(
-                            classification.materiality, market.yes_price
+                    if signal is not None:
+                        open_positions = await loop.run_in_executor(None, positions.get_open_positions)
+                        # Correlation + category-exposure gates (category exposure
+                        # was previously missing on the whale path).
+                        corr = positions.check_correlation_risk(
+                            market.question, signal.side, open_positions
                         )
-
-                        async def _orderbook():
-                            return await loop.run_in_executor(
-                                None, fetch_orderbook_imbalance, get_token_id(market, "YES")
-                            )
-
-                        async def _cov():
-                            if not run_cov:
-                                return None
-                            return await loop.run_in_executor(
-                                None, verify_novelty, headline, market, market.yes_price
-                            )
-
-                        imbalance, cov = await asyncio.gather(_orderbook(), _cov())
-                        if not orderbook_allows(signal.side, imbalance) or cov_blocks(cov):
+                        cat_exp = positions.check_category_exposure(
+                            getattr(market, "category", "") or "other", open_positions
+                        )
+                        if corr["risk_level"] == "high":
+                            signal = None
+                        elif not cat_exp["allowed"]:
                             signal = None
                         else:
-                            event_id = getattr(market, "event_id", "") or ""
-                            exposure = event_context.get_event_exposure(event_id, open_positions)
-                            if event_id and exposure["position_count"] >= config.MAX_POSITIONS_PER_EVENT:
+                            # CoV novelty + orderbook imbalance in parallel (same
+                            # pattern as the main pipeline). CoV was missing here.
+                            run_cov = should_verify_novelty(
+                                classification.materiality, market.yes_price
+                            )
+
+                            async def _orderbook():
+                                return await loop.run_in_executor(
+                                    None, fetch_orderbook_imbalance, get_token_id(market, "YES")
+                                )
+
+                            async def _cov():
+                                if not run_cov:
+                                    return None
+                                return await loop.run_in_executor(
+                                    None, verify_novelty, headline, market, market.yes_price
+                                )
+
+                            imbalance, cov = await asyncio.gather(_orderbook(), _cov())
+                            if not orderbook_allows(signal.side, imbalance) or cov_blocks(cov):
                                 signal = None
                             else:
-                                signal.edge_type = "whale"
+                                event_id = getattr(market, "event_id", "") or ""
+                                exposure = event_context.get_event_exposure(event_id, open_positions)
+                                if event_id and exposure["position_count"] >= config.MAX_POSITIONS_PER_EVENT:
+                                    signal = None
+                                else:
+                                    signal.edge_type = "whale"
 
-        logger.log_classification(
-            market_question=market.question,
-            headline=headline,
-            news_source="whale",
-            direction=classification.direction,
-            materiality=classification.materiality,
-            edge=signal.edge if signal else None,
-            expected_edge=signal.expected_edge if signal else None,
-            vol_adj=signal.vol_adj if signal else None,
-            fee_cost=signal.fee_cost if signal else None,
-            time_horizon=classification.time_horizon,
-            adjusted_materiality=classification.adjusted_materiality,
-            action="whale_triggered",
-            match_source="whale",
-            condition_id=market.condition_id,
-            yes_price=market.yes_price,
-            yes_token_id=get_token_id(market, "YES"),
-            edge_type="whale",
-            confidence=classification.confidence if not classification.error else None,
-            event_id=getattr(market, "event_id", "") or None,
-            published_at=known_published_at(whale_event),
-        )
+            logger.log_classification(
+                market_question=market.question,
+                headline=headline,
+                news_source="whale",
+                direction=classification.direction,
+                materiality=classification.materiality,
+                edge=signal.edge if signal else None,
+                expected_edge=signal.expected_edge if signal else None,
+                vol_adj=signal.vol_adj if signal else None,
+                fee_cost=signal.fee_cost if signal else None,
+                time_horizon=classification.time_horizon,
+                adjusted_materiality=classification.adjusted_materiality,
+                action="whale_triggered",
+                match_source="whale",
+                condition_id=market.condition_id,
+                yes_price=market.yes_price,
+                yes_token_id=get_token_id(market, "YES"),
+                edge_type="whale",
+                confidence=classification.confidence if not classification.error else None,
+                event_id=getattr(market, "event_id", "") or None,
+                published_at=known_published_at(whale_event),
+            )
 
-        if signal is not None:
-            self.stats["signals_found"] += 1
-            await self.signal_queue.put(signal)
-            console.print(
-                f"  [bright_green]WHALE SIGNAL[/bright_green] "
-                f"{classification.direction.upper()} mat:{classification.materiality:.2f} "
-                f"→ {signal.side} ${signal.bet_amount} on \"{market.question[:40]}\""
-            )
-        else:
-            console.print(
-                f"  [cyan]WHALE TRIGGERED[/cyan] (no trade after gates) "
-                f"\"{market.question[:40]}\" "
-                f"[{classification.direction} mat:{classification.materiality:.2f}]"
-            )
+            if signal is not None:
+                self.stats["signals_found"] += 1
+                # Ownership of the headline reservation passes to
+                # _execute_with_lock (commit on open, release on failure).
+                await self.signal_queue.put(signal)
+                enqueued = True
+                console.print(
+                    f"  [bright_green]WHALE SIGNAL[/bright_green] "
+                    f"{classification.direction.upper()} mat:{classification.materiality:.2f} "
+                    f"→ {signal.side} ${signal.bet_amount} on \"{market.question[:40]}\""
+                )
+            else:
+                console.print(
+                    f"  [cyan]WHALE TRIGGERED[/cyan] (no trade after gates) "
+                    f"\"{market.question[:40]}\" "
+                    f"[{classification.direction} mat:{classification.materiality:.2f}]"
+                )
+        finally:
+            if reserved and not enqueued:
+                release_headline(self._traded_headlines, headline)
 
     async def _acquire_position_lock(self, event_key: str) -> asyncio.Lock:
         """The asyncio.Lock guarding position-opening for one event (its
@@ -1306,11 +1358,18 @@ class PipelineV2:
         """Open one signal's position under its event-level lock, re-checking the
         risk gates against fresh state first (see _recheck_risk_gates). Returns
         the execute result, or None when the re-check blocked it (a lost race) or
-        the open errored."""
+        the open errored.
+
+        Owns the signal's headline reservation (taken by gate_trade, handed over
+        at enqueue): a confirmed position open commits it permanently; every
+        other outcome — lost race, rejected/skipped/resting/errored execution,
+        or an exception — releases it in the finally, so a failed candidate
+        never burns the headline for later ones."""
         market = signal.market
         event_key = (getattr(market, "event_id", "") or "") or (
             getattr(market, "category", "") or "other"
         )
+        opened = False
         try:
             async with await self._acquire_position_lock(event_key):
                 if not await self._recheck_risk_gates(signal, market):
@@ -1350,6 +1409,8 @@ class PipelineV2:
                             token_count=result.get("actual_shares"),
                         ),
                     )
+                    # Position opened: the headline reservation is committed.
+                    opened = True
                 elif result["status"] == "resting":
                     # Order is live on the book but unfilled — do NOT open a
                     # position yet; a later fill is reconciled on the exchange.
@@ -1370,6 +1431,12 @@ class PipelineV2:
         except Exception:
             log.exception("[pipeline] _execute_with_lock failed")
             return None
+        finally:
+            # No position -> release the headline reservation so another
+            # candidate for the same headline may still open (discard-based:
+            # a no-op for signals whose headline was never reserved).
+            if not opened:
+                release_headline(self._traded_headlines, signal.headlines)
 
     async def _execute_signals(self):
         """Execute trades from the signal queue. Each signal opens under its

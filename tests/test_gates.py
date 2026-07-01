@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 import pytest
 
 from locus import config
-from locus.core.pipeline import gate_trade, news_age, consume_headline
+from locus.core.pipeline import gate_trade, news_age, release_headline
 from locus.core.edge import Signal
 from locus.markets.gamma import Market
 from locus.sources.news_stream import NewsEvent
@@ -158,62 +158,66 @@ def test_unknown_source_falls_back_to_default():
     assert s is None and a == "stale"
 
 
-def test_gate_trade_approves_without_consuming_headline():
-    # gate_trade approves ("signal") but no longer records the headline — the
-    # cap is consumed later, after every gate, in consume_headline.
+def test_gate_trade_reserves_headline_on_approval():
+    # gate_trade approves ("signal") and RESERVES the headline in the same
+    # synchronous step as the capped check — a second candidate for this
+    # headline evaluated before the first finishes must see "capped".
     traded = set()
     s, a = gate_trade(ev("Hilton expands", 60), SIG, traded, now=NOW)
     assert s is SIG and a == "signal"
-    assert "Hilton expands" not in traded
+    assert "Hilton expands" in traded
 
 
-def test_capped_when_headline_already_consumed():
-    # A headline already recorded (a prior open consumed it) makes the next
-    # match on the same headline capped.
+def test_capped_while_reservation_held():
+    # A headline already reserved (an in-flight candidate) or committed (a
+    # prior open) makes the next match on the same headline capped.
     traded = {"Hilton expands"}
     s, a = gate_trade(ev("Hilton expands", 60), SIG, traded, now=NOW)
     assert s is None and a == "capped"
 
 
-def test_stale_does_not_consume_headline_cap():
+def test_stale_does_not_reserve_headline():
     traded = set()
     gate_trade(ev("old story", 26 * 3600), SIG, traded, now=NOW)
     assert "old story" not in traded
 
 
-# --- consume_headline: cap consumed only at the confirmed open ------------
-# "open" == a signal that cleared EVERY gate and is being opened (signal is not
-# None at the terminal step), distinct from the earlier "signal" gate_trade
-# returns before the late gates (CoV, orderbook, ...) run.
+# --- release_headline: reserve at gate, commit on open, release on failure ---
+# The cap is one POSITION per headline, not one attempt: a candidate that
+# reserves at gate_trade but fails any later stage (CoV, orderbook, exposure,
+# execution, crash) must release, so a later candidate may reserve and open.
 
-def test_consume_headline_marks_on_open():
+def test_release_frees_a_reservation():
     traded = set()
-    assert consume_headline(traded, "big news", SIG) is True
+    gate_trade(ev("big news", 60), SIG, traded, now=NOW)
     assert "big news" in traded
-
-
-def test_consume_headline_skips_when_late_gate_blocked():
-    # CoV / orderbook (and every other late gate) null the signal -> the
-    # headline must stay free for other markets matched to the same headline.
-    traded = set()
-    assert consume_headline(traded, "big news", None) is False
+    release_headline(traded, "big news")
     assert "big news" not in traded
 
 
-def test_late_gate_block_leaves_headline_for_next_market():
-    # End-to-end of the timing fix. Market A is approved by gate_trade (no
-    # consume), then a late gate blocks it (signal None). Market B on the SAME
-    # headline must therefore still pass gate_trade and be able to open.
+def test_release_of_unreserved_headline_is_noop():
+    traded = {"other"}
+    release_headline(traded, "big news")
+    assert traded == {"other"}
+
+
+def test_late_gate_block_releases_headline_for_next_candidate():
+    # End-to-end of the reserve/commit-or-release cycle. Market A is approved
+    # (reserved); while A holds the reservation, market B on the SAME headline
+    # is capped. A then fails a late gate and releases; B may retry, reserve,
+    # and open (the commit is simply never releasing).
     traded = set()
     sA, aA = gate_trade(ev("shared headline", 60), SIG, traded, now=NOW)
-    assert aA == "signal" and "shared headline" not in traded   # not consumed yet
-    consume_headline(traded, "shared headline", None)            # A blocked late
-    assert "shared headline" not in traded                       # still free
-
+    assert aA == "signal" and "shared headline" in traded        # A reserved
     sB, aB = gate_trade(ev("shared headline", 60), SIG, traded, now=NOW)
-    assert aB == "signal"                                        # B not capped
-    consume_headline(traded, "shared headline", sB)              # B opens
-    assert "shared headline" in traded                           # now consumed
+    assert sB is None and aB == "capped"                         # B blocked by A
+
+    release_headline(traded, "shared headline")                  # A failed late
+    assert "shared headline" not in traded                       # freed
+
+    sB2, aB2 = gate_trade(ev("shared headline", 60), SIG, traded, now=NOW)
+    assert aB2 == "signal"                                       # B reserves now
+    assert "shared headline" in traded                           # B opens: commit
 
 
 def test_no_edge_is_plain_skip():
