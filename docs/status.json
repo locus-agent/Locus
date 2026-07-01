@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T16:11:51.940687+00:00",
-  "last_heartbeat": "2026-07-01T16:11:51.940687+00:00",
-  "uptime_seconds": 97945,
+  "generated_at": "2026-07-01T16:16:58.988553+00:00",
+  "last_heartbeat": "2026-07-01T16:16:58.988553+00:00",
+  "uptime_seconds": 98252,
   "dry_run": false,
-  "markets_tracked": 1248,
+  "markets_tracked": 1243,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9764,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 662,
+  "headlines_scanned_today": 665,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4387,
+  "classifications_24h": 4374,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1824,
+    "prefiltered_haiku": 1821,
     "stale": 5,
     "capped": 1,
     "too_close_to_resolution": 3,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-01T15:59:57.502925+00:00"
+    "last_check": "2026-07-01T16:14:57.887290+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1142,
-    "matched": 932,
-    "classified": 4387,
+    "news": 1141,
+    "matched": 930,
+    "classified": 4374,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 6929.6
+    "avg_classification_latency_ms": 6914.9
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.74,
       "amount_usd": 24.94,
       "current_value_usd": 24.51,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -417,57 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 16:11:25",
-      "market_question": "Will Trump's approval rating hit 35% in 2026?",
-      "headline": "Despite some big losses, Supreme Court rewards Trump's assertion of power - Reuters",
+      "time": "2026-07-01 16:15:45",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Brighton agree club record \u00a346m Vuskovic deal",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 16:11:25",
-      "market_question": "Will Trump's approval rating hit 30% in 2026?",
-      "headline": "Despite some big losses, Supreme Court rewards Trump's assertion of power - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 16:09:12",
-      "market_question": "Will Trump resign by December 31, 2026?",
-      "headline": "'Time for him to pay' - Carroll calls on Trump to pay $5m after president's appeal fails",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 16:09:12",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "Short sellers boost bets against SpaceX and it's already costing them - Reuters",
+      "time": "2026-07-01 16:15:43",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "Brighton agree club record \u00a346m Vuskovic deal",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -481,9 +449,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 16:09:07",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "'Time for him to pay' - Carroll calls on Trump to pay $5m after president's appeal fails",
+      "time": "2026-07-01 16:13:34",
+      "market_question": "Will Ethereum dip to $1,400 June 29-July 5?",
+      "headline": "Jefferies warns against buying the dip in Circle as Open USD raises new competition fears",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 16:13:34",
+      "market_question": "Will Bitcoin dip to $58,000 on July 1?",
+      "headline": "Jefferies warns against buying the dip in Circle as Open USD raises new competition fears",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 16:13:33",
+      "market_question": "Will Bitcoin dip to $55,000 on July 1?",
+      "headline": "Jefferies warns against buying the dip in Circle as Open USD raises new competition fears",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
