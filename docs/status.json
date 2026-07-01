@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-01T21:53:18.362520+00:00",
-  "last_heartbeat": "2026-07-01T21:53:18.362520+00:00",
-  "uptime_seconds": 653,
+  "generated_at": "2026-07-01T21:58:25.627737+00:00",
+  "last_heartbeat": "2026-07-01T21:58:25.627737+00:00",
+  "uptime_seconds": 961,
   "dry_run": false,
   "markets_tracked": 1245,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1269,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1275,
+  "headlines_last_cycle": 3,
   "signals_24h": 3,
-  "classifications_24h": 5277,
+  "classifications_24h": 5293,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2267,
+    "prefiltered_haiku": 2264,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-01T21:42:37.303702+00:00"
+    "last_check": "2026-07-01T21:57:37.593830+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1363,
-    "matched": 887,
-    "classified": 5277,
+    "news": 1366,
+    "matched": 889,
+    "classified": 5293,
     "signals": 3,
     "trades": 3
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -3.25,
-    "total_pnl_usd": 44.32,
+    "unrealized_pnl_usd": -4.56,
+    "total_pnl_usd": 43.0,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1412.2
+    "avg_classification_latency_ms": 1415.1
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.44499999999999995,
+      "current_price": 0.445,
       "pnl_pct": -3.48,
       "amount_usd": 24.94,
       "current_value_usd": 24.07,
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.52,
-      "pnl_pct": 1.05,
+      "current_price": 0.545,
+      "pnl_pct": -4.21,
       "amount_usd": 24.99,
-      "current_value_usd": 25.25,
-      "pnl_usd": 0.26,
+      "current_value_usd": 23.94,
+      "pnl_usd": -1.05,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,9 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 21:51:29",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "What to know about the decision to make Bible stories required reading in Texas public schools - AP News",
+      "time": "2026-07-01 21:58:06",
+      "market_question": "Will the Republicans win the Arkansas Senate race in 2026?",
+      "headline": "Challengers score victories in lawsuit against Arkansas' restrictions on citizen ballot initiatives - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 21:58:06",
+      "market_question": "Will Civic Platform (GP) win the most seats in the next Russian parliamentary election?",
+      "headline": "Shopify settles copyright lawsuit over rival e-commerce platform - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -433,9 +449,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 21:51:29",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "What to know about the decision to make Bible stories required reading in Texas public schools - AP News",
+      "time": "2026-07-01 21:58:06",
+      "market_question": "Will Civic Platform (GP) win the second-most seats in the next Russian parliamentary election?",
+      "headline": "Shopify settles copyright lawsuit over rival e-commerce platform - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 21:51:29",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "What to know about the decision to make Bible stories required reading in Texas public schools - AP News",
+      "time": "2026-07-01 21:58:06",
+      "market_question": "Will Jared Moskowitz be the Democratic nominee for Senate in Florida?",
+      "headline": "Democratic congressman asks the CFPB to investigate \u2018rent now, pay later\u2019 companies - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,25 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 21:51:29",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "What to know about the decision to make Bible stories required reading in Texas public schools - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 21:51:29",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "What to know about the decision to make Bible stories required reading in Texas public schools - AP News",
+      "time": "2026-07-01 21:58:06",
+      "market_question": "Will Melisa Hortman be the Democratic nominee for Senate in Minnesota?",
+      "headline": "Democratic congressman asks the CFPB to investigate \u2018rent now, pay later\u2019 companies - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
