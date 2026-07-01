@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-01T21:43:02.064032+00:00",
-  "last_heartbeat": "2026-07-01T21:43:02.064032+00:00",
-  "uptime_seconds": 37,
+  "generated_at": "2026-07-01T21:48:11.128735+00:00",
+  "last_heartbeat": "2026-07-01T21:48:11.128735+00:00",
+  "uptime_seconds": 346,
   "dry_run": false,
-  "markets_tracked": 1242,
+  "markets_tracked": 1243,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9885,
+    "total": 9887,
     "accuracy": 18.1,
     "by_category": {
       "other": 16.2,
@@ -19,17 +19,17 @@
     "by_source": {
       "rss": 18.4,
       "newsapi": 17.9,
-      "truthsocial": 6.8
+      "truthsocial": 6.7
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.1,
-    "overall_total": 9885,
+    "overall_total": 9887,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5583,
+        "total": 5584,
         "correct": 398,
         "accuracy_pct": 7.1,
         "avg_pnl_pct": 10.17,
@@ -65,9 +65,9 @@
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 538,
-        "correct": 227,
-        "accuracy_pct": 42.2,
+        "total": 539,
+        "correct": 228,
+        "accuracy_pct": 42.3,
         "avg_pnl_pct": 3.47,
         "color": "green"
       },
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1148,
-  "headlines_last_cycle": 27,
+  "headlines_scanned_today": 1268,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4810,
+  "classifications_24h": 5275,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2035,
+    "prefiltered_haiku": 2267,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1246,
+    "news": 1364,
     "matched": 888,
-    "classified": 4810,
+    "classified": 5275,
     "signals": 3,
     "trades": 3
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 47.56,
-    "unrealized_pnl_usd": -4.92,
-    "total_pnl_usd": 42.65,
+    "unrealized_pnl_usd": -5.44,
+    "total_pnl_usd": 42.12,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1331.5
+    "avg_classification_latency_ms": 1412.2
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -3.48,
       "amount_usd": 24.94,
       "current_value_usd": 24.07,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -237,11 +237,11 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.38,
-      "pnl_pct": -12.06,
+      "current_price": 0.395,
+      "pnl_pct": -14.18,
       "amount_usd": 24.85,
-      "current_value_usd": 21.85,
-      "pnl_usd": -3.0,
+      "current_value_usd": 21.33,
+      "pnl_usd": -3.52,
       "edge_type": "news",
       "event_id": "59233"
     }
@@ -417,41 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 21:43:01",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "U.S., Iran talks conclude in Doha, focused on Strait - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 21:43:01",
-      "market_question": "Will Alibaba have the best AI model at the end of July 2026?",
-      "headline": "Alibaba to pay $600 million to resolve US drug sales probe - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 21:42:59",
-      "market_question": "Will Trump deport less than 200k people?",
-      "headline": "CDC urges people to prevent mosquito bites as West Nile virus season hits a strong, early start - AP News",
+      "time": "2026-07-01 21:47:06",
+      "market_question": "Will Bitcoin reach $82,500 in July?",
+      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -465,36 +433,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 21:42:59",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "U.S., Iran talks conclude in Doha, focused on Strait - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-01 21:47:06",
+      "market_question": "Will Bitcoin reach $67,500 in July?",
+      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-01 21:42:59",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "U.S., Iran talks conclude in Doha, focused on Strait - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-01 21:47:06",
+      "market_question": "Will Bitcoin reach $70,000 in July?",
+      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 21:47:06",
+      "market_question": "Will Bitcoin reach $62,000 on July 1?",
+      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 21:47:06",
+      "market_question": "Will Bitcoin reach $65,000 in July?",
+      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
