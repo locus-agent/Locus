@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-01T05:02:23.738222+00:00",
-  "last_heartbeat": "2026-07-01T05:02:23.738222+00:00",
-  "uptime_seconds": 57776,
+  "generated_at": "2026-07-01T05:07:30.452247+00:00",
+  "last_heartbeat": "2026-07-01T05:07:30.452247+00:00",
+  "uptime_seconds": 58083,
   "dry_run": false,
-  "markets_tracked": 1266,
+  "markets_tracked": 1261,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9720,
-    "accuracy": 17.8,
+    "total": 9737,
+    "accuracy": 17.9,
     "by_category": {
       "other": 16.2,
       "ai": 11.5,
       "politics": 20.7,
       "technology": 12.7,
-      "crypto": 17.3,
+      "crypto": 17.6,
       "sports": 26.2
     },
     "by_source": {
@@ -23,43 +23,43 @@
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 17.8,
-    "overall_total": 9720,
+    "overall_accuracy": 17.9,
+    "overall_total": 9737,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5495,
-        "correct": 382,
+        "total": 5501,
+        "correct": 383,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 10.35,
+        "avg_pnl_pct": 10.34,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 867,
-        "correct": 305,
-        "accuracy_pct": 35.2,
-        "avg_pnl_pct": 24.91,
+        "total": 869,
+        "correct": 307,
+        "accuracy_pct": 35.3,
+        "avg_pnl_pct": 24.87,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1024,
-        "correct": 398,
-        "accuracy_pct": 38.9,
-        "avg_pnl_pct": 5.14,
+        "total": 1030,
+        "correct": 403,
+        "accuracy_pct": 39.1,
+        "avg_pnl_pct": 5.24,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 580,
-        "correct": 186,
+        "total": 583,
+        "correct": 187,
         "accuracy_pct": 32.1,
-        "avg_pnl_pct": 1.19,
+        "avg_pnl_pct": 1.03,
         "color": "green"
       },
       {
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 202,
+  "headlines_scanned_today": 220,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 6163,
+  "classifications_24h": 6216,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2499,
+    "prefiltered_haiku": 2520,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1753,
-    "matched": 1040,
-    "classified": 6163,
+    "news": 1761,
+    "matched": 1051,
+    "classified": 6216,
     "signals": 4,
     "trades": 4
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2072.6
+    "avg_classification_latency_ms": 2066.8
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -1.74,
       "amount_usd": 24.94,
       "current_value_usd": 24.51,
@@ -237,7 +237,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.32,
+      "current_price": 0.32000000000000006,
       "pnl_pct": -3.55,
       "amount_usd": 24.85,
       "current_value_usd": 23.97,
@@ -417,25 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 05:01:00",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "Federal board offers $3B settlement to restructure Puerto Rico power company debt - AP News",
+      "time": "2026-07-01 05:05:30",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Taiwan\u2019s sweeping crypto law raises the bar with licensing, reserve mandates, and tough penalties",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 05:00:59",
-      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
-      "headline": "Federal board offers $3B settlement to restructure Puerto Rico power company debt - AP News",
+      "time": "2026-07-01 05:05:30",
+      "market_question": "Another Canada election called by June 30?",
+      "headline": "Canada celebrates its birthday as Mark Carney battles to keep it intact",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +449,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 05:00:59",
-      "market_question": "Will Microsoft be the largest company in the world by market cap on December 31?",
-      "headline": "Federal board offers $3B settlement to restructure Puerto Rico power company debt - AP News",
+      "time": "2026-07-01 05:05:30",
+      "market_question": "Will Donald Trump visit Canada in 2026?",
+      "headline": "Canada celebrates its birthday as Mark Carney battles to keep it intact",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 05:00:59",
-      "market_question": "Will Apple be the largest company in the world by market cap on December 31?",
-      "headline": "Federal board offers $3B settlement to restructure Puerto Rico power company debt - AP News",
+      "time": "2026-07-01 05:05:30",
+      "market_question": "Will Mark Kelly be the next Senate Majority Leader?",
+      "headline": "Canada celebrates its birthday as Mark Carney battles to keep it intact",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -481,9 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 05:00:59",
-      "market_question": "Will Apple be the largest company in the world by market cap on July 31?",
-      "headline": "Federal board offers $3B settlement to restructure Puerto Rico power company debt - AP News",
+      "time": "2026-07-01 05:05:30",
+      "market_question": "Will Mark Sutcliffe win the 2026 Ottawa mayoral election?",
+      "headline": "Canada celebrates its birthday as Mark Carney battles to keep it intact",
       "direction": null,
       "materiality": null,
       "confidence": null,
