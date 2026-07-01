@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-01T00:52:12.967087+00:00",
-  "last_heartbeat": "2026-07-01T00:52:12.967087+00:00",
-  "uptime_seconds": 42766,
+  "generated_at": "2026-07-01T00:57:19.101429+00:00",
+  "last_heartbeat": "2026-07-01T00:57:19.101429+00:00",
+  "uptime_seconds": 43072,
   "dry_run": false,
   "markets_tracked": 1270,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 58,
+  "headlines_scanned_today": 59,
   "headlines_last_cycle": 0,
-  "signals_24h": 4,
-  "classifications_24h": 6185,
-  "selectivity_pct": 0.1,
+  "signals_24h": 3,
+  "classifications_24h": 6166,
+  "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2511,
+    "prefiltered_haiku": 2509,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -115,16 +115,16 @@
     "last_check": "2026-07-01T00:45:01.588348+00:00"
   },
   "edge_types_24h": {
-    "news": 4,
+    "news": 3,
     "momentum": 0,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1821,
-    "matched": 1045,
-    "classified": 6185,
-    "signals": 4,
-    "trades": 4
+    "news": 1817,
+    "matched": 1042,
+    "classified": 6166,
+    "signals": 3,
+    "trades": 3
   },
   "performance": {
     "trades_total": 45,
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2024.3
+    "avg_classification_latency_ms": 2027.1
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -237,7 +237,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.32000000000000006,
+      "current_price": 0.32,
       "pnl_pct": -3.55,
       "amount_usd": 24.85,
       "current_value_usd": 23.97,
@@ -417,9 +417,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 00:50:54",
-      "market_question": "Will Grok AI beat T1 in 2026? ",
-      "headline": "Nike flags prolonged turnaround as China slump, weak outlook eclipse quarterly beat - Reuters",
+      "time": "2026-07-01 00:53:11",
+      "market_question": "Will OpenAI announce glasses in 2026?",
+      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 00:53:10",
+      "market_question": "Will Meta have a #1 AI model by June 30?",
+      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 00:53:05",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -433,9 +465,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 00:50:53",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "Nike flags prolonged turnaround as China slump, weak outlook eclipse quarterly beat - Reuters",
+      "time": "2026-07-01 00:53:04",
+      "market_question": "Will Meta have the best AI model at the end of July 2026?",
+      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,41 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 00:48:48",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "Trump made more than $1bn from crypto in first year back in office",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 00:48:48",
-      "market_question": "Will Puffpaw launch a token by March 31, 2027?",
-      "headline": "Hawaii displays historic photos of Martin Luther King Jr. wearing flower lei during Selma march - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 00:48:48",
-      "market_question": "Will Betmoar launch a token by March 31, 2027?",
-      "headline": "Hawaii displays historic photos of Martin Luther King Jr. wearing flower lei during Selma march - AP News",
+      "time": "2026-07-01 00:53:04",
+      "market_question": "Will Meta launch a USD stablecoin in 2026?",
+      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
       "direction": null,
       "materiality": null,
       "confidence": null,
