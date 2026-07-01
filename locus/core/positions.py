@@ -21,6 +21,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import time
 from datetime import datetime, timezone
 
 import anthropic
@@ -1180,10 +1181,69 @@ def reevaluate(position: dict, trigger: str, trigger_detail: str = "",
     return {"decision": decision, "reasoning": reasoning, "realized": realized}
 
 
+# Open positions can carry a NULL end_date: some Gamma markets (e.g. election
+# "Winner" outcomes) have no market-level endDate, and rows opened before the
+# event-endDate parser fallback existed stored nothing. Without an end_date the
+# time_pressure hard exit can never fire, so the management cycle periodically
+# re-fetches those markets and fills the date in when Gamma reports one.
+_END_DATE_BACKFILL_INTERVAL_SECONDS = 3600.0
+_last_end_date_backfill = 0.0
+
+
+def backfill_missing_end_dates() -> int:
+    """Fill end_date on open positions where it is NULL/empty, from a fresh
+    Gamma fetch of their markets (market endDate, falling back to the parent
+    event's endDate — gamma._end_date_from_raw). Returns how many positions
+    were updated; positions whose market still reports no end date are left
+    NULL and retried on a later cycle."""
+    conn = logger._conn()
+    try:
+        rows = conn.execute(
+            "SELECT id, condition_id FROM positions "
+            "WHERE status='open' AND (end_date IS NULL OR end_date='')"
+        ).fetchall()
+        if not rows:
+            return 0
+        markets = gamma.fetch_markets_by_condition_ids(
+            [r["condition_id"] for r in rows]
+        )
+        updated = 0
+        for r in rows:
+            end_date = (markets.get(r["condition_id"]) or {}).get("end_date")
+            if not end_date:
+                continue
+            conn.execute(
+                "UPDATE positions SET end_date=? "
+                "WHERE id=? AND (end_date IS NULL OR end_date='')",
+                (end_date, r["id"]),
+            )
+            updated += 1
+            log.info(
+                "[positions] end_date backfilled on position %s: %s "
+                "(time-based exit protection restored)", r["id"], end_date,
+            )
+        conn.commit()
+        return updated
+    finally:
+        conn.close()
+
+
 def update_and_manage(prices: dict[str, float]) -> dict:
     """Mark open positions to `prices`, apply the hard stop-loss, and run
     Claude re-evaluations for rule triggers (respecting the cooldown).
     Called from the pipeline's periodic cycle, off the event loop."""
+    # Backfill missing end_dates first (throttled to once an hour — one cheap
+    # batch fetch, and only while NULL-end_date positions exist), so the
+    # time_pressure/near-certain checks below see the date this same cycle.
+    global _last_end_date_backfill
+    now_mono = time.monotonic()
+    if now_mono - _last_end_date_backfill >= _END_DATE_BACKFILL_INTERVAL_SECONDS:
+        _last_end_date_backfill = now_mono
+        try:
+            backfill_missing_end_dates()
+        except Exception as e:
+            log.warning(f"[positions] end_date backfill error: {e}")
+
     stats = {"updated": 0, "stop_losses": 0, "time_pressure_exits": 0,
              "near_certain_exits": 0, "reevals": 0}
     conn = logger._conn()

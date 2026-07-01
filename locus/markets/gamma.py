@@ -119,6 +119,18 @@ def get_tags() -> dict[str, int]:
     return mapping
 
 
+def _end_date_from_raw(m: dict) -> str:
+    """The resolution end date of a raw Gamma market dict, or "" when unknown.
+
+    Some markets carry NO market-level endDate at all — e.g. the per-candidate
+    outcomes of election "Winner" events have only startDate/startDateIso — but
+    their parent event does carry endDate (election day), which is the correct
+    resolution horizon. Fall back to it, `or`-chained so absent keys, explicit
+    nulls, and empty strings all fall through."""
+    event = (m.get("events") or [{}])[0]
+    return m.get("endDate") or m.get("end_date_iso") or event.get("endDate") or ""
+
+
 def _parse_market(m: dict) -> Market | None:
     """Convert one raw Gamma market dict into a Market, or None when it can't be
     parsed or is a resolved/zero-info market. Pure (carries no dedup state)."""
@@ -174,7 +186,7 @@ def _parse_market(m: dict) -> Market | None:
             yes_price=yes_price,
             no_price=no_price,
             volume=vol,
-            end_date=m.get("endDate", m.get("end_date_iso", "")),
+            end_date=_end_date_from_raw(m),
             active=m.get("active", True),
             tokens=token_list,
             description=m.get("description", "") or "",
@@ -339,8 +351,10 @@ def fetch_markets_by_condition_ids(condition_ids: list[str]) -> dict[str, dict]:
     """Batch-fetch current state for a list of condition_ids in as few Gamma
     requests as possible (one per 100-id chunk), instead of N single-market
     calls. Returns a mapping condition_id -> {condition_id, yes_price, closed,
-    question}. condition_ids Gamma doesn't return are simply absent from the
-    map; callers should treat a missing id as resolved/unknown.
+    question, slug, end_date}. end_date falls back to the parent event's
+    endDate (see _end_date_from_raw) and is None when Gamma has neither.
+    condition_ids Gamma doesn't return are simply absent from the map; callers
+    should treat a missing id as resolved/unknown.
     """
     ids = [c for c in dict.fromkeys(condition_ids) if c]  # dedupe, drop blanks
     if not ids:
@@ -368,6 +382,7 @@ def fetch_markets_by_condition_ids(condition_ids: list[str]) -> dict[str, dict]:
                         "closed": bool(m.get("closed", False)),
                         "question": m.get("question", ""),
                         "slug": (m.get("events") or [{}])[0].get("slug", "") or m.get("slug", ""),
+                        "end_date": _end_date_from_raw(m) or None,
                     }
     except (httpx.HTTPError, ValueError):
         # Network/parse failure: return whatever we collected. Missing ids are
