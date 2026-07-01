@@ -244,6 +244,11 @@ MIN_MATERIALITY_SPORTS = float(
 HIGH_MATERIALITY_THRESHOLD = float(os.getenv("HIGH_MATERIALITY_THRESHOLD", "0.5"))
 CONFIRMATION_WINDOW_HOURS = float(os.getenv("CONFIRMATION_WINDOW_HOURS", "2"))
 MIN_CONFIRMING_SOURCES = int(os.getenv("MIN_CONFIRMING_SOURCES", "2"))
+# A confirmation must be a genuinely independent read: a different source AND a
+# non-identical headline (the same wire story cross-posted via RSS + NewsAPI is
+# one story, not two), and its own materiality must clear this floor — a 0.05
+# throwaway directional row shouldn't vouch for a 0.9 signal.
+CONFIRMATION_MIN_MATERIALITY = float(os.getenv("CONFIRMATION_MIN_MATERIALITY", "0.30"))
 
 # Event context awareness: markets sharing a Gamma event_id are sibling
 # outcomes of one event. Cap how many positions we hold across one event so a

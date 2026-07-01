@@ -959,18 +959,33 @@ def get_classification_count_since(since: str, action: str | None = None) -> int
     return row["c"]
 
 
-def get_confirming_sources(condition_id: str, direction: str, since: str) -> set[str]:
+def get_confirming_sources(
+    condition_id: str, direction: str, since: str,
+    exclude_headline: str | None = None, min_materiality: float = 0.0,
+) -> set[str]:
     """Distinct news_source values among directional classifications for this
     market in this direction since `since`. Backs the high-materiality
-    multi-source confirmation gate in pipeline.gate_trade."""
+    multi-source confirmation gate in pipeline.gate_trade.
+
+    A confirmation must be genuinely independent, so:
+    - `exclude_headline` drops rows whose headline is IDENTICAL to the current
+      event's (exact match — the same key the dedup cache uses in
+      find_recent_classification): the same wire story cross-posted through a
+      second feed gets logged under that feed's source name via the 'cached'
+      path and would otherwise fake a second source.
+    - `min_materiality` drops weak reads (NULL materiality never counts): only
+      a row that itself found the news material can vouch for the signal."""
     conn = _conn()
-    rows = conn.execute(
-        """SELECT DISTINCT news_source FROM classifications
-           WHERE condition_id = ? AND direction = ?
-             AND news_source IS NOT NULL AND news_source != ''
-             AND created_at >= ?""",
-        (condition_id, direction, since),
-    ).fetchall()
+    sql = """SELECT DISTINCT news_source FROM classifications
+             WHERE condition_id = ? AND direction = ?
+               AND news_source IS NOT NULL AND news_source != ''
+               AND created_at >= ?
+               AND materiality >= ?"""
+    params: list = [condition_id, direction, since, min_materiality]
+    if exclude_headline is not None:
+        sql += " AND headline != ?"
+        params.append(exclude_headline)
+    rows = conn.execute(sql, params).fetchall()
     conn.close()
     return {r["news_source"] for r in rows}
 

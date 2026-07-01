@@ -239,7 +239,11 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
                              call seen from fewer than MIN_CONFIRMING_SOURCES
                              distinct sources within CONFIRMATION_WINDOW_HOURS;
                              obvious news is the least accurate, so hold until
-                             a second source agrees
+                             a second source agrees. A confirming row must be
+                             independent: a different source AND a
+                             non-identical headline (exact match, the dedup
+                             cache's key) with materiality >=
+                             CONFIRMATION_MIN_MATERIALITY
       "signal"             — approved by these gates. The headline is RESERVED
                              into traded_headlines here, in the same synchronous
                              step as the "capped" check above (gate_trade never
@@ -349,13 +353,20 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     # High-materiality confirmation gate: the most "obvious" news grades worst
     # (likely already priced in), so require the same directional read from
     # >= MIN_CONFIRMING_SOURCES distinct sources within the recent window.
+    # A confirmation must be genuinely independent: a different source with a
+    # NON-identical headline (exact match — the dedup cache's key; the same
+    # wire story cross-posted through a second feed is logged under that
+    # feed's source via the 'cached' path and is one story, not two) whose own
+    # materiality cleared CONFIRMATION_MIN_MATERIALITY.
     if mat >= config.HIGH_MATERIALITY_THRESHOLD:
         since = (
             (now or datetime.now(timezone.utc))
             - timedelta(hours=config.CONFIRMATION_WINDOW_HOURS)
         ).strftime("%Y-%m-%d %H:%M:%S")
         sources = logger.get_confirming_sources(
-            signal.market.condition_id, direction, since
+            signal.market.condition_id, direction, since,
+            exclude_headline=event.headline,
+            min_materiality=config.CONFIRMATION_MIN_MATERIALITY,
         )
         sources.add(event.source)
         if len(sources) < config.MIN_CONFIRMING_SOURCES:

@@ -28,6 +28,7 @@ def _pin_materiality_thresholds(monkeypatch):
     monkeypatch.setattr(config, "MIN_MATERIALITY_BEARISH", 0.4)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.5)
     monkeypatch.setattr(config, "MIN_CONFIRMING_SOURCES", 2)
+    monkeypatch.setattr(config, "CONFIRMATION_MIN_MATERIALITY", 0.30)
     monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_DEFAULT", 14400)
     monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_TWITTER", 10800)
     monkeypatch.setattr(config, "MAX_NEWS_AGE_SECONDS_RSS", 21600)
@@ -254,16 +255,18 @@ def test_low_materiality_does_not_consume_headline_cap():
 
 # --- High-materiality multi-source confirmation gate ---------------------
 
-def _seed_classification(db, source, direction="bullish", condition_id="c1", ago_hours=0.5):
+def _seed_classification(db, source, direction="bullish", condition_id="c1",
+                         ago_hours=0.5, headline="prior", materiality=0.5):
     """Insert a prior directional classification at NOW - ago_hours."""
     created_at = (NOW - timedelta(hours=ago_hours)).strftime("%Y-%m-%d %H:%M:%S")
     conn = db._conn()
     conn.execute(
         """INSERT INTO classifications
-           (market_question, headline, news_source, direction, action,
-            condition_id, created_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?)""",
-        ("Will X happen?", "prior", source, direction, "signal", condition_id, created_at),
+           (market_question, headline, news_source, direction, materiality,
+            action, condition_id, created_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        ("Will X happen?", headline, source, direction, materiality, "signal",
+         condition_id, created_at),
     )
     conn.commit()
     conn.close()
@@ -305,3 +308,50 @@ def test_needs_confirmation_does_not_consume_headline_cap(tmp_db):
     traded = set()
     gate_trade(ev("big news", 60), sig(0.6, "bullish"), traded, now=NOW)
     assert "big news" not in traded
+
+
+# --- Confirmation independence: same story / weak reads must not confirm -----
+
+def test_identical_cross_posted_headline_does_not_confirm(tmp_db):
+    # The SAME headline text logged under a second source (the dedup-cache
+    # 'cached' path does exactly this for a cross-posted wire story) is one
+    # story, not independent confirmation -> still held.
+    _seed_classification(tmp_db, source="newsapi", headline="big news",
+                         materiality=0.6)
+    s, a = gate_trade(ev("big news", 60), sig(0.6, "bullish"), set(), now=NOW)
+    assert s is None and a == "needs_confirmation"
+
+
+def test_different_headline_from_different_source_confirms(tmp_db):
+    # A genuinely different story from a different source vouches for the call.
+    _seed_classification(tmp_db, source="twitter",
+                         headline="senate sources say deal is done",
+                         materiality=0.5)
+    s, a = gate_trade(ev("big news", 60), sig(0.6, "bullish"), set(), now=NOW)
+    assert s is not None and a == "signal"
+
+
+def test_low_materiality_confirmation_does_not_count(tmp_db):
+    # A weak (0.1 < CONFIRMATION_MIN_MATERIALITY 0.30) directional row must
+    # not vouch for a high-materiality signal.
+    _seed_classification(tmp_db, source="twitter",
+                         headline="vaguely related note", materiality=0.1)
+    s, a = gate_trade(ev("big news", 60), sig(0.6, "bullish"), set(), now=NOW)
+    assert s is None and a == "needs_confirmation"
+
+
+def test_confirmation_min_materiality_is_configurable(tmp_db, monkeypatch):
+    # Lowering the floor via config makes the same weak row count.
+    monkeypatch.setattr(config, "CONFIRMATION_MIN_MATERIALITY", 0.05)
+    _seed_classification(tmp_db, source="twitter",
+                         headline="vaguely related note", materiality=0.1)
+    s, a = gate_trade(ev("big news", 60), sig(0.6, "bullish"), set(), now=NOW)
+    assert s is not None and a == "signal"
+
+
+def test_null_materiality_row_does_not_confirm(tmp_db):
+    # Legacy/error rows with NULL materiality never count as confirmation.
+    _seed_classification(tmp_db, source="twitter",
+                         headline="different story", materiality=None)
+    s, a = gate_trade(ev("big news", 60), sig(0.6, "bullish"), set(), now=NOW)
+    assert s is None and a == "needs_confirmation"

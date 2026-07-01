@@ -95,8 +95,38 @@ def test_fix_closes_mismatch(tmp_db, monkeypatch):
         conn.close()
     assert row["status"] == "closed_reconciled"
     assert row["exit_reason"] == "reconcile_mismatch"
-    assert row["realized_pnl_usd"] == 0
+    # The reconcile close realizes nothing (a never-realized row stays NULL/0).
+    assert (row["realized_pnl_usd"] or 0) == 0
     assert row["closed_at"] is not None
+
+
+def test_fix_preserves_prior_partial_realizations(tmp_db, monkeypatch):
+    # A position that realized +$5.00 from an earlier close_half, whose
+    # remainder later turns out to be gone on-chain: the reconcile close must
+    # PRESERVE the $5 — it is real money that was actually realized — and only
+    # flip status/exit_reason/closed_at.
+    _open(tmp_db, "c_half_then_gone")
+    pid = positions.get_open_positions()[0]["id"]
+    conn = tmp_db._conn()
+    conn.execute("UPDATE positions SET realized_pnl_usd=5.0 WHERE id=?", (pid,))
+    conn.commit()
+    conn.close()
+    _holdings(monkeypatch, {"c_half_then_gone": 0.0})
+
+    report = positions.reconcile_positions(fix=True, client=CLIENT)
+
+    assert report["fixed"] == [pid]
+    conn = tmp_db._conn()
+    try:
+        row = conn.execute(
+            "SELECT status, exit_reason, realized_pnl_usd FROM positions "
+            "WHERE id=?", (pid,)
+        ).fetchone()
+    finally:
+        conn.close()
+    assert row["status"] == "closed_reconciled"
+    assert row["exit_reason"] == "reconcile_mismatch"
+    assert row["realized_pnl_usd"] == pytest.approx(5.0)  # not zeroed
 
 
 def test_dry_run_does_not_change_db(tmp_db, monkeypatch):

@@ -986,14 +986,17 @@ def close_manual(position_id: int) -> dict | None:
 
 def _mark_reconciled_closed(conn, position_id: int) -> None:
     """Flip an open position to closed_reconciled (a no-fill bookkeeping close):
-    the on-chain token balance says we never really held it, so realize $0 and
-    stamp closed_at. Distinct status/exit_reason so it's auditable and excluded
-    from the win-rate denominator (realized_pnl_usd=0)."""
+    the on-chain token balance says nothing is held anymore, so stamp
+    status/exit_reason/closed_at. The reconcile itself realizes $0 — but any
+    realized_pnl_usd already on the row (e.g. close_half chunks realized before
+    the remainder went missing) is REAL money that was actually realized, so it
+    is preserved, never overwritten. Distinct status/exit_reason keep the close
+    auditable."""
     now_iso = datetime.now(timezone.utc).isoformat()
     conn.execute(
         """UPDATE positions
            SET status='closed_reconciled', exit_reason='reconcile_mismatch',
-               realized_pnl_usd=0, unrealized_pnl_pct=0, closed_at=?
+               unrealized_pnl_pct=0, closed_at=?
            WHERE id=?""",
         (now_iso, position_id),
     )
@@ -1044,7 +1047,8 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
     positively confirmed are empty.
 
     `fix=False` (default) reports only. `fix=True` closes each MISMATCH as
-    closed_reconciled / reconcile_mismatch with realized PnL $0. `client` is the
+    closed_reconciled / reconcile_mismatch, realizing nothing further (prior
+    partial realizations on the row are preserved). `client` is the
     CLOB client; built via executor.create_clob_client() when omitted (injectable
     for tests). Returns a report dict:
         {"entries": [{"id", "market_question", "state", "held", "line"}, ...],
