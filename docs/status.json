@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-01T22:31:07.978389+00:00",
-  "last_heartbeat": "2026-07-01T22:31:07.978389+00:00",
-  "uptime_seconds": 1585,
+  "generated_at": "2026-07-01T22:35:38.198221+00:00",
+  "last_heartbeat": "2026-07-01T22:35:38.198221+00:00",
+  "uptime_seconds": 45,
   "dry_run": false,
   "markets_tracked": 1261,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1590,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1635,
+  "headlines_last_cycle": 34,
   "signals_24h": 3,
-  "classifications_24h": 6325,
+  "classifications_24h": 6477,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2696,
+    "prefiltered_haiku": 2734,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -108,11 +108,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 3,
-  "missed_opportunities_24h": 8,
+  "missed_opportunities_24h": 11,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-01T22:19:55.963656+00:00"
+    "last_check": "2026-07-01T22:35:08.272614+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1643,
-    "matched": 866,
-    "classified": 6325,
+    "news": 1685,
+    "matched": 867,
+    "classified": 6477,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1430.0
+    "avg_classification_latency_ms": 1231.3
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.21,
-      "pnl_usd": -1.78,
+      "current_value_usd": 23.2,
+      "pnl_usd": -1.79,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,9 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 22:29:15",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "\u2018Fair Share\u2019 tax supporters bank on Becerra - Politico",
+      "time": "2026-07-01 22:35:37",
+      "market_question": "Over $600M raised on Coinbase in 2026?",
+      "headline": "Alibaba to pay US $600M to settle allegations it allowed illegal drug and equipment sales - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 22:35:37",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Serena Williams wins praise from fellow pros at Wimbledon after 1st singles match in nearly 4 years - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -433,9 +449,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 22:29:15",
-      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by less than 5%?",
-      "headline": "\u2018Fair Share\u2019 tax supporters bank on Becerra - Politico",
+      "time": "2026-07-01 22:35:37",
+      "market_question": "Will Trump praise Susan Dell by June 30?",
+      "headline": "Serena Williams wins praise from fellow pros at Wimbledon after 1st singles match in nearly 4 years - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 22:29:15",
-      "market_question": "Will Xavier Becerra finish first in the 2026 California Governor primary election?",
-      "headline": "\u2018Fair Share\u2019 tax supporters bank on Becerra - Politico",
+      "time": "2026-07-01 22:35:37",
+      "market_question": "LA Mayoral Election: Recount of 1st Round?",
+      "headline": "Serena Williams wins praise from fellow pros at Wimbledon after 1st singles match in nearly 4 years - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,25 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 22:29:15",
-      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
-      "headline": "\u2018Fair Share\u2019 tax supporters bank on Becerra - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 22:29:15",
-      "market_question": "Will Deutsche Bank or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "\u2018Fair Share\u2019 tax supporters bank on Becerra - Politico",
+      "time": "2026-07-01 22:35:37",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Serena Williams wins praise from fellow pros at Wimbledon after 1st singles match in nearly 4 years - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -543,6 +543,27 @@
   ],
   "lessons": [
     {
+      "time": "2026-07-01 22:35:38",
+      "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Ethereum reach $2,500 by December 31, 2026?' \u2014 price moved +22%. Consider lowering min_materiality for crypto category."
+    },
+    {
+      "time": "2026-07-01 22:35:36",
+      "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Bitcoin reach $95,000 by December 31, 2026?' \u2014 price moved +27%. Consider lowering min_materiality for crypto category."
+    },
+    {
+      "time": "2026-07-01 22:35:33",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +12%. Consider lowering min_materiality for politics category."
+    },
+    {
       "time": "2026-07-01 22:05:29",
       "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
       "classification": "bearish",
@@ -555,30 +576,39 @@
       "classification": "bearish",
       "actual_direction": "bearish",
       "lesson": "Missed strong bearish signal (mat=0.35) on 'Will MicroStrategy announce holding 1M+ BTC by Dec' \u2014 price moved +13%. Consider lowering min_materiality for crypto category."
-    },
-    {
-      "time": "2026-07-01 22:05:25",
-      "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Bitcoin reach $95,000 by December 31, 2026?' \u2014 price moved +27%. Consider lowering min_materiality for crypto category."
-    },
-    {
-      "time": "2026-07-01 22:05:22",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +13%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-01 22:00:33",
-      "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Ethereum reach $2,500 by December 31, 2026?' \u2014 price moved +22%. Consider lowering min_materiality for crypto category."
     }
   ],
   "missed_opportunities": [
+    {
+      "time": "2026-07-01 22:35:38",
+      "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
+      "slug": "what-price-will-ethereum-hit-before-2027",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 22.4,
+      "reflection": "I missed a 22% move in my predicted direction because I underweighted my own conviction\u2014a 0.35 materiality signal suggests meaningful but not overwhelming confidence, yet I skipped it entirely rather than taking a small position that would have captured real alpha. This reflects a bias toward inaction when uncertain rather than sizing appropriately to my actual beliefs, and I should have trusted that even moderate-confidence bearish views on ETH reaching $2,500 deserved at least a modest allocation."
+    },
+    {
+      "time": "2026-07-01 22:35:36",
+      "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
+      "slug": "what-price-will-bitcoin-hit-before-2027",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "action": "skip",
+      "pct_move": 27.3,
+      "reflection": "I issued a bearish signal with moderate conviction (0.45 materiality) but skipped execution, and Bitcoin moved 27% downward\u2014exactly validating my directional thesis. I missed a meaningful trade because I likely over-weighted execution risk or liquidity concerns relative to the signal strength, when a partial position or scaled entry would have captured the move I actually predicted. This reflects a gap between my conviction level and my risk management\u2014if I believed it enough to signal bearish, I should have trusted that conviction enough to trade it."
+    },
+    {
+      "time": "2026-07-01 22:35:33",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "action": "skip",
+      "pct_move": 12.4,
+      "reflection": "I flagged this as bearish with moderate conviction (0.45 materiality), but I skipped the trade\u2014and watched the market move 12% exactly as I'd predicted, which stings. The skip likely came from uncertainty about execution risk or liquidity on a niche political market, but that caution cost me real alpha when the signal was actually sound. I need to recalibrate: moderate-conviction calls on clear directional moves shouldn't be left on the table just because they're unconventional markets."
+    },
     {
       "time": "2026-07-01 22:05:29",
       "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
@@ -598,36 +628,6 @@
       "action": "skip",
       "pct_move": 13.3,
       "reflection": "I underweighted a signal with clear fundamental catalysts\u2014MicroStrategy's aggressive Bitcoin accumulation strategy and concrete timeline\u2014because my 0.35 materiality threshold was too conservative for a binary event with defined endpoints. The 13% move vindicated the bearish case, but I let risk aversion override conviction; I should have recognized that even moderate confidence in a directional thesis merits at least a small position rather than complete avoidance."
-    },
-    {
-      "time": "2026-07-01 22:05:25",
-      "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
-      "slug": "what-price-will-bitcoin-hit-before-2027",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "action": "skip",
-      "pct_move": 27.3,
-      "reflection": "I issued a bearish signal with moderate conviction (0.45 materiality) on Bitcoin reaching $95k by end-2026, but skipped the trade entirely\u2014and the market moved 27% in the direction I predicted, representing a significant missed opportunity. My skip decision suggests I lacked sufficient confidence to act despite having a directional view, which is a critical gap in my decision-making: either my conviction was too weak to justify the signal itself, or I failed to translate a legitimate analytical edge into execution. This reflects a need to better calibrate when my analytical confidence warrants action versus when I should remain silent."
-    },
-    {
-      "time": "2026-07-01 22:05:22",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "action": "skip",
-      "pct_move": 12.9,
-      "reflection": "I flagged this as bearish with moderate conviction (0.45 materiality), but I skipped the signal entirely\u2014likely because the question felt too niche or the odds seemed already well-priced. In hindsight, that was a mistake: the market moved 13% in my predicted direction, which suggests either the consensus was mispriced or I had genuine edge I failed to act on. I need to recalibrate my skip threshold; a bearish signal with 45% materiality shouldn't be dismissed just because it feels peripheral\u2014the outcome proved the prediction had merit."
-    },
-    {
-      "time": "2026-07-01 22:00:33",
-      "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
-      "slug": "what-price-will-ethereum-hit-before-2027",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 22.4,
-      "reflection": "I flagged Ethereum bearish with only 0.35 materiality\u2014essentially hedging my conviction\u2014and then skipped the signal entirely, which meant I took no position while the market moved 22% exactly as my analysis suggested it would. My low materiality threshold was a tell that I wasn't confident enough to act, yet I was confident enough to be directionally correct, revealing I let risk aversion override what my model was actually signaling. I should have either committed to the bearish thesis with higher conviction or trusted my skip decision; instead, I split the difference and captured neither the learning nor the gains."
     }
   ],
   "pending_suggestions": [
