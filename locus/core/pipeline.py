@@ -644,10 +644,18 @@ class PipelineV2:
                         self.stats["classify_error_streak"] = 0
                         edge_metrics = detect_edge_v2(market, classification, event)
                         raw_signal = edge_metrics.signal if edge_metrics else None
-                        signal, action = gate_trade(
-                            event, raw_signal, self._traded_headlines,
-                            sports_event_counts=self._sports_event_counts,
-                        )
+                        if edge_metrics is not None and raw_signal is None and edge_metrics.skip_reason:
+                            # Sizing declined the trade (kelly_negative: the
+                            # model's own win-probability says -EV at these
+                            # odds). No trade in any mode; logged under its own
+                            # action so the funnel shows it distinctly from a
+                            # generic no-edge skip.
+                            signal, action = None, edge_metrics.skip_reason
+                        else:
+                            signal, action = gate_trade(
+                                event, raw_signal, self._traded_headlines,
+                                sports_event_counts=self._sports_event_counts,
+                            )
                         # gate_trade reserved the headline iff it approved; this
                         # candidate owns that reservation until it enqueues.
                         if signal is not None:
@@ -883,18 +891,31 @@ class PipelineV2:
                                     signal, event_markets, open_positions
                                 )
                                 if best and best["recommended_market"].condition_id != market.condition_id:
-                                    self.stats["event_switches"] = (
-                                        self.stats.get("event_switches", 0) + 1
-                                    )
                                     switched = event_context.build_switched_signal(signal, best)
-                                    console.print(
-                                        f"  [cyan]EVENT SWITCH[/cyan]: "
-                                        f"original=\"{market.question[:40]}\" ({signal.side}) -> "
-                                        f"switched_to=\"{switched.market.question[:40]}\" ({switched.side}) "
-                                        f"edge {signal.edge:.1%} -> {switched.edge:.1%} "
-                                        f"[{best['reason']}]"
-                                    )
-                                    signal = switched
+                                    if switched.bet_amount <= 0:
+                                        # Kelly prices the sibling's odds as
+                                        # -EV (zero/negative Kelly sizes to 0):
+                                        # don't switch into a no-trade — keep
+                                        # the original signal, which cleared
+                                        # its own sizing.
+                                        log.info(
+                                            "[pipeline] Event switch declined: "
+                                            "kelly_negative on sibling %s",
+                                            switched.market.slug
+                                            or switched.market.condition_id,
+                                        )
+                                    else:
+                                        self.stats["event_switches"] = (
+                                            self.stats.get("event_switches", 0) + 1
+                                        )
+                                        console.print(
+                                            f"  [cyan]EVENT SWITCH[/cyan]: "
+                                            f"original=\"{market.question[:40]}\" ({signal.side}) -> "
+                                            f"switched_to=\"{switched.market.question[:40]}\" ({switched.side}) "
+                                            f"edge {signal.edge:.1%} -> {switched.edge:.1%} "
+                                            f"[{best['reason']}]"
+                                        )
+                                        signal = switched
 
                         # Circuit breaker: when recent realized performance has
                         # deteriorated past the configured limits, hold every

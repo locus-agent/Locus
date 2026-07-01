@@ -113,6 +113,10 @@ class EdgeMetrics:
     fee_cost: float = 0.0
     net_edge: float = 0.0
     signal: "Signal | None" = None
+    # Why no signal was built despite the edge guards passing — currently only
+    # "kelly_negative" (zero/negative Kelly at these odds: do not trade). The
+    # pipeline logs it as the classification's action so the funnel shows it.
+    skip_reason: str | None = None
 
 
 def get_price_momentum(market: Market, lookback_minutes: int = 60) -> float | None:
@@ -242,6 +246,27 @@ def detect_edge_v2(
     bet_amount = size_position_enhanced(
         side, market_price, classification.confidence, expected_edge, vol_adj
     )
+    if bet_amount <= 0:
+        # Zero/negative Kelly: Claude's own win-probability says these odds
+        # are -EV, so DO NOT TRADE — uniformly, in every mode. (Distinct from
+        # a positive-but-tiny Kelly, which sizing floors to KELLY_MIN_BET_USD;
+        # see size_position_enhanced.) Returned as an EdgeMetrics with no
+        # signal and skip_reason="kelly_negative" so the pipeline can log the
+        # skip as its own funnel action rather than a generic no-edge skip.
+        log.info(
+            f"[edge] Kelly-negative: {side} at {market_price:.2f} with "
+            f"confidence {classification.confidence:.2f} — no trade"
+        )
+        return EdgeMetrics(
+            edge=edge,
+            expected_edge=expected_edge,
+            vol_adj=vol_adj,
+            recommended_size=0.0,
+            fee_cost=fee_cost,
+            net_edge=net_edge,
+            signal=None,
+            skip_reason="kelly_negative",
+        )
     total_latency = news_event.latency_ms + classification.latency_ms
 
     signal = Signal(
@@ -339,10 +364,18 @@ def _base_kelly_size(side: str, yes_price: float, confidence: float) -> float:
 
 
 def size_position(side: str, yes_price: float, confidence: float) -> float:
-    """Half-Kelly position sizing (see _base_kelly_size), capped at MAX_BET_USD
-    and floored at KELLY_MIN_BET_USD so a genuine signal is never sized to dust.
+    """Half-Kelly position sizing (see _base_kelly_size), capped at MAX_BET_USD.
+
+    POLICY: zero/negative Kelly means DO NOT TRADE — returns 0.0 (the model's
+    own win-probability says the odds are -EV at this price). Only a
+    positive-but-tiny Kelly (0 < bet < KELLY_MIN_BET_USD) is floored up to
+    KELLY_MIN_BET_USD: there the model says +EV and merely sized the bet
+    technically small, which is different from saying "no edge at these odds".
     """
-    capped = min(round(_base_kelly_size(side, yes_price, confidence), 2), config.MAX_BET_USD)
+    base = _base_kelly_size(side, yes_price, confidence)
+    if base <= 0:
+        return 0.0
+    capped = min(round(base, 2), config.MAX_BET_USD)
     return max(capped, config.KELLY_MIN_BET_USD)
 
 
@@ -355,9 +388,15 @@ def size_position_enhanced(
 ) -> float:
     """Enhanced sizing: the half-Kelly base (with the dynamic win-rate factor)
     multiplied by the expected-edge boost and the volatility adjustment, then
-    capped at MAX_BET_USD and floored at KELLY_MIN_BET_USD.
+    capped at MAX_BET_USD.
+
+    Same floor policy as size_position: a zero/negative Kelly base returns 0.0
+    (DO NOT TRADE — the multipliers are always positive, so the base's sign is
+    the Kelly verdict); a positive-but-tiny size floors up to KELLY_MIN_BET_USD.
     """
     base = _base_kelly_size(side, yes_price, confidence)
+    if base <= 0:
+        return 0.0
     size = base * edge_factor(expected_edge) * vol_adj
     capped = min(round(size, 2), config.MAX_BET_USD)
     return max(capped, config.KELLY_MIN_BET_USD)

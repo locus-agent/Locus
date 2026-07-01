@@ -64,12 +64,20 @@ def test_kelly_caps_at_max_bet():
     assert size_position("YES", 0.5, 0.95) == config.MAX_BET_USD
 
 
-def test_kelly_floors_at_min_bet_when_no_edge():
-    # Fair coin at fair odds -> zero Kelly -> floored to KELLY_MIN_BET_USD.
-    assert size_position("YES", 0.5, 0.5) == config.KELLY_MIN_BET_USD
+def test_zero_or_negative_kelly_means_no_trade():
+    # POLICY: zero/negative Kelly means DO NOT TRADE (size 0.0), uniformly.
+    # Fair coin at fair odds -> zero Kelly -> no trade.
+    assert size_position("YES", 0.5, 0.5) == 0.0
     # YES at 0.80 but only 70% confident: market implies 80%, you're below it,
-    # so Kelly is negative (don't bet) -> floored to the min bet, never negative.
-    assert size_position("YES", 0.8, 0.7) == config.KELLY_MIN_BET_USD
+    # so Kelly is negative (-EV by the model's own math) -> no trade.
+    assert size_position("YES", 0.8, 0.7) == 0.0
+
+
+def test_small_positive_kelly_still_floors_to_min_bet():
+    # Distinct from zero/negative: 0 < bet < floor is +EV, the size is just
+    # technically small -> floored up to KELLY_MIN_BET_USD.
+    # confidence 0.51 at even odds: base = 100 * (0.51 - 0.49) / 2 = $1 -> $2.
+    assert size_position("YES", 0.5, 0.51) == config.KELLY_MIN_BET_USD
 
 
 def test_kelly_favorable_odds_size_up():
@@ -83,8 +91,8 @@ def test_kelly_no_side_odds():
     # full Kelly = (0.85*4 - 0.15)/4 = 0.8125; half * 100 = 40.625 -> capped.
     assert size_position("NO", 0.8, 0.85) == config.MAX_BET_USD
     # NO at price 0.2 -> buying NO at 0.80 (b=0.25); 70% confidence is below
-    # the 80% implied, negative Kelly -> floored to the min bet.
-    assert size_position("NO", 0.2, 0.7) == config.KELLY_MIN_BET_USD
+    # the 80% implied, negative Kelly -> no trade.
+    assert size_position("NO", 0.2, 0.7) == 0.0
 
 
 # --- signal integration ---

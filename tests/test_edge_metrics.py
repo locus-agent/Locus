@@ -52,15 +52,17 @@ EVENT = NewsEvent(headline="h", source="rss", url="",
 
 def test_edge_metrics_bullish_calculation():
     # price 0.7, bullish: edge = materiality * (1 - price) = 0.5 * 0.3 = 0.15.
-    m = detect_edge_v2(_mkt(0.7), _cls("bullish", 0.5, confidence=0.6), EVENT)
+    # Confidence 0.8 > the 0.7 the market implies, so Kelly is positive and a
+    # Signal is built (0.6 here would be negative-Kelly -> no trade).
+    m = detect_edge_v2(_mkt(0.7), _cls("bullish", 0.5, confidence=0.8), EVENT)
     assert isinstance(m, EdgeMetrics)
     assert m.edge == pytest.approx(0.5 * (1 - 0.7))
-    assert m.expected_edge == pytest.approx(m.edge * 0.6)            # raw_edge * confidence
+    assert m.expected_edge == pytest.approx(m.edge * 0.8)            # raw_edge * confidence
     assert m.vol_adj == pytest.approx(1.0 - abs(0.7 - 0.5) * 0.8)    # 0.84
     # recommended_size is exactly the enhanced sizing of those inputs, and the
     # Signal carries both the size and the metrics that drove it.
     assert m.recommended_size == edge.size_position_enhanced(
-        "YES", 0.7, 0.6, m.expected_edge, m.vol_adj)
+        "YES", 0.7, 0.8, m.expected_edge, m.vol_adj)
     assert m.signal.bet_amount == m.recommended_size
     assert m.signal.expected_edge == pytest.approx(m.expected_edge)
     assert m.signal.vol_adj == pytest.approx(m.vol_adj)
@@ -120,8 +122,9 @@ def test_crypto_fee_rate_and_cost():
 
 def test_net_edge_is_raw_minus_fee():
     # price 0.5, bullish, materiality 0.6 -> raw edge 0.30; crypto fee 0.0175.
+    # Confidence 0.6 keeps Kelly positive so a Signal is built.
     m = detect_edge_v2(_mkt(0.5, category="crypto", fee_rate=0.07),
-                       _cls("bullish", 0.6), EVENT)
+                       _cls("bullish", 0.6, confidence=0.6), EVENT)
     assert m.edge == pytest.approx(0.6 * 0.5)                  # 0.30 raw
     assert m.net_edge == pytest.approx(m.edge - m.fee_cost)    # 0.2825
     # The built Signal carries the same fee figures through for logging.
@@ -254,10 +257,17 @@ def test_size_position_enhanced_applies_factors():
     assert edge.size_position_enhanced("YES", 0.5, 0.7, 0.2, 1.0) == config.MAX_BET_USD
 
 
-def test_size_position_enhanced_floors_at_min():
-    # No Kelly edge (fair coin at fair odds) -> base 0 -> floored to the min bet
-    # regardless of the multipliers.
-    assert edge.size_position_enhanced("YES", 0.5, 0.5, 0.2, 1.0) == config.KELLY_MIN_BET_USD
+def test_size_position_enhanced_no_trade_on_zero_kelly():
+    # POLICY: zero Kelly (fair coin at fair odds) -> 0.0 (no trade), whatever
+    # the multipliers say.
+    assert edge.size_position_enhanced("YES", 0.5, 0.5, 0.2, 1.0) == 0.0
+
+
+def test_size_position_enhanced_floors_small_positive():
+    # A positive-but-tiny Kelly (conf 0.505 at even odds: base $0.50, x1.005
+    # edge factor) is +EV — floored up to the min bet, not skipped.
+    assert edge.size_position_enhanced(
+        "YES", 0.5, 0.505, 0.101, 1.0) == config.KELLY_MIN_BET_USD
 
 
 # --- time-pressure hard exit -------------------------------------------------

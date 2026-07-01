@@ -67,9 +67,11 @@ def test_floor_lifts_tiny_bet_to_min(monkeypatch):
     assert edge.size_position("YES", 0.5, 0.55) == pytest.approx(2.0)
 
 
-def test_floor_applies_when_no_edge(monkeypatch):
+def test_no_trade_when_no_edge(monkeypatch):
+    # POLICY: zero Kelly (fair coin at fair odds) is no-trade (0.0), not a
+    # floored bet — the floor only lifts positive-but-tiny sizes (see above).
     monkeypatch.setattr(edge, "get_cached_winrate", lambda: 0.75)
-    assert edge.size_position("YES", 0.5, 0.5) == config.KELLY_MIN_BET_USD
+    assert edge.size_position("YES", 0.5, 0.5) == 0.0
 
 
 def test_floor_respects_override(monkeypatch):
