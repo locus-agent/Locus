@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T15:20:44.406613+00:00",
-  "last_heartbeat": "2026-07-01T15:20:44.406613+00:00",
-  "uptime_seconds": 94877,
+  "generated_at": "2026-07-01T15:25:52.143778+00:00",
+  "last_heartbeat": "2026-07-01T15:25:52.143778+00:00",
+  "uptime_seconds": 95185,
   "dry_run": false,
-  "markets_tracked": 1240,
+  "markets_tracked": 1241,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9764,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 632,
+  "headlines_scanned_today": 637,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4589,
+  "classifications_24h": 4597,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1904,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1200,
-    "matched": 981,
-    "classified": 4589,
+    "news": 1203,
+    "matched": 984,
+    "classified": 4597,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 7009.6
+    "avg_classification_latency_ms": 6989.3
   },
   "live_readiness": {
     "ready": true,
@@ -417,25 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 15:18:40",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "Vimeo owner Bending Spoons likely to open 14% above IPO price in Nasdaq debut - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 15:18:40",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "Vimeo owner Bending Spoons likely to open 14% above IPO price in Nasdaq debut - Reuters",
+      "time": "2026-07-01 15:23:09",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Morning Bid: Kicking off H2 - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -449,9 +433,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 15:18:39",
-      "market_question": "Will the price of Bitcoin be above $54,000 on July 1?",
-      "headline": "Vimeo owner Bending Spoons likely to open 14% above IPO price in Nasdaq debut - Reuters",
+      "time": "2026-07-01 15:23:09",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "Morning Bid: Kicking off H2 - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -460,14 +444,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 15:18:38",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "Vimeo owner Bending Spoons likely to open 14% above IPO price in Nasdaq debut - Reuters",
+      "time": "2026-07-01 15:23:08",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "Morning Bid: Kicking off H2 - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -476,23 +460,39 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 15:18:38",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "Vimeo owner Bending Spoons likely to open 14% above IPO price in Nasdaq debut - Reuters",
+      "time": "2026-07-01 15:23:07",
+      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
+      "headline": "Zelenskyy says Ukraine has hit a Russian oil refinery for the second time in a week - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 15:23:07",
+      "market_question": "Trump, Putin, and Zelensky seen together before 2027?",
+      "headline": "Zelenskyy says Ukraine has hit a Russian oil refinery for the second time in a week - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
