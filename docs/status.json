@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T22:40:46.457612+00:00",
-  "last_heartbeat": "2026-07-01T22:40:46.457612+00:00",
-  "uptime_seconds": 353,
+  "generated_at": "2026-07-01T22:45:53.985913+00:00",
+  "last_heartbeat": "2026-07-01T22:45:53.985913+00:00",
+  "uptime_seconds": 660,
   "dry_run": false,
-  "markets_tracked": 1262,
+  "markets_tracked": 1261,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9891,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1738,
+  "headlines_scanned_today": 1739,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6822,
+  "classifications_24h": 6807,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2898,
+    "prefiltered_haiku": 2897,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1775,
-    "matched": 856,
-    "classified": 6822,
+    "news": 1773,
+    "matched": 854,
+    "classified": 6807,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1247.0
+    "avg_classification_latency_ms": 1264.4
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.44499999999999995,
+      "current_price": 0.445,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.87,
-      "pnl_usd": -1.07,
+      "current_value_usd": 23.86,
+      "pnl_usd": -1.08,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.21,
-      "pnl_usd": -1.78,
+      "current_value_usd": 23.2,
+      "pnl_usd": -1.79,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,6 +417,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-01 22:41:52",
+      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
+      "headline": "Apple\u2019s entry-level MacBook Pro could be up for a redesign",
+      "direction": "neutral",
+      "materiality": 0.1,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.03,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-01 22:37:32",
       "market_question": "Will OpenAI IPO by July 31 2026?",
       "headline": "July 2026 - Politico",
@@ -477,22 +493,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 22:37:32",
-      "market_question": "Will the 2026 Midterm Elections happen as scheduled?",
-      "headline": "July 2026 - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
