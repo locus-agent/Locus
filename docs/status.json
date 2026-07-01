@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-01T01:02:25.020893+00:00",
-  "last_heartbeat": "2026-07-01T01:02:25.020893+00:00",
-  "uptime_seconds": 43378,
+  "generated_at": "2026-07-01T01:07:31.197807+00:00",
+  "last_heartbeat": "2026-07-01T01:07:31.197807+00:00",
+  "uptime_seconds": 43684,
   "dry_run": false,
-  "markets_tracked": 1270,
+  "markets_tracked": 1269,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9708,
+    "total": 9720,
     "accuracy": 17.8,
     "by_category": {
       "other": 16.2,
       "ai": 11.5,
-      "politics": 20.8,
+      "politics": 20.7,
       "technology": 12.7,
       "crypto": 17.3,
       "sports": 26.2
@@ -19,29 +19,29 @@
     "by_source": {
       "rss": 18.0,
       "newsapi": 18.2,
-      "truthsocial": 7.2
+      "truthsocial": 6.9
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 17.8,
-    "overall_total": 9708,
+    "overall_total": 9720,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5486,
+        "total": 5495,
         "correct": 382,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 10.36,
+        "avg_pnl_pct": 10.35,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 865,
+        "total": 867,
         "correct": 305,
-        "accuracy_pct": 35.3,
-        "avg_pnl_pct": 24.97,
+        "accuracy_pct": 35.2,
+        "avg_pnl_pct": 24.91,
         "color": "green"
       },
       {
@@ -56,10 +56,10 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 579,
+        "total": 580,
         "correct": 186,
         "accuracy_pct": 32.1,
-        "avg_pnl_pct": 1.2,
+        "avg_pnl_pct": 1.19,
         "color": "green"
       },
       {
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 60,
+  "headlines_scanned_today": 62,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6156,
+  "classifications_24h": 6162,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2503,
+    "prefiltered_haiku": 2504,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1815,
-    "matched": 1040,
-    "classified": 6156,
+    "news": 1814,
+    "matched": 1041,
+    "classified": 6162,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2027.1
+    "avg_classification_latency_ms": 2029.3
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": -1.74,
       "amount_usd": 24.94,
       "current_value_usd": 24.51,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -237,7 +237,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.32,
+      "current_price": 0.32000000000000006,
       "pnl_pct": -3.55,
       "amount_usd": 24.85,
       "current_value_usd": 23.97,
@@ -417,9 +417,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 00:53:11",
-      "market_question": "Will OpenAI announce glasses in 2026?",
-      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
+      "time": "2026-07-01 01:06:15",
+      "market_question": "Trump renames ICE to NICE by June 30?",
+      "headline": "A fourth appeals court rejects ICE mass detention policy - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-01 01:06:15",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "A fourth appeals court rejects ICE mass detention policy - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-01 01:04:10",
+      "market_question": "Will Microsoft be the second-largest company in the world by market cap on July 31?",
+      "headline": "Microsoft to cut under 2.5% of workforce in latest layoffs, Business Insider reports - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 01:04:09",
+      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
+      "headline": "Microsoft to cut under 2.5% of workforce in latest layoffs, Business Insider reports - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -433,68 +481,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 00:53:10",
-      "market_question": "Will Meta have a #1 AI model by June 30?",
-      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 00:53:05",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
-      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-01 01:04:05",
+      "market_question": "Will Microsoft be the largest company in the world by market cap on July 31?",
+      "headline": "Microsoft to cut under 2.5% of workforce in latest layoffs, Business Insider reports - Reuters",
+      "direction": "bearish",
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.12,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 00:53:04",
-      "market_question": "Will Meta have the best AI model at the end of July 2026?",
-      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 00:53:04",
-      "market_question": "Will Meta launch a USD stablecoin in 2026?",
-      "headline": "Meta is adding ridiculous &#8216;rate limits&#8217; and a soft paywall to its smart glasses",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
