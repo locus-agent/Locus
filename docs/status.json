@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T00:16:27.941783+00:00",
-  "last_heartbeat": "2026-07-01T00:16:27.941783+00:00",
-  "uptime_seconds": 40621,
+  "generated_at": "2026-07-01T00:21:34.639133+00:00",
+  "last_heartbeat": "2026-07-01T00:21:34.639133+00:00",
+  "uptime_seconds": 40927,
   "dry_run": false,
-  "markets_tracked": 1269,
+  "markets_tracked": 1274,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9708,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 24,
+  "headlines_scanned_today": 35,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 6115,
+  "classifications_24h": 6137,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2459,
+    "prefiltered_haiku": 2469,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1815,
-    "matched": 1035,
-    "classified": 6115,
+    "news": 1823,
+    "matched": 1040,
+    "classified": 6137,
     "signals": 4,
     "trades": 4
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2016.3
+    "avg_classification_latency_ms": 2008.9
   },
   "live_readiness": {
     "ready": true,
@@ -237,7 +237,7 @@
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.32000000000000006,
+      "current_price": 0.32,
       "pnl_pct": -3.55,
       "amount_usd": 24.85,
       "current_value_usd": 23.97,
@@ -417,25 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 00:13:40",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "Trump reports more than $1.4B in crypto income - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 00:13:40",
-      "market_question": "Will Jared Moskowitz be the Democratic nominee for Senate in Florida?",
-      "headline": "Florida - Politico",
+      "time": "2026-07-01 00:20:08",
+      "market_question": "Thai Constitutional Court invalidates election?",
+      "headline": "The Supreme Court just made the DNC\u2019s fundraising woes a much bigger problem - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +433,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 00:13:40",
-      "market_question": "Will Josh Weil be the Democratic nominee for Senate in Florida?",
-      "headline": "Florida - Politico",
+      "time": "2026-07-01 00:20:08",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the most seats in the next Russian parliamentary election?",
+      "headline": "The Supreme Court just made the DNC\u2019s fundraising woes a much bigger problem - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,25 +449,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-01 00:13:34",
-      "market_question": "Will Trump be impeached by June 30?",
-      "headline": "Trump reports more than $1.4B in crypto income - Politico",
+      "time": "2026-07-01 00:20:08",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the second-most seats in the next Russian parliamentary election?",
+      "headline": "The Supreme Court just made the DNC\u2019s fundraising woes a much bigger problem - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-01 00:17:59",
+      "market_question": "Will OpenAI announce bankruptcy before 2027?",
+      "headline": "EchoStar's Dish DBS, wireless units file for prepackaged bankruptcy - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 00:13:34",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump reports more than $1.4B in crypto income - Politico",
+      "time": "2026-07-01 00:17:58",
+      "market_question": "Will Anthropic announce bankruptcy before 2027?-kuQe",
+      "headline": "EchoStar's Dish DBS, wireless units file for prepackaged bankruptcy - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
