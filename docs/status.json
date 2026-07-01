@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T19:31:36.426358+00:00",
-  "last_heartbeat": "2026-07-01T19:31:36.426358+00:00",
-  "uptime_seconds": 109929,
+  "generated_at": "2026-07-01T19:36:43.949618+00:00",
+  "last_heartbeat": "2026-07-01T19:36:43.949618+00:00",
+  "uptime_seconds": 110237,
   "dry_run": false,
-  "markets_tracked": 1244,
+  "markets_tracked": 1245,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9870,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 868,
+  "headlines_scanned_today": 870,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4296,
+  "classifications_24h": 4293,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1830,
@@ -122,7 +122,7 @@
   "pipeline_24h": {
     "news": 1119,
     "matched": 915,
-    "classified": 4296,
+    "classified": 4293,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 6344.3
+    "avg_classification_latency_ms": 6338.6
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -417,9 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 19:27:06",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Seton Hall University president cleared in clergy abuse investigation - Politico",
+      "time": "2026-07-01 19:35:53",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "HAQUE: In using AI, humanity has become too artificial - The Vanderbilt Hustler",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -433,9 +433,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 19:27:06",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "Seton Hall University president cleared in clergy abuse investigation - Politico",
+      "time": "2026-07-01 19:35:53",
+      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
+      "headline": "HAQUE: In using AI, humanity has become too artificial - The Vanderbilt Hustler",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 19:33:42",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "headline": "Meta names Alex Schultz first chief data officer - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 19:33:42",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Meta names Alex Schultz first chief data officer - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -449,52 +481,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 19:27:06",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Seton Hall University president cleared in clergy abuse investigation - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-01 19:33:40",
+      "market_question": "Will Meta have the best AI model at the end of July 2026?",
+      "headline": "Meta names Alex Schultz first chief data officer - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 19:27:06",
-      "market_question": "Tshisekedi out as President of the DRC by December 31, 2026?",
-      "headline": "Seton Hall University president cleared in clergy abuse investigation - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 19:27:06",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Seton Hall University president cleared in clergy abuse investigation - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
