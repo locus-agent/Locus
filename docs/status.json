@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-01T21:04:00.273244+00:00",
-  "last_heartbeat": "2026-07-01T21:04:00.273244+00:00",
-  "uptime_seconds": 115473,
+  "generated_at": "2026-07-01T21:09:07.899198+00:00",
+  "last_heartbeat": "2026-07-01T21:09:07.899198+00:00",
+  "uptime_seconds": 115781,
   "dry_run": false,
-  "markets_tracked": 1243,
+  "markets_tracked": 1239,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9870,
-    "accuracy": 18.2,
+    "total": 9882,
+    "accuracy": 18.1,
     "by_category": {
       "other": 16.2,
       "ai": 11.5,
@@ -18,21 +18,21 @@
     },
     "by_source": {
       "rss": 18.4,
-      "newsapi": 18.0,
+      "newsapi": 17.9,
       "truthsocial": 6.8
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 18.2,
-    "overall_total": 9870,
+    "overall_accuracy": 18.1,
+    "overall_total": 9882,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5572,
+        "total": 5580,
         "correct": 398,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 10.21,
+        "avg_pnl_pct": 10.18,
         "color": "red"
       },
       {
@@ -56,39 +56,39 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 588,
+        "total": 589,
         "correct": 191,
-        "accuracy_pct": 32.5,
-        "avg_pnl_pct": 1.08,
+        "accuracy_pct": 32.4,
+        "avg_pnl_pct": 1.07,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 537,
+        "total": 538,
         "correct": 227,
-        "accuracy_pct": 42.3,
-        "avg_pnl_pct": 3.66,
+        "accuracy_pct": 42.2,
+        "avg_pnl_pct": 3.47,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1226,
+        "total": 1228,
         "correct": 234,
         "accuracy_pct": 19.1,
-        "avg_pnl_pct": -2.81,
+        "avg_pnl_pct": -2.91,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 945,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 948,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 4243,
+  "classifications_24h": 4233,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1794,
+    "prefiltered_haiku": 1788,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -121,8 +121,8 @@
   },
   "pipeline_24h": {
     "news": 1091,
-    "matched": 901,
-    "classified": 4243,
+    "matched": 900,
+    "classified": 4233,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 6191.3
+    "avg_classification_latency_ms": 6189.9
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -3.48,
       "amount_usd": 24.94,
       "current_value_usd": 24.07,
@@ -223,7 +223,7 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": -4.21,
       "amount_usd": 24.99,
       "current_value_usd": 23.94,
@@ -417,9 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 21:02:05",
-      "market_question": "Will Bitcoin reach $82,500 in July?",
-      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
+      "time": "2026-07-01 21:06:20",
+      "market_question": "Will the National Action Party (PAN) win the most seats in the 2027 Mexico legislative election?",
+      "headline": "Trump\u2019s DOJ challenges California\u2019s Glock ban, threatens more action on guns - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -433,68 +433,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 21:02:04",
-      "market_question": "Will Bitcoin reach $61,000 on July 1?",
-      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-01 21:04:06",
+      "market_question": "Trump orders federal review of AI model releases by June 30?",
+      "headline": "Sweeping review of grand jury presentations underway in Chicago following misconduct revelations - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-01 21:02:03",
-      "market_question": "Will Bitcoin reach $67,500 in July?",
-      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-01 21:04:06",
+      "market_question": "Will Antonio Ma\u00edllo be the next President of Andalusia following the regional election?",
+      "headline": "Sweeping review of grand jury presentations underway in Chicago following misconduct revelations - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-01 21:02:03",
-      "market_question": "Will Bitcoin reach $65,000 in July?",
-      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-01 21:04:06",
+      "market_question": "Will Christine Fr\u00e9chette be the next Premier of Quebec following the 2026 Quebec general election?",
+      "headline": "Sweeping review of grand jury presentations underway in Chicago following misconduct revelations - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-01 21:02:03",
-      "market_question": "Will Bitcoin reach $70,000 in July?",
-      "headline": "What to know about fireworks and the risk of wildfires this July 4th - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-01 21:04:06",
+      "market_question": "Will \u00c9ric Duhaime be the next Premier of Quebec following the 2026 Quebec general election?",
+      "headline": "Sweeping review of grand jury presentations underway in Chicago following misconduct revelations - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
