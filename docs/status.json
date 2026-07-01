@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T11:08:31.868159+00:00",
-  "last_heartbeat": "2026-07-01T11:08:31.868159+00:00",
-  "uptime_seconds": 79745,
+  "generated_at": "2026-07-01T11:13:38.253796+00:00",
+  "last_heartbeat": "2026-07-01T11:13:38.253796+00:00",
+  "uptime_seconds": 80051,
   "dry_run": false,
-  "markets_tracked": 1209,
+  "markets_tracked": 1206,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9737,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 430,
+  "headlines_scanned_today": 431,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 6122,
+  "classifications_24h": 6123,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 2457,
+    "prefiltered_haiku": 2456,
     "stale": 4,
     "capped": 1,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-01T10:56:28.943924+00:00"
+    "last_check": "2026-07-01T11:11:29.303281+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1698,
-    "matched": 1110,
-    "classified": 6122,
+    "news": 1697,
+    "matched": 1111,
+    "classified": 6123,
     "signals": 4,
     "trades": 4
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 4443.2
+    "avg_classification_latency_ms": 4443.5
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": 0.0,
       "amount_usd": 24.93,
       "current_value_usd": 24.93,
@@ -417,25 +417,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 11:07:41",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Games Workshop's first big box of ready painted Warhammer 40k terrain costs over $340 - wargamer.com",
+      "time": "2026-07-01 11:09:14",
+      "market_question": "Will Trump meet with Kim Jong Un in 2026?",
+      "headline": "Opening of North Korea-Russia road bridge likely delayed, US think tank says - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 11:07:39",
-      "market_question": "Will OpenAI announce glasses in 2026?",
-      "headline": "Why Meta's $299 Adventurer Smart Glasses Might Beat the $379 Ray-Bans - Geeky Gadgets",
+      "time": "2026-07-01 11:09:14",
+      "market_question": "Will Trump and Putin meet next in South Korea?",
+      "headline": "Opening of North Korea-Russia road bridge likely delayed, US think tank says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-01 11:09:13",
+      "market_question": "Will Donald Trump visit North Korea in 2026?",
+      "headline": "Opening of North Korea-Russia road bridge likely delayed, US think tank says - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -449,41 +465,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 11:07:39",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Games Workshop's first big box of ready painted Warhammer 40k terrain costs over $340 - wargamer.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-01 11:09:12",
+      "market_question": "Will Donald Trump visit South Korea in 2026?",
+      "headline": "Opening of North Korea-Russia road bridge likely delayed, US think tank says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-01 11:07:39",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Games Workshop's first big box of ready painted Warhammer 40k terrain costs over $340 - wargamer.com",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-01 11:07:39",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
-      "headline": "Games Workshop's first big box of ready painted Warhammer 40k terrain costs over $340 - wargamer.com",
+      "time": "2026-07-01 11:09:07",
+      "market_question": "Will the Republicans win the North Carolina Senate race in 2026?",
+      "headline": "Opening of North Korea-Russia road bridge likely delayed, US think tank says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
