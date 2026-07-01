@@ -683,7 +683,12 @@ def _live_close(
 def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str,
            fraction: float = 1.0) -> float:
     """Realize `fraction` of the position at yes_price. Live trading places a
-    real CLOB sell to flatten the shares; dry-run simulates the fill."""
+    real CLOB sell to flatten the shares; dry-run simulates the fill.
+
+    Concurrency-safe: the realizing UPDATE only matches while the row is still
+    status='open', so when two closers race (management cycle vs. calibrator
+    vs. news re-eval), exactly one realizes PnL — the other returns 0.0 with a
+    warning."""
     log.info(
         "[positions] _close ENTER: position_id=%s side=%s status=%s exit_reason=%s "
         "fraction=%.2f yes_price=%s config.DRY_RUN=%s on \"%s\"",
@@ -740,14 +745,29 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
         )
         return 0.0
     now_iso = datetime.now(timezone.utc).isoformat()
+    # The `AND status='open'` guard makes concurrent closers safe: several
+    # paths (the 30s management cycle, the calibrator's resolution close, a
+    # news re-eval) close from stale position snapshots on separate threads,
+    # and an unguarded UPDATE would let two of them each add `realized` to
+    # realized_pnl_usd. The loser of the race matches zero rows and realizes
+    # nothing.
     if fraction >= 1.0:
-        conn.execute(
+        cur = conn.execute(
             """UPDATE positions SET status=?, exit_yes_price=?, exit_reason=?,
                realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?, closed_at=?,
-               current_yes_price=?, unrealized_pnl_pct=0, exit_order_id=? WHERE id=?""",
+               current_yes_price=?, unrealized_pnl_pct=0, exit_order_id=?
+               WHERE id=? AND status='open'""",
             (status, yes_price, exit_reason, realized, now_iso, yes_price,
              exit_order_id, position["id"]),
         )
+        if cur.rowcount == 0:
+            log.warning(
+                "[positions] Close SKIPPED: position %s no longer open "
+                "(concurrent close won the race, reason=%s) — realizing nothing "
+                "on \"%s\"", position["id"], exit_reason,
+                position["market_question"][:40],
+            )
+            return 0.0
         # Re-entry: keep watching the market for a thesis reversal (every close
         # type except resolution — a resolved market has nothing left to trade).
         reason = _canonical_close_reason(exit_reason)
@@ -763,12 +783,19 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
                 exit_reason=exit_reason,
             )
     else:
-        conn.execute(
+        cur = conn.execute(
             """UPDATE positions SET amount_usd=amount_usd*?,
                realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?,
-               current_yes_price=?, exit_order_id=? WHERE id=?""",
+               current_yes_price=?, exit_order_id=? WHERE id=? AND status='open'""",
             (1.0 - fraction, realized, yes_price, exit_order_id, position["id"]),
         )
+        if cur.rowcount == 0:
+            log.warning(
+                "[positions] Half-close SKIPPED: position %s no longer open "
+                "(concurrent close won the race) — realizing nothing on \"%s\"",
+                position["id"], position["market_question"][:40],
+            )
+            return 0.0
 
     # Real-time notification — single choke point for every close path (manual,
     # resolution, stop, hard exit, re-eval, half close).

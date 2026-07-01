@@ -54,8 +54,10 @@ def _passes(cmp: str, value: float | None, threshold: float) -> bool | None:
 def compute_live_readiness() -> dict:
     """Track-record gate for graduating from dry-run to live trading.
 
-    Reads only fully-closed positions (status LIKE 'closed_%'); partial
-    close_half realizations on still-open positions don't count as a trade.
+    Reads only fully-closed positions — any terminal status with a stamped
+    closed_at, including 'resolved' (resolution closes) and every 'closed_*';
+    partial close_half realizations on still-open positions don't count as a
+    trade.
 
     - closed_trades: how many closed positions exist, excluding break-even
       closes (realized PnL of exactly 0, or NULL) — those are non-events.
@@ -73,7 +75,7 @@ def compute_live_readiness() -> dict:
     closed = [
         dict(r) for r in conn.execute(
             "SELECT amount_usd, realized_pnl_usd, closed_at, opened_at FROM positions "
-            "WHERE status LIKE 'closed_%' ORDER BY closed_at"
+            "WHERE status != 'open' AND closed_at IS NOT NULL ORDER BY closed_at"
         ).fetchall()
     ]
     conn.close()
@@ -168,8 +170,10 @@ def compute_live_readiness() -> dict:
 def compute_circuit_breaker() -> dict:
     """Auto-pause signal: trips when recent realized performance deteriorates.
 
-    Reads positions fully closed within the last 7 days (status LIKE 'closed_%')
-    and computes:
+    Reads positions fully closed within the last 7 days — any terminal status
+    with a stamped closed_at, including 'resolved' resolution closes (which a
+    'closed_%' pattern used to miss, leaving the breaker blind to
+    resolution-realized losses) — and computes:
 
     - max_drawdown_7d (key 'drawdown_7d'): deepest peak-to-trough drop of the
       realized-PnL equity curve, seeded with the capital deployed across those
@@ -194,7 +198,7 @@ def compute_circuit_breaker() -> dict:
 
     # Always within the rolling 7-day window; optionally also at/after a
     # configured start date so old closes can't keep the breaker tripped.
-    clauses = ["status LIKE 'closed_%'", "closed_at >= ?"]
+    clauses = ["status != 'open'", "closed_at >= ?"]
     params: list = [since]
     if config.CIRCUIT_BREAKER_START_DATE:
         clauses.append("closed_at >= ?")
@@ -377,8 +381,9 @@ def _grouped(rows: list[dict], key_fn, order: list[str] | None = None) -> list[d
 
 
 def calibration_report() -> dict:
-    """Read-only calibration analysis of CLOSED positions (status LIKE 'closed%')
-    joined to their trade's classification data.
+    """Read-only calibration analysis of CLOSED positions (every terminal
+    status with a stamped closed_at, including 'resolved') joined to their
+    trade's classification data.
 
     Pure read: opens its own connection, runs a single SELECT, and never writes,
     migrates, or touches trading logic — safe to run while the live agent trades.
@@ -405,7 +410,7 @@ def calibration_report() -> dict:
                       t.materiality AS materiality, t.classification AS direction
                FROM positions p
                LEFT JOIN trades t ON p.trade_id = t.id
-               WHERE p.status LIKE 'closed%'"""
+               WHERE p.status != 'open' AND p.closed_at IS NOT NULL"""
         ).fetchall()
     ]
     conn.close()

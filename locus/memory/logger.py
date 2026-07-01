@@ -913,7 +913,8 @@ def log_classification(
 def get_recent_closed_position_pnls(limit: int, since: str | None = None) -> list[float]:
     """Realized PnL of the most recently closed positions (newest first).
 
-    Only fully-closed positions (status LIKE 'closed_%') with a non-zero realized
+    Only fully-closed positions (any terminal status with a stamped closed_at,
+    including 'resolved' resolution closes) with a non-zero realized
     PnL: a break-even close (realized PnL of exactly 0, or NULL) is a non-event —
     neither a win nor a loss — so it is excluded from the win-rate denominator.
     Backs dynamic Kelly win-rate sizing. `since` (an ISO date/datetime) restricts
@@ -921,7 +922,8 @@ def get_recent_closed_position_pnls(limit: int, since: str | None = None) -> lis
     before taking the most recent `limit`; default None counts all history."""
     conn = _conn()
     sql = ("SELECT realized_pnl_usd FROM positions "
-           "WHERE status LIKE 'closed_%' AND realized_pnl_usd != 0")
+           "WHERE status != 'open' AND closed_at IS NOT NULL "
+           "AND realized_pnl_usd != 0")
     params: list = []
     if since:
         sql += " AND opened_at >= ?"

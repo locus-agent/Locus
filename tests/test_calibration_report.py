@@ -23,17 +23,23 @@ def _seed(tmp_db, rows):
             (i, f"cond{i}", question, 0.7, 0.5, 0.2, r.get("side", "YES"),
              r.get("amount_usd", 20.0), r.get("materiality"), r.get("direction")),
         )
+        status = r.get("status", "closed_manual")
+        # Every real close path stamps closed_at; only open rows leave it NULL.
+        closed_at = r.get(
+            "closed_at", None if status == "open" else "2026-06-16 12:00:00"
+        )
         conn.execute(
             """INSERT INTO positions (trade_id, condition_id, market_question, side,
                                       entry_yes_price, amount_usd, status,
                                       realized_pnl_usd, exit_reason, category,
-                                      actual_cost_usd, opened_at, end_date)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                                      actual_cost_usd, opened_at, end_date, closed_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (i, f"cond{i}", question, r.get("side", "YES"),
              r.get("entry_yes_price", 0.5), r.get("amount_usd", 20.0),
-             r.get("status", "closed_manual"), r.get("realized_pnl_usd"),
+             status, r.get("realized_pnl_usd"),
              r.get("exit_reason"), r.get("category"), r.get("actual_cost_usd"),
-             r.get("opened_at", "2026-06-15 12:00:00"), r.get("end_date")),
+             r.get("opened_at", "2026-06-15 12:00:00"), r.get("end_date"),
+             closed_at),
         )
     conn.commit()
     conn.close()
