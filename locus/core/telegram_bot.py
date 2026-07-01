@@ -105,15 +105,14 @@ def notify_position_opened(position: dict) -> bool:
 def notify_position_closed(position: dict, pnl_pct: float, pnl_usd: float, reason: str) -> bool:
     """🔴 a position fully closed. Clears any drawdown-alert dedup for it.
 
-    `pnl_pct` is the price-based return; we rebase it onto the actual cost paid
-    (actual_cost_usd) so the % matches Polymarket's return-on-cost."""
-    from locus.core import positions
+    `pnl_pct` arrives from positions._close already as the realized return on
+    the closed chunk's ACTUAL cost (the fill basis), so it is displayed as-is —
+    rebasing it again via pnl_pct_on_cost would double-adjust."""
     _drawdown_alerted.discard(position.get("id"))
-    display_pct = positions.pnl_pct_on_cost(position, pnl_pct)
     text = (
         "🔴 CLOSED\n"
         f"Market: {_q(position)}\n"
-        f"PnL: {pnl_usd:+.2f} ({display_pct:+.2f}%) | Reason: {reason}"
+        f"PnL: {pnl_usd:+.2f} ({pnl_pct:+.2f}%) | Reason: {reason}"
     )
     return _send(text)
 
@@ -172,9 +171,10 @@ def _build_portfolio():
     if open_pos:
         lines = [header, ""]
         for p in open_pos:
-            # Stored unrealized_pnl_pct is price-based (vs nominal stake); rebase
-            # onto the actual cost paid so the % matches the Polymarket UI.
-            pct = positions.pnl_pct_on_cost(p, p.get("unrealized_pnl_pct") or 0.0)
+            # Stored unrealized_pnl_pct is already marked on the actual fill
+            # basis (positions.pnl_pct_basis), i.e. return-on-cost — display
+            # it as-is; rebasing again would double-adjust.
+            pct = p.get("unrealized_pnl_pct") or 0.0
             lines.append(f"#{p['id']} {p['side']} {p['market_question'][:40]} ({pct:+.1f}%)")
         text = "\n".join(lines)
     else:

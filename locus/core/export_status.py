@@ -15,7 +15,7 @@ from pathlib import Path
 from locus import config
 from locus.memory import logger
 from locus import memory
-from locus.core.performance import compute_performance, compute_live_readiness, compute_circuit_breaker, position_pnl
+from locus.core.performance import compute_performance, compute_live_readiness, compute_circuit_breaker, position_pnl_basis
 from locus.core import positions
 from locus.core import edge
 from locus.memory import calibrator
@@ -201,16 +201,16 @@ def _suggestion_row(s: dict) -> dict:
 def _open_position_row(p: dict) -> dict:
     """Public shape of an open position, with marked-to-market dollar PnL.
 
-    current_value_usd is what the stake is worth now (amount * price_now /
-    price_entry on the held side); pnl_usd is that minus the stake. Both use
-    performance.position_pnl so the $ figures agree with the % the pipeline
-    marks into the table."""
+    current_value_usd is what the stake is worth now; pnl_usd is that minus
+    the stake. Both use performance.position_pnl_basis (real token_count/cost
+    for live fills, the legacy derivation otherwise) so the $ figures agree
+    with the % the pipeline marks into the table."""
     entry = p["entry_yes_price"]
     current = p["current_yes_price"]
     amount = p["amount_usd"]
-    # An unmarked position (no live price yet) values at entry -> $0 PnL.
+    # An unmarked position (no live price yet) values at entry-ish -> flat PnL.
     mark = entry if current is None else current
-    pnl_usd = position_pnl(p["side"], entry, mark, amount)
+    pnl_usd = position_pnl_basis(p, mark)
     return {
         "time": p["opened_at"],
         "market_question": p["market_question"],

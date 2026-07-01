@@ -28,7 +28,7 @@ import anthropic
 from locus import config
 from locus.markets import gamma
 from locus.memory import logger
-from locus.core.performance import position_pnl, position_shares
+from locus.core.performance import position_pnl, position_pnl_basis, position_shares
 from locus.core import telegram_bot
 from locus.core import executor
 
@@ -206,6 +206,22 @@ def pnl_pct(side: str, entry_yes: float, now_yes: float) -> float:
     now = now_yes if side == "YES" else 1.0 - now_yes
     entry = min(max(entry, 1e-6), 1.0)
     return (now / entry - 1.0) * 100.0
+
+
+def pnl_pct_basis(position: dict, yes_price_now: float) -> float:
+    """PnL% of a position marked at yes_price_now, on the actual fill basis
+    when known — the % counterpart of performance.position_pnl_basis
+    (token_count real shares x side price vs amount_usd real cost), so the
+    stop-loss/take-profit/drawdown triggers, the stored unrealized mark, and
+    the displays all judge the same dollars a close would realize. Falls back
+    to the legacy price-ratio pnl_pct for dry-run/legacy rows (no
+    token_count)."""
+    amount = position.get("amount_usd") or 0.0
+    shares = position.get("token_count")
+    if shares is not None and shares > 0 and amount > 0:
+        now = yes_price_now if position["side"] == "YES" else 1.0 - yes_price_now
+        return (shares * now / amount - 1.0) * 100.0
+    return pnl_pct(position["side"], position["entry_yes_price"], yes_price_now)
 
 
 def position_cost_basis(position: dict) -> float:
@@ -598,22 +614,32 @@ def cooldown_allows(position: dict, trigger: str, now: datetime | None = None) -
 
 def _live_close(
     position: dict, exit_reason: str, fraction: float
-) -> tuple[str, str | None, float | None]:
+) -> tuple[str, str | None, float | None, float | None, float | None]:
     """Flatten `fraction` of the position on the CLOB (live trading only).
 
-    Returns (outcome, order_id, remaining_shares):
-      - ("closed", None, None): nothing to sell on the exchange — every close
-        while DRY_RUN and every resolution close (settles on-chain) skip the CLOB,
-        so the local close is always safe to record.
-      - ("closed", order_id, remaining): the live SELL fully flattened the holding
-        (remaining is dust); record the close with the real Polymarket order_id.
-      - ("partial", order_id, remaining): the SELL filled but `remaining` tokens
-        are STILL HELD on-chain (thin book / partial fill). The caller must KEEP
-        the position open and shrink token_count to `remaining` — recording a
-        close here would hide live exposure.
-      - ("failed", None, None): the live SELL could NOT be confirmed (close_failed,
-        a thin/empty/wide book, or a missing client). We still hold the full
-        position on-chain, so the caller MUST keep it open and NOT record the close.
+    Returns (outcome, order_id, remaining_shares, sold_shares, fill_price).
+    sold_shares is the share count that actually matched, and fill_price is
+    the SELL fill price of the HELD side's token (i.e. the NO-token price for
+    a NO position) — together the real proceeds, so _close can realize the
+    sold chunk at the price it actually sold for. Both are None when no CLOB
+    sell happened.
+
+      - ("closed", None, None, None, None): nothing to sell on the exchange —
+        every close while DRY_RUN and every resolution close (settles
+        on-chain) skip the CLOB, so the local close is always safe to record
+        as a simulated/settled fill at the marked price.
+      - ("closed", order_id, remaining, sold, price): the live SELL flattened
+        everything it set out to (any remainder is dust); record the close
+        with the real Polymarket order_id.
+      - ("partial", order_id, remaining, sold, price): the SELL filled but
+        `remaining` tokens are STILL HELD on-chain (thin book / partial fill).
+        The caller must KEEP the position open, shrink token_count to
+        `remaining`, and realize only the sold chunk — recording a close here
+        would hide live exposure.
+      - ("failed", None, None, None, None): the live SELL could NOT be
+        confirmed (close_failed, a thin/empty/wide book, or a missing client).
+        We still hold the full position on-chain, so the caller MUST keep it
+        open and NOT record the close.
 
     CRITICAL: a recorded close on an unconfirmed/partial sell silently hides live
     exposure. Only a confirmed full 'closed' (or a no-sell-needed close) may
@@ -630,7 +656,7 @@ def _live_close(
             "— close recorded locally only for \"%s\"",
             config.DRY_RUN, exit_reason, position["market_question"][:40],
         )
-        return "closed", None, None
+        return "closed", None, None, None, None
     # Prefer the real filled token_count (the BUY filled at the ask, so deriving
     # shares from amount_usd / entry_yes_price over-counts); scale by the close
     # fraction. Falls back to the derivation for dry-run/legacy positions.
@@ -653,22 +679,26 @@ def _live_close(
         result.get("price"), result.get("shares"),
     )
     if result["status"] == "executed":
+        sold = result.get("sold_shares", result.get("shares"))
         log.info(
             f"[positions] Live close order {result['order_id']} placed: SELL "
-            f"{result.get('sold_shares', result['shares'])} {position['side']} @ "
+            f"{sold} {position['side']} @ "
             f"{result['price']} on \"{position['market_question'][:40]}\""
         )
-        return "closed", result["order_id"], result.get("remaining_shares")
+        return ("closed", result["order_id"], result.get("remaining_shares"),
+                sold, result.get("price"))
     if result["status"] == "partial_close":
         # Sold part of the holding; tokens still remain on-chain. Keep the position
-        # open and let the caller shrink token_count to the real remainder.
+        # open and let the caller shrink token_count to the real remainder and
+        # realize the sold chunk at its fill price.
         remaining = result.get("remaining_shares")
         log.warning(
             f"[positions] PARTIAL close on \"{position['market_question'][:40]}\": "
             f"sold {result.get('sold_shares')} {position['side']}, "
             f"{remaining} tokens remain — position kept OPEN, close NOT recorded"
         )
-        return "partial", result["order_id"], remaining
+        return ("partial", result["order_id"], remaining,
+                result.get("sold_shares"), result.get("price"))
     # SELL not confirmed. Do NOT record the close — keep the position open.
     detail = result.get("error")
     log.error(
@@ -677,7 +707,7 @@ def _live_close(
         + f") on \"{position['market_question'][:40]}\" — position kept OPEN, "
         "close NOT recorded (we still hold this on-chain)"
     )
-    return "failed", None, None
+    return "failed", None, None, None, None
 
 
 def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str,
@@ -695,46 +725,80 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
         position["id"], position["side"], status, exit_reason, fraction, yes_price,
         config.DRY_RUN, position["market_question"][:40],
     )
-    realized = position_pnl(position["side"], position["entry_yes_price"],
-                            yes_price, position["amount_usd"] * fraction)
     log.info(
         "[positions] _close: calling _live_close (position_id=%s, exit_reason=%s, "
         "fraction=%.2f)", position["id"], exit_reason, fraction,
     )
-    outcome, exit_order_id, remaining_shares = _live_close(position, exit_reason, fraction)
+    outcome, exit_order_id, remaining_shares, sold_shares, fill_price = _live_close(
+        position, exit_reason, fraction
+    )
     log.info(
         "[positions] _close: _live_close returned outcome=%s exit_order_id=%s "
-        "remaining_shares=%s (position_id=%s)", outcome, exit_order_id,
-        remaining_shares, position["id"],
+        "remaining_shares=%s sold_shares=%s fill_price=%s (position_id=%s)",
+        outcome, exit_order_id, remaining_shares, sold_shares, fill_price,
+        position["id"],
     )
+    amount = position["amount_usd"] or 0.0
+    token_count = position.get("token_count")
+    # The share count the SELL was sized from (the real holding when known) —
+    # the denominator for "what fraction actually sold".
+    shares_total = position_shares(
+        position["side"], position["entry_yes_price"], amount,
+        token_count=token_count,
+    )
+    live_fill = bool(sold_shares and fill_price)
+
     if outcome == "partial":
-        # Live SELL only partially flattened — tokens still held on-chain. Do NOT
-        # mark closed; shrink token_count to the real remainder so the next cycle
-        # sells exactly what's left, and keep status='open'. Realize nothing here.
-        current_pct = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+        # Live SELL only partially flattened — tokens still held on-chain. Do
+        # NOT mark closed; shrink token_count to the real remainder so the
+        # next cycle sells exactly what's left, and keep status='open'. The
+        # sold chunk DID produce proceeds, so realize its PnL now, at ITS fill
+        # price against its proportional share of the cost basis — otherwise
+        # it would silently be re-realized later at whatever price the
+        # remainder exits.
+        current_pct = pnl_pct_basis(position, yes_price)
+        if live_fill and shares_total > 0:
+            sold_fraction = min(sold_shares / shares_total, 1.0)
+            realized = sold_shares * fill_price - amount * sold_fraction
+        else:
+            # No usable fill data — keep the position's basis untouched.
+            sold_fraction = 0.0
+            realized = 0.0
         log.warning(
-            "[positions] Partial close on position %s: %s tokens remain — position "
-            "kept open, token_count updated", position["id"], remaining_shares,
+            "[positions] Partial close on position %s: sold %s @ %s "
+            "(realized $%+.2f), %s tokens remain — position kept open",
+            position["id"], sold_shares, fill_price, realized, remaining_shares,
         )
-        conn.execute(
-            "UPDATE positions SET token_count=?, current_yes_price=? WHERE id=?",
-            (remaining_shares, yes_price, position["id"]),
+        cur = conn.execute(
+            """UPDATE positions SET token_count=?, amount_usd=amount_usd*?,
+               realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?,
+               current_yes_price=? WHERE id=? AND status='open'""",
+            (remaining_shares, 1.0 - sold_fraction, realized, yes_price,
+             position["id"]),
         )
+        if cur.rowcount == 0:
+            log.warning(
+                "[positions] Partial close SKIPPED: position %s no longer open "
+                "(concurrent close won the race) — realizing nothing on \"%s\"",
+                position["id"], position["market_question"][:40],
+            )
+            return 0.0
         conn.execute(
             """INSERT INTO exit_decisions
                (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
                VALUES (?, ?, 'partial_close', ?, ?, ?)""",
             (position["id"], exit_reason or status or "close",
-             f"Partial live SELL ({exit_reason or status}); {remaining_shares} "
+             f"Partial live SELL ({exit_reason or status}): sold {sold_shares} "
+             f"@ {fill_price} (realized ${realized:+.2f}); {remaining_shares} "
              "tokens remain, position kept open",
              round(current_pct, 2), yes_price),
         )
-        return 0.0
+        return realized
     if outcome == "failed":
         # Live SELL not confirmed — we still hold this position. Record the failed
         # attempt for tracking (status 'close_failed'), keep the row open, and
         # realize nothing. The next management cycle will retry the close.
-        current_pct = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+        current_pct = pnl_pct_basis(position, yes_price)
         conn.execute(
             """INSERT INTO exit_decisions
                (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
@@ -745,6 +809,12 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
         )
         return 0.0
     now_iso = datetime.now(timezone.utc).isoformat()
+    # Realized PnL is proceeds minus cost, on the actual basis. A live fill
+    # realizes exactly what the SELL produced (sold_shares x the side-token
+    # fill price); dry-run and resolution closes simulate/settle at the given
+    # yes_price on the stored basis (position_pnl_basis: token_count real
+    # shares when known, else the legacy amount/entry derivation).
+    #
     # The `AND status='open'` guard makes concurrent closers safe: several
     # paths (the 30s management cycle, the calibrator's resolution close, a
     # news re-eval) close from stale position snapshots on separate threads,
@@ -752,6 +822,13 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
     # realized_pnl_usd. The loser of the race matches zero rows and realizes
     # nothing.
     if fraction >= 1.0:
+        if live_fill:
+            # The whole position exits: proceeds minus the full remaining cost
+            # (a sub-dust unsold remainder is written off with the close).
+            realized = sold_shares * fill_price - amount
+        else:
+            realized = position_pnl_basis(position, yes_price)
+        chunk_cost = amount
         cur = conn.execute(
             """UPDATE positions SET status=?, exit_yes_price=?, exit_reason=?,
                realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?, closed_at=?,
@@ -783,11 +860,27 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
                 exit_reason=exit_reason,
             )
     else:
+        if live_fill and shares_total > 0:
+            # Realize what actually sold, at its fill price; shrink the basis
+            # by the fraction that actually sold (not the requested fraction).
+            sold_fraction = min(sold_shares / shares_total, 1.0)
+            realized = sold_shares * fill_price - amount * sold_fraction
+            new_token_count = (remaining_shares if remaining_shares is not None
+                               else (max(token_count - sold_shares, 0.0)
+                                     if token_count else None))
+        else:
+            sold_fraction = fraction
+            realized = position_pnl_basis(position, yes_price, fraction)
+            new_token_count = (token_count * (1.0 - fraction)
+                               if token_count else token_count)
+        chunk_cost = amount * sold_fraction
         cur = conn.execute(
             """UPDATE positions SET amount_usd=amount_usd*?,
                realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?,
-               current_yes_price=?, exit_order_id=? WHERE id=? AND status='open'""",
-            (1.0 - fraction, realized, yes_price, exit_order_id, position["id"]),
+               current_yes_price=?, exit_order_id=?, token_count=?
+               WHERE id=? AND status='open'""",
+            (1.0 - sold_fraction, realized, yes_price, exit_order_id,
+             new_token_count, position["id"]),
         )
         if cur.rowcount == 0:
             log.warning(
@@ -798,8 +891,9 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
             return 0.0
 
     # Real-time notification — single choke point for every close path (manual,
-    # resolution, stop, hard exit, re-eval, half close).
-    realized_pct = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+    # resolution, stop, hard exit, re-eval, half close). The % is the realized
+    # return on the closed chunk's actual cost.
+    realized_pct = realized / chunk_cost * 100.0 if chunk_cost > 0 else 0.0
     if fraction >= 1.0:
         telegram_bot.notify_position_closed(position, realized_pct, realized, exit_reason)
     else:
@@ -838,7 +932,7 @@ def close_manual(position_id: int) -> dict | None:
     yes_price = position["current_yes_price"]
     if yes_price is None:
         yes_price = position["entry_yes_price"]
-    current_pnl = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+    current_pnl = pnl_pct_basis(position, yes_price)
 
     # _close places the real CLOB sell when live (DRY_RUN=false); dry-run
     # simulates the fill at the marked price. When live, a SELL that can't be
@@ -861,7 +955,9 @@ def close_manual(position_id: int) -> dict | None:
             "side": position["side"],
             "price": yes_price,
             "pnl_pct": current_pnl,
-            "realized": 0.0,
+            # A partial sell realizes its sold chunk even though the position
+            # stays open; report those real dollars, not a flat 0.
+            "realized": realized,
             "close_failed": True,
         }
     conn.execute(
@@ -1020,7 +1116,7 @@ def reevaluate(position: dict, trigger: str, trigger_detail: str = "",
     yes_price = yes_price if yes_price is not None else position.get("current_yes_price")
     if yes_price is None:
         return None
-    current_pnl = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+    current_pnl = pnl_pct_basis(position, yes_price)
 
     desc = TRIGGER_DESCRIPTIONS.get(trigger, "{detail}").format(
         tp=config.TAKE_PROFIT_TRIGGER_PCT, dd=config.REEVAL_LOSS_PCT, detail=trigger_detail
@@ -1095,7 +1191,7 @@ def update_and_manage(prices: dict[str, float]) -> dict:
         yes_price = prices.get(position["condition_id"])
         if yes_price is None:
             continue
-        current_pnl = pnl_pct(position["side"], position["entry_yes_price"], yes_price)
+        current_pnl = pnl_pct_basis(position, yes_price)
         conn.execute(
             "UPDATE positions SET current_yes_price=?, unrealized_pnl_pct=? WHERE id=?",
             (yes_price, round(current_pnl, 2), position["id"]),

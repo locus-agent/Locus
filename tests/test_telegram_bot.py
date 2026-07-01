@@ -154,12 +154,13 @@ def test_notify_position_closed_format(enabled):
     )
 
 
-def test_notify_position_closed_pct_rebased_on_actual_cost(enabled):
-    # A $25 nominal that filled for $21: a price-based +63.60% (15.90/25) is
-    # shown as Polymarket's return-on-cost +75.71% (15.90/21).
+def test_notify_position_closed_pct_shown_as_is(enabled):
+    # positions._close already computes the % as realized return on the
+    # chunk's ACTUAL cost (the fill basis), so the notification shows it
+    # unchanged — a second rebase would double-adjust.
     pos = {"market_question": "Will X?", "side": "YES", "entry_yes_price": 0.5,
            "amount_usd": 25.0, "actual_cost_usd": 21.0}
-    assert telegram_bot.notify_position_closed(pos, 63.60, 15.90, "tp_decision") is True
+    assert telegram_bot.notify_position_closed(pos, 75.71, 15.90, "tp_decision") is True
     assert enabled[-1] == (
         "🔴 CLOSED\n"
         "Market: Will X?\n"
@@ -269,19 +270,20 @@ def test_portfolio_view_has_refresh_and_balance(tmp_db):
     assert ("💰 Balance", "balance") in btns
 
 
-def test_portfolio_pct_rebased_on_actual_cost(tmp_db):
-    # Stored unrealized_pnl_pct is price-based (vs $25 nominal); the portfolio
-    # shows it rebased onto the $21 actually paid.
+def test_portfolio_pct_shown_as_stored(tmp_db):
+    # Stored unrealized_pnl_pct is already marked on the actual fill basis
+    # (positions.pnl_pct_basis) — the portfolio shows it unchanged; a second
+    # rebase would double-adjust.
     pid = _open(1, "c1", "Will A happen?", amount=25.0)
     conn = tmp_db._conn()
     conn.execute(
-        "UPDATE positions SET unrealized_pnl_pct=20.0, actual_cost_usd=21.0 WHERE id=?",
+        "UPDATE positions SET unrealized_pnl_pct=23.8, actual_cost_usd=21.0 WHERE id=?",
         (pid,),
     )
     conn.commit()
     conn.close()
     text, _ = telegram_bot._build_portfolio()
-    assert "(+23.8%)" in text  # 20.0 * 25/21 = 23.81
+    assert "(+23.8%)" in text  # stored basis-aware pct, displayed as-is
 
 
 def test_close_confirmation_has_back_to_portfolio_button(tmp_db):

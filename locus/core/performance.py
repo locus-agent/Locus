@@ -608,6 +608,32 @@ def position_pnl(side: str, entry_yes_price: float, yes_price_now: float, amount
     return amount_usd * (now / entry - 1.0)
 
 
+def position_pnl_basis(position: dict, yes_price_now: float, fraction: float = 1.0) -> float:
+    """PnL of `fraction` of a position marked at yes_price_now, computed on the
+    ACTUAL fill basis when the real filled share count is known.
+
+    A live BUY fills at the ask, above the cached mid stored as
+    entry_yes_price, so the legacy derivation (implied shares =
+    amount / entry-side-price) over-counts the shares owned and overstates
+    PnL. Live fills record the truth: token_count is the real share count and
+    amount_usd is set to the real filled cost at open (see
+    positions.open_position), so PnL = token_count x current side price -
+    amount_usd. Dry-run/legacy rows (token_count NULL) keep the legacy math,
+    where implied and simulated shares coincide.
+
+    Keep consistent with positions.pnl_pct_basis (its % counterpart) so the
+    dollars and percentages agree, and unrealized marks match what a close
+    realizes."""
+    side = position["side"]
+    amount = position.get("amount_usd") or 0.0
+    shares = position.get("token_count")
+    if shares is not None and shares > 0:
+        now = yes_price_now if side == "YES" else 1.0 - yes_price_now
+        return (shares * now - amount) * fraction
+    return position_pnl(side, position["entry_yes_price"], yes_price_now,
+                        amount * fraction)
+
+
 def position_shares(side: str, entry_yes_price: float, amount_usd: float,
                     token_count: float | None = None) -> float:
     """Outcome-token shares a position holds.
@@ -690,9 +716,7 @@ def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
         if price_now is None:
             price_now = _fetch_current_yes_price(p["condition_id"])
         if price_now is not None:
-            unrealized += position_pnl(
-                p["side"], p["entry_yes_price"], price_now, p["amount_usd"]
-            )
+            unrealized += position_pnl_basis(p, price_now)
 
     return {
         "trades_total": len(trades),

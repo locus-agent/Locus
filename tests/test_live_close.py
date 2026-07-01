@@ -641,9 +641,12 @@ def test_close_position_live_dust_remainder_is_full_close(monkeypatch):
 
 
 def test_partial_close_keeps_position_open_with_reduced_token_count(tmp_db, monkeypatch):
-    # A partial_close from the executor must NOT mark the position closed: it stays
-    # open with token_count shrunk to the real on-chain remainder, and realizes
-    # nothing. This is the DB-says-closed / Polymarket-says-open bug.
+    # A partial_close from the executor must NOT mark the position closed: it
+    # stays open with token_count shrunk to the real on-chain remainder, the
+    # sold chunk's PnL realized at ITS fill price, and the cost basis reduced
+    # by the sold fraction. Hand-computed: hold 40 sh costing $25; 10 sold
+    # @ 0.60 -> sold fraction 0.25, realized = 10*0.60 - 25*0.25 = -$0.25;
+    # remaining basis $18.75 over 30 sh.
     monkeypatch.setattr(config, "DRY_RUN", False)
     monkeypatch.setattr(
         executor, "close_position_live",
@@ -660,7 +663,8 @@ def test_partial_close_keeps_position_open_with_reduced_token_count(tmp_db, monk
 
     conn = tmp_db._conn()
     row = conn.execute(
-        "SELECT status, token_count, realized_pnl_usd FROM positions WHERE id=?",
+        "SELECT status, token_count, amount_usd, realized_pnl_usd "
+        "FROM positions WHERE id=?",
         (pos["id"],),
     ).fetchone()
     decisions = [d["decision"] for d in conn.execute(
@@ -670,7 +674,8 @@ def test_partial_close_keeps_position_open_with_reduced_token_count(tmp_db, monk
 
     assert row["status"] == "open"                       # still held
     assert row["token_count"] == pytest.approx(30.0)     # shrunk to the remainder
-    assert (row["realized_pnl_usd"] or 0) == 0           # nothing realized
+    assert row["amount_usd"] == pytest.approx(18.75)     # basis less the sold 25%
+    assert row["realized_pnl_usd"] == pytest.approx(-0.25)  # sold chunk at ITS fill
     assert "partial_close" in decisions                  # tracked as a partial
 
 
