@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T21:26:37.383203+00:00",
-  "last_heartbeat": "2026-07-02T21:26:37.383203+00:00",
-  "uptime_seconds": 15979,
+  "generated_at": "2026-07-02T21:31:35.311203+00:00",
+  "last_heartbeat": "2026-07-02T21:31:35.311203+00:00",
+  "uptime_seconds": 41,
   "dry_run": false,
-  "markets_tracked": 1292,
+  "markets_tracked": 1291,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10012,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1320,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1345,
+  "headlines_last_cycle": 24,
   "signals_24h": 2,
-  "classifications_24h": 8300,
+  "classifications_24h": 7789,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3209,
+    "prefiltered_haiku": 2991,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T21:15:41.136552+00:00"
+    "last_check": "2026-07-02T21:31:09.161480+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2212,
-    "matched": 900,
-    "classified": 8300,
+    "news": 2086,
+    "matched": 889,
+    "classified": 7789,
     "signals": 2,
     "trades": 2
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -3.21,
-    "total_pnl_usd": 40.97,
+    "unrealized_pnl_usd": -3.54,
+    "total_pnl_usd": 40.64,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1881.3
+    "avg_classification_latency_ms": 1229.7
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.052500000000000005,
+      "current_price": 0.0525,
       "pnl_pct": -27.08,
-      "amount_usd": 0.2340000000000004,
-      "current_value_usd": 0.17,
-      "pnl_usd": -0.06,
+      "amount_usd": 1.8840000000000003,
+      "current_value_usd": 1.48,
+      "pnl_usd": -0.4,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.106,
+      "current_price": 0.10599999999999998,
       "pnl_pct": 6.0,
       "amount_usd": 2.0,
       "current_value_usd": 2.12,
@@ -398,7 +398,16 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 21:26:37",
+      "time": "2026-07-02 21:31:35",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -21.28
+    },
+    {
+      "time": "2026-07-02 21:30:47",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 21:26:06",
+      "time": "2026-07-02 21:30:16",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 21:25:35",
+      "time": "2026-07-02 21:29:45",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,16 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 21:25:04",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -27.08
-    },
-    {
-      "time": "2026-07-02 21:24:33",
+      "time": "2026-07-02 21:29:14",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,9 +445,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 21:22:44",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
-      "headline": "Meta has a new app called Pocket that is absolutely nothing like the old Pocket",
+      "time": "2026-07-02 21:31:35",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "headline": "The best July 4th sales we found so far",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -461,9 +461,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 21:22:43",
-      "market_question": "Will Shadowrocket be #1 Paid App in the US Apple App Store on July 3?",
-      "headline": "Meta has a new app called Pocket that is absolutely nothing like the old Pocket",
+      "time": "2026-07-02 21:31:35",
+      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
+      "headline": "The best July 4th sales we found so far",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -477,52 +477,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 21:22:42",
-      "market_question": "Will Graham Platner win between 70% and 75% of votes in the Maine Senate Democratic Primary?",
-      "headline": "Sabrina Carpenter and Graham Norton spotted in NYC before rumoured Swift wedding celebrations",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-02 21:31:35",
+      "market_question": "Will xAI have the best AI model at the end of July 2026?",
+      "headline": "The best July 4th sales we found so far",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-02 21:22:42",
+      "time": "2026-07-02 21:31:35",
+      "market_question": "Will July be the best month for Bitcoin in 2026?",
+      "headline": "The best July 4th sales we found so far",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 21:31:35",
       "market_question": "Will Meta have the best AI model at the end of July 2026?",
-      "headline": "Meta has a new app called Pocket that is absolutely nothing like the old Pocket",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "headline": "The best July 4th sales we found so far",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 21:22:42",
-      "market_question": "Ukraine election called by December 31, 2026?",
-      "headline": "Meta has a new app called Pocket that is absolutely nothing like the old Pocket",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
