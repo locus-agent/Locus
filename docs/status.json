@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T18:45:04.737598+00:00",
-  "last_heartbeat": "2026-07-02T18:45:04.737598+00:00",
-  "uptime_seconds": 6287,
+  "generated_at": "2026-07-02T18:50:16.519639+00:00",
+  "last_heartbeat": "2026-07-02T18:50:16.519639+00:00",
+  "uptime_seconds": 6599,
   "dry_run": false,
   "markets_tracked": 1299,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1115,
+  "headlines_scanned_today": 1119,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 8027,
+  "classifications_24h": 8018,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3081,
+    "prefiltered_haiku": 3082,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T18:30:35.767635+00:00"
+    "last_check": "2026-07-02T18:45:36.172476+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2150,
-    "matched": 748,
-    "classified": 8027,
+    "news": 2148,
+    "matched": 747,
+    "classified": 8018,
     "signals": 2,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1605.6
+    "avg_classification_latency_ms": 1619.7
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.86,
-      "pnl_usd": -1.08,
+      "current_value_usd": 23.87,
+      "pnl_usd": -1.07,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 18:45:04",
+      "time": "2026-07-02 18:50:16",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:44:33",
+      "time": "2026-07-02 18:49:45",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:44:02",
+      "time": "2026-07-02 18:49:14",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:43:31",
+      "time": "2026-07-02 18:48:43",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:43:00",
+      "time": "2026-07-02 18:48:12",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,25 +445,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 18:44:04",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Man City sign Anderson from Forest in record transfer - Reuters",
+      "time": "2026-07-02 18:46:21",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "StubHub sued by fans who say ticket cancellations crushed dreams of going to World Cup - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 18:44:03",
-      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "Hungary revokes refugee status of fugitive minister, Poland says - Reuters",
+      "time": "2026-07-02 18:46:21",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "StubHub sued by fans who say ticket cancellations crushed dreams of going to World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 18:46:21",
+      "market_question": "Will OpenAI's valuation hit (LOW) $750B by December 31?",
+      "headline": "US job growth slows sharply in June; labor force participation rate at more than 5-year low - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 18:44:03",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "Hungary revokes refugee status of fugitive minister, Poland says - Reuters",
+      "time": "2026-07-02 18:46:21",
+      "market_question": "Will Anthropic's valuation hit (LOW) $800B by December 31?",
+      "headline": "US job growth slows sharply in June; labor force participation rate at more than 5-year low - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,25 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 18:44:03",
-      "market_question": "Will Anthony Albanese be Prime Minister of Australia after the next election?",
-      "headline": "Hungary revokes refugee status of fugitive minister, Poland says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 18:44:03",
-      "market_question": "Trump declassifies new UFO files by June 30?",
-      "headline": "Epstein Files - Politico",
+      "time": "2026-07-02 18:46:21",
+      "market_question": "Will OpenAI's valuation hit (LOW) $800B by December 31?",
+      "headline": "US job growth slows sharply in June; labor force participation rate at more than 5-year low - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
