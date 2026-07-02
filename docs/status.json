@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T13:28:36.775286+00:00",
-  "last_heartbeat": "2026-07-02T13:28:36.775286+00:00",
-  "uptime_seconds": 352,
+  "generated_at": "2026-07-02T13:33:49.099176+00:00",
+  "last_heartbeat": "2026-07-02T13:33:49.099176+00:00",
+  "uptime_seconds": 665,
   "dry_run": false,
   "markets_tracked": 1288,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 523,
+  "headlines_scanned_today": 529,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6948,
+  "classifications_24h": 6954,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2747,
+    "prefiltered_haiku": 2754,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1861,
+    "news": 1863,
     "matched": 728,
-    "classified": 6948,
+    "classified": 6954,
     "signals": 3,
     "trades": 3
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.03,
-    "total_pnl_usd": 40.15,
+    "unrealized_pnl_usd": -4.04,
+    "total_pnl_usd": 40.14,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3541.5
+    "avg_classification_latency_ms": 3474.9
   },
   "live_readiness": {
     "ready": true,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.08599999999999997,
-      "pnl_pct": -14.0,
+      "current_price": 0.08549999999999999,
+      "pnl_pct": -14.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.72,
-      "pnl_usd": -0.28,
+      "current_value_usd": 1.71,
+      "pnl_usd": -0.29,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 13:28:36",
+      "time": "2026-07-02 13:33:49",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 13:28:05",
+      "time": "2026-07-02 13:33:18",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 13:27:34",
+      "time": "2026-07-02 13:32:47",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 13:27:03",
+      "time": "2026-07-02 13:32:16",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 13:26:31",
+      "time": "2026-07-02 13:31:45",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,9 +445,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 13:27:46",
+      "time": "2026-07-02 13:32:02",
+      "market_question": "Will Bitcoin reach $64,000 June 29-July 5?",
+      "headline": "Tesla's China-made EV sales rise 24.4% year on year in June - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 13:31:59",
       "market_question": "Will a Chinese AI model become #1 by June 30? ",
-      "headline": "Telef\u00f3nica accelerates its global compliance model with artificial intelligence - Dem\u00f3crata",
+      "headline": "Tesla's China-made EV sales rise 24.4% year on year in June - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -461,68 +477,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 13:27:46",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "U.S. closes 2022 probe into 695,000 Tesla vehicles over unexpected braking - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-02 13:31:59",
+      "market_question": "Will Ethereum reach $1,700 June 29-July 5?",
+      "headline": "Tesla's China-made EV sales rise 24.4% year on year in June - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-02 13:27:46",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "U.S. closes 2022 probe into 695,000 Tesla vehicles over unexpected braking - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-02 13:31:59",
+      "market_question": "Will Bitcoin reach $70,000 June 29-July 5?",
+      "headline": "Tesla's China-made EV sales rise 24.4% year on year in June - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-02 13:27:46",
-      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
-      "headline": "U.S. closes 2022 probe into 695,000 Tesla vehicles over unexpected braking - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-02 13:31:58",
+      "market_question": "Will Bitcoin reach $66,000 June 29-July 5?",
+      "headline": "Tesla's China-made EV sales rise 24.4% year on year in June - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 13:27:46",
-      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 4% and 6%?",
-      "headline": "U.S. closes 2022 probe into 695,000 Tesla vehicles over unexpected braking - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
