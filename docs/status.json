@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T21:36:49.270275+00:00",
-  "last_heartbeat": "2026-07-02T21:36:49.270275+00:00",
-  "uptime_seconds": 355,
+  "generated_at": "2026-07-02T21:42:00.750702+00:00",
+  "last_heartbeat": "2026-07-02T21:42:00.750702+00:00",
+  "uptime_seconds": 667,
   "dry_run": false,
-  "markets_tracked": 1295,
+  "markets_tracked": 1294,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10020,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1480,
+  "headlines_scanned_today": 1481,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 8302,
+  "classifications_24h": 8280,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3188,
+    "prefiltered_haiku": 3178,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2216,
-    "matched": 897,
-    "classified": 8302,
+    "news": 2210,
+    "matched": 898,
+    "classified": 8280,
     "signals": 2,
     "trades": 2
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -3.54,
-    "total_pnl_usd": 40.64,
+    "unrealized_pnl_usd": -3.44,
+    "total_pnl_usd": 40.73,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1331.4
+    "avg_classification_latency_ms": 1330.6
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.05249999999999999,
-      "pnl_pct": -21.28,
+      "current_price": 0.055999999999999994,
+      "pnl_pct": -16.03,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.48,
-      "pnl_usd": -0.4,
+      "current_value_usd": 1.58,
+      "pnl_usd": -0.3,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -223,7 +223,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.435,
+      "current_price": 0.43500000000000005,
       "pnl_pct": -2.59,
       "amount_usd": 24.94,
       "current_value_usd": 24.29,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 21:36:49",
+      "time": "2026-07-02 21:41:30",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -21.28
     },
     {
-      "time": "2026-07-02 21:36:18",
+      "time": "2026-07-02 21:40:28",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -21.28
     },
     {
-      "time": "2026-07-02 21:35:46",
+      "time": "2026-07-02 21:39:57",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -21.28
     },
     {
-      "time": "2026-07-02 21:35:15",
+      "time": "2026-07-02 21:39:26",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -21.28
     },
     {
-      "time": "2026-07-02 21:34:44",
+      "time": "2026-07-02 21:38:55",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -444,6 +444,70 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-02 21:40:02",
+      "market_question": "Will Trump meet with Kim Jong Un in 2026?",
+      "headline": "Kim Jong Un - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 21:40:02",
+      "market_question": "Lee Jae-myung out as president of South Korea in 2026?",
+      "headline": "Kim Jong Un - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 21:40:01",
+      "market_question": "Will Kim Kataguiri win the 2026 S\u00e3o Paulo gubernatorial election?",
+      "headline": "Kim Jong Un - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 21:40:00",
+      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
+      "headline": "Kim Jong Un - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
     {
       "time": "2026-07-02 21:35:39",
       "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
@@ -459,70 +523,6 @@
       "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 21:35:39",
-      "market_question": "Venezuela election scheduled by December 31, 2026?",
-      "headline": "Venezuela - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 21:35:37",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "This air conditioning strategy is the sweet spot for saving energy and money, experts say - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 21:35:37",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Venezuela - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 21:35:36",
-      "market_question": "Will Republican House incumbents not win in between seven and nine nominating elections in the 2026 cycle?",
-      "headline": "Blast at Damascus cafe kills nine, wounds 20, Syrian interior ministry says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
