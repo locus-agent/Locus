@@ -43,9 +43,13 @@ outer whole-process net; `locus/supervisor.py` is the inner per-task restart lay
 
 `reconcile-positions` audits each `status='open'` position against its real on-chain
 token balance (`executor.held_token_shares`): held > 0 is OK, held == 0 is a phantom
-open (MISMATCH), and an unverifiable balance is UNKNOWN and never auto-closed. Default
-is report-only; `--fix` closes confirmed phantoms as `closed_reconciled`
-(`reconcile_positions` in `locus/core/positions.py`).
+open (MISMATCH), and an unverifiable balance is UNKNOWN and never auto-closed. It also
+batch-checks each position's Gamma market status (`fetch_markets_by_condition_ids`,
+whose raw dicts have a `closed` flag but no `active` key): an open position on a
+CLOSED market is flagged loudly (report key `market_closed`) but NEVER auto-closed —
+funds may still be claimable at resolution. Default is report-only; `--fix` closes
+only confirmed held==0 phantoms as `closed_reconciled` (`reconcile_positions` in
+`locus/core/positions.py`).
 
 Run the test suite with `python -m pytest tests/` (no network or API keys needed —
 the DB is a tmp fixture and external calls are faked). It covers the trade risk
@@ -181,7 +185,11 @@ PipelineV2._execute_signals:
   it; the latest read also drives the dashboard status line.
 - `core/executor.py` enforces `DAILY_SPEND_LIMIT_USD` (total notional deployed per day,
   not realized losses; checked via `logger.get_daily_pnl`, which counts `dry_run` rows too),
-  then either logs a `dry_run` row or places a live order via `py_clob_client_v2`. The CLOB
+  then either logs a `dry_run` row or places a live order via `py_clob_client_v2`. A live
+  BUY whose reconciled fill lands below `MIN_FILL_USD` (default $1, env-overridable) is a
+  dust fill: the executor sells the dust back at the bid (best-effort — it may be under
+  the exchange minimums) and records the trade as `dust_fill` instead of opening a
+  managed position, so the headline reservation is released. Dry-run is unaffected. The CLOB
   SDK is an optional dependency, commented out in `requirements.txt` — install it separately
   for live trading. `executor.create_clob_client` signs with `POLYMARKET_PRIVATE_KEY` and,
   for a funded deposit wallet, `POLYMARKET_FUNDER_ADDRESS` + `POLYMARKET_SIGNATURE_TYPE`

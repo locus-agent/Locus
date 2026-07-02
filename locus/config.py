@@ -50,6 +50,12 @@ ORDER_RECONCILE_WAIT_SECONDS = float(os.getenv("ORDER_RECONCILE_WAIT_SECONDS", "
 # or the exchange rejects it (e.g. "Size (1.08) lower than the minimum: 5").
 MIN_ORDER_USD = float(os.getenv("MIN_ORDER_USD", "1.0"))
 MIN_ORDER_SHARES = float(os.getenv("MIN_ORDER_SHARES", "5.0"))
+# A live BUY whose reconciled fill is below MIN_FILL_USD is a "dust fill": a
+# position too small to be worth its management overhead (e.g. a $2 order that
+# partially fills for $0.23). The executor sells the dust straight back at the
+# bid (best-effort) and records the trade as status='dust_fill' instead of
+# opening a managed position. Dry-run is unaffected (no real fills there).
+MIN_FILL_USD = float(os.getenv("MIN_FILL_USD", "1.00"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 # Public trades feed (no auth). The CLOB /data/trades endpoint requires API

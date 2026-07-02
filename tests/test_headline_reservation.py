@@ -281,10 +281,11 @@ def test_live_executed_commits_reservation(tmp_db, monkeypatch):
 
 @pytest.mark.parametrize("status", ["skipped_wide_spread", "skipped_thin_book",
                                     "resting", "rejected_daily_limit",
-                                    "error_ValueError"])
+                                    "dust_fill", "error_ValueError"])
 def test_failed_execution_releases_reservation(tmp_db, monkeypatch, status):
     # Every no-position execution outcome (live skips, resting GTC, daily
-    # limit, errors) must release so the headline isn't burned.
+    # limit, a dust fill sold back, errors) must release so the headline
+    # isn't burned.
     async def fake_exec(signal):
         return {"trade_id": 1, "market": signal.market.question,
                 "side": signal.side, "amount": signal.bet_amount,

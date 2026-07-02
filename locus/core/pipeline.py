@@ -1451,6 +1451,15 @@ class PipelineV2:
                         "position NOT opened",
                         result.get("order_id"), market.question[:40],
                     )
+                elif result["status"] == "dust_fill":
+                    # Fill below MIN_FILL_USD: the executor already sold the
+                    # dust back (best-effort) — no position to manage, and the
+                    # finally below releases the headline reservation.
+                    log.warning(
+                        "[pipeline] dust fill on order %s (\"%s\") — position "
+                        "NOT opened",
+                        result.get("order_id"), market.question[:40],
+                    )
 
                 status_color = "bright_green" if result["status"] in ("dry_run", "executed") else "red"
                 console.print(

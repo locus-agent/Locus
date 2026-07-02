@@ -785,6 +785,36 @@ def _execute_live(signal: Signal) -> dict:
         # the BUY filled at the higher ask). None when nothing filled.
         actual_shares = (round(actual_cost / price, 4)
                          if actual_cost is not None and price else None)
+        # Dust-fill guard: a fill below MIN_FILL_USD would open a position whose
+        # management overhead exceeds its value. Sell the dust straight back at
+        # the bid (best-effort — the exchange minimums may make the sell
+        # unplaceable, in which case the tokens stay held but unmanaged) and
+        # record the trade as dust_fill so the funnel shows it. dust_fill is not
+        # an open (the pipeline only opens on dry_run/executed), so the headline
+        # reservation is released for a later candidate.
+        if (status == "executed" and actual_cost is not None
+                and actual_cost < config.MIN_FILL_USD):
+            log.warning(
+                "[executor] DUST FILL: order %s filled only $%.2f (%.4f sh) < "
+                "MIN_FILL_USD $%.2f on \"%s\" — selling back, opening no position",
+                order_id, actual_cost, actual_shares or 0.0,
+                config.MIN_FILL_USD, signal.market.question[:40],
+            )
+            sellback = close_position_live(
+                signal.market.condition_id, signal.side, actual_shares or 0.0
+            )
+            if sellback.get("status") in ("executed", "partial_close"):
+                log.info("[executor] dust sell-back %s (order %s)",
+                         sellback["status"], sellback.get("order_id"))
+            else:
+                log.warning(
+                    "[executor] dust sell-back FAILED (%s): ~$%.2f of tokens "
+                    "remain held on-chain, unmanaged", sellback.get("status"),
+                    actual_cost,
+                )
+            return _log_and_return(signal, status="dust_fill", order_id=order_id,
+                                   actual_cost_usd=actual_cost,
+                                   actual_shares=actual_shares)
         return _log_and_return(signal, status=status, order_id=order_id,
                                actual_cost_usd=actual_cost,
                                actual_shares=actual_shares)

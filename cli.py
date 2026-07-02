@@ -527,7 +527,9 @@ def cmd_reconcile_positions(args):
 
     Dry-run by default (report only); --fix closes confirmed phantom positions
     (held=0 on the exchange) as closed_reconciled. UNKNOWN positions (balance
-    not verifiable) are never auto-closed."""
+    not verifiable) are never auto-closed, and neither are positions whose
+    Gamma market is CLOSED (funds may still be claimable at resolution) —
+    those are only flagged."""
     from locus.core import positions
 
     report = positions.reconcile_positions(fix=args.fix)
@@ -540,6 +542,10 @@ def cmd_reconcile_positions(args):
     for entry in entries:
         state = entry["state"]
         color = {"ok": "green", "mismatch": "red", "unknown": "yellow"}.get(state, "white")
+        # An open position on a CLOSED market is a problem regardless of its
+        # token-balance state — always surface it in red.
+        if entry.get("market_state") == "closed":
+            color = "red"
         console.print(f"  [{color}]{entry['line']}[/{color}]")
 
     n_ok = len(report["ok"])
@@ -551,6 +557,15 @@ def cmd_reconcile_positions(args):
         f"[red]{n_mismatch} mismatch[/red], "
         f"[yellow]{n_unknown} unknown[/yellow]"
     )
+
+    market_closed = report.get("market_closed", [])
+    if market_closed:
+        console.print(
+            f"[red bold]⚠ {len(market_closed)} open position(s) on CLOSED "
+            f"market(s): {', '.join(f'#{i}' for i in market_closed)} — may need "
+            f"resolution handling. NOT auto-closed by --fix (funds may still be "
+            f"claimable at resolution).[/red bold]"
+        )
 
     if args.fix:
         if report["fixed"]:

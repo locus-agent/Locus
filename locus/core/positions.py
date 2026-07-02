@@ -1046,15 +1046,33 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
     NEVER auto-closed — reconciliation only ever closes positions it has
     positively confirmed are empty.
 
+    Each position's Gamma market status is also checked (one batch fetch):
+    "market OPEN" (closed=False), "market CLOSED" (closed=True), or "market NOT
+    FOUND in Gamma" (absent from the response). A CLOSED market with an open
+    position is its own mismatch class — the tokens may still be claimable at
+    resolution, so `fix=True` NEVER auto-closes it; it is only flagged loudly
+    (report key "market_closed"). Only the held==0 MISMATCH is auto-fixable.
+
     `fix=False` (default) reports only. `fix=True` closes each MISMATCH as
     closed_reconciled / reconcile_mismatch, realizing nothing further (prior
     partial realizations on the row are preserved). `client` is the
     CLOB client; built via executor.create_clob_client() when omitted (injectable
     for tests). Returns a report dict:
-        {"entries": [{"id", "market_question", "state", "held", "line"}, ...],
-         "ok": [ids], "mismatches": [ids], "unknown": [ids], "fixed": [ids]}
+        {"entries": [{"id", "market_question", "state", "held", "market_state",
+                      "line"}, ...],
+         "ok": [ids], "mismatches": [ids], "unknown": [ids],
+         "market_closed": [ids], "fixed": [ids]}
     """
     open_positions = get_open_positions()
+    market_states: dict[str, dict] = {}
+    if open_positions:
+        try:
+            market_states = gamma.fetch_markets_by_condition_ids(
+                [p["condition_id"] for p in open_positions]
+            )
+        except Exception as e:
+            log.warning("[positions] reconcile: Gamma market fetch failed (%s); "
+                        "market status will report NOT FOUND", e)
     if client is None and open_positions:
         try:
             client = executor.create_clob_client()
@@ -1068,6 +1086,7 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
     ok_ids: list[int] = []
     mismatch_ids: list[int] = []
     unknown_ids: list[int] = []
+    market_closed_ids: list[int] = []
 
     for position in open_positions:
         pid = position["id"]
@@ -1081,11 +1100,30 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
         else:
             unknown_ids.append(pid)
             line = f"UNKNOWN: could not verify ID={pid}"
+
+        # Gamma market status. Note the raw dicts carry no 'active' key —
+        # 'closed' is the only liveness signal Gamma returns here.
+        raw_market = market_states.get(position["condition_id"])
+        if raw_market is None:
+            market_state = "not_found"
+            line += " — market NOT FOUND in Gamma"
+        elif raw_market.get("closed"):
+            market_state = "closed"
+            market_closed_ids.append(pid)
+            line += " — market CLOSED — position may need resolution handling!"
+            log.warning("[positions] reconcile: position %s is open on a CLOSED "
+                        "market (%s) — not auto-closed; check resolution/claim",
+                        pid, position["market_question"][:60])
+        else:
+            market_state = "open"
+            line += " — market OPEN"
+
         entries.append({
             "id": pid,
             "market_question": position["market_question"],
             "state": state,
             "held": held,
+            "market_state": market_state,
             "line": line,
         })
 
@@ -1107,6 +1145,7 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
         "ok": ok_ids,
         "mismatches": mismatch_ids,
         "unknown": unknown_ids,
+        "market_closed": market_closed_ids,
         "fixed": fixed_ids,
     }
 
