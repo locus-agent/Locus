@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T10:20:56.101238+00:00",
-  "last_heartbeat": "2026-07-02T10:20:56.101238+00:00",
-  "uptime_seconds": 42362,
+  "generated_at": "2026-07-02T10:26:07.310516+00:00",
+  "last_heartbeat": "2026-07-02T10:26:07.310516+00:00",
+  "uptime_seconds": 42674,
   "dry_run": false,
-  "markets_tracked": 1281,
+  "markets_tracked": 1283,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9911,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 272,
+  "headlines_scanned_today": 276,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6613,
+  "classifications_24h": 6612,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2723,
+    "prefiltered_haiku": 2719,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1750,
-    "matched": 741,
-    "classified": 6613,
+    "news": 1749,
+    "matched": 740,
+    "classified": 6612,
     "signals": 3,
     "trades": 3
   },
@@ -136,11 +136,11 @@
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
     "unrealized_pnl_usd": -4.83,
-    "total_pnl_usd": 39.35,
+    "total_pnl_usd": 39.34,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2003.8
+    "avg_classification_latency_ms": 2011.2
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.05499999999999999,
-      "pnl_pct": -23.61,
+      "current_price": 0.055999999999999994,
+      "pnl_pct": -22.22,
       "amount_usd": 0.2340000000000004,
       "current_value_usd": 0.18,
-      "pnl_usd": -0.06,
+      "pnl_usd": -0.05,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.097,
-      "pnl_pct": -3.0,
+      "current_price": 0.09650000000000003,
+      "pnl_pct": -3.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.94,
-      "pnl_usd": -0.06,
+      "current_value_usd": 1.93,
+      "pnl_usd": -0.07,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -398,56 +398,72 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 10:20:56",
+      "time": "2026-07-02 10:26:07",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.61
+      "pnl_pct": -22.22
     },
     {
-      "time": "2026-07-02 10:20:25",
+      "time": "2026-07-02 10:25:36",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.61
+      "pnl_pct": -22.22
     },
     {
-      "time": "2026-07-02 10:19:54",
+      "time": "2026-07-02 10:25:05",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.61
+      "pnl_pct": -22.22
     },
     {
-      "time": "2026-07-02 10:19:23",
+      "time": "2026-07-02 10:24:34",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.61
+      "pnl_pct": -22.22
     },
     {
-      "time": "2026-07-02 10:18:52",
+      "time": "2026-07-02 10:24:03",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.61
+      "pnl_pct": -24.31
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 10:17:06",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "India's capital announces permanent anti-pollution curbs for toxic winter months - Reuters",
+      "time": "2026-07-02 10:23:57",
+      "market_question": "Will Kash Patel leave the Trump administration before 2027?",
+      "headline": "FBI Director Kash Patel disclosed six-figure Strategy stock purchase months after trade: report",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 10:23:57",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Merz unveils sweeping reform push for Germany: Tax cuts, pension overhaul and new sick leave rules - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 10:17:06",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "India's capital announces permanent anti-pollution curbs for toxic winter months - Reuters",
+      "time": "2026-07-02 10:23:57",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Merz unveils sweeping reform push for Germany: Tax cuts, pension overhaul and new sick leave rules - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 10:12:43",
-      "market_question": "Trump declares election interference national emergency? ",
-      "headline": "Vatican declares Society of St. Pius X in schism, excommunicates bishops and invalidates sacraments - AP News",
+      "time": "2026-07-02 10:23:57",
+      "market_question": "Will Kash Patel leave the Trump administration before 2027?",
+      "headline": "Merz unveils sweeping reform push for Germany: Tax cuts, pension overhaul and new sick leave rules - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,25 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 10:12:43",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Vatican declares Society of St. Pius X in schism, excommunicates bishops and invalidates sacraments - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 10:10:31",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "Dollar eases, yen gains ahead of US payrolls, chipmaker stocks struggle - Reuters",
+      "time": "2026-07-02 10:23:57",
+      "market_question": "Will Kristi Noem leave the Trump administration before 2027?",
+      "headline": "Merz unveils sweeping reform push for Germany: Tax cuts, pension overhaul and new sick leave rules - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
