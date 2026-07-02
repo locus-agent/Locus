@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T08:07:42.539262+00:00",
-  "last_heartbeat": "2026-07-02T08:07:42.539262+00:00",
-  "uptime_seconds": 34369,
+  "generated_at": "2026-07-02T08:12:48.975158+00:00",
+  "last_heartbeat": "2026-07-02T08:12:48.975158+00:00",
+  "uptime_seconds": 34675,
   "dry_run": false,
-  "markets_tracked": 1276,
+  "markets_tracked": 1273,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9911,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 197,
+  "headlines_scanned_today": 201,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6704,
+  "classifications_24h": 6714,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2817,
+    "prefiltered_haiku": 2818,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1757,
-    "matched": 749,
-    "classified": 6704,
+    "news": 1761,
+    "matched": 751,
+    "classified": 6714,
     "signals": 1,
     "trades": 1
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1800.5
+    "avg_classification_latency_ms": 1800.0
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.44499999999999995,
+      "current_price": 0.445,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.87,
-      "pnl_usd": -1.07,
+      "current_value_usd": 23.86,
+      "pnl_usd": -1.08,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -209,7 +209,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.21,
-      "pnl_usd": -1.78,
+      "current_value_usd": 23.2,
+      "pnl_usd": -1.79,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,9 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 08:02:53",
-      "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "Russian attack kills at least 13, injures scores and causes damage across Ukraine capital - AP News",
+      "time": "2026-07-02 08:11:43",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Serial entrepreneur Turakhia launches AI work platform Neo with $30 mn - Business Standard",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 08:11:43",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Polish military ends air operation, reports no airspace violations, armed forces say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -433,9 +449,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 08:02:53",
-      "market_question": "Ukraine election called by December 31, 2026?",
-      "headline": "Russian attack kills at least 13, injures scores and causes damage across Ukraine capital - AP News",
+      "time": "2026-07-02 08:11:43",
+      "market_question": "Will Trump say \"Moon\" during Tribute to America Rally?",
+      "headline": "Polish military ends air operation, reports no airspace violations, armed forces say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 08:02:53",
-      "market_question": "Ukraine election called by August 31, 2026?",
-      "headline": "Russian attack kills at least 13, injures scores and causes damage across Ukraine capital - AP News",
+      "time": "2026-07-02 08:11:43",
+      "market_question": "Will Trump say \"Transgender\" during Tribute to America Rally?",
+      "headline": "Polish military ends air operation, reports no airspace violations, armed forces say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,25 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 08:02:53",
-      "market_question": "Will Donald Trump visit Ukraine in 2026?",
-      "headline": "Russian attack kills at least 13, injures scores and causes damage across Ukraine capital - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 08:02:53",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "Russian attack kills at least 13, injures scores and causes damage across Ukraine capital - AP News",
+      "time": "2026-07-02 08:11:43",
+      "market_question": "Will Trump say \"World War\" during Tribute to America Rally?",
+      "headline": "Polish military ends air operation, reports no airspace violations, armed forces say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
