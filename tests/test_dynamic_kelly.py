@@ -142,16 +142,16 @@ def test_winrate_min_samples_override(monkeypatch):
 
 # --- end to end through the positions table ---
 
-def _close(tmp_db, mid, pnl, closed_at):
+def _close(tmp_db, mid, pnl, closed_at, question="Q?"):
     from locus.core import positions
     from locus.markets.gamma import Market
 
     trade_id = tmp_db.log_trade(
-        market_id=mid, market_question="Q?", claude_score=0.7, market_price=0.5,
+        market_id=mid, market_question=question, claude_score=0.7, market_price=0.5,
         edge=0.2, side="YES", amount_usd=25.0, status="dry_run",
         classification="bullish", materiality=0.7,
     )
-    positions.open_position(trade_id, Market(mid, "Q?", "ai", 0.5, 0.5, 5000, "", True, []),
+    positions.open_position(trade_id, Market(mid, question, "ai", 0.5, 0.5, 5000, "", True, []),
                             "YES", 25.0)
     conn = tmp_db._conn()
     conn.execute(
@@ -189,6 +189,63 @@ def test_get_recent_winrate_respects_lookback_window(tmp_db, monkeypatch):
     assert memory.get_recent_winrate(5) == pytest.approx(0.0)
     # The full window sees all ten -> 5/10.
     assert memory.get_recent_winrate(10) == pytest.approx(0.5)
+
+
+# --- coin-flip positions are excluded from the win-rate input ---
+
+_COINFLIP_Q = "Bitcoin Up or Down on June 29?"
+
+
+def _seed_coinflip_era(tmp_db):
+    # Four coin-flip losers (the old 25%-win-rate era) followed by four closes
+    # on normal markets (three winners, one loser).
+    for i in range(4):
+        _close(tmp_db, f"cf{i}", -5.0, f"2026-06-10 1{i}:00:00", question=_COINFLIP_Q)
+    for i, pnl in enumerate((+5.0, +5.0, +5.0, -5.0)):
+        _close(tmp_db, f"real{i}", pnl, f"2026-06-12 1{i}:00:00")
+
+
+def test_recent_pnls_exclude_coinflip_closes(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", True)
+    monkeypatch.setattr(config, "COINFLIP_PATTERNS", ["up or down"])
+    _seed_coinflip_era(tmp_db)
+    # Only the four normal-market closes remain; the coin-flip losers are gone.
+    pnls = logger.get_recent_closed_position_pnls(20)
+    assert len(pnls) == 4
+    assert sum(1 for p in pnls if p > 0) == 3
+
+
+def test_coinflip_exclusion_happens_before_limit(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", True)
+    monkeypatch.setattr(config, "COINFLIP_PATTERNS", ["up or down"])
+    # Newest four closes are coin-flips: they must not consume window slots and
+    # shadow the older tradeable-market closes.
+    for i, pnl in enumerate((+5.0, +5.0, +5.0, -5.0)):
+        _close(tmp_db, f"real{i}", pnl, f"2026-06-10 1{i}:00:00")
+    for i in range(4):
+        _close(tmp_db, f"cf{i}", -5.0, f"2026-06-12 1{i}:00:00", question=_COINFLIP_Q)
+    pnls = logger.get_recent_closed_position_pnls(4)
+    assert len(pnls) == 4
+    assert sum(1 for p in pnls if p > 0) == 3
+
+
+def test_coinflip_closes_count_when_exclusion_disabled(tmp_db, monkeypatch):
+    # If the agent can trade coin-flips again, their closes belong in the estimate.
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", False)
+    monkeypatch.setattr(config, "COINFLIP_PATTERNS", ["up or down"])
+    _seed_coinflip_era(tmp_db)
+    pnls = logger.get_recent_closed_position_pnls(20)
+    assert len(pnls) == 8
+    assert sum(1 for p in pnls if p > 0) == 3
+
+
+def test_recent_winrate_ignores_coinflip_era(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "KELLY_WINRATE_MIN_SAMPLES", 4)
+    monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", True)
+    monkeypatch.setattr(config, "COINFLIP_PATTERNS", ["up or down"])
+    _seed_coinflip_era(tmp_db)
+    # 3 winners / 4 tradeable closes, not 3 / 8 with the coin-flip losers.
+    assert memory.get_recent_winrate(20) == pytest.approx(0.75)
 
 
 # --- PERFORMANCE_START_DATE window on the win rate ---

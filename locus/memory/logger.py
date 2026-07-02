@@ -919,20 +919,28 @@ def get_recent_closed_position_pnls(limit: int, since: str | None = None) -> lis
     neither a win nor a loss — so it is excluded from the win-rate denominator.
     Backs dynamic Kelly win-rate sizing. `since` (an ISO date/datetime) restricts
     to positions opened on or after it — the PERFORMANCE_START_DATE window —
-    before taking the most recent `limit`; default None counts all history."""
+    before taking the most recent `limit`; default None counts all history.
+
+    Coin-flip positions (gamma.is_coinflip_market on the market question) are
+    excluded when config.EXCLUDE_COINFLIP_MARKETS is set: the agent can no longer
+    open them, so their historically poor closes would poison a win rate that is
+    supposed to estimate the strategy as it trades today. The exclusion happens
+    before `limit`, so the window is filled with tradeable-market closes."""
+    from locus.markets.gamma import is_coinflip_market  # avoid module-level dep
+
     conn = _conn()
-    sql = ("SELECT realized_pnl_usd FROM positions "
+    sql = ("SELECT market_question, realized_pnl_usd FROM positions "
            "WHERE status != 'open' AND closed_at IS NOT NULL "
            "AND realized_pnl_usd != 0")
     params: list = []
     if since:
         sql += " AND opened_at >= ?"
         params.append(since)
-    sql += " ORDER BY closed_at DESC LIMIT ?"
-    params.append(limit)
+    sql += " ORDER BY closed_at DESC"
     rows = conn.execute(sql, params).fetchall()
     conn.close()
-    return [r["realized_pnl_usd"] or 0.0 for r in rows]
+    return [r["realized_pnl_usd"] or 0.0 for r in rows
+            if not is_coinflip_market(r["market_question"])][:limit]
 
 
 def get_recent_classifications(limit: int = 20) -> list[dict]:
