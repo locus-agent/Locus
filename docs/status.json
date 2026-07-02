@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T12:51:18.577790+00:00",
-  "last_heartbeat": "2026-07-02T12:51:18.577790+00:00",
-  "uptime_seconds": 51385,
+  "generated_at": "2026-07-02T12:56:31.269833+00:00",
+  "last_heartbeat": "2026-07-02T12:56:31.269833+00:00",
+  "uptime_seconds": 51698,
   "dry_run": false,
-  "markets_tracked": 1282,
+  "markets_tracked": 1281,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9935,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 368,
-  "headlines_last_cycle": 4,
+  "headlines_scanned_today": 369,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6583,
+  "classifications_24h": 6508,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2667,
+    "prefiltered_haiku": 2638,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1751,
-    "matched": 737,
-    "classified": 6583,
+    "news": 1737,
+    "matched": 725,
+    "classified": 6508,
     "signals": 3,
     "trades": 3
   },
@@ -135,8 +135,8 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.18,
-    "total_pnl_usd": 40.0,
+    "unrealized_pnl_usd": -4.25,
+    "total_pnl_usd": 39.93,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0915,
-      "pnl_pct": -8.5,
+      "current_price": 0.088,
+      "pnl_pct": -12.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.83,
-      "pnl_usd": -0.17,
+      "current_value_usd": 1.76,
+      "pnl_usd": -0.24,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 12:51:18",
+      "time": "2026-07-02 12:56:31",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 12:50:47",
+      "time": "2026-07-02 12:56:00",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 12:50:16",
+      "time": "2026-07-02 12:55:28",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 12:49:45",
+      "time": "2026-07-02 12:54:57",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 12:49:15",
+      "time": "2026-07-02 12:54:26",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -444,6 +444,38 @@
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-02 12:55:27",
+      "market_question": "Will Kate Marshall win the 2026 Reno mayoral election?",
+      "headline": "Kate, the Princess of Wales, visits Wimbledon tennis - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 12:55:27",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "Kate, the Princess of Wales, visits Wimbledon tennis - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
     {
       "time": "2026-07-02 12:51:03",
       "market_question": "Milei out as President of Argentina before 2027?",
@@ -480,38 +512,6 @@
       "time": "2026-07-02 12:51:03",
       "market_question": "Will Juan Grabois win the 2027 Argentina presidential election?",
       "headline": "No Russell but Gray back for Scotland in Argentina",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 12:51:03",
-      "market_question": "Will Facundo Manes win the 2027 Argentina presidential election?",
-      "headline": "No Russell but Gray back for Scotland in Argentina",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 12:51:03",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Government rules out extending pub hours for England v Mexico game",
       "direction": null,
       "materiality": null,
       "confidence": null,
