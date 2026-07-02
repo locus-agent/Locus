@@ -207,6 +207,41 @@ CLOSE_MAP = {
 # locks, resolution, and half-closes never top up.
 TOPUP_EXIT_REASONS = frozenset({"manual", "sl", "time_pressure"})
 
+# --- Close-retry backoff -------------------------------------------------------
+#
+# A close that fails because the BOOK can't support the sell (thin/empty/wide)
+# won't succeed 30 seconds later either — an unsellable zombie-book position
+# would otherwise retry every management cycle forever (position 54: 1,325
+# close_failed decisions in ~11.5h). After such a failure, close ATTEMPTS on
+# that position are suppressed for config.CLOSE_RETRY_BACKOFF_SECONDS. The
+# position stays fully marked and its triggers keep evaluating — only the
+# doomed order placement is skipped (with one log line stating the intent).
+# Genuine errors (error_*) and transient failures (close_failed — a rejected
+# or unconfirmed order) are NOT backed off; nor are dry-run/resolution closes
+# (no CLOB order involved), and a manual close always bypasses.
+#
+# In-memory only (position_id -> monotonic timestamp of the failure): a
+# restart simply retries once, which is the desired behavior anyway.
+
+NON_TRANSIENT_CLOSE_STATUSES = frozenset(
+    {"skipped_thin_book", "skipped_empty_book", "skipped_wide_spread"}
+)
+
+_close_backoff: dict[int, float] = {}
+
+
+def _close_backoff_remaining(position_id: int) -> float:
+    """Seconds left before another close attempt is allowed on this position;
+    0.0 when no backoff is active. Expired entries are dropped."""
+    started = _close_backoff.get(position_id)
+    if started is None:
+        return 0.0
+    remaining = config.CLOSE_RETRY_BACKOFF_SECONDS - (time.monotonic() - started)
+    if remaining <= 0:
+        _close_backoff.pop(position_id, None)
+        return 0.0
+    return remaining
+
 
 def pnl_pct(side: str, entry_yes: float, now_yes: float) -> float:
     entry = entry_yes if side == "YES" else 1.0 - entry_yes
@@ -713,6 +748,20 @@ def _live_close(
     )
     topup_cost = result.get("topup_cost_usd") or 0.0
     topup_shares = result.get("topup_shares") or 0.0
+    if result["status"] in ("executed", "partial_close"):
+        # Something actually sold — any standing backoff no longer describes
+        # this book.
+        _close_backoff.pop(position["id"], None)
+    elif result["status"] in NON_TRANSIENT_CLOSE_STATUSES:
+        # The book can't support the sell and won't shortly: arm the backoff
+        # so the management cycle stops re-placing a doomed order every ~30s.
+        # Transient failures (close_failed) and error_* keep retrying as before.
+        _close_backoff[position["id"]] = time.monotonic()
+        log.warning(
+            "[positions] close backoff ARMED on position %s (%s): further close "
+            "attempts suppressed for %.0fs",
+            position["id"], result["status"], config.CLOSE_RETRY_BACKOFF_SECONDS,
+        )
     if result["status"] == "executed":
         sold = result.get("sold_shares", result.get("shares"))
         log.info(
@@ -749,20 +798,40 @@ def _live_close(
 
 
 def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str,
-           fraction: float = 1.0) -> float:
+           fraction: float = 1.0, bypass_backoff: bool = False) -> float:
     """Realize `fraction` of the position at yes_price. Live trading places a
     real CLOB sell to flatten the shares; dry-run simulates the fill.
 
     Concurrency-safe: the realizing UPDATE only matches while the row is still
     status='open', so when two closers race (management cycle vs. calibrator
     vs. news re-eval), exactly one realizes PnL — the other returns 0.0 with a
-    warning."""
+    warning.
+
+    Close-retry backoff: after a live close failed with a non-transient book
+    status, further attempts are suppressed (one log line, nothing placed,
+    returns 0.0) until config.CLOSE_RETRY_BACKOFF_SECONDS elapse. Dry-run and
+    resolution closes never place a CLOB order, so they're never suppressed;
+    `bypass_backoff=True` (a user-requested manual close) always goes through."""
     log.info(
         "[positions] _close ENTER: position_id=%s side=%s status=%s exit_reason=%s "
         "fraction=%.2f yes_price=%s config.DRY_RUN=%s on \"%s\"",
         position["id"], position["side"], status, exit_reason, fraction, yes_price,
         config.DRY_RUN, position["market_question"][:40],
     )
+    if not bypass_backoff and not config.DRY_RUN and exit_reason != "resolution":
+        remaining = _close_backoff_remaining(position["id"])
+        if remaining > 0:
+            # The trigger's intent is logged; the doomed order is not placed.
+            # The position stays marked/monitored and the trigger will fire
+            # again once the backoff expires.
+            log.warning(
+                "[positions] close suppressed by backoff on position %s (%s): "
+                "last close attempt failed on an unsupportive book, retry in "
+                "%.0fs — \"%s\"",
+                position["id"], exit_reason or status or "close", remaining,
+                position["market_question"][:40],
+            )
+            return 0.0
     log.info(
         "[positions] _close: calling _live_close (position_id=%s, exit_reason=%s, "
         "fraction=%.2f)", position["id"], exit_reason, fraction,
@@ -1017,7 +1086,9 @@ def close_manual(position_id: int) -> dict | None:
     # simulates the fill at the marked price. When live, a SELL that can't be
     # confirmed leaves the position open and records nothing (_close logs the
     # failed attempt itself), so re-read the row to see if it actually closed.
-    realized = _close(conn, position, yes_price, "closed_manual", "manual")
+    # A user-requested close always tries the exchange, even mid-backoff.
+    realized = _close(conn, position, yes_price, "closed_manual", "manual",
+                      bypass_backoff=True)
     still_open = conn.execute(
         "SELECT status FROM positions WHERE id=?", (position_id,)
     ).fetchone()["status"] == "open"

@@ -70,6 +70,14 @@ TOPUP_MAX_USD = float(os.getenv("TOPUP_MAX_USD", "2.00"))
 # Guards against zombie books (bids only at dust levels like 0.007 under a
 # 0.05 mark), where topping up just buys more of an unsellable asset.
 TOPUP_MAX_BID_SLIPPAGE_PCT = float(os.getenv("TOPUP_MAX_BID_SLIPPAGE_PCT", "20"))
+# After a live close attempt fails with a NON-TRANSIENT book status
+# (skipped_thin_book / skipped_empty_book / skipped_wide_spread — the book
+# can't support the sell, and won't in the next 30 seconds either), further
+# close attempts on that position are suppressed for this long. Prevents an
+# unsellable (zombie-book) position from retrying every ~30s management cycle
+# (position 54 logged 1,325 close_failed decisions in ~11.5h). The position
+# stays fully marked/monitored; a manual `cli.py close` always bypasses.
+CLOSE_RETRY_BACKOFF_SECONDS = float(os.getenv("CLOSE_RETRY_BACKOFF_SECONDS", "1800"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 # Public trades feed (no auth). The CLOB /data/trades endpoint requires API

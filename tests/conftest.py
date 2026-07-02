@@ -39,6 +39,18 @@ def _disable_momentum(monkeypatch):
     monkeypatch.setattr(config, "MOMENTUM_ENABLED", False, raising=False)
 
 
+@pytest.fixture(autouse=True)
+def _clear_close_backoff():
+    """The close-retry backoff map is in-memory and keyed by position id, and
+    position ids restart at 1 in every tmp_db — clear it around each test so a
+    backoff armed in one test can't suppress closes in another."""
+    from locus.core import positions
+
+    positions._close_backoff.clear()
+    yield
+    positions._close_backoff.clear()
+
+
 @pytest.fixture
 def tmp_db(tmp_path, monkeypatch):
     """Point the SQLite layer at a throwaway database."""

@@ -204,7 +204,12 @@ PipelineV2._execute_signals:
   `TOPUP_MAX_BID_SLIPPAGE_PCT` (default 20%) of the ask to cover the post-top-up
   holding — a zombie book whose bids all rest at dust prices (0.001-0.007 under a 0.05
   mark) logs `topup_skipped_no_bid_liquidity` and leaves the dust alone rather than
-  buying more of an unsellable asset. A position's `actual_cost_usd` is maintained in
+  buying more of an unsellable asset. A close that fails with a non-transient book
+  status (`skipped_thin_book`/`_empty_book`/`_wide_spread`) suppresses further close
+  attempts on that position for `CLOSE_RETRY_BACKOFF_SECONDS` (default 1800) — the
+  position stays marked/monitored and the suppressed intent is logged, but the doomed
+  order isn't re-placed every cycle; manual closes bypass, and `close_failed`/`error_*`
+  keep retrying (in-memory map `positions._close_backoff`, cleared on restart). A position's `actual_cost_usd` is maintained in
   lockstep with `amount_usd` (scaled by the sold fraction on partial/half closes,
   increased by a top-up's cost), so both always describe the real cost of the
   REMAINING holding. `performance.calibration_report` (surfaced as
