@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T05:19:08.736514+00:00",
-  "last_heartbeat": "2026-07-02T05:19:08.736514+00:00",
-  "uptime_seconds": 24255,
+  "generated_at": "2026-07-02T05:24:14.863117+00:00",
+  "last_heartbeat": "2026-07-02T05:24:14.863117+00:00",
+  "uptime_seconds": 24561,
   "dry_run": false,
-  "markets_tracked": 1269,
+  "markets_tracked": 1267,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9903,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 131,
+  "headlines_scanned_today": 133,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6771,
+  "classifications_24h": 6764,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2853,
+    "prefiltered_haiku": 2851,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T05:05:19.041891+00:00"
+    "last_check": "2026-07-02T05:20:19.440186+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,8 +121,8 @@
   },
   "pipeline_24h": {
     "news": 1754,
-    "matched": 753,
-    "classified": 6771,
+    "matched": 752,
+    "classified": 6764,
     "signals": 1,
     "trades": 1
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1612.4
+    "avg_classification_latency_ms": 1611.1
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.2,
-      "pnl_usd": -1.79,
+      "current_value_usd": 23.21,
+      "pnl_usd": -1.78,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,6 +417,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-02 05:20:12",
+      "market_question": "Will Trump speak to Elon Musk in June?",
+      "headline": "Elon Musk - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 05:20:12",
+      "market_question": "Will Elon Musk rejoin the Trump Administration in 2026?",
+      "headline": "Elon Musk - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 05:20:12",
+      "market_question": "Will Trump pardon Elon Musk before 2027?",
+      "headline": "Elon Musk - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-02 05:09:25",
       "market_question": "Will Bitcoin outperform Gold in 2026?",
       "headline": "Gold rises on soft jobs data and weaker oil as focus shifts to US payrolls - Reuters",
@@ -447,54 +495,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 05:09:11",
-      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
-      "headline": "Gold rises on soft jobs data and weaker oil as focus shifts to US payrolls - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 05:07:01",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "'I spent $6,000 on a World Cup trip but was left stranded at the gate'",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 05:07:00",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "'I spent $6,000 on a World Cup trip but was left stranded at the gate'",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
