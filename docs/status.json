@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T07:21:44.506207+00:00",
-  "last_heartbeat": "2026-07-02T07:21:44.506207+00:00",
-  "uptime_seconds": 31611,
+  "generated_at": "2026-07-02T07:26:51.296032+00:00",
+  "last_heartbeat": "2026-07-02T07:26:51.296032+00:00",
+  "uptime_seconds": 31918,
   "dry_run": false,
   "markets_tracked": 1271,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 178,
+  "headlines_scanned_today": 181,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6668,
+  "classifications_24h": 6670,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2809,
+    "prefiltered_haiku": 2810,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1738,
-    "matched": 739,
-    "classified": 6668,
+    "news": 1741,
+    "matched": 740,
+    "classified": 6670,
     "signals": 1,
     "trades": 1
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1805.2
+    "avg_classification_latency_ms": 1804.8
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.2,
-      "pnl_usd": -1.79,
+      "current_value_usd": 23.21,
+      "pnl_usd": -1.78,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,6 +417,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-02 07:23:18",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "SK Hynix to spend $64 billion on chip plants under broader AI-driven investment plan - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 07:23:17",
+      "market_question": "Will Chip Keating win the 2026 Oklahoma Governor Republican primary election?",
+      "headline": "SK Hynix to spend $64 billion on chip plants under broader AI-driven investment plan - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-02 07:21:05",
       "market_question": "Will June be the best month for Bitcoin in 2026?",
       "headline": "An AP journalist describes a month in the epicenter of Congo\u2019s Ebola outbreak - AP News",
@@ -451,38 +483,6 @@
     {
       "time": "2026-07-02 07:21:05",
       "market_question": "Will December be the best month for Bitcoin in 2026?",
-      "headline": "An AP journalist describes a month in the epicenter of Congo\u2019s Ebola outbreak - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 07:21:05",
-      "market_question": "Will April be the best month for Bitcoin in 2026?",
-      "headline": "An AP journalist describes a month in the epicenter of Congo\u2019s Ebola outbreak - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 07:21:05",
-      "market_question": "Will October be the best month for Bitcoin in 2026?",
       "headline": "An AP journalist describes a month in the epicenter of Congo\u2019s Ebola outbreak - AP News",
       "direction": null,
       "materiality": null,
