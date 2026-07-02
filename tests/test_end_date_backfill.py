@@ -1,4 +1,4 @@
-"""end_date extraction and backfill.
+"""end_date extraction, backfill, and stale-date refresh.
 
 Some Gamma markets — e.g. the per-candidate outcomes of election "Winner"
 events — carry NO market-level endDate at all (only startDate/startDateIso);
@@ -7,6 +7,13 @@ markets stored end_date NULL, which silently disabled the time_pressure /
 near-certain exit logic (hours_to_close returns None). Two-layer fix:
 _parse_market / fetch_markets_by_condition_ids fall back to the event endDate,
 and the management cycle backfills NULL end_dates on open positions.
+
+The same hourly pass also REFRESHES stale-but-populated dates: Polymarket uses
+placeholder end dates and moves them (position 54 carried a past end_date while
+Gamma reported the market open), and a stale past date fires a wrong
+time_pressure trigger every cycle. A past end_date is replaced only when Gamma
+now reports a LATER one; when Gamma agrees it's past, the date stands and
+time_pressure keeps applying.
 """
 import pytest
 
@@ -112,10 +119,10 @@ def _end_dates(tmp_db):
 
 
 def test_backfill_fills_null_end_dates_only(tmp_db, monkeypatch):
-    # c1/c2 opened with no end date (stored NULL); c3 already has one.
+    # c1/c2 opened with no end date (stored NULL); c3 already has a future one.
     _open_position(tmp_db, "c1")
     _open_position(tmp_db, "c2")
-    _open_position(tmp_db, "c3", end_date="2026-08-01T00:00:00Z")
+    _open_position(tmp_db, "c3", end_date="2030-08-01T00:00:00Z")
     assert _end_dates(tmp_db)["c1"] is None  # stored NULL at open
 
     asked = []
@@ -128,28 +135,28 @@ def test_backfill_fills_null_end_dates_only(tmp_db, monkeypatch):
         }
 
     monkeypatch.setattr(positions.gamma, "fetch_markets_by_condition_ids", fake_fetch)
-    updated = positions.backfill_missing_end_dates()
+    updated = positions.refresh_end_dates()
 
     assert updated == 1
-    # Only the NULL rows were fetched — c3 was never asked about.
+    # Only the NULL rows were fetched — c3 (future date) was never asked about.
     assert asked == [["c1", "c2"]]
     dates = _end_dates(tmp_db)
     assert dates["c1"] == "2026-11-03T00:00:00Z"       # filled
     assert dates["c2"] is None                          # still unknown, retried later
-    assert dates["c3"] == "2026-08-01T00:00:00Z"        # untouched
+    assert dates["c3"] == "2030-08-01T00:00:00Z"        # untouched
 
 
-def test_backfill_noop_without_null_rows(tmp_db, monkeypatch):
-    _open_position(tmp_db, "c1", end_date="2026-08-01T00:00:00Z")
+def test_refresh_noop_without_null_or_stale_rows(tmp_db, monkeypatch):
+    _open_position(tmp_db, "c1", end_date="2030-08-01T00:00:00Z")
 
     def boom(ids):
-        raise AssertionError("no fetch should happen when nothing is NULL")
+        raise AssertionError("no fetch should happen when nothing is NULL or stale")
 
     monkeypatch.setattr(positions.gamma, "fetch_markets_by_condition_ids", boom)
-    assert positions.backfill_missing_end_dates() == 0
+    assert positions.refresh_end_dates() == 0
 
 
-def test_backfill_skips_closed_positions(tmp_db, monkeypatch):
+def test_refresh_skips_closed_positions(tmp_db, monkeypatch):
     tid = _open_position(tmp_db, "c1")
     conn = tmp_db._conn()
     conn.execute("UPDATE positions SET status='closed_manual', "
@@ -161,7 +168,70 @@ def test_backfill_skips_closed_positions(tmp_db, monkeypatch):
         raise AssertionError("closed positions must not be re-fetched")
 
     monkeypatch.setattr(positions.gamma, "fetch_markets_by_condition_ids", boom)
-    assert positions.backfill_missing_end_dates() == 0
+    assert positions.refresh_end_dates() == 0
+
+
+# --- stale (past) end_date refresh ---------------------------------------------
+
+def test_stale_past_date_refreshed_when_gamma_reports_later(tmp_db, monkeypatch):
+    # Position 54's shape: stored end_date is in the past, but the market is
+    # alive on Gamma with a moved (later) placeholder date — take Gamma's.
+    _open_position(tmp_db, "c1", end_date="2026-06-30T12:00:00Z")  # past
+    monkeypatch.setattr(
+        positions.gamma, "fetch_markets_by_condition_ids",
+        lambda ids: {"c1": {"condition_id": "c1", "closed": False,
+                            "end_date": "2030-09-30T12:00:00Z"}},
+    )
+    assert positions.refresh_end_dates() == 1
+    assert _end_dates(tmp_db)["c1"] == "2030-09-30T12:00:00Z"
+
+
+def test_stale_past_date_left_when_gamma_agrees(tmp_db, monkeypatch, caplog):
+    # Gamma returns the SAME past date with closed=False: the oddity is noted
+    # at debug level, the date stands, and time_pressure keeps applying — this
+    # pass only corrects placeholders Gamma itself has moved.
+    _open_position(tmp_db, "c1", end_date="2026-06-30T12:00:00Z")  # past
+    monkeypatch.setattr(
+        positions.gamma, "fetch_markets_by_condition_ids",
+        lambda ids: {"c1": {"condition_id": "c1", "closed": False,
+                            "end_date": "2026-06-30T12:00:00Z"}},
+    )
+    with caplog.at_level("DEBUG", logger="locus.core.positions"):
+        assert positions.refresh_end_dates() == 0
+    assert _end_dates(tmp_db)["c1"] == "2026-06-30T12:00:00Z"  # unchanged
+    assert "past but Gamma reports the market still open" in caplog.text
+
+
+def test_stale_past_date_left_when_market_absent_from_gamma(tmp_db, monkeypatch):
+    # A market Gamma doesn't return is resolved/unknown (reconcile territory):
+    # the stale date is left alone, silently.
+    _open_position(tmp_db, "c1", end_date="2026-06-30T12:00:00Z")  # past
+    monkeypatch.setattr(
+        positions.gamma, "fetch_markets_by_condition_ids", lambda ids: {},
+    )
+    assert positions.refresh_end_dates() == 0
+    assert _end_dates(tmp_db)["c1"] == "2026-06-30T12:00:00Z"
+
+
+def test_stale_and_null_rows_refreshed_in_one_batch(tmp_db, monkeypatch):
+    _open_position(tmp_db, "c1")                                   # NULL
+    _open_position(tmp_db, "c2", end_date="2026-06-30T12:00:00Z")  # past
+    asked = []
+
+    def fake_fetch(ids):
+        asked.append(sorted(ids))
+        return {
+            "c1": {"condition_id": "c1", "end_date": "2030-11-03T00:00:00Z"},
+            "c2": {"condition_id": "c2", "closed": False,
+                   "end_date": "2030-09-30T12:00:00Z"},
+        }
+
+    monkeypatch.setattr(positions.gamma, "fetch_markets_by_condition_ids", fake_fetch)
+    assert positions.refresh_end_dates() == 2
+    assert asked == [["c1", "c2"]]  # one batched fetch covers both classes
+    dates = _end_dates(tmp_db)
+    assert dates["c1"] == "2030-11-03T00:00:00Z"
+    assert dates["c2"] == "2030-09-30T12:00:00Z"
 
 
 def test_management_cycle_runs_backfill_and_restores_time_exit_input(tmp_db, monkeypatch):
@@ -173,7 +243,7 @@ def test_management_cycle_runs_backfill_and_restores_time_exit_input(tmp_db, mon
         lambda ids: {"c1": {"condition_id": "c1",
                             "end_date": "2026-11-03T00:00:00Z"}},
     )
-    monkeypatch.setattr(positions, "_last_end_date_backfill", 0.0)
+    monkeypatch.setattr(positions, "_last_end_date_refresh", 0.0)
 
     assert positions.hours_to_close(_end_dates(tmp_db)["c1"]) is None  # unprotected
     positions.update_and_manage(prices={"c1": 0.5})
@@ -182,14 +252,14 @@ def test_management_cycle_runs_backfill_and_restores_time_exit_input(tmp_db, mon
     assert positions.hours_to_close(filled) is not None  # time exits live again
 
 
-def test_backfill_is_throttled_between_cycles(tmp_db, monkeypatch):
+def test_refresh_is_throttled_between_cycles(tmp_db, monkeypatch):
     _open_position(tmp_db, "c1")
     calls = []
     monkeypatch.setattr(
         positions.gamma, "fetch_markets_by_condition_ids",
         lambda ids: calls.append(list(ids)) or {},   # never returns a date
     )
-    monkeypatch.setattr(positions, "_last_end_date_backfill", 0.0)
+    monkeypatch.setattr(positions, "_last_end_date_refresh", 0.0)
 
     positions.update_and_manage(prices={})
     positions.update_and_manage(prices={})  # within the throttle window

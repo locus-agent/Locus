@@ -587,17 +587,26 @@ def check_trigger(position: dict, current_pnl_pct: float) -> str | None:
     return None
 
 
-def hours_to_close(end_date: str | None, now: datetime | None = None) -> float | None:
-    """Hours until the market closes, or None when the close time is unknown or
-    unparseable (legacy positions without a stored end_date)."""
+def _end_date_dt(end_date: str | None) -> datetime | None:
+    """Parse a stored/Gamma end_date into an aware UTC datetime, or None when
+    missing/unparseable."""
     if not end_date:
         return None
     try:
-        dt = datetime.fromisoformat(end_date.replace("Z", "+00:00"))
+        dt = datetime.fromisoformat(str(end_date).replace("Z", "+00:00"))
     except (ValueError, AttributeError):
         return None
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
+def hours_to_close(end_date: str | None, now: datetime | None = None) -> float | None:
+    """Hours until the market closes, or None when the close time is unknown or
+    unparseable (legacy positions without a stored end_date)."""
+    dt = _end_date_dt(end_date)
+    if dt is None:
+        return None
     now = now or datetime.now(timezone.utc)
     return (dt - now).total_seconds() / 3600.0
 
@@ -1377,30 +1386,51 @@ def reevaluate(position: dict, trigger: str, trigger_detail: str = "",
 # "Winner" outcomes) have no market-level endDate, and rows opened before the
 # event-endDate parser fallback existed stored nothing. Without an end_date the
 # time_pressure hard exit can never fire, so the management cycle periodically
-# re-fetches those markets and fills the date in when Gamma reports one.
-_END_DATE_BACKFILL_INTERVAL_SECONDS = 3600.0
-_last_end_date_backfill = 0.0
+# re-fetches those markets and fills the date in when Gamma reports one. The
+# same pass also REFRESHES stale-but-populated dates: Polymarket uses
+# placeholder end dates and moves them (position 54's OpenAI-IPO market carried
+# end_date 2026-06-30 — past — while Gamma still reported the market open), and
+# a stale past date fires a wrong time_pressure trigger every cycle.
+_END_DATE_REFRESH_INTERVAL_SECONDS = 3600.0
+_last_end_date_refresh = 0.0
 
 
-def backfill_missing_end_dates() -> int:
-    """Fill end_date on open positions where it is NULL/empty, from a fresh
-    Gamma fetch of their markets (market endDate, falling back to the parent
-    event's endDate — gamma._end_date_from_raw). Returns how many positions
-    were updated; positions whose market still reports no end date are left
-    NULL and retried on a later cycle."""
+def refresh_end_dates() -> int:
+    """Fill NULL/empty end_dates and refresh stale (past) ones on open
+    positions, from one batched Gamma fetch (market endDate, falling back to
+    the parent event's endDate — gamma._end_date_from_raw). Returns how many
+    positions were updated.
+
+    - NULL/empty: filled when Gamma reports a date; otherwise left NULL and
+      retried on a later cycle (original backfill behavior).
+    - end_date in the past on a still-open position: when Gamma now reports a
+      LATER date, the stored one was a placeholder that moved — take Gamma's.
+      When Gamma agrees the date is past but the market is not closed, the
+      oddity is logged at debug level and the date is left alone: a
+      genuinely-past end_date must keep driving time_pressure, this pass only
+      corrects placeholders that Gamma itself has updated. Markets absent from
+      the Gamma response are skipped (resolved/unknown — reconcile territory)."""
+    now = datetime.now(timezone.utc)
     conn = logger._conn()
     try:
         rows = conn.execute(
-            "SELECT id, condition_id FROM positions "
-            "WHERE status='open' AND (end_date IS NULL OR end_date='')"
+            "SELECT id, condition_id, end_date FROM positions WHERE status='open'"
         ).fetchall()
-        if not rows:
+        null_rows, stale_rows = [], []
+        for r in rows:
+            if not r["end_date"]:
+                null_rows.append(r)
+                continue
+            ttc = hours_to_close(r["end_date"], now)
+            if ttc is not None and ttc < 0:
+                stale_rows.append(r)
+        if not null_rows and not stale_rows:
             return 0
         markets = gamma.fetch_markets_by_condition_ids(
-            [r["condition_id"] for r in rows]
+            [r["condition_id"] for r in null_rows + stale_rows]
         )
         updated = 0
-        for r in rows:
+        for r in null_rows:
             end_date = (markets.get(r["condition_id"]) or {}).get("end_date")
             if not end_date:
                 continue
@@ -1414,6 +1444,33 @@ def backfill_missing_end_dates() -> int:
                 "[positions] end_date backfilled on position %s: %s "
                 "(time-based exit protection restored)", r["id"], end_date,
             )
+        for r in stale_rows:
+            market = markets.get(r["condition_id"])
+            if market is None:
+                continue
+            gamma_end = market.get("end_date")
+            stored_dt = _end_date_dt(r["end_date"])
+            gamma_dt = _end_date_dt(gamma_end)
+            if gamma_dt is not None and (stored_dt is None or gamma_dt > stored_dt):
+                conn.execute(
+                    "UPDATE positions SET end_date=? "
+                    "WHERE id=? AND status='open' AND end_date=?",
+                    (gamma_end, r["id"], r["end_date"]),
+                )
+                updated += 1
+                log.info(
+                    "[positions] stale end_date refreshed on position %s: "
+                    "%s -> %s (placeholder date moved on Gamma)",
+                    r["id"], r["end_date"], gamma_end,
+                )
+            elif not market.get("closed", False):
+                # Gamma agrees the date is past yet reports the market open.
+                # Leave the date — time_pressure judgment stands — but note it.
+                log.debug(
+                    "[positions] position %s end_date %s is past but Gamma "
+                    "reports the market still open (closed=False) with no later "
+                    "date — leaving it", r["id"], r["end_date"],
+                )
         conn.commit()
         return updated
     finally:
@@ -1424,17 +1481,18 @@ def update_and_manage(prices: dict[str, float]) -> dict:
     """Mark open positions to `prices`, apply the hard stop-loss, and run
     Claude re-evaluations for rule triggers (respecting the cooldown).
     Called from the pipeline's periodic cycle, off the event loop."""
-    # Backfill missing end_dates first (throttled to once an hour — one cheap
-    # batch fetch, and only while NULL-end_date positions exist), so the
-    # time_pressure/near-certain checks below see the date this same cycle.
-    global _last_end_date_backfill
+    # Backfill missing / refresh stale end_dates first (throttled to once an
+    # hour — one cheap batch fetch, and only while NULL- or past-end_date
+    # positions exist), so the time_pressure/near-certain checks below see the
+    # corrected date this same cycle.
+    global _last_end_date_refresh
     now_mono = time.monotonic()
-    if now_mono - _last_end_date_backfill >= _END_DATE_BACKFILL_INTERVAL_SECONDS:
-        _last_end_date_backfill = now_mono
+    if now_mono - _last_end_date_refresh >= _END_DATE_REFRESH_INTERVAL_SECONDS:
+        _last_end_date_refresh = now_mono
         try:
-            backfill_missing_end_dates()
+            refresh_end_dates()
         except Exception as e:
-            log.warning(f"[positions] end_date backfill error: {e}")
+            log.warning(f"[positions] end_date refresh error: {e}")
 
     stats = {"updated": 0, "stop_losses": 0, "time_pressure_exits": 0,
              "near_certain_exits": 0, "reevals": 0}
