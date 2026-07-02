@@ -1,47 +1,47 @@
 {
-  "generated_at": "2026-07-02T22:45:53.206266+00:00",
-  "last_heartbeat": "2026-07-02T22:45:53.206266+00:00",
-  "uptime_seconds": 50,
+  "generated_at": "2026-07-02T22:51:02.324551+00:00",
+  "last_heartbeat": "2026-07-02T22:51:02.324551+00:00",
+  "uptime_seconds": 359,
   "dry_run": false,
   "markets_tracked": 1290,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 10020,
-    "accuracy": 18.1,
+    "total": 10056,
+    "accuracy": 18.2,
     "by_category": {
       "other": 16.2,
-      "ai": 11.5,
-      "politics": 20.5,
+      "ai": 11.4,
+      "politics": 20.6,
       "technology": 12.4,
-      "crypto": 18.9,
+      "crypto": 19.1,
       "sports": 26.2
     },
     "by_source": {
       "rss": 18.5,
       "newsapi": 17.8,
-      "truthsocial": 6.5
+      "truthsocial": 6.3
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 18.1,
-    "overall_total": 10020,
+    "overall_accuracy": 18.2,
+    "overall_total": 10056,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5652,
+        "total": 5670,
         "correct": 400,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 9.97,
+        "avg_pnl_pct": 9.86,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 905,
-        "correct": 321,
-        "accuracy_pct": 35.5,
-        "avg_pnl_pct": 24.01,
+        "total": 914,
+        "correct": 326,
+        "accuracy_pct": 35.7,
+        "avg_pnl_pct": 23.72,
         "color": "green"
       },
       {
@@ -56,10 +56,10 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 604,
-        "correct": 201,
-        "accuracy_pct": 33.3,
-        "avg_pnl_pct": 1.62,
+        "total": 609,
+        "correct": 204,
+        "accuracy_pct": 33.5,
+        "avg_pnl_pct": 1.63,
         "color": "green"
       },
       {
@@ -74,21 +74,21 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1244,
-        "correct": 234,
-        "accuracy_pct": 18.8,
-        "avg_pnl_pct": -2.99,
+        "total": 1248,
+        "correct": 237,
+        "accuracy_pct": 19.0,
+        "avg_pnl_pct": -2.97,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 1620,
-  "headlines_last_cycle": 25,
-  "signals_24h": 2,
-  "classifications_24h": 6422,
+  "headlines_scanned_today": 1731,
+  "headlines_last_cycle": 0,
+  "signals_24h": 3,
+  "classifications_24h": 6856,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2300,
+    "prefiltered_haiku": 2482,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -116,14 +116,14 @@
   },
   "edge_types_24h": {
     "news": 2,
-    "momentum": 0,
+    "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1731,
-    "matched": 788,
-    "classified": 6422,
-    "signals": 2,
+    "news": 1837,
+    "matched": 785,
+    "classified": 6856,
+    "signals": 3,
     "trades": 2
   },
   "performance": {
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1310.4
+    "avg_classification_latency_ms": 1316.7
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.052000000000000005,
+      "current_price": 0.052000000000000046,
       "pnl_pct": -22.03,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.47,
-      "pnl_usd": -0.42,
+      "pnl_usd": -0.41,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.101,
+      "current_price": 0.10099999999999998,
       "pnl_pct": 1.0,
       "amount_usd": 2.0,
       "current_value_usd": 2.02,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -445,9 +445,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 22:45:49",
-      "market_question": "Lee Jae-myung out as president of South Korea in 2026?",
-      "headline": "Kim Jong Un - Politico",
+      "time": "2026-07-02 22:48:01",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "Venezuela - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -456,14 +456,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 22:45:48",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "5 Artificial Intelligence (AI) Stocks to Load Up On in July - The Motley Fool",
+      "time": "2026-07-02 22:48:01",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Venezuela - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -472,14 +472,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 22:45:48",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Kim Jong Un - Politico",
+      "time": "2026-07-02 22:48:00",
+      "market_question": "Will Georgia use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Georgia - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 22:48:00",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "Venezuela - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,25 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 22:45:48",
-      "market_question": "Will Kim Kataguiri win the 2026 S\u00e3o Paulo gubernatorial election?",
-      "headline": "Kim Jong Un - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 22:45:47",
-      "market_question": "Will Bitcoin reach $67,500 in July?",
-      "headline": "5 Artificial Intelligence (AI) Stocks to Load Up On in July - The Motley Fool",
+      "time": "2026-07-02 22:47:58",
+      "market_question": "Over $1B crypto hack value in 2026?",
+      "headline": "Bitwise says STRC selloff signals crypto cycle nearing a bottom, not Strategy\u2019s breaking point",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
