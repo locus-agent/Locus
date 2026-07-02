@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T23:57:30.579815+00:00",
-  "last_heartbeat": "2026-07-01T23:57:30.579815+00:00",
-  "uptime_seconds": 4957,
+  "generated_at": "2026-07-02T00:02:37.470518+00:00",
+  "last_heartbeat": "2026-07-02T00:02:37.470518+00:00",
+  "uptime_seconds": 5264,
   "dry_run": false,
-  "markets_tracked": 1265,
+  "markets_tracked": 1261,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9891,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1850,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 42,
+  "headlines_last_cycle": 14,
   "signals_24h": 3,
-  "classifications_24h": 7076,
+  "classifications_24h": 7242,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3011,
+    "prefiltered_haiku": 3069,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1850,
-    "matched": 855,
-    "classified": 7076,
+    "news": 1885,
+    "matched": 851,
+    "classified": 7242,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1317.2
+    "avg_classification_latency_ms": 1340.4
   },
   "live_readiness": {
     "ready": true,
@@ -185,8 +185,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0745,
-    "sharpe_7d": -0.41
+    "drawdown_7d": 0.0567,
+    "sharpe_7d": -0.28
   },
   "open_positions": [
     {
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.21,
-      "pnl_usd": -1.78,
+      "current_value_usd": 23.2,
+      "pnl_usd": -1.79,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,9 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-01 23:56:18",
-      "market_question": "Will Trump say \"World War\" during Tribute to America Rally?",
-      "headline": "Just as I promised, Oil Prices are plummeting FAST, and Gas Prices at the pump are dropping too, but not as fast as they should be. As we approach America\u2019s 250th Birthday, I am pleased to announce that a VERY smart Retailer, located throughout the Northeast, is stepping up, and wishing the People of Philadelphia a \u201cHappy Birthday!\u201d On July 3rd, the Freedom Fuel Network will be lowering gas prices at 25 \u201cFREEDOM FUEL\u201d Stations across the Greater Philadelphia Area. This Retailer is taking the lead, and others should follow. They are doing this because they love the U.S.A. We are proud to celebrate America\u2019s 250th Birthday in the Great Commonwealth of Pennsylvania, the Birthplace of our very special, one-of-a-kind Declaration of Independence, and where I won BIG in the Presidential Election! America has never been stronger than it is now, and Gas Prices will soon be back to the Record Low Prices Americans enjoyed at the pump before our very successful \u201cexcursion\u201d in Iran. Happy Birthday America! President DONALD J. TRUMP",
+      "time": "2026-07-02 00:02:29",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "China Loses Out on AI Boom as Stocks Trail by Most Since \u201801 - Bloomberg.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -428,30 +428,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 23:56:18",
-      "market_question": "Will Trump say \"Moon\" during Tribute to America Rally?",
-      "headline": "Just as I promised, Oil Prices are plummeting FAST, and Gas Prices at the pump are dropping too, but not as fast as they should be. As we approach America\u2019s 250th Birthday, I am pleased to announce that a VERY smart Retailer, located throughout the Northeast, is stepping up, and wishing the People of Philadelphia a \u201cHappy Birthday!\u201d On July 3rd, the Freedom Fuel Network will be lowering gas prices at 25 \u201cFREEDOM FUEL\u201d Stations across the Greater Philadelphia Area. This Retailer is taking the lead, and others should follow. They are doing this because they love the U.S.A. We are proud to celebrate America\u2019s 250th Birthday in the Great Commonwealth of Pennsylvania, the Birthplace of our very special, one-of-a-kind Declaration of Independence, and where I won BIG in the Presidential Election! America has never been stronger than it is now, and Gas Prices will soon be back to the Record Low Prices Americans enjoyed at the pump before our very successful \u201cexcursion\u201d in Iran. Happy Birthday America! President DONALD J. TRUMP",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-01 23:56:18",
+      "time": "2026-07-02 00:02:29",
       "market_question": "Trump out as President by July 31?",
-      "headline": "Just as I promised, Oil Prices are plummeting FAST, and Gas Prices at the pump are dropping too, but not as fast as they should be. As we approach America\u2019s 250th Birthday, I am pleased to announce that a VERY smart Retailer, located throughout the Northeast, is stepping up, and wishing the People of Philadelphia a \u201cHappy Birthday!\u201d On July 3rd, the Freedom Fuel Network will be lowering gas prices at 25 \u201cFREEDOM FUEL\u201d Stations across the Greater Philadelphia Area. This Retailer is taking the lead, and others should follow. They are doing this because they love the U.S.A. We are proud to celebrate America\u2019s 250th Birthday in the Great Commonwealth of Pennsylvania, the Birthplace of our very special, one-of-a-kind Declaration of Independence, and where I won BIG in the Presidential Election! America has never been stronger than it is now, and Gas Prices will soon be back to the Record Low Prices Americans enjoyed at the pump before our very successful \u201cexcursion\u201d in Iran. Happy Birthday America! President DONALD J. TRUMP",
+      "headline": "China Loses Out on AI Boom as Stocks Trail by Most Since \u201801 - Bloomberg.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -465,36 +449,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 23:56:17",
-      "market_question": "Will Trump pardon SBF by July 31?",
-      "headline": "Just as I promised, Oil Prices are plummeting FAST, and Gas Prices at the pump are dropping too, but not as fast as they should be. As we approach America\u2019s 250th Birthday, I am pleased to announce that a VERY smart Retailer, located throughout the Northeast, is stepping up, and wishing the People of Philadelphia a \u201cHappy Birthday!\u201d On July 3rd, the Freedom Fuel Network will be lowering gas prices at 25 \u201cFREEDOM FUEL\u201d Stations across the Greater Philadelphia Area. This Retailer is taking the lead, and others should follow. They are doing this because they love the U.S.A. We are proud to celebrate America\u2019s 250th Birthday in the Great Commonwealth of Pennsylvania, the Birthplace of our very special, one-of-a-kind Declaration of Independence, and where I won BIG in the Presidential Election! America has never been stronger than it is now, and Gas Prices will soon be back to the Record Low Prices Americans enjoyed at the pump before our very successful \u201cexcursion\u201d in Iran. Happy Birthday America! President DONALD J. TRUMP",
+      "time": "2026-07-02 00:02:28",
+      "market_question": "Will Bitcoin reach $62,000 June 29-July 5?",
+      "headline": "China factory activity grows faster than expected in June on tech export demand - CNBC",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-01 23:56:17",
-      "market_question": "Will Trump say \"Benjamin\" or \"Franklin\" during Tribute to America Rally?",
-      "headline": "Just as I promised, Oil Prices are plummeting FAST, and Gas Prices at the pump are dropping too, but not as fast as they should be. As we approach America\u2019s 250th Birthday, I am pleased to announce that a VERY smart Retailer, located throughout the Northeast, is stepping up, and wishing the People of Philadelphia a \u201cHappy Birthday!\u201d On July 3rd, the Freedom Fuel Network will be lowering gas prices at 25 \u201cFREEDOM FUEL\u201d Stations across the Greater Philadelphia Area. This Retailer is taking the lead, and others should follow. They are doing this because they love the U.S.A. We are proud to celebrate America\u2019s 250th Birthday in the Great Commonwealth of Pennsylvania, the Birthplace of our very special, one-of-a-kind Declaration of Independence, and where I won BIG in the Presidential Election! America has never been stronger than it is now, and Gas Prices will soon be back to the Record Low Prices Americans enjoyed at the pump before our very successful \u201cexcursion\u201d in Iran. Happy Birthday America! President DONALD J. TRUMP",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 00:02:28",
+      "market_question": "Trump orders federal review of AI model releases by June 30?",
+      "headline": "Exclusive | Warren Buffett Skips Midyear Donation to Gates Foundation as He Awaits Epstein Review - WSJ",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 00:02:28",
+      "market_question": "Will Bill Gates Jr. win the 2026 Minnesota Governor Democratic primary election?",
+      "headline": "Exclusive | Warren Buffett Skips Midyear Donation to Gates Foundation as He Awaits Epstein Review - WSJ",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
