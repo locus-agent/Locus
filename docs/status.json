@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T21:42:00.750702+00:00",
-  "last_heartbeat": "2026-07-02T21:42:00.750702+00:00",
-  "uptime_seconds": 667,
+  "generated_at": "2026-07-02T21:47:08.587146+00:00",
+  "last_heartbeat": "2026-07-02T21:47:08.587146+00:00",
+  "uptime_seconds": 975,
   "dry_run": false,
   "markets_tracked": 1294,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1481,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1485,
+  "headlines_last_cycle": 3,
   "signals_24h": 2,
-  "classifications_24h": 8280,
+  "classifications_24h": 7716,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3178,
+    "prefiltered_haiku": 2914,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T21:31:09.161480+00:00"
+    "last_check": "2026-07-02T21:46:09.588321+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2210,
-    "matched": 898,
-    "classified": 8280,
+    "news": 2067,
+    "matched": 895,
+    "classified": 7716,
     "signals": 2,
     "trades": 2
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -3.44,
-    "total_pnl_usd": 40.73,
+    "unrealized_pnl_usd": -3.48,
+    "total_pnl_usd": 40.7,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1330.6
+    "avg_classification_latency_ms": 1326.9
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.055999999999999994,
-      "pnl_pct": -16.03,
+      "current_price": 0.05499999999999999,
+      "pnl_pct": -17.53,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.58,
-      "pnl_usd": -0.3,
+      "current_value_usd": 1.55,
+      "pnl_usd": -0.33,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.106,
-      "pnl_pct": 6.0,
+      "current_price": 0.10549999999999993,
+      "pnl_pct": 5.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.12,
-      "pnl_usd": 0.12,
+      "current_value_usd": 2.11,
+      "pnl_usd": 0.11,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -223,7 +223,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -2.59,
       "amount_usd": 24.94,
       "current_value_usd": 24.29,
@@ -398,6 +398,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-02 21:43:04",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -20.53
+    },
+    {
       "time": "2026-07-02 21:41:30",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -432,54 +441,45 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -21.28
-    },
-    {
-      "time": "2026-07-02 21:38:55",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.28
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 21:40:02",
-      "market_question": "Will Trump meet with Kim Jong Un in 2026?",
-      "headline": "Kim Jong Un - Politico",
+      "time": "2026-07-02 21:46:42",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "The Dow hits a record as most of Wall Street rises, but slumping AI stocks keep indexes mixed - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.12,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 21:40:02",
-      "market_question": "Lee Jae-myung out as president of South Korea in 2026?",
-      "headline": "Kim Jong Un - Politico",
+      "time": "2026-07-02 21:46:41",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Dow jumps to record closing high after soft US jobs data, Nasdaq down with chip shares - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 21:40:01",
-      "market_question": "Will Kim Kataguiri win the 2026 S\u00e3o Paulo gubernatorial election?",
-      "headline": "Kim Jong Un - Politico",
+      "time": "2026-07-02 21:46:41",
+      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
+      "headline": "The Dow hits a record as most of Wall Street rises, but slumping AI stocks keep indexes mixed - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 21:40:00",
-      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
-      "headline": "Kim Jong Un - Politico",
+      "time": "2026-07-02 21:46:41",
+      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
+      "headline": "The Dow hits a record as most of Wall Street rises, but slumping AI stocks keep indexes mixed - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -509,20 +509,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 21:35:39",
-      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
-      "headline": "Venezuela - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 21:46:41",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "The Dow hits a record as most of Wall Street rises, but slumping AI stocks keep indexes mixed - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
