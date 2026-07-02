@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T03:37:01.222190+00:00",
-  "last_heartbeat": "2026-07-02T03:37:01.222190+00:00",
-  "uptime_seconds": 18128,
+  "generated_at": "2026-07-02T03:42:07.881683+00:00",
+  "last_heartbeat": "2026-07-02T03:42:07.881683+00:00",
+  "uptime_seconds": 18434,
   "dry_run": false,
-  "markets_tracked": 1282,
+  "markets_tracked": 1283,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9903,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 100,
+  "headlines_scanned_today": 101,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6946,
+  "classifications_24h": 6911,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2925,
+    "prefiltered_haiku": 2910,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1807,
-    "matched": 785,
-    "classified": 6946,
+    "news": 1799,
+    "matched": 780,
+    "classified": 6911,
     "signals": 1,
     "trades": 1
   },
@@ -195,11 +195,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.86,
-      "pnl_usd": -1.08,
+      "current_value_usd": 23.87,
+      "pnl_usd": -1.07,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -417,6 +417,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-02 03:41:08",
+      "market_question": "Will \"Trump\" be said 10+ times during the next episode of the Storytime with the Second Lady Podcast?",
+      "headline": "POLITICO Podcast - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-02 03:34:39",
       "market_question": "Will Trump attend 1 World Cup match?",
       "headline": "Kalshi and Polymarket\u2019s combined volume surges 75% to $45 billion in June amid World Cup fever",
@@ -479,22 +495,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 03:34:35",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Kalshi and Polymarket\u2019s combined volume surges 75% to $45 billion in June amid World Cup fever",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
