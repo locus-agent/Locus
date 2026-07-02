@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T06:20:27.558469+00:00",
-  "last_heartbeat": "2026-07-02T06:20:27.558469+00:00",
-  "uptime_seconds": 27934,
+  "generated_at": "2026-07-02T06:25:34.609058+00:00",
+  "last_heartbeat": "2026-07-02T06:25:34.609058+00:00",
+  "uptime_seconds": 28241,
   "dry_run": false,
   "markets_tracked": 1270,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 155,
+  "headlines_scanned_today": 159,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6748,
+  "classifications_24h": 6762,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2840,
+    "prefiltered_haiku": 2852,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1752,
-    "matched": 752,
-    "classified": 6748,
+    "news": 1754,
+    "matched": 755,
+    "classified": 6762,
     "signals": 1,
     "trades": 1
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1742.3
+    "avg_classification_latency_ms": 1768.4
   },
   "live_readiness": {
     "ready": true,
@@ -417,9 +417,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 06:19:46",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "Bitcoin's long-term holders have returned to accumulation",
+      "time": "2026-07-02 06:24:10",
+      "market_question": "Will Bitcoin reach $62,000 June 29-July 5?",
+      "headline": "US job growth likely cooled in June after recent string of big gains - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -428,46 +428,14 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 06:19:46",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Bitcoin's long-term holders have returned to accumulation",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 06:19:46",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Associated Press News: Breaking News | Latest News Today - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-02 06:19:40",
-      "market_question": "US national Bitcoin reserve before 2027?",
-      "headline": "Bitcoin's long-term holders have returned to accumulation",
+      "time": "2026-07-02 06:24:07",
+      "market_question": "Will Ethereum reach $1,700 June 29-July 5?",
+      "headline": "US job growth likely cooled in June after recent string of big gains - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -476,25 +444,57 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 06:17:22",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
-      "headline": "Russian frustration rises as fuel crisis bites - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-02 06:24:05",
+      "market_question": "Will Bitcoin reach $66,000 June 29-July 5?",
+      "headline": "US job growth likely cooled in June after recent string of big gains - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 06:24:04",
+      "market_question": "Will Bitcoin reach $70,000 June 29-July 5?",
+      "headline": "US job growth likely cooled in June after recent string of big gains - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 06:24:00",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "US job growth likely cooled in June after recent string of big gains - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
