@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T13:59:47.520045+00:00",
-  "last_heartbeat": "2026-07-02T13:59:47.520045+00:00",
-  "uptime_seconds": 2223,
+  "generated_at": "2026-07-02T14:04:58.935727+00:00",
+  "last_heartbeat": "2026-07-02T14:04:58.935727+00:00",
+  "uptime_seconds": 2534,
   "dry_run": false,
-  "markets_tracked": 1285,
+  "markets_tracked": 1286,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9965,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 546,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 555,
+  "headlines_last_cycle": 3,
   "signals_24h": 3,
-  "classifications_24h": 6929,
+  "classifications_24h": 6944,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2740,
+    "prefiltered_haiku": 2748,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1859,
-    "matched": 723,
-    "classified": 6929,
+    "news": 1863,
+    "matched": 727,
+    "classified": 6944,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3269.3
+    "avg_classification_latency_ms": 3222.2
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.86,
-      "pnl_usd": -1.08,
+      "current_value_usd": 23.87,
+      "pnl_usd": -1.07,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 13:59:47",
+      "time": "2026-07-02 14:04:58",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 13:59:16",
+      "time": "2026-07-02 14:04:28",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 13:58:45",
+      "time": "2026-07-02 14:03:57",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 13:58:14",
+      "time": "2026-07-02 14:03:26",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 13:57:43",
+      "time": "2026-07-02 14:02:55",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,25 +445,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 13:58:30",
-      "market_question": "Will OpenAI announce glasses in 2026?",
-      "headline": "Meta glasses wearers hit with paywall to use built-in feature",
+      "time": "2026-07-02 14:04:57",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "Rivian raises 2026 delivery forecast on strong demand, R2 boost - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 13:58:30",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "German prosecutors charge a Ukrainian over Nord Stream pipeline explosions - AP News",
+      "time": "2026-07-02 14:04:57",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "An alternate MAGA view of the new left - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,52 +477,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 13:58:25",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
-      "headline": "Meta glasses wearers hit with paywall to use built-in feature",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-02 14:04:57",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "An alternate MAGA view of the new left - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 13:58:25",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Meta glasses wearers hit with paywall to use built-in feature",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 14:04:57",
+      "market_question": "Trump declassifies new UFO files by June 30?",
+      "headline": "An alternate MAGA view of the new left - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 13:58:24",
-      "market_question": "Will OnRe launch a token by March 31, 2027?",
-      "headline": "Ondo tokenizes BlackRock\u2019s IVV ETF and Micron stock under US custodial model",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 14:04:57",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "An alternate MAGA view of the new left - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
