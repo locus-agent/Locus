@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T23:11:29.363511+00:00",
-  "last_heartbeat": "2026-07-02T23:11:29.363511+00:00",
-  "uptime_seconds": 1586,
+  "generated_at": "2026-07-02T23:16:36.166004+00:00",
+  "last_heartbeat": "2026-07-02T23:16:36.166004+00:00",
+  "uptime_seconds": 1893,
   "dry_run": false,
-  "markets_tracked": 1281,
+  "markets_tracked": 1288,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10056,
@@ -85,10 +85,10 @@
   "headlines_scanned_today": 1738,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6838,
+  "classifications_24h": 6817,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2475,
+    "prefiltered_haiku": 2459,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T23:00:20.199369+00:00"
+    "last_check": "2026-07-02T23:15:20.649930+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1836,
-    "matched": 780,
-    "classified": 6838,
+    "news": 1832,
+    "matched": 776,
+    "classified": 6817,
     "signals": 3,
     "trades": 2
   },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,6 +398,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-02 23:16:05",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -22.03
+    },
+    {
       "time": "2026-07-02 22:45:42",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -426,15 +435,6 @@
     },
     {
       "time": "2026-07-02 22:02:21",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.28
-    },
-    {
-      "time": "2026-07-02 22:01:50",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
