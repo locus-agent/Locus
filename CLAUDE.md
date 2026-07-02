@@ -178,6 +178,24 @@ PipelineV2._execute_signals:
   and per-event (`REENTRY_MAX_PER_EVENT`) caps. A re-entry is sized down by
   `REENTRY_SIZE_FACTOR` (0.7x), labeled `edge_type='reentry'` / action `reentry_triggered`;
   a watched market that fails the bar is suppressed (action `reentry_blocked`).
+- `core/passive.py` is the flag-gated passive limit-order entry subsystem
+  (`PASSIVE_LIMIT_ENABLED`, default false — flag off is byte-identical to the aggressive
+  path). When enabled, live entries on markets resolving more than
+  `PASSIVE_MIN_HOURS_TO_RESOLUTION` (72h) out place a GTC BUY inside the spread
+  (`PASSIVE_PRICE_IMPROVE_TICKS` above the best bid, never crossing) instead of taking
+  the ask, and persist it in the `pending_orders` table — deliberately NOT via
+  `reconcile_order`, whose resting-order cancel is the phantom-position defense; a
+  passive order is supposed to rest. The trades row is `passive_pending` (counts
+  against the daily spend limit) and the headline reservation stays HELD while the
+  order lives. The management cycle runs `check_pending_orders`: a fill opens the
+  position with aggressive-identical accounting (real cost/token_count) and flips the
+  trade to `executed`; timeout (`PASSIVE_LIMIT_TIMEOUT_HOURS`, 6h) or chase-away
+  (ask > limit by `PASSIVE_CHASE_AWAY_PCT`, 10%) cancels — a partial fill ≥
+  `MIN_FILL_USD` still opens, smaller is dust-guarded, nothing filled resolves
+  `passive_expired`/`passive_chased_away` and releases the headline. Fill truth is the
+  on-chain balance (LIVE-order fill echoes are never trusted). Startup runs
+  `reconcile_on_startup` (fills that landed while down open late; vanished orders
+  release; still-live orders re-reserve their headlines). Dry-run never routes passive.
 - `core/performance.py: compute_circuit_breaker` is the final gate before any position
   opens (and is re-checked under the per-event lock in `_recheck_risk_gates`): when recent
   realized performance has deteriorated past the limits — 7-day drawdown > `CIRCUIT_BREAKER_DD`

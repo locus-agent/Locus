@@ -344,6 +344,125 @@ def test_lost_event_race_releases_reservation(tmp_db, monkeypatch):
     assert "h" not in p._traded_headlines
 
 
+# --- passive limit entries: a resting order HOLDS the reservation -------------
+#
+# A 'passive_pending' execution result is the one non-open outcome that must
+# NOT release: the resting order may still fill, so the headline stays
+# unavailable to other candidates until the passive lifecycle resolves it
+# (fill commits it permanently; expiry/cancel hands it back).
+
+def _passive_pending_exec(monkeypatch):
+    async def fake_exec(signal):
+        return {"trade_id": 1, "market": signal.market.question,
+                "side": signal.side, "amount": signal.bet_amount,
+                "actual_cost_usd": None, "edge": 0.2,
+                "status": "passive_pending", "order_id": "PASSIVE-1",
+                "limit_price": 0.41, "latency_ms": 0}
+
+    monkeypatch.setattr(pl, "execute_trade_async", fake_exec)
+
+
+def test_passive_pending_keeps_reservation_and_opens_nothing(tmp_db, monkeypatch):
+    _passive_pending_exec(monkeypatch)
+    p = pl.PipelineV2()
+    signal = _executor_signal(p)
+    result = asyncio.run(p._execute_with_lock(signal))
+    assert result["status"] == "passive_pending"
+    assert positions.get_open_positions() == []   # no position until the fill
+    assert "h" in p._traded_headlines             # reservation HELD
+
+
+def test_second_candidate_capped_while_passive_order_rests(tmp_db, monkeypatch):
+    # Candidate A's passive order rests; a LATER event with the same headline
+    # (matching a fresh market) must be capped — the cap protects the headline
+    # for the whole life of the pending order, not just until execution.
+    matched = [mkt("a", "eA")]
+    p = build_pipeline(monkeypatch, matched)
+    _passive_pending_exec(monkeypatch)
+    headline = "long-horizon headline"
+
+    async def main():
+        await drive(p, ev(headline), lambda: len(actions(tmp_db)) >= 1)
+        [signal] = drain(p)
+        result = await p._execute_with_lock(signal)
+        assert result["status"] == "passive_pending"
+
+        matched[:] = [mkt("b", "eB")]
+        await drive(p, ev(headline), lambda: len(actions(tmp_db)) >= 2)
+        return drain(p)
+
+    later_signals = asyncio.run(main())
+    assert actions(tmp_db) == ["signal", "capped"]
+    assert later_signals == []
+    assert headline in p._traded_headlines
+    assert positions.get_open_positions() == []
+
+
+def test_passive_expiry_releases_headline_for_later_candidate(tmp_db, monkeypatch):
+    # The full round trip: pending order holds the reservation; the lifecycle
+    # expires it and returns the headline; the pipeline releases it; a THIRD
+    # event with the same headline may then reserve and trade.
+    from locus.core import executor, passive
+    from locus.memory import logger as db
+    from datetime import timedelta
+
+    matched = [mkt("a", "eA")]
+    p = build_pipeline(monkeypatch, matched)
+    _passive_pending_exec(monkeypatch)
+    headline = "long-horizon headline"
+
+    async def main():
+        await drive(p, ev(headline), lambda: len(actions(tmp_db)) >= 1)
+        [signal] = drain(p)
+        await p._execute_with_lock(signal)
+        assert headline in p._traded_headlines
+
+        # The pending row the executor would have written (fake exec skipped
+        # it): already expired, resting unfilled on the CLOB.
+        db.insert_pending_order(
+            order_id="PASSIVE-1", trade_id=1, condition_id="a",
+            market_question="Will a happen soon?", slug=None, side="YES",
+            limit_price=0.41, shares=24.0, bet_amount=10.0,
+            entry_yes_price=0.41, headline=headline, reasoning="r",
+            news_source="rss", event_id="eA", category="ai", end_date="",
+            expires_at=(datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat(),
+        )
+        monkeypatch.setattr(executor, "cancel_order_safe", lambda c, o: True)
+
+        class Client:
+            def get_order(self, oid):
+                return {"status": "LIVE", "size_matched": "0"}
+
+        # What _status_printer does each cycle: lifecycle pass, then release.
+        summary = passive.check_pending_orders(client=Client())
+        assert summary["expired"] == 1
+        assert summary["released_headlines"] == [headline]
+        for h in summary["released_headlines"]:
+            pl.release_headline(p._traded_headlines, h)
+        assert headline not in p._traded_headlines
+
+        # A third event with the same headline may now reserve and open.
+        matched[:] = [mkt("c", "eC")]
+        monkeypatch.setattr(pl, "execute_trade_async", None, raising=False)
+
+        async def dry_exec(signal):
+            return {"trade_id": 2, "market": signal.market.question,
+                    "side": signal.side, "amount": signal.bet_amount,
+                    "actual_cost_usd": None, "edge": 0.2, "status": "dry_run",
+                    "order_id": None, "latency_ms": 0}
+
+        monkeypatch.setattr(pl, "execute_trade_async", dry_exec)
+        await drive(p, ev(headline), lambda: len(actions(tmp_db)) >= 2)
+        [signal2] = drain(p)
+        result2 = await p._execute_with_lock(signal2)
+        assert result2["status"] == "dry_run"
+
+    asyncio.run(main())
+    assert actions(tmp_db) == ["signal", "signal"]
+    assert headline in p._traded_headlines  # committed by the third candidate
+    assert len(positions.get_open_positions()) == 1
+
+
 # --- whale path --------------------------------------------------------------
 
 def _whale_setup(monkeypatch, market, headline, orderbook_score):

@@ -29,6 +29,7 @@ from locus.core.classifier import (
 )
 from locus.core.multi_classifier import classify_ensemble, is_low_consensus
 from locus.core import event_context
+from locus.core import passive
 from locus.core import whale_tracker
 from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
 from locus.core.journal import maybe_write_journal, maybe_check_missed_opportunities
@@ -550,6 +551,19 @@ class PipelineV2:
         console.print()
 
         await asyncio.get_event_loop().run_in_executor(None, positions.backfill_positions)
+        # Passive-entry crash recovery (core/passive.py): reconcile persisted
+        # pending limit orders against the CLOB — a fill that happened while we
+        # were down opens its position late with the real fill data, a vanished
+        # order releases — and re-reserve the headlines of orders still resting
+        # so a second candidate can't trade them into this fresh session.
+        try:
+            recon = await asyncio.get_event_loop().run_in_executor(
+                None, passive.reconcile_on_startup
+            )
+            for headline in recon.get("reserved_headlines", []):
+                self._traded_headlines.add(headline)
+        except Exception as e:
+            log.warning(f"[pipeline] Passive startup reconcile error: {e}")
         # Pre-warm the market-embedding LRU cache from the persisted Chroma
         # collection so the first headline burst doesn't pay a cold read per
         # market. Off the event loop; safe no-op on a fresh (empty) store.
@@ -1476,12 +1490,17 @@ class PipelineV2:
         at enqueue): a confirmed position open commits it permanently; every
         other outcome — lost race, rejected/skipped/resting/errored execution,
         or an exception — releases it in the finally, so a failed candidate
-        never burns the headline for later ones."""
+        never burns the headline for later ones. A 'passive_pending' result (a
+        resting passive limit entry, core/passive.py) is the one non-open
+        outcome that KEEPS the reservation: the order may still fill, so the
+        headline must stay unavailable to other candidates until the passive
+        lifecycle resolves it (commit on fill, release on expiry/cancel)."""
         market = signal.market
         event_key = (getattr(market, "event_id", "") or "") or (
             getattr(market, "category", "") or "other"
         )
         opened = False
+        passive_pending = False
         try:
             async with await self._acquire_position_lock(event_key):
                 if not await self._recheck_risk_gates(signal, market):
@@ -1523,6 +1542,25 @@ class PipelineV2:
                     )
                     # Position opened: the headline reservation is committed.
                     opened = True
+                elif result["status"] == "passive_pending":
+                    # Passive limit entry resting on the book BY DESIGN
+                    # (core/passive.py): no position yet, but the headline
+                    # reservation stays held while the pending order lives —
+                    # the lifecycle commits it on fill or releases it on
+                    # expiry/cancel via the management cycle.
+                    passive_pending = True
+                    log.info(
+                        "[pipeline] passive entry resting: order %s @ %.4f on "
+                        "\"%s\" — reservation held, awaiting fill",
+                        result.get("order_id"), result.get("limit_price") or 0.0,
+                        market.question[:40],
+                    )
+                    console.print(
+                        f"  [cyan]PASSIVE[/cyan] {result['side']} "
+                        f"${result['amount']:.2f} resting @ "
+                        f"{result.get('limit_price') or 0.0:.3f} "
+                        f"on \"{result['market'][:40]}\""
+                    )
                 elif result["status"] == "resting":
                     # Order is live on the book but unfilled — do NOT open a
                     # position yet; a later fill is reconciled on the exchange.
@@ -1541,7 +1579,12 @@ class PipelineV2:
                         result.get("order_id"), market.question[:40],
                     )
 
-                status_color = "bright_green" if result["status"] in ("dry_run", "executed") else "red"
+                if result["status"] in ("dry_run", "executed"):
+                    status_color = "bright_green"
+                elif result["status"] == "passive_pending":
+                    status_color = "cyan"
+                else:
+                    status_color = "red"
                 console.print(
                     f"  [{status_color}]{result['status']}[/{status_color}] "
                     f"{result['side']} ${result['amount']:.2f} "
@@ -1555,8 +1598,11 @@ class PipelineV2:
         finally:
             # No position -> release the headline reservation so another
             # candidate for the same headline may still open (discard-based:
-            # a no-op for signals whose headline was never reserved).
-            if not opened:
+            # a no-op for signals whose headline was never reserved). A resting
+            # passive entry is the exception: its reservation stays held until
+            # the pending-order lifecycle resolves it (fill commits,
+            # expiry/cancel releases — see passive.check_pending_orders).
+            if not opened and not passive_pending:
                 release_headline(self._traded_headlines, signal.headlines)
 
     async def _execute_signals(self):
@@ -1629,6 +1675,28 @@ class PipelineV2:
                     )
             except Exception as e:
                 log.warning(f"[pipeline] Position management error: {e}")
+
+            # Passive pending-order lifecycle (core/passive.py): fills open
+            # their positions, timeouts/chase-aways cancel and hand back their
+            # headlines. A single cheap SELECT and out when nothing is pending
+            # (always, with the flag off), so flag-off behavior is unchanged.
+            try:
+                psummary = await asyncio.get_event_loop().run_in_executor(
+                    None, passive.check_pending_orders
+                )
+                # Release on the loop thread — this set belongs to the pipeline.
+                for headline in psummary.get("released_headlines", []):
+                    release_headline(self._traded_headlines, headline)
+                if psummary.get("checked"):
+                    console.print(
+                        f"  [dim]passive orders: {psummary['checked']} checked, "
+                        f"{psummary['filled']} filled, "
+                        f"{psummary['expired']} expired, "
+                        f"{psummary['chased_away']} chased away, "
+                        f"{psummary['dust']} dust[/dim]"
+                    )
+            except Exception as e:
+                log.warning(f"[pipeline] Passive order lifecycle error: {e}")
 
             # Daily journal: first cycle after 21:00 UTC (no-op otherwise).
             try:

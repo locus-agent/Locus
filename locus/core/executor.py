@@ -27,6 +27,15 @@ def execute_trade(signal: Signal) -> dict:
     if config.DRY_RUN:
         return _log_and_return(signal, status="dry_run", order_id=None)
 
+    # Passive limit-order entry (flag-gated; core/passive.py): long-horizon
+    # markets place a resting GTC inside the spread instead of taking the ask.
+    # Routed after the DRY_RUN branch, so dry-run behavior never changes.
+    # Lazy import: passive imports this module.
+    from locus.core import passive
+
+    if passive.routes_passive(signal):
+        return passive.place_passive_order(signal)
+
     return _execute_live(signal)
 
 

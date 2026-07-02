@@ -78,6 +78,26 @@ TOPUP_MAX_BID_SLIPPAGE_PCT = float(os.getenv("TOPUP_MAX_BID_SLIPPAGE_PCT", "20")
 # (position 54 logged 1,325 close_failed decisions in ~11.5h). The position
 # stays fully marked/monitored; a manual `cli.py close` always bypasses.
 CLOSE_RETRY_BACKOFF_SECONDS = float(os.getenv("CLOSE_RETRY_BACKOFF_SECONDS", "1800"))
+
+# --- Passive limit-order entry (flag-gated subsystem; see core/passive.py) ---
+# Every aggressive entry pays the spread (positions open at -2..-5% instantly);
+# Polymarket profit concentrates in liquidity PROVIDERS (SSRN, $67B volume).
+# When enabled, long-horizon entries place a GTC limit BUY inside the spread
+# and wait, instead of taking the ask. Default OFF: live behavior is identical
+# to the aggressive path until the flag is flipped.
+PASSIVE_LIMIT_ENABLED = os.getenv("PASSIVE_LIMIT_ENABLED", "false").lower() == "true"
+# Only markets resolving further out than this route passive — breaking-news /
+# short-horizon markets keep the aggressive path (speed matters there).
+PASSIVE_MIN_HOURS_TO_RESOLUTION = float(os.getenv("PASSIVE_MIN_HOURS_TO_RESOLUTION", "72"))
+# A resting passive order is cancelled after this long unfilled.
+PASSIVE_LIMIT_TIMEOUT_HOURS = float(os.getenv("PASSIVE_LIMIT_TIMEOUT_HOURS", "6"))
+# Place inside the spread: this many ticks better than the best bid (capped
+# one tick below the ask, so the order never crosses — that would be taking).
+PASSIVE_PRICE_IMPROVE_TICKS = int(os.getenv("PASSIVE_PRICE_IMPROVE_TICKS", "1"))
+# Early cancel when the market runs away: if the best ask moves more than this
+# percent above our resting limit, the edge thesis is stale — cancel rather
+# than chase (action 'passive_chased_away'). 0 disables the check.
+PASSIVE_CHASE_AWAY_PCT = float(os.getenv("PASSIVE_CHASE_AWAY_PCT", "10"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 # Public trades feed (no auth). The CLOB /data/trades endpoint requires API

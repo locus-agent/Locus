@@ -201,6 +201,37 @@ def init_db():
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         );
 
+        -- Passive limit-order entries (core/passive.py, PASSIVE_LIMIT_ENABLED):
+        -- one row per resting GTC entry order, holding everything needed to
+        -- open the position when it fills — possibly after a crash/restart.
+        -- status: 'pending' (resting) -> 'filled' | 'expired' | 'chased_away'
+        -- | 'dust' (see the passive module's state machine).
+        CREATE TABLE IF NOT EXISTS pending_orders (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            order_id TEXT NOT NULL,
+            trade_id INTEGER REFERENCES trades(id),
+            condition_id TEXT NOT NULL,
+            market_question TEXT,
+            slug TEXT,
+            side TEXT NOT NULL,
+            limit_price REAL NOT NULL,
+            shares REAL NOT NULL,
+            bet_amount REAL NOT NULL,
+            entry_yes_price REAL,
+            headline TEXT,
+            reasoning TEXT,
+            news_source TEXT,
+            event_id TEXT,
+            category TEXT,
+            end_date TEXT,
+            status TEXT NOT NULL DEFAULT 'pending',
+            placed_at TEXT NOT NULL DEFAULT (datetime('now')),
+            expires_at TEXT NOT NULL,
+            resolved_at TEXT,
+            filled_cost_usd REAL,
+            filled_shares REAL
+        );
+
         -- Human-review suggestions the calibrator raises when a *recurring*
         -- pattern of missed opportunities appears (see calibrator
         -- _analyze_missed_pattern). Suggestions only; applied_at is stamped when
@@ -1162,15 +1193,87 @@ def get_daily_pnl() -> float:
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     # Notional deployed today. 'dry_run' is counted so DAILY_SPEND_LIMIT_USD
     # is enforced in dry-run mode too (where no order ever reaches 'filled').
+    # 'passive_pending' (a resting passive entry) counts as committed capital
+    # while it lives; on expiry/cancel its status changes and it stops counting.
     row = conn.execute(
         """SELECT COALESCE(SUM(
-               CASE WHEN status IN ('filled','executed','dry_run') THEN -amount_usd ELSE 0 END
+               CASE WHEN status IN ('filled','executed','dry_run','passive_pending')
+                    THEN -amount_usd ELSE 0 END
            ), 0) as spent
            FROM trades WHERE created_at LIKE ?""",
         (f"{today}%",),
     ).fetchone()
     conn.close()
     return row["spent"]
+
+
+# --- passive limit-order entries (core/passive.py) ----------------------------
+
+def insert_pending_order(
+    order_id: str, trade_id: int | None, condition_id: str,
+    market_question: str, slug: str | None, side: str, limit_price: float,
+    shares: float, bet_amount: float, entry_yes_price: float,
+    headline: str, reasoning: str, news_source: str, event_id: str | None,
+    category: str | None, end_date: str | None, expires_at: str,
+) -> int:
+    """Persist a freshly-placed passive entry order (status 'pending')."""
+    conn = _conn()
+    cur = conn.execute(
+        """INSERT INTO pending_orders
+           (order_id, trade_id, condition_id, market_question, slug, side,
+            limit_price, shares, bet_amount, entry_yes_price, headline,
+            reasoning, news_source, event_id, category, end_date, expires_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        (order_id, trade_id, condition_id, market_question, slug, side,
+         limit_price, shares, bet_amount, entry_yes_price, headline,
+         reasoning, news_source, event_id, category, end_date, expires_at),
+    )
+    conn.commit()
+    pending_id = cur.lastrowid
+    conn.close()
+    return pending_id
+
+
+def get_pending_orders() -> list[dict]:
+    """All still-resting passive entries (status='pending'), oldest first."""
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT * FROM pending_orders WHERE status='pending' ORDER BY id"
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def resolve_pending_order(pending_id: int, status: str,
+                          filled_cost_usd: float | None = None,
+                          filled_shares: float | None = None) -> bool:
+    """Move a pending order to a terminal status ('filled' / 'expired' /
+    'chased_away' / 'dust'), stamping resolved_at and any real fill. Guarded on
+    status='pending' so two lifecycle passes can't double-resolve one row;
+    returns True iff this call did the resolve."""
+    now_iso = datetime.now(timezone.utc).isoformat()
+    conn = _conn()
+    cur = conn.execute(
+        """UPDATE pending_orders
+           SET status=?, resolved_at=?, filled_cost_usd=?, filled_shares=?
+           WHERE id=? AND status='pending'""",
+        (status, now_iso, filled_cost_usd, filled_shares, pending_id),
+    )
+    conn.commit()
+    resolved = cur.rowcount > 0
+    conn.close()
+    return resolved
+
+
+def update_trade_status(trade_id: int | None, status: str) -> None:
+    """Update one trades row's status (e.g. passive_pending -> executed when
+    the resting entry fills, or -> passive_expired when it doesn't)."""
+    if not trade_id:
+        return
+    conn = _conn()
+    conn.execute("UPDATE trades SET status=? WHERE id=?", (status, trade_id))
+    conn.commit()
+    conn.close()
 
 
 def get_recent_trades(limit: int = 20, unresolved_only: bool = False) -> list[dict]:
