@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T23:21:43.293702+00:00",
-  "last_heartbeat": "2026-07-02T23:21:43.293702+00:00",
-  "uptime_seconds": 2200,
+  "generated_at": "2026-07-02T23:26:49.841649+00:00",
+  "last_heartbeat": "2026-07-02T23:26:49.841649+00:00",
+  "uptime_seconds": 2506,
   "dry_run": false,
   "markets_tracked": 1289,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1741,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1747,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 6825,
+  "classifications_24h": 6837,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2464,
+    "prefiltered_haiku": 2474,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1833,
-    "matched": 778,
-    "classified": 6825,
+    "news": 1839,
+    "matched": 781,
+    "classified": 6837,
     "signals": 3,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1364.0
+    "avg_classification_latency_ms": 1351.3
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.052000000000000046,
+      "current_price": 0.052000000000000005,
       "pnl_pct": -22.03,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.47,
-      "pnl_usd": -0.41,
+      "pnl_usd": -0.42,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -445,25 +445,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 23:19:51",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "FACT FOCUS: Experts say Trump\u2019s claims linking Democrats to communism are inaccurate - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 23:19:51",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "FACT FOCUS: Experts say Trump\u2019s claims linking Democrats to communism are inaccurate - AP News",
+      "time": "2026-07-02 23:24:31",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Why Wonderwall has become England's World Cup anthem",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -477,9 +461,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 23:19:51",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "FACT FOCUS: Experts say Trump\u2019s claims linking Democrats to communism are inaccurate - AP News",
+      "time": "2026-07-02 23:24:30",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Why Wonderwall has become England's World Cup anthem",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -493,9 +477,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 23:19:51",
-      "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
-      "headline": "FACT FOCUS: Experts say Trump\u2019s claims linking Democrats to communism are inaccurate - AP News",
+      "time": "2026-07-02 23:24:30",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Why Wonderwall has become England's World Cup anthem",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -509,9 +493,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 23:19:51",
-      "market_question": "Will the Democrats win the Nebraska Senate race in 2026?",
-      "headline": "FACT FOCUS: Experts say Trump\u2019s claims linking Democrats to communism are inaccurate - AP News",
+      "time": "2026-07-02 23:24:30",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Why Wonderwall has become England's World Cup anthem",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 23:24:30",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Why Wonderwall has become England's World Cup anthem",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
