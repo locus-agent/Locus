@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-02T06:35:47.082046+00:00",
-  "last_heartbeat": "2026-07-02T06:35:47.082046+00:00",
-  "uptime_seconds": 28853,
+  "generated_at": "2026-07-02T06:40:53.288004+00:00",
+  "last_heartbeat": "2026-07-02T06:40:53.288004+00:00",
+  "uptime_seconds": 29160,
   "dry_run": false,
-  "markets_tracked": 1271,
+  "markets_tracked": 1269,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9903,
+    "total": 9911,
     "accuracy": 18.1,
     "by_category": {
       "other": 16.2,
@@ -24,15 +24,15 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.1,
-    "overall_total": 9903,
+    "overall_total": 9911,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5594,
+        "total": 5600,
         "correct": 399,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 10.16,
+        "avg_pnl_pct": 10.15,
         "color": "red"
       },
       {
@@ -74,7 +74,7 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1231,
+        "total": 1233,
         "correct": 234,
         "accuracy_pct": 19.0,
         "avg_pnl_pct": -2.9,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 162,
+  "headlines_scanned_today": 163,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6747,
+  "classifications_24h": 6746,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2851,
+    "prefiltered_haiku": 2853,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1752,
-    "matched": 752,
-    "classified": 6747,
+    "news": 1751,
+    "matched": 751,
+    "classified": 6746,
     "signals": 1,
     "trades": 1
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1767.7
+    "avg_classification_latency_ms": 1770.8
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.86,
-      "pnl_usd": -1.08,
+      "current_value_usd": 23.87,
+      "pnl_usd": -1.07,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -417,9 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 06:30:34",
-      "market_question": "US Treasury transactions on blockchain by June 30?",
-      "headline": "Avalanche Treasury stock plunges 73% since debut as company\u2019s AVAX holdings lose value",
+      "time": "2026-07-02 06:37:14",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "The Financial Times (FT) reported on the 2nd that Open AI, a generative artificial intelligence (AI).. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 06:37:10",
+      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
+      "headline": "The Financial Times (FT) reported on the 2nd that Open AI, a generative artificial intelligence (AI).. - \ub9e4\uc77c\uacbd\uc81c",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -428,14 +444,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 06:30:33",
-      "market_question": "Over $1B crypto hack value in 2026?",
-      "headline": "Avalanche Treasury stock plunges 73% since debut as company\u2019s AVAX holdings lose value",
+      "time": "2026-07-02 06:37:10",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "The Financial Times (FT) reported on the 2nd that Open AI, a generative artificial intelligence (AI).. - \ub9e4\uc77c\uacbd\uc81c",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 06:37:08",
+      "market_question": "Will Fujimori win the 2nd round of the 2026 Peru presidential election by 0.3\u20130.4%?",
+      "headline": "The Financial Times (FT) reported on the 2nd that Open AI, a generative artificial intelligence (AI).. - \ub9e4\uc77c\uacbd\uc81c",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +481,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 06:30:33",
-      "market_question": "Over $1.5B crypto hack value in 2026?",
-      "headline": "Avalanche Treasury stock plunges 73% since debut as company\u2019s AVAX holdings lose value",
+      "time": "2026-07-02 06:37:08",
+      "market_question": "Will Fujimori win the 2nd round of the 2026 Peru presidential election by 0.1\u20130.2%?",
+      "headline": "The Financial Times (FT) reported on the 2nd that Open AI, a generative artificial intelligence (AI).. - \ub9e4\uc77c\uacbd\uc81c",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -463,38 +495,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 06:24:10",
-      "market_question": "Will Bitcoin reach $62,000 June 29-July 5?",
-      "headline": "US job growth likely cooled in June after recent string of big gains - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 06:24:07",
-      "market_question": "Will Ethereum reach $1,700 June 29-July 5?",
-      "headline": "US job growth likely cooled in June after recent string of big gains - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
