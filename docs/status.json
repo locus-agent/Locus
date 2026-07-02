@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T18:34:38.826868+00:00",
-  "last_heartbeat": "2026-07-02T18:34:38.826868+00:00",
-  "uptime_seconds": 5661,
+  "generated_at": "2026-07-02T18:39:51.246818+00:00",
+  "last_heartbeat": "2026-07-02T18:39:51.246818+00:00",
+  "uptime_seconds": 5973,
   "dry_run": false,
   "markets_tracked": 1299,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1105,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1109,
+  "headlines_last_cycle": 2,
   "signals_24h": 2,
-  "classifications_24h": 8006,
+  "classifications_24h": 8017,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3076,
+    "prefiltered_haiku": 3077,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2145,
-    "matched": 740,
-    "classified": 8006,
+    "news": 2147,
+    "matched": 743,
+    "classified": 8017,
     "signals": 2,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1584.5
+    "avg_classification_latency_ms": 1596.9
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.079,
+      "current_price": 0.07899999999999996,
       "pnl_pct": -21.0,
       "amount_usd": 2.0,
       "current_value_usd": 1.58,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 18:34:38",
+      "time": "2026-07-02 18:39:51",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:34:07",
+      "time": "2026-07-02 18:39:20",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:33:36",
+      "time": "2026-07-02 18:38:49",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:33:05",
+      "time": "2026-07-02 18:38:18",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:32:34",
+      "time": "2026-07-02 18:37:46",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,41 +445,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 18:33:03",
-      "market_question": "Will another AI-generated song reach number 1 on any Billboard chart by June 30?",
-      "headline": "'Methyl isocyanate of law': Supreme Court sets aside AI-generated verdicts - Business Standard",
+      "time": "2026-07-02 18:39:46",
+      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
+      "headline": "Nasdaq, S&P 500 decline with tech; investors assess softer jobs data - Reuters",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 18:30:53",
-      "market_question": "Will a Chinese AI model become #1 by June 30? ",
-      "headline": "EXCLUSIVE: Kuwait sharply boosts crude production in June after US-Iran deal, source says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 18:30:53",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Wildfires scorch southern France as heat and drought fuel blazes - AP News",
+      "time": "2026-07-02 18:39:46",
+      "market_question": "Will the Workers' Party nominate Lula for President of Brazil by August 15?",
+      "headline": "Barcelona introduces heat-monitoring bracelets for its outdoor workers - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,36 +477,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 18:30:52",
-      "market_question": "Will Bitcoin reach $68,000 June 29-July 5?",
-      "headline": "EXCLUSIVE: Kuwait sharply boosts crude production in June after US-Iran deal, source says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-02 18:39:46",
+      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Barcelona introduces heat-monitoring bracelets for its outdoor workers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 18:30:51",
-      "market_question": "Will Bitcoin reach $64,000 June 29-July 5?",
-      "headline": "EXCLUSIVE: Kuwait sharply boosts crude production in June after US-Iran deal, source says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-02 18:39:46",
+      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Barcelona introduces heat-monitoring bracelets for its outdoor workers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 18:39:46",
+      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Barcelona introduces heat-monitoring bracelets for its outdoor workers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
