@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T20:39:32.521520+00:00",
-  "last_heartbeat": "2026-07-02T20:39:32.521520+00:00",
-  "uptime_seconds": 13155,
+  "generated_at": "2026-07-02T20:44:45.586650+00:00",
+  "last_heartbeat": "2026-07-02T20:44:45.586650+00:00",
+  "uptime_seconds": 13468,
   "dry_run": false,
   "markets_tracked": 1297,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1270,
+  "headlines_scanned_today": 1272,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 8239,
+  "classifications_24h": 8236,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 3174,
@@ -121,8 +121,8 @@
   },
   "pipeline_24h": {
     "news": 2200,
-    "matched": 858,
-    "classified": 8239,
+    "matched": 860,
+    "classified": 8236,
     "signals": 2,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1871.0
+    "avg_classification_latency_ms": 1869.6
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.10699999999999998,
+      "current_price": 0.107,
       "pnl_pct": 7.0,
       "amount_usd": 2.0,
       "current_value_usd": 2.14,
@@ -223,7 +223,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -2.59,
       "amount_usd": 24.94,
       "current_value_usd": 24.29,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 20:39:32",
+      "time": "2026-07-02 20:44:45",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 20:39:01",
+      "time": "2026-07-02 20:44:14",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 20:38:29",
+      "time": "2026-07-02 20:43:43",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 20:37:58",
+      "time": "2026-07-02 20:43:11",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 20:37:27",
+      "time": "2026-07-02 20:42:40",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,9 +445,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 20:38:46",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "Rebel Catholic group in Switzerland unrepentant over excommunication - Reuters",
+      "time": "2026-07-02 20:43:09",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Law firms grapple with rising costs of using artificial intelligence - NL Times",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 20:43:08",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Law firms grapple with rising costs of using artificial intelligence - NL Times",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 20:38:46",
-      "market_question": "Will Islamic Group win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Rebel Catholic group in Switzerland unrepentant over excommunication - Reuters",
+      "time": "2026-07-02 20:43:08",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Law firms grapple with rising costs of using artificial intelligence - NL Times",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 20:30:03",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Albanian police use tear gas and pepper spray as Tirana protest turns violent - AP News",
+      "time": "2026-07-02 20:43:08",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "Law firms grapple with rising costs of using artificial intelligence - NL Times",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,25 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 20:30:03",
-      "market_question": "Will the average monthly Ethereum gas price hit 25 Gwei before 2027?",
-      "headline": "Albanian police use tear gas and pepper spray as Tirana protest turns violent - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 20:30:03",
-      "market_question": "Will the average monthly Ethereum gas price hit 20 Gwei before 2027?",
-      "headline": "Albanian police use tear gas and pepper spray as Tirana protest turns violent - AP News",
+      "time": "2026-07-02 20:43:08",
+      "market_question": "Will \"Trump\" be said 10+ times during the next episode of the Storytime with the Second Lady Podcast?",
+      "headline": "Law firms grapple with rising costs of using artificial intelligence - NL Times",
       "direction": null,
       "materiality": null,
       "confidence": null,
