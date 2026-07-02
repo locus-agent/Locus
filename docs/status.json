@@ -1,80 +1,80 @@
 {
-  "generated_at": "2026-07-02T17:00:56.715787+00:00",
-  "last_heartbeat": "2026-07-02T17:00:56.715787+00:00",
-  "uptime_seconds": 39,
+  "generated_at": "2026-07-02T17:06:11.481221+00:00",
+  "last_heartbeat": "2026-07-02T17:06:11.481221+00:00",
+  "uptime_seconds": 354,
   "dry_run": false,
-  "markets_tracked": 1301,
+  "markets_tracked": 1294,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9965,
-    "accuracy": 18.0,
+    "total": 9995,
+    "accuracy": 18.1,
     "by_category": {
       "other": 16.2,
       "ai": 11.5,
       "politics": 20.5,
       "technology": 12.5,
-      "crypto": 18.6,
+      "crypto": 18.9,
       "sports": 26.2
     },
     "by_source": {
-      "rss": 18.3,
-      "newsapi": 17.9,
+      "rss": 18.4,
+      "newsapi": 17.8,
       "truthsocial": 6.5
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 18.0,
-    "overall_total": 9965,
+    "overall_accuracy": 18.1,
+    "overall_total": 9995,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5631,
+        "total": 5637,
         "correct": 400,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 10.05,
+        "avg_pnl_pct": 10.03,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 898,
-        "correct": 319,
+        "total": 902,
+        "correct": 320,
         "accuracy_pct": 35.5,
-        "avg_pnl_pct": 23.96,
+        "avg_pnl_pct": 24.09,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1062,
-        "correct": 424,
-        "accuracy_pct": 39.9,
-        "avg_pnl_pct": 5.54,
+        "total": 1070,
+        "correct": 428,
+        "accuracy_pct": 40.0,
+        "avg_pnl_pct": 5.87,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 591,
-        "correct": 192,
-        "accuracy_pct": 32.5,
-        "avg_pnl_pct": 1.19,
+        "total": 600,
+        "correct": 198,
+        "accuracy_pct": 33.0,
+        "avg_pnl_pct": 1.61,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 541,
-        "correct": 229,
-        "accuracy_pct": 42.3,
-        "avg_pnl_pct": 3.47,
+        "total": 542,
+        "correct": 230,
+        "accuracy_pct": 42.4,
+        "avg_pnl_pct": 3.5,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1242,
+        "total": 1244,
         "correct": 234,
         "accuracy_pct": 18.8,
         "avg_pnl_pct": -2.99,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 829,
-  "headlines_last_cycle": 40,
+  "headlines_scanned_today": 937,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 7336,
+  "classifications_24h": 7744,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2845,
+    "prefiltered_haiku": 2999,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1988,
-    "matched": 740,
-    "classified": 7336,
+    "news": 2089,
+    "matched": 748,
+    "classified": 7744,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1271.1
+    "avg_classification_latency_ms": 1541.3
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.08,
+      "current_price": 0.07999999999999996,
       "pnl_pct": -20.0,
       "amount_usd": 2.0,
       "current_value_usd": 1.6,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.44499999999999995,
+      "current_price": 0.445,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.87,
-      "pnl_usd": -1.07,
+      "current_value_usd": 23.86,
+      "pnl_usd": -1.08,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 17:00:56",
+      "time": "2026-07-02 17:06:11",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 16:59:49",
+      "time": "2026-07-02 17:05:40",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 16:59:18",
+      "time": "2026-07-02 17:05:09",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 16:58:47",
+      "time": "2026-07-02 17:04:38",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 16:58:16",
+      "time": "2026-07-02 17:04:07",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,73 +445,73 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 17:00:56",
-      "market_question": "Will Trump deport less than 200k people?",
-      "headline": "EU and US concerned by China's new ethnic unity law which targets people overseas - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 17:04:59",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Permit obtained by AP shows schedule for Taylor Swift and Travis Kelce\u2019s wedding - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 17:00:56",
-      "market_question": "Will Trump deport 400-500k people?",
-      "headline": "EU and US concerned by China's new ethnic unity law which targets people overseas - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 17:04:59",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "Permit obtained by AP shows schedule for Taylor Swift and Travis Kelce\u2019s wedding - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 17:00:56",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "EU and US concerned by China's new ethnic unity law which targets people overseas - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 17:04:59",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Permit obtained by AP shows schedule for Taylor Swift and Travis Kelce\u2019s wedding - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 17:00:56",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "EU and US concerned by China's new ethnic unity law which targets people overseas - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 17:04:59",
+      "market_question": "Will Karrin Taylor Robson win the 2026 Arizona Governor Republican primary election?",
+      "headline": "Permit obtained by AP shows schedule for Taylor Swift and Travis Kelce\u2019s wedding - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 17:00:56",
-      "market_question": "Will Trump deport 900k-1m people?",
-      "headline": "EU and US concerned by China's new ethnic unity law which targets people overseas - Reuters",
+      "time": "2026-07-02 17:03:41",
+      "market_question": "Quantum breaks Bitcoin by December 31, 2027?",
+      "headline": "German drone maker Quantum Systems secures $1.2 billion funding - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -520,7 +520,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
