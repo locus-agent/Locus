@@ -18,10 +18,13 @@ def _seed(tmp_db, rows):
         conn.execute(
             """INSERT INTO trades (id, market_id, market_question, claude_score,
                                    market_price, edge, side, amount_usd, status,
-                                   materiality, classification)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'executed', ?, ?)""",
+                                   materiality, classification, confidence,
+                                   created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'executed', ?, ?, ?, ?)""",
             (i, f"cond{i}", question, 0.7, 0.5, 0.2, r.get("side", "YES"),
-             r.get("amount_usd", 20.0), r.get("materiality"), r.get("direction")),
+             r.get("amount_usd", 20.0), r.get("materiality"), r.get("direction"),
+             r.get("confidence"),
+             r.get("trade_created_at", "2026-06-15 12:00:00")),
         )
         status = r.get("status", "closed_manual")
         # Every real close path stamps closed_at; only open rows leave it NULL.
@@ -204,6 +207,146 @@ def test_best_and_worst_trades_ordering(tmp_db):
     assert "TIME TO RESOLUTION" in text
     assert "TOP 5 BEST TRADES" in text
     assert "TOP 5 WORST TRADES" in text
+
+
+# --- Brier score (probability calibration) ------------------------------------
+
+def _seed_prompt_versions(tmp_db, versions):
+    """Insert (version, created_at) rows into prompt_versions."""
+    conn = tmp_db._conn()
+    for v, created in versions:
+        conn.execute(
+            "INSERT INTO prompt_versions (version, prompt_text, created_at) "
+            "VALUES (?, ?, ?)",
+            (v, f"prompt v{v}", created),
+        )
+    conn.commit()
+    conn.close()
+
+
+def test_brier_hand_computed_from_confidence(tmp_db):
+    # Stored confidence IS the prediction. Hand-computed:
+    #   win  predicted 0.8 -> (0.8-1)^2 = 0.04
+    #   loss predicted 0.6 -> (0.6-0)^2 = 0.36
+    #   win  predicted 0.7 -> (0.7-1)^2 = 0.09
+    # Brier = (0.04 + 0.36 + 0.09) / 3 = 0.16333...
+    _seed(tmp_db, [
+        {"realized_pnl_usd": 5.0, "confidence": 0.8},
+        {"realized_pnl_usd": -3.0, "confidence": 0.6},
+        {"realized_pnl_usd": 2.0, "confidence": 0.7},
+        {"realized_pnl_usd": 0.0, "confidence": 0.9},   # break-even: unknowable
+        {"realized_pnl_usd": None, "confidence": 0.9},  # never realized: unknowable
+    ])
+    rep = performance.calibration_report()
+    b = rep["brier"]
+    assert b["overall"]["n"] == 3
+    assert b["overall"]["brier"] == pytest.approx(0.1633, abs=1e-4)
+    assert b["proxy_counts"] == {"confidence": 3, "entry_implied": 0}
+    assert b["excluded"] == 2
+
+
+def test_brier_entry_implied_fallback_documents_proxy(tmp_db):
+    # No confidence stored -> the entry-implied fallback: entry price for a
+    # YES-side, 1 - price for a NO-side. Hand-computed:
+    #   YES @ 0.30, win  -> (0.30-1)^2 = 0.49
+    #   NO  @ 0.60, loss -> predicted 0.40 -> (0.40-0)^2 = 0.16
+    # Brier = (0.49 + 0.16) / 2 = 0.325
+    _seed(tmp_db, [
+        {"realized_pnl_usd": 4.0, "side": "YES", "entry_yes_price": 0.30},
+        {"realized_pnl_usd": -2.0, "side": "NO", "entry_yes_price": 0.60},
+    ])
+    rep = performance.calibration_report()
+    b = rep["brier"]
+    assert b["overall"]["brier"] == pytest.approx(0.325)
+    assert b["proxy_counts"] == {"confidence": 0, "entry_implied": 2}
+    # the rendered report says which proxy was used and prints the reference
+    text = performance.format_calibration_report(rep)
+    assert "BRIER SCORE" in text
+    assert "0.25 = random guessing" in text
+    assert "entry-implied" in text
+    assert "win-probability" in text
+
+
+def test_brier_by_category_with_small_n_flag(tmp_db):
+    _seed(tmp_db, [
+        {"realized_pnl_usd": 1.0, "confidence": 1.0, "category": "crypto"},   # 0.00
+        {"realized_pnl_usd": -1.0, "confidence": 1.0, "category": "crypto"},  # 1.00
+        {"realized_pnl_usd": 1.0, "confidence": 0.5, "category": "politics"}, # 0.25
+    ])
+    rep = performance.calibration_report()
+    by = {e["label"]: e for e in rep["brier"]["by_category"]}
+    assert by["crypto"]["n"] == 2
+    assert by["crypto"]["brier"] == pytest.approx(0.5)
+    assert by["politics"]["brier"] == pytest.approx(0.25)
+    # small-n honesty: every bucket here is tiny and flagged in the rendering
+    text = performance.format_calibration_report(rep)
+    assert "(small n)" in text
+
+
+def test_brier_by_prompt_version_time_linkage(tmp_db):
+    # No positions->prompt_versions FK exists anywhere in the schema, so the
+    # version is inferred by time: the newest prompt_versions row created
+    # at/before each trade's created_at (what classifier.get_active_prompt had
+    # loaded); earlier trades belong to 'v0 (baseline)'.
+    _seed_prompt_versions(tmp_db, [
+        (1, "2026-06-10 00:00:00"),
+        (2, "2026-06-20 00:00:00"),
+    ])
+    _seed(tmp_db, [
+        {"realized_pnl_usd": 1.0, "confidence": 0.9,
+         "trade_created_at": "2026-06-01 00:00:00"},   # before v1 -> v0: 0.01
+        {"realized_pnl_usd": 1.0, "confidence": 0.8,
+         "trade_created_at": "2026-06-12 00:00:00"},   # v1: 0.04
+        {"realized_pnl_usd": -1.0, "confidence": 0.8,
+         "trade_created_at": "2026-06-15 00:00:00"},   # v1: 0.64
+        {"realized_pnl_usd": 1.0, "confidence": 0.6,
+         "trade_created_at": "2026-06-25 00:00:00"},   # v2: 0.16
+    ])
+    rep = performance.calibration_report()
+    by = {e["label"]: e for e in rep["brier"]["by_prompt_version"]}
+    assert by["v0 (baseline)"]["n"] == 1
+    assert by["v0 (baseline)"]["brier"] == pytest.approx(0.01)
+    assert by["v1"]["n"] == 2
+    assert by["v1"]["brier"] == pytest.approx((0.04 + 0.64) / 2)
+    assert by["v2"]["brier"] == pytest.approx(0.16)
+    # baseline first, then versions ascending
+    labels = [e["label"] for e in rep["brier"]["by_prompt_version"]]
+    assert labels == ["v0 (baseline)", "v1", "v2"]
+    # the rendering is honest that the linkage is inferred, not a real join
+    text = performance.format_calibration_report(rep)
+    assert "no direct position->prompt_version link" in text
+
+
+def test_brier_prompt_version_unknown_without_trade_link(tmp_db):
+    # A closed position with no linked trade can't be attributed to a version
+    # (or a confidence): it lands in the honest 'unknown' bucket with the
+    # entry-implied prediction, never guessed.
+    conn = tmp_db._conn()
+    conn.execute(
+        """INSERT INTO positions (trade_id, condition_id, market_question, side,
+                                  entry_yes_price, amount_usd, status,
+                                  realized_pnl_usd, closed_at)
+           VALUES (NULL, 'condX', 'Orphan?', 'YES', 0.4, 10.0, 'closed_manual',
+                   3.0, '2026-06-16 12:00:00')""",
+    )
+    conn.commit()
+    conn.close()
+    rep = performance.calibration_report()
+    by = {e["label"]: e for e in rep["brier"]["by_prompt_version"]}
+    assert by["unknown (no linked trade)"]["n"] == 1
+    assert by["unknown (no linked trade)"]["brier"] == pytest.approx((0.4 - 1.0) ** 2)
+
+
+def test_brier_all_baseline_when_no_prompt_versions(tmp_db):
+    # With no evolved prompts, every trade used the hardcoded baseline — the
+    # report says so instead of inventing a version.
+    _seed(tmp_db, [{"realized_pnl_usd": 1.0, "confidence": 0.7}])
+    rep = performance.calibration_report()
+    b = rep["brier"]
+    assert b["prompt_versions_known"] is False
+    assert [e["label"] for e in b["by_prompt_version"]] == ["v0 (baseline)"]
+    text = performance.format_calibration_report(rep)
+    assert "No evolved prompt versions exist yet" in text
 
 
 def test_empty_db_does_not_crash(tmp_db):

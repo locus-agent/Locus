@@ -112,7 +112,7 @@ def _stub_sellback(monkeypatch, result_status: str):
     each call as (condition_id, side, shares)."""
     calls = []
 
-    def fake_close(condition_id, side, shares, max_spread=None):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
         calls.append((condition_id, side, shares))
         return {"status": result_status, "order_id": "sell-1", "price": 0.49,
                 "shares": shares}

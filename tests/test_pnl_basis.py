@@ -68,7 +68,7 @@ def _scripted_seller(monkeypatch, results):
     requested = []
     queue = list(results)
 
-    def fake_close(condition_id, side, shares, max_spread=None):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
         requested.append(round(shares, 4))
         return queue.pop(0)
 
@@ -267,6 +267,75 @@ def test_conservation_half_close_then_partial_then_final(tmp_db, monkeypatch):
     assert final["status"] == "closed_manual"
     # Each sell was sized from the then-current reduced holding.
     assert requested == [20.0, 20.0, 8.0]
+
+
+def test_conservation_topup_and_sell(tmp_db, monkeypatch):
+    # Top-up-and-sell (dust position, position 54's shape): 3.25 sh costing
+    # $0.16 — below the exchange minimums, unsellable on its own. The close
+    # tops up 17 sh for $1.02, then sells 20.2 of the combined 20.25 @ 0.05
+    # (the 0.05 sh remainder is dust, written off with the close):
+    #   total cost = 0.16 + 1.02              = $1.18
+    #   proceeds   = 20.2 * 0.05              = $1.01
+    #   realized   = 1.01 - 1.18              = -$0.17
+    # Conservation: realized == proceeds - total cost INCLUDING the top-up.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    requested = _scripted_seller(monkeypatch, [
+        {"status": "executed", "order_id": "T1", "price": 0.05, "shares": 20.2,
+         "sold_shares": 20.2, "remaining_shares": 0.05,
+         "topup_cost_usd": 1.02, "topup_shares": 17.0},
+    ])
+    tid = _open_live(tmp_db, mid=0.05, bet=2.0, cost=0.16, shares=3.25)
+
+    realized = _close(tmp_db, _row(tmp_db, tid), 0.05)
+
+    total_proceeds = 20.2 * 0.05                       # 1.01
+    total_cost = 0.16 + 1.02                           # 1.18
+    assert realized == pytest.approx(total_proceeds - total_cost)
+    assert realized == pytest.approx(-0.17)
+    final = _row(tmp_db, tid)
+    assert final["status"] == "closed_manual"
+    assert final["realized_pnl_usd"] == pytest.approx(-0.17)
+    assert final["amount_usd"] == pytest.approx(1.18)  # basis includes top-up
+    # the SELL request was sized from the dust holding (top-up happens inside)
+    assert requested == [3.25]
+
+
+def test_conservation_topup_survives_failed_sell(tmp_db, monkeypatch):
+    # The top-up BUY fills but the follow-up SELL fails: real dollars were
+    # spent and real tokens received, so the still-open position must absorb
+    # them (basis $0.16 -> $1.18, holding 3.25 -> 20.25 sh) and realize
+    # nothing. The retry then sells the topped-up holding:
+    #   chunk 1 = $0
+    #   chunk 2 = 20.25 * 0.06 - 1.18 = 1.215 - 1.18 = +$0.035
+    # Conservation across the sequence: chunks sum to proceeds - total cost.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    requested = _scripted_seller(monkeypatch, [
+        {"status": "close_failed", "order_id": None, "price": None,
+         "shares": None, "error": "SELL not confirmed",
+         "topup_cost_usd": 1.02, "topup_shares": 17.0},
+        {"status": "executed", "order_id": "S2", "price": 0.06, "shares": 20.25,
+         "sold_shares": 20.25, "remaining_shares": 0.0},
+    ])
+    tid = _open_live(tmp_db, mid=0.05, bet=2.0, cost=0.16, shares=3.25)
+
+    chunk1 = _close(tmp_db, _row(tmp_db, tid), 0.05)
+    assert chunk1 == 0.0
+    mid_row = _row(tmp_db, tid)
+    assert mid_row["status"] == "open"                       # sell failed
+    assert mid_row["token_count"] == pytest.approx(20.25)    # tokens absorbed
+    assert mid_row["amount_usd"] == pytest.approx(1.18)      # cost absorbed
+
+    chunk2 = _close(tmp_db, mid_row, 0.06)
+
+    total_proceeds = 20.25 * 0.06                            # 1.215
+    total_cost = 0.16 + 1.02                                 # 1.18
+    assert chunk2 == pytest.approx(0.035)
+    assert chunk1 + chunk2 == pytest.approx(total_proceeds - total_cost)
+    final = _row(tmp_db, tid)
+    assert final["realized_pnl_usd"] == pytest.approx(total_proceeds - total_cost)
+    assert final["status"] == "closed_manual"
+    # the retry sized its SELL from the topped-up holding, not the stale 3.25
+    assert requested == [3.25, 20.25]
 
 
 def test_conservation_dry_run_parity(tmp_db):

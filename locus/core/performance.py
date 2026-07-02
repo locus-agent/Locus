@@ -304,6 +304,12 @@ TOP_TRADES_N = 5
 # Below this many closed trades the report is not statistically meaningful.
 CALIBRATION_MIN_SAMPLE = 25
 
+# Brier reference: always predicting 0.5 on true 50/50 outcomes scores 0.25.
+BRIER_RANDOM_REFERENCE = 0.25
+
+# Below this many scored trades a per-bucket Brier is directional at best.
+BRIER_MIN_GROUP_N = 10
+
 
 def _is_win(row: dict) -> bool:
     """A trade is a win iff its realized PnL is strictly positive. NULL/0 (a
@@ -365,6 +371,125 @@ def _hours_to_resolution(opened_at, end_date) -> float | None:
     return (e - o).total_seconds() / 3600.0
 
 
+# --- Brier score (probability calibration) -----------------------------------
+#
+# Brier = mean((predicted win probability - realized outcome)^2) over closed
+# positions whose outcome is knowable (realized PnL strictly > 0 is a win = 1,
+# strictly < 0 a loss = 0; break-even/NULL closes are unknowable and excluded).
+#
+# Prediction proxy, per row:
+#   1. trades.confidence — Claude's stored win-probability estimate (0.5-1.0,
+#      the number Kelly sizing used). This IS a classification-implied
+#      probability, so it's preferred whenever stored.
+#   2. Fallback (confidence NULL, e.g. legacy rows): the ENTRY-IMPLIED
+#      probability — the market's own price for our side at entry (entry
+#      YES price for a YES position, 1 - price for NO). Note what that
+#      measures: the market's calibration at our entry, not Claude's; rows
+#      using it are counted separately so the report is honest about the mix.
+
+def _brier_outcome(r: dict) -> float | None:
+    """1.0 win / 0.0 loss from realized PnL; None when unknowable (break-even
+    or never-realized close)."""
+    pnl = r.get("realized_pnl_usd")
+    if pnl is None or pnl == 0:
+        return None
+    return 1.0 if pnl > 0 else 0.0
+
+
+def _brier_prediction(r: dict) -> tuple[float, str] | None:
+    """(predicted win probability, proxy name) for a closed position, or None
+    when neither proxy is available."""
+    conf = r.get("confidence")
+    if conf is not None:
+        return float(conf), "confidence"
+    entry = r.get("entry_yes_price")
+    if entry is None:
+        return None
+    p = float(entry) if r.get("side") == "YES" else 1.0 - float(entry)
+    return p, "entry_implied"
+
+
+def _prompt_version_label(trade_created_at: str | None,
+                          versions: list[dict]) -> str:
+    """Prompt version in force when a trade was classified, inferred by time.
+
+    No direct positions -> prompt_versions link exists in the schema (trades
+    and classifications carry no version column), but the classifier loads the
+    LATEST prompt_versions row at each call (classifier.get_active_prompt), so
+    the version in force at trade time is the newest row created at/before the
+    trade's created_at — 'v0 (baseline)' means the hardcoded pre-evolution
+    prompt. Timestamps are SQLite 'YYYY-MM-DD HH:MM:SS' strings in UTC, so
+    string comparison orders correctly."""
+    if not trade_created_at:
+        return "unknown (no linked trade)"
+    active = None
+    for v in versions:  # ascending by version; created_at is monotone with it
+        if (v.get("created_at") or "") <= trade_created_at:
+            active = v["version"]
+    return f"v{active}" if active is not None else "v0 (baseline)"
+
+
+def _brier_of(scored: list[dict]) -> dict:
+    """n / Brier score for a group of scored rows (each {'pred', 'outcome'})."""
+    n = len(scored)
+    if not n:
+        return {"n": 0, "brier": None}
+    b = sum((s["pred"] - s["outcome"]) ** 2 for s in scored) / n
+    return {"n": n, "brier": round(b, 4)}
+
+
+def compute_brier_report(rows: list[dict], versions: list[dict]) -> dict:
+    """Brier analysis over closed-position rows (see calibration_report's
+    SELECT for the expected columns: realized_pnl_usd, confidence, side,
+    entry_yes_price, category, trade_created_at).
+
+    Returns {overall, proxy_counts, excluded, by_category, by_prompt_version,
+    prompt_versions_known} — by_* entries are {label, n, brier}."""
+    scored: list[dict] = []
+    proxy_counts = {"confidence": 0, "entry_implied": 0}
+    excluded = 0
+    for r in rows:
+        outcome = _brier_outcome(r)
+        pred = _brier_prediction(r)
+        if outcome is None or pred is None:
+            excluded += 1
+            continue
+        p, proxy = pred
+        proxy_counts[proxy] += 1
+        scored.append({"row": r, "pred": p, "outcome": outcome})
+
+    def _grouped_brier(key_fn, order: list[str] | None = None) -> list[dict]:
+        buckets: dict[str, list[dict]] = defaultdict(list)
+        for s in scored:
+            buckets[key_fn(s["row"])].append(s)
+        labels = list(buckets.keys())
+        if order:
+            ranked = [l for l in order if l in buckets]
+            ranked += sorted(l for l in labels if l not in order)
+        else:
+            ranked = sorted(labels)
+        return [{"label": l, **_brier_of(buckets[l])} for l in ranked]
+
+    by_category = _grouped_brier(
+        lambda r: (r.get("category") or "").strip() or "unknown",
+        order=CATEGORY_ORDER + ["unknown"],
+    )
+    version_order = [f"v{v['version']}" for v in versions]
+    by_prompt_version = _grouped_brier(
+        lambda r: _prompt_version_label(r.get("trade_created_at"), versions),
+        order=["v0 (baseline)"] + version_order + ["unknown (no linked trade)"],
+    )
+
+    return {
+        "overall": _brier_of(scored),
+        "proxy_counts": proxy_counts,
+        "excluded": excluded,
+        "by_category": by_category,
+        "by_prompt_version": by_prompt_version,
+        "prompt_versions_known": bool(versions),
+    }
+
+
 def _grouped(rows: list[dict], key_fn, order: list[str] | None = None) -> list[dict]:
     """Group rows by key_fn(row) and return [{'label', **stats}], ordered by
     `order` first (only labels that occur) then any remaining labels sorted."""
@@ -407,10 +532,19 @@ def calibration_report() -> dict:
             """SELECT p.status, p.category, p.side, p.entry_yes_price, p.amount_usd,
                       p.actual_cost_usd, p.realized_pnl_usd, p.exit_reason,
                       p.market_question, p.opened_at, p.end_date,
-                      t.materiality AS materiality, t.classification AS direction
+                      t.materiality AS materiality, t.classification AS direction,
+                      t.confidence AS confidence, t.created_at AS trade_created_at
                FROM positions p
                LEFT JOIN trades t ON p.trade_id = t.id
                WHERE p.status != 'open' AND p.closed_at IS NOT NULL"""
+        ).fetchall()
+    ]
+    # Prompt versions for the Brier-by-prompt-version breakdown (also a pure
+    # read; versions are matched to trades by timestamp — see
+    # _prompt_version_label for why that's the only linkage the schema has).
+    prompt_versions = [
+        dict(r) for r in conn.execute(
+            "SELECT version, created_at FROM prompt_versions ORDER BY version ASC"
         ).fetchall()
     ]
     conn.close()
@@ -490,6 +624,7 @@ def calibration_report() -> dict:
         "by_direction": by_direction,
         "by_fill_quality": by_fill_quality,
         "by_exit_reason": by_exit_reason,
+        "brier": compute_brier_report(rows, prompt_versions),
         "by_entry_price": by_entry_price,
         "by_time_to_resolution": by_time_to_resolution,
         "best_trades": best_trades,
@@ -523,6 +658,88 @@ def _render_table(title: str, entries: list[dict], label_header: str,
             f"  {e['label']:<28}{e['n']:>5}{_fmt_pct(e['win_rate']):>9}"
             f"{_fmt_usd(e['total_pnl']):>14}{_fmt_usd(e['avg_pnl']):>13}"
         )
+    return lines
+
+
+def _fmt_brier(v: float | None) -> str:
+    return f"{v:.4f}" if v is not None else "—"
+
+
+def _render_brier_table(title: str, entries: list[dict], label_header: str) -> list[str]:
+    """Render one Brier breakdown as a fixed-width table with small-n flags."""
+    lines = ["", f"  {title}"]
+    if not entries:
+        lines.append("  (no data)")
+        return lines
+    lines.append(f"  {label_header:<28}{'N':>5}{'Brier':>10}")
+    lines.append("  " + "-" * 43)
+    for e in entries:
+        flag = "  (small n)" if 0 < e["n"] < BRIER_MIN_GROUP_N else ""
+        lines.append(
+            f"  {e['label']:<28}{e['n']:>5}{_fmt_brier(e['brier']):>10}{flag}"
+        )
+    return lines
+
+
+def _render_brier_section(brier: dict) -> list[str]:
+    """Render the Brier score section: overall + by category + by prompt
+    version, with the prediction proxy and the version linkage spelled out."""
+    pc = brier["proxy_counts"]
+    lines = ["", "6. BRIER SCORE (probability calibration)"]
+    lines.append(
+        "  Prediction: Claude's stored win-probability estimate "
+        f"('confidence', n={pc['confidence']}) when present;"
+    )
+    lines.append(
+        "  else the entry-implied probability — entry price for YES-side, "
+        f"1-price for NO-side (n={pc['entry_implied']})."
+    )
+    lines.append(
+        "  Outcome: realized win (1) / loss (0). Break-even/unrealized closes "
+        f"excluded (n={brier['excluded']})."
+    )
+    lines.append(
+        f"  Reference: {BRIER_RANDOM_REFERENCE} = random guessing on a 50/50 "
+        "market; lower is better."
+    )
+    overall = brier["overall"]
+    lines.append("")
+    lines.append(
+        f"  Overall Brier score : {_fmt_brier(overall['brier'])} "
+        f"(n={overall['n']})"
+    )
+    lines += _render_brier_table("BRIER SCORE BY CATEGORY",
+                                 brier["by_category"], "Category")
+    lines.append("")
+    lines.append("  BRIER SCORE BY PROMPT VERSION")
+    lines.append(
+        "  Note: the schema has no direct position->prompt_version link; the "
+        "version is inferred"
+    )
+    lines.append(
+        "  by time (the newest prompt version created at/before each trade — "
+        "the one the"
+    )
+    lines.append(
+        "  classifier had loaded). 'v0 (baseline)' = the hardcoded "
+        "pre-evolution prompt."
+    )
+    if not brier["prompt_versions_known"]:
+        lines.append(
+            "  No evolved prompt versions exist yet — every trade used the "
+            "baseline prompt."
+        )
+    entries = brier["by_prompt_version"]
+    if not entries:
+        lines.append("  (no data)")
+    else:
+        lines.append(f"  {'Prompt version':<28}{'N':>5}{'Brier':>10}")
+        lines.append("  " + "-" * 43)
+        for e in entries:
+            flag = "  (small n)" if 0 < e["n"] < BRIER_MIN_GROUP_N else ""
+            lines.append(
+                f"  {e['label']:<28}{e['n']:>5}{_fmt_brier(e['brier']):>10}{flag}"
+            )
     return lines
 
 
@@ -579,6 +796,7 @@ def format_calibration_report(report: dict) -> str:
         purpose="are illiquid/partial-fill markets costing us money?",
     )
     out += _render_table("5. EXIT REASON BREAKDOWN", report["by_exit_reason"], "Exit reason")
+    out += _render_brier_section(report["brier"])
     out += _render_table(
         "7. BREAKDOWN BY ENTRY PRICE BUCKET (longshot analysis)",
         report["by_entry_price"], "Entry price",

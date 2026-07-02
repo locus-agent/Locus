@@ -201,6 +201,12 @@ CLOSE_MAP = {
     "news": ("closed_news", "news_decision"),
 }
 
+# Exit reasons allowed to arm top-up-and-sell (see _live_close): explicit
+# close attempts only — a user-requested manual close, the hard stop loss,
+# and the time-pressure hard exit. Claude re-eval decisions, near-certain
+# locks, resolution, and half-closes never top up.
+TOPUP_EXIT_REASONS = frozenset({"manual", "sl", "time_pressure"})
+
 
 def pnl_pct(side: str, entry_yes: float, now_yes: float) -> float:
     entry = entry_yes if side == "YES" else 1.0 - entry_yes
@@ -615,32 +621,43 @@ def cooldown_allows(position: dict, trigger: str, now: datetime | None = None) -
 
 def _live_close(
     position: dict, exit_reason: str, fraction: float
-) -> tuple[str, str | None, float | None, float | None, float | None]:
+) -> tuple[str, str | None, float | None, float | None, float | None, float, float]:
     """Flatten `fraction` of the position on the CLOB (live trading only).
 
-    Returns (outcome, order_id, remaining_shares, sold_shares, fill_price).
+    Returns (outcome, order_id, remaining_shares, sold_shares, fill_price,
+    topup_cost_usd, topup_shares).
     sold_shares is the share count that actually matched, and fill_price is
     the SELL fill price of the HELD side's token (i.e. the NO-token price for
     a NO position) — together the real proceeds, so _close can realize the
     sold chunk at the price it actually sold for. Both are None when no CLOB
-    sell happened.
+    sell happened. topup_cost_usd/topup_shares are the real dollars spent and
+    tokens received by a dust top-up BUY (top-up-and-sell; 0.0/0.0 when none
+    happened) — _close MUST fold them into the position's basis and holding
+    whatever the outcome, or PnL conservation breaks.
 
-      - ("closed", None, None, None, None): nothing to sell on the exchange —
-        every close while DRY_RUN and every resolution close (settles
-        on-chain) skip the CLOB, so the local close is always safe to record
-        as a simulated/settled fill at the marked price.
-      - ("closed", order_id, remaining, sold, price): the live SELL flattened
-        everything it set out to (any remainder is dust); record the close
-        with the real Polymarket order_id.
-      - ("partial", order_id, remaining, sold, price): the SELL filled but
+      - ("closed", None, None, None, None, 0, 0): nothing to sell on the
+        exchange — every close while DRY_RUN and every resolution close
+        (settles on-chain) skip the CLOB, so the local close is always safe to
+        record as a simulated/settled fill at the marked price.
+      - ("closed", order_id, remaining, sold, price, ...): the live SELL
+        flattened everything it set out to (any remainder is dust); record the
+        close with the real Polymarket order_id.
+      - ("partial", order_id, remaining, sold, price, ...): the SELL filled but
         `remaining` tokens are STILL HELD on-chain (thin book / partial fill).
         The caller must KEEP the position open, shrink token_count to
         `remaining`, and realize only the sold chunk — recording a close here
         would hide live exposure.
-      - ("failed", None, None, None, None): the live SELL could NOT be
+      - ("failed", None, None, None, None, ...): the live SELL could NOT be
         confirmed (close_failed, a thin/empty/wide book, or a missing client).
         We still hold the full position on-chain, so the caller MUST keep it
         open and NOT record the close.
+
+    Top-up-and-sell: on an EXPLICIT full-close attempt (exit_reason in
+    TOPUP_EXIT_REASONS — manual, hard stop, time-pressure) of a position whose
+    real holding (token_count) is below the exchange minimums, the executor may
+    first buy a small top-up (capped by config.TOPUP_MAX_USD) so the combined
+    holding becomes sellable. Never triggered spontaneously (re-evals,
+    half-closes, resolution and dry-run paths pass allow_topup=False).
 
     CRITICAL: a recorded close on an unconfirmed/partial sell silently hides live
     exposure. Only a confirmed full 'closed' (or a no-sell-needed close) may
@@ -657,7 +674,7 @@ def _live_close(
             "— close recorded locally only for \"%s\"",
             config.DRY_RUN, exit_reason, position["market_question"][:40],
         )
-        return "closed", None, None, None, None
+        return "closed", None, None, None, None, 0.0, 0.0
     # Prefer the real filled token_count (the BUY filled at the ask, so deriving
     # shares from amount_usd / entry_yes_price over-counts); scale by the close
     # fraction. Falls back to the derivation for dry-run/legacy positions.
@@ -671,14 +688,25 @@ def _live_close(
         position["condition_id"], position["side"], fraction, shares, exit_reason,
         position["market_question"][:40],
     )
+    # Top-up-and-sell is only armed on an explicit full-close attempt of a
+    # position whose real holding is known (token_count recorded at open):
+    # never on re-eval decisions, half-closes, or spontaneously.
+    allow_topup = (
+        fraction >= 1.0
+        and exit_reason in TOPUP_EXIT_REASONS
+        and bool(position.get("token_count"))
+    )
     result = executor.close_position_live(
-        position["condition_id"], position["side"], shares
+        position["condition_id"], position["side"], shares,
+        allow_topup=allow_topup,
     )
     log.info(
         "[positions] _live_close: close_position_live returned status=%s order_id=%s "
-        "price=%s shares=%s", result["status"], result.get("order_id"),
-        result.get("price"), result.get("shares"),
+        "price=%s shares=%s topup_shares=%s", result["status"], result.get("order_id"),
+        result.get("price"), result.get("shares"), result.get("topup_shares"),
     )
+    topup_cost = result.get("topup_cost_usd") or 0.0
+    topup_shares = result.get("topup_shares") or 0.0
     if result["status"] == "executed":
         sold = result.get("sold_shares", result.get("shares"))
         log.info(
@@ -687,7 +715,7 @@ def _live_close(
             f"{result['price']} on \"{position['market_question'][:40]}\""
         )
         return ("closed", result["order_id"], result.get("remaining_shares"),
-                sold, result.get("price"))
+                sold, result.get("price"), topup_cost, topup_shares)
     if result["status"] == "partial_close":
         # Sold part of the holding; tokens still remain on-chain. Keep the position
         # open and let the caller shrink token_count to the real remainder and
@@ -699,8 +727,11 @@ def _live_close(
             f"{remaining} tokens remain — position kept OPEN, close NOT recorded"
         )
         return ("partial", result["order_id"], remaining,
-                result.get("sold_shares"), result.get("price"))
+                result.get("sold_shares"), result.get("price"),
+                topup_cost, topup_shares)
     # SELL not confirmed. Do NOT record the close — keep the position open.
+    # A top-up that filled before the failure is still passed through: the
+    # bought tokens/dollars are real and must land in the basis.
     detail = result.get("error")
     log.error(
         f"[positions] LIVE CLOSE FAILED (status {result['status']}"
@@ -708,7 +739,7 @@ def _live_close(
         + f") on \"{position['market_question'][:40]}\" — position kept OPEN, "
         "close NOT recorded (we still hold this on-chain)"
     )
-    return "failed", None, None, None, None
+    return "failed", None, None, None, None, topup_cost, topup_shares
 
 
 def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str,
@@ -730,15 +761,44 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
         "[positions] _close: calling _live_close (position_id=%s, exit_reason=%s, "
         "fraction=%.2f)", position["id"], exit_reason, fraction,
     )
-    outcome, exit_order_id, remaining_shares, sold_shares, fill_price = _live_close(
-        position, exit_reason, fraction
-    )
+    (outcome, exit_order_id, remaining_shares, sold_shares, fill_price,
+     topup_cost, topup_shares) = _live_close(position, exit_reason, fraction)
     log.info(
         "[positions] _close: _live_close returned outcome=%s exit_order_id=%s "
-        "remaining_shares=%s sold_shares=%s fill_price=%s (position_id=%s)",
+        "remaining_shares=%s sold_shares=%s fill_price=%s topup_cost=%s "
+        "topup_shares=%s (position_id=%s)",
         outcome, exit_order_id, remaining_shares, sold_shares, fill_price,
-        position["id"],
+        topup_cost, topup_shares, position["id"],
     )
+    if topup_shares > 0:
+        # A dust top-up BUY filled during this close attempt: real dollars
+        # spent, real tokens received. Fold both into the position FIRST —
+        # every branch below (full close, partial, failed sell) must realize
+        # against the combined basis, and a failed follow-up sell must not
+        # lose the money the top-up spent. Conservation property: the sum of
+        # realized chunks equals total proceeds minus total cost INCLUDING
+        # the top-up.
+        cur = conn.execute(
+            """UPDATE positions SET amount_usd=amount_usd+?,
+               token_count=COALESCE(token_count,0)+?
+               WHERE id=? AND status='open'""",
+            (topup_cost, topup_shares, position["id"]),
+        )
+        if cur.rowcount:
+            position["amount_usd"] = (position["amount_usd"] or 0.0) + topup_cost
+            position["token_count"] = ((position.get("token_count") or 0.0)
+                                       + topup_shares)
+            log.info(
+                "[positions] top-up folded into position %s: basis +$%.2f, "
+                "holding +%.4f sh (top-up-and-sell)",
+                position["id"], topup_cost, topup_shares,
+            )
+        else:
+            log.warning(
+                "[positions] top-up on position %s could NOT be recorded — row "
+                "no longer open (concurrent close won the race); $%.2f of "
+                "top-up cost is unaccounted in the DB", position["id"], topup_cost,
+            )
     amount = position["amount_usd"] or 0.0
     token_count = position.get("token_count")
     # The share count the SELL was sized from (the real holding when known) —

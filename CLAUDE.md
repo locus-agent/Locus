@@ -25,6 +25,7 @@ python cli.py watch          # event-driven pipeline (real-time news -> classify
 python cli.py watch --live   # same, with live trading enabled (DRY_RUN=false)
 python cli.py dashboard       # Textual TUI (read-only)
 python cli.py calibrate       # classification accuracy report
+python cli.py calibration-report  # read-only closed-position analytics (win rates by bucket, Brier scores)
 python cli.py niche           # browse markets within the volume filter
 python cli.py markets         # browse all active markets in target categories
 python cli.py trades          # view trade log from trades.db
@@ -189,7 +190,20 @@ PipelineV2._execute_signals:
   BUY whose reconciled fill lands below `MIN_FILL_USD` (default $1, env-overridable) is a
   dust fill: the executor sells the dust back at the bid (best-effort — it may be under
   the exchange minimums) and records the trade as `dust_fill` instead of opening a
-  managed position, so the headline reservation is released. Dry-run is unaffected. The CLOB
+  managed position, so the headline reservation is released. Dry-run is unaffected. The
+  mirror problem on the close side is handled by top-up-and-sell: when an EXPLICIT close
+  (manual / hard stop / time-pressure — never re-eval decisions, half-closes, or
+  spontaneously) can't place its SELL because the held shares are below the exchange
+  minimums (`MIN_ORDER_SHARES` 5 AND `MIN_ORDER_USD` $1), the executor buys just enough
+  extra shares to clear the minimums (only if the buy costs under `TOPUP_MAX_USD`,
+  default $2; else the dust is left alone) and sells the combined holding; the top-up's
+  cost/tokens are folded into the position's basis whatever happens next, so PnL
+  conservation holds (`plan_topup_buy` / `_execute_topup`, gated by
+  `positions.TOPUP_EXIT_REASONS`). `performance.calibration_report` (surfaced as
+  `cli.py calibration-report`) also reports Brier scores — overall, by category, and by
+  prompt version (inferred by timestamp; the schema has no direct link) — using
+  `trades.confidence` as the predicted win probability, falling back to the
+  entry-implied probability for rows without it. The CLOB
   SDK is an optional dependency, commented out in `requirements.txt` — install it separately
   for live trading. `executor.create_clob_client` signs with `POLYMARKET_PRIVATE_KEY` and,
   for a funded deposit wallet, `POLYMARKET_FUNDER_ADDRESS` + `POLYMARKET_SIGNATURE_TYPE`

@@ -128,12 +128,18 @@ def _install_fake_clob(monkeypatch, captured, book,
     """Fake CLOB client. `outcomes` sets the real outcome labels get_market
     reports (default YES/NO; pass ("Up","Down") to exercise the positional
     fallback). `fill_result` is what get_order returns on reconcile (default a
-    fully MATCHED order, so the SELL confirms as executed). `held_balance`, when
+    fully MATCHED order, so the SELL confirms as executed) — pass a LIST to
+    script several orders in sequence (e.g. a top-up BUY then the SELL), each
+    reconcile consuming the next entry. `held_balance`, when
     given (in shares), makes get_balance_allowance report that on-chain holding
     so the close's balance-cap can be exercised; None (default) omits the method
-    entirely, matching a client release that lacks it (no cap applied)."""
+    entirely, matching a client release that lacks it (no cap applied).
+
+    Every created order is appended to captured["orders"] (in order), with
+    captured["order_args"] still the most recent one for older tests."""
     if fill_result is None:
         fill_result = {"status": "MATCHED", "size_matched": "9999"}
+    fill_queue = list(fill_result) if isinstance(fill_result, list) else None
     # The close path reconciles after ORDER_RECONCILE_WAIT_SECONDS — keep tests fast.
     monkeypatch.setattr(config, "ORDER_RECONCILE_WAIT_SECONDS", 0)
 
@@ -166,6 +172,7 @@ def _install_fake_clob(monkeypatch, captured, book,
 
         def create_order(self, order_args, options=None):
             captured["order_args"] = order_args
+            captured.setdefault("orders", []).append(order_args)
             captured["options"] = options
             return "signed-order"
 
@@ -175,6 +182,8 @@ def _install_fake_clob(monkeypatch, captured, book,
 
         def get_order(self, order_id):
             captured["reconciled"] = order_id
+            if fill_queue is not None:
+                return fill_queue.pop(0)
             return fill_result
 
         def cancel_order(self, payload):
@@ -333,7 +342,7 @@ def test_live_close_places_order_and_records_id(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", False)
     calls = []
 
-    def fake_close(condition_id, side, shares, max_spread=None):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
         calls.append((condition_id, side, round(shares, 4)))
         return {"status": "executed", "order_id": "LIVE-999", "price": 0.6, "shares": shares}
 
@@ -361,7 +370,7 @@ def test_live_close_sells_recorded_token_count(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", False)
     calls = []
 
-    def fake_close(condition_id, side, shares, max_spread=None):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
         calls.append((condition_id, side, round(shares, 4)))
         return {"status": "executed", "order_id": "LIVE-777", "price": 0.6, "shares": shares}
 
@@ -391,7 +400,8 @@ def test_half_close_sells_half_the_token_count(tmp_db, monkeypatch):
     calls = []
     monkeypatch.setattr(
         executor, "close_position_live",
-        lambda cid, side, shares, max_spread=None: calls.append(round(shares, 4)) or
+        lambda cid, side, shares, max_spread=None, allow_topup=False:
+        calls.append(round(shares, 4)) or
         {"status": "executed", "order_id": "LIVE-H", "price": 0.6, "shares": shares},
     )
 
@@ -698,6 +708,132 @@ def test_full_close_marks_position_closed(tmp_db, monkeypatch):
     ).fetchone()["status"]
     conn.close()
     assert status == "closed_manual"
+
+
+# --- top-up-and-sell: dust positions below the exchange minimums ---------------
+
+def test_plan_topup_buy_sizes_over_both_minimums():
+    # Position 54's shape: 3.25 sh at a 0.05 bid — below 5 shares AND $1.
+    # Sellable target at the bid: max(5, ceil(1/0.05)) = 20 sh -> top-up 16.75,
+    # but the BUY itself must clear the minimums at the 0.06 ask and snap UP to
+    # the CLOB size step (0.5 sh at 0.06) -> 17.0 sh, est $1.02.
+    buy, cost, status = executor.plan_topup_buy(3.25, best_bid=0.05, best_ask=0.06)
+    assert status == "ok"
+    assert buy == pytest.approx(17.0)
+    assert cost == pytest.approx(1.02)
+
+
+def test_plan_topup_buy_not_dust_when_holding_clears_minimums():
+    # 10 sh worth $5 at the bid clears both minimums — the thin-book skip was
+    # depth-driven, so no top-up.
+    _, _, status = executor.plan_topup_buy(10.0, best_bid=0.50, best_ask=0.52)
+    assert status == "not_dust"
+
+
+def test_plan_topup_buy_respects_cost_cap():
+    # 2 sh at a 0.45 ask: the smallest placeable BUY is 5 sh = $2.25, over the
+    # $2.00 TOPUP_MAX_USD cap — leave the dust alone.
+    _, _, status = executor.plan_topup_buy(2.0, best_bid=0.42, best_ask=0.45)
+    assert status == "topup_too_expensive"
+
+
+def _dust_book():
+    # 3.25 sh held at bid 0.05 / ask 0.06 — unsellable (< 5 sh, < $1 notional).
+    return types.SimpleNamespace(bids=[_level(0.05, 1000)], asks=[_level(0.06, 1000)])
+
+
+def test_close_dust_tops_up_then_fully_sells(monkeypatch):
+    # The full top-up-and-sell path: BUY 17 sh @ 0.06 ($1.02), then SELL the
+    # combined 20.25 sh (snapped to 20.2) @ 0.05, remainder 0.05 sh is dust.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, _dust_book(), held_balance=3.25,
+                       fill_result=[
+                           {"status": "MATCHED", "size_matched": "17"},    # BUY
+                           {"status": "MATCHED", "size_matched": "20.2"},  # SELL
+                       ])
+
+    result = executor.close_position_live("cond1", "YES", 3.25, max_spread=0.05,
+                                          allow_topup=True)
+
+    assert result["status"] == "executed"
+    assert result["topup_shares"] == pytest.approx(17.0)
+    assert result["topup_cost_usd"] == pytest.approx(1.02)
+    assert result["sold_shares"] == pytest.approx(20.2)
+    assert result["price"] == 0.05
+    assert result["remaining_shares"] == pytest.approx(0.05)
+    # exactly two orders: the top-up BUY at the ask, then the SELL at the bid
+    orders = captured["orders"]
+    assert [o.side for o in orders] == ["BUY", "SELL"]
+    assert orders[0].price == pytest.approx(0.06)
+    assert orders[0].size == pytest.approx(17.0)
+    assert orders[1].price == pytest.approx(0.05)
+    assert orders[1].size == pytest.approx(20.2)
+
+
+def test_close_dust_topup_too_expensive_leaves_dust(monkeypatch):
+    # The smallest placeable BUY costs $2.25 (>= TOPUP_MAX_USD $2) — no order is
+    # placed at all and the close skips exactly as before the feature.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    book = types.SimpleNamespace(bids=[_level(0.42, 1000)], asks=[_level(0.45, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book, held_balance=2.0)
+
+    result = executor.close_position_live("cond1", "YES", 2.0, max_spread=0.05,
+                                          allow_topup=True)
+
+    assert result["status"] == "skipped_thin_book"
+    assert "topup_shares" not in result
+    assert "orders" not in captured  # no BUY, no SELL — nothing hit the exchange
+
+
+def test_close_dust_without_allow_topup_never_buys(monkeypatch):
+    # Trigger discipline: the same dust holding with allow_topup unset (the
+    # default) skips exactly as today — no spontaneous buying.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, _dust_book(), held_balance=3.25)
+
+    result = executor.close_position_live("cond1", "YES", 3.25, max_spread=0.05)
+
+    assert result["status"] == "skipped_thin_book"
+    assert "topup_shares" not in result
+    assert "orders" not in captured
+
+
+def test_topup_armed_only_for_explicit_close_reasons(tmp_db, monkeypatch):
+    # _live_close arms allow_topup only for explicit close attempts (manual /
+    # hard stop / time-pressure) on a full close of a position whose real
+    # holding is known — never for Claude re-eval decisions or half-closes.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    seen = []
+
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+        seen.append(allow_topup)
+        return {"status": "executed", "order_id": "X", "price": 0.5,
+                "shares": shares, "sold_shares": shares, "remaining_shares": 0.0}
+
+    monkeypatch.setattr(executor, "close_position_live", fake_close)
+
+    cases = [
+        ("manual", 1.0, 40.0, True),
+        ("sl", 1.0, 40.0, True),
+        ("time_pressure", 1.0, 40.0, True),
+        ("tp_decision", 1.0, 40.0, False),   # Claude decision, not explicit
+        ("news_decision", 1.0, 40.0, False),
+        ("manual", 0.5, 40.0, False),        # half-close never tops up
+        ("manual", 1.0, None, False),        # no token_count -> holding unknown
+    ]
+    for reason, fraction, token_count, expected in cases:
+        pos = _open(tmp_db, token_count=token_count)
+        conn = tmp_db._conn()
+        positions._close(conn, pos, 0.50, "closed_x", reason, fraction)
+        conn.commit()
+        conn.close()
+        assert seen[-1] is expected, f"exit_reason={reason} fraction={fraction}"
 
 
 def test_stop_loss_does_not_close_on_failed_sell(tmp_db, monkeypatch):

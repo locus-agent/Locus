@@ -56,6 +56,14 @@ MIN_ORDER_SHARES = float(os.getenv("MIN_ORDER_SHARES", "5.0"))
 # bid (best-effort) and records the trade as status='dust_fill' instead of
 # opening a managed position. Dry-run is unaffected (no real fills there).
 MIN_FILL_USD = float(os.getenv("MIN_FILL_USD", "1.00"))
+# Dust-position top-up ("top-up-and-sell"): when an explicit close (manual /
+# stop-loss / time-pressure) can't place its SELL because the held shares are
+# below the exchange minimums (MIN_ORDER_SHARES shares AND MIN_ORDER_USD
+# notional), the executor may BUY just enough extra shares to lift the holding
+# over the minimums and then sell the whole thing. The top-up BUY is only
+# placed when its estimated cost is under TOPUP_MAX_USD; otherwise the dust is
+# left alone, exactly as before.
+TOPUP_MAX_USD = float(os.getenv("TOPUP_MAX_USD", "2.00"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 # Public trades feed (no auth). The CLOB /data/trades endpoint requires API

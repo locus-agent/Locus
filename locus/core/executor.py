@@ -145,6 +145,96 @@ def plan_live_sell(
     return best_bid, sell_shares, "ok"
 
 
+def plan_topup_buy(
+    held_shares: float, best_bid: float, best_ask: float
+) -> tuple[float | None, float | None, str]:
+    """Size the top-up BUY that lifts a dust holding over the exchange sell
+    minimums (top-up-and-sell, from guberm/polymarket-bot).
+
+    A holding below MIN_ORDER_SHARES or below MIN_ORDER_USD notional at the bid
+    can never be sold — every close attempt dies as skipped_thin_book forever.
+    The fix: buy enough extra shares that the COMBINED holding clears both sell
+    minimums at the bid, then sell everything. The BUY itself must also clear
+    the exchange minimums at the ask, and is snapped UP to a CLOB-valid size
+    step (never down — a short buy leaves the holding still unsellable).
+
+    Returns (buy_shares, est_cost_usd, "ok"), or (None, None, reason):
+      - "not_dust": the holding already clears the sell minimums — no top-up
+        needed (the thin-book skip was depth-driven, not holding-driven).
+      - "topup_too_expensive": est cost >= config.TOPUP_MAX_USD — leave the
+        dust alone, exactly as before this feature.
+    """
+    if (held_shares >= config.MIN_ORDER_SHARES
+            and held_shares * best_bid >= config.MIN_ORDER_USD):
+        return None, None, "not_dust"
+    # The combined holding must be sellable at the BID...
+    target_shares = max(config.MIN_ORDER_SHARES,
+                        math.ceil(config.MIN_ORDER_USD / best_bid))
+    top_up = max(target_shares - held_shares, 0.0)
+    # ...and the top-up BUY itself must be placeable at the ASK.
+    buy_shares = max(top_up, config.MIN_ORDER_SHARES,
+                     config.MIN_ORDER_USD / best_ask)
+    step = valid_size_step(best_ask)
+    if step > 0:
+        buy_shares = round(math.ceil(buy_shares / step - 1e-9) * step, 4)
+    est_cost = buy_shares * best_ask
+    log.info(
+        "[executor] top-up plan: held %.4f sh (bid %.4f) -> target %.2f sh, "
+        "buy %.4f sh @ ask %.4f (est $%.2f, cap $%.2f)",
+        held_shares, best_bid, target_shares, buy_shares, best_ask, est_cost,
+        config.TOPUP_MAX_USD,
+    )
+    if est_cost >= config.TOPUP_MAX_USD:
+        return None, None, "topup_too_expensive"
+    return buy_shares, round(est_cost, 4), "ok"
+
+
+def _execute_topup(client, token_id: str, held_shares: float,
+                   best_bid: float | None, best_ask: float | None
+                   ) -> tuple[float, float]:
+    """Place and reconcile the top-up BUY for a dust holding.
+
+    Returns (filled_cost_usd, filled_shares) — (0.0, 0.0) when no buy was
+    placed (holding not dust / cap exceeded / no ask) or nothing filled (an
+    unfilled GTC buy is cancelled by reconcile_order, so no money moved).
+    A PARTIAL fill still returns its real cost/shares: those tokens were
+    bought and MUST land in the position's basis even if the follow-up sell
+    can't happen this cycle."""
+    if best_bid is None or best_ask is None or best_ask <= 0:
+        return 0.0, 0.0
+    buy_shares, est_cost, status = plan_topup_buy(held_shares, best_bid, best_ask)
+    if status != "ok":
+        log.info("[executor] top-up NOT placed (%s); dust left as-is", status)
+        return 0.0, 0.0
+
+    from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
+
+    tick_size = _get_tick_size(client, token_id)
+    neg_risk = _get_neg_risk(client, token_id)
+    buy_price = round_to_tick(best_ask, tick_size)
+    order_args = OrderArgs(
+        token_id=token_id, price=buy_price, size=buy_shares, side=Side.BUY,
+    )
+    try:
+        signed = client.create_order(
+            order_args, PartialCreateOrderOptions(tick_size=tick_size, neg_risk=neg_risk)
+        )
+        resp = client.post_order(signed, OrderType.GTC)
+    except Exception as order_exc:
+        _diagnose_order_error(order_exc, token_id, buy_price, buy_shares, "BUY", tick_size)
+        return 0.0, 0.0
+    order_id = resp.get("orderID", resp.get("id", "unknown"))
+    fill_status, fill_cost = reconcile_order(client, order_id, buy_shares, buy_price)
+    if fill_status != "executed" or not fill_cost or not buy_price:
+        log.warning("[executor] top-up BUY %s not filled (reconcile=%s); dust "
+                    "left as-is", order_id, fill_status)
+        return 0.0, 0.0
+    filled_shares = min(round(fill_cost / buy_price, 4), buy_shares)
+    log.info("[executor] top-up BUY filled: %.4f sh @ %.4f ($%.2f, order %s)",
+             filled_shares, buy_price, fill_cost, order_id)
+    return fill_cost, filled_shares
+
+
 def round_to_tick(price: float, tick_size) -> float:
     """Snap `price` to the nearest multiple of `tick_size`, clamped into the
     [tick, 1 - tick] band Polymarket's CLOB enforces (`price_valid`).
@@ -350,7 +440,8 @@ def _resolve_token_id(client, condition_id: str, side: str) -> str | None:
 
 
 def close_position_live(
-    condition_id: str, side: str, shares: float, max_spread: float | None = None
+    condition_id: str, side: str, shares: float, max_spread: float | None = None,
+    allow_topup: bool = False,
 ) -> dict:
     """Flatten `shares` of an open `side` position with a real CLOB SELL.
 
@@ -370,8 +461,27 @@ def close_position_live(
     `sold_shares` is the size that actually matched; `remaining_shares` is what we
     still hold on-chain afterwards (the source of truth). Only 'executed' means the
     position was actually flattened — on 'partial_close' the caller shrinks but
-    keeps the row open; on any other status it leaves the position untouched."""
+    keeps the row open; on any other status it leaves the position untouched.
+
+    `allow_topup=True` enables top-up-and-sell: when the SELL is unplaceable
+    because the HOLDING ITSELF is below the exchange minimums (not merely
+    depth-capped), a small BUY lifts it over the minimums first (see
+    plan_topup_buy; capped by config.TOPUP_MAX_USD), then the combined holding
+    is sold. Whenever a top-up BUY filled — even if the follow-up sell then
+    failed — the result carries `topup_cost_usd` / `topup_shares` so the caller
+    folds the real dollars spent and tokens received into the position's cost
+    basis; conservation of PnL depends on it."""
     max_spread = config.LIVE_MAX_SPREAD if max_spread is None else max_spread
+    # Top-up accounting hoisted outside the try: once the BUY fills, every exit
+    # path (including the outer exception handler) must report it.
+    topup_cost = 0.0
+    topup_shares = 0.0
+
+    def _with_topup(result: dict) -> dict:
+        if topup_shares > 0:
+            result["topup_cost_usd"] = round(topup_cost, 4)
+            result["topup_shares"] = topup_shares
+        return result
     log.info(
         "[executor] close_position_live START: condition_id=%s side=%s shares=%.4f "
         "max_spread=%.3f", condition_id, side, shares, max_spread,
@@ -407,10 +517,27 @@ def close_position_live(
         price, sell_shares, status = plan_live_sell(
             shares, best_bid, best_ask, bid_size, max_spread
         )
+        # Top-up-and-sell: the SELL is unplaceable because the holding itself is
+        # below the exchange minimums (a dust position no close can ever
+        # flatten). Buy just enough to clear the minimums, then sell everything.
+        # Only on explicit close attempts (the caller gates allow_topup) and
+        # only when the holding — not the bid depth — is the blocker.
+        if status == "skipped_thin_book" and allow_topup:
+            topup_cost, topup_shares = _execute_topup(
+                client, token_id, shares, best_bid, best_ask
+            )
+            if topup_shares > 0:
+                shares += topup_shares
+                if held is not None:
+                    held += topup_shares
+                price, sell_shares, status = plan_live_sell(
+                    shares, best_bid, best_ask, bid_size, max_spread
+                )
         if status != "ok":
             log.warning("[executor] close SKIPPED: plan_live_sell -> %s (no SELL placed, "
                         "position stays open)", status)
-            return {"status": status, "order_id": None, "price": None, "shares": None}
+            return _with_topup(
+                {"status": status, "order_id": None, "price": None, "shares": None})
 
         tick_size = _get_tick_size(client, token_id)
         neg_risk = _get_neg_risk(client, token_id)
@@ -433,9 +560,10 @@ def close_position_live(
             _diagnose_order_error(order_exc, token_id, price, sell_shares, "SELL", tick_size)
             # The SELL was rejected — the position is still held on-chain. Report
             # close_failed so the caller keeps the local position open.
-            return {"status": "close_failed", "order_id": None, "price": None,
-                    "shares": None, "error": str(getattr(order_exc, "error_msg", None)
-                                                 or order_exc)}
+            return _with_topup(
+                {"status": "close_failed", "order_id": None, "price": None,
+                 "shares": None, "error": str(getattr(order_exc, "error_msg", None)
+                                              or order_exc)})
         order_id = resp.get("orderID", resp.get("id", "unknown"))
         log.info("[executor] SELL posted: order_id=%s; reconciling in %ss",
                  order_id, config.ORDER_RECONCILE_WAIT_SECONDS)
@@ -476,17 +604,19 @@ def close_position_live(
                 log.info("[executor] close CONFIRMED (flat): sold %.4f sh token=%s @ "
                          "%.4f (order %s); %.4f sh intent unsold (dust)", sold_shares,
                          token_id, price, order_id, unsold_intent)
-                return {"status": "executed", "order_id": order_id, "price": price,
-                        "shares": sold_shares, "sold_shares": sold_shares,
-                        "remaining_shares": remaining_shares}
+                return _with_topup(
+                    {"status": "executed", "order_id": order_id, "price": price,
+                     "shares": sold_shares, "sold_shares": sold_shares,
+                     "remaining_shares": remaining_shares})
 
             log.warning("[executor] PARTIAL close: sold %.4f of intended %.4f sh — "
                         "%.4f sh REMAIN held for token=%s (order %s); position must "
                         "stay open", sold_shares, intended_shares, remaining_shares,
                         token_id, order_id)
-            return {"status": "partial_close", "order_id": order_id, "price": price,
-                    "shares": sold_shares, "sold_shares": sold_shares,
-                    "remaining_shares": remaining_shares}
+            return _with_topup(
+                {"status": "partial_close", "order_id": order_id, "price": price,
+                 "shares": sold_shares, "sold_shares": sold_shares,
+                 "remaining_shares": remaining_shares})
         # Unconfirmed (resting/unknown): the position is NOT flattened. Cancel the
         # resting order so it can't fill later untracked, and report close_failed
         # so the caller keeps the local position open and retries next cycle.
@@ -494,8 +624,9 @@ def close_position_live(
                     "cancelling and reporting close_failed; position stays open",
                     fill_status, order_id)
         cancel_order_safe(client, order_id)
-        return {"status": "close_failed", "order_id": None, "price": None, "shares": None,
-                "error": f"SELL not confirmed (reconcile={fill_status})"}
+        return _with_topup(
+            {"status": "close_failed", "order_id": None, "price": None, "shares": None,
+             "error": f"SELL not confirmed (reconcile={fill_status})"})
 
     except ImportError:
         log.error("[executor] close FAILED: py_clob_client_v2 not installed")
@@ -504,8 +635,11 @@ def close_position_live(
         log.error("[executor] close FAILED with %s: %s", type(e).__name__, e, exc_info=True)
         # Any other failure (client build, token resolve, book fetch) means the
         # SELL never went through — surface close_failed, not a recorded close.
-        return {"status": "close_failed", "order_id": None, "price": None,
-                "shares": None, "error": f"{type(e).__name__}: {e}"}
+        # A top-up that already filled is still reported: the caller must fold
+        # those real dollars/tokens into the basis even on a failed close.
+        return _with_topup(
+            {"status": "close_failed", "order_id": None, "price": None,
+             "shares": None, "error": f"{type(e).__name__}: {e}"})
 
 
 def held_token_shares(client, token_id: str) -> float | None:
