@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T11:38:38.829308+00:00",
-  "last_heartbeat": "2026-07-02T11:38:38.829308+00:00",
-  "uptime_seconds": 47025,
+  "generated_at": "2026-07-02T11:43:50.927099+00:00",
+  "last_heartbeat": "2026-07-02T11:43:50.927099+00:00",
+  "uptime_seconds": 47337,
   "dry_run": false,
   "markets_tracked": 1281,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 323,
-  "headlines_last_cycle": 4,
+  "headlines_scanned_today": 325,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6482,
+  "classifications_24h": 6487,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2648,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1722,
-    "matched": 717,
-    "classified": 6482,
+    "news": 1724,
+    "matched": 718,
+    "classified": 6487,
     "signals": 3,
     "trades": 3
   },
@@ -135,8 +135,8 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.11,
-    "total_pnl_usd": 40.07,
+    "unrealized_pnl_usd": -4.37,
+    "total_pnl_usd": 39.81,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -195,7 +195,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.05499999999999999,
+      "current_price": 0.05499999999999994,
       "pnl_pct": -23.61,
       "amount_usd": 0.2340000000000004,
       "current_value_usd": 0.18,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0945,
+      "current_price": 0.09450000000000003,
       "pnl_pct": -5.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.89,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -251,11 +251,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.53,
-      "pnl_pct": -4.08,
+      "current_price": 0.5349999999999999,
+      "pnl_pct": -5.1,
       "amount_usd": 24.99,
-      "current_value_usd": 23.97,
-      "pnl_usd": -1.02,
+      "current_value_usd": 23.72,
+      "pnl_usd": -1.27,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 11:38:38",
+      "time": "2026-07-02 11:43:50",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,16 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 11:38:07",
+      "time": "2026-07-02 11:43:19",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -24.31
+    },
+    {
+      "time": "2026-07-02 11:42:48",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +425,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 11:37:37",
+      "time": "2026-07-02 11:42:17",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,16 +434,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 11:37:06",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.61
-    },
-    {
-      "time": "2026-07-02 11:36:35",
+      "time": "2026-07-02 11:41:47",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,41 +445,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 11:38:34",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "\u2018I think we\u2019re nearing the bottom\u2019: Bitwise CIO says Strategy\u2019s STRC selloff is part of bitcoin\u2019s end-of-cycle dynamics",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 11:38:34",
-      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
-      "headline": "\u2018I think we\u2019re nearing the bottom\u2019: Bitwise CIO says Strategy\u2019s STRC selloff is part of bitcoin\u2019s end-of-cycle dynamics",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 11:38:34",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Oil falls for a third straight day after US, Iran conclude talks in Doha - Reuters",
+      "time": "2026-07-02 11:42:50",
+      "market_question": "Will Tom Cotton be the next Senate Majority Leader?",
+      "headline": "Grooming gang leader released from prison",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,9 +461,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 11:38:34",
-      "market_question": "Will OpenAI\u2019s market cap be between $1T and $1.25T at market close on IPO day?",
-      "headline": "Oil falls for a third straight day after US, Iran conclude talks in Doha - Reuters",
+      "time": "2026-07-02 11:42:50",
+      "market_question": "Will Mark Kelly be the next Senate Majority Leader?",
+      "headline": "Grooming gang leader released from prison",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -509,9 +477,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 11:38:34",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "headline": "Oil falls for a third straight day after US, Iran conclude talks in Doha - Reuters",
+      "time": "2026-07-02 11:42:50",
+      "market_question": "Will Patty Murray be the next Senate Majority Leader?",
+      "headline": "Grooming gang leader released from prison",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 11:42:50",
+      "market_question": "Will John Barrasso be the next Senate Majority Leader?",
+      "headline": "Grooming gang leader released from prison",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 11:42:50",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Grooming gang leader released from prison",
       "direction": null,
       "materiality": null,
       "confidence": null,
