@@ -232,14 +232,20 @@ def pnl_pct_basis(position: dict, yes_price_now: float) -> float:
 
 
 def position_cost_basis(position: dict) -> float:
-    """USD actually paid for the position — the real filled notional
+    """USD actually paid for the CURRENT holding — the real filled cost
     (actual_cost_usd) when known, else the nominal stake (amount_usd).
 
     After share-size rounding and fees a live fill typically costs less than the
     nominal bet (a $25 order fills for ~$21), and Polymarket reports returns
     against what you actually paid. PnL% displays use this so our figures match
     the Polymarket UI; dry-run/legacy rows with no actual_cost_usd fall back to
-    amount_usd, where cost == nominal and nothing changes."""
+    amount_usd, where cost == nominal and nothing changes.
+
+    actual_cost_usd is maintained in lockstep with amount_usd by _close: scaled
+    down by the sold fraction on partial/half closes and increased by a dust
+    top-up's cost, so it always describes the REMAINING holding. (It used to
+    stay frozen at the original open fill — position 54 showed $7.65 against a
+    $1.88 remaining basis after three partial sells and a top-up.)"""
     actual = position.get("actual_cost_usd")
     if actual is not None and actual > 0:
         return actual
@@ -777,17 +783,23 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
         # against the combined basis, and a failed follow-up sell must not
         # lose the money the top-up spent. Conservation property: the sum of
         # realized chunks equals total proceeds minus total cost INCLUDING
-        # the top-up.
+        # the top-up. actual_cost_usd moves in lockstep with amount_usd (both
+        # track the real cost of the REMAINING holding — the position-54
+        # anomaly was actual_cost_usd frozen at the original open fill while
+        # amount_usd was scaled/topped up around it); NULL stays NULL.
         cur = conn.execute(
             """UPDATE positions SET amount_usd=amount_usd+?,
-               token_count=COALESCE(token_count,0)+?
+               token_count=COALESCE(token_count,0)+?,
+               actual_cost_usd=actual_cost_usd+?
                WHERE id=? AND status='open'""",
-            (topup_cost, topup_shares, position["id"]),
+            (topup_cost, topup_shares, topup_cost, position["id"]),
         )
         if cur.rowcount:
             position["amount_usd"] = (position["amount_usd"] or 0.0) + topup_cost
             position["token_count"] = ((position.get("token_count") or 0.0)
                                        + topup_shares)
+            if position.get("actual_cost_usd") is not None:
+                position["actual_cost_usd"] += topup_cost
             log.info(
                 "[positions] top-up folded into position %s: basis +$%.2f, "
                 "holding +%.4f sh (top-up-and-sell)",
@@ -830,12 +842,16 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
             "(realized $%+.2f), %s tokens remain — position kept open",
             position["id"], sold_shares, fill_price, realized, remaining_shares,
         )
+        # actual_cost_usd scales with amount_usd so both keep describing the
+        # real cost of the REMAINING holding (NULL rows stay NULL — SQLite
+        # NULL * x is NULL).
         cur = conn.execute(
             """UPDATE positions SET token_count=?, amount_usd=amount_usd*?,
+               actual_cost_usd=actual_cost_usd*?,
                realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?,
                current_yes_price=? WHERE id=? AND status='open'""",
-            (remaining_shares, 1.0 - sold_fraction, realized, yes_price,
-             position["id"]),
+            (remaining_shares, 1.0 - sold_fraction, 1.0 - sold_fraction,
+             realized, yes_price, position["id"]),
         )
         if cur.rowcount == 0:
             log.warning(
@@ -935,13 +951,15 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
             new_token_count = (token_count * (1.0 - fraction)
                                if token_count else token_count)
         chunk_cost = amount * sold_fraction
+        # actual_cost_usd scales alongside amount_usd (see the partial branch).
         cur = conn.execute(
             """UPDATE positions SET amount_usd=amount_usd*?,
+               actual_cost_usd=actual_cost_usd*?,
                realized_pnl_usd=COALESCE(realized_pnl_usd,0)+?,
                current_yes_price=?, exit_order_id=?, token_count=?
                WHERE id=? AND status='open'""",
-            (1.0 - sold_fraction, realized, yes_price, exit_order_id,
-             new_token_count, position["id"]),
+            (1.0 - sold_fraction, 1.0 - sold_fraction, realized, yes_price,
+             exit_order_id, new_token_count, position["id"]),
         )
         if cur.rowcount == 0:
             log.warning(

@@ -772,6 +772,67 @@ def test_close_dust_tops_up_then_fully_sells(monkeypatch):
     assert orders[1].size == pytest.approx(20.2)
 
 
+def test_bid_depth_within_sums_only_levels_near_reference():
+    # Bids at 0.05 and 0.045 are within 20% of a 0.05 reference (floor 0.04);
+    # the 500 shares resting at 0.007 are dust and must not count.
+    book = types.SimpleNamespace(
+        bids=[_level(0.05, 10), _level(0.045, 20), _level(0.007, 500)],
+        asks=[_level(0.06, 100)],
+    )
+    assert executor.bid_depth_within(book, 0.05, 20.0) == pytest.approx(30.0)
+    # tighter slippage excludes the 0.045 level too (floor 0.0475)
+    assert executor.bid_depth_within(book, 0.05, 5.0) == pytest.approx(10.0)
+
+
+def test_close_dust_topup_skipped_on_zombie_book(monkeypatch, caplog):
+    # The live position-54 failure: the book LOOKS bid-supported but almost all
+    # depth rests at dust prices (0.001-0.007) far below the ~0.05 ask; only
+    # 2 sh sit near the mark. Topping up would buy at 0.05 what can only be
+    # sold at 0.007 — the precheck must refuse BEFORE any money moves.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    book = types.SimpleNamespace(
+        bids=[_level(0.04, 2), _level(0.007, 500), _level(0.001, 5000)],
+        asks=[_level(0.05, 1000)],
+    )
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book, held_balance=3.25)
+
+    with caplog.at_level("WARNING", logger="locus.core.executor"):
+        result = executor.close_position_live("cond1", "YES", 3.25,
+                                              max_spread=0.05, allow_topup=True)
+
+    assert result["status"] == "skipped_thin_book"
+    assert "topup_shares" not in result
+    assert "orders" not in captured  # no BUY was ever placed
+    assert "topup_skipped_no_bid_liquidity" in caplog.text
+
+
+def test_close_dust_topup_proceeds_when_bid_depth_near_mark(monkeypatch):
+    # Dust levels may exist below — what matters is that depth NEAR the ask
+    # covers the post-top-up holding (25 sh at 0.05 >= the 20.25 target).
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    book = types.SimpleNamespace(
+        bids=[_level(0.05, 25), _level(0.001, 99999)],
+        asks=[_level(0.06, 1000)],
+    )
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book, held_balance=3.25,
+                       fill_result=[
+                           {"status": "MATCHED", "size_matched": "17"},    # BUY
+                           {"status": "MATCHED", "size_matched": "20.2"},  # SELL
+                       ])
+
+    result = executor.close_position_live("cond1", "YES", 3.25, max_spread=0.05,
+                                          allow_topup=True)
+
+    assert result["status"] == "executed"
+    assert result["topup_shares"] == pytest.approx(17.0)
+    assert result["sold_shares"] == pytest.approx(20.2)
+    assert [o.side for o in captured["orders"]] == ["BUY", "SELL"]
+
+
 def test_close_dust_topup_too_expensive_leaves_dust(monkeypatch):
     # The smallest placeable BUY costs $2.25 (>= TOPUP_MAX_USD $2) — no order is
     # placed at all and the close skips exactly as before the feature.

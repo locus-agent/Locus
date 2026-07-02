@@ -296,6 +296,8 @@ def test_conservation_topup_and_sell(tmp_db, monkeypatch):
     assert final["status"] == "closed_manual"
     assert final["realized_pnl_usd"] == pytest.approx(-0.17)
     assert final["amount_usd"] == pytest.approx(1.18)  # basis includes top-up
+    # actual_cost_usd tracks the same total real cost (0.16 open + 1.02 top-up)
+    assert final["actual_cost_usd"] == pytest.approx(1.18)
     # the SELL request was sized from the dust holding (top-up happens inside)
     assert requested == [3.25]
 
@@ -324,6 +326,7 @@ def test_conservation_topup_survives_failed_sell(tmp_db, monkeypatch):
     assert mid_row["status"] == "open"                       # sell failed
     assert mid_row["token_count"] == pytest.approx(20.25)    # tokens absorbed
     assert mid_row["amount_usd"] == pytest.approx(1.18)      # cost absorbed
+    assert mid_row["actual_cost_usd"] == pytest.approx(1.18) # in lockstep
 
     chunk2 = _close(tmp_db, mid_row, 0.06)
 
@@ -336,6 +339,44 @@ def test_conservation_topup_survives_failed_sell(tmp_db, monkeypatch):
     assert final["status"] == "closed_manual"
     # the retry sized its SELL from the topped-up holding, not the stale 3.25
     assert requested == [3.25, 20.25]
+
+
+def test_actual_cost_stays_consistent_with_amount(tmp_db, monkeypatch):
+    # actual_cost_usd must move in lockstep with amount_usd through every basis
+    # change — both describe the real cost of the REMAINING holding: scaled by
+    # the sold fraction on a partial sell, increased by a top-up. Position 54's
+    # anomaly: actual_cost_usd stayed frozen at the original $7.65 open fill
+    # while three partial closes scaled amount_usd to $0.23 and a top-up lifted
+    # it to $1.88, so return-on-cost displays divided by a holding that no
+    # longer existed.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    _scripted_seller(monkeypatch, [
+        {"status": "partial_close", "order_id": "P1", "price": 0.68,
+         "shares": 15.0, "sold_shares": 15.0, "remaining_shares": 25.0},
+        {"status": "close_failed", "order_id": None, "price": None,
+         "shares": None, "error": "SELL not confirmed",
+         "topup_cost_usd": 1.02, "topup_shares": 17.0},
+        {"status": "executed", "order_id": "S2", "price": 0.50, "shares": 42.0,
+         "sold_shares": 42.0, "remaining_shares": 0.0},
+    ])
+    tid = _open_live(tmp_db)  # 40 sh for $24 (amount == actual_cost == 24)
+
+    r1 = _close(tmp_db, _row(tmp_db, tid), 0.70)           # partial: 15 of 40
+    row = _row(tmp_db, tid)
+    assert row["amount_usd"] == pytest.approx(15.0)         # 24 * 25/40
+    assert row["actual_cost_usd"] == pytest.approx(15.0)    # scaled in lockstep
+
+    r2 = _close(tmp_db, row, 0.70)                          # top-up, sell fails
+    row = _row(tmp_db, tid)
+    assert row["amount_usd"] == pytest.approx(16.02)        # 15 + 1.02
+    assert row["actual_cost_usd"] == pytest.approx(16.02)   # in lockstep
+    assert row["token_count"] == pytest.approx(42.0)        # 25 + 17
+
+    r3 = _close(tmp_db, row, 0.50)                          # final: 42 @ 0.50
+    # conservation incl. the top-up:
+    # proceeds (15*0.68 + 42*0.50 = 31.20) - cost (24 + 1.02 = 25.02) = 6.18
+    assert r1 + r2 + r3 == pytest.approx((15 * 0.68 + 42 * 0.50) - (24.0 + 1.02))
+    assert _row(tmp_db, tid)["status"] == "closed_manual"
 
 
 def test_conservation_dry_run_parity(tmp_db):

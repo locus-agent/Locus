@@ -64,6 +64,12 @@ MIN_FILL_USD = float(os.getenv("MIN_FILL_USD", "1.00"))
 # placed when its estimated cost is under TOPUP_MAX_USD; otherwise the dust is
 # left alone, exactly as before.
 TOPUP_MAX_USD = float(os.getenv("TOPUP_MAX_USD", "2.00"))
+# Liquidity precheck before any top-up BUY: the post-top-up holding must be
+# plausibly sellable near what the top-up pays — cumulative bid depth priced
+# within this % below the top-up's ask must cover the target share count.
+# Guards against zombie books (bids only at dust levels like 0.007 under a
+# 0.05 mark), where topping up just buys more of an unsellable asset.
+TOPUP_MAX_BID_SLIPPAGE_PCT = float(os.getenv("TOPUP_MAX_BID_SLIPPAGE_PCT", "20"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 # Public trades feed (no auth). The CLOB /data/trades endpoint requires API

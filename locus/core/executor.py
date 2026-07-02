@@ -189,22 +189,56 @@ def plan_topup_buy(
     return buy_shares, round(est_cost, 4), "ok"
 
 
+def bid_depth_within(book, reference_price: float, max_slippage_pct: float) -> float:
+    """Cumulative bid-side depth (in shares) priced within `max_slippage_pct`
+    percent below `reference_price` — i.e. the shares that could plausibly be
+    sold without giving up more than that slippage.
+
+    Zombie books look healthy at a glance (19 resting bid levels) while every
+    level sits at dust prices (0.001-0.007 under a 0.05 mark); summing only the
+    levels near the reference exposes them. Tolerates dict- and
+    attribute-shaped books via book_side/book_level_price_size."""
+    floor = reference_price * (1.0 - max_slippage_pct / 100.0)
+    depth = 0.0
+    for level in book_side(book, "bids"):
+        p, s = book_level_price_size(level)
+        if p >= floor:
+            depth += s
+    return depth
+
+
 def _execute_topup(client, token_id: str, held_shares: float,
-                   best_bid: float | None, best_ask: float | None
-                   ) -> tuple[float, float]:
+                   best_bid: float | None, best_ask: float | None,
+                   book) -> tuple[float, float]:
     """Place and reconcile the top-up BUY for a dust holding.
 
     Returns (filled_cost_usd, filled_shares) — (0.0, 0.0) when no buy was
-    placed (holding not dust / cap exceeded / no ask) or nothing filled (an
-    unfilled GTC buy is cancelled by reconcile_order, so no money moved).
-    A PARTIAL fill still returns its real cost/shares: those tokens were
-    bought and MUST land in the position's basis even if the follow-up sell
-    can't happen this cycle."""
+    placed (holding not dust / cap exceeded / no ask / no bid liquidity near
+    the ask) or nothing filled (an unfilled GTC buy is cancelled by
+    reconcile_order, so no money moved). A PARTIAL fill still returns its real
+    cost/shares: those tokens were bought and MUST land in the position's
+    basis even if the follow-up sell can't happen this cycle."""
     if best_bid is None or best_ask is None or best_ask <= 0:
         return 0.0, 0.0
     buy_shares, est_cost, status = plan_topup_buy(held_shares, best_bid, best_ask)
     if status != "ok":
         log.info("[executor] top-up NOT placed (%s); dust left as-is", status)
+        return 0.0, 0.0
+
+    # Liquidity precheck BEFORE spending anything: the post-top-up holding must
+    # be plausibly sellable near what the top-up pays (the ask — the executor's
+    # local proxy for the mark). On a zombie book the resting bids all sit at
+    # dust prices far below; buying there just makes the unsellable pile
+    # bigger (position 54: bids 0.001-0.007 under a ~0.05 mark).
+    target_shares = held_shares + buy_shares
+    depth_near = bid_depth_within(book, best_ask, config.TOPUP_MAX_BID_SLIPPAGE_PCT)
+    if depth_near < target_shares:
+        log.warning(
+            "[executor] topup_skipped_no_bid_liquidity: only %.2f sh of bids "
+            "within %.0f%% of the %.4f ask (need %.2f to exit) — zombie book, "
+            "dust left as-is",
+            depth_near, config.TOPUP_MAX_BID_SLIPPAGE_PCT, best_ask, target_shares,
+        )
         return 0.0, 0.0
 
     from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
@@ -524,7 +558,7 @@ def close_position_live(
         # only when the holding — not the bid depth — is the blocker.
         if status == "skipped_thin_book" and allow_topup:
             topup_cost, topup_shares = _execute_topup(
-                client, token_id, shares, best_bid, best_ask
+                client, token_id, shares, best_bid, best_ask, book
             )
             if topup_shares > 0:
                 shares += topup_shares

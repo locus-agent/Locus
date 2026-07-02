@@ -199,7 +199,15 @@ PipelineV2._execute_signals:
   default $2; else the dust is left alone) and sells the combined holding; the top-up's
   cost/tokens are folded into the position's basis whatever happens next, so PnL
   conservation holds (`plan_topup_buy` / `_execute_topup`, gated by
-  `positions.TOPUP_EXIT_REASONS`). `performance.calibration_report` (surfaced as
+  `positions.TOPUP_EXIT_REASONS`). Before any top-up BUY, a liquidity precheck
+  (`bid_depth_within`) requires cumulative bid depth priced within
+  `TOPUP_MAX_BID_SLIPPAGE_PCT` (default 20%) of the ask to cover the post-top-up
+  holding — a zombie book whose bids all rest at dust prices (0.001-0.007 under a 0.05
+  mark) logs `topup_skipped_no_bid_liquidity` and leaves the dust alone rather than
+  buying more of an unsellable asset. A position's `actual_cost_usd` is maintained in
+  lockstep with `amount_usd` (scaled by the sold fraction on partial/half closes,
+  increased by a top-up's cost), so both always describe the real cost of the
+  REMAINING holding. `performance.calibration_report` (surfaced as
   `cli.py calibration-report`) also reports Brier scores — overall, by category, and by
   prompt version (inferred by timestamp; the schema has no direct link) — using
   `trades.confidence` as the predicted win probability, falling back to the
