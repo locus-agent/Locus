@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T19:52:41.503880+00:00",
-  "last_heartbeat": "2026-07-02T19:52:41.503880+00:00",
-  "uptime_seconds": 10344,
+  "generated_at": "2026-07-02T19:57:54.512139+00:00",
+  "last_heartbeat": "2026-07-02T19:57:54.512139+00:00",
+  "uptime_seconds": 10657,
   "dry_run": false,
   "markets_tracked": 1296,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1183,
+  "headlines_scanned_today": 1216,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 8026,
+  "classifications_24h": 8122,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3074,
+    "prefiltered_haiku": 3122,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2141,
-    "matched": 793,
-    "classified": 8026,
+    "news": 2171,
+    "matched": 815,
+    "classified": 8122,
     "signals": 2,
     "trades": 2
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.18,
-    "total_pnl_usd": 40.0,
+    "unrealized_pnl_usd": -3.75,
+    "total_pnl_usd": 40.43,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1877.6
+    "avg_classification_latency_ms": 1874.8
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
-      "pnl_pct": -4.31,
+      "current_price": 0.435,
+      "pnl_pct": -2.59,
       "amount_usd": 24.94,
-      "current_value_usd": 23.86,
-      "pnl_usd": -1.08,
+      "current_value_usd": 24.29,
+      "pnl_usd": -0.65,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 19:52:41",
+      "time": "2026-07-02 19:57:54",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:52:10",
+      "time": "2026-07-02 19:57:23",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:51:39",
+      "time": "2026-07-02 19:56:52",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:51:08",
+      "time": "2026-07-02 19:56:21",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:50:37",
+      "time": "2026-07-02 19:55:50",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,9 +445,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 19:50:08",
-      "market_question": "Will Michele Tafoya be the Republican nominee for Senate in Minnesota?",
-      "headline": "Republican Primary Voters - Politico",
+      "time": "2026-07-02 19:56:39",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "AI model retirement, trade bans expose fragility of centralized artificial intelligence - NL Times",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 19:56:39",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "AI model retirement, trade bans expose fragility of centralized artificial intelligence - NL Times",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -461,9 +477,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 19:50:04",
-      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
-      "headline": "Republican Primary Voters - Politico",
+      "time": "2026-07-02 19:56:39",
+      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "headline": "AI model retirement, trade bans expose fragility of centralized artificial intelligence - NL Times",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -472,55 +488,39 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 19:56:39",
+      "market_question": "Will xAI have a #1 AI model by December 31, 2026?",
+      "headline": "AI model retirement, trade bans expose fragility of centralized artificial intelligence - NL Times",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 19:56:39",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "AI model retirement, trade bans expose fragility of centralized artificial intelligence - NL Times",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
       "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 19:49:59",
-      "market_question": "Will Barbara Kirkmeyer win the 2026 Colorado Governor Republican primary election?",
-      "headline": "Republican Primary Voters - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 19:49:59",
-      "market_question": "Will Republicanos (REPUBLICANOS) win the most seats in the next Brazilian Senate election?",
-      "headline": "Republican Primary Voters - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 19:49:59",
-      "market_question": "Will Republican House incumbents not win in between ten and twelve nominating elections in the 2026 cycle?",
-      "headline": "Republican Primary Voters - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
