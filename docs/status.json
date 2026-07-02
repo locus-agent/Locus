@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T03:47:14.205351+00:00",
-  "last_heartbeat": "2026-07-02T03:47:14.205351+00:00",
-  "uptime_seconds": 18741,
+  "generated_at": "2026-07-02T03:52:20.391448+00:00",
+  "last_heartbeat": "2026-07-02T03:52:20.391448+00:00",
+  "uptime_seconds": 19047,
   "dry_run": false,
-  "markets_tracked": 1277,
+  "markets_tracked": 1279,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9903,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 102,
+  "headlines_scanned_today": 103,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6904,
+  "classifications_24h": 6900,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2909,
+    "prefiltered_haiku": 2905,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T03:35:16.437369+00:00"
+    "last_check": "2026-07-02T03:50:16.863170+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1799,
-    "matched": 780,
-    "classified": 6904,
+    "news": 1798,
+    "matched": 779,
+    "classified": 6900,
     "signals": 1,
     "trades": 1
   },
@@ -195,11 +195,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.44499999999999995,
+      "current_price": 0.445,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.87,
-      "pnl_usd": -1.07,
+      "current_value_usd": 23.86,
+      "pnl_usd": -1.08,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -223,11 +223,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.2,
-      "pnl_usd": -1.79,
+      "current_value_usd": 23.21,
+      "pnl_usd": -1.78,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -417,6 +417,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-02 03:47:43",
+      "market_question": "Will Fl\u00e1vio Bolsonaro win the first round of the 2026 Brazilian presidential election by at least 10%?",
+      "headline": "At least eight killed in major missile and drone strikes on Kyiv",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 03:47:43",
+      "market_question": "Will Luiz In\u00e1cio Lula da Silva win the first round of the 2026 Brazilian presidential election by at least 15%?",
+      "headline": "At least eight killed in major missile and drone strikes on Kyiv",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-02 03:43:22",
       "market_question": "Record crypto liquidation in 2026?",
       "headline": "Foreigners dump Asia stocks at record pace as AI winners get crowded - The Standard (HK)",
@@ -463,38 +495,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 03:34:39",
-      "market_question": "Ethereum all time high by September 30, 2026?",
-      "headline": "Belgium stage stunning comeback to sink Senegal in extra time - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 03:34:39",
-      "market_question": "Solana all time high by December 31, 2026?",
-      "headline": "Belgium stage stunning comeback to sink Senegal in extra time - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
