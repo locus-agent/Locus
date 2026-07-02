@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T16:09:48.655638+00:00",
-  "last_heartbeat": "2026-07-02T16:09:48.655638+00:00",
-  "uptime_seconds": 10024,
+  "generated_at": "2026-07-02T16:15:00.794805+00:00",
+  "last_heartbeat": "2026-07-02T16:15:00.794805+00:00",
+  "uptime_seconds": 10336,
   "dry_run": false,
-  "markets_tracked": 1312,
+  "markets_tracked": 1316,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9965,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 756,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 760,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 7238,
+  "classifications_24h": 7244,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2846,
+    "prefiltered_haiku": 2842,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1945,
-    "matched": 724,
-    "classified": 7238,
+    "news": 1947,
+    "matched": 727,
+    "classified": 7244,
     "signals": 3,
     "trades": 3
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.14,
-    "total_pnl_usd": 40.04,
+    "unrealized_pnl_usd": -4.15,
+    "total_pnl_usd": 40.03,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2695.3
+    "avg_classification_latency_ms": 2691.7
   },
   "live_readiness": {
     "ready": true,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.08099999999999996,
-      "pnl_pct": -19.0,
+      "current_price": 0.08050000000000002,
+      "pnl_pct": -19.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.62,
-      "pnl_usd": -0.38,
+      "current_value_usd": 1.61,
+      "pnl_usd": -0.39,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.86,
-      "pnl_usd": -1.08,
+      "current_value_usd": 23.87,
+      "pnl_usd": -1.07,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 16:09:48",
+      "time": "2026-07-02 16:15:00",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 16:09:17",
+      "time": "2026-07-02 16:14:29",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 16:08:46",
+      "time": "2026-07-02 16:13:58",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 16:08:14",
+      "time": "2026-07-02 16:13:28",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 16:07:43",
+      "time": "2026-07-02 16:12:56",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,25 +445,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 16:08:17",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "Robinhood CEO says future of crypto is in real-world assets, not memecoins",
+      "time": "2026-07-02 16:14:47",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Lucid names new CFO in latest executive shakeup, misses quarterly delivery estimates - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 16:08:17",
-      "market_question": "Will John Braun advance to the general election for WA-03?",
-      "headline": "John Brennan - Politico",
+      "time": "2026-07-02 16:14:46",
+      "market_question": "Mistral AI IPO before 2027?",
+      "headline": "Lucid names new CFO in latest executive shakeup, misses quarterly delivery estimates - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 16:14:46",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Lucid names new CFO in latest executive shakeup, misses quarterly delivery estimates - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 16:14:45",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Lucid names new CFO in latest executive shakeup, misses quarterly delivery estimates - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,41 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 16:08:17",
-      "market_question": "Will John Barrasso be the next Senate Majority Leader?",
-      "headline": "John Brennan - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 16:08:17",
-      "market_question": "Will John E. Sununu be the Republican nominee for Senate in New Hampshire?",
-      "headline": "John Brennan - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 16:08:17",
-      "market_question": "Will John Tory win the 2026 Toronto mayoral election?",
-      "headline": "John Brennan - Politico",
+      "time": "2026-07-02 16:14:45",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Lucid names new CFO in latest executive shakeup, misses quarterly delivery estimates - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
