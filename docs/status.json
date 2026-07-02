@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T11:07:31.144247+00:00",
-  "last_heartbeat": "2026-07-02T11:07:31.144247+00:00",
-  "uptime_seconds": 45157,
+  "generated_at": "2026-07-02T11:12:42.260440+00:00",
+  "last_heartbeat": "2026-07-02T11:12:42.260440+00:00",
+  "uptime_seconds": 45469,
   "dry_run": false,
-  "markets_tracked": 1280,
+  "markets_tracked": 1279,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9935,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 301,
+  "headlines_scanned_today": 306,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6507,
+  "classifications_24h": 6498,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2662,
+    "prefiltered_haiku": 2660,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1723,
-    "matched": 719,
-    "classified": 6507,
+    "news": 1725,
+    "matched": 716,
+    "classified": 6498,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2051.4
+    "avg_classification_latency_ms": 2054.6
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.05449999999999999,
+      "current_price": 0.05450000000000001,
       "pnl_pct": -24.31,
       "amount_usd": 0.2340000000000004,
       "current_value_usd": 0.18,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.09549999999999992,
+      "current_price": 0.0955,
       "pnl_pct": -4.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.91,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.44499999999999995,
+      "current_price": 0.445,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.87,
-      "pnl_usd": -1.07,
+      "current_value_usd": 23.86,
+      "pnl_usd": -1.08,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 11:07:31",
+      "time": "2026-07-02 11:12:42",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,16 @@
       "pnl_pct": -24.31
     },
     {
-      "time": "2026-07-02 11:07:00",
+      "time": "2026-07-02 11:12:11",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -24.31
+    },
+    {
+      "time": "2026-07-02 11:11:40",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +425,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 11:06:29",
+      "time": "2026-07-02 11:11:09",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,29 +434,36 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 11:05:58",
+      "time": "2026-07-02 11:10:38",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.61
-    },
-    {
-      "time": "2026-07-02 11:05:27",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -22.92
+      "pnl_pct": -24.31
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 11:05:28",
-      "market_question": "Will Based Polymarket revenue hit $5M before 2027?",
-      "headline": "The $5M pile of dark money backing Mikie Sherrill - Politico",
+      "time": "2026-07-02 11:07:47",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Why United Nations wants stronger global oversight as AI evolves rapidly - Business Standard",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 11:07:40",
+      "market_question": "Will Donald Trump visit the United Kingdom in 2026?",
+      "headline": "Why United Nations wants stronger global oversight as AI evolves rapidly - Business Standard",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 11:03:17",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
-      "headline": "A major Russian attack kills 17 in Kyiv as Ukrainian strikes batter Moscow\u2019s oil sector - AP News",
+      "time": "2026-07-02 11:07:40",
+      "market_question": "Will Trump and Putin meet next in United States?",
+      "headline": "Why United Nations wants stronger global oversight as AI evolves rapidly - Business Standard",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 11:03:17",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "A major Russian attack kills 17 in Kyiv as Ukrainian strikes batter Moscow\u2019s oil sector - AP News",
+      "time": "2026-07-02 11:07:40",
+      "market_question": "Will United Russia (ER) win the second-most seats in the next Russian parliamentary election?",
+      "headline": "Why United Nations wants stronger global oversight as AI evolves rapidly - Business Standard",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,25 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 11:03:17",
-      "market_question": "Will Rodina win the most seats in the next Russian parliamentary election?",
-      "headline": "A major Russian attack kills 17 in Kyiv as Ukrainian strikes batter Moscow\u2019s oil sector - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 11:03:17",
-      "market_question": "Will Rodina win the second-most seats in the next Russian parliamentary election?",
-      "headline": "A major Russian attack kills 17 in Kyiv as Ukrainian strikes batter Moscow\u2019s oil sector - AP News",
+      "time": "2026-07-02 11:07:40",
+      "market_question": "Will Utah use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Why United Nations wants stronger global oversight as AI evolves rapidly - Business Standard",
       "direction": null,
       "materiality": null,
       "confidence": null,
