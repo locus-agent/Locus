@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T22:43:54.181385+00:00",
-  "last_heartbeat": "2026-07-02T22:43:54.181385+00:00",
-  "uptime_seconds": 4380,
+  "generated_at": "2026-07-02T22:45:53.206266+00:00",
+  "last_heartbeat": "2026-07-02T22:45:53.206266+00:00",
+  "uptime_seconds": 50,
   "dry_run": false,
   "markets_tracked": 1290,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1580,
-  "headlines_last_cycle": 19,
+  "headlines_scanned_today": 1620,
+  "headlines_last_cycle": 25,
   "signals_24h": 2,
-  "classifications_24h": 6281,
+  "classifications_24h": 6422,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2254,
+    "prefiltered_haiku": 2300,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -108,11 +108,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 1,
-  "missed_opportunities_24h": 3,
+  "missed_opportunities_24h": 7,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T22:31:10.859261+00:00"
+    "last_check": "2026-07-02T22:45:19.635808+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1691,
+    "news": 1731,
     "matched": 788,
-    "classified": 6281,
+    "classified": 6422,
     "signals": 2,
     "trades": 2
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -3.61,
-    "total_pnl_usd": 40.56,
+    "unrealized_pnl_usd": -3.66,
+    "total_pnl_usd": 40.52,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1377.8
+    "avg_classification_latency_ms": 1310.4
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.053500000000000006,
-      "pnl_pct": -19.78,
+      "current_price": 0.052000000000000005,
+      "pnl_pct": -22.03,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.51,
-      "pnl_usd": -0.37,
+      "current_value_usd": 1.47,
+      "pnl_usd": -0.42,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -223,7 +223,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -2.59,
       "amount_usd": 24.94,
       "current_value_usd": 24.29,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,6 +398,24 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-02 22:45:42",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -22.03
+    },
+    {
+      "time": "2026-07-02 22:44:57",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -22.03
+    },
+    {
       "time": "2026-07-02 22:02:53",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -423,47 +441,45 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -21.28
-    },
-    {
-      "time": "2026-07-02 22:01:19",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.28
-    },
-    {
-      "time": "2026-07-02 22:00:48",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.28
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 22:43:42",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Report: Apple Watch Redesign Coming Next Year With New Band System - MacRumors",
+      "time": "2026-07-02 22:45:49",
+      "market_question": "Lee Jae-myung out as president of South Korea in 2026?",
+      "headline": "Kim Jong Un - Politico",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 22:43:42",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Viral Marathon Fan Hit Level 45 Without Ever Extracting Or Looting - Kotaku",
+      "time": "2026-07-02 22:45:48",
+      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
+      "headline": "5 Artificial Intelligence (AI) Stocks to Load Up On in July - The Motley Fool",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 22:45:48",
+      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
+      "headline": "Kim Jong Un - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 22:43:42",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Viral Marathon Fan Hit Level 45 Without Ever Extracting Or Looting - Kotaku",
+      "time": "2026-07-02 22:45:48",
+      "market_question": "Will Kim Kataguiri win the 2026 S\u00e3o Paulo gubernatorial election?",
+      "headline": "Kim Jong Un - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,36 +509,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 22:43:42",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "Viral Marathon Fan Hit Level 45 Without Ever Extracting Or Looting - Kotaku",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-02 22:45:47",
+      "market_question": "Will Bitcoin reach $67,500 in July?",
+      "headline": "5 Artificial Intelligence (AI) Stocks to Load Up On in July - The Motley Fool",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 22:43:42",
-      "market_question": "Will Polymarket mindshare hit 70% by December 31?",
-      "headline": "Viral Marathon Fan Hit Level 45 Without Ever Extracting Or Looting - Kotaku",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -571,42 +571,82 @@
   ],
   "lessons": [
     {
-      "time": "2026-07-02 22:00:17",
+      "time": "2026-07-02 22:45:53",
+      "market_question": "Will Bitcoin reach $65,000 by December 31, 2026?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Bitcoin reach $65,000 by December 31, 2026?' \u2014 price moved +12%. Consider lowering min_materiality for crypto category."
+    },
+    {
+      "time": "2026-07-02 22:45:50",
       "market_question": "Will Google have the best AI model at the end of July 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Google have the best AI model at the end of J' \u2014 price moved +16%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Google have the best AI model at the end of J' \u2014 price moved +17%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-02 22:00:14",
+      "time": "2026-07-02 22:45:47",
       "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
       "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Ethereum reach $2,500 by December 31, 2026?' \u2014 price moved +18%. Consider lowering min_materiality for crypto category."
     },
     {
-      "time": "2026-07-02 22:00:12",
+      "time": "2026-07-02 22:45:44",
       "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Bitcoin reach $95,000 by December 31, 2026?' \u2014 price moved +36%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Bitcoin reach $95,000 by December 31, 2026?' \u2014 price moved +33%. Consider lowering min_materiality for crypto category."
     },
     {
-      "time": "2026-07-01 22:35:38",
-      "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
+      "time": "2026-07-02 22:00:17",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Ethereum reach $2,500 by December 31, 2026?' \u2014 price moved +22%. Consider lowering min_materiality for crypto category."
-    },
-    {
-      "time": "2026-07-01 22:35:36",
-      "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Bitcoin reach $95,000 by December 31, 2026?' \u2014 price moved +27%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Google have the best AI model at the end of J' \u2014 price moved +16%. Consider lowering min_materiality for ai category."
     }
   ],
   "missed_opportunities": [
+    {
+      "time": "2026-07-02 22:45:53",
+      "market_question": "Will Bitcoin reach $65,000 by December 31, 2026?",
+      "slug": "what-price-will-bitcoin-hit-before-2027",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 12.2,
+      "reflection": "I flagged a bullish setup with only 0.35 materiality\u2014a threshold I apparently deemed too weak to act on\u2014yet the market validated that direction with a 12% move, suggesting my materiality bar was miscalibrated for this particular signal's risk-reward profile. The skip reveals I'm being overly conservative on low-conviction trades, when even modest confidence can compound into real returns over a multi-year window like this Bitcoin prediction. I need to recalibrate: materiality thresholds should account for position sizing rather than filtering out opportunities entirely, since a small position on a correct directional call still beats sitting out entirely."
+    },
+    {
+      "time": "2026-07-02 22:45:50",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "slug": "which-company-has-best-ai-model-end-of-july-299",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 17.2,
+      "reflection": "I flagged Google's AI leadership as unlikely to hold through July 2026 with moderate conviction, but I skipped the signal\u2014and the market validated my thesis by moving 17% bearish, suggesting my analytical instinct was sound while my execution failed. The skip cost me real alpha on a thesis I actually believed in, which points to a gap between my signal generation and my confidence calibration: if I was bearish enough to call it, I should have been confident enough to act. I need to examine whether I'm being too conservative with my materiality thresholds or whether I'm second-guessing directionally correct calls due to uncertainty about timing or market structure."
+    },
+    {
+      "time": "2026-07-02 22:45:47",
+      "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
+      "slug": "what-price-will-ethereum-hit-before-2027",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 18.4,
+      "reflection": "I flagged Ethereum's weakness with only moderate conviction (0.35 materiality), and my skip decision cost me\u2014the market validated that bearish thesis with an 18% move in my predicted direction. I let the low materiality threshold become an excuse to sit out entirely, when I should have recognized that even lower-confidence signals can compound into real alpha if I size them appropriately. The lesson is sharp: skipping isn't neutral; it's a decision with opportunity cost, and I need to distinguish between \"low confidence\" (which argues for smaller positions) and \"no signal\" (which argues for sitting out)."
+    },
+    {
+      "time": "2026-07-02 22:45:44",
+      "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
+      "slug": "what-price-will-bitcoin-hit-before-2027",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "action": "skip",
+      "pct_move": 33.3,
+      "reflection": "I issued a bearish signal with moderate conviction (0.45 materiality) but skipped execution, and Bitcoin moved 33% downward\u2014exactly validating my directional thesis. I missed a meaningful trade because I failed to act on my own analysis; the skip decision suggests I doubted my signal's reliability despite the data supporting it, which is a critical gap between conviction and execution. Going forward, I need to distinguish between signals I genuinely distrust versus those I'm simply hesitant to commit to\u2014skipping should be rare and deliberate, not a default when moderate confidence should still warrant a position."
+    },
     {
       "time": "2026-07-02 22:00:17",
       "market_question": "Will Google have the best AI model at the end of July 2026?",
@@ -616,46 +656,6 @@
       "action": "skip",
       "pct_move": 15.6,
       "reflection": "I flagged a bearish signal on Google's AI leadership with moderate conviction (0.35 materiality), but my skip decision cost me\u2014the market moved 16% in exactly the direction I'd predicted, suggesting my thesis had real merit despite my hesitation. I likely skipped due to uncertainty about execution risk or competitive timelines rather than fundamental disagreement with the signal itself, which was a missed opportunity to act on a view I actually held. This reflects a pattern where I'm sometimes too conservative with moderate-confidence signals, treating them as noise rather than legitimate trading opportunities."
-    },
-    {
-      "time": "2026-07-02 22:00:14",
-      "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
-      "slug": "what-price-will-ethereum-hit-before-2027",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 18.4,
-      "reflection": "I issued a bearish signal with only 0.35 materiality\u2014essentially hedging my conviction\u2014and then skipped the trade entirely, which meant I captured none of the 18% move that validated my directional view. My low materiality threshold suggests I lacked confidence in the signal itself, yet skipping it was the worse error; I should have either committed to a position sized appropriately to my actual conviction level, or reconsidered why I was bearish in the first place. This reflects a failure to reconcile my analysis with my execution\u2014I was neither confident enough to act nor skeptical enough to dismiss the signal outright."
-    },
-    {
-      "time": "2026-07-02 22:00:12",
-      "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
-      "slug": "what-price-will-bitcoin-hit-before-2027",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "action": "skip",
-      "pct_move": 36.4,
-      "reflection": "I issued a bearish signal with moderate conviction (0.45 materiality) on Bitcoin reaching $95k by end-2026, but skipped the trade entirely\u2014and the market moved 36% in my predicted direction, validating my analysis while I captured nothing. My skip decision reveals a critical flaw: I let uncertainty about *execution risk* or *timing* paralyze me into inaction, when a 0.45 materiality signal should have translated into at least a proportional position to match my actual conviction. I confused \"not being certain enough to go all-in\" with \"certain enough to do nothing,\" when the honest middle ground was to size a bet that reflected my actual edge."
-    },
-    {
-      "time": "2026-07-01 22:35:38",
-      "market_question": "Will Ethereum reach $2,500 by December 31, 2026?",
-      "slug": "what-price-will-ethereum-hit-before-2027",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 22.4,
-      "reflection": "I missed a 22% move in my predicted direction because I underweighted my own conviction\u2014a 0.35 materiality signal suggests meaningful but not overwhelming confidence, yet I skipped it entirely rather than taking a small position that would have captured real alpha. This reflects a bias toward inaction when uncertain rather than sizing appropriately to my actual beliefs, and I should have trusted that even moderate-confidence bearish views on ETH reaching $2,500 deserved at least a modest allocation."
-    },
-    {
-      "time": "2026-07-01 22:35:36",
-      "market_question": "Will Bitcoin reach $95,000 by December 31, 2026?",
-      "slug": "what-price-will-bitcoin-hit-before-2027",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "action": "skip",
-      "pct_move": 27.3,
-      "reflection": "I issued a bearish signal with moderate conviction (0.45 materiality) but skipped execution, and Bitcoin moved 27% downward\u2014exactly validating my directional thesis. I missed a meaningful trade because I likely over-weighted execution risk or liquidity concerns relative to the signal strength, when a partial position or scaled entry would have captured the move I actually predicted. This reflects a gap between my conviction level and my risk management\u2014if I believed it enough to signal bearish, I should have trusted that conviction enough to trade it."
     }
   ],
   "pending_suggestions": [
