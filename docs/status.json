@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T15:43:46.509941+00:00",
-  "last_heartbeat": "2026-07-02T15:43:46.509941+00:00",
-  "uptime_seconds": 8462,
+  "generated_at": "2026-07-02T15:48:58.512138+00:00",
+  "last_heartbeat": "2026-07-02T15:48:58.512138+00:00",
+  "uptime_seconds": 8774,
   "dry_run": false,
-  "markets_tracked": 1310,
+  "markets_tracked": 1311,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9965,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 736,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 742,
+  "headlines_last_cycle": 2,
   "signals_24h": 3,
-  "classifications_24h": 7227,
+  "classifications_24h": 7234,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2840,
+    "prefiltered_haiku": 2839,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1942,
-    "matched": 720,
-    "classified": 7227,
+    "news": 1945,
+    "matched": 723,
+    "classified": 7234,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2732.4
+    "avg_classification_latency_ms": 2749.2
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.079,
+      "current_price": 0.07899999999999996,
       "pnl_pct": -21.0,
       "amount_usd": 2.0,
       "current_value_usd": 1.58,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 15:43:46",
+      "time": "2026-07-02 15:48:58",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 15:43:15",
+      "time": "2026-07-02 15:48:27",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 15:42:44",
+      "time": "2026-07-02 15:47:56",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 15:42:13",
+      "time": "2026-07-02 15:47:25",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 15:41:42",
+      "time": "2026-07-02 15:46:54",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,25 +445,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 15:41:49",
-      "market_question": "Trump, Putin, and Zelensky seen together before 2027?",
-      "headline": "Photos show aftermath of large-scale Russian attack overnight in Kyiv - AP News",
+      "time": "2026-07-02 15:48:28",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Humanity Protocol repositions toward enterprise AI after $36 million hack, founder says",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.07999999999999999,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 15:41:43",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Most U.S. stocks climb toward the finish of a winning week, but drops for tech keep indexes mixed - AP News",
+      "time": "2026-07-02 15:48:28",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "Humanity Protocol repositions toward enterprise AI after $36 million hack, founder says",
+      "direction": "bullish",
+      "materiality": 0.25,
+      "confidence": 0.52,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.18,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 15:48:28",
+      "market_question": "Will Donald Trump visit Turkey in 2026?",
+      "headline": "Turkey detains stand-up comedian for allegedly insulting religious values - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 15:41:43",
-      "market_question": "Netanyahu drops out of Israel election by July 31?",
-      "headline": "Most U.S. stocks climb toward the finish of a winning week, but drops for tech keep indexes mixed - AP News",
+      "time": "2026-07-02 15:48:28",
+      "market_question": "Will Trump and Putin meet next in Turkey?",
+      "headline": "Turkey detains stand-up comedian for allegedly insulting religious values - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,25 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 15:41:43",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "Most U.S. stocks climb toward the finish of a winning week, but drops for tech keep indexes mixed - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 15:41:43",
-      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
-      "headline": "Most U.S. stocks climb toward the finish of a winning week, but drops for tech keep indexes mixed - AP News",
+      "time": "2026-07-02 15:48:28",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "Turkey detains stand-up comedian for allegedly insulting religious values - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
