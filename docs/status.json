@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T19:16:16.138594+00:00",
-  "last_heartbeat": "2026-07-02T19:16:16.138594+00:00",
-  "uptime_seconds": 8158,
+  "generated_at": "2026-07-02T19:21:28.211641+00:00",
+  "last_heartbeat": "2026-07-02T19:21:28.211641+00:00",
+  "uptime_seconds": 8470,
   "dry_run": false,
-  "markets_tracked": 1289,
+  "markets_tracked": 1299,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9995,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1128,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1136,
+  "headlines_last_cycle": 3,
   "signals_24h": 2,
-  "classifications_24h": 7970,
+  "classifications_24h": 7993,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3053,
+    "prefiltered_haiku": 3059,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2140,
-    "matched": 750,
-    "classified": 7970,
+    "news": 2145,
+    "matched": 755,
+    "classified": 7993,
     "signals": 2,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1734.1
+    "avg_classification_latency_ms": 1720.3
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.86,
-      "pnl_usd": -1.08,
+      "current_value_usd": 23.87,
+      "pnl_usd": -1.07,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 19:16:16",
+      "time": "2026-07-02 19:21:28",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:15:45",
+      "time": "2026-07-02 19:20:57",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:15:13",
+      "time": "2026-07-02 19:20:26",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:14:42",
+      "time": "2026-07-02 19:19:55",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:14:11",
+      "time": "2026-07-02 19:19:24",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,73 +445,73 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 19:15:04",
-      "market_question": "Will Kash Patel leave the Trump administration before 2027?",
-      "headline": "Trump administration proposes a rule it says could save Medicare patients $1.1 billion on drugs - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 19:21:27",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "US judge halts Philadelphia's 'ICE Out' ban on masked federal law enforcement agents - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 19:15:03",
-      "market_question": "Will Kristi Noem leave the Trump administration before 2027?",
-      "headline": "Trump administration proposes a rule it says could save Medicare patients $1.1 billion on drugs - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 19:21:27",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "US judge halts Philadelphia's 'ICE Out' ban on masked federal law enforcement agents - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 19:15:03",
-      "market_question": "Will Susie Wiles leave the Trump administration before 2027?",
-      "headline": "Trump administration proposes a rule it says could save Medicare patients $1.1 billion on drugs - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 19:21:27",
+      "market_question": "Trump renames ICE to NICE by December 31?",
+      "headline": "US judge halts Philadelphia's 'ICE Out' ban on masked federal law enforcement agents - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 19:15:03",
-      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
-      "headline": "Trump administration proposes a rule it says could save Medicare patients $1.1 billion on drugs - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-07-02 19:21:27",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "US judge halts Philadelphia's 'ICE Out' ban on masked federal law enforcement agents - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 19:15:03",
-      "market_question": "Will Howard Lutnick leave the Trump administration before 2027?",
-      "headline": "Trump administration proposes a rule it says could save Medicare patients $1.1 billion on drugs - AP News",
+      "time": "2026-07-02 19:21:26",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Alex Ovechkin returning for a 22nd NHL season after re-signing with the Capitals - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
