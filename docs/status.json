@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T13:44:11.976382+00:00",
-  "last_heartbeat": "2026-07-02T13:44:11.976382+00:00",
-  "uptime_seconds": 1287,
+  "generated_at": "2026-07-02T13:49:24.210044+00:00",
+  "last_heartbeat": "2026-07-02T13:49:24.210044+00:00",
+  "uptime_seconds": 1600,
   "dry_run": false,
-  "markets_tracked": 1288,
+  "markets_tracked": 1286,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9965,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 534,
+  "headlines_scanned_today": 537,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6947,
+  "classifications_24h": 6938,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2759,
+    "prefiltered_haiku": 2754,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 1,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1862,
-    "matched": 726,
-    "classified": 6947,
+    "news": 1859,
+    "matched": 723,
+    "classified": 6938,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3377.9
+    "avg_classification_latency_ms": 3333.5
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.08549999999999999,
+      "current_price": 0.08549999999999991,
       "pnl_pct": -14.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.71,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 13:44:11",
+      "time": "2026-07-02 13:49:24",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 13:43:40",
+      "time": "2026-07-02 13:48:53",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 13:43:09",
+      "time": "2026-07-02 13:48:22",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 13:42:38",
+      "time": "2026-07-02 13:47:51",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -25.69
     },
     {
-      "time": "2026-07-02 13:42:07",
+      "time": "2026-07-02 13:47:20",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,9 +445,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 13:42:53",
-      "market_question": "Will Trump deport 900k-1m people?",
-      "headline": "EU concerned by China's new ethnic unity law which targets people overseas - Reuters",
+      "time": "2026-07-02 13:47:18",
+      "market_question": "Will the Republicans win the New Jersey Senate race in 2026?",
+      "headline": "New Jersey is set to charge companies with workers on Medicaid. Other states may follow - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -461,9 +461,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 13:42:52",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "EU concerned by China's new ethnic unity law which targets people overseas - Reuters",
+      "time": "2026-07-02 13:47:18",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New Jersey is set to charge companies with workers on Medicaid. Other states may follow - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 13:47:17",
+      "market_question": "Will the Democrats win the New Jersey Senate race in 2026?",
+      "headline": "New Jersey is set to charge companies with workers on Medicaid. Other states may follow - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 13:47:17",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "New Jersey is set to charge companies with workers on Medicaid. Other states may follow - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -477,52 +509,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 13:42:52",
-      "market_question": "Will Trump deport less than 200k people?",
-      "headline": "EU concerned by China's new ethnic unity law which targets people overseas - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 13:47:16",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "Vatican excommunicates schismatic bishops and priests, and warns their followers - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 13:42:52",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "EU concerned by China's new ethnic unity law which targets people overseas - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 13:42:52",
-      "market_question": "Will Trump deport 400-500k people?",
-      "headline": "EU concerned by China's new ethnic unity law which targets people overseas - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
