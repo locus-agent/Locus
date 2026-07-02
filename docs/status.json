@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T10:41:40.687232+00:00",
-  "last_heartbeat": "2026-07-02T10:41:40.687232+00:00",
-  "uptime_seconds": 43607,
+  "generated_at": "2026-07-02T10:46:50.441637+00:00",
+  "last_heartbeat": "2026-07-02T10:46:50.441637+00:00",
+  "uptime_seconds": 43917,
   "dry_run": false,
   "markets_tracked": 1282,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 288,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 290,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
   "classifications_24h": 6629,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2720,
+    "prefiltered_haiku": 2718,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -135,7 +135,7 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.86,
+    "unrealized_pnl_usd": -4.85,
     "total_pnl_usd": 39.32,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.05499999999999999,
-      "pnl_pct": -23.61,
+      "current_price": 0.055999999999999994,
+      "pnl_pct": -22.22,
       "amount_usd": 0.2340000000000004,
       "current_value_usd": 0.18,
-      "pnl_usd": -0.06,
+      "pnl_usd": -0.05,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.09549999999999992,
+      "current_price": 0.0955,
       "pnl_pct": -4.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.91,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.44499999999999995,
+      "current_price": 0.445,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.87,
-      "pnl_usd": -1.07,
+      "current_value_usd": 23.86,
+      "pnl_usd": -1.08,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -251,11 +251,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.2,
-      "pnl_usd": -1.79,
+      "current_value_usd": 23.21,
+      "pnl_usd": -1.78,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -398,7 +398,16 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 10:41:40",
+      "time": "2026-07-02 10:46:50",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -22.22
+    },
+    {
+      "time": "2026-07-02 10:44:17",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +416,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 10:41:09",
+      "time": "2026-07-02 10:43:46",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +425,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 10:40:38",
+      "time": "2026-07-02 10:43:15",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,16 +434,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 10:40:07",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.61
-    },
-    {
-      "time": "2026-07-02 10:39:36",
+      "time": "2026-07-02 10:42:45",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,9 +445,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 10:41:18",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "time": "2026-07-02 10:45:41",
+      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Public Opinion - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +461,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 10:41:18",
-      "market_question": "Will Click Bishop advance from the 2026 Alaska Governor primary election?",
-      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "time": "2026-07-02 10:45:41",
+      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Public Opinion - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 10:41:18",
-      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "time": "2026-07-02 10:45:41",
+      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "Public Opinion - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 10:41:18",
-      "market_question": "Will Donald Trump post 100-119 Truth Social posts from June 26 to July 3, 2026?",
-      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "time": "2026-07-02 10:45:41",
+      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Public Opinion - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -509,9 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 10:41:18",
-      "market_question": "Will Donald Trump post 160-179 Truth Social posts from June 26 to July 3, 2026?",
-      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "time": "2026-07-02 10:45:41",
+      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Public Opinion - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
