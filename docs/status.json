@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T19:42:17.339214+00:00",
-  "last_heartbeat": "2026-07-02T19:42:17.339214+00:00",
-  "uptime_seconds": 9719,
+  "generated_at": "2026-07-02T19:47:29.149129+00:00",
+  "last_heartbeat": "2026-07-02T19:47:29.149129+00:00",
+  "uptime_seconds": 10031,
   "dry_run": false,
-  "markets_tracked": 1295,
+  "markets_tracked": 1296,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9995,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1178,
+  "headlines_scanned_today": 1181,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
   "classifications_24h": 8013,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 3066,
+    "prefiltered_haiku": 3071,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T19:30:37.633051+00:00"
+    "last_check": "2026-07-02T19:45:38.018391+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,8 +120,8 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2139,
-    "matched": 789,
+    "news": 2140,
+    "matched": 791,
     "classified": 8013,
     "signals": 2,
     "trades": 2
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1870.1
+    "avg_classification_latency_ms": 1870.2
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.445,
+      "current_price": 0.44499999999999995,
       "pnl_pct": -4.31,
       "amount_usd": 24.94,
-      "current_value_usd": 23.86,
-      "pnl_usd": -1.08,
+      "current_value_usd": 23.87,
+      "pnl_usd": -1.07,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 19:42:17",
+      "time": "2026-07-02 19:47:29",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:41:46",
+      "time": "2026-07-02 19:46:58",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:41:14",
+      "time": "2026-07-02 19:46:27",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:40:43",
+      "time": "2026-07-02 19:45:55",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 19:40:12",
+      "time": "2026-07-02 19:45:24",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,9 +445,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 19:41:10",
-      "market_question": "Will Donald Trump visit Mexico in 2026?",
-      "headline": "Secret location & sleep devices: England bid to combat noisy Mexico fans",
+      "time": "2026-07-02 19:45:39",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Crypto billionaire among dozens to back startup from Gillibrand\u2019s son - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 19:45:39",
+      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "headline": "Historic win against Boks would revitalise England regime",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 19:41:10",
-      "market_question": "Will the Ecologist Green Party of Mexico (PVEM) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Secret location & sleep devices: England bid to combat noisy Mexico fans",
+      "time": "2026-07-02 19:45:39",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "Historic win against Boks would revitalise England regime",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 19:41:10",
-      "market_question": "Will the Republicans win the New Mexico Senate race in 2026?",
-      "headline": "Secret location & sleep devices: England bid to combat noisy Mexico fans",
+      "time": "2026-07-02 19:45:39",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "Historic win against Boks would revitalise England regime",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,25 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 19:41:10",
-      "market_question": "Will the Democrats win the New Mexico Senate race in 2026?",
-      "headline": "Secret location & sleep devices: England bid to combat noisy Mexico fans",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 19:41:10",
-      "market_question": "Will Citizens\u2019 Movement (MC) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Secret location & sleep devices: England bid to combat noisy Mexico fans",
+      "time": "2026-07-02 19:45:39",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "headline": "Historic win against Boks would revitalise England regime",
       "direction": null,
       "materiality": null,
       "confidence": null,
