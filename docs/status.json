@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T09:09:02.440458+00:00",
-  "last_heartbeat": "2026-07-02T09:09:02.440458+00:00",
-  "uptime_seconds": 38049,
+  "generated_at": "2026-07-02T09:14:09.572401+00:00",
+  "last_heartbeat": "2026-07-02T09:14:09.572401+00:00",
+  "uptime_seconds": 38356,
   "dry_run": false,
   "markets_tracked": 1267,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 226,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 228,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 6684,
+  "classifications_24h": 6694,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2803,
+    "prefiltered_haiku": 2804,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1751,
-    "matched": 746,
-    "classified": 6684,
+    "news": 1753,
+    "matched": 748,
+    "classified": 6694,
     "signals": 2,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1931.5
+    "avg_classification_latency_ms": 1930.5
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.099,
+      "current_price": 0.09899999999999998,
       "pnl_pct": -1.0,
       "amount_usd": 2.0,
       "current_value_usd": 1.98,
@@ -237,11 +237,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.2,
-      "pnl_usd": -1.79,
+      "current_value_usd": 23.21,
+      "pnl_usd": -1.78,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -431,25 +431,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 09:09:01",
-      "market_question": "Will Marine Le Pen be on the ballot for the 2027 French presidential election?",
-      "headline": "French far right ponders life beyond Le Pen as appeal ruling looms - Reuters",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.58,
+      "time": "2026-07-02 09:13:19",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Japan's yen jumps, with traders twitchy about intervention risk - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.38,
-      "action": "skip",
-      "match_source": "both",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 09:08:54",
-      "market_question": "French election called by July 31, 2026?",
-      "headline": "French far right ponders life beyond Le Pen as appeal ruling looms - Reuters",
+      "time": "2026-07-02 09:13:18",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Japan's yen jumps, with traders twitchy about intervention risk - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -463,9 +463,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 09:08:54",
-      "market_question": "Will G\u00e9rard Larcher be reelected as President of the French Senate?",
-      "headline": "French far right ponders life beyond Le Pen as appeal ruling looms - Reuters",
+      "time": "2026-07-02 09:13:18",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Japan's yen jumps, with traders twitchy about intervention risk - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -479,9 +479,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 09:08:54",
-      "market_question": "Will Bruno Retailleau be on the ballot for the 2027 French presidential election?",
-      "headline": "French far right ponders life beyond Le Pen as appeal ruling looms - Reuters",
+      "time": "2026-07-02 09:13:18",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "Japan's yen jumps, with traders twitchy about intervention risk - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -495,9 +495,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 09:08:54",
-      "market_question": "Will Jean-Luc M\u00e9lenchon be on the ballot for the 2027 French presidential election?",
-      "headline": "French far right ponders life beyond Le Pen as appeal ruling looms - Reuters",
+      "time": "2026-07-02 09:13:18",
+      "market_question": "Will Trump meet with Nick Fuentes in 2026?",
+      "headline": "Japan's yen jumps, with traders twitchy about intervention risk - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
