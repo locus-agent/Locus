@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T03:31:55.063364+00:00",
-  "last_heartbeat": "2026-07-02T03:31:55.063364+00:00",
-  "uptime_seconds": 17821,
+  "generated_at": "2026-07-02T03:37:01.222190+00:00",
+  "last_heartbeat": "2026-07-02T03:37:01.222190+00:00",
+  "uptime_seconds": 18128,
   "dry_run": false,
-  "markets_tracked": 1276,
+  "markets_tracked": 1282,
   "classify_error_streak": 0,
   "track_record": {
     "total": 9903,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 98,
+  "headlines_scanned_today": 100,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6943,
+  "classifications_24h": 6946,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2926,
+    "prefiltered_haiku": 2925,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-02T03:20:16.057507+00:00"
+    "last_check": "2026-07-02T03:35:16.437369+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1808,
-    "matched": 784,
-    "classified": 6943,
+    "news": 1807,
+    "matched": 785,
+    "classified": 6946,
     "signals": 1,
     "trades": 1
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1527.6
+    "avg_classification_latency_ms": 1532.3
   },
   "live_readiness": {
     "ready": true,
@@ -417,9 +417,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 03:30:08",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Chris Johnson seeking revival of Ice Bucket Challenge as he continues his fight against ALS - AP News",
+      "time": "2026-07-02 03:34:39",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Kalshi and Polymarket\u2019s combined volume surges 75% to $45 billion in June amid World Cup fever",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 03:34:39",
+      "market_question": "Ethereum all time high by September 30, 2026?",
+      "headline": "Belgium stage stunning comeback to sink Senegal in extra time - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -433,9 +449,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 03:30:08",
-      "market_question": "Trump renames ICE to NICE by December 31?",
-      "headline": "Chris Johnson seeking revival of Ice Bucket Challenge as he continues his fight against ALS - AP News",
+      "time": "2026-07-02 03:34:39",
+      "market_question": "Solana all time high by December 31, 2026?",
+      "headline": "Belgium stage stunning comeback to sink Senegal in extra time - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -449,9 +465,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 03:30:08",
-      "market_question": "Will Chris Coons be the Democratic nominee for Senate in Delaware?",
-      "headline": "Chris Johnson seeking revival of Ice Bucket Challenge as he continues his fight against ALS - AP News",
+      "time": "2026-07-02 03:34:39",
+      "market_question": "Solana all time high by September 30, 2026?",
+      "headline": "Belgium stage stunning comeback to sink Senegal in extra time - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -465,36 +481,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 03:30:08",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Chris Johnson seeking revival of Ice Bucket Challenge as he continues his fight against ALS - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-02 03:34:35",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Kalshi and Polymarket\u2019s combined volume surges 75% to $45 billion in June amid World Cup fever",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-02 03:30:08",
-      "market_question": "Will Chris Madel win the 2026 Minnesota Governor Republican primary election?",
-      "headline": "Chris Johnson seeking revival of Ice Bucket Challenge as he continues his fight against ALS - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
