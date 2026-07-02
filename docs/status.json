@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T21:47:08.587146+00:00",
-  "last_heartbeat": "2026-07-02T21:47:08.587146+00:00",
-  "uptime_seconds": 975,
+  "generated_at": "2026-07-02T21:52:19.085182+00:00",
+  "last_heartbeat": "2026-07-02T21:52:19.085182+00:00",
+  "uptime_seconds": 1285,
   "dry_run": false,
   "markets_tracked": 1294,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1485,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 1487,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7716,
+  "classifications_24h": 7721,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2914,
+    "prefiltered_haiku": 2916,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2067,
-    "matched": 895,
-    "classified": 7716,
+    "news": 2068,
+    "matched": 896,
+    "classified": 7721,
     "signals": 2,
     "trades": 2
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -3.48,
-    "total_pnl_usd": 40.7,
+    "unrealized_pnl_usd": -3.55,
+    "total_pnl_usd": 40.63,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1326.9
+    "avg_classification_latency_ms": 1327.6
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.05499999999999999,
-      "pnl_pct": -17.53,
+      "current_price": 0.053000000000000005,
+      "pnl_pct": -20.53,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.55,
-      "pnl_usd": -0.33,
+      "current_value_usd": 1.5,
+      "pnl_usd": -0.39,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.10549999999999993,
-      "pnl_pct": 5.5,
+      "current_price": 0.10500000000000001,
+      "pnl_pct": 5.0,
       "amount_usd": 2.0,
-      "current_value_usd": 2.11,
-      "pnl_usd": 0.11,
+      "current_value_usd": 2.1,
+      "pnl_usd": 0.1,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 21:43:04",
+      "time": "2026-07-02 21:52:19",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,79 +407,79 @@
       "pnl_pct": -20.53
     },
     {
-      "time": "2026-07-02 21:41:30",
+      "time": "2026-07-02 21:51:48",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.28
+      "pnl_pct": -20.53
     },
     {
-      "time": "2026-07-02 21:40:28",
+      "time": "2026-07-02 21:51:16",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.28
+      "pnl_pct": -20.53
     },
     {
-      "time": "2026-07-02 21:39:57",
+      "time": "2026-07-02 21:50:15",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.28
+      "pnl_pct": -20.53
     },
     {
-      "time": "2026-07-02 21:39:26",
+      "time": "2026-07-02 21:49:13",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -21.28
+      "pnl_pct": -20.53
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 21:46:42",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "The Dow hits a record as most of Wall Street rises, but slumping AI stocks keep indexes mixed - AP News",
+      "time": "2026-07-02 21:51:04",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "Once a source of national pride, Cuba's healthcare system declines as energy shortages deepen crisis - AP News",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 21:46:41",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Dow jumps to record closing high after soft US jobs data, Nasdaq down with chip shares - Reuters",
+      "time": "2026-07-02 21:51:04",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "Once a source of national pride, Cuba's healthcare system declines as energy shortages deepen crisis - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
+      "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 21:46:41",
-      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
-      "headline": "The Dow hits a record as most of Wall Street rises, but slumping AI stocks keep indexes mixed - AP News",
+      "time": "2026-07-02 21:51:03",
+      "market_question": "Trump declares election interference national emergency? ",
+      "headline": "Once a source of national pride, Cuba's healthcare system declines as energy shortages deepen crisis - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 21:46:41",
-      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
-      "headline": "The Dow hits a record as most of Wall Street rises, but slumping AI stocks keep indexes mixed - AP News",
+      "time": "2026-07-02 21:51:03",
+      "market_question": "Will the National Movement of Independents win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Once a source of national pride, Cuba's healthcare system declines as energy shortages deepen crisis - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -509,9 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-02 21:46:41",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "The Dow hits a record as most of Wall Street rises, but slumping AI stocks keep indexes mixed - AP News",
+      "time": "2026-07-02 21:51:03",
+      "market_question": "Will the National Union for Democracy and Progress win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Once a source of national pride, Cuba's healthcare system declines as energy shortages deepen crisis - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
