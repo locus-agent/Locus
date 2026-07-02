@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-02T21:31:35.311203+00:00",
-  "last_heartbeat": "2026-07-02T21:31:35.311203+00:00",
-  "uptime_seconds": 41,
+  "generated_at": "2026-07-02T21:36:49.270275+00:00",
+  "last_heartbeat": "2026-07-02T21:36:49.270275+00:00",
+  "uptime_seconds": 355,
   "dry_run": false,
-  "markets_tracked": 1291,
+  "markets_tracked": 1295,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 10012,
+    "total": 10020,
     "accuracy": 18.1,
     "by_category": {
       "other": 16.2,
@@ -17,31 +17,31 @@
       "sports": 26.2
     },
     "by_source": {
-      "rss": 18.4,
+      "rss": 18.5,
       "newsapi": 17.8,
       "truthsocial": 6.5
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.1,
-    "overall_total": 10012,
+    "overall_total": 10020,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5648,
+        "total": 5652,
         "correct": 400,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 10.0,
+        "avg_pnl_pct": 9.97,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 904,
+        "total": 905,
         "correct": 321,
         "accuracy_pct": 35.5,
-        "avg_pnl_pct": 24.05,
+        "avg_pnl_pct": 24.01,
         "color": "green"
       },
       {
@@ -56,18 +56,18 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 602,
-        "correct": 199,
-        "accuracy_pct": 33.1,
-        "avg_pnl_pct": 1.6,
+        "total": 604,
+        "correct": 201,
+        "accuracy_pct": 33.3,
+        "avg_pnl_pct": 1.62,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 544,
-        "correct": 232,
-        "accuracy_pct": 42.6,
+        "total": 545,
+        "correct": 233,
+        "accuracy_pct": 42.8,
         "avg_pnl_pct": 3.5,
         "color": "green"
       },
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1345,
-  "headlines_last_cycle": 24,
+  "headlines_scanned_today": 1480,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7789,
+  "classifications_24h": 8302,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2991,
+    "prefiltered_haiku": 3188,
     "stale": 2,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -98,7 +98,7 @@
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
-    "orderbook_skip": 3,
+    "orderbook_skip": 4,
     "already_priced_in": 0,
     "needs_confirmation": 0,
     "event_exposure_block": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2086,
-    "matched": 889,
-    "classified": 7789,
+    "news": 2216,
+    "matched": 897,
+    "classified": 8302,
     "signals": 2,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1229.7
+    "avg_classification_latency_ms": 1331.4
   },
   "live_readiness": {
     "ready": true,
@@ -195,8 +195,8 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0525,
-      "pnl_pct": -27.08,
+      "current_price": 0.05249999999999999,
+      "pnl_pct": -21.28,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.48,
       "pnl_usd": -0.4,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.10599999999999998,
+      "current_price": 0.106,
       "pnl_pct": 6.0,
       "amount_usd": 2.0,
       "current_value_usd": 2.12,
@@ -223,7 +223,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.43500000000000005,
+      "current_price": 0.435,
       "pnl_pct": -2.59,
       "amount_usd": 24.94,
       "current_value_usd": 24.29,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 21:31:35",
+      "time": "2026-07-02 21:36:49",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,47 +407,79 @@
       "pnl_pct": -21.28
     },
     {
-      "time": "2026-07-02 21:30:47",
+      "time": "2026-07-02 21:36:18",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -27.08
+      "pnl_pct": -21.28
     },
     {
-      "time": "2026-07-02 21:30:16",
+      "time": "2026-07-02 21:35:46",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -27.08
+      "pnl_pct": -21.28
     },
     {
-      "time": "2026-07-02 21:29:45",
+      "time": "2026-07-02 21:35:15",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -27.08
+      "pnl_pct": -21.28
     },
     {
-      "time": "2026-07-02 21:29:14",
+      "time": "2026-07-02 21:34:44",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -27.08
+      "pnl_pct": -21.28
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 21:31:35",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "The best July 4th sales we found so far",
+      "time": "2026-07-02 21:35:39",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "Venezuela - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 21:35:39",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "Venezuela - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 21:35:37",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "This air conditioning strategy is the sweet spot for saving energy and money, experts say - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -461,68 +493,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-02 21:31:35",
-      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
-      "headline": "The best July 4th sales we found so far",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 21:35:37",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "Venezuela - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 21:31:35",
-      "market_question": "Will xAI have the best AI model at the end of July 2026?",
-      "headline": "The best July 4th sales we found so far",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-02 21:35:36",
+      "market_question": "Will Republican House incumbents not win in between seven and nine nominating elections in the 2026 cycle?",
+      "headline": "Blast at Damascus cafe kills nine, wounds 20, Syrian interior ministry says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 21:31:35",
-      "market_question": "Will July be the best month for Bitcoin in 2026?",
-      "headline": "The best July 4th sales we found so far",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 21:31:35",
-      "market_question": "Will Meta have the best AI model at the end of July 2026?",
-      "headline": "The best July 4th sales we found so far",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
