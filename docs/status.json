@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T18:08:36.841450+00:00",
-  "last_heartbeat": "2026-07-02T18:08:36.841450+00:00",
-  "uptime_seconds": 4099,
+  "generated_at": "2026-07-02T18:13:48.528087+00:00",
+  "last_heartbeat": "2026-07-02T18:13:48.528087+00:00",
+  "uptime_seconds": 4411,
   "dry_run": false,
   "markets_tracked": 1293,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1002,
+  "headlines_scanned_today": 1049,
   "headlines_last_cycle": 0,
-  "signals_24h": 3,
-  "classifications_24h": 7655,
+  "signals_24h": 2,
+  "classifications_24h": 7793,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2937,
+    "prefiltered_haiku": 2992,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -115,16 +115,16 @@
     "last_check": "2026-07-02T18:00:34.980265+00:00"
   },
   "edge_types_24h": {
-    "news": 3,
+    "news": 2,
     "momentum": 0,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2058,
-    "matched": 731,
-    "classified": 7655,
-    "signals": 3,
-    "trades": 3
+    "news": 2101,
+    "matched": 730,
+    "classified": 7793,
+    "signals": 2,
+    "trades": 2
   },
   "performance": {
     "trades_total": 47,
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1612.0
+    "avg_classification_latency_ms": 1568.6
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.052500000000000005,
+      "current_price": 0.05249999999999999,
       "pnl_pct": -27.08,
       "amount_usd": 0.2340000000000004,
       "current_value_usd": 0.17,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0794999999999999,
+      "current_price": 0.0795,
       "pnl_pct": -20.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.59,
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 18:08:36",
+      "time": "2026-07-02 18:13:48",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:08:02",
+      "time": "2026-07-02 18:13:17",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:07:30",
+      "time": "2026-07-02 18:12:45",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:07:00",
+      "time": "2026-07-02 18:12:14",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -27.08
     },
     {
-      "time": "2026-07-02 18:06:28",
+      "time": "2026-07-02 18:11:44",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,84 +445,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 18:02:20",
-      "market_question": "Will Donald Trump post 160-179 Truth Social posts from June 26 to July 3, 2026?",
-      "headline": "[No Title] - Post from July 2, 2026",
+      "time": "2026-07-02 18:13:23",
+      "market_question": "Will Jared Moskowitz be the Democratic nominee for Senate in Florida?",
+      "headline": "Poll Shows Congressman Jared Moskowitz Leading by 32 Points in FL-25 Democratic Primary - Politico",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.62,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 18:13:18",
+      "market_question": "Will Douglas Moylan win the 2026 Guam Governor Republican primary election?",
+      "headline": "Poll Shows Congressman Jared Moskowitz Leading by 32 Points in FL-25 Democratic Primary - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 18:13:18",
+      "market_question": "Will Seth Moulton be the Democratic nominee for Senate in Massachusetts?",
+      "headline": "Poll Shows Congressman Jared Moskowitz Leading by 32 Points in FL-25 Democratic Primary - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 18:13:17",
+      "market_question": "Will Movimento Democr\u00e1tico Brasileiro (MDB) win the most seats in the next Brazilian Senate election?",
+      "headline": "Poll Shows Congressman Jared Moskowitz Leading by 32 Points in FL-25 Democratic Primary - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-02 18:13:16",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "Iran warns US, Israel against attacks ahead of funeral processions for Khamenei - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "cached",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 18:02:15",
-      "market_question": "Will Meta have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 2, 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 18:02:14",
-      "market_question": "Will Betmoar launch a token by March 31, 2027?",
-      "headline": "[No Title] - Post from July 2, 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 18:02:14",
-      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 2, 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 18:02:14",
-      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 2, 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
