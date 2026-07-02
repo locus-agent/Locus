@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-02T10:36:29.445688+00:00",
-  "last_heartbeat": "2026-07-02T10:36:29.445688+00:00",
-  "uptime_seconds": 43296,
+  "generated_at": "2026-07-02T10:41:40.687232+00:00",
+  "last_heartbeat": "2026-07-02T10:41:40.687232+00:00",
+  "uptime_seconds": 43607,
   "dry_run": false,
-  "markets_tracked": 1285,
+  "markets_tracked": 1282,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 9911,
+    "total": 9935,
     "accuracy": 18.1,
     "by_category": {
       "other": 16.2,
       "ai": 11.5,
       "politics": 20.5,
       "technology": 12.5,
-      "crypto": 18.8,
+      "crypto": 18.7,
       "sports": 26.2
     },
     "by_source": {
@@ -24,33 +24,33 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.1,
-    "overall_total": 9911,
+    "overall_total": 9935,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5600,
+        "total": 5616,
         "correct": 399,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 10.15,
+        "avg_pnl_pct": 10.1,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 891,
+        "total": 895,
         "correct": 318,
-        "accuracy_pct": 35.7,
-        "avg_pnl_pct": 24.39,
+        "accuracy_pct": 35.5,
+        "avg_pnl_pct": 24.15,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1058,
+        "total": 1059,
         "correct": 424,
-        "accuracy_pct": 40.1,
-        "avg_pnl_pct": 5.67,
+        "accuracy_pct": 40.0,
+        "avg_pnl_pct": 5.66,
         "color": "green"
       },
       {
@@ -74,21 +74,21 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1233,
+        "total": 1236,
         "correct": 234,
-        "accuracy_pct": 19.0,
-        "avg_pnl_pct": -2.9,
+        "accuracy_pct": 18.9,
+        "avg_pnl_pct": -2.89,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 282,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 288,
+  "headlines_last_cycle": 3,
   "signals_24h": 3,
-  "classifications_24h": 6615,
+  "classifications_24h": 6629,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2716,
+    "prefiltered_haiku": 2720,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 3,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1749,
-    "matched": 740,
-    "classified": 6615,
+    "news": 1754,
+    "matched": 744,
+    "classified": 6629,
     "signals": 3,
     "trades": 3
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2054.3
+    "avg_classification_latency_ms": 2052.6
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0955,
+      "current_price": 0.09549999999999992,
       "pnl_pct": -4.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.91,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -251,11 +251,11 @@
       "slug": "what-price-will-solana-hit-before-2027",
       "side": "NO",
       "entry_price": 0.525,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": -7.14,
       "amount_usd": 24.99,
-      "current_value_usd": 23.21,
-      "pnl_usd": -1.78,
+      "current_value_usd": 23.2,
+      "pnl_usd": -1.79,
       "edge_type": "news",
       "event_id": "89525"
     },
@@ -398,7 +398,7 @@
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-02 10:36:29",
+      "time": "2026-07-02 10:41:40",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -407,7 +407,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 10:35:58",
+      "time": "2026-07-02 10:41:09",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -416,7 +416,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 10:35:27",
+      "time": "2026-07-02 10:40:38",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -425,7 +425,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 10:34:56",
+      "time": "2026-07-02 10:40:07",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -434,7 +434,7 @@
       "pnl_pct": -23.61
     },
     {
-      "time": "2026-07-02 10:34:25",
+      "time": "2026-07-02 10:39:36",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
@@ -445,73 +445,73 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-02 10:32:47",
-      "market_question": "Will Microsoft have the best AI model at the end of July 2026?",
-      "headline": "AI was meant to cut costs. Why is it becoming the biggest new expense? - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-02 10:41:18",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 10:32:42",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "AI was meant to cut costs. Why is it becoming the biggest new expense? - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 10:32:42",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "AI was meant to cut costs. Why is it becoming the biggest new expense? - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-02 10:32:41",
-      "market_question": "Will Bitcoin reach $67,500 in July?",
-      "headline": "Bitcoin zooms above $61,000 as inflation fears soften",
-      "direction": "bullish",
-      "materiality": 0.45,
-      "confidence": 0.55,
-      "edge": 0.29475,
-      "fee_cost": 0.015818250000000002,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.38,
-      "action": "price_target_market",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-02 10:32:41",
-      "market_question": "Will Trump cut corporate taxes before 2027?",
-      "headline": "AI was meant to cut costs. Why is it becoming the biggest new expense? - Business Standard",
+      "time": "2026-07-02 10:41:18",
+      "market_question": "Will Click Bishop advance from the 2026 Alaska Governor primary election?",
+      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 10:41:18",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 10:41:18",
+      "market_question": "Will Donald Trump post 100-119 Truth Social posts from June 26 to July 3, 2026?",
+      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-02 10:41:18",
+      "market_question": "Will Donald Trump post 160-179 Truth Social posts from June 26 to July 3, 2026?",
+      "headline": "England were 15 minutes from humiliation - the issues Tuchel must solve",
       "direction": null,
       "materiality": null,
       "confidence": null,
