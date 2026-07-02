@@ -141,6 +141,65 @@ def cov_blocks(cov: dict | None) -> bool:
     )
 
 
+async def switch_target_gate(switched, headline: str,
+                             open_positions: list[dict]) -> str | None:
+    """Re-run the market-specific gates against an event-switch TARGET
+    (LOGIC_REVIEW finding #8). Every gate before the event-context step was
+    evaluated against the ORIGINAL market; a recommended sibling is a different
+    market — different resolution time, question shape, category, and order
+    book — and must clear the same market-specific bars before capital moves:
+
+      - sports_disabled + the (sports-aware) resolution-time floor
+      - price-target and coin-flip question filters
+      - category exposure (the sibling can be a different inferred category)
+      - orderbook imbalance (different token, different book)
+      - CoV already-priced check at the SIBLING's price (when warranted)
+
+    Signal-level gates are NOT redone: freshness, the headline cap, materiality
+    floors, and confirmation judge the news itself, which is unchanged —
+    and price-room, the edge threshold, held-markets, and correlation are
+    already re-checked per candidate inside event_context.find_best_outcome.
+
+    Returns None when the target passes, else the failing gate's action name;
+    the caller declines the switch and keeps the original signal (which
+    cleared its own full gate chain), mirroring the negative-Kelly decline."""
+    market = switched.market
+    is_sports = (getattr(market, "category", "") or "") == "sports"
+    if is_sports and not config.SPORTS_ENABLED:
+        return "sports_disabled"
+    min_hours = (
+        config.SPORTS_MIN_HOURS_TO_RESOLUTION if is_sports
+        else config.MIN_HOURS_TO_RESOLUTION
+    )
+    hours_left = positions.hours_to_close(market.end_date)
+    if hours_left is not None and hours_left < min_hours:
+        return "too_close_to_resolution"
+    if is_price_target_market(market.question):
+        return "price_target_market"
+    if is_coinflip_market(market.question):
+        return "coinflip_market"
+    cat_exp = positions.check_category_exposure(
+        getattr(market, "category", "") or "other", open_positions or []
+    )
+    if not cat_exp["allowed"]:
+        return "category_limit"
+
+    loop = asyncio.get_event_loop()
+    imbalance = await loop.run_in_executor(
+        None, fetch_orderbook_imbalance, get_token_id(market, "YES")
+    )
+    if not orderbook_allows(switched.side, imbalance):
+        return "orderbook_skip"
+
+    if should_verify_novelty(switched.materiality, market.yes_price):
+        cov = await loop.run_in_executor(
+            None, verify_novelty, headline, market, market.yes_price
+        )
+        if cov_blocks(cov):
+            return "already_priced_in"
+    return None
+
+
 def get_materiality_threshold(direction: str, category: str) -> float:
     """Materiality floor for a would-be signal, chosen by category then direction.
 
@@ -903,6 +962,27 @@ class PipelineV2:
                                             "kelly_negative on sibling %s",
                                             switched.market.slug
                                             or switched.market.condition_id,
+                                        )
+                                    elif (blocked := await switch_target_gate(
+                                            switched, event.headline, open_positions)):
+                                        # The sibling fails a market-specific
+                                        # gate the original already cleared —
+                                        # decline the switch, keep the original
+                                        # (mirrors the kelly_negative decline).
+                                        self.stats["event_switch_declines"] = (
+                                            self.stats.get("event_switch_declines", 0) + 1
+                                        )
+                                        log.info(
+                                            "[pipeline] Event switch declined: %s "
+                                            "on sibling %s — keeping original signal",
+                                            blocked,
+                                            switched.market.slug
+                                            or switched.market.condition_id,
+                                        )
+                                        console.print(
+                                            f"  [yellow]EVENT SWITCH DECLINED[/yellow]: "
+                                            f"sibling \"{switched.market.question[:40]}\" "
+                                            f"fails {blocked} — keeping original"
                                         )
                                     else:
                                         self.stats["event_switches"] = (

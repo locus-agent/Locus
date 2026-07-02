@@ -116,6 +116,73 @@ def test_not_categorical_single_market():
     assert not event_context.is_categorical([mkt("a", 0.5)])
 
 
+# --- date-ladder guard (LOGIC_REVIEW finding #9) --------------------------
+#
+# "by March" / "by June" siblings are cumulative, positively-correlated
+# outcomes: news that makes the March rung likelier makes the June rung
+# likelier too. Their prices can still sum near 1, so the sum heuristic alone
+# would misread them as mutually exclusive and put the implied play on the
+# WRONG side (bullish on "by March" would buy NO on "by June").
+
+def _ladder():
+    return [
+        mkt("m1", 0.35, q="Will OpenAI IPO by March 2026?"),
+        mkt("m2", 0.60, q="Will OpenAI IPO by June 2026?"),
+    ]
+
+
+def test_date_ladder_detected():
+    assert event_context.is_date_ladder(_ladder())
+
+
+def test_date_ladder_not_categorical_despite_sum_near_one():
+    # Prices sum to 0.95 — inside the ±0.20 band — but the ladder guard wins.
+    assert not event_context.is_categorical(_ladder())
+
+
+def test_date_ladder_gets_no_implied_plays():
+    # Bullish on the March rung must NOT imply NO on the June rung; the only
+    # recommendation left is the direct signal itself.
+    a, b = _ladder()
+    rec = event_context.find_best_outcome(sig(a, materiality=0.6), [a, b], [])
+    assert rec["recommended_market"].condition_id == "m1"
+    assert rec["recommended_side"] == "YES"
+
+
+def test_quarter_and_bare_year_ladders_detected():
+    assert event_context.is_date_ladder([
+        mkt("q1", 0.4, q="Will the Fed cut rates in Q1?"),
+        mkt("q2", 0.5, q="Will the Fed cut rates in Q2?"),
+    ])
+    assert event_context.is_date_ladder([
+        mkt("y1", 0.4, q="Will Tesla ship the Roadster in 2026?"),
+        mkt("y2", 0.5, q="Will Tesla ship the Roadster in 2027?"),
+    ])
+
+
+def test_candidate_event_is_not_a_ladder():
+    # Genuine categorical siblings (candidate names) differ by more than a
+    # date phrase — the guard must not fire, and the sum heuristic still
+    # detects the event as categorical.
+    candidates = [
+        mkt("a", 0.5, q="Will Alice win the 2026 primary?"),
+        mkt("b", 0.3, q="Will Bob win the 2026 primary?"),
+        mkt("c", 0.2, q="Will Carol win the 2026 primary?"),
+    ]
+    assert not event_context.is_date_ladder(candidates)
+    assert event_context.is_categorical(candidates)
+
+
+def test_candidate_event_still_switches():
+    # End-to-end: a real categorical event still produces implied sibling
+    # plays after the ladder guard was added.
+    a = mkt("a", 0.6, q="Will Alice win the 2026 primary?")
+    b = mkt("b", 0.55, q="Will Bob win the 2026 primary?")
+    rec = event_context.find_best_outcome(sig(a, materiality=0.5), [a, b], [])
+    assert rec["recommended_market"].condition_id == "b"
+    assert rec["recommended_side"] == "NO"
+
+
 # --- find_best_outcome ---------------------------------------------------
 
 def test_bullish_switches_to_higher_edge_sibling():

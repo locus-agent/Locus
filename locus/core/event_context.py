@@ -18,15 +18,74 @@ whole event before committing capital:
 """
 from __future__ import annotations
 
+import logging
+import re
+
 from locus import config
 from locus.markets.gamma import Market
 from locus.core.edge import Signal, size_position
 from locus.core import positions
 
+log = logging.getLogger(__name__)
+
 # A set of event markets is treated as a mutually-exclusive (categorical) event
 # when its YES prices sum to ~1.0 within this tolerance. Many-outcome events
 # drift a little from exactly 1, so the band is generous.
 CATEGORICAL_SUM_TOLERANCE = 0.20
+
+# Date/deadline phrases for ladder detection (LOGIC_REVIEW finding #9): month
+# names (with optional preposition, day, and year), quarters, bare years, and
+# numeric dates. Deliberately simple — when two sibling questions differ only
+# by one of these, they're a "by March"/"by June" style ladder (positively
+# correlated cumulative outcomes), NOT mutually exclusive candidates, even if
+# their YES prices happen to sum near 1.
+_DATE_PHRASE_RE = re.compile(
+    r"\b(?:by|before|until|through|during|in|on)?\s*(?:the\s+)?(?:end\s+of\s+)?"
+    r"(?:"
+    r"(?:january|february|march|april|may|june|july|august|september|october|"
+    r"november|december|jan|feb|mar|apr|jun|jul|aug|sept?|oct|nov|dec)\b\.?"
+    r"(?:\s+\d{1,2}(?:st|nd|rd|th)?)?(?:,?\s*(?:19|20)\d{2})?"
+    r"|q[1-4](?:\s*(?:19|20)\d{2})?"
+    r"|(?:19|20)\d{2}"
+    r"|\d{1,2}/\d{1,2}(?:/\d{2,4})?"
+    r")",
+    re.IGNORECASE,
+)
+
+
+def _strip_date_phrases(question: str) -> str:
+    """Question text with date/deadline phrases removed and the remainder
+    normalized (lowercased, punctuation/whitespace collapsed), so two ladder
+    rungs collapse to the same string."""
+    text = _DATE_PHRASE_RE.sub(" ", (question or "").lower())
+    return re.sub(r"[\W_]+", " ", text).strip()
+
+
+def is_date_ladder(event_markets: list[Market]) -> bool:
+    """True when the event looks like a date ladder: at least two sibling
+    questions that DIFFER as written but become IDENTICAL once date/deadline
+    phrases are stripped ("...by March?" / "...by June?"). Ladder rungs are
+    positively correlated (news that makes "by March" likelier makes "by June"
+    likelier too), so the mutually-exclusive implied-play inference must not
+    run on them. Conservative by design: a false ladder just means no implied
+    switch, the safe default."""
+    if len(event_markets) < 2:
+        return False
+    seen: dict[str, str] = {}
+    for m in event_markets:
+        original = (m.question or "").strip().lower()
+        stripped = _strip_date_phrases(m.question)
+        if not stripped:
+            continue
+        if stripped in seen and seen[stripped] != original:
+            log.debug(
+                "[event_context] date ladder detected: %r and %r differ only "
+                "by date phrases — not treating event as categorical",
+                seen[stripped], original,
+            )
+            return True
+        seen.setdefault(stripped, original)
+    return False
 
 
 def get_event_markets(event_id: str, tracked_markets: list[Market]) -> list[Market]:
@@ -39,8 +98,17 @@ def get_event_markets(event_id: str, tracked_markets: list[Market]) -> list[Mark
 
 def is_categorical(event_markets: list[Market]) -> bool:
     """True when the event looks like a mutually-exclusive set of outcomes:
-    at least two markets whose YES prices sum to ~1.0."""
+    at least two markets whose YES prices sum to ~1.0.
+
+    Guarded against date ladders (LOGIC_REVIEW finding #9): "by March" /
+    "by June" siblings are cumulative, positively-correlated outcomes whose
+    prices can also sum near 1 — treating them as mutually exclusive would put
+    the implied play on the WRONG side (bullish news on "by March" would buy
+    NO on "by June", which the same news makes MORE likely). A detected ladder
+    is never categorical."""
     if len(event_markets) < 2:
+        return False
+    if is_date_ladder(event_markets):
         return False
     total = sum(m.yes_price for m in event_markets)
     return abs(total - 1.0) <= CATEGORICAL_SUM_TOLERANCE
