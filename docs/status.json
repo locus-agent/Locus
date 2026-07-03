@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-03T10:46:51.782928+00:00",
-  "last_heartbeat": "2026-07-03T10:46:51.782928+00:00",
-  "uptime_seconds": 43308,
+  "generated_at": "2026-07-03T10:51:58.754246+00:00",
+  "last_heartbeat": "2026-07-03T10:51:58.754246+00:00",
+  "uptime_seconds": 43615,
   "dry_run": false,
-  "markets_tracked": 1297,
+  "markets_tracked": 1298,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 10090,
+    "total": 10109,
     "accuracy": 18.2,
     "by_category": {
       "other": 16.2,
       "ai": 11.5,
       "politics": 20.5,
       "technology": 12.3,
-      "crypto": 19.3,
+      "crypto": 19.4,
       "sports": 26.2
     },
     "by_source": {
@@ -24,12 +24,12 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.2,
-    "overall_total": 10090,
+    "overall_total": 10109,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5688,
+        "total": 5692,
         "correct": 400,
         "accuracy_pct": 7.0,
         "avg_pnl_pct": 9.83,
@@ -38,54 +38,54 @@
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 917,
+        "total": 919,
         "correct": 327,
-        "accuracy_pct": 35.7,
-        "avg_pnl_pct": 23.64,
+        "accuracy_pct": 35.6,
+        "avg_pnl_pct": 23.59,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1072,
-        "correct": 429,
+        "total": 1075,
+        "correct": 430,
         "accuracy_pct": 40.0,
-        "avg_pnl_pct": 5.87,
+        "avg_pnl_pct": 5.86,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 612,
-        "correct": 207,
-        "accuracy_pct": 33.8,
-        "avg_pnl_pct": 1.73,
+        "total": 615,
+        "correct": 210,
+        "accuracy_pct": 34.1,
+        "avg_pnl_pct": 1.84,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 549,
-        "correct": 237,
+        "total": 553,
+        "correct": 239,
         "accuracy_pct": 43.2,
-        "avg_pnl_pct": 3.65,
+        "avg_pnl_pct": 3.73,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1252,
-        "correct": 237,
-        "accuracy_pct": 18.9,
-        "avg_pnl_pct": -2.96,
+        "total": 1255,
+        "correct": 238,
+        "accuracy_pct": 19.0,
+        "avg_pnl_pct": -2.95,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 371,
+  "headlines_scanned_today": 372,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 7150,
+  "classifications_24h": 7140,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2603,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1901,
+    "news": 1900,
     "matched": 935,
-    "classified": 7150,
+    "classified": 7140,
     "signals": 1,
     "trades": 0
   },
@@ -135,8 +135,8 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.43,
-    "total_pnl_usd": 39.75,
+    "unrealized_pnl_usd": -4.45,
+    "total_pnl_usd": 39.73,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0815,
-      "pnl_pct": -18.5,
+      "current_price": 0.08050000000000002,
+      "pnl_pct": -19.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.63,
-      "pnl_usd": -0.37,
+      "current_value_usd": 1.61,
+      "pnl_usd": -0.39,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,6 +398,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 10:49:57",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -23.53
+    },
+    {
       "time": "2026-07-03 10:19:46",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -426,15 +435,6 @@
     },
     {
       "time": "2026-07-03 08:49:11",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
-    },
-    {
-      "time": "2026-07-03 08:19:03",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
