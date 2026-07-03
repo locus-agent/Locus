@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T01:49:56.224500+00:00",
-  "last_heartbeat": "2026-07-03T01:49:56.224500+00:00",
-  "uptime_seconds": 11093,
+  "generated_at": "2026-07-03T01:55:02.566142+00:00",
+  "last_heartbeat": "2026-07-03T01:55:02.566142+00:00",
+  "uptime_seconds": 11399,
   "dry_run": false,
-  "markets_tracked": 1291,
+  "markets_tracked": 1294,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10056,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 69,
+  "headlines_scanned_today": 70,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6756,
+  "classifications_24h": 6744,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2426,
+    "prefiltered_haiku": 2420,
     "stale": 3,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1810,
-    "matched": 828,
-    "classified": 6756,
+    "news": 1808,
+    "matched": 826,
+    "classified": 6744,
     "signals": 3,
     "trades": 2
   },
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.052000000000000046,
+      "current_price": 0.052000000000000005,
       "pnl_pct": -22.03,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.47,
-      "pnl_usd": -0.41,
+      "pnl_usd": -0.42,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -445,6 +445,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-03 01:51:22",
+      "market_question": "Will Mo Ivory win the 2026 Fulton Commission Chair election?",
+      "headline": "9/11 Commission Report - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-03 01:40:25",
       "market_question": "Will Trump attend 1 World Cup match?",
       "headline": "Improving Spain outclass Austria 3-0 to ease into World Cup last 16 - Reuters",
@@ -495,22 +511,6 @@
     {
       "time": "2026-07-03 01:40:24",
       "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Improving Spain outclass Austria 3-0 to ease into World Cup last 16 - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 01:40:24",
-      "market_question": "President Trump to Attend World Cup Final?",
       "headline": "Improving Spain outclass Austria 3-0 to ease into World Cup last 16 - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
