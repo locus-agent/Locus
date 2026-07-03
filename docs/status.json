@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T06:31:04.305777+00:00",
-  "last_heartbeat": "2026-07-03T06:31:04.305777+00:00",
-  "uptime_seconds": 27961,
+  "generated_at": "2026-07-03T06:36:10.928242+00:00",
+  "last_heartbeat": "2026-07-03T06:36:10.928242+00:00",
+  "uptime_seconds": 28267,
   "dry_run": false,
-  "markets_tracked": 1285,
+  "markets_tracked": 1286,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10078,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 217,
+  "headlines_scanned_today": 218,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6994,
+  "classifications_24h": 6996,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2501,
+    "prefiltered_haiku": 2502,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1877,
-    "matched": 875,
-    "classified": 6994,
+    "news": 1876,
+    "matched": 876,
+    "classified": 6996,
     "signals": 3,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1738.2
+    "avg_classification_latency_ms": 1737.6
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.455,
+      "current_price": 0.45499999999999996,
       "pnl_pct": -6.03,
       "amount_usd": 24.94,
-      "current_value_usd": 23.43,
-      "pnl_usd": -1.51,
+      "current_value_usd": 23.44,
+      "pnl_usd": -1.5,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -445,6 +445,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-03 06:32:21",
+      "market_question": "Hyperliquid listed on Binance in 2026?",
+      "headline": "Binance says MiCA should be judged by who it licenses, not who it excludes",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 06:32:20",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "Binance says MiCA should be judged by who it licenses, not who it excludes",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-03 06:30:17",
       "market_question": "Will Bitcoin reach $100,000 in July?",
       "headline": "Institutional Bitcoin Adoption Explained: How Blackrock, Fidelity and Others Embraced BTC",
@@ -479,38 +511,6 @@
     {
       "time": "2026-07-03 06:30:17",
       "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Steam railway that travels through the Swiss Alps celebrates its 100th anniversary - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 06:30:17",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Steam railway that travels through the Swiss Alps celebrates its 100th anniversary - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 06:30:17",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
       "headline": "Steam railway that travels through the Swiss Alps celebrates its 100th anniversary - AP News",
       "direction": null,
       "materiality": null,
