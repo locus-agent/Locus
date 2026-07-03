@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T16:50:55.763074+00:00",
-  "last_heartbeat": "2026-07-03T16:50:55.763074+00:00",
-  "uptime_seconds": 16015,
+  "generated_at": "2026-07-03T16:56:02.453230+00:00",
+  "last_heartbeat": "2026-07-03T16:56:02.453230+00:00",
+  "uptime_seconds": 16322,
   "dry_run": false,
-  "markets_tracked": 1378,
+  "markets_tracked": 1376,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10174,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 926,
+  "headlines_scanned_today": 928,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
   "classifications_24h": 7386,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2842,
+    "prefiltered_haiku": 2840,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T16:39:24.393688+00:00"
+    "last_check": "2026-07-03T16:54:24.844601+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -120,8 +120,8 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1960,
-    "matched": 1043,
+    "news": 1961,
+    "matched": 1044,
     "classified": 7386,
     "signals": 1,
     "trades": 0
@@ -135,12 +135,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -4.56,
-    "total_pnl_usd": 38.86,
+    "unrealized_pnl_usd": -4.55,
+    "total_pnl_usd": 38.87,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1822.9
+    "avg_classification_latency_ms": 1822.0
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.044,
+      "current_price": 0.04400000000000004,
       "pnl_pct": -34.02,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.24,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0825,
-      "pnl_pct": -17.5,
+      "current_price": 0.083,
+      "pnl_pct": -17.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.65,
-      "pnl_usd": -0.35,
+      "current_value_usd": 1.66,
+      "pnl_usd": -0.34,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -431,9 +431,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 16:47:36",
-      "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
-      "headline": "A California farmer is giving away tons of nectarines that he\u2019s not allowed to sell - AP News",
+      "time": "2026-07-03 16:52:01",
+      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
+      "headline": "Osaka reaches Wimbledon fourth round for first time",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 16:52:01",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Osaka reaches Wimbledon fourth round for first time",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 16:51:59",
+      "market_question": "Will Renan Santos win the first round of the 2026 Brazilian presidential election?",
+      "headline": "Osaka reaches Wimbledon fourth round for first time",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -447,9 +479,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 16:47:36",
-      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
-      "headline": "A California farmer is giving away tons of nectarines that he\u2019s not allowed to sell - AP News",
+      "time": "2026-07-03 16:51:59",
+      "market_question": "Will Fl\u00e1vio Bolsonaro win the first round of the 2026 Brazilian presidential election by less than 5%?",
+      "headline": "Osaka reaches Wimbledon fourth round for first time",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -463,41 +495,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 16:47:36",
-      "market_question": "Will Alex Padilla win the California Governor Election in 2026?",
-      "headline": "A California farmer is giving away tons of nectarines that he\u2019s not allowed to sell - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 16:47:36",
-      "market_question": "Will Chad Bianco win the California Governor Election in 2026?",
-      "headline": "A California farmer is giving away tons of nectarines that he\u2019s not allowed to sell - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 16:47:36",
-      "market_question": "Will Kyle Langford win the California Governor Election in 2026?",
-      "headline": "A California farmer is giving away tons of nectarines that he\u2019s not allowed to sell - AP News",
+      "time": "2026-07-03 16:51:59",
+      "market_question": "Will voter turnout be less than 50% in the first round of the 2026 Zambian presidential elections?",
+      "headline": "Osaka reaches Wimbledon fourth round for first time",
       "direction": null,
       "materiality": null,
       "confidence": null,
