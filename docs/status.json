@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T14:53:10.981820+00:00",
-  "last_heartbeat": "2026-07-03T14:53:10.981820+00:00",
-  "uptime_seconds": 8950,
+  "generated_at": "2026-07-03T14:58:18.127938+00:00",
+  "last_heartbeat": "2026-07-03T14:58:18.127938+00:00",
+  "uptime_seconds": 9257,
   "dry_run": false,
-  "markets_tracked": 1384,
+  "markets_tracked": 1386,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10128,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 837,
+  "headlines_scanned_today": 839,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 7263,
+  "classifications_24h": 7258,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2773,
+    "prefiltered_haiku": 2768,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T14:39:20.660828+00:00"
+    "last_check": "2026-07-03T14:54:21.149372+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1951,
-    "matched": 993,
-    "classified": 7263,
+    "news": 1952,
+    "matched": 992,
+    "classified": 7258,
     "signals": 1,
     "trades": 0
   },
@@ -135,8 +135,8 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -4.49,
-    "total_pnl_usd": 38.93,
+    "unrealized_pnl_usd": -4.47,
+    "total_pnl_usd": 38.95,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -195,7 +195,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.04600000000000004,
+      "current_price": 0.046,
       "pnl_pct": -31.02,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.3,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0835,
-      "pnl_pct": -16.5,
+      "current_price": 0.08450000000000002,
+      "pnl_pct": -15.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.67,
-      "pnl_usd": -0.33,
+      "current_value_usd": 1.69,
+      "pnl_usd": -0.31,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -384,6 +384,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 14:56:16",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -31.02
+    },
+    {
       "time": "2026-07-03 14:26:05",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -418,15 +427,6 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -21.28
-    },
-    {
-      "time": "2026-07-03 12:24:39",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
     }
   ],
   "recent_classifications": [
