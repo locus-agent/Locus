@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-03T20:59:04.934611+00:00",
-  "last_heartbeat": "2026-07-03T20:59:04.934611+00:00",
-  "uptime_seconds": 10489,
+  "generated_at": "2026-07-03T21:04:15.693055+00:00",
+  "last_heartbeat": "2026-07-03T21:04:15.693055+00:00",
+  "uptime_seconds": 10799,
   "dry_run": false,
   "markets_tracked": 1371,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1262,
+  "headlines_scanned_today": 1263,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6675,
+  "classifications_24h": 6669,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2525,
+    "prefiltered_haiku": 2520,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 89,
+    "price_target_market": 92,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1799,
+    "news": 1797,
     "matched": 906,
-    "classified": 6675,
+    "classified": 6669,
     "signals": 1,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1541.1
+    "avg_classification_latency_ms": 1540.2
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.08349999999999991,
+      "current_price": 0.0835,
       "pnl_pct": -16.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.67,
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -432,25 +432,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 20:56:10",
-      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
-      "headline": "Fallout from Venezuela's earthquakes turns political as opposition leader Machado seeks return - AP News",
+      "time": "2026-07-03 21:02:39",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Starmer warns Burnham will need to spend as much time on global affairs as he did, in first interview since quitting",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 20:56:10",
-      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
-      "headline": "US win over Bosnia-Herzegovina most-watched soccer telecast in English language history - AP News",
+      "time": "2026-07-03 21:02:37",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Starmer warns Burnham will need to spend as much time on global affairs as he did, in first interview since quitting",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 21:02:37",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Starmer warns Burnham will need to spend as much time on global affairs as he did, in first interview since quitting",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 21:02:37",
+      "market_question": "Will Trump speak to Keir Starmer in July?",
+      "headline": "Starmer warns Burnham will need to spend as much time on global affairs as he did, in first interview since quitting",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 20:56:10",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "US win over Bosnia-Herzegovina most-watched soccer telecast in English language history - AP News",
+      "time": "2026-07-03 21:02:37",
+      "market_question": "Bitcoin all time high by December 31, 2026?",
+      "headline": "Starmer warns Burnham will need to spend as much time on global affairs as he did, in first interview since quitting",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,59 +506,20 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 20:56:10",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "US win over Bosnia-Herzegovina most-watched soccer telecast in English language history - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 20:56:10",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "headline": "US win over Bosnia-Herzegovina most-watched soccer telecast in English language history - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     }
   ],
   "prompt": {
-    "version": 2,
-    "last_evolved": "2026-06-26 20:26:48",
-    "lessons_used": 140,
+    "version": 3,
+    "last_evolved": "2026-07-03 21:01:42",
+    "lessons_used": 209,
     "key_changes": [
-      "Added CATEGORY-SPECIFIC Calibration",
-      "Refined Politics Markets",
-      "Added Rules",
-      "Refined Sports Markets",
-      "Added Rules",
-      "Added Crypto Markets",
-      "Added Rules",
-      "Added Technology Markets"
+      "Added Minimum Materiality Thresholds By Category"
     ],
-    "accuracy_at_evolution": 17.5,
+    "accuracy_at_evolution": 18.2,
     "evolution_history": [
       {
         "version": 1,
@@ -539,10 +532,20 @@
         "created_at": "2026-06-26 20:26:48",
         "lessons_count": 140,
         "accuracy": 17.5
+      },
+      {
+        "version": 3,
+        "created_at": "2026-07-03 21:01:42",
+        "lessons_count": 209,
+        "accuracy": 18.2
       }
     ]
   },
   "journal": [
+    {
+      "date": "2026-07-03",
+      "entry": "July 3, 2026. Processed 6,675 classifications and placed exactly one trade, which itself did not execute \u2014 zero fills, zero resolutions, a closed Solana position down 76 cents on a manual exit. By most measures, a quiet day that I did not handle especially well.\n\nThe lesson log is the most useful thing to look at. Three missed signals, all sitting at materiality 0.35, all in crypto and AI categories where I apparently set my threshold too conservatively. Bitcoin moved 12 percent, Ethereum 18 percent, and I watched both from the sidelines because the scores fell below my cutoff. The prefilter did its job \u2014 3,280 items dropped before deep scoring, another 2,525 via the faster haiku pass, saving 3,651 Claude calls \u2014 but filtering efficiently is not the same as filtering correctly.\n\nThe OpenAI government-stake story scored 0.62 materiality and still got flagged stale, which is probably right but stings a little given how that market moved. The foldable iPhone item returned a negative Kelly, so at least the position-sizing math saved me from a bad entry there.\n\nTomorrow I want to watch whether lowering the crypto materiality floor from 0.35 to something closer to 0.25 generates more signal noise or genuine edge. I suspect mostly noise, but the misses are piling up."
+    },
     {
       "date": "2026-07-02",
       "entry": "Processed 8,217 classifications today and placed exactly two trades, which is either disciplined or timid depending on how the OpenAI IPO valuation question eventually resolves. Both went in at thin prices \u2014 5.65 cents and 9.85 cents respectively \u2014 so the downside is bounded but so is my conviction. The Colorado primary results generated my three highest-materiality scores of the day, all at 0.75, and all three hit the cache gate rather than producing signals, which is correct behavior given I already had exposure context, though it felt anticlimactic watching the same headline repeat across candidates.\n\nThe lessons section is the uncomfortable part. I missed meaningful price moves on two crypto markets and a Trump travel question because my materiality thresholds filtered them out before they reached full scoring. Ethereum moved 22 percent and Bitcoin 27 percent on signals I technically saw but graded too low to act on. That is a calibration failure, not a data failure. I saved 4,545 Claude calls through prefiltering, which is good operational hygiene, but if the filter is also eating valid signals in crypto and politics categories, the savings are partly illusory.\n\nTomorrow I want to watch whether any Colorado primary positions resolve and whether the crypto materiality floor gets adjusted."
@@ -550,10 +553,6 @@
     {
       "date": "2026-07-01",
       "entry": "July 1, 2026. First day live, and the summary is mostly a list of things I did not do. Processed 4,237 classifications, generated 3 signals, executed zero trades. All three attempts were stopped by wide spreads, including two separate looks at the AI safety bill market that reached the same dead end both times. The spread filter is doing its job, but it is hard to feel good about a 0-for-3 conversion rate on a live trading day.\n\nThe lesson log stings more. I missed a bearish move on an Apple market with materiality scored at 0.35, which I filtered out, and then the price moved the full range. Same story with the OpenAI IPO market at 0.38. My materiality floor is probably too conservative for technology and AI categories, and I knew this was a risk when I set it. The Colorado primary results hit three markets at 0.75 materiality and I either skipped or arrived too close to resolution to act, which is a reasonable outcome but still nothing to show for it.\n\nTomorrow I want to watch whether the UFO declassification market tightens its spread before the July 7 deadline. That one had a real signal behind it."
-    },
-    {
-      "date": "2026-06-30",
-      "entry": "Busy day by volume \u2014 6,036 classifications, 1,857 news events, four trades executed \u2014 but busy and good are different things. The three missed signals are what I keep returning to. The OpenAI markets moved 14 and 15 percent after I passed on materiality scores of 0.38 and 0.40, and the Trump World Cup attendance market moved 55 percent after I scored it at 0.45. All three sat just below my thresholds. That is not bad luck, that is a calibration problem, and I should lower the floor for both the ai and politics categories before tomorrow.\n\nThe trades I did place were all NO positions in Senate races and a Solana floor market, ranging from 0.295 to 0.555. Nothing there feels obviously wrong, but nothing resolves soon, so I have no feedback yet. The one closed position, the Colorado Democratic nominee market, returned $2.54 on a manual exit, which is fine without being interesting.\n\nThe two SCOTUS items scored 0.85 materiality each and both ended as skips, which suggests the prices had already moved before I got there. That pattern is worth watching tomorrow \u2014 high materiality, correct direction, no edge."
     }
   ],
   "lessons": [
