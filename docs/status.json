@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T08:49:12.005354+00:00",
-  "last_heartbeat": "2026-07-03T08:49:12.005354+00:00",
-  "uptime_seconds": 36248,
+  "generated_at": "2026-07-03T08:54:19.148302+00:00",
+  "last_heartbeat": "2026-07-03T08:54:19.148302+00:00",
+  "uptime_seconds": 36556,
   "dry_run": false,
-  "markets_tracked": 1285,
+  "markets_tracked": 1282,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10090,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 299,
+  "headlines_scanned_today": 302,
   "headlines_last_cycle": 0,
-  "signals_24h": 3,
-  "classifications_24h": 7167,
+  "signals_24h": 2,
+  "classifications_24h": 7164,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2586,
+    "prefiltered_haiku": 2584,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -115,16 +115,16 @@
     "last_check": "2026-07-03T08:45:39.758372+00:00"
   },
   "edge_types_24h": {
-    "news": 2,
+    "news": 1,
     "momentum": 1,
     "arbitrage": 0
   },
   "pipeline_24h": {
     "news": 1908,
-    "matched": 911,
-    "classified": 7167,
-    "signals": 3,
-    "trades": 2
+    "matched": 914,
+    "classified": 7164,
+    "signals": 2,
+    "trades": 1
   },
   "performance": {
     "trades_total": 47,
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1919.6
+    "avg_classification_latency_ms": 1917.6
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.45499999999999996,
+      "current_price": 0.455,
       "pnl_pct": -6.03,
       "amount_usd": 24.94,
-      "current_value_usd": 23.44,
-      "pnl_usd": -1.5,
+      "current_value_usd": 23.43,
+      "pnl_usd": -1.51,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -445,9 +445,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 08:46:18",
-      "market_question": "Will Melisa Hortman be the Democratic nominee for Senate in Minnesota?",
-      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
+      "time": "2026-07-03 08:52:56",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 08:52:55",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 08:46:18",
-      "market_question": "Will Angie Craig be the Democratic nominee for Senate in Minnesota?",
-      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
+      "time": "2026-07-03 08:52:55",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 08:46:18",
-      "market_question": "Will David Wellstone be the Democratic nominee for Senate in Minnesota?",
-      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
+      "time": "2026-07-03 08:52:55",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,25 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 08:46:18",
-      "market_question": "Will Ilhan Omar be the Democratic nominee for Senate in Minnesota?",
-      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 08:46:18",
-      "market_question": "Will Adam Schwarze be the Republican nominee for Senate in Minnesota?",
-      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
+      "time": "2026-07-03 08:52:55",
+      "market_question": "Trump meets with Putin by September 30?",
+      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
