@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T13:21:02.564697+00:00",
-  "last_heartbeat": "2026-07-03T13:21:02.564697+00:00",
-  "uptime_seconds": 3422,
+  "generated_at": "2026-07-03T13:26:11.040799+00:00",
+  "last_heartbeat": "2026-07-03T13:26:11.040799+00:00",
+  "uptime_seconds": 3730,
   "dry_run": false,
-  "markets_tracked": 1389,
+  "markets_tracked": 1387,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10128,
@@ -82,19 +82,19 @@
       }
     ]
   },
-  "headlines_scanned_today": 681,
+  "headlines_scanned_today": 720,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 7873,
+  "classifications_24h": 7744,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2884,
+    "prefiltered_haiku": 2868,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 22,
+    "price_target_market": 18,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T13:09:18.097026+00:00"
+    "last_check": "2026-07-03T13:24:18.538084+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2116,
+    "news": 2082,
     "matched": 993,
-    "classified": 7873,
+    "classified": 7744,
     "signals": 1,
     "trades": 0
   },
@@ -135,12 +135,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -4.3,
-    "total_pnl_usd": 39.12,
+    "unrealized_pnl_usd": -4.25,
+    "total_pnl_usd": 39.17,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1616.6
+    "avg_classification_latency_ms": 1744.9
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.05400000000000005,
-      "pnl_pct": -19.03,
+      "current_price": 0.052999999999999936,
+      "pnl_pct": -20.53,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.53,
-      "pnl_usd": -0.36,
+      "current_value_usd": 1.5,
+      "pnl_usd": -0.39,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0815,
-      "pnl_pct": -18.5,
+      "current_price": 0.08549999999999991,
+      "pnl_pct": -14.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.63,
-      "pnl_usd": -0.37,
+      "current_value_usd": 1.71,
+      "pnl_usd": -0.29,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -384,6 +384,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 13:25:10",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -20.53
+    },
+    {
       "time": "2026-07-03 12:54:55",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -418,70 +427,13 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 2.04
-    },
-    {
-      "time": "2026-07-03 12:12:55",
-      "market_question": "Will Solana dip to $50 by December 31, 2026?",
-      "side": "NO",
-      "trigger": "manual",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (manual); position kept open",
-      "pnl_pct": 2.04
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 13:19:17",
-      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
-      "headline": "California State Elections - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 13:19:13",
-      "market_question": "Will Matt Mahan finish first in the 2026 California Governor primary election?",
-      "headline": "California State Elections - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 13:19:12",
-      "market_question": "Will Tom Steyer finish first in the 2026 California Governor primary election?",
-      "headline": "California State Elections - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 13:19:12",
-      "market_question": "Will CDU win the most seats in the 2026 Berlin state elections?",
-      "headline": "California State Elections - Politico",
+      "time": "2026-07-03 13:23:01",
+      "market_question": "Will Meta have the best AI model at the end of July 2026?",
+      "headline": "Night sky July 2026 \u2014 What you can see tonight - Space",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -495,9 +447,57 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 13:19:12",
-      "market_question": "Will Linke win the most seats in the 2026 Berlin state elections?",
-      "headline": "California State Elections - Politico",
+      "time": "2026-07-03 13:23:01",
+      "market_question": "Will OpenAI IPO by July 31 2026?",
+      "headline": "Night sky July 2026 \u2014 What you can see tonight - Space",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 13:23:01",
+      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
+      "headline": "Night sky July 2026 \u2014 What you can see tonight - Space",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 13:23:01",
+      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
+      "headline": "Night sky July 2026 \u2014 What you can see tonight - Space",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 13:23:01",
+      "market_question": "Will xAI have the best AI model at the end of July 2026?",
+      "headline": "Night sky July 2026 \u2014 What you can see tonight - Space",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
