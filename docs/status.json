@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T16:56:02.453230+00:00",
-  "last_heartbeat": "2026-07-03T16:56:02.453230+00:00",
-  "uptime_seconds": 16322,
+  "generated_at": "2026-07-03T17:01:09.890311+00:00",
+  "last_heartbeat": "2026-07-03T17:01:09.890311+00:00",
+  "uptime_seconds": 16629,
   "dry_run": false,
-  "markets_tracked": 1376,
+  "markets_tracked": 1361,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10174,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 928,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 941,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 7386,
+  "classifications_24h": 7242,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2840,
+    "prefiltered_haiku": 2788,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1961,
-    "matched": 1044,
-    "classified": 7386,
+    "news": 1925,
+    "matched": 1038,
+    "classified": 7242,
     "signals": 1,
     "trades": 0
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1822.0
+    "avg_classification_latency_ms": 1822.7
   },
   "live_readiness": {
     "ready": true,
@@ -195,7 +195,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.04400000000000004,
+      "current_price": 0.044,
       "pnl_pct": -34.02,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.24,
@@ -384,6 +384,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 16:57:06",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -34.02
+    },
+    {
       "time": "2026-07-03 16:26:55",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -418,54 +427,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -31.02
-    },
-    {
-      "time": "2026-07-03 14:26:05",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -20.53
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 16:52:01",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
-      "headline": "Osaka reaches Wimbledon fourth round for first time",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 16:52:01",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Osaka reaches Wimbledon fourth round for first time",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 16:51:59",
-      "market_question": "Will Renan Santos win the first round of the 2026 Brazilian presidential election?",
-      "headline": "Osaka reaches Wimbledon fourth round for first time",
+      "time": "2026-07-03 16:58:35",
+      "market_question": "Will the Communist Party of the Russian Federation (KPRF) gain the most seats in the next Russian parliamentary election?",
+      "headline": "Polish PM warns critical months ahead in face of Russian threat",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -479,9 +447,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 16:51:59",
-      "market_question": "Will Fl\u00e1vio Bolsonaro win the first round of the 2026 Brazilian presidential election by less than 5%?",
-      "headline": "Osaka reaches Wimbledon fourth round for first time",
+      "time": "2026-07-03 16:58:35",
+      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
+      "headline": "Polish PM warns critical months ahead in face of Russian threat",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -495,9 +463,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 16:51:59",
-      "market_question": "Will voter turnout be less than 50% in the first round of the 2026 Zambian presidential elections?",
-      "headline": "Osaka reaches Wimbledon fourth round for first time",
+      "time": "2026-07-03 16:58:35",
+      "market_question": "Will Rodina gain the most seats in the next Russian parliamentary election?",
+      "headline": "Polish PM warns critical months ahead in face of Russian threat",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 16:58:35",
+      "market_question": "Will Rodina win the most seats in the next Russian parliamentary election?",
+      "headline": "Polish PM warns critical months ahead in face of Russian threat",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 16:58:35",
+      "market_question": "Will Rodina win the second-most seats in the next Russian parliamentary election?",
+      "headline": "Polish PM warns critical months ahead in face of Russian threat",
       "direction": null,
       "materiality": null,
       "confidence": null,
