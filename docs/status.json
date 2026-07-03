@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T22:46:57.014700+00:00",
-  "last_heartbeat": "2026-07-03T22:46:57.014700+00:00",
-  "uptime_seconds": 16961,
+  "generated_at": "2026-07-03T22:52:04.181779+00:00",
+  "last_heartbeat": "2026-07-03T22:52:04.181779+00:00",
+  "uptime_seconds": 17268,
   "dry_run": false,
-  "markets_tracked": 1383,
+  "markets_tracked": 1379,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10224,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1340,
+  "headlines_scanned_today": 1342,
   "headlines_last_cycle": 0,
-  "signals_24h": 1,
-  "classifications_24h": 5517,
+  "signals_24h": 0,
+  "classifications_24h": 5279,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2064,
+    "prefiltered_haiku": 1961,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 0,
@@ -113,18 +113,18 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T22:34:38.612113+00:00"
+    "last_check": "2026-07-03T22:49:39.144138+00:00"
   },
   "edge_types_24h": {
     "news": 0,
-    "momentum": 1,
+    "momentum": 0,
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1493,
-    "matched": 837,
-    "classified": 5517,
-    "signals": 1,
+    "news": 1431,
+    "matched": 785,
+    "classified": 5279,
+    "signals": 0,
     "trades": 0
   },
   "performance": {
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1642.5
+    "avg_classification_latency_ms": 1636.8
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.044499999999999984,
+      "current_price": 0.0445,
       "pnl_pct": -33.27,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.26,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 22:45:45",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump administration\u2019s interpretation of slavery under George Washington can be reinstalled - Politico",
+      "time": "2026-07-03 22:50:06",
+      "market_question": "Will Robert Moore win the 2026 Colorado Governor Republican primary election?",
+      "headline": "Roy Moore - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 22:47:56",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Egypt sink Australia on penalties to secure first World Cup knockout win - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 22:45:45",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Trump administration\u2019s interpretation of slavery under George Washington can be reinstalled - Politico",
+      "time": "2026-07-03 22:47:56",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Egypt sink Australia on penalties to secure first World Cup knockout win - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 22:45:45",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump administration\u2019s interpretation of slavery under George Washington can be reinstalled - Politico",
+      "time": "2026-07-03 22:47:56",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Egypt sink Australia on penalties to secure first World Cup knockout win - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -480,25 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 22:45:45",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Trump administration\u2019s interpretation of slavery under George Washington can be reinstalled - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 22:45:45",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump administration\u2019s interpretation of slavery under George Washington can be reinstalled - Politico",
+      "time": "2026-07-03 22:47:56",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Egypt sink Australia on penalties to secure first World Cup knockout win - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
