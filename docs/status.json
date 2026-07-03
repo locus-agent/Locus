@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T20:53:58.016185+00:00",
-  "last_heartbeat": "2026-07-03T20:53:58.016185+00:00",
-  "uptime_seconds": 10182,
+  "generated_at": "2026-07-03T20:59:04.934611+00:00",
+  "last_heartbeat": "2026-07-03T20:59:04.934611+00:00",
+  "uptime_seconds": 10489,
   "dry_run": false,
-  "markets_tracked": 1375,
+  "markets_tracked": 1371,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10199,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1258,
+  "headlines_scanned_today": 1262,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6679,
+  "classifications_24h": 6675,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2533,
+    "prefiltered_haiku": 2525,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1801,
-    "matched": 904,
-    "classified": 6679,
+    "news": 1799,
+    "matched": 906,
+    "classified": 6675,
     "signals": 1,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1524.8
+    "avg_classification_latency_ms": 1541.1
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0835,
+      "current_price": 0.08349999999999991,
       "pnl_pct": -16.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.67,
@@ -432,41 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 20:51:24",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Court says the US can install historical panels at the site of Washington\u2019s Philadelphia home - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 20:43:03",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "US life expectancy on track to reach record high as death rate falls to record low in 2025 - CNN",
+      "time": "2026-07-03 20:56:10",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "Fallout from Venezuela's earthquakes turns political as opposition leader Machado seeks return - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 20:43:03",
-      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
-      "headline": "Your guide to identifying some of the most common ticks found in the US - FOX Weather",
+      "time": "2026-07-03 20:56:10",
+      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
+      "headline": "US win over Bosnia-Herzegovina most-watched soccer telecast in English language history - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 20:43:03",
-      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
-      "headline": "Your guide to identifying some of the most common ticks found in the US - FOX Weather",
+      "time": "2026-07-03 20:56:10",
+      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "headline": "US win over Bosnia-Herzegovina most-watched soccer telecast in English language history - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +480,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 20:43:03",
-      "market_question": "Will Rodina gain the most seats in the next Russian parliamentary election?",
-      "headline": "Your guide to identifying some of the most common ticks found in the US - FOX Weather",
+      "time": "2026-07-03 20:56:10",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "US win over Bosnia-Herzegovina most-watched soccer telecast in English language history - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 20:56:10",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "headline": "US win over Bosnia-Herzegovina most-watched soccer telecast in English language history - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
