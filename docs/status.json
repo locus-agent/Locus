@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-03T08:44:04.513787+00:00",
-  "last_heartbeat": "2026-07-03T08:44:04.513787+00:00",
-  "uptime_seconds": 35941,
+  "generated_at": "2026-07-03T08:49:12.005354+00:00",
+  "last_heartbeat": "2026-07-03T08:49:12.005354+00:00",
+  "uptime_seconds": 36248,
   "dry_run": false,
   "markets_tracked": 1285,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 297,
+  "headlines_scanned_today": 299,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 7171,
+  "classifications_24h": 7167,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2587,
+    "prefiltered_haiku": 2586,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T08:30:39.304920+00:00"
+    "last_check": "2026-07-03T08:45:39.758372+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1909,
-    "matched": 910,
-    "classified": 7171,
+    "news": 1908,
+    "matched": 911,
+    "classified": 7167,
     "signals": 3,
     "trades": 2
   },
@@ -135,8 +135,8 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.4,
-    "total_pnl_usd": 39.78,
+    "unrealized_pnl_usd": -4.42,
+    "total_pnl_usd": 39.76,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.08299999999999999,
-      "pnl_pct": -17.0,
+      "current_price": 0.082,
+      "pnl_pct": -18.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.66,
-      "pnl_usd": -0.34,
+      "current_value_usd": 1.64,
+      "pnl_usd": -0.36,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.455,
+      "current_price": 0.45499999999999996,
       "pnl_pct": -6.03,
       "amount_usd": 24.94,
-      "current_value_usd": 23.43,
-      "pnl_usd": -1.51,
+      "current_value_usd": 23.44,
+      "pnl_usd": -1.5,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,6 +398,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 08:49:11",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -23.53
+    },
+    {
       "time": "2026-07-03 08:19:03",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -432,22 +441,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -23.53
-    },
-    {
-      "time": "2026-07-03 06:18:18",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 08:41:53",
-      "market_question": "Will Xavier Becerra win the 2026 California Governor Primary Election by more than 10%?",
-      "headline": "'Less than 10% sheep': How millions may have unknowingly eaten goat, skin and fat kebabs",
+      "time": "2026-07-03 08:46:18",
+      "market_question": "Will Melisa Hortman be the Democratic nominee for Senate in Minnesota?",
+      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +461,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 08:41:53",
-      "market_question": "Will Fl\u00e1vio Bolsonaro win the first round of the 2026 Brazilian presidential election by at least 10%?",
-      "headline": "'Less than 10% sheep': How millions may have unknowingly eaten goat, skin and fat kebabs",
+      "time": "2026-07-03 08:46:18",
+      "market_question": "Will Angie Craig be the Democratic nominee for Senate in Minnesota?",
+      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 08:41:53",
-      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 8% and 10%?",
-      "headline": "'Less than 10% sheep': How millions may have unknowingly eaten goat, skin and fat kebabs",
+      "time": "2026-07-03 08:46:18",
+      "market_question": "Will David Wellstone be the Democratic nominee for Senate in Minnesota?",
+      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 08:41:53",
-      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 10% and 12%?",
-      "headline": "'Less than 10% sheep': How millions may have unknowingly eaten goat, skin and fat kebabs",
+      "time": "2026-07-03 08:46:18",
+      "market_question": "Will Ilhan Omar be the Democratic nominee for Senate in Minnesota?",
+      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -509,20 +509,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 08:36:38",
-      "market_question": "OpenAI $1t+ IPO before 2027?",
-      "headline": "Tech giants lose $2 trillion in SpaceX\u2019s IPO month: \u2018The valuations were unsustainable\u2019 - EL PA\u00cdS English",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-03 08:46:18",
+      "market_question": "Will Adam Schwarze be the Republican nominee for Senate in Minnesota?",
+      "headline": "Latin Mass, but faithful to the pope: A Minnesota church shows a different way during schism crisis - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
