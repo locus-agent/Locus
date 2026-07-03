@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-03T19:21:44.923710+00:00",
-  "last_heartbeat": "2026-07-03T19:21:44.923710+00:00",
-  "uptime_seconds": 4649,
+  "generated_at": "2026-07-03T19:26:53.731580+00:00",
+  "last_heartbeat": "2026-07-03T19:26:53.731580+00:00",
+  "uptime_seconds": 4957,
   "dry_run": false,
   "markets_tracked": 1383,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1169,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1172,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6907,
+  "classifications_24h": 6910,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2646,
+    "prefiltered_haiku": 2652,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1852,
-    "matched": 909,
-    "classified": 6907,
+    "news": 1853,
+    "matched": 910,
+    "classified": 6910,
     "signals": 1,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1415.7
+    "avg_classification_latency_ms": 1464.6
   },
   "live_readiness": {
     "ready": true,
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -432,9 +432,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 19:21:28",
-      "market_question": "Will Meta launch a USD stablecoin in 2026?",
-      "headline": "This sanctioned Russian stablecoin claims it processes billions, but blockchain analysts disagree",
+      "time": "2026-07-03 19:25:58",
+      "market_question": "Will Trump pardon SBF by July 31?",
+      "headline": "It is my Great Honor to have just signed Pardons for six people who were persecuted by the Biden Administration, and were in, or being sent to, prison, for \u201cfixing their car.\u201d While I know this sounds ridiculous, it is nevertheless a fact, and part of the Weaponization and Stupidity that our Country had to endure during four long years of Sleepy Joe Biden. I AM SETTING THEM ALL FREE, RIGHT NOW! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 19:25:57",
+      "market_question": "Will Trump pardon Keonne Rodriguez before 2027?",
+      "headline": "It is my Great Honor to have just signed Pardons for six people who were persecuted by the Biden Administration, and were in, or being sent to, prison, for \u201cfixing their car.\u201d While I know this sounds ridiculous, it is nevertheless a fact, and part of the Weaponization and Stupidity that our Country had to endure during four long years of Sleepy Joe Biden. I AM SETTING THEM ALL FREE, RIGHT NOW! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 19:25:57",
+      "market_question": "Will Trump pardon Ghislaine Maxwell by end of 2026?",
+      "headline": "It is my Great Honor to have just signed Pardons for six people who were persecuted by the Biden Administration, and were in, or being sent to, prison, for \u201cfixing their car.\u201d While I know this sounds ridiculous, it is nevertheless a fact, and part of the Weaponization and Stupidity that our Country had to endure during four long years of Sleepy Joe Biden. I AM SETTING THEM ALL FREE, RIGHT NOW! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 19:25:52",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "It is my Great Honor to have just signed Pardons for six people who were persecuted by the Biden Administration, and were in, or being sent to, prison, for \u201cfixing their car.\u201d While I know this sounds ridiculous, it is nevertheless a fact, and part of the Weaponization and Stupidity that our Country had to endure during four long years of Sleepy Joe Biden. I AM SETTING THEM ALL FREE, RIGHT NOW! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,25 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 19:21:27",
-      "market_question": "Will X launch a USD stablecoin in 2026?",
-      "headline": "This sanctioned Russian stablecoin claims it processes billions, but blockchain analysts disagree",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 19:21:27",
-      "market_question": "Will Revolut launch a USD stablecoin in 2026?",
-      "headline": "This sanctioned Russian stablecoin claims it processes billions, but blockchain analysts disagree",
+      "time": "2026-07-03 19:25:52",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "It is my Great Honor to have just signed Pardons for six people who were persecuted by the Biden Administration, and were in, or being sent to, prison, for \u201cfixing their car.\u201d While I know this sounds ridiculous, it is nevertheless a fact, and part of the Weaponization and Stupidity that our Country had to endure during four long years of Sleepy Joe Biden. I AM SETTING THEM ALL FREE, RIGHT NOW! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,38 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 19:21:26",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) gain the most seats in the next Russian parliamentary election?",
-      "headline": "This sanctioned Russian stablecoin claims it processes billions, but blockchain analysts disagree",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 19:21:26",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
-      "headline": "This sanctioned Russian stablecoin claims it processes billions, but blockchain analysts disagree",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
