@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-03T17:26:43.644287+00:00",
-  "last_heartbeat": "2026-07-03T17:26:43.644287+00:00",
-  "uptime_seconds": 18163,
+  "generated_at": "2026-07-03T17:31:51.127542+00:00",
+  "last_heartbeat": "2026-07-03T17:31:51.127542+00:00",
+  "uptime_seconds": 18470,
   "dry_run": false,
   "markets_tracked": 1375,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 951,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 955,
+  "headlines_last_cycle": 2,
   "signals_24h": 1,
-  "classifications_24h": 6832,
+  "classifications_24h": 6850,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2637,
+    "prefiltered_haiku": 2638,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1824,
-    "matched": 973,
-    "classified": 6832,
+    "news": 1825,
+    "matched": 976,
+    "classified": 6850,
     "signals": 1,
     "trades": 0
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1812.1
+    "avg_classification_latency_ms": 1833.2
   },
   "live_readiness": {
     "ready": true,
@@ -384,6 +384,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 17:27:16",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -34.02
+    },
+    {
       "time": "2026-07-03 16:57:06",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -418,22 +427,61 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -31.02
-    },
-    {
-      "time": "2026-07-03 14:56:16",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -31.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 17:24:53",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) gain the most seats in the next Russian parliamentary election?",
-      "headline": "Jo\u00e3o Fonseca stunned by Russian qualifier Roman Safiullin at Wimbledon - AP News",
+      "time": "2026-07-03 17:31:34",
+      "market_question": "Will Donald Trump be the leader of Venezuela end of 2026?",
+      "headline": "As her 180-day mandate expires, Venezuela\u2019s acting leader defends quake response - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 17:31:33",
+      "market_question": "Venezuela election scheduled by December 31, 2026?",
+      "headline": "As her 180-day mandate expires, Venezuela\u2019s acting leader defends quake response - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 17:31:29",
+      "market_question": "Will Trump endorse Mar\u00eda Corina Machado for Venezuela president in 2026?",
+      "headline": "As her 180-day mandate expires, Venezuela\u2019s acting leader defends quake response - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 17:31:28",
+      "market_question": "Will Tom Cotton be the next Senate Majority Leader?",
+      "headline": "As her 180-day mandate expires, Venezuela\u2019s acting leader defends quake response - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -447,57 +495,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 17:24:53",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
-      "headline": "Jo\u00e3o Fonseca stunned by Russian qualifier Roman Safiullin at Wimbledon - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 17:24:53",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Jo\u00e3o Fonseca stunned by Russian qualifier Roman Safiullin at Wimbledon - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 17:24:53",
-      "market_question": "Will Rodina gain the most seats in the next Russian parliamentary election?",
-      "headline": "Jo\u00e3o Fonseca stunned by Russian qualifier Roman Safiullin at Wimbledon - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 17:24:53",
-      "market_question": "Will Rodina win the most seats in the next Russian parliamentary election?",
-      "headline": "Jo\u00e3o Fonseca stunned by Russian qualifier Roman Safiullin at Wimbledon - AP News",
+      "time": "2026-07-03 17:31:28",
+      "market_question": "Will Mark Kelly be the next Senate Majority Leader?",
+      "headline": "As her 180-day mandate expires, Venezuela\u2019s acting leader defends quake response - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
