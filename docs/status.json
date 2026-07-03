@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T10:16:09.627287+00:00",
-  "last_heartbeat": "2026-07-03T10:16:09.627287+00:00",
-  "uptime_seconds": 41466,
+  "generated_at": "2026-07-03T10:21:17.642825+00:00",
+  "last_heartbeat": "2026-07-03T10:21:17.642825+00:00",
+  "uptime_seconds": 41774,
   "dry_run": false,
-  "markets_tracked": 1286,
+  "markets_tracked": 1296,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10090,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 349,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 360,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 7140,
+  "classifications_24h": 7188,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2593,
+    "prefiltered_haiku": 2609,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1899,
-    "matched": 925,
-    "classified": 7140,
+    "news": 1908,
+    "matched": 934,
+    "classified": 7188,
     "signals": 1,
     "trades": 0
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.47,
-    "total_pnl_usd": 39.71,
+    "unrealized_pnl_usd": -4.46,
+    "total_pnl_usd": 39.72,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1998.3
+    "avg_classification_latency_ms": 2014.0
   },
   "live_readiness": {
     "ready": true,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0795,
-      "pnl_pct": -20.5,
+      "current_price": 0.08,
+      "pnl_pct": -20.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.59,
-      "pnl_usd": -0.41,
+      "current_value_usd": 1.6,
+      "pnl_usd": -0.4,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.45499999999999996,
+      "current_price": 0.455,
       "pnl_pct": -6.03,
       "amount_usd": 24.94,
-      "current_value_usd": 23.44,
-      "pnl_usd": -1.5,
+      "current_value_usd": 23.43,
+      "pnl_usd": -1.51,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -398,6 +398,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 10:19:46",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -23.53
+    },
+    {
       "time": "2026-07-03 09:49:34",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -432,22 +441,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -23.53
-    },
-    {
-      "time": "2026-07-03 07:48:52",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 10:14:13",
-      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
-      "headline": "Stampede state of mind - Politico",
+      "time": "2026-07-03 10:20:48",
+      "market_question": "Will John Braun advance to the general election for WA-03?",
+      "headline": "Tackle workplace sickness to unlock hidden growth, former John Lewis boss says",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +461,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 10:14:13",
-      "market_question": "Will SPD win the most seats in the 2026 Berlin state elections?",
-      "headline": "Stampede state of mind - Politico",
+      "time": "2026-07-03 10:20:48",
+      "market_question": "Will John Barrasso be the next Senate Majority Leader?",
+      "headline": "Tackle workplace sickness to unlock hidden growth, former John Lewis boss says",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 10:14:13",
-      "market_question": "Will Gr\u00fcne win the most seats in the 2026 Berlin state elections?",
-      "headline": "Stampede state of mind - Politico",
+      "time": "2026-07-03 10:20:48",
+      "market_question": "Will John E. Sununu be the Republican nominee for Senate in New Hampshire?",
+      "headline": "Tackle workplace sickness to unlock hidden growth, former John Lewis boss says",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 10:14:13",
-      "market_question": "Will CDU win the most seats in the 2026 Berlin state elections?",
-      "headline": "Stampede state of mind - Politico",
+      "time": "2026-07-03 10:20:48",
+      "market_question": "Will John Tory win the 2026 Toronto mayoral election?",
+      "headline": "Tackle workplace sickness to unlock hidden growth, former John Lewis boss says",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -509,9 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 10:14:13",
-      "market_question": "Will Linke win the most seats in the 2026 Berlin state elections?",
-      "headline": "Stampede state of mind - Politico",
+      "time": "2026-07-03 10:20:48",
+      "market_question": "Will John Rose win the 2026 Tennessee Governor Republican primary election?",
+      "headline": "Tackle workplace sickness to unlock hidden growth, former John Lewis boss says",
       "direction": null,
       "materiality": null,
       "confidence": null,
