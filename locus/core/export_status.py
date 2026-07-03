@@ -414,6 +414,7 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
         ),
         "gates_24h": {
             "prefiltered_haiku": logger.get_classification_count_since(since_24h, action="prefiltered_haiku"),
+            "cooldown_skip": logger.get_classification_count_since(since_24h, action="cooldown_skip"),
             "stale": logger.get_classification_count_since(since_24h, action="stale"),
             "capped": logger.get_classification_count_since(since_24h, action="capped"),
             "too_close_to_resolution": logger.get_classification_count_since(since_24h, action="too_close_to_resolution"),

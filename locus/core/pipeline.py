@@ -20,7 +20,7 @@ from locus.markets.gamma import get_token_id, is_coinflip_market
 from locus.core.edge import detect_edge_v2, Signal
 from locus.core.executor import execute_trade_async
 from locus.supervisor import supervise
-from locus.sources.news_stream import NewsAggregator, NewsEvent
+from locus.sources.news_stream import NewsAggregator, NewsEvent, headline_similarity
 from locus.markets.market_watcher import MarketWatcher
 from locus.core.matcher import match_news_to_markets, match_news_to_markets_hybrid, prefilter_match
 from locus.core.classifier import (
@@ -103,6 +103,43 @@ def is_price_target_market(question: str) -> bool:
         return False
     q = (question or "").lower()
     return any(kw.lower() in q for kw in config.PRICE_TARGET_KEYWORDS)
+
+
+def market_type_skip(market) -> str | None:
+    """Pure question-pattern market-type exclusions, run BEFORE any model call:
+    a price-target or coin-flip market can never be traded (gate_trade would
+    kill it after classification), so spending the Haiku/Sonnet budget on it is
+    pure waste — these markets were being classified ~28x/day each and then
+    discarded. Returns the gate_trade-compatible skip action so the funnel
+    stays comparable, or None when the market is tradeable by type. gate_trade
+    and switch_target_gate keep their own checks as safety nets (whale path,
+    event-switch siblings)."""
+    if is_price_target_market(market.question):
+        return "price_target_market"
+    if is_coinflip_market(market.question):
+        return "coinflip_market"
+    return None
+
+
+def cooldown_recent_classification(headline: str, condition_id: str) -> dict | None:
+    """Per-market classification cooldown (config.CLASSIFY_COOLDOWN_MINUTES):
+    when this market already has a real classification within the window AND
+    the new headline is a near-duplicate (headline_similarity above
+    config.DEDUP_COSINE_THRESHOLD) of the one that produced it, return that
+    recent row — the caller skips the model call (action 'cooldown_skip').
+    Returns None (classify normally) when the cooldown is disabled, the market
+    is cold, or the headline is materially different: genuinely new news on a
+    recently-classified market is never held back."""
+    if config.CLASSIFY_COOLDOWN_MINUTES <= 0:
+        return None
+    recent = logger.find_recent_market_classification(
+        condition_id, config.CLASSIFY_COOLDOWN_MINUTES
+    )
+    if recent is None:
+        return None
+    if headline_similarity(headline, recent["headline"]) > config.DEDUP_COSINE_THRESHOLD:
+        return recent
+    return None
 
 
 def is_geopolitical(market, headline: str = "") -> bool:
@@ -287,11 +324,16 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
                              has too little time to play out
       "price_target_market" — market is a price-target market (e.g. "Will
                              Bitcoin reach $100k"); excluded when
-                             config.EXCLUDE_PRICE_TARGET_MARKETS is set
+                             config.EXCLUDE_PRICE_TARGET_MARKETS is set.
+                             Normally caught pre-classification (market_type_skip
+                             in _process_news, before any model call); this is
+                             the safety net for paths that classify without
+                             that check (e.g. whale investigations)
       "coinflip_market"    — short-term "Up or Down" coin-flip market (e.g.
                              "Bitcoin Up or Down on June 29?"); normally dropped
-                             from the niche set, blocked here as a safety net when
-                             config.EXCLUDE_COINFLIP_MARKETS is set
+                             from the niche set AND caught pre-classification
+                             (market_type_skip), blocked here as a final safety
+                             net when config.EXCLUDE_COINFLIP_MARKETS is set
       "low_materiality"    — materiality below the direction- and category-aware
                              floor (get_materiality_threshold: geopolitical/sports
                              categories first, then bearish > bullish)
@@ -380,15 +422,15 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
             f"Filtered: too_close_to_resolution | {market.slug} | {hours_left:.1f}h left"
         )
         return None, "too_close_to_resolution"
+    # Safety nets: the news path already skips these market types before any
+    # model call (market_type_skip in _process_news), but paths that classify
+    # without that check (whale investigations) still land here.
     if is_price_target_market(market.question):
         log.info(
             f"Filtered: price_target_market | {market.slug} | "
             f"question: {market.question[:70]}..."
         )
         return None, "price_target_market"
-    # Safety net: short-term "Up or Down" coin-flips are normally dropped from the
-    # niche set (market_watcher.get_niche_markets), but if one reaches here it's
-    # still classified for calibration yet never traded.
     if is_coinflip_market(market.question):
         log.info(
             f"Filtered: coinflip_market | {market.slug} | "
@@ -645,6 +687,31 @@ class PipelineV2:
                 reserved_headline = None
                 enqueued = False
                 try:
+                    # Market-type exclusions first (pure question-pattern
+                    # checks, no model, no DB): a price-target or coin-flip
+                    # market is untradeable by construction, so it must never
+                    # reach Haiku or Sonnet. Logged under the same action names
+                    # the gate_trade safety net uses, for funnel visibility.
+                    type_skip = market_type_skip(market)
+                    if type_skip:
+                        self.stats["market_type_skips"] = (
+                            self.stats.get("market_type_skips", 0) + 1
+                        )
+                        logger.log_classification(
+                            market_question=market.question,
+                            headline=event.headline,
+                            news_source=event.source,
+                            direction=None,
+                            materiality=None,
+                            edge=None,
+                            action=type_skip,
+                            match_source=match_source,
+                            condition_id=market.condition_id,
+                            yes_price=market.yes_price,
+                            yes_token_id=get_token_id(market, "YES"),
+                        )
+                        return
+
                     # Cheap pre-classification gate: weak keyword-only matches
                     # with no topic overlap aren't worth a Claude call.
                     if prefilter_match(event.headline, market, match_source, match_score):
@@ -689,6 +756,42 @@ class PipelineV2:
                             yes_price=market.yes_price,
                             yes_token_id=get_token_id(market, "YES"),
                             confidence=prior.get("confidence"),
+                        )
+                        return
+
+                    # Per-market cooldown: this market was classified moments
+                    # ago and the new headline is just the same story reworded
+                    # — don't buy the same answer again. A materially different
+                    # headline returns None here and classifies normally
+                    # (breaking-news exception). Blocking (DB read + possible
+                    # local embed), so run off the event loop. materiality is
+                    # logged NULL deliberately: the headline differs from the
+                    # prior row's, so a copied materiality would let this
+                    # near-duplicate fake an independent confirming source in
+                    # get_confirming_sources (NULL never counts there).
+                    cooldown_prior = await asyncio.get_event_loop().run_in_executor(
+                        None,
+                        lambda: cooldown_recent_classification(
+                            event.headline, market.condition_id
+                        ),
+                    )
+                    if cooldown_prior is not None:
+                        self.stats["cooldown_skips"] = (
+                            self.stats.get("cooldown_skips", 0) + 1
+                        )
+                        logger.log_classification(
+                            market_question=market.question,
+                            headline=event.headline,
+                            news_source=event.source,
+                            direction=cooldown_prior["direction"],
+                            materiality=None,
+                            edge=None,
+                            action="cooldown_skip",
+                            match_source=match_source,
+                            condition_id=market.condition_id,
+                            yes_price=market.yes_price,
+                            yes_token_id=get_token_id(market, "YES"),
+                            confidence=cooldown_prior.get("confidence"),
                         )
                         return
 

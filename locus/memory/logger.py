@@ -550,13 +550,35 @@ def find_recent_classification(
            FROM classifications
            WHERE headline = ? AND condition_id = ?
              -- prefiltered_haiku excluded — Haiku triage should not suppress full Sonnet re-classification
-             AND action NOT IN ('prefiltered', 'prefiltered_haiku', 'cached', 'error')
+             AND action NOT IN ('prefiltered', 'prefiltered_haiku', 'cached', 'error', 'cooldown_skip')
              AND direction IS NOT NULL
              AND yes_price IS NOT NULL
              AND ABS(yes_price - ?) <= ?
              AND created_at >= datetime('now', ?)
            ORDER BY id DESC LIMIT 1""",
         (headline, condition_id, yes_price, price_tolerance, f"-{max_age_hours} hours"),
+    ).fetchone()
+    conn.close()
+    return dict(row) if row else None
+
+
+def find_recent_market_classification(condition_id: str, max_age_minutes: float) -> dict | None:
+    """The most recent REAL classification of this market — any headline — within
+    the last max_age_minutes. Real means a model actually produced a direction:
+    prefilter/cache/cooldown/error rows and the pre-model market-type skips
+    (price_target_market/coinflip_market, which carry no direction) don't count.
+    Backs the per-market classification cooldown (pipeline.cooldown_recent_classification)."""
+    conn = _conn()
+    row = conn.execute(
+        """SELECT headline, direction, materiality, confidence, created_at
+           FROM classifications
+           WHERE condition_id = ?
+             AND action NOT IN ('prefiltered', 'prefiltered_haiku', 'cached',
+                                'error', 'cooldown_skip')
+             AND direction IS NOT NULL
+             AND created_at >= datetime('now', ?)
+           ORDER BY id DESC LIMIT 1""",
+        (condition_id, f"-{max_age_minutes} minutes"),
     ).fetchone()
     conn.close()
     return dict(row) if row else None

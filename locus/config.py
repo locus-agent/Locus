@@ -479,6 +479,14 @@ PREFILTER_KEYWORD_SCORE = float(os.getenv("PREFILTER_KEYWORD_SCORE", "0.25"))
 # within this window if the market price hasn't moved beyond the tolerance.
 CLASSIFY_CACHE_HOURS = float(os.getenv("CLASSIFY_CACHE_HOURS", "24"))
 CLASSIFY_CACHE_PRICE_TOLERANCE = float(os.getenv("CLASSIFY_CACHE_PRICE_TOLERANCE", "0.02"))
+# Per-market classification cooldown: once a market has a real (model-backed)
+# classification, a near-duplicate headline arriving within this window skips
+# the model entirely (action 'cooldown_skip') — bursty rewrites of one story
+# were re-classifying the same market up to ~28x/day. A materially different
+# headline (cosine <= DEDUP_COSINE_THRESHOLD vs the headline behind the recent
+# classification) still classifies immediately: breaking news is never held
+# back by the cooldown. 0 disables.
+CLASSIFY_COOLDOWN_MINUTES = float(os.getenv("CLASSIFY_COOLDOWN_MINUTES", "30"))
 
 # --- Position exits ---
 # Rules trigger a Claude re-evaluation; the hard stop never waits for one.

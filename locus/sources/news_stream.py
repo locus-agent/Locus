@@ -90,6 +90,33 @@ class SemanticDeduper:
         return None
 
 
+# Lazy module-level model for headline_similarity (shared across calls; the
+# same MiniLM the deduper uses, loaded on first use so imports stay light).
+_similarity_model = None
+
+
+def headline_similarity(a: str, b: str) -> float:
+    """Cosine similarity of two headlines under the dedup embedding model.
+
+    Backs the pipeline's per-market classification cooldown: a pair scoring
+    above config.DEDUP_COSINE_THRESHOLD is the same story reworded. Exact
+    (case/whitespace-insensitive) matches short-circuit to 1.0 without touching
+    the model. Fails OPEN like SemanticDeduper — an encode failure returns 0.0,
+    so callers treat the pair as different and classify rather than skip."""
+    if a.lower().strip() == b.lower().strip():
+        return 1.0
+    global _similarity_model
+    try:
+        if _similarity_model is None:
+            from sentence_transformers import SentenceTransformer
+            _similarity_model = SentenceTransformer(DEDUP_MODEL_NAME)
+        emb = _similarity_model.encode([a, b], normalize_embeddings=True)
+        return float(np.dot(emb[0], emb[1]))
+    except Exception as e:
+        log.debug(f"[dedup] similarity failed, treating as different: {e}")
+        return 0.0
+
+
 @dataclass
 class NewsEvent:
     headline: str
