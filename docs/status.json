@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T08:54:19.148302+00:00",
-  "last_heartbeat": "2026-07-03T08:54:19.148302+00:00",
-  "uptime_seconds": 36556,
+  "generated_at": "2026-07-03T08:59:26.096887+00:00",
+  "last_heartbeat": "2026-07-03T08:59:26.096887+00:00",
+  "uptime_seconds": 36863,
   "dry_run": false,
-  "markets_tracked": 1282,
+  "markets_tracked": 1283,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10090,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 302,
+  "headlines_scanned_today": 303,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7164,
+  "classifications_24h": 7160,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2584,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1908,
+    "news": 1906,
     "matched": 914,
-    "classified": 7164,
+    "classified": 7160,
     "signals": 2,
     "trades": 1
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1917.6
+    "avg_classification_latency_ms": 1915.8
   },
   "live_readiness": {
     "ready": true,
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.455,
+      "current_price": 0.45499999999999996,
       "pnl_pct": -6.03,
       "amount_usd": 24.94,
-      "current_value_usd": 23.43,
-      "pnl_usd": -1.51,
+      "current_value_usd": 23.44,
+      "pnl_usd": -1.5,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -445,9 +445,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 08:52:56",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
+      "time": "2026-07-03 08:55:07",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "Researchers say EU lawmaker who investigated surveillance was hacked by Israeli spyware - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -456,14 +456,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 08:52:55",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
+      "time": "2026-07-03 08:55:07",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Researchers say EU lawmaker who investigated surveillance was hacked by Israeli spyware - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 08:55:07",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "Researchers say EU lawmaker who investigated surveillance was hacked by Israeli spyware - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 08:55:05",
+      "market_question": "Will Trump say \"Moon\" during Tribute to America Rally?",
+      "headline": "Researchers say EU lawmaker who investigated surveillance was hacked by Israeli spyware - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,41 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 08:52:55",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 08:52:55",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 08:52:55",
-      "market_question": "Trump meets with Putin by September 30?",
-      "headline": "India's HCLTech wins $1.14 billion deal with European firm - Reuters",
+      "time": "2026-07-03 08:55:05",
+      "market_question": "Will Trump say \"Transgender\" during Tribute to America Rally?",
+      "headline": "Researchers say EU lawmaker who investigated surveillance was hacked by Israeli spyware - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
