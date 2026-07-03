@@ -143,7 +143,19 @@ def _trade_status(trade_id):
 # =============================================================================
 
 def test_flag_defaults_off():
-    assert config.PASSIVE_LIMIT_ENABLED is False
+    # The runtime attribute reflects the developer's .env (and is pinned False
+    # by the autouse _pin_passive_defaults fixture anyway), so asserting it
+    # proves nothing about the shipped default. Verify the default literal in
+    # config.py itself: an environment without the var must parse to off.
+    import re
+    from pathlib import Path
+
+    src = Path(config.__file__).read_text()
+    m = re.search(
+        r'PASSIVE_LIMIT_ENABLED = os\.getenv\("PASSIVE_LIMIT_ENABLED", "(\w+)"\)', src
+    )
+    assert m is not None, "PASSIVE_LIMIT_ENABLED default not found in config.py"
+    assert m.group(1) == "false"
 
 
 def test_flag_off_routes_aggressive_and_writes_no_pending_rows(tmp_db, monkeypatch):

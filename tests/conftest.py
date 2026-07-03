@@ -30,6 +30,22 @@ def _force_dry_run(monkeypatch):
 
 
 @pytest.fixture(autouse=True)
+def _pin_passive_defaults(monkeypatch):
+    """Pin the passive limit-order subsystem to its shipped defaults so the
+    suite is hermetic against a developer .env that enables it (a live-trading
+    .env may set PASSIVE_LIMIT_ENABLED=true, which reroutes every executor BUY
+    to the passive path and breaks the aggressive-path tests). Tests that
+    exercise the passive path re-enable the flag explicitly via monkeypatch."""
+    from locus import config
+
+    monkeypatch.setattr(config, "PASSIVE_LIMIT_ENABLED", False, raising=False)
+    monkeypatch.setattr(config, "PASSIVE_MIN_HOURS_TO_RESOLUTION", 72.0, raising=False)
+    monkeypatch.setattr(config, "PASSIVE_LIMIT_TIMEOUT_HOURS", 6.0, raising=False)
+    monkeypatch.setattr(config, "PASSIVE_PRICE_IMPROVE_TICKS", 1, raising=False)
+    monkeypatch.setattr(config, "PASSIVE_CHASE_AWAY_PCT", 10.0, raising=False)
+
+
+@pytest.fixture(autouse=True)
 def _disable_momentum(monkeypatch):
     """Keep the momentum hybrid off by default so detect_edge_v2 never reaches
     for the live price-history API during tests. Tests that exercise momentum
