@@ -149,6 +149,7 @@ def init_db():
             end_date TEXT,
             actual_cost_usd REAL,
             token_count REAL,
+            entry_volume_usd REAL,
             opened_at TEXT NOT NULL DEFAULT (datetime('now')),
             closed_at TEXT
         );
@@ -377,6 +378,12 @@ def _migrate_position_category(conn):
     # which fall back to that derivation.
     if "token_count" not in columns:
         conn.execute("ALTER TABLE positions ADD COLUMN token_count REAL")
+    # Market volume (USD) at the moment the position opened, for the
+    # calibration report's entry-volume bucket split. NULL for legacy rows and
+    # when the open-time volume is unknown (e.g. passive fills reopened from a
+    # pending_orders row, which carries no market volume).
+    if "entry_volume_usd" not in columns:
+        conn.execute("ALTER TABLE positions ADD COLUMN entry_volume_usd REAL")
     conn.commit()
 
 

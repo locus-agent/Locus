@@ -291,6 +291,16 @@ ENTRY_PRICE_BUCKETS = [
     (0.85, float("inf"), "[>0.85]"),
 ]
 
+# Entry-volume buckets: the market's USD volume when the position opened
+# (positions.entry_volume_usd). Rows from before the column existed are NULL
+# and reported as their own 'unknown (pre-column)' bucket, never dropped.
+ENTRY_VOLUME_BUCKETS = [
+    (0.0, 50_000, "[<$50k]"),
+    (50_000, 200_000, "[$50k-$200k]"),
+    (200_000, 500_000, "[$200k-$500k]"),
+    (500_000, float("inf"), "[>$500k]"),
+]
+
 # Time-to-resolution buckets, in hours (end_date - opened_at).
 TTR_BUCKETS = [
     (0.0, 24.0, "[<24h]"),
@@ -516,7 +526,8 @@ def calibration_report() -> dict:
     Returns a structured dict (rendered by format_calibration_report):
       - summary: n, wins, win_rate, total_pnl, small_sample flag + threshold
       - by_materiality / by_category / by_direction / by_fill_quality /
-        by_exit_reason / by_entry_price / by_time_to_resolution: each a list of
+        by_exit_reason / by_entry_price / by_time_to_resolution /
+        by_entry_volume: each a list of
         {label, n, wins, win_rate, total_pnl, avg_pnl}
       - best_trades / worst_trades: up to TOP_TRADES_N {market_question, direction,
         entry_yes_price, realized_pnl_usd} sorted by realized PnL
@@ -531,7 +542,7 @@ def calibration_report() -> dict:
         dict(r) for r in conn.execute(
             """SELECT p.status, p.category, p.side, p.entry_yes_price, p.amount_usd,
                       p.actual_cost_usd, p.realized_pnl_usd, p.exit_reason,
-                      p.market_question, p.opened_at, p.end_date,
+                      p.market_question, p.opened_at, p.end_date, p.entry_volume_usd,
                       t.materiality AS materiality, t.classification AS direction,
                       t.confidence AS confidence, t.created_at AS trade_created_at
                FROM positions p
@@ -598,6 +609,20 @@ def calibration_report() -> dict:
         order=[b[2] for b in TTR_BUCKETS] + ["unknown"],
     )
 
+    # Entry volume: NULL means the row predates the entry_volume_usd column (or
+    # the open-time volume was unknowable) — its own labeled group, never lumped
+    # into a numeric bucket.
+    def _entry_volume_label(r: dict) -> str:
+        v = r.get("entry_volume_usd")
+        if v is None:
+            return "unknown (pre-column)"
+        return _range_label(v, ENTRY_VOLUME_BUCKETS)
+
+    by_entry_volume = _grouped(
+        rows, _entry_volume_label,
+        order=[b[2] for b in ENTRY_VOLUME_BUCKETS] + ["unknown (pre-column)", "unknown"],
+    )
+
     # Best/worst leaderboards: sort by realized PnL (NULL treated as 0.0). Best is
     # highest-first, worst is lowest-first; with < 2*TOP_TRADES_N closed trades the
     # two lists naturally overlap, which is fine for a small book.
@@ -627,6 +652,7 @@ def calibration_report() -> dict:
         "brier": compute_brier_report(rows, prompt_versions),
         "by_entry_price": by_entry_price,
         "by_time_to_resolution": by_time_to_resolution,
+        "by_entry_volume": by_entry_volume,
         "best_trades": best_trades,
         "worst_trades": worst_trades,
     }
@@ -807,8 +833,14 @@ def format_calibration_report(report: dict) -> str:
         "Time to resolve",
         purpose="end_date - opened_at; NULL end_date shown as 'unknown'.",
     )
-    out += _render_trade_list("9. TOP 5 BEST TRADES", report["best_trades"])
-    out += _render_trade_list("   TOP 5 WORST TRADES", report["worst_trades"])
+    out += _render_table(
+        "9. BREAKDOWN BY ENTRY VOLUME BUCKET", report["by_entry_volume"],
+        "Entry volume",
+        purpose="market USD volume at open; rows from before the column are "
+                "'unknown (pre-column)'.",
+    )
+    out += _render_trade_list("10. TOP 5 BEST TRADES", report["best_trades"])
+    out += _render_trade_list("    TOP 5 WORST TRADES", report["worst_trades"])
     out.append("")
     return "\n".join(out)
 

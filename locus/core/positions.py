@@ -318,24 +318,31 @@ def open_position(trade_id: int, market, side: str, amount_usd: float,
 
     `token_count` is the real filled share count (filled_cost / fill_price). Stored
     so a live SELL flattens exactly the tokens we own; None for dry-run/simulated
-    fills, where position_shares falls back to amount_usd / entry_yes_price."""
+    fills, where position_shares falls back to amount_usd / entry_yes_price.
+
+    The market's USD volume at open time is captured as entry_volume_usd (for the
+    calibration report's entry-volume bucket split); NULL when unknown — a missing
+    or zero volume means the caller didn't have real market data (e.g. a passive
+    fill's Market reconstructed from the pending_orders row), not a $0 market."""
     notional = (actual_cost_usd if (actual_cost_usd is not None and actual_cost_usd > 0)
                 else amount_usd)
+    volume = getattr(market, "volume", None)
+    entry_volume_usd = float(volume) if volume else None
     conn = logger._conn()
     cur = conn.execute(
         """INSERT OR IGNORE INTO positions
            (trade_id, condition_id, market_question, slug, side,
             entry_yes_price, amount_usd, headline, reasoning,
             current_yes_price, unrealized_pnl_pct, event_id, category, end_date,
-            actual_cost_usd, token_count)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)""",
+            actual_cost_usd, token_count, entry_volume_usd)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?)""",
         (trade_id, market.condition_id, market.question,
          getattr(market, "slug", "") or None, side,
          market.yes_price, notional, headline, reasoning, market.yes_price,
          getattr(market, "event_id", "") or None,
          getattr(market, "category", "") or None,
          getattr(market, "end_date", "") or None,
-         actual_cost_usd, token_count),
+         actual_cost_usd, token_count, entry_volume_usd),
     )
     conn.commit()
     position_id = cur.lastrowid if cur.rowcount else None
