@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T22:52:04.181779+00:00",
-  "last_heartbeat": "2026-07-03T22:52:04.181779+00:00",
-  "uptime_seconds": 17268,
+  "generated_at": "2026-07-03T22:57:10.658791+00:00",
+  "last_heartbeat": "2026-07-03T22:57:10.658791+00:00",
+  "uptime_seconds": 17574,
   "dry_run": false,
-  "markets_tracked": 1379,
+  "markets_tracked": 1378,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10224,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1342,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1343,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 5279,
+  "classifications_24h": 5275,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1961,
+    "prefiltered_haiku": 1957,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1431,
-    "matched": 785,
-    "classified": 5279,
+    "news": 1430,
+    "matched": 784,
+    "classified": 5275,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1636.8
+    "avg_classification_latency_ms": 1631.4
   },
   "live_readiness": {
     "ready": true,
@@ -432,25 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 22:50:06",
-      "market_question": "Will Robert Moore win the 2026 Colorado Governor Republican primary election?",
-      "headline": "Roy Moore - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-03 22:56:43",
+      "market_question": "Will Progressistas (PP) hold the most seats as a result of the next Brazilian Senate election?",
+      "headline": "Senate Foreign Relations Committee - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-03 22:47:56",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Egypt sink Australia on penalties to secure first World Cup knockout win - Reuters",
+      "time": "2026-07-03 22:56:43",
+      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
+      "headline": "Senate Foreign Relations Committee - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 22:47:56",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Egypt sink Australia on penalties to secure first World Cup knockout win - Reuters",
+      "time": "2026-07-03 22:56:42",
+      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
+      "headline": "Senate Foreign Relations Committee - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -480,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 22:47:56",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Egypt sink Australia on penalties to secure first World Cup knockout win - Reuters",
+      "time": "2026-07-03 22:56:42",
+      "market_question": "2026 Balance of Power: R Senate, R House",
+      "headline": "Senate Foreign Relations Committee - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -491,14 +491,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 22:47:56",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Egypt sink Australia on penalties to secure first World Cup knockout win - Reuters",
+      "time": "2026-07-03 22:56:42",
+      "market_question": "Will Al Mina be the Republican nominee for Senate in Virginia?",
+      "headline": "Senate Foreign Relations Committee - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
