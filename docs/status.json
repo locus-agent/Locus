@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T14:22:28.406566+00:00",
-  "last_heartbeat": "2026-07-03T14:22:28.406566+00:00",
-  "uptime_seconds": 7108,
+  "generated_at": "2026-07-03T14:27:36.615617+00:00",
+  "last_heartbeat": "2026-07-03T14:27:36.615617+00:00",
+  "uptime_seconds": 7416,
   "dry_run": false,
-  "markets_tracked": 1385,
+  "markets_tracked": 1389,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10128,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 820,
+  "headlines_scanned_today": 824,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 7577,
+  "classifications_24h": 7592,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2895,
+    "prefiltered_haiku": 2901,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T14:09:19.756295+00:00"
+    "last_check": "2026-07-03T14:24:20.227810+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2033,
-    "matched": 982,
-    "classified": 7577,
+    "news": 2037,
+    "matched": 984,
+    "classified": 7592,
     "signals": 1,
     "trades": 0
   },
@@ -135,12 +135,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -4.3,
-    "total_pnl_usd": 39.12,
+    "unrealized_pnl_usd": -4.24,
+    "total_pnl_usd": 39.18,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1699.6
+    "avg_classification_latency_ms": 1704.7
   },
   "live_readiness": {
     "ready": true,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.053000000000000005,
-      "pnl_pct": -20.53,
+      "current_price": 0.05499999999999999,
+      "pnl_pct": -17.53,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.5,
-      "pnl_usd": -0.39,
+      "current_value_usd": 1.55,
+      "pnl_usd": -0.33,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.08299999999999996,
+      "current_price": 0.083,
       "pnl_pct": -17.0,
       "amount_usd": 2.0,
       "current_value_usd": 1.66,
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -384,6 +384,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 14:26:05",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -20.53
+    },
+    {
       "time": "2026-07-03 13:55:23",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -418,54 +427,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -23.53
-    },
-    {
-      "time": "2026-07-03 12:20:31",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 14:14:07",
-      "market_question": "Will Donald Trump post 160-179 Truth Social posts from June 26 to July 3, 2026?",
-      "headline": "America at 250 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 14:14:06",
-      "market_question": "Will Trump say \"Hundred\" or \"Thousand\" 10+ times during Tribute to America Rally?",
-      "headline": "America at 250 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 14:14:06",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "America at 250 - AP News",
+      "time": "2026-07-03 14:25:07",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "UK in talks with Pakistan about deporting grooming gang leader",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -479,9 +447,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 14:14:04",
+      "time": "2026-07-03 14:25:06",
       "market_question": "Will Trump deport less than 200k people?",
-      "headline": "Tribes hope Farm Bill can feed more people and preserve Indigenous culture - AP News",
+      "headline": "NHS to reward people who walk 30 minutes a day",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -495,9 +463,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 14:14:04",
-      "market_question": "Will Trump say \"Moon\" during Tribute to America Rally?",
-      "headline": "America at 250 - AP News",
+      "time": "2026-07-03 14:25:06",
+      "market_question": "Will Donald Trump be the leader of Venezuela end of 2026?",
+      "headline": "UK in talks with Pakistan about deporting grooming gang leader",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 14:25:06",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "UK in talks with Pakistan about deporting grooming gang leader",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 14:25:06",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "UK in talks with Pakistan about deporting grooming gang leader",
       "direction": null,
       "materiality": null,
       "confidence": null,
