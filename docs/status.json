@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T17:52:18.296116+00:00",
-  "last_heartbeat": "2026-07-03T17:52:18.296116+00:00",
-  "uptime_seconds": 19697,
+  "generated_at": "2026-07-03T17:57:27.040651+00:00",
+  "last_heartbeat": "2026-07-03T17:57:27.040651+00:00",
+  "uptime_seconds": 20006,
   "dry_run": false,
-  "markets_tracked": 1369,
+  "markets_tracked": 1362,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10174,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 962,
+  "headlines_scanned_today": 966,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6828,
+  "classifications_24h": 6838,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2640,
+    "prefiltered_haiku": 2643,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T17:39:26.204675+00:00"
+    "last_check": "2026-07-03T17:54:26.642817+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1819,
-    "matched": 977,
-    "classified": 6828,
+    "news": 1822,
+    "matched": 980,
+    "classified": 6838,
     "signals": 1,
     "trades": 0
   },
@@ -135,12 +135,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -4.33,
-    "total_pnl_usd": 39.09,
+    "unrealized_pnl_usd": -4.31,
+    "total_pnl_usd": 39.11,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1827.8
+    "avg_classification_latency_ms": 1824.7
   },
   "live_readiness": {
     "ready": true,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0835,
-      "pnl_pct": -16.5,
+      "current_price": 0.08449999999999999,
+      "pnl_pct": -15.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.67,
-      "pnl_usd": -0.33,
+      "current_value_usd": 1.69,
+      "pnl_usd": -0.31,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.555,
+      "current_price": 0.5549999999999999,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -384,6 +384,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 17:57:27",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -34.02
+    },
+    {
       "time": "2026-07-03 17:27:16",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -418,22 +427,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -31.02
-    },
-    {
-      "time": "2026-07-03 15:26:27",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -31.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 17:40:17",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump tariffs - Politico",
+      "time": "2026-07-03 17:55:39",
+      "market_question": "Will Daniel Thomas win the 2026 Colorado Governor Republican primary election?",
+      "headline": "Democratic Primaries - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -442,14 +442,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 17:40:17",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump tariffs - Politico",
+      "time": "2026-07-03 17:55:39",
+      "market_question": "Will Timothy Wilcox win the 2026 Connecticut Governor Republican primary election?",
+      "headline": "Democratic Primaries - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -458,14 +458,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 17:40:17",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump tariffs - Politico",
+      "time": "2026-07-03 17:55:39",
+      "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
+      "headline": "Democratic Primaries - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -474,41 +474,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 17:40:17",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Trump tariffs - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-03 17:55:37",
+      "market_question": "Will Jared Moskowitz be the Democratic nominee for Senate in Florida?",
+      "headline": "Democratic Primaries - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-03 17:40:17",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Trump tariffs - Politico",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-07-03 17:55:37",
+      "market_question": "Will Melisa Hortman be the Democratic nominee for Senate in Minnesota?",
+      "headline": "Democratic Primaries - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
