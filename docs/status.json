@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T05:14:21.235285+00:00",
-  "last_heartbeat": "2026-07-03T05:14:21.235285+00:00",
-  "uptime_seconds": 23358,
+  "generated_at": "2026-07-03T05:19:29.325456+00:00",
+  "last_heartbeat": "2026-07-03T05:19:29.325456+00:00",
+  "uptime_seconds": 23666,
   "dry_run": false,
-  "markets_tracked": 1276,
+  "markets_tracked": 1281,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10078,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 168,
-  "headlines_last_cycle": 7,
+  "headlines_scanned_today": 175,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6921,
+  "classifications_24h": 6948,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2510,
+    "prefiltered_haiku": 2519,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T05:00:32.243323+00:00"
+    "last_check": "2026-07-03T05:15:32.669762+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1857,
-    "matched": 862,
-    "classified": 6921,
+    "news": 1864,
+    "matched": 869,
+    "classified": 6948,
     "signals": 3,
     "trades": 2
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1549.4
+    "avg_classification_latency_ms": 1564.1
   },
   "live_readiness": {
     "ready": true,
@@ -398,6 +398,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 05:17:57",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -22.03
+    },
+    {
       "time": "2026-07-03 04:47:48",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -432,86 +441,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -22.03
-    },
-    {
-      "time": "2026-07-03 02:47:12",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -22.03
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 05:14:20",
-      "market_question": "Will Apple be the largest company in the world by market cap on July 31?",
-      "headline": "Apple \u2018in negotiations\u2019 with two banned Chinese RAM firms after price increases - 9to5Mac",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 05:14:20",
-      "market_question": "Will Apple be the second-largest company in the world by market cap on July 31?",
-      "headline": "Apple \u2018in negotiations\u2019 with two banned Chinese RAM firms after price increases - 9to5Mac",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 05:14:20",
-      "market_question": "Will Solana dip to $50 by December 31, 2026?",
-      "headline": "Medicare is now covering some GLP-1 weight loss drugs for $50. Here\u2019s what to know - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 05:14:20",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Medicare is now covering some GLP-1 weight loss drugs for $50. Here\u2019s what to know - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 05:14:19",
-      "market_question": "Will a Chinese AI model become #1 by June 30? ",
-      "headline": "Apple \u2018in negotiations\u2019 with two banned Chinese RAM firms after price increases - 9to5Mac",
+      "time": "2026-07-03 05:17:44",
+      "market_question": "Trump orders federal review of AI model releases by June 30?",
+      "headline": "Breakingviews - AI fight exposes Silicon Valley\u2019s mimetic flaw - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -520,9 +456,73 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 05:17:44",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "11-year-old driver crashes truck into Buddhist monks in Thailand, killing 10 - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 05:17:42",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Breakingviews - AI fight exposes Silicon Valley\u2019s mimetic flaw - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 05:17:42",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "Breakingviews - AI fight exposes Silicon Valley\u2019s mimetic flaw - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 05:15:30",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "Australian officials ask fans to respect the privacy of Neil, a 1-ton seal who respects nothing - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
