@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-03T21:29:51.514914+00:00",
-  "last_heartbeat": "2026-07-03T21:29:51.514914+00:00",
-  "uptime_seconds": 12335,
+  "generated_at": "2026-07-03T21:34:58.377571+00:00",
+  "last_heartbeat": "2026-07-03T21:34:58.377571+00:00",
+  "uptime_seconds": 12642,
   "dry_run": false,
   "markets_tracked": 1382,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1283,
+  "headlines_scanned_today": 1284,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 6626,
+  "classifications_24h": 6016,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2506,
+    "prefiltered_haiku": 2260,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 0,
@@ -99,7 +99,7 @@
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
-    "orderbook_skip": 1,
+    "orderbook_skip": 0,
     "already_priced_in": 0,
     "needs_confirmation": 0,
     "event_exposure_block": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T21:19:36.528128+00:00"
+    "last_check": "2026-07-03T21:34:36.955061+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1783,
-    "matched": 917,
-    "classified": 6626,
+    "news": 1627,
+    "matched": 893,
+    "classified": 6016,
     "signals": 1,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1564.0
+    "avg_classification_latency_ms": 1563.4
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.08349999999999991,
+      "current_price": 0.0835,
       "pnl_pct": -16.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.67,
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-03 21:31:11",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "How Rational Is AI Investment Advice? Risk-Return Relevance in Artificial Intelligence (AI) Investments - Pension Policy International",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-03 21:28:59",
       "market_question": "Will Anthropic or OpenAI IPO first?",
       "headline": "Starmer tells of 'intensely personal' decision to quit and warns Burnham in first interview since resigning",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-03 21:28:57",
       "market_question": "Will Trump speak to Keir Starmer in July?",
-      "headline": "Starmer tells of 'intensely personal' decision to quit and warns Burnham in first interview since resigning",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 21:28:57",
-      "market_question": "Will Trump meet with Keir Starmer in July 2026?",
       "headline": "Starmer tells of 'intensely personal' decision to quit and warns Burnham in first interview since resigning",
       "direction": null,
       "materiality": null,
