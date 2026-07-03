@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T04:13:01.746482+00:00",
-  "last_heartbeat": "2026-07-03T04:13:01.746482+00:00",
-  "uptime_seconds": 19678,
+  "generated_at": "2026-07-03T04:18:09.066714+00:00",
+  "last_heartbeat": "2026-07-03T04:18:09.066714+00:00",
+  "uptime_seconds": 19986,
   "dry_run": false,
-  "markets_tracked": 1286,
+  "markets_tracked": 1285,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10078,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 140,
+  "headlines_scanned_today": 143,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 6906,
+  "classifications_24h": 6912,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2490,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T04:00:30.595126+00:00"
+    "last_check": "2026-07-03T04:15:30.995375+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1851,
-    "matched": 858,
-    "classified": 6906,
+    "news": 1854,
+    "matched": 860,
+    "classified": 6912,
     "signals": 3,
     "trades": 2
   },
@@ -135,8 +135,8 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -4.83,
-    "total_pnl_usd": 39.35,
+    "unrealized_pnl_usd": -5.04,
+    "total_pnl_usd": 39.14,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -195,11 +195,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.052000000000000005,
+      "current_price": 0.052000000000000046,
       "pnl_pct": -22.03,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.47,
-      "pnl_usd": -0.42,
+      "pnl_usd": -0.41,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -223,11 +223,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.45,
-      "pnl_pct": -5.17,
+      "current_price": 0.45499999999999996,
+      "pnl_pct": -6.03,
       "amount_usd": 24.94,
-      "current_value_usd": 23.65,
-      "pnl_usd": -1.29,
+      "current_value_usd": 23.44,
+      "pnl_usd": -1.5,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -237,7 +237,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -398,6 +398,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 04:17:38",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -22.03
+    },
+    {
       "time": "2026-07-03 03:47:28",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -432,22 +441,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -22.03
-    },
-    {
-      "time": "2026-07-03 01:46:53",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -22.03
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 04:09:38",
-      "market_question": "Will El Salvador hold $1b+ of BTC by December 31, 2026?",
-      "headline": "Oil up slightly ahead of long US weekend as peace efforts hold - Reuters",
+      "time": "2026-07-03 04:16:13",
+      "market_question": "Will Mark Kelly be the next Senate Majority Leader?",
+      "headline": "Venezuela\u2019s interim leader angrily defends earthquake response - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -461,9 +461,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 04:09:38",
-      "market_question": "Will the Republican Party hold fewer than 22 governorships after the 2026 midterm elections?",
-      "headline": "Oil up slightly ahead of long US weekend as peace efforts hold - Reuters",
+      "time": "2026-07-03 04:16:13",
+      "market_question": "Will Patty Murray be the next Senate Majority Leader?",
+      "headline": "Venezuela\u2019s interim leader angrily defends earthquake response - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -477,9 +477,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 04:09:38",
-      "market_question": "Will the Republican Party hold exactly 22 or 23 governorships after the 2026 midterm elections?",
-      "headline": "Oil up slightly ahead of long US weekend as peace efforts hold - Reuters",
+      "time": "2026-07-03 04:16:13",
+      "market_question": "Will John Barrasso be the next Senate Majority Leader?",
+      "headline": "Venezuela\u2019s interim leader angrily defends earthquake response - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -493,9 +493,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 04:09:38",
-      "market_question": "Will the Republican Party hold exactly 30 or 31 governorships after the 2026 midterm elections?",
-      "headline": "Oil up slightly ahead of long US weekend as peace efforts hold - Reuters",
+      "time": "2026-07-03 04:16:13",
+      "market_question": "Will Amy Klobuchar be the next Senate Majority Leader?",
+      "headline": "Venezuela\u2019s interim leader angrily defends earthquake response - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -509,9 +509,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 04:09:38",
-      "market_question": "Will the Republican Party hold exactly 55 Senate seats after the 2026 midterm elections?",
-      "headline": "Oil up slightly ahead of long US weekend as peace efforts hold - Reuters",
+      "time": "2026-07-03 04:16:12",
+      "market_question": "Will Tom Cotton be the next Senate Majority Leader?",
+      "headline": "Venezuela\u2019s interim leader angrily defends earthquake response - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
