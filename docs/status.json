@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T12:10:46.086149+00:00",
-  "last_heartbeat": "2026-07-03T12:10:46.086149+00:00",
-  "uptime_seconds": 1271,
+  "generated_at": "2026-07-03T12:15:53.478064+00:00",
+  "last_heartbeat": "2026-07-03T12:15:53.478064+00:00",
+  "uptime_seconds": 1578,
   "dry_run": false,
-  "markets_tracked": 1294,
+  "markets_tracked": 1300,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10114,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 537,
+  "headlines_scanned_today": 540,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 7559,
+  "classifications_24h": 7558,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2757,
@@ -107,7 +107,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 0,
+  "watched_markets_count": 1,
   "missed_opportunities_24h": 7,
   "whale": {
     "watched_wallets": 4,
@@ -120,39 +120,39 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 2015,
-    "matched": 975,
-    "classified": 7559,
+    "news": 2016,
+    "matched": 977,
+    "classified": 7558,
     "signals": 1,
     "trades": 0
   },
   "performance": {
     "trades_total": 47,
     "deployed_usd": 1079.55,
-    "open_count": 6,
-    "closed_count": 34,
-    "wins": 20,
+    "open_count": 5,
+    "closed_count": 35,
+    "wins": 21,
     "losses": 14,
-    "win_rate_pct": 58.8,
-    "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -2.66,
-    "total_pnl_usd": 41.52,
-    "recent_winrate": 0.75,
+    "win_rate_pct": 60.0,
+    "realized_pnl_usd": 45.2,
+    "unrealized_pnl_usd": -4.21,
+    "total_pnl_usd": 40.99,
+    "recent_winrate": 0.8,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2052.5
+    "avg_classification_latency_ms": 2071.8
   },
   "live_readiness": {
     "ready": true,
     "criteria_met": 4,
     "criteria_total": 4,
-    "sharpe_days_count": 12,
+    "sharpe_days_count": 13,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 34,
+        "value": 35,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -160,7 +160,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 58.8,
+        "value": 60.0,
         "threshold_display": "> 55%",
         "pass": true
       },
@@ -168,7 +168,7 @@
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 4.53,
+        "value": 4.45,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -176,7 +176,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 4.4,
+        "value": 4.3,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -185,8 +185,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0461,
-    "sharpe_7d": -0.04
+    "drawdown_7d": 0.0403,
+    "sharpe_7d": 0.0
   },
   "open_positions": [
     {
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0805,
-      "pnl_pct": -19.5,
+      "current_price": 0.0795,
+      "pnl_pct": -20.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.61,
-      "pnl_usd": -0.39,
+      "current_value_usd": 1.59,
+      "pnl_usd": -0.41,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -246,20 +246,6 @@
       "event_id": "57672"
     },
     {
-      "time": "2026-06-30 05:02:01",
-      "market_question": "Will Solana dip to $50 by December 31, 2026?",
-      "slug": "what-price-will-solana-hit-before-2027",
-      "side": "NO",
-      "entry_price": 0.525,
-      "current_price": 0.48,
-      "pnl_pct": 6.12,
-      "amount_usd": 24.99,
-      "current_value_usd": 26.52,
-      "pnl_usd": 1.53,
-      "edge_type": "news",
-      "event_id": "89525"
-    },
-    {
       "time": "2026-06-30 00:56:15",
       "market_question": "Will Dan Sullivan win the Alaska Senate race in 2026?",
       "slug": "alaska-senate-election-winner",
@@ -275,6 +261,18 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-07-03T12:15:36.844587+00:00",
+      "market_question": "Will Solana dip to $50 by December 31, 2026?",
+      "slug": "what-price-will-solana-hit-before-2027",
+      "side": "NO",
+      "entry_price": 0.525,
+      "exit_price": 0.5,
+      "realized_pnl_usd": 1.0200000000000031,
+      "exit_reason": "manual",
+      "event_id": "89525",
+      "partial": false
+    },
     {
       "time": "2026-06-30T02:27:00.081379+00:00",
       "market_question": "Will Julie Gonzales be the Democratic nominee for Senate in Colorado?",
@@ -382,21 +380,36 @@
       "exit_reason": "news_decision",
       "event_id": "581574",
       "partial": false
-    },
-    {
-      "time": "2026-06-25T21:36:20.900707+00:00",
-      "market_question": "Bitcoin Up or Down on June 26?",
-      "slug": "bitcoin-up-or-down-on-june-26-2026",
-      "side": "NO",
-      "entry_price": 0.435,
-      "exit_price": 0.605,
-      "realized_pnl_usd": -7.522123893805308,
-      "exit_reason": "drawdown_decision",
-      "event_id": "629884",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-07-03 12:15:37",
+      "market_question": "Will Solana dip to $50 by December 31, 2026?",
+      "side": "NO",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 2.04
+    },
+    {
+      "time": "2026-07-03 12:12:55",
+      "market_question": "Will Solana dip to $50 by December 31, 2026?",
+      "side": "NO",
+      "trigger": "manual",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (manual); position kept open",
+      "pnl_pct": 2.04
+    },
+    {
+      "time": "2026-07-03 12:12:45",
+      "market_question": "Will Solana dip to $50 by December 31, 2026?",
+      "side": "NO",
+      "trigger": "manual",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (manual); position kept open",
+      "pnl_pct": 6.12
+    },
     {
       "time": "2026-07-03 11:50:13",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
@@ -414,36 +427,73 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -23.53
-    },
-    {
-      "time": "2026-07-03 10:49:57",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
-    },
-    {
-      "time": "2026-07-03 10:19:46",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
-    },
-    {
-      "time": "2026-07-03 09:49:34",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-03 12:14:07",
+      "market_question": "Will Alibaba have the best AI model at the end of July 2026?",
+      "headline": "Alibaba, Tencent back Kuaishou's Kling AI in $2.8 billion fundraise - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 12:14:01",
+      "market_question": "Will City Protocol launch a token by December 31, 2026?",
+      "headline": "UN human rights chief sounds \u2018red alert\u2019 over violence around Sudan\u2019s el-Obeid city - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 12:14:01",
+      "market_question": "Will City Protocol launch a token by June 30, 2027?",
+      "headline": "UN human rights chief sounds \u2018red alert\u2019 over violence around Sudan\u2019s el-Obeid city - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 12:14:01",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "UN human rights chief sounds \u2018red alert\u2019 over violence around Sudan\u2019s el-Obeid city - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
     {
       "time": "2026-07-03 12:05:23",
       "market_question": "Trump orders federal review of AI model releases by June 30?",
@@ -457,70 +507,6 @@
       "adjusted_materiality": 0.05,
       "action": "skip",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 12:05:23",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Growth of AI leads to job losses as lawmakers in both parties call for urgent action - Baltimore Sun",
-      "direction": "neutral",
-      "materiality": 0.1,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.03,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 12:05:17",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Growth of AI leads to job losses as lawmakers in both parties call for urgent action - Baltimore Sun",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 12:05:16",
-      "market_question": "Will Trump meet with Jair Bolsonaro in 2026?",
-      "headline": "Trump says there is \u2018nothing wrong\u2019 with family\u2019s crypto windfall",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 12:05:16",
-      "market_question": "Trump meets with Putin by September 30?",
-      "headline": "Trump says there is \u2018nothing wrong\u2019 with family\u2019s crypto windfall",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
