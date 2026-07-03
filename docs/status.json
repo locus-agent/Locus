@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-03T21:34:58.377571+00:00",
-  "last_heartbeat": "2026-07-03T21:34:58.377571+00:00",
-  "uptime_seconds": 12642,
+  "generated_at": "2026-07-03T21:40:05.682460+00:00",
+  "last_heartbeat": "2026-07-03T21:40:05.682460+00:00",
+  "uptime_seconds": 12949,
   "dry_run": false,
   "markets_tracked": 1382,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1284,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1286,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 6016,
+  "classifications_24h": 6013,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 2260,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1627,
-    "matched": 893,
-    "classified": 6016,
+    "news": 1625,
+    "matched": 895,
+    "classified": 6013,
     "signals": 1,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1563.4
+    "avg_classification_latency_ms": 1562.4
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0835,
+      "current_price": 0.08349999999999991,
       "pnl_pct": -16.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.67,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 21:36:32",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-03 21:06:20",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,38 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -33.27
-    },
-    {
-      "time": "2026-07-03 19:05:20",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -34.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 21:31:11",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "How Rational Is AI Investment Advice? Risk-Return Relevance in Artificial Intelligence (AI) Investments - Pension Policy International",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 21:28:59",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Starmer tells of 'intensely personal' decision to quit and warns Burnham in first interview since resigning",
+      "time": "2026-07-03 21:39:58",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Egypt defender Mohamed Hany becomes first player with two own-goals in the same World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,52 +448,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 21:28:57",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Starmer tells of 'intensely personal' decision to quit and warns Burnham in first interview since resigning",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-03 21:39:58",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Egypt defender Mohamed Hany becomes first player with two own-goals in the same World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-03 21:28:57",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Starmer tells of 'intensely personal' decision to quit and warns Burnham in first interview since resigning",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-03 21:39:57",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Egypt defender Mohamed Hany becomes first player with two own-goals in the same World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-03 21:28:57",
-      "market_question": "Will Trump speak to Keir Starmer in July?",
-      "headline": "Starmer tells of 'intensely personal' decision to quit and warns Burnham in first interview since resigning",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-03 21:39:57",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Egypt defender Mohamed Hany becomes first player with two own-goals in the same World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 21:39:57",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Egypt defender Mohamed Hany becomes first player with two own-goals in the same World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
