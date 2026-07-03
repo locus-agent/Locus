@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T09:45:27.391834+00:00",
-  "last_heartbeat": "2026-07-03T09:45:27.391834+00:00",
-  "uptime_seconds": 39624,
+  "generated_at": "2026-07-03T09:50:35.014069+00:00",
+  "last_heartbeat": "2026-07-03T09:50:35.014069+00:00",
+  "uptime_seconds": 39932,
   "dry_run": false,
-  "markets_tracked": 1289,
+  "markets_tracked": 1287,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10090,
@@ -82,14 +82,14 @@
       }
     ]
   },
-  "headlines_scanned_today": 320,
+  "headlines_scanned_today": 333,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 7079,
+  "classifications_24h": 7129,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2573,
-    "stale": 6,
+    "prefiltered_haiku": 2577,
+    "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
@@ -112,7 +112,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T09:30:41.243483+00:00"
+    "last_check": "2026-07-03T09:45:41.620049+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1889,
-    "matched": 908,
-    "classified": 7079,
+    "news": 1898,
+    "matched": 918,
+    "classified": 7129,
     "signals": 2,
     "trades": 1
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1921.0
+    "avg_classification_latency_ms": 1951.4
   },
   "live_readiness": {
     "ready": true,
@@ -209,7 +209,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0815,
+      "current_price": 0.0814999999999999,
       "pnl_pct": -18.5,
       "amount_usd": 2.0,
       "current_value_usd": 1.63,
@@ -398,6 +398,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 09:49:34",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -23.53
+    },
+    {
       "time": "2026-07-03 09:19:23",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -432,70 +441,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -23.53
-    },
-    {
-      "time": "2026-07-03 07:18:40",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -23.53
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 09:43:27",
-      "market_question": "Will Trump say \"Golden Dome\" during Tribute to America Rally?",
-      "headline": "Photos of enduring American symbols across the globe as US turns 250 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 09:43:27",
-      "market_question": "Will Trump say \"World War\" during Tribute to America Rally?",
-      "headline": "Photos of enduring American symbols across the globe as US turns 250 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 09:43:27",
-      "market_question": "Will Trump say \"Epic Fury\" during Tribute to America Rally?",
-      "headline": "Photos of enduring American symbols across the globe as US turns 250 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 09:43:26",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Photos of enduring American symbols across the globe as US turns 250 - AP News",
+      "time": "2026-07-03 09:48:28",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "What we know about Taylor Swift and Travis Kelce's wedding in New York City - PBS",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -509,20 +461,68 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 09:41:19",
-      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
-      "headline": "Proprietary vs open-weight AI: Inside the battle shaping the future of AI - Business Standard",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-03 09:48:28",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "What we know about Taylor Swift and Travis Kelce's wedding in New York City - PBS",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 09:48:28",
+      "market_question": "Will City Protocol launch a token by December 31, 2026?",
+      "headline": "What we know about Taylor Swift and Travis Kelce's wedding in New York City - PBS",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 09:48:28",
+      "market_question": "Will City Protocol launch a token by June 30, 2027?",
+      "headline": "What we know about Taylor Swift and Travis Kelce's wedding in New York City - PBS",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-03 09:48:28",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "What we know about Taylor Swift and Travis Kelce's wedding in New York City - PBS",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
