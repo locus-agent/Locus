@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T19:01:13.141549+00:00",
-  "last_heartbeat": "2026-07-03T19:01:13.141549+00:00",
-  "uptime_seconds": 3417,
+  "generated_at": "2026-07-03T19:06:21.264206+00:00",
+  "last_heartbeat": "2026-07-03T19:06:21.264206+00:00",
+  "uptime_seconds": 3725,
   "dry_run": false,
-  "markets_tracked": 1377,
+  "markets_tracked": 1376,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10199,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1094,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1132,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 6672,
+  "classifications_24h": 6818,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2577,
+    "prefiltered_haiku": 2625,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 29,
+    "price_target_market": 49,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T18:49:32.275053+00:00"
+    "last_check": "2026-07-03T19:04:32.701951+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1793,
+    "news": 1828,
     "matched": 895,
-    "classified": 6672,
+    "classified": 6818,
     "signals": 1,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1341.3
+    "avg_classification_latency_ms": 1282.9
   },
   "live_readiness": {
     "ready": true,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 19:05:20",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -34.02
+    },
+    {
       "time": "2026-07-03 18:35:08",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -34.02
-    },
-    {
-      "time": "2026-07-03 16:57:06",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -34.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 18:55:03",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "'Vanishingly rare' copy of U.S. Declaration of Independence unearthed in UK archives - Reuters",
+      "time": "2026-07-03 19:06:02",
+      "market_question": "Will the price of Bitcoin be above $70,000 on July 4?",
+      "headline": "RADISSON HOTEL GROUP LAUNCHES HOSPITALITY INDUSTRY-LEADING ARTIFICIAL INTELLIGENCE (AI)-POWERED REAL-TIME PRICE MATCHING TECHNOLOGY - hotel magazine",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -442,15 +442,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 18:55:03",
-      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
-      "headline": "'Vanishingly rare' copy of U.S. Declaration of Independence unearthed in UK archives - Reuters",
+      "time": "2026-07-03 19:06:02",
+      "market_question": "Will the price of Bitcoin be above $54,000 on July 4?",
+      "headline": "RADISSON HOTEL GROUP LAUNCHES HOSPITALITY INDUSTRY-LEADING ARTIFICIAL INTELLIGENCE (AI)-POWERED REAL-TIME PRICE MATCHING TECHNOLOGY - hotel magazine",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +458,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 18:55:03",
-      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
-      "headline": "'Vanishingly rare' copy of U.S. Declaration of Independence unearthed in UK archives - Reuters",
+      "time": "2026-07-03 19:06:02",
+      "market_question": "Will the price of Bitcoin be above $56,000 on July 4?",
+      "headline": "RADISSON HOTEL GROUP LAUNCHES HOSPITALITY INDUSTRY-LEADING ARTIFICIAL INTELLIGENCE (AI)-POWERED REAL-TIME PRICE MATCHING TECHNOLOGY - hotel magazine",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 18:55:03",
-      "market_question": "Will Independence Movement win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "'Vanishingly rare' copy of U.S. Declaration of Independence unearthed in UK archives - Reuters",
+      "time": "2026-07-03 19:06:02",
+      "market_question": "Will the price of Bitcoin be above $64,000 on July 4?",
+      "headline": "RADISSON HOTEL GROUP LAUNCHES HOSPITALITY INDUSTRY-LEADING ARTIFICIAL INTELLIGENCE (AI)-POWERED REAL-TIME PRICE MATCHING TECHNOLOGY - hotel magazine",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 18:55:03",
-      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 4% and 6%?",
-      "headline": "'Vanishingly rare' copy of U.S. Declaration of Independence unearthed in UK archives - Reuters",
+      "time": "2026-07-03 19:06:02",
+      "market_question": "Will the price of Bitcoin be above $58,000 on July 4?",
+      "headline": "RADISSON HOTEL GROUP LAUNCHES HOSPITALITY INDUSTRY-LEADING ARTIFICIAL INTELLIGENCE (AI)-POWERED REAL-TIME PRICE MATCHING TECHNOLOGY - hotel magazine",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -506,7 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
