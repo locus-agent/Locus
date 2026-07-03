@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-03T05:50:10.900461+00:00",
-  "last_heartbeat": "2026-07-03T05:50:10.900461+00:00",
-  "uptime_seconds": 25507,
+  "generated_at": "2026-07-03T05:55:17.726881+00:00",
+  "last_heartbeat": "2026-07-03T05:55:17.726881+00:00",
+  "uptime_seconds": 25814,
   "dry_run": false,
-  "markets_tracked": 1282,
+  "markets_tracked": 1280,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10078,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 189,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 193,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 6985,
+  "classifications_24h": 6979,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2519,
+    "prefiltered_haiku": 2518,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1868,
+    "news": 1871,
     "matched": 874,
-    "classified": 6985,
+    "classified": 6979,
     "signals": 3,
     "trades": 2
   },
@@ -135,12 +135,12 @@
     "losses": 14,
     "win_rate_pct": 58.8,
     "realized_pnl_usd": 44.18,
-    "unrealized_pnl_usd": -5.04,
-    "total_pnl_usd": 39.14,
+    "unrealized_pnl_usd": -5.0,
+    "total_pnl_usd": 39.18,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1616.5
+    "avg_classification_latency_ms": 1620.7
   },
   "live_readiness": {
     "ready": true,
@@ -209,11 +209,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0875,
-      "pnl_pct": -12.5,
+      "current_price": 0.0895,
+      "pnl_pct": -10.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.75,
-      "pnl_usd": -0.25,
+      "current_value_usd": 1.79,
+      "pnl_usd": -0.21,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -445,6 +445,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-03 05:50:42",
+      "market_question": "Will Donald Trump visit Taiwan in 2026?",
+      "headline": "EXCLUSIVE: Inside Taiwan's nightmare scenario: Chinese blockade, earthquake, sabotage and invasion - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 05:50:37",
+      "market_question": "Will a Chinese AI model become #1 by June 30? ",
+      "headline": "EXCLUSIVE: Inside Taiwan's nightmare scenario: Chinese blockade, earthquake, sabotage and invasion - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-03 05:48:31",
       "market_question": "Will Trump and Putin not meet?",
       "headline": "Trump - Politico",
@@ -479,38 +511,6 @@
     {
       "time": "2026-07-03 05:48:26",
       "market_question": "Trump out as President by July 31?",
-      "headline": "Trump - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 05:48:25",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-03 05:48:25",
-      "market_question": "Will Trump resign by December 31, 2026?",
       "headline": "Trump - Politico",
       "direction": "neutral",
       "materiality": 0.0,
