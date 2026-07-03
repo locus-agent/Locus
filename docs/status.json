@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-03T15:54:39.688377+00:00",
-  "last_heartbeat": "2026-07-03T15:54:39.688377+00:00",
-  "uptime_seconds": 12639,
+  "generated_at": "2026-07-03T15:59:47.824321+00:00",
+  "last_heartbeat": "2026-07-03T15:59:47.824321+00:00",
+  "uptime_seconds": 12947,
   "dry_run": false,
   "markets_tracked": 1397,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 889,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 896,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 7352,
+  "classifications_24h": 7374,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 2835,
+    "prefiltered_haiku": 2836,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
@@ -120,9 +120,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1964,
-    "matched": 1021,
-    "classified": 7352,
+    "news": 1968,
+    "matched": 1024,
+    "classified": 7374,
     "signals": 1,
     "trades": 0
   },
@@ -140,7 +140,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1850.0
+    "avg_classification_latency_ms": 1851.7
   },
   "live_readiness": {
     "ready": true,
@@ -384,6 +384,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-03 15:56:44",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -31.02
+    },
+    {
       "time": "2026-07-03 15:26:27",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -418,22 +427,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -20.53
-    },
-    {
-      "time": "2026-07-03 13:25:10",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -20.53
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 15:50:35",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Germany to start talks with Klopp after parting ways with Nagelsmann, says DFB - Reuters",
+      "time": "2026-07-03 15:59:22",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Tesla rolls out robotaxi service in Miami - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -447,9 +447,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-03 15:50:33",
-      "market_question": "Will Jared Moskowitz be the Democratic nominee for Senate in Florida?",
-      "headline": "PBS NewsHour/POLITICO Democratic debate - Politico",
+      "time": "2026-07-03 15:59:22",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Tesla rolls out robotaxi service in Miami - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-03 15:59:21",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Tesla rolls out robotaxi service in Miami - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -463,9 +479,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 15:50:33",
-      "market_question": "Will Melisa Hortman be the Democratic nominee for Senate in Minnesota?",
-      "headline": "PBS NewsHour/POLITICO Democratic debate - Politico",
+      "time": "2026-07-03 15:59:21",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Tesla rolls out robotaxi service in Miami - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -479,25 +495,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-03 15:50:33",
-      "market_question": "Will Angie Craig be the Democratic nominee for Senate in Minnesota?",
-      "headline": "PBS NewsHour/POLITICO Democratic debate - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-03 15:50:33",
-      "market_question": "Will David Wellstone be the Democratic nominee for Senate in Minnesota?",
-      "headline": "PBS NewsHour/POLITICO Democratic debate - Politico",
+      "time": "2026-07-03 15:59:21",
+      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
+      "headline": "Tesla rolls out robotaxi service in Miami - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
