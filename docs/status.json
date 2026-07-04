@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-04T13:37:28.358290+00:00",
-  "last_heartbeat": "2026-07-04T13:37:28.358290+00:00",
-  "uptime_seconds": 70392,
+  "generated_at": "2026-07-04T13:42:36.590797+00:00",
+  "last_heartbeat": "2026-07-04T13:42:36.590797+00:00",
+  "uptime_seconds": 70700,
   "dry_run": false,
   "markets_tracked": 1349,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 419,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 421,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 4050,
+  "classifications_24h": 4055,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1335,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1028,
-    "matched": 742,
-    "classified": 4050,
+    "matched": 743,
+    "classified": 4055,
     "signals": 0,
     "trades": 0
   },
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.04500000000000004,
+      "current_price": 0.045,
       "pnl_pct": -32.52,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.27,
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.10099999999999998,
+      "current_price": 0.101,
       "pnl_pct": 1.0,
       "amount_usd": 2.0,
       "current_value_usd": 2.02,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 13:42:36",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -32.52
+    },
+    {
       "time": "2026-07-04 13:12:20",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -32.52
-    },
-    {
-      "time": "2026-07-04 11:11:19",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -32.52
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 13:33:43",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "Prince Harry's wife Meghan and their children will not join him in London next week - Reuters",
+      "time": "2026-07-04 13:42:29",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "Congressional Republicans - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 13:33:43",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "Prince Harry's wife Meghan and their children will not join him in London next week - Reuters",
+      "time": "2026-07-04 13:42:29",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "headline": "Congressional Republicans - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 13:33:43",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "headline": "Prince Harry's wife Meghan and their children will not join him in London next week - Reuters",
+      "time": "2026-07-04 13:42:29",
+      "market_question": "Will the Republicans win the Iowa Senate race in 2026?",
+      "headline": "Congressional Republicans - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 13:33:43",
-      "market_question": "Will Trump and Putin meet next in Switzerland?",
-      "headline": "Prince Harry's wife Meghan and their children will not join him in London next week - Reuters",
+      "time": "2026-07-04 13:42:29",
+      "market_question": "Will the Republicans win the Nebraska Senate race in 2026?",
+      "headline": "Congressional Republicans - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 13:33:43",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Prince Harry's wife Meghan and their children will not join him in London next week - Reuters",
+      "time": "2026-07-04 13:42:29",
+      "market_question": "Will the Republicans win the Montana Senate race in 2026?",
+      "headline": "Congressional Republicans - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
