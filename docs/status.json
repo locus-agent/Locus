@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T15:40:30.345767+00:00",
-  "last_heartbeat": "2026-07-04T15:40:30.345767+00:00",
-  "uptime_seconds": 77774,
+  "generated_at": "2026-07-04T15:45:37.914844+00:00",
+  "last_heartbeat": "2026-07-04T15:45:37.914844+00:00",
+  "uptime_seconds": 78082,
   "dry_run": false,
-  "markets_tracked": 1353,
+  "markets_tracked": 1356,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10380,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 480,
+  "headlines_scanned_today": 483,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3726,
+  "classifications_24h": 3731,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1153,
+    "prefiltered_haiku": 1154,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 957,
-    "matched": 737,
-    "classified": 3726,
+    "news": 959,
+    "matched": 740,
+    "classified": 3731,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1990.7
+    "avg_classification_latency_ms": 1990.1
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.044499999999999984,
+      "current_price": 0.0445,
       "pnl_pct": -33.27,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.26,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 15:43:35",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-04 15:13:23",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,77 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -32.52
-    },
-    {
-      "time": "2026-07-04 13:12:20",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -33.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 15:34:17",
-      "market_question": "Will Trump say \"Happy Birthday America\" during Tribute to America Rally?",
-      "headline": "The Patient Is America. Here's the Prescription. - Politico",
+      "time": "2026-07-04 15:43:05",
+      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Philadelphia like a local - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 15:43:05",
+      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Philadelphia like a local - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 15:43:05",
+      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Philadelphia like a local - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 15:43:05",
+      "market_question": "Will the next model released by OpenAI debut at a score of at least 1450?",
+      "headline": "India's 15-year-old batting sensation Sooryavanshi makes senior debut against England - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 15:43:04",
+      "market_question": "Will Grok AI beat T1 in 2026? ",
+      "headline": "Six-try Wales beat Fiji in Nations Championship opener",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -446,70 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 15:34:15",
-      "market_question": "Will Trump say \"Moon\" during Tribute to America Rally?",
-      "headline": "The Patient Is America. Here's the Prescription. - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-04 15:34:15",
-      "market_question": "Will Trump say \"Transgender\" during Tribute to America Rally?",
-      "headline": "The Patient Is America. Here's the Prescription. - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-04 15:34:15",
-      "market_question": "Will Trump say \"Hottest\" during Tribute to America Rally?",
-      "headline": "The Patient Is America. Here's the Prescription. - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-04 15:34:15",
-      "market_question": "Will Trump say \"Mandate\" during Tribute to America Rally?",
-      "headline": "The Patient Is America. Here's the Prescription. - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
