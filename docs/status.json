@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T22:15:55.922051+00:00",
-  "last_heartbeat": "2026-07-04T22:15:55.922051+00:00",
-  "uptime_seconds": 101500,
+  "generated_at": "2026-07-04T22:21:04.459800+00:00",
+  "last_heartbeat": "2026-07-04T22:21:04.459800+00:00",
+  "uptime_seconds": 101808,
   "dry_run": false,
-  "markets_tracked": 1341,
+  "markets_tracked": 1348,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10414,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 699,
+  "headlines_scanned_today": 701,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2974,
+  "classifications_24h": 2977,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 910,
+    "prefiltered_haiku": 912,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-04T22:05:21.421291+00:00"
+    "last_check": "2026-07-04T22:20:21.890237+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 757,
-    "matched": 632,
-    "classified": 2974,
+    "news": 758,
+    "matched": 633,
+    "classified": 2977,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -3.41,
-    "total_pnl_usd": 40.0,
+    "unrealized_pnl_usd": -3.38,
+    "total_pnl_usd": 40.03,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1976.2
+    "avg_classification_latency_ms": 1975.6
   },
   "live_readiness": {
     "ready": true,
@@ -210,11 +210,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1115,
-      "pnl_pct": 11.5,
+      "current_price": 0.113,
+      "pnl_pct": 13.0,
       "amount_usd": 2.0,
-      "current_value_usd": 2.23,
-      "pnl_usd": 0.23,
+      "current_value_usd": 2.26,
+      "pnl_usd": 0.26,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 22:16:59",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-04 21:46:49",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,18 +428,57 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -33.27
-    },
-    {
-      "time": "2026-07-04 19:45:39",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -33.27
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-04 22:19:39",
+      "market_question": "Will Apyx launch a token by September 30, 2026?",
+      "headline": "Latest news - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-04 22:19:38",
+      "market_question": "Will Apyx launch a token by September 30, 2027?",
+      "headline": "Latest news - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-04 22:19:37",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "Latest news - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
     {
       "time": "2026-07-04 22:13:04",
       "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
@@ -462,54 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 22:13:03",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Paul Pelosi in hit-and-run in Napa County wine country, car left with major damage, authorities say - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-04 22:13:03",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Paul Pelosi in hit-and-run in Napa County wine country, car left with major damage, authorities say - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-04 22:13:03",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Paul Pelosi in hit-and-run in Napa County wine country, car left with major damage, authorities say - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
