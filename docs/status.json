@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T13:11:47.533072+00:00",
-  "last_heartbeat": "2026-07-04T13:11:47.533072+00:00",
-  "uptime_seconds": 68851,
+  "generated_at": "2026-07-04T13:16:56.388379+00:00",
+  "last_heartbeat": "2026-07-04T13:16:56.388379+00:00",
+  "uptime_seconds": 69160,
   "dry_run": false,
-  "markets_tracked": 1348,
+  "markets_tracked": 1358,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10283,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 396,
+  "headlines_scanned_today": 400,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4246,
+  "classifications_24h": 4244,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1440,
+    "prefiltered_haiku": 1434,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1081,
-    "matched": 758,
-    "classified": 4246,
+    "matched": 760,
+    "classified": 4244,
     "signals": 0,
     "trades": 0
   },
@@ -137,11 +137,11 @@
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
     "unrealized_pnl_usd": -3.64,
-    "total_pnl_usd": 39.78,
+    "total_pnl_usd": 39.77,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1985.1
+    "avg_classification_latency_ms": 1984.1
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.045500000000000096,
-      "pnl_pct": -31.77,
+      "current_price": 0.0445,
+      "pnl_pct": -33.27,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.29,
-      "pnl_usd": -0.6,
+      "current_value_usd": 1.26,
+      "pnl_usd": -0.63,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -210,11 +210,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.099,
-      "pnl_pct": -1.0,
+      "current_price": 0.1,
+      "pnl_pct": 0.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.98,
-      "pnl_usd": -0.02,
+      "current_value_usd": 2.0,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 13:12:20",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-04 12:42:04",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -32.52
-    },
-    {
-      "time": "2026-07-04 10:41:07",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -32.52
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 13:09:38",
-      "market_question": "Will Independence Movement win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "King hails 'truly historic milestone' on 250th anniversary of US independence",
+      "time": "2026-07-04 13:16:12",
+      "market_question": "Will Donald Trump visit Germany in 2026?",
+      "headline": "Far-right Alternative for Germany party reelects leaders as protesters and police clash - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 13:07:27",
-      "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "Ukraine hits major oil terminal in Russia's St Petersburg",
+      "time": "2026-07-04 13:16:12",
+      "market_question": "Will the Democratic Party control the Senate after the 2026 Midterm elections?",
+      "headline": "Far-right Alternative for Germany party reelects leaders as protesters and police clash - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 13:07:27",
-      "market_question": "Ukraine election called by August 31, 2026?",
-      "headline": "Ukraine hits major oil terminal in Russia's St Petersburg",
+      "time": "2026-07-04 13:16:12",
+      "market_question": "Will the Workers' Party nominate Lula for President of Brazil by August 15?",
+      "headline": "Far-right Alternative for Germany party reelects leaders as protesters and police clash - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 13:07:27",
-      "market_question": "Ukraine election called by December 31, 2026?",
-      "headline": "Ukraine hits major oil terminal in Russia's St Petersburg",
+      "time": "2026-07-04 13:16:12",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "Far-right Alternative for Germany party reelects leaders as protesters and police clash - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 13:07:27",
-      "market_question": "Will Donald Trump visit Ukraine in 2026?",
-      "headline": "Ukraine hits major oil terminal in Russia's St Petersburg",
+      "time": "2026-07-04 13:16:12",
+      "market_question": "Will the Republican Party hold exactly 28 or 29 governorships after the 2026 midterm elections?",
+      "headline": "Far-right Alternative for Germany party reelects leaders as protesters and police clash - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
