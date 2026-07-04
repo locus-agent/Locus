@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-04T10:07:19.331158+00:00",
-  "last_heartbeat": "2026-07-04T10:07:19.331158+00:00",
-  "uptime_seconds": 57783,
+  "generated_at": "2026-07-04T10:12:27.695305+00:00",
+  "last_heartbeat": "2026-07-04T10:12:27.695305+00:00",
+  "uptime_seconds": 58091,
   "dry_run": false,
-  "markets_tracked": 1350,
-  "classify_error_streak": 128,
+  "markets_tracked": 1349,
+  "classify_error_streak": 141,
   "track_record": {
-    "total": 10260,
+    "total": 10283,
     "accuracy": 18.3,
     "by_category": {
       "other": 16.2,
@@ -24,78 +24,78 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.3,
-    "overall_total": 10260,
+    "overall_total": 10283,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5760,
-        "correct": 402,
+        "total": 5767,
+        "correct": 403,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 9.69,
+        "avg_pnl_pct": 9.68,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 943,
-        "correct": 329,
+        "total": 946,
+        "correct": 330,
         "accuracy_pct": 34.9,
-        "avg_pnl_pct": 22.8,
+        "avg_pnl_pct": 22.75,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1095,
-        "correct": 440,
-        "accuracy_pct": 40.2,
-        "avg_pnl_pct": 6.12,
+        "total": 1099,
+        "correct": 441,
+        "accuracy_pct": 40.1,
+        "avg_pnl_pct": 6.09,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 635,
-        "correct": 223,
-        "accuracy_pct": 35.1,
-        "avg_pnl_pct": 1.94,
+        "total": 637,
+        "correct": 224,
+        "accuracy_pct": 35.2,
+        "avg_pnl_pct": 1.92,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 563,
-        "correct": 242,
+        "total": 565,
+        "correct": 243,
         "accuracy_pct": 43.0,
-        "avg_pnl_pct": 3.65,
+        "avg_pnl_pct": 3.64,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1264,
+        "total": 1269,
         "correct": 239,
-        "accuracy_pct": 18.9,
-        "avg_pnl_pct": -2.93,
+        "accuracy_pct": 18.8,
+        "avg_pnl_pct": -2.92,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 274,
+  "headlines_scanned_today": 293,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4866,
+  "classifications_24h": 4921,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1713,
+    "prefiltered_haiku": 1708,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 192,
+    "price_target_market": 201,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1290,
-    "matched": 755,
-    "classified": 4866,
+    "news": 1307,
+    "matched": 769,
+    "classified": 4921,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1968.5
+    "avg_classification_latency_ms": 1974.9
   },
   "live_readiness": {
     "ready": true,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 10:10:56",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -32.52
+    },
+    {
       "time": "2026-07-04 09:40:44",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -33.27
-    },
-    {
-      "time": "2026-07-04 07:40:05",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -33.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 10:05:27",
-      "market_question": "Bitmine sells any Ethereum in 2026?",
-      "headline": "Antique silver collection found in attic sells for \u00a360,000",
+      "time": "2026-07-04 10:10:04",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "SpaceX Investors Get Preview of Musk\u2019s AI Handset - PYMNTS.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-04 09:58:52",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Small businesses say they\u2019re having a good summer as Americans travel closer to home - AP News",
+      "time": "2026-07-04 10:10:01",
+      "market_question": "Will Trump meet with Pope Leo XIV in 2026?",
+      "headline": "What is the Society of St Pius X? Why Pope Leo excommunicated its members - Al Jazeera",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-04 09:58:49",
-      "market_question": "Will Trump say \"Moon\" during Tribute to America Rally?",
-      "headline": "Small businesses say they\u2019re having a good summer as Americans travel closer to home - AP News",
+      "time": "2026-07-04 10:10:01",
+      "market_question": "Will the Communist Party of the Russian Federation (KPRF) gain the most seats in the next Russian parliamentary election?",
+      "headline": "Russian attacks kill at least 25, injures scores in Kyiv after Zelenskyy warned of \u2018massive strike\u2019 - NBC News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 09:58:49",
-      "market_question": "Will Trump say \"Hottest\" during Tribute to America Rally?",
-      "headline": "Small businesses say they\u2019re having a good summer as Americans travel closer to home - AP News",
+      "time": "2026-07-04 10:10:01",
+      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
+      "headline": "Russian attacks kill at least 25, injures scores in Kyiv after Zelenskyy warned of \u2018massive strike\u2019 - NBC News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 09:58:49",
-      "market_question": "Will Trump say \"Transgender\" during Tribute to America Rally?",
-      "headline": "Small businesses say they\u2019re having a good summer as Americans travel closer to home - AP News",
+      "time": "2026-07-04 10:10:01",
+      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
+      "headline": "Russian attacks kill at least 25, injures scores in Kyiv after Zelenskyy warned of \u2018massive strike\u2019 - NBC News",
       "direction": null,
       "materiality": null,
       "confidence": null,
