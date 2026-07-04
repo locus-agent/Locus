@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T12:41:01.048685+00:00",
-  "last_heartbeat": "2026-07-04T12:41:01.048685+00:00",
-  "uptime_seconds": 67005,
+  "generated_at": "2026-07-04T12:46:09.438339+00:00",
+  "last_heartbeat": "2026-07-04T12:46:09.438339+00:00",
+  "uptime_seconds": 67313,
   "dry_run": false,
-  "markets_tracked": 1360,
+  "markets_tracked": 1356,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10283,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 389,
+  "headlines_scanned_today": 390,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4270,
+  "classifications_24h": 4268,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1448,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1087,
     "matched": 756,
-    "classified": 4270,
+    "classified": 4268,
     "signals": 0,
     "trades": 0
   },
@@ -136,8 +136,8 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -3.65,
-    "total_pnl_usd": 39.77,
+    "unrealized_pnl_usd": -3.68,
+    "total_pnl_usd": 39.74,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -196,11 +196,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.045,
-      "pnl_pct": -32.52,
+      "current_price": 0.044,
+      "pnl_pct": -34.02,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.27,
-      "pnl_usd": -0.61,
+      "current_value_usd": 1.24,
+      "pnl_usd": -0.64,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 12:42:04",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -32.52
+    },
+    {
       "time": "2026-07-04 12:11:50",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,18 +428,57 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -32.52
-    },
-    {
-      "time": "2026-07-04 10:10:56",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -32.52
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-04 12:43:22",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Dior dress and a man of honour: What we know about Taylor Swift and Travis Kelce's wedding",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 12:43:22",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Dior dress and a man of honour: What we know about Taylor Swift and Travis Kelce's wedding",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 12:43:22",
+      "market_question": "Will Karrin Taylor Robson win the 2026 Arizona Governor Republican primary election?",
+      "headline": "Dior dress and a man of honour: What we know about Taylor Swift and Travis Kelce's wedding",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
     {
       "time": "2026-07-04 12:39:01",
       "market_question": "Will Anthony Furey win the 2026 Toronto mayoral election?",
@@ -462,54 +510,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 12:39:01",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Danielle Smith\u2019s next fight with Ottawa - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 12:39:01",
-      "market_question": "Will Tim Louis win the 2026 Vancouver mayoral election?",
-      "headline": "Danielle Smith\u2019s next fight with Ottawa - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 12:39:01",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Cape Verde fans 'proud' despite 3-2 defeat to Argentina",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
