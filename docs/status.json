@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T22:56:59.372119+00:00",
-  "last_heartbeat": "2026-07-04T22:56:59.372119+00:00",
-  "uptime_seconds": 103963,
+  "generated_at": "2026-07-04T23:02:07.646460+00:00",
+  "last_heartbeat": "2026-07-04T23:02:07.646460+00:00",
+  "uptime_seconds": 104271,
   "dry_run": false,
-  "markets_tracked": 1344,
+  "markets_tracked": 1340,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10414,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 716,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 719,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2859,
+  "classifications_24h": 2865,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 865,
+    "prefiltered_haiku": 864,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 734,
-    "matched": 612,
-    "classified": 2859,
+    "news": 735,
+    "matched": 613,
+    "classified": 2865,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -3.6,
-    "total_pnl_usd": 39.82,
+    "unrealized_pnl_usd": -3.81,
+    "total_pnl_usd": 39.6,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1984.9
+    "avg_classification_latency_ms": 1983.2
   },
   "live_readiness": {
     "ready": true,
@@ -224,11 +224,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.46499999999999997,
-      "pnl_pct": -7.76,
+      "current_price": 0.47,
+      "pnl_pct": -8.62,
       "amount_usd": 24.94,
-      "current_value_usd": 23.01,
-      "pnl_usd": -1.93,
+      "current_value_usd": 22.79,
+      "pnl_usd": -2.15,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 22:56:51",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "A fast-moving wildfire near Greece's Thessaloniki sparks evacuations as smoke blankets suburbs - AP News",
+      "time": "2026-07-04 23:01:15",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "US VP Vance says Britain has been failed by leaders, hopes next PM delivers change - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,25 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 22:54:47",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Trump offered over phone to help Putin find deal with Ukraine, Kremlin aide says - Reuters",
-      "direction": "bullish",
-      "materiality": 0.4,
-      "confidence": 0.55,
-      "edge": 0.278,
-      "fee_cost": 0.0,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.33,
-      "action": "orderbook_skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 22:54:47",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World News: Top & Breaking World News Today - AP News",
+      "time": "2026-07-04 23:01:15",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "US VP Vance says Britain has been failed by leaders, hopes next PM delivers change - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 22:54:47",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World News: Top & Breaking World News Today - AP News",
+      "time": "2026-07-04 23:01:15",
+      "market_question": "Will Trump and Putin meet next in Turkey?",
+      "headline": "US VP Vance says Britain has been failed by leaders, hopes next PM delivers change - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +480,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 22:54:47",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World News: Top & Breaking World News Today - AP News",
+      "time": "2026-07-04 23:01:15",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "headline": "US VP Vance says Britain has been failed by leaders, hopes next PM delivers change - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 23:01:15",
+      "market_question": "Will Trump and Putin meet next in Switzerland?",
+      "headline": "US VP Vance says Britain has been failed by leaders, hopes next PM delivers change - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
