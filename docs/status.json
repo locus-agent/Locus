@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T16:41:57.014813+00:00",
-  "last_heartbeat": "2026-07-04T16:41:57.014813+00:00",
-  "uptime_seconds": 81461,
+  "generated_at": "2026-07-04T16:47:04.802616+00:00",
+  "last_heartbeat": "2026-07-04T16:47:04.802616+00:00",
+  "uptime_seconds": 81769,
   "dry_run": false,
-  "markets_tracked": 1337,
+  "markets_tracked": 1335,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10380,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 507,
+  "headlines_scanned_today": 508,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3715,
+  "classifications_24h": 3645,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1138,
+    "prefiltered_haiku": 1118,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 307,
+    "price_target_market": 311,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 960,
-    "matched": 751,
-    "classified": 3715,
+    "news": 944,
+    "matched": 752,
+    "classified": 3645,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -4.04,
-    "total_pnl_usd": 39.38,
+    "unrealized_pnl_usd": -4.06,
+    "total_pnl_usd": 39.36,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1991.1
+    "avg_classification_latency_ms": 1992.1
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.046,
-      "pnl_pct": -31.02,
+      "current_price": 0.0455,
+      "pnl_pct": -31.77,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.3,
-      "pnl_usd": -0.58,
+      "current_value_usd": 1.29,
+      "pnl_usd": -0.6,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 16:44:01",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -32.52
+    },
+    {
       "time": "2026-07-04 16:13:49",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -31.77
-    },
-    {
-      "time": "2026-07-04 14:12:54",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -32.52
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 16:33:32",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "New heatwave likely to peak at 34C with week-long health alert issued",
+      "time": "2026-07-04 16:44:28",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "America In Focus: consumers still gloomy about economy; US hiring falls in June - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,25 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-04 16:33:31",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "Aave\u2019s new Monad market tops $100 million in deposits two days after launch",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 16:33:31",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "New heatwave likely to peak at 34C with week-long health alert issued",
+      "time": "2026-07-04 16:44:24",
+      "market_question": "Will Bitcoin reach $64,000 June 29-July 5?",
+      "headline": "America In Focus: consumers still gloomy about economy; US hiring falls in June - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +458,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 16:33:31",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "New heatwave likely to peak at 34C with week-long health alert issued",
+      "time": "2026-07-04 16:44:24",
+      "market_question": "Will Ethereum reach $1,900 June 29-July 5?",
+      "headline": "America In Focus: consumers still gloomy about economy; US hiring falls in June - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 16:33:31",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "New heatwave likely to peak at 34C with week-long health alert issued",
+      "time": "2026-07-04 16:44:24",
+      "market_question": "Will Bitcoin reach $70,000 June 29-July 5?",
+      "headline": "America In Focus: consumers still gloomy about economy; US hiring falls in June - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -506,7 +490,23 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 16:44:24",
+      "market_question": "Will Ethereum reach $1,800 June 29-July 5?",
+      "headline": "America In Focus: consumers still gloomy about economy; US hiring falls in June - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
