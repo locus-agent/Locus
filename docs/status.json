@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T12:56:22.577623+00:00",
-  "last_heartbeat": "2026-07-04T12:56:22.577623+00:00",
-  "uptime_seconds": 67926,
+  "generated_at": "2026-07-04T13:01:30.590031+00:00",
+  "last_heartbeat": "2026-07-04T13:01:30.590031+00:00",
+  "uptime_seconds": 68234,
   "dry_run": false,
-  "markets_tracked": 1355,
+  "markets_tracked": 1353,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10283,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 390,
+  "headlines_scanned_today": 392,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4245,
+  "classifications_24h": 4244,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1436,
+    "prefiltered_haiku": 1437,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1081,
-    "matched": 754,
-    "classified": 4245,
+    "news": 1082,
+    "matched": 756,
+    "classified": 4244,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1988.0
+    "avg_classification_latency_ms": 1987.4
   },
   "live_readiness": {
     "ready": true,
@@ -432,6 +432,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-04 13:00:54",
+      "market_question": "Will OpenAI announce a phone in 2026?",
+      "headline": "The square-ish phone that I wanted to love",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-04 12:58:41",
+      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
+      "headline": "A child can drown in seconds. Doctors want more families to be prepared - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-04 12:43:22",
       "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
       "headline": "Dior dress and a man of honour: What we know about Taylor Swift and Travis Kelce's wedding",
@@ -478,38 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-04 12:39:01",
-      "market_question": "Will Anthony Furey win the 2026 Toronto mayoral election?",
-      "headline": "Danielle Smith\u2019s next fight with Ottawa - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 12:39:01",
-      "market_question": "Will Ana Bail\u00e3o win the 2026 Toronto mayoral election?",
-      "headline": "Danielle Smith\u2019s next fight with Ottawa - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
