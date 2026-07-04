@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-04T22:41:36.195604+00:00",
-  "last_heartbeat": "2026-07-04T22:41:36.195604+00:00",
-  "uptime_seconds": 103040,
+  "generated_at": "2026-07-04T22:46:44.585961+00:00",
+  "last_heartbeat": "2026-07-04T22:46:44.585961+00:00",
+  "uptime_seconds": 103348,
   "dry_run": false,
   "markets_tracked": 1346,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 710,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 712,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2855,
+  "classifications_24h": 2856,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 875,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 732,
+    "news": 733,
     "matched": 611,
-    "classified": 2855,
+    "classified": 2856,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1973.2
+    "avg_classification_latency_ms": 1972.8
   },
   "live_readiness": {
     "ready": true,
@@ -432,41 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 22:41:36",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World Cup final 16 is underway: Observations about the field - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 22:41:35",
+      "time": "2026-07-04 22:43:43",
       "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "World Cup final 16 is underway: Observations about the field - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 22:41:31",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World Cup final 16 is underway: Observations about the field - AP News",
+      "headline": "Brazil is still favored vs. Norway at the World Cup, yet an upset wouldn\u2019t rival 1998 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -475,14 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-04 22:41:31",
+      "time": "2026-07-04 22:43:43",
       "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "World Cup final 16 is underway: Observations about the field - AP News",
+      "headline": "Brazil is still favored vs. Norway at the World Cup, yet an upset wouldn\u2019t rival 1998 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -491,14 +459,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-04 22:41:31",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "World Cup final 16 is underway: Observations about the field - AP News",
+      "time": "2026-07-04 22:43:43",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Brazil is still favored vs. Norway at the World Cup, yet an upset wouldn\u2019t rival 1998 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -507,7 +475,39 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-04 22:43:43",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Brazil is still favored vs. Norway at the World Cup, yet an upset wouldn\u2019t rival 1998 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-04 22:43:42",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Brazil is still favored vs. Norway at the World Cup, yet an upset wouldn\u2019t rival 1998 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
