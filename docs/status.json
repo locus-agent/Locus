@@ -1,74 +1,74 @@
 {
-  "generated_at": "2026-07-04T06:06:57.321705+00:00",
-  "last_heartbeat": "2026-07-04T06:06:57.321705+00:00",
-  "uptime_seconds": 43361,
+  "generated_at": "2026-07-04T06:12:04.631212+00:00",
+  "last_heartbeat": "2026-07-04T06:12:04.631212+00:00",
+  "uptime_seconds": 43668,
   "dry_run": false,
-  "markets_tracked": 1358,
+  "markets_tracked": 1354,
   "classify_error_streak": 56,
   "track_record": {
-    "total": 10245,
-    "accuracy": 18.2,
+    "total": 10260,
+    "accuracy": 18.3,
     "by_category": {
       "other": 16.2,
       "ai": 11.4,
       "politics": 20.4,
       "technology": 12.1,
-      "crypto": 19.6,
+      "crypto": 19.8,
       "sports": 26.2
     },
     "by_source": {
-      "rss": 18.6,
-      "newsapi": 17.4,
+      "rss": 18.7,
+      "newsapi": 17.5,
       "truthsocial": 6.8
     }
   },
   "accuracy_by_price": {
-    "overall_accuracy": 18.2,
-    "overall_total": 10245,
+    "overall_accuracy": 18.3,
+    "overall_total": 10260,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5757,
-        "correct": 401,
+        "total": 5760,
+        "correct": 402,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 9.68,
+        "avg_pnl_pct": 9.69,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 939,
-        "correct": 328,
+        "total": 943,
+        "correct": 329,
         "accuracy_pct": 34.9,
-        "avg_pnl_pct": 23.02,
+        "avg_pnl_pct": 22.8,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1090,
-        "correct": 435,
-        "accuracy_pct": 39.9,
-        "avg_pnl_pct": 5.81,
+        "total": 1095,
+        "correct": 440,
+        "accuracy_pct": 40.2,
+        "avg_pnl_pct": 6.12,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 633,
-        "correct": 221,
-        "accuracy_pct": 34.9,
-        "avg_pnl_pct": 1.89,
+        "total": 635,
+        "correct": 223,
+        "accuracy_pct": 35.1,
+        "avg_pnl_pct": 1.94,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 562,
+        "total": 563,
         "correct": 242,
-        "accuracy_pct": 43.1,
-        "avg_pnl_pct": 3.66,
+        "accuracy_pct": 43.0,
+        "avg_pnl_pct": 3.65,
         "color": "green"
       },
       {
@@ -85,7 +85,7 @@
   "headlines_scanned_today": 228,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5221,
+  "classifications_24h": 5219,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1880,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1391,
-    "matched": 794,
-    "classified": 5221,
+    "news": 1390,
+    "matched": 793,
+    "classified": 5219,
     "signals": 0,
     "trades": 0
   },
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.083,
+      "current_price": 0.08299999999999996,
       "pnl_pct": -17.0,
       "amount_usd": 2.0,
       "current_value_usd": 1.66,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 06:09:32",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-04 05:39:22",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -413,15 +422,6 @@
     },
     {
       "time": "2026-07-04 04:08:46",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -33.27
-    },
-    {
-      "time": "2026-07-04 03:38:34",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
