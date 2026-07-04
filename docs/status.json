@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-04T07:08:18.397424+00:00",
-  "last_heartbeat": "2026-07-04T07:08:18.397424+00:00",
-  "uptime_seconds": 47042,
+  "generated_at": "2026-07-04T07:13:26.176695+00:00",
+  "last_heartbeat": "2026-07-04T07:13:26.176695+00:00",
+  "uptime_seconds": 47350,
   "dry_run": false,
-  "markets_tracked": 1354,
-  "classify_error_streak": 75,
+  "markets_tracked": 1351,
+  "classify_error_streak": 76,
   "track_record": {
     "total": 10260,
     "accuracy": 18.3,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 237,
+  "headlines_scanned_today": 239,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5151,
+  "classifications_24h": 5157,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1861,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1367,
-    "matched": 778,
-    "classified": 5151,
+    "news": 1369,
+    "matched": 780,
+    "classified": 5157,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1940.8
+    "avg_classification_latency_ms": 1941.3
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.083,
+      "current_price": 0.08299999999999996,
       "pnl_pct": -17.0,
       "amount_usd": 2.0,
       "current_value_usd": 1.66,
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 07:09:52",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-04 06:39:41",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -33.27
-    },
-    {
-      "time": "2026-07-04 04:38:58",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -33.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 07:03:22",
-      "market_question": "Will Trump say \"Happy Birthday America\" during Tribute to America Rally?",
-      "headline": "America at 250 - AP News",
+      "time": "2026-07-04 07:09:57",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "XRP climbs 8% as record holder losses signal better risk-reward for buyers",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,41 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-04 07:03:22",
-      "market_question": "Will Trump say \"Hundred\" or \"Thousand\" 10+ times during Tribute to America Rally?",
-      "headline": "America at 250 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 07:03:22",
+      "time": "2026-07-04 07:09:57",
       "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "America at 250 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-04 07:03:22",
-      "market_question": "Will El Salvador hold $1b+ of BTC by December 31, 2026?",
-      "headline": "Murals, flags and beef dishes - Messi mania takes hold in Miami",
+      "headline": "SK Hynix considering 0.5% fee payout in ADR offering, Bloomberg News reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +464,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-04 07:03:22",
-      "market_question": "Will the Republican Party hold exactly 28 or 29 governorships after the 2026 midterm elections?",
-      "headline": "Murals, flags and beef dishes - Messi mania takes hold in Miami",
+      "time": "2026-07-04 07:09:57",
+      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "SK Hynix considering 0.5% fee payout in ADR offering, Bloomberg News reports - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 07:09:57",
+      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "SK Hynix considering 0.5% fee payout in ADR offering, Bloomberg News reports - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-04 07:09:57",
+      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "SK Hynix considering 0.5% fee payout in ADR offering, Bloomberg News reports - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
