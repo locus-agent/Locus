@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T17:02:26.553760+00:00",
-  "last_heartbeat": "2026-07-04T17:02:26.553760+00:00",
-  "uptime_seconds": 82690,
+  "generated_at": "2026-07-04T17:07:34.645588+00:00",
+  "last_heartbeat": "2026-07-04T17:07:34.645588+00:00",
+  "uptime_seconds": 82998,
   "dry_run": false,
-  "markets_tracked": 1336,
+  "markets_tracked": 1338,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10380,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 513,
+  "headlines_scanned_today": 514,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3641,
+  "classifications_24h": 3632,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1118,
+    "prefiltered_haiku": 1110,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-04T16:50:11.827735+00:00"
+    "last_check": "2026-07-04T17:05:12.205434+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 933,
+    "news": 930,
     "matched": 753,
-    "classified": 3641,
+    "classified": 3632,
     "signals": 0,
     "trades": 0
   },
@@ -136,8 +136,8 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -4.28,
-    "total_pnl_usd": 39.14,
+    "unrealized_pnl_usd": -4.07,
+    "total_pnl_usd": 39.34,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -196,11 +196,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.045,
-      "pnl_pct": -32.52,
+      "current_price": 0.0445,
+      "pnl_pct": -33.27,
       "amount_usd": 1.8840000000000003,
-      "current_value_usd": 1.27,
-      "pnl_usd": -0.61,
+      "current_value_usd": 1.26,
+      "pnl_usd": -0.63,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -224,11 +224,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.475,
-      "pnl_pct": -9.48,
+      "current_price": 0.47,
+      "pnl_pct": -8.62,
       "amount_usd": 24.94,
-      "current_value_usd": 22.57,
-      "pnl_usd": -2.37,
+      "current_value_usd": 22.79,
+      "pnl_usd": -2.15,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-04 17:06:18",
+      "market_question": "Will Jack Reed be the Democratic nominee for Senate in Rhode Island?",
+      "headline": "Tigers' Jack Flaherty looks to maintain momentum vs. Rangers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-04 16:55:23",
       "market_question": "Will Facundo Manes win the 2027 Argentina presidential election?",
       "headline": "Argentina's hard-fought win over Cape Verde raises questions - Reuters",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-04 16:55:21",
       "market_question": "Will the Democrats win the 2028 US Presidential Election?",
-      "headline": "Argentina's hard-fought win over Cape Verde raises questions - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-04 16:55:21",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
       "headline": "Argentina's hard-fought win over Cape Verde raises questions - Reuters",
       "direction": null,
       "materiality": null,
