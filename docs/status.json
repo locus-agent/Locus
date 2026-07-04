@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T00:03:40.997410+00:00",
-  "last_heartbeat": "2026-07-04T00:03:40.997410+00:00",
-  "uptime_seconds": 21565,
+  "generated_at": "2026-07-04T00:08:48.887245+00:00",
+  "last_heartbeat": "2026-07-04T00:08:48.887245+00:00",
+  "uptime_seconds": 21873,
   "dry_run": false,
-  "markets_tracked": 1361,
+  "markets_tracked": 1366,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10224,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 0,
+  "headlines_scanned_today": 21,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5012,
+  "classifications_24h": 5108,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1850,
+    "prefiltered_haiku": 1884,
     "cooldown_skip": 0,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 140,
+    "price_target_market": 145,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-03T23:49:40.844977+00:00"
+    "last_check": "2026-07-04T00:04:41.279144+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1360,
-    "matched": 731,
-    "classified": 5012,
+    "news": 1380,
+    "matched": 747,
+    "classified": 5108,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1680.7
+    "avg_classification_latency_ms": 1718.5
   },
   "live_readiness": {
     "ready": true,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 00:07:17",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-03 23:37:06",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,97 +428,88 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -33.27
-    },
-    {
-      "time": "2026-07-03 21:36:32",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -33.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-03 23:53:42",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "The Papers: Storm threat to England match and 'bid to block Miliband'",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-04 00:07:00",
+      "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
+      "headline": "BIG NEWS! My Administration is delivering another fantastic America First Victory. The Department of Treasury will now accept philanthropic contributions of readily tradable Publicly Traded Stock to help fund TRUMP ACCOUNTS for eligible American children. This opens the door for GREAT American Businesses, Philanthropists, and Job Creators to invest directly in the future of our children, and help build a Generation of Savers, Investors, and Owners. The response to TRUMP ACCOUNTS has been incredible \u2014 More than 6 MILLION TRUMP ACCOUNTS have already been requested before the Program has even launched. The American People LOVE this idea because it puts America\u2019s children FIRST, rewards Success, and helps build Wealth for the next Generation. The Golden Age of America is just getting started! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-03 23:53:42",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "Taylor Swift and Travis Kelce are married in elaborate Madison Square Garden ceremony - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-04 00:06:58",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "BIG NEWS! My Administration is delivering another fantastic America First Victory. The Department of Treasury will now accept philanthropic contributions of readily tradable Publicly Traded Stock to help fund TRUMP ACCOUNTS for eligible American children. This opens the door for GREAT American Businesses, Philanthropists, and Job Creators to invest directly in the future of our children, and help build a Generation of Savers, Investors, and Owners. The response to TRUMP ACCOUNTS has been incredible \u2014 More than 6 MILLION TRUMP ACCOUNTS have already been requested before the Program has even launched. The American People LOVE this idea because it puts America\u2019s children FIRST, rewards Success, and helps build Wealth for the next Generation. The Golden Age of America is just getting started! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-03 23:53:42",
-      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "Taylor Swift and Travis Kelce are married in elaborate Madison Square Garden ceremony - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-04 00:06:57",
+      "market_question": "Will Trump sell 101-1k Gold Cards in 2026?",
+      "headline": "BIG NEWS! My Administration is delivering another fantastic America First Victory. The Department of Treasury will now accept philanthropic contributions of readily tradable Publicly Traded Stock to help fund TRUMP ACCOUNTS for eligible American children. This opens the door for GREAT American Businesses, Philanthropists, and Job Creators to invest directly in the future of our children, and help build a Generation of Savers, Investors, and Owners. The response to TRUMP ACCOUNTS has been incredible \u2014 More than 6 MILLION TRUMP ACCOUNTS have already been requested before the Program has even launched. The American People LOVE this idea because it puts America\u2019s children FIRST, rewards Success, and helps build Wealth for the next Generation. The Golden Age of America is just getting started! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-03 23:53:42",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Taylor Swift and Travis Kelce are married in elaborate Madison Square Garden ceremony - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-04 00:06:56",
+      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
+      "headline": "BIG NEWS! My Administration is delivering another fantastic America First Victory. The Department of Treasury will now accept philanthropic contributions of readily tradable Publicly Traded Stock to help fund TRUMP ACCOUNTS for eligible American children. This opens the door for GREAT American Businesses, Philanthropists, and Job Creators to invest directly in the future of our children, and help build a Generation of Savers, Investors, and Owners. The response to TRUMP ACCOUNTS has been incredible \u2014 More than 6 MILLION TRUMP ACCOUNTS have already been requested before the Program has even launched. The American People LOVE this idea because it puts America\u2019s children FIRST, rewards Success, and helps build Wealth for the next Generation. The Golden Age of America is just getting started! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-03 23:53:42",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Taylor Swift and Travis Kelce are married in elaborate Madison Square Garden ceremony - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-04 00:06:55",
+      "market_question": "Will Trump deport 700-800k people?",
+      "headline": "BIG NEWS! My Administration is delivering another fantastic America First Victory. The Department of Treasury will now accept philanthropic contributions of readily tradable Publicly Traded Stock to help fund TRUMP ACCOUNTS for eligible American children. This opens the door for GREAT American Businesses, Philanthropists, and Job Creators to invest directly in the future of our children, and help build a Generation of Savers, Investors, and Owners. The response to TRUMP ACCOUNTS has been incredible \u2014 More than 6 MILLION TRUMP ACCOUNTS have already been requested before the Program has even launched. The American People LOVE this idea because it puts America\u2019s children FIRST, rewards Success, and helps build Wealth for the next Generation. The Golden Age of America is just getting started! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
