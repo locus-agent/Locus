@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T07:39:01.659434+00:00",
-  "last_heartbeat": "2026-07-04T07:39:01.659434+00:00",
-  "uptime_seconds": 48885,
+  "generated_at": "2026-07-04T07:44:08.988919+00:00",
+  "last_heartbeat": "2026-07-04T07:44:08.988919+00:00",
+  "uptime_seconds": 49193,
   "dry_run": false,
-  "markets_tracked": 1361,
+  "markets_tracked": 1360,
   "classify_error_streak": 96,
   "track_record": {
     "total": 10260,
@@ -85,7 +85,7 @@
   "headlines_scanned_today": 248,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5144,
+  "classifications_24h": 5134,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1850,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1364,
-    "matched": 779,
-    "classified": 5144,
+    "news": 1360,
+    "matched": 778,
+    "classified": 5134,
     "signals": 0,
     "trades": 0
   },
@@ -136,8 +136,8 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -3.79,
-    "total_pnl_usd": 39.63,
+    "unrealized_pnl_usd": -3.77,
+    "total_pnl_usd": 39.65,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.044499999999999984,
+      "current_price": 0.0445,
       "pnl_pct": -33.27,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.26,
@@ -210,11 +210,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.082,
-      "pnl_pct": -18.0,
+      "current_price": 0.08299999999999996,
+      "pnl_pct": -17.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.64,
-      "pnl_usd": -0.36,
+      "current_value_usd": 1.66,
+      "pnl_usd": -0.34,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -224,11 +224,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.45499999999999996,
+      "current_price": 0.455,
       "pnl_pct": -6.03,
       "amount_usd": 24.94,
-      "current_value_usd": 23.44,
-      "pnl_usd": -1.5,
+      "current_value_usd": 23.43,
+      "pnl_usd": -1.51,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 07:40:05",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-04 07:09:52",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -413,15 +422,6 @@
     },
     {
       "time": "2026-07-04 05:39:22",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -33.27
-    },
-    {
-      "time": "2026-07-04 05:09:09",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
