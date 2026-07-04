@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T04:04:09.656781+00:00",
-  "last_heartbeat": "2026-07-04T04:04:09.656781+00:00",
-  "uptime_seconds": 35993,
+  "generated_at": "2026-07-04T04:09:17.355130+00:00",
+  "last_heartbeat": "2026-07-04T04:09:17.355130+00:00",
+  "uptime_seconds": 36301,
   "dry_run": false,
-  "markets_tracked": 1385,
+  "markets_tracked": 1379,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10245,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 181,
+  "headlines_scanned_today": 183,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5235,
+  "classifications_24h": 5240,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1940,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-04T03:49:47.426609+00:00"
+    "last_check": "2026-07-04T04:04:47.918638+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1403,
-    "matched": 785,
-    "classified": 5235,
+    "news": 1405,
+    "matched": 786,
+    "classified": 5240,
     "signals": 0,
     "trades": 0
   },
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0445,
+      "current_price": 0.044499999999999984,
       "pnl_pct": -33.27,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.26,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-04 04:08:46",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -33.27
+    },
+    {
       "time": "2026-07-04 03:38:34",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,97 +428,88 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -34.02
-    },
-    {
-      "time": "2026-07-04 01:37:52",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -34.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-04 04:03:32",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "World Cup what to know: France takes center stage in Philly heat as Round of 16 begins - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-04 04:05:40",
+      "market_question": "Will Adam Schwarze be the Republican nominee for Senate in Minnesota?",
+      "headline": "Adam Schiff - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-04 04:03:31",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World Cup what to know: France takes center stage in Philly heat as Round of 16 begins - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-04 04:05:40",
+      "market_question": "Will Adam Crum win the 2026 Alaska governor election?",
+      "headline": "Adam Schiff - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-04 04:03:31",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "World Cup what to know: France takes center stage in Philly heat as Round of 16 begins - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-04 04:05:40",
+      "market_question": "Will Adam Miller win the 2026 Los Angeles mayoral election?",
+      "headline": "Adam Schiff - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-04 04:03:31",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World Cup what to know: France takes center stage in Philly heat as Round of 16 begins - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-04 04:05:40",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "Adam Schiff - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-04 04:03:31",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World Cup what to know: France takes center stage in Philly heat as Round of 16 begins - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-04 04:05:40",
+      "market_question": "Will Adam Kurtz win the 2026 Tennessee Governor Democratic primary election?",
+      "headline": "Adam Schiff - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
