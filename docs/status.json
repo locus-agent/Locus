@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-05T21:26:41.858193+00:00",
-  "last_heartbeat": "2026-07-05T21:26:41.858193+00:00",
-  "uptime_seconds": 184946,
+  "generated_at": "2026-07-05T21:31:52.236727+00:00",
+  "last_heartbeat": "2026-07-05T21:31:52.236727+00:00",
+  "uptime_seconds": 185256,
   "dry_run": false,
   "markets_tracked": 1327,
   "classify_error_streak": 0,
@@ -82,22 +82,22 @@
       }
     ]
   },
-  "headlines_scanned_today": 731,
+  "headlines_scanned_today": 759,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2831,
+  "classifications_24h": 2947,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1046,
+    "prefiltered_haiku": 1099,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 301,
+    "price_target_market": 316,
     "coinflip_market": 0,
-    "correlation_block": 2,
+    "correlation_block": 4,
     "category_limit": 0,
     "orderbook_skip": 2,
     "already_priced_in": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 805,
-    "matched": 620,
-    "classified": 2831,
+    "news": 832,
+    "matched": 642,
+    "classified": 2947,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1964.6
+    "avg_classification_latency_ms": 1956.9
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0385,
+      "current_price": 0.03849999999999998,
       "pnl_pct": -42.27,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.09,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-05 21:27:45",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -42.27
+    },
+    {
       "time": "2026-07-05 20:57:15",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -42.27
-    },
-    {
-      "time": "2026-07-05 18:56:05",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -42.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-05 21:16:00",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "FIFA makes unprecedented U-turn to clear Balogun for US v Belgium World Cup clash - Reuters",
+      "time": "2026-07-05 21:31:14",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "RT @realDonaldTrumpDr. John G. Trump, of MIT!",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,41 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 21:16:00",
-      "market_question": "Will Stephen Cloobeck win the California Governor Election in 2026?",
-      "headline": "Stephen Francis, influential coach who transformed Jamaican sprinting, dies at 64 - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 21:16:00",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
-      "headline": "Stephen Francis, influential coach who transformed Jamaican sprinting, dies at 64 - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 21:15:57",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "FIFA makes unprecedented U-turn to clear Balogun for US v Belgium World Cup clash - Reuters",
+      "time": "2026-07-05 21:31:14",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "RT @realDonaldTrumpDr. John G. Trump, of MIT!",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -496,9 +464,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 21:15:57",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "FIFA makes unprecedented U-turn to clear Balogun for US v Belgium World Cup clash - Reuters",
+      "time": "2026-07-05 21:31:14",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "RT @realDonaldTrumpDr. John G. Trump, of MIT!",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 21:31:13",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "RT @realDonaldTrumpDr. John G. Trump, of MIT!",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 21:31:13",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "RT @realDonaldTrumpDr. John G. Trump, of MIT!",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
