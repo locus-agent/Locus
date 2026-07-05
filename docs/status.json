@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-05T03:20:52.586094+00:00",
-  "last_heartbeat": "2026-07-05T03:20:52.586094+00:00",
-  "uptime_seconds": 119796,
+  "generated_at": "2026-07-05T03:26:04.719168+00:00",
+  "last_heartbeat": "2026-07-05T03:26:04.719168+00:00",
+  "uptime_seconds": 120108,
   "dry_run": false,
-  "markets_tracked": 1351,
+  "markets_tracked": 1348,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10432,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 110,
+  "headlines_scanned_today": 113,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2717,
+  "classifications_24h": 2727,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 777,
+    "prefiltered_haiku": 787,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 715,
-    "matched": 587,
-    "classified": 2717,
+    "news": 716,
+    "matched": 588,
+    "classified": 2727,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1979.3
+    "avg_classification_latency_ms": 1975.5
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.041000000000000036,
+      "current_price": 0.041,
       "pnl_pct": -38.52,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.16,
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-05 03:19:32",
-      "market_question": "Will Grok AI beat T1 in 2026? ",
-      "headline": "Scotland finishes strongly to beat Argentina 47-38 in the Nations Championship - AP News",
+      "time": "2026-07-05 03:21:45",
+      "market_question": "Will the Democrats win the West Virginia Senate race in 2026?",
+      "headline": "Report: FBI arrests former West Virginia, Kentucky player Kerr Kriisa - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 03:19:31",
-      "market_question": "Will Nicole Shanahan win the California Governor Election in 2026?",
-      "headline": "NICOLE WINFIELD - AP News",
+      "time": "2026-07-05 03:21:45",
+      "market_question": "Will the Republicans win the West Virginia Senate race in 2026?",
+      "headline": "Report: FBI arrests former West Virginia, Kentucky player Kerr Kriisa - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 03:21:44",
+      "market_question": "Will Betmoar launch a token by March 31, 2027?",
+      "headline": "[No Title] - Post from July 5, 2026",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 03:21:44",
+      "market_question": "Will Al Mina be the Republican nominee for Senate in Virginia?",
+      "headline": "Report: FBI arrests former West Virginia, Kentucky player Kerr Kriisa - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,41 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-05 03:19:31",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "NICOLE WINFIELD - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 03:19:31",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Scotland finishes strongly to beat Argentina 47-38 in the Nations Championship - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 03:19:31",
-      "market_question": "Will Javier Milei win the 2027 Argentina presidential election?",
-      "headline": "Scotland finishes strongly to beat Argentina 47-38 in the Nations Championship - AP News",
+      "time": "2026-07-05 03:21:44",
+      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
+      "headline": "Report: FBI arrests former West Virginia, Kentucky player Kerr Kriisa - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
