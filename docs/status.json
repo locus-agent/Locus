@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-05T15:52:57.263680+00:00",
-  "last_heartbeat": "2026-07-05T15:52:57.263680+00:00",
-  "uptime_seconds": 164921,
+  "generated_at": "2026-07-05T15:58:05.334830+00:00",
+  "last_heartbeat": "2026-07-05T15:58:05.334830+00:00",
+  "uptime_seconds": 165229,
   "dry_run": false,
-  "markets_tracked": 1339,
+  "markets_tracked": 1337,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10445,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 479,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 485,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 2653,
+  "classifications_24h": 2673,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 946,
+    "prefiltered_haiku": 952,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 2,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 273,
+    "price_target_market": 278,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 746,
-    "matched": 587,
-    "classified": 2653,
+    "news": 751,
+    "matched": 591,
+    "classified": 2673,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1969.4
+    "avg_classification_latency_ms": 1968.7
   },
   "live_readiness": {
     "ready": true,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-05 15:54:31",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -41.52
+    },
+    {
       "time": "2026-07-05 15:24:13",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,29 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -38.52
-    },
-    {
-      "time": "2026-07-05 13:23:07",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -38.52
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-05 15:51:29",
-      "market_question": "Will Bitcoin outperform Gold in 2026?",
-      "headline": "The regilding of the sculpture \u201cValor\u201d is complete, and the regilding of the sculpture \u201cSacrifice\u201d is rapidly progressing. After \u201cSacrifice\u201d is regilded, regilding work will begin on the two Arts of Peace sculptures\u2014 Each of which is also 19-feet-tall, and on top of 12.5-feet-tall solid granite pedestals.These four sculptures have not been regilded in over half-a-century. 55 pounds of gold leaf is being used in this effort.The first set of photos below is of the completed regilding of \u201cValor,\u201d while the second set of photos below is of the in-progress regilding of \u201cSacrifice.\u201d",
+      "time": "2026-07-05 15:55:51",
+      "market_question": "Will Trump meet with Pope Leo XIV in 2026?",
+      "headline": "A future pope will 'welcome us back', says priest from excommunicated Catholic sect - Reuters",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 15:55:50",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Here are photos comparing the Reflecting Pool one week after refilling under Obama vs President Trump.",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 15:51:27",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "The regilding of the sculpture \u201cValor\u201d is complete, and the regilding of the sculpture \u201cSacrifice\u201d is rapidly progressing. After \u201cSacrifice\u201d is regilded, regilding work will begin on the two Arts of Peace sculptures\u2014 Each of which is also 19-feet-tall, and on top of 12.5-feet-tall solid granite pedestals.These four sculptures have not been regilded in over half-a-century. 55 pounds of gold leaf is being used in this effort.The first set of photos below is of the completed regilding of \u201cValor,\u201d while the second set of photos below is of the in-progress regilding of \u201cSacrifice.\u201d",
+      "time": "2026-07-05 15:55:50",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Here are photos comparing the Reflecting Pool one week after refilling under Obama vs President Trump.",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,25 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 15:51:26",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "The U.S. Park Police is seeking the public\u2019s assistance in identifying the individual in the notice below in connection with a Destruction of Government Property investigation related to the Reflecting Pool.",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 15:51:26",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "The regilding of the sculpture \u201cValor\u201d is complete, and the regilding of the sculpture \u201cSacrifice\u201d is rapidly progressing. After \u201cSacrifice\u201d is regilded, regilding work will begin on the two Arts of Peace sculptures\u2014 Each of which is also 19-feet-tall, and on top of 12.5-feet-tall solid granite pedestals.These four sculptures have not been regilded in over half-a-century. 55 pounds of gold leaf is being used in this effort.The first set of photos below is of the completed regilding of \u201cValor,\u201d while the second set of photos below is of the in-progress regilding of \u201cSacrifice.\u201d",
+      "time": "2026-07-05 15:55:50",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "'Posh George': Who is aristocrat and convicted criminal at heart of Farage controversy?",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-05 15:51:26",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "The regilding of the sculpture \u201cValor\u201d is complete, and the regilding of the sculpture \u201cSacrifice\u201d is rapidly progressing. After \u201cSacrifice\u201d is regilded, regilding work will begin on the two Arts of Peace sculptures\u2014 Each of which is also 19-feet-tall, and on top of 12.5-feet-tall solid granite pedestals.These four sculptures have not been regilded in over half-a-century. 55 pounds of gold leaf is being used in this effort.The first set of photos below is of the completed regilding of \u201cValor,\u201d while the second set of photos below is of the in-progress regilding of \u201cSacrifice.\u201d",
+      "time": "2026-07-05 15:55:50",
+      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "Calls for revenge as senior Iranian officials appear in public for supreme leader\u2019s funeral - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -506,7 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
