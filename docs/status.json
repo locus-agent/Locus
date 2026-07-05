@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-05T07:51:07.307560+00:00",
-  "last_heartbeat": "2026-07-05T07:51:07.307560+00:00",
-  "uptime_seconds": 136011,
+  "generated_at": "2026-07-05T07:56:14.940564+00:00",
+  "last_heartbeat": "2026-07-05T07:56:14.940564+00:00",
+  "uptime_seconds": 136319,
   "dry_run": false,
-  "markets_tracked": 1321,
+  "markets_tracked": 1325,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10438,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 199,
+  "headlines_scanned_today": 201,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2626,
+  "classifications_24h": 2631,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 853,
+    "prefiltered_haiku": 855,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 704,
-    "matched": 576,
-    "classified": 2626,
+    "news": 706,
+    "matched": 577,
+    "classified": 2631,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1959.8
+    "avg_classification_latency_ms": 1959.2
   },
   "live_readiness": {
     "ready": true,
@@ -432,41 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-05 07:47:09",
-      "market_question": "Will Trump say \"Booming\" during Tribute to America Rally?",
-      "headline": "Donald Trump - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 07:47:09",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "Donald Trump - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 07:47:09",
-      "market_question": "Will Donald Trump attend NATO Summit?",
-      "headline": "Donald Trump - AP News",
+      "time": "2026-07-05 07:53:42",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -480,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 07:47:09",
-      "market_question": "Will Donald Trump visit Taiwan in 2026?",
-      "headline": "Donald Trump - AP News",
+      "time": "2026-07-05 07:53:41",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -496,20 +464,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 07:47:09",
-      "market_question": "Will Donald Trump visit Italy in 2026?",
-      "headline": "Donald Trump - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-05 07:53:40",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-05 07:53:40",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-05 07:53:40",
+      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
+      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
