@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-05T22:28:23.454709+00:00",
-  "last_heartbeat": "2026-07-05T22:28:23.454709+00:00",
-  "uptime_seconds": 188647,
+  "generated_at": "2026-07-05T22:33:30.867879+00:00",
+  "last_heartbeat": "2026-07-05T22:33:30.867879+00:00",
+  "uptime_seconds": 188955,
   "dry_run": false,
-  "markets_tracked": 1332,
+  "markets_tracked": 1334,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10453,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 801,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 802,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 3014,
+  "classifications_24h": 3015,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1129,
+    "prefiltered_haiku": 1130,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 851,
-    "matched": 657,
-    "classified": 3014,
+    "news": 852,
+    "matched": 658,
+    "classified": 3015,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1949.2
+    "avg_classification_latency_ms": 1948.9
   },
   "live_readiness": {
     "ready": true,
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-05 22:32:22",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Some of the nation\u2019s rich are letting AI teach their kids",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-05 22:21:25",
       "market_question": "Trump x Greenland deal signed by December 31?",
       "headline": "EasyJet's flight path from start-up to takeover deal - Reuters",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-05 22:21:25",
       "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "EasyJet's flight path from start-up to takeover deal - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 22:21:25",
-      "market_question": "Will Jonathan Kreiss-Tomkins advance from the 2026 Alaska Governor primary election?",
       "headline": "EasyJet's flight path from start-up to takeover deal - Reuters",
       "direction": null,
       "materiality": null,
