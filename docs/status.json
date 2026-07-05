@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-05T02:13:16.342908+00:00",
-  "last_heartbeat": "2026-07-05T02:13:16.342908+00:00",
-  "uptime_seconds": 115740,
+  "generated_at": "2026-07-05T02:18:28.744387+00:00",
+  "last_heartbeat": "2026-07-05T02:18:28.744387+00:00",
+  "uptime_seconds": 116052,
   "dry_run": false,
-  "markets_tracked": 1335,
+  "markets_tracked": 1347,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10432,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 96,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 100,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 2854,
+  "classifications_24h": 2735,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 837,
+    "prefiltered_haiku": 787,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 2,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 287,
+    "price_target_market": 270,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 738,
-    "matched": 608,
-    "classified": 2854,
+    "news": 717,
+    "matched": 588,
+    "classified": 2735,
     "signals": 1,
     "trades": 1
   },
@@ -224,11 +224,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.45499999999999996,
+      "current_price": 0.455,
       "pnl_pct": -6.03,
       "amount_usd": 24.94,
-      "current_value_usd": 23.44,
-      "pnl_usd": -1.5,
+      "current_value_usd": 23.43,
+      "pnl_usd": -1.51,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-05 02:18:28",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -34.77
+    },
+    {
       "time": "2026-07-05 01:48:18",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -32.52
-    },
-    {
-      "time": "2026-07-04 23:47:40",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -31.77
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-05 02:11:43",
-      "market_question": "Will Donald Trump visit Italy in 2026?",
-      "headline": "Italy - AP News",
+      "time": "2026-07-05 02:18:17",
+      "market_question": "Will Donald Trump visit Mexico in 2026?",
+      "headline": "Tuchel praises respectful Mexico fans amid increased security",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-05 02:11:43",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "Italy - AP News",
+      "time": "2026-07-05 02:18:17",
+      "market_question": "Will the Ecologist Green Party of Mexico (PVEM) win the most seats in the 2027 Mexico legislative election?",
+      "headline": "Tuchel praises respectful Mexico fans amid increased security",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,25 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-05 02:09:33",
-      "market_question": "Will OpenAI\u2019s market cap be $1.5T or greater at market close on IPO day by December 31, 2027?",
-      "headline": "About ClearBridge Large Cap Growth Select ETF (LRGE.OQ) - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 02:09:32",
-      "market_question": "OpenAI IPO closing market cap above $1T?",
-      "headline": "About ClearBridge Large Cap Growth Select ETF (LRGE.OQ) - Reuters",
+      "time": "2026-07-05 02:18:17",
+      "market_question": "Will the Ecologist Green Party of Mexico (PVEM) win the second most seats in the 2027 Mexico legislative election?",
+      "headline": "Tuchel praises respectful Mexico fans amid increased security",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,15 +474,31 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "both",
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-05 02:09:32",
-      "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
-      "headline": "About ClearBridge Large Cap Growth Select ETF (LRGE.OQ) - Reuters",
+      "time": "2026-07-05 02:18:17",
+      "market_question": "Will the Republicans win the New Mexico Senate race in 2026?",
+      "headline": "Tuchel praises respectful Mexico fans amid increased security",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-05 02:18:17",
+      "market_question": "Will the Democrats win the New Mexico Senate race in 2026?",
+      "headline": "Tuchel praises respectful Mexico fans amid increased security",
       "direction": null,
       "materiality": null,
       "confidence": null,
