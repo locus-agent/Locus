@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-05T06:12:36.965987+00:00",
-  "last_heartbeat": "2026-07-05T06:12:36.965987+00:00",
-  "uptime_seconds": 130101,
+  "generated_at": "2026-07-05T06:17:49.447241+00:00",
+  "last_heartbeat": "2026-07-05T06:17:49.447241+00:00",
+  "uptime_seconds": 130413,
   "dry_run": false,
-  "markets_tracked": 1324,
+  "markets_tracked": 1330,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10438,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 159,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 160,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2567,
+  "classifications_24h": 2564,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 783,
+    "prefiltered_haiku": 785,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 2,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 685,
     "matched": 563,
-    "classified": 2567,
+    "classified": 2564,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1964.3
+    "avg_classification_latency_ms": 1963.7
   },
   "live_readiness": {
     "ready": true,
@@ -432,57 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-05 06:12:36",
-      "market_question": "Will Donald Trump attend NATO Summit?",
-      "headline": "NATO chief may have to match his made-for-Trump sales pitch to keep a summit on the rails - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 06:12:36",
-      "market_question": "Will Trump say \"Fake News\" during Tribute to America Rally?",
-      "headline": "A timeline of Charlie Kirk\u2019s assassination and the arrest of Tyler Robinson - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 06:12:36",
-      "market_question": "Will Ramsey Robinson finish first in the 2026 California Governor primary election?",
-      "headline": "A timeline of Charlie Kirk\u2019s assassination and the arrest of Tyler Robinson - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 06:12:30",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "NATO chief may have to match his made-for-Trump sales pitch to keep a summit on the rails - AP News",
+      "time": "2026-07-05 06:14:42",
+      "market_question": "Will Apple release iPhone 18 in 2026?",
+      "headline": "Christian NGO welcomes release of pastor held in southern China - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -496,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 06:12:30",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "NATO chief may have to match his made-for-Trump sales pitch to keep a summit on the rails - AP News",
+      "time": "2026-07-05 06:14:41",
+      "market_question": "Will China unban Bitcoin by 2027?",
+      "headline": "Christian NGO welcomes release of pastor held in southern China - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -507,9 +459,57 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 06:14:40",
+      "market_question": "Ukraine election held by December 31, 2026?",
+      "headline": "Christian NGO welcomes release of pastor held in southern China - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-05 06:14:40",
+      "market_question": "Will Apple release a foldable iPhone before 2027?",
+      "headline": "Christian NGO welcomes release of pastor held in southern China - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-05 06:14:40",
+      "market_question": "Will OpenAI release a social network in 2026?",
+      "headline": "Christian NGO welcomes release of pastor held in southern China - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
