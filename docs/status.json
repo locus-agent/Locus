@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-05T14:51:19.184482+00:00",
-  "last_heartbeat": "2026-07-05T14:51:19.184482+00:00",
-  "uptime_seconds": 161223,
+  "generated_at": "2026-07-05T14:56:26.829720+00:00",
+  "last_heartbeat": "2026-07-05T14:56:26.829720+00:00",
+  "uptime_seconds": 161531,
   "dry_run": false,
   "markets_tracked": 1334,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 440,
+  "headlines_scanned_today": 441,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2563,
+  "classifications_24h": 2561,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 885,
+    "prefiltered_haiku": 880,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 2,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 731,
     "matched": 575,
-    "classified": 2563,
+    "classified": 2561,
     "signals": 1,
     "trades": 1
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -3.46,
-    "total_pnl_usd": 39.95,
+    "unrealized_pnl_usd": -3.45,
+    "total_pnl_usd": 39.96,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1969.6
+    "avg_classification_latency_ms": 1973.7
   },
   "live_readiness": {
     "ready": true,
@@ -210,11 +210,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.114,
-      "pnl_pct": 14.0,
+      "current_price": 0.1145,
+      "pnl_pct": 14.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.28,
-      "pnl_usd": 0.28,
+      "current_value_usd": 2.29,
+      "pnl_usd": 0.29,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-05 14:53:54",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -38.52
+    },
+    {
       "time": "2026-07-05 14:23:38",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,18 +428,57 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -38.52
-    },
-    {
-      "time": "2026-07-05 12:22:37",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -38.52
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-05 14:52:22",
+      "market_question": "Will Perplexity AI announce bankruptcy before 2027?",
+      "headline": "The AI Boom Runs on Debt. Global Regulators Want to Shut Off the Tap - 24/7 Wall St.",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 14:52:22",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "The AI Boom Runs on Debt. Global Regulators Want to Shut Off the Tap - 24/7 Wall St.",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 14:52:21",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "The AI Boom Runs on Debt. Global Regulators Want to Shut Off the Tap - 24/7 Wall St.",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
     {
       "time": "2026-07-05 14:44:33",
       "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
@@ -459,54 +507,6 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 14:44:31",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "Democrats plot subpoena storm over Trump's $2 billion gold rush - Axios",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 14:44:28",
-      "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
-      "headline": "Democrats plot subpoena storm over Trump's $2 billion gold rush - Axios",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 14:44:26",
-      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
-      "headline": "Democrats plot subpoena storm over Trump's $2 billion gold rush - Axios",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
