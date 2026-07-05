@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-05T13:18:58.989915+00:00",
-  "last_heartbeat": "2026-07-05T13:18:58.989915+00:00",
-  "uptime_seconds": 155683,
+  "generated_at": "2026-07-05T13:24:08.047172+00:00",
+  "last_heartbeat": "2026-07-05T13:24:08.047172+00:00",
+  "uptime_seconds": 155992,
   "dry_run": false,
-  "markets_tracked": 1335,
+  "markets_tracked": 1334,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10438,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 387,
+  "headlines_scanned_today": 390,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2626,
+  "classifications_24h": 2630,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 920,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-05T13:05:48.458685+00:00"
+    "last_check": "2026-07-05T13:20:48.920944+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 741,
-    "matched": 584,
-    "classified": 2626,
+    "news": 744,
+    "matched": 585,
+    "classified": 2630,
     "signals": 1,
     "trades": 1
   },
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1175,
+      "current_price": 0.11749999999999994,
       "pnl_pct": 17.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.35,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-05 13:23:07",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -38.52
+    },
+    {
       "time": "2026-07-05 12:52:51",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,18 +428,73 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -39.27
-    },
-    {
-      "time": "2026-07-05 10:51:53",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -39.27
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-05 13:20:12",
+      "market_question": "Will Trump and Putin meet next in Australia?",
+      "headline": "Australia probes mystery space balls that washed up on beach",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-05 13:20:12",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "Australia probes mystery space balls that washed up on beach",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-05 13:20:12",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Australia probes mystery space balls that washed up on beach",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-05 13:20:12",
+      "market_question": "Will Anthony Albanese be Prime Minister of Australia after the next election?",
+      "headline": "Australia probes mystery space balls that washed up on beach",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
     {
       "time": "2026-07-05 13:18:27",
       "market_question": "Will Bitcoin kimchi premium hit 8% in 2026?",
@@ -446,70 +510,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 13:18:27",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "(AIGO.L) | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 13:18:27",
-      "market_question": "Will Polymarket mindshare hit 75% by December 31?",
-      "headline": "(AIGO.L) | Stock Price & Latest News - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 13:18:26",
-      "market_question": "Will Apple release iPhone 18 in 2026?",
-      "headline": "Big iPhone Ultra news gets everyone excited - PhoneArena",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-05 13:18:26",
-      "market_question": "Will the price of Bitcoin be above $66,000 on July 5?",
-      "headline": "(AIGO.L) | Stock Price & Latest News - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
