@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-05T14:10:15.687487+00:00",
-  "last_heartbeat": "2026-07-05T14:10:15.687487+00:00",
-  "uptime_seconds": 158759,
+  "generated_at": "2026-07-05T14:15:24.303090+00:00",
+  "last_heartbeat": "2026-07-05T14:15:24.303090+00:00",
+  "uptime_seconds": 159068,
   "dry_run": false,
-  "markets_tracked": 1326,
+  "markets_tracked": 1328,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 10438,
+    "total": 10445,
     "accuracy": 18.3,
     "by_category": {
       "other": 16.2,
@@ -18,21 +18,21 @@
     },
     "by_source": {
       "rss": 18.8,
-      "newsapi": 17.6,
+      "newsapi": 17.5,
       "truthsocial": 6.7
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.3,
-    "overall_total": 10438,
+    "overall_total": 10445,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5816,
+        "total": 5820,
         "correct": 409,
         "accuracy_pct": 7.0,
-        "avg_pnl_pct": 9.82,
+        "avg_pnl_pct": 9.81,
         "color": "red"
       },
       {
@@ -47,10 +47,10 @@
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1126,
+        "total": 1127,
         "correct": 445,
         "accuracy_pct": 39.5,
-        "avg_pnl_pct": 5.91,
+        "avg_pnl_pct": 5.89,
         "color": "green"
       },
       {
@@ -65,10 +65,10 @@
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 580,
-        "correct": 251,
+        "total": 582,
+        "correct": 252,
         "accuracy_pct": 43.3,
-        "avg_pnl_pct": 3.6,
+        "avg_pnl_pct": 3.63,
         "color": "green"
       },
       {
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 415,
+  "headlines_scanned_today": 417,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 2516,
+  "classifications_24h": 2528,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 881,
+    "prefiltered_haiku": 884,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 2,
     "too_close_to_resolution": 2,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 258,
+    "price_target_market": 263,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 717,
-    "matched": 564,
-    "classified": 2516,
+    "news": 719,
+    "matched": 566,
+    "classified": 2528,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1968.6
+    "avg_classification_latency_ms": 1967.5
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1115,
+      "current_price": 0.11149999999999993,
       "pnl_pct": 11.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.23,
@@ -432,9 +432,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-05 14:04:02",
-      "market_question": "Will Donald Trump visit Russia in 2026?",
-      "headline": "On the Ground Along NATO\u2019s Eastern Flank \u2014 as Russia Threatens - Politico",
+      "time": "2026-07-05 14:12:49",
+      "market_question": "Will GTE launch a token by December 31, 2027?",
+      "headline": "(PGX.A) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 14:12:49",
+      "market_question": "Will prjx launch a token by December 31, 2026?",
+      "headline": "(PGX.A) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 14:12:49",
+      "market_question": "Will prjx launch a token by December 31, 2027?",
+      "headline": "(PGX.A) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-05 14:12:49",
+      "market_question": "Will Trump sell 101-1k Gold Cards in 2026?",
+      "headline": "Pitching-short Cubs need Javier Assad's ability, availability vs. Cards - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,57 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-05 14:04:02",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "headline": "On the Ground Along NATO\u2019s Eastern Flank \u2014 as Russia Threatens - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 14:04:02",
-      "market_question": "Will United Russia (ER) win the most seats in the next Russian parliamentary election?",
-      "headline": "On the Ground Along NATO\u2019s Eastern Flank \u2014 as Russia Threatens - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 14:04:02",
-      "market_question": "Will United Russia (ER) win the second-most seats in the next Russian parliamentary election?",
-      "headline": "On the Ground Along NATO\u2019s Eastern Flank \u2014 as Russia Threatens - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-05 14:04:02",
-      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) gain the most seats in the next Russian parliamentary election?",
-      "headline": "On the Ground Along NATO\u2019s Eastern Flank \u2014 as Russia Threatens - Politico",
+      "time": "2026-07-05 14:12:49",
+      "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
+      "headline": "Pitching-short Cubs need Javier Assad's ability, availability vs. Cards - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
