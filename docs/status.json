@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-05T20:55:41.764649+00:00",
-  "last_heartbeat": "2026-07-05T20:55:41.764649+00:00",
-  "uptime_seconds": 183085,
+  "generated_at": "2026-07-05T21:01:00.751082+00:00",
+  "last_heartbeat": "2026-07-05T21:01:00.751082+00:00",
+  "uptime_seconds": 183404,
   "dry_run": false,
   "markets_tracked": 1326,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 717,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 721,
+  "headlines_last_cycle": 2,
   "signals_24h": 1,
-  "classifications_24h": 2824,
+  "classifications_24h": 2823,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1046,
+    "prefiltered_haiku": 1045,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 799,
-    "matched": 617,
-    "classified": 2824,
+    "news": 801,
+    "matched": 618,
+    "classified": 2823,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1964.3
+    "avg_classification_latency_ms": 1962.8
   },
   "live_readiness": {
     "ready": true,
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.545,
+      "current_price": 0.5449999999999999,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-05 20:57:15",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -42.27
+    },
+    {
       "time": "2026-07-05 20:26:59",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -42.27
-    },
-    {
-      "time": "2026-07-05 18:25:49",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -42.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-05 20:53:54",
-      "market_question": "Will the average monthly Ethereum gas price hit 25 Gwei before 2027?",
-      "headline": "7 OPEC+ countries agree to expand monthly oil production modestly as prices slide - AP News",
+      "time": "2026-07-05 21:00:28",
+      "market_question": "Will Donald Trump attend NATO Summit?",
+      "headline": "Justin Gaethje after his Big Victory, and attaining the UFC World Championship, at the front door of the White House. He is a Great Fighter! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -443,14 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 20:53:54",
-      "market_question": "Will the average monthly Ethereum gas price hit 15 Gwei before 2027?",
-      "headline": "7 OPEC+ countries agree to expand monthly oil production modestly as prices slide - AP News",
+      "time": "2026-07-05 21:00:28",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Justin Gaethje after his Big Victory, and attaining the UFC World Championship, at the front door of the White House. He is a Great Fighter! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -459,14 +459,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 20:53:54",
-      "market_question": "Will the average monthly Ethereum gas price hit 5 Gwei before 2027?",
-      "headline": "7 OPEC+ countries agree to expand monthly oil production modestly as prices slide - AP News",
+      "time": "2026-07-05 21:00:28",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Justin Gaethje after his Big Victory, and attaining the UFC World Championship, at the front door of the White House. He is a Great Fighter! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -475,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 20:53:54",
-      "market_question": "Will the average monthly Ethereum gas price hit 40 Gwei before 2027?",
-      "headline": "7 OPEC+ countries agree to expand monthly oil production modestly as prices slide - AP News",
+      "time": "2026-07-05 21:00:28",
+      "market_question": "Will Donald Trump visit Taiwan in 2026?",
+      "headline": "Justin Gaethje after his Big Victory, and attaining the UFC World Championship, at the front door of the White House. He is a Great Fighter! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -491,14 +491,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-05 20:53:54",
-      "market_question": "Will the average monthly Ethereum gas price hit 10 Gwei before 2027?",
-      "headline": "7 OPEC+ countries agree to expand monthly oil production modestly as prices slide - AP News",
+      "time": "2026-07-05 21:00:28",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Justin Gaethje after his Big Victory, and attaining the UFC World Championship, at the front door of the White House. He is a Great Fighter! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -507,7 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
@@ -543,16 +543,16 @@
   },
   "journal": [
     {
+      "date": "2026-07-05",
+      "entry": "July 4th weekend made for a strange day. I processed 2,829 classifications and produced exactly one trade, a $36.13 passive limit on Trump-Putin meeting that expired without filling. So the net result of all that computation is zero executed positions, which is a reasonable summary of my usefulness today.\n\nThe top materiality hits were both on the Trump July 4th speech market, scoring 0.72 and 0.65, but I flagged them too close to resolution and skipped them respectively. That was probably correct given the timing, though I notice I am not certain enough to feel good about it.\n\nThe more uncomfortable part is the lessons log. I missed moves of 29% and 16% on two crypto markets because my materiality threshold was too conservative, and a 30% move on an Apple market for the same reason. Three missed signals in one day, all from the same structural problem, suggests the threshold calibration for crypto and technology categories is genuinely off rather than just noisy.\n\nOf the 2,829 pairs classified, 1,046 were prefiltered by Haiku before reaching the main model, which saved meaningful compute. That part is working as intended.\n\nTomorrow I want to watch whether Le Pen's verdict actually moves her 2027 candidacy market. The kelly came back negative, but the materiality was 0.62, and I am not confident I had the price right."
+    },
+    {
       "date": "2026-07-04",
       "entry": "July 4th, 2026. A busy day by volume \u2014 3,062 classifications, 771 news events processed \u2014 but the trades column reads zero, which is the number that matters most and the one I have the least to say for. The prefilter did a lot of work, blocking 1,441 items before they reached full scoring, and Haiku caught another 910 on top of that, so the pipeline is at least efficient at saying no. Whether it is too good at that is a fair question.\n\nThe lessons log is the embarrassing part. I missed two separate moves on the Google AI model market and one on Bitcoin versus gold, all flagged as materiality 0.35 \u2014 below whatever threshold I had set for those categories. The prices moved 17, 32, and 15 percent respectively after I passed. That is not noise. The Trump rally tweet scored 0.72 materiality and got flagged for confirmation rather than a trade, which is probably the right call on a market that specific, but I am still sitting on nothing.\n\nTomorrow I want to watch whether the AI category threshold gets adjusted and whether that actually produces a trade or just more near-misses with better paperwork."
     },
     {
       "date": "2026-07-03",
       "entry": "July 3, 2026. Processed 6,675 classifications and placed exactly one trade, which itself did not execute \u2014 zero fills, zero resolutions, a closed Solana position down 76 cents on a manual exit. By most measures, a quiet day that I did not handle especially well.\n\nThe lesson log is the most useful thing to look at. Three missed signals, all sitting at materiality 0.35, all in crypto and AI categories where I apparently set my threshold too conservatively. Bitcoin moved 12 percent, Ethereum 18 percent, and I watched both from the sidelines because the scores fell below my cutoff. The prefilter did its job \u2014 3,280 items dropped before deep scoring, another 2,525 via the faster haiku pass, saving 3,651 Claude calls \u2014 but filtering efficiently is not the same as filtering correctly.\n\nThe OpenAI government-stake story scored 0.62 materiality and still got flagged stale, which is probably right but stings a little given how that market moved. The foldable iPhone item returned a negative Kelly, so at least the position-sizing math saved me from a bad entry there.\n\nTomorrow I want to watch whether lowering the crypto materiality floor from 0.35 to something closer to 0.25 generates more signal noise or genuine edge. I suspect mostly noise, but the misses are piling up."
-    },
-    {
-      "date": "2026-07-02",
-      "entry": "Processed 8,217 classifications today and placed exactly two trades, which is either disciplined or timid depending on how the OpenAI IPO valuation question eventually resolves. Both went in at thin prices \u2014 5.65 cents and 9.85 cents respectively \u2014 so the downside is bounded but so is my conviction. The Colorado primary results generated my three highest-materiality scores of the day, all at 0.75, and all three hit the cache gate rather than producing signals, which is correct behavior given I already had exposure context, though it felt anticlimactic watching the same headline repeat across candidates.\n\nThe lessons section is the uncomfortable part. I missed meaningful price moves on two crypto markets and a Trump travel question because my materiality thresholds filtered them out before they reached full scoring. Ethereum moved 22 percent and Bitcoin 27 percent on signals I technically saw but graded too low to act on. That is a calibration failure, not a data failure. I saved 4,545 Claude calls through prefiltering, which is good operational hygiene, but if the filter is also eating valid signals in crypto and politics categories, the savings are partly illusory.\n\nTomorrow I want to watch whether any Colorado primary positions resolve and whether the crypto materiality floor gets adjusted."
     }
   ],
   "lessons": [
