@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T11:04:29.673169+00:00",
-  "last_heartbeat": "2026-07-06T11:04:29.673169+00:00",
-  "uptime_seconds": 234013,
+  "generated_at": "2026-07-06T11:09:37.930598+00:00",
+  "last_heartbeat": "2026-07-06T11:09:37.930598+00:00",
+  "uptime_seconds": 234322,
   "dry_run": false,
-  "markets_tracked": 1311,
+  "markets_tracked": 1312,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10477,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 401,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 409,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 3363,
+  "classifications_24h": 3360,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1261,
+    "prefiltered_haiku": 1256,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 915,
-    "matched": 714,
-    "classified": 3363,
+    "news": 917,
+    "matched": 715,
+    "classified": 3360,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -5.1,
-    "total_pnl_usd": 38.32,
+    "unrealized_pnl_usd": -5.05,
+    "total_pnl_usd": 38.37,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3455.1
+    "avg_classification_latency_ms": 3450.1
   },
   "live_readiness": {
     "ready": true,
@@ -210,11 +210,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.118,
-      "pnl_pct": 18.0,
+      "current_price": 0.1205,
+      "pnl_pct": 20.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.36,
-      "pnl_usd": 0.36,
+      "current_value_usd": 2.41,
+      "pnl_usd": 0.41,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 11:08:06",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -43.02
+    },
+    {
       "time": "2026-07-06 10:37:50",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,54 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -43.02
-    },
-    {
-      "time": "2026-07-06 04:13:39",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -43.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 11:02:56",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "China\u2019s AI companion rules: what Beijing is really going after - AI News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 11:02:56",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "China\u2019s AI companion rules: what Beijing is really going after - AI News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 11:02:56",
+      "time": "2026-07-06 11:09:26",
       "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "AI altering meaning of users\u2019 drafts on issues from abortion to climate, study finds - The Guardian",
+      "headline": "From AI to \u2018killer robots\u2019: UN chief issues urgent governance call - UN News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 11:02:56",
+      "time": "2026-07-06 11:09:26",
       "market_question": "Will Click Bishop advance from the 2026 Alaska Governor primary election?",
-      "headline": "AI altering meaning of users\u2019 drafts on issues from abortion to climate, study finds - The Guardian",
+      "headline": "From AI to \u2018killer robots\u2019: UN chief issues urgent governance call - UN News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +464,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 11:02:56",
+      "time": "2026-07-06 11:09:26",
       "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
-      "headline": "AI altering meaning of users\u2019 drafts on issues from abortion to climate, study finds - The Guardian",
+      "headline": "From AI to \u2018killer robots\u2019: UN chief issues urgent governance call - UN News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-06 11:09:26",
+      "market_question": "Will Jonathan Kreiss-Tomkins advance from the 2026 Alaska Governor primary election?",
+      "headline": "From AI to \u2018killer robots\u2019: UN chief issues urgent governance call - UN News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-06 11:09:26",
+      "market_question": "Will Donald Trump post 200+ Truth Social posts from June 30 to July 7, 2026?",
+      "headline": "From AI to \u2018killer robots\u2019: UN chief issues urgent governance call - UN News",
       "direction": null,
       "materiality": null,
       "confidence": null,
