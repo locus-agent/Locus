@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T04:12:36.034191+00:00",
-  "last_heartbeat": "2026-07-06T04:12:36.034191+00:00",
-  "uptime_seconds": 209300,
+  "generated_at": "2026-07-06T04:17:44.507374+00:00",
+  "last_heartbeat": "2026-07-06T04:17:44.507374+00:00",
+  "uptime_seconds": 209608,
   "dry_run": false,
-  "markets_tracked": 1324,
+  "markets_tracked": 1333,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10477,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 155,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 169,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2996,
+  "classifications_24h": 3053,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1150,
+    "prefiltered_haiku": 1177,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 344,
+    "price_target_market": 361,
     "coinflip_market": 0,
     "correlation_block": 7,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 851,
-    "matched": 656,
-    "classified": 2996,
+    "news": 863,
+    "matched": 666,
+    "classified": 3053,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1940.4
+    "avg_classification_latency_ms": 1935.1
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.038000000000000034,
+      "current_price": 0.038,
       "pnl_pct": -43.02,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.07,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 04:13:39",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -43.02
+    },
+    {
       "time": "2026-07-06 03:43:26",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,38 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -42.27
-    },
-    {
-      "time": "2026-07-06 01:42:30",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -42.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 04:12:33",
-      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
-      "headline": "Philippine Senate opening the politically volatile impeachment trial of Vice President Sara Duterte - AP News",
-      "direction": "bullish",
-      "materiality": 0.55,
-      "confidence": 0.58,
-      "edge": 0.34375,
-      "fee_cost": 0.0,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.48000000000000004,
-      "action": "correlation_block",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 04:12:28",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Philippine Senate opening the politically volatile impeachment trial of Vice President Sara Duterte - AP News",
+      "time": "2026-07-06 04:16:52",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "World Cup referees are just not good enough - Tuchel",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 04:12:28",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Philippine Senate opening the politically volatile impeachment trial of Vice President Sara Duterte - AP News",
+      "time": "2026-07-06 04:16:51",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "World Cup referees are just not good enough - Tuchel",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -480,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 04:12:27",
-      "market_question": "Will G\u00e9rard Larcher be reelected as President of the French Senate?",
-      "headline": "Philippine Senate opening the politically volatile impeachment trial of Vice President Sara Duterte - AP News",
+      "time": "2026-07-06 04:16:51",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "World Cup referees are just not good enough - Tuchel",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -496,9 +480,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 04:12:27",
-      "market_question": "Will Al Mina be the Republican nominee for Senate in Virginia?",
-      "headline": "Philippine Senate opening the politically volatile impeachment trial of Vice President Sara Duterte - AP News",
+      "time": "2026-07-06 04:16:51",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "World Cup referees are just not good enough - Tuchel",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 04:16:51",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "World Cup referees are just not good enough - Tuchel",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
