@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T16:55:20.765893+00:00",
-  "last_heartbeat": "2026-07-06T16:55:20.765893+00:00",
-  "uptime_seconds": 16128,
+  "generated_at": "2026-07-06T17:00:34.734069+00:00",
+  "last_heartbeat": "2026-07-06T17:00:34.734069+00:00",
+  "uptime_seconds": 16442,
   "dry_run": false,
-  "markets_tracked": 1354,
+  "markets_tracked": 1357,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10494,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 923,
+  "headlines_scanned_today": 925,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4556,
+  "classifications_24h": 4559,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1681,
+    "prefiltered_haiku": 1676,
     "cooldown_skip": 0,
     "stale": 2,
     "capped": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-06T16:41:55.268178+00:00"
+    "last_check": "2026-07-06T16:56:55.650484+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1205,
-    "matched": 808,
-    "classified": 4556,
+    "news": 1206,
+    "matched": 809,
+    "classified": 4559,
     "signals": 1,
     "trades": 1
   },
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.12450000000000006,
+      "current_price": 0.1245,
       "pnl_pct": 24.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.49,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 17:00:03",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -31.02
+    },
+    {
       "time": "2026-07-06 16:29:46",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -28.03
-    },
-    {
-      "time": "2026-07-06 14:28:36",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -30.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 16:54:37",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Why is Farage facing renewed scrutiny over his finances?",
+      "time": "2026-07-06 16:56:48",
+      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 4% and 6%?",
+      "headline": "Consultants in England vote in favour of NHS strikes",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,68 +448,68 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 16:52:35",
-      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
-      "headline": "Microsoft to cut 4,800 jobs, overhaul Xbox unit - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-06 16:56:48",
+      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 8% and 10%?",
+      "headline": "Consultants in England vote in favour of NHS strikes",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-06 16:52:34",
-      "market_question": "Will Microsoft be the second-largest company in the world by market cap on July 31?",
-      "headline": "Microsoft to cut 4,800 jobs, overhaul Xbox unit - Reuters",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.52,
+      "time": "2026-07-06 16:56:48",
+      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 10% and 12%?",
+      "headline": "Consultants in England vote in favour of NHS strikes",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-06 16:52:33",
-      "market_question": "Will Microsoft be the largest company in the world by market cap on July 31?",
-      "headline": "Microsoft to cut 4,800 jobs, overhaul Xbox unit - Reuters",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.52,
+      "time": "2026-07-06 16:56:48",
+      "market_question": "Will Trump flip the bird again in 2026?",
+      "headline": "Wildfire bars fans from Tour de France segment as parts of Europe sizzle again under extreme heat - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-06 16:52:32",
-      "market_question": "Will Microsoft be the largest company in the world by market cap on December 31?",
-      "headline": "Microsoft to cut 4,800 jobs, overhaul Xbox unit - Reuters",
-      "direction": "bearish",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-07-06 16:56:48",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Wildfire bars fans from Tour de France segment as parts of Europe sizzle again under extreme heat - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
