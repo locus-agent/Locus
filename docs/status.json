@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T22:03:48.374967+00:00",
-  "last_heartbeat": "2026-07-06T22:03:48.374967+00:00",
-  "uptime_seconds": 34636,
+  "generated_at": "2026-07-06T22:08:59.712984+00:00",
+  "last_heartbeat": "2026-07-06T22:08:59.712984+00:00",
+  "uptime_seconds": 34947,
   "dry_run": false,
-  "markets_tracked": 1349,
+  "markets_tracked": 1347,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10507,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1163,
+  "headlines_scanned_today": 1164,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4472,
+  "classifications_24h": 4466,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1584,
+    "prefiltered_haiku": 1582,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 2,
@@ -121,27 +121,27 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1193,
-    "matched": 822,
-    "classified": 4472,
+    "news": 1190,
+    "matched": 821,
+    "classified": 4466,
     "signals": 1,
     "trades": 1
   },
   "performance": {
-    "trades_total": 47,
-    "deployed_usd": 1079.55,
-    "open_count": 5,
+    "trades_total": 48,
+    "deployed_usd": 1119.55,
+    "open_count": 6,
     "closed_count": 35,
     "wins": 20,
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.84,
-    "unrealized_pnl_usd": -1.1,
-    "total_pnl_usd": 42.74,
+    "unrealized_pnl_usd": -1.01,
+    "total_pnl_usd": 42.83,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2379.5
+    "avg_classification_latency_ms": 2377.4
   },
   "live_readiness": {
     "ready": true,
@@ -191,6 +191,20 @@
   },
   "open_positions": [
     {
+      "time": "2026-07-06 22:06:57",
+      "market_question": "Trump meets with Putin by December 31?",
+      "slug": "trump-meets-with-putin-by",
+      "side": "YES",
+      "entry_price": 0.29,
+      "current_price": 0.29500000000000004,
+      "pnl_pct": 1.72,
+      "amount_usd": 8.555,
+      "current_value_usd": 8.7,
+      "pnl_usd": 0.15,
+      "edge_type": "news",
+      "event_id": "528413"
+    },
+    {
       "time": "2026-07-02 10:08:30",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "slug": "openai-ipo-closing-market-cap",
@@ -210,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.126,
-      "pnl_pct": 26.0,
+      "current_price": 0.123,
+      "pnl_pct": 23.0,
       "amount_usd": 2.0,
-      "current_value_usd": 2.52,
-      "pnl_usd": 0.52,
+      "current_value_usd": 2.46,
+      "pnl_usd": 0.46,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -432,9 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 22:03:07",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "What should a 'Google Home Display' be now that Google Home Speaker has set the stage? - 9to5Google",
+      "time": "2026-07-06 22:06:05",
+      "market_question": "Republicans win Trifecta with Senate Supermajority in midterms?",
+      "headline": "Pogacar takes Tour yellow with sweltering stage three win",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +462,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 22:03:07",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "What should a 'Google Home Display' be now that Google Home Speaker has set the stage? - 9to5Google",
+      "time": "2026-07-06 22:06:05",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Pogacar takes Tour yellow with sweltering stage three win",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +478,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 22:03:07",
-      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
-      "headline": "I switched from Chrome to Edge and finally understood why my laptop battery died so fast - MakeUseOf",
+      "time": "2026-07-06 22:06:04",
+      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
+      "headline": "Pogacar takes Tour yellow with sweltering stage three win",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +494,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 22:03:07",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "I switched from Chrome to Edge and finally understood why my laptop battery died so fast - MakeUseOf",
+      "time": "2026-07-06 22:06:04",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Pogacar takes Tour yellow with sweltering stage three win",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +510,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 22:03:07",
-      "market_question": "Will Click Bishop advance from the 2026 Alaska Governor primary election?",
-      "headline": "I switched from Chrome to Edge and finally understood why my laptop battery died so fast - MakeUseOf",
+      "time": "2026-07-06 22:06:04",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Pogacar takes Tour yellow with sweltering stage three win",
       "direction": null,
       "materiality": null,
       "confidence": null,
