@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-06T13:18:31.960436+00:00",
-  "last_heartbeat": "2026-07-06T13:18:31.960436+00:00",
-  "uptime_seconds": 3120,
+  "generated_at": "2026-07-06T13:23:39.991270+00:00",
+  "last_heartbeat": "2026-07-06T13:23:39.991270+00:00",
+  "uptime_seconds": 3428,
   "dry_run": false,
   "markets_tracked": 1336,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 626,
+  "headlines_scanned_today": 631,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3926,
+  "classifications_24h": 3941,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1484,
+    "prefiltered_haiku": 1494,
     "cooldown_skip": 0,
     "stale": 3,
     "capped": 1,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 454,
+    "price_target_market": 455,
     "coinflip_market": 0,
     "correlation_block": 13,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1060,
-    "matched": 732,
-    "classified": 3926,
+    "news": 1062,
+    "matched": 735,
+    "classified": 3941,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1986.0
+    "avg_classification_latency_ms": 1981.4
   },
   "live_readiness": {
     "ready": true,
@@ -432,11 +432,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 13:17:27",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "AI Safety Expert Roman Yampolskiy Believes AI Has a 99.9% Chance of Wiping Out Humanity - AI Insider",
+      "time": "2026-07-06 13:21:48",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Russia\u2019s largest bank Sber targets early December crypto wallet launch: report",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 13:17:22",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "AI Safety Expert Roman Yampolskiy Believes AI Has a 99.9% Chance of Wiping Out Humanity - AI Insider",
+      "time": "2026-07-06 13:21:45",
+      "market_question": "USDC depeg by December 31?",
+      "headline": "Russia\u2019s largest bank Sber targets early December crypto wallet launch: report",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 13:17:21",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "AI Safety Expert Roman Yampolskiy Believes AI Has a 99.9% Chance of Wiping Out Humanity - AI Insider",
+      "time": "2026-07-06 13:21:44",
+      "market_question": "Will Microsoft be the largest company in the world by market cap on December 31?",
+      "headline": "Russia\u2019s largest bank Sber targets early December crypto wallet launch: report",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -480,34 +480,34 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 13:17:21",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "AI Safety Expert Roman Yampolskiy Believes AI Has a 99.9% Chance of Wiping Out Humanity - AI Insider",
+      "time": "2026-07-06 13:21:44",
+      "market_question": "Another crypto hack over $100m by June 30?",
+      "headline": "Russia\u2019s largest bank Sber targets early December crypto wallet launch: report",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 13:17:20",
-      "market_question": "Will Meituan have the best AI model at the end of July 2026?",
-      "headline": "AI at Moderna - Emerj Artificial Intelligence Research",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
+      "adjusted_materiality": 0.12,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 13:21:44",
+      "market_question": "Will Apple be the largest company in the world by market cap on December 31?",
+      "headline": "Russia\u2019s largest bank Sber targets early December crypto wallet launch: report",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
