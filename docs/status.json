@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T03:41:52.522873+00:00",
-  "last_heartbeat": "2026-07-06T03:41:52.522873+00:00",
-  "uptime_seconds": 207456,
+  "generated_at": "2026-07-06T03:46:59.886715+00:00",
+  "last_heartbeat": "2026-07-06T03:46:59.886715+00:00",
+  "uptime_seconds": 207764,
   "dry_run": false,
-  "markets_tracked": 1336,
+  "markets_tracked": 1338,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10453,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 137,
+  "headlines_scanned_today": 138,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2960,
+  "classifications_24h": 2956,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1134,
+    "prefiltered_haiku": 1133,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 841,
     "matched": 651,
-    "classified": 2960,
+    "classified": 2956,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1944.5
+    "avg_classification_latency_ms": 1944.3
   },
   "live_readiness": {
     "ready": true,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 03:43:26",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -43.02
+    },
+    {
       "time": "2026-07-06 03:13:12",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,18 +428,25 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -42.27
-    },
-    {
-      "time": "2026-07-06 01:12:18",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -42.27
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-06 03:43:56",
+      "market_question": "Will Grok AI beat T1 in 2026? ",
+      "headline": "Cubs beat the Cardinals 6-4, scoring 4 runs in the sixth to avoid a series sweep - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
     {
       "time": "2026-07-06 03:35:16",
       "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-06 03:35:09",
       "market_question": "Will Patty Murray be the next Senate Majority Leader?",
-      "headline": "Iran begins a procession through Tehran for Supreme Leader Ayatollah Ali Khamenei's funeral - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-06 03:35:09",
-      "market_question": "Will John Barrasso be the next Senate Majority Leader?",
       "headline": "Iran begins a procession through Tehran for Supreme Leader Ayatollah Ali Khamenei's funeral - AP News",
       "direction": null,
       "materiality": null,
