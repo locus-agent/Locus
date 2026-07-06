@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T21:01:04.147754+00:00",
-  "last_heartbeat": "2026-07-06T21:01:04.147754+00:00",
-  "uptime_seconds": 30872,
+  "generated_at": "2026-07-06T21:06:17.377846+00:00",
+  "last_heartbeat": "2026-07-06T21:06:17.377846+00:00",
+  "uptime_seconds": 31185,
   "dry_run": false,
-  "markets_tracked": 1357,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10507,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1121,
+  "headlines_scanned_today": 1125,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4581,
+  "classifications_24h": 4593,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1641,
+    "prefiltered_haiku": 1643,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1221,
-    "matched": 834,
-    "classified": 4581,
+    "news": 1224,
+    "matched": 837,
+    "classified": 4593,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2369.1
+    "avg_classification_latency_ms": 2377.9
   },
   "live_readiness": {
     "ready": true,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 21:02:39",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -44.52
+    },
+    {
       "time": "2026-07-06 20:32:12",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,77 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -41.52
-    },
-    {
-      "time": "2026-07-06 18:31:03",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -31.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 20:58:10",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Crime fightin\u2019 Kathy in Bruce\u2019s backyard - Politico",
+      "time": "2026-07-06 21:04:52",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $1.75T by December 31?",
+      "headline": "EXCLUSIVE: US cyber agency is using Anthropic's Mythos to audit government code, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 21:04:51",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
+      "headline": "EXCLUSIVE: US cyber agency is using Anthropic's Mythos to audit government code, sources say - Reuters",
+      "direction": "bullish",
+      "materiality": 0.3,
+      "confidence": 0.52,
+      "edge": 0.189,
+      "fee_cost": 0.009324,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.22999999999999998,
+      "action": "low_materiality",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 21:04:51",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $3.0T by December 31?",
+      "headline": "EXCLUSIVE: US cyber agency is using Anthropic's Mythos to audit government code, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 21:04:51",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $4.0T by December 31?",
+      "headline": "EXCLUSIVE: US cyber agency is using Anthropic's Mythos to audit government code, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 21:04:45",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "EXCLUSIVE: US cyber agency is using Anthropic's Mythos to audit government code, sources say - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -446,70 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 20:53:45",
-      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
-      "headline": "S&P 500, Nasdaq close sharply higher as Broadcom rallies - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 20:53:45",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "US Supreme Court won't block Texas app store age verification law - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-06 20:53:45",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "US Supreme Court won't block Texas app store age verification law - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-06 20:53:43",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "S&P 500, Nasdaq close sharply higher as Broadcom rallies - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
