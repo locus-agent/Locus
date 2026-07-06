@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-06T03:26:30.151012+00:00",
-  "last_heartbeat": "2026-07-06T03:26:30.151012+00:00",
-  "uptime_seconds": 206534,
+  "generated_at": "2026-07-06T03:31:38.212853+00:00",
+  "last_heartbeat": "2026-07-06T03:31:38.212853+00:00",
+  "uptime_seconds": 206842,
   "dry_run": false,
   "markets_tracked": 1340,
   "classify_error_streak": 0,
@@ -83,19 +83,19 @@
     ]
   },
   "headlines_scanned_today": 134,
-  "headlines_last_cycle": 3,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2962,
+  "classifications_24h": 2953,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1139,
+    "prefiltered_haiku": 1140,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 332,
+    "price_target_market": 324,
     "coinflip_market": 0,
     "correlation_block": 6,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 842,
-    "matched": 652,
-    "classified": 2962,
+    "news": 840,
+    "matched": 650,
+    "classified": 2953,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.42,
-    "unrealized_pnl_usd": -3.68,
-    "total_pnl_usd": 39.74,
+    "unrealized_pnl_usd": -3.69,
+    "total_pnl_usd": 39.73,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1942.3
+    "avg_classification_latency_ms": 1943.3
   },
   "live_readiness": {
     "ready": true,
@@ -210,11 +210,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.118,
-      "pnl_pct": 18.0,
+      "current_price": 0.1175,
+      "pnl_pct": 17.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.36,
-      "pnl_usd": 0.36,
+      "current_value_usd": 2.35,
+      "pnl_usd": 0.35,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-06 03:26:32",
+      "market_question": "Will Ronaldo Caiado finish in second place in the first round of the 2026 Brazilian presidential election?",
+      "headline": "Relaxed Ronaldo admits time is up ahead of Spain clash - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-06 03:26:26",
       "market_question": "Will Ronaldo Caiado finish in third place in the first round of the 2026 Brazilian presidential election?",
       "headline": "Relaxed Ronaldo admits time is up ahead of Spain clash - Reuters",
@@ -494,22 +510,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 03:26:24",
-      "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
-      "headline": "Briscoe holds off Bell in NASCAR\u2019s return to Chicagoland Speedway - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
