@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T16:50:06.519705+00:00",
-  "last_heartbeat": "2026-07-06T16:50:06.519705+00:00",
-  "uptime_seconds": 15814,
+  "generated_at": "2026-07-06T16:55:20.765893+00:00",
+  "last_heartbeat": "2026-07-06T16:55:20.765893+00:00",
+  "uptime_seconds": 16128,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1354,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10494,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 921,
+  "headlines_scanned_today": 923,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4557,
+  "classifications_24h": 4556,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1685,
+    "prefiltered_haiku": 1681,
     "cooldown_skip": 0,
     "stale": 2,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1206,
+    "news": 1205,
     "matched": 808,
-    "classified": 4557,
+    "classified": 4556,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2268.0
+    "avg_classification_latency_ms": 2286.4
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1245,
+      "current_price": 0.12450000000000006,
       "pnl_pct": 24.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.49,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 16:46:08",
-      "market_question": "Will Trump say \"World Cup\" this week?",
-      "headline": "Belgians blast Trump's intervention with FIFA ahead of World Cup clash - Reuters",
+      "time": "2026-07-06 16:54:37",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Why is Farage facing renewed scrutiny over his finances?",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-06 16:52:35",
+      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
+      "headline": "Microsoft to cut 4,800 jobs, overhaul Xbox unit - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -448,12 +464,12 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 16:46:06",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Belgians blast Trump's intervention with FIFA ahead of World Cup clash - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-06 16:52:34",
+      "market_question": "Will Microsoft be the second-largest company in the world by market cap on July 31?",
+      "headline": "Microsoft to cut 4,800 jobs, overhaul Xbox unit - Reuters",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "long_term",
@@ -464,28 +480,12 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 16:46:06",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Belgians blast Trump's intervention with FIFA ahead of World Cup clash - Reuters",
-      "direction": "neutral",
+      "time": "2026-07-06 16:52:33",
+      "market_question": "Will Microsoft be the largest company in the world by market cap on July 31?",
+      "headline": "Microsoft to cut 4,800 jobs, overhaul Xbox unit - Reuters",
+      "direction": "bearish",
       "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 16:46:05",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Belgians blast Trump's intervention with FIFA ahead of World Cup clash - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "confidence": 0.52,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "long_term",
@@ -496,18 +496,18 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 16:46:05",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Belgians blast Trump's intervention with FIFA ahead of World Cup clash - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
+      "time": "2026-07-06 16:52:32",
+      "market_question": "Will Microsoft be the largest company in the world by market cap on December 31?",
+      "headline": "Microsoft to cut 4,800 jobs, overhaul Xbox unit - Reuters",
+      "direction": "bearish",
+      "materiality": 0.15,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
