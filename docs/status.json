@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T00:32:20.113762+00:00",
-  "last_heartbeat": "2026-07-06T00:32:20.113762+00:00",
-  "uptime_seconds": 196084,
+  "generated_at": "2026-07-06T00:37:27.829738+00:00",
+  "last_heartbeat": "2026-07-06T00:37:27.829738+00:00",
+  "uptime_seconds": 196392,
   "dry_run": false,
-  "markets_tracked": 1315,
+  "markets_tracked": 1335,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10453,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 25,
+  "headlines_scanned_today": 26,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2906,
+  "classifications_24h": 2907,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1110,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-05T22:36:05.963866+00:00"
+    "last_check": "2026-07-06T00:34:31.084752+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 823,
-    "matched": 638,
-    "classified": 2906,
+    "news": 824,
+    "matched": 639,
+    "classified": 2907,
     "signals": 0,
     "trades": 0
   },
@@ -210,7 +210,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1145,
+      "current_price": 0.11450000000000005,
       "pnl_pct": 14.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.29,
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5449999999999999,
+      "current_price": 0.545,
       "pnl_pct": 1.11,
       "amount_usd": 24.93,
       "current_value_usd": 25.21,
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-06 00:35:42",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Staying up for the match? How to handle a 2am kick-off",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-06 00:31:38",
       "market_question": "Will OpenAI\u2019s market cap be between $1.25T and $1.5T at market close on IPO day?",
       "headline": "A global hub for fake luxury goods, Vietnam cracks down on its black market",
@@ -494,22 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-06 00:31:38",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "A global hub for fake luxury goods, Vietnam cracks down on its black market",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
