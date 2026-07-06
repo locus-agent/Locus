@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-06T15:58:03.167338+00:00",
-  "last_heartbeat": "2026-07-06T15:58:03.167338+00:00",
-  "uptime_seconds": 12691,
+  "generated_at": "2026-07-06T16:03:11.287960+00:00",
+  "last_heartbeat": "2026-07-06T16:03:11.287960+00:00",
+  "uptime_seconds": 12999,
   "dry_run": false,
   "markets_tracked": 1340,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 886,
+  "headlines_scanned_today": 890,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4575,
+  "classifications_24h": 4589,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1727,
+    "prefiltered_haiku": 1738,
     "cooldown_skip": 0,
     "stale": 2,
     "capped": 1,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 503,
+    "price_target_market": 505,
     "coinflip_market": 0,
     "correlation_block": 13,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1222,
+    "news": 1223,
     "matched": 817,
-    "classified": 4575,
+    "classified": 4589,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2144.5
+    "avg_classification_latency_ms": 2175.4
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0455,
+      "current_price": 0.045500000000000096,
       "pnl_pct": -31.77,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.29,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 15:59:37",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -31.77
+    },
+    {
       "time": "2026-07-06 15:29:19",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,61 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -43.02
-    },
-    {
-      "time": "2026-07-06 13:27:48",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -43.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 15:55:27",
-      "market_question": "Will the average monthly Ethereum gas price hit 15 Gwei before 2027?",
-      "headline": "Oil prices steady at pre-Iran war levels - Reuters",
+      "time": "2026-07-06 16:02:02",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Trump says 500,000 children receive first $1,000 Trump account deposits - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 16:02:02",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Trump says 500,000 children receive first $1,000 Trump account deposits - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 16:02:02",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Trump says 500,000 children receive first $1,000 Trump account deposits - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 16:02:02",
+      "market_question": "Will Trump sell 101-1k Gold Cards in 2026?",
+      "headline": "Trump says 500,000 children receive first $1,000 Trump account deposits - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 15:55:27",
-      "market_question": "Will the average monthly Ethereum gas price hit 20 Gwei before 2027?",
-      "headline": "Oil prices steady at pre-Iran war levels - Reuters",
+      "time": "2026-07-06 16:02:02",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump says 500,000 children receive first $1,000 Trump account deposits - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -459,55 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 15:55:27",
-      "market_question": "Will the average monthly Ethereum gas price hit 10 Gwei before 2027?",
-      "headline": "Oil prices steady at pre-Iran war levels - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 15:55:25",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "President Trump says he\u2019s a \u2018big crypto guy,\u2019 while distancing himself from family\u2019s crypto ventures",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 15:55:25",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "President Trump says he\u2019s a \u2018big crypto guy,\u2019 while distancing himself from family\u2019s crypto ventures",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
