@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T12:06:01.319301+00:00",
-  "last_heartbeat": "2026-07-06T12:06:01.319301+00:00",
-  "uptime_seconds": 237705,
+  "generated_at": "2026-07-06T12:11:10.492398+00:00",
+  "last_heartbeat": "2026-07-06T12:11:10.492398+00:00",
+  "uptime_seconds": 238014,
   "dry_run": false,
-  "markets_tracked": 1324,
+  "markets_tracked": 1319,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10477,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 443,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 450,
+  "headlines_last_cycle": 5,
   "signals_24h": 0,
-  "classifications_24h": 3371,
+  "classifications_24h": 3394,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1279,
+    "prefiltered_haiku": 1287,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 406,
+    "price_target_market": 412,
     "coinflip_market": 0,
     "correlation_block": 9,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 909,
-    "matched": 716,
-    "classified": 3371,
+    "news": 915,
+    "matched": 722,
+    "classified": 3394,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3425.1
+    "avg_classification_latency_ms": 3421.8
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.038,
+      "current_price": 0.038000000000000034,
       "pnl_pct": -43.02,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.07,
@@ -238,7 +238,7 @@
       "slug": "texas-senate-election-winner",
       "side": "NO",
       "entry_price": 0.555,
-      "current_price": 0.5549999999999999,
+      "current_price": 0.555,
       "pnl_pct": -1.11,
       "amount_usd": 24.93,
       "current_value_usd": 24.65,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 12:08:37",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -43.02
+    },
+    {
       "time": "2026-07-06 11:38:20",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -43.02
-    },
-    {
-      "time": "2026-07-06 05:14:05",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -43.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 11:58:43",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "Google Maps wants to be the passenger princess that actually helps - PhoneArena",
+      "time": "2026-07-06 12:11:00",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 11:58:41",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "Google Maps wants to be the passenger princess that actually helps - PhoneArena",
+      "time": "2026-07-06 12:10:59",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 11:58:39",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Jesse Eisenberg Doesn't 'Want to Be Associated' With Mark Zuckerberg - Variety",
+      "time": "2026-07-06 12:10:59",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -480,36 +480,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 11:58:39",
-      "market_question": "Trump declares election interference national emergency? ",
-      "headline": "This super-cooled squirrel could revolutionise emergency care - BBC",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-06 12:10:59",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-06 11:58:39",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "Google Maps wants to be the passenger princess that actually helps - PhoneArena",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-06 12:10:59",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
