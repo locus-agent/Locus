@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T21:58:30.251584+00:00",
-  "last_heartbeat": "2026-07-06T21:58:30.251584+00:00",
-  "uptime_seconds": 34318,
+  "generated_at": "2026-07-06T22:03:48.374967+00:00",
+  "last_heartbeat": "2026-07-06T22:03:48.374967+00:00",
+  "uptime_seconds": 34636,
   "dry_run": false,
-  "markets_tracked": 1348,
+  "markets_tracked": 1349,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10507,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1154,
+  "headlines_scanned_today": 1163,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4442,
+  "classifications_24h": 4472,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1576,
+    "prefiltered_haiku": 1584,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 2,
@@ -109,7 +109,7 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 0,
-  "missed_opportunities_24h": 0,
+  "missed_opportunities_24h": 1,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1184,
-    "matched": 815,
-    "classified": 4442,
+    "news": 1193,
+    "matched": 822,
+    "classified": 4472,
     "signals": 1,
     "trades": 1
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 43.84,
-    "unrealized_pnl_usd": -1.06,
-    "total_pnl_usd": 42.78,
+    "unrealized_pnl_usd": -1.1,
+    "total_pnl_usd": 42.74,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2382.8
+    "avg_classification_latency_ms": 2379.5
   },
   "live_readiness": {
     "ready": true,
@@ -210,11 +210,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.128,
-      "pnl_pct": 28.0,
+      "current_price": 0.126,
+      "pnl_pct": 26.0,
       "amount_usd": 2.0,
-      "current_value_usd": 2.56,
-      "pnl_usd": 0.56,
+      "current_value_usd": 2.52,
+      "pnl_usd": 0.52,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 22:03:16",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -44.52
+    },
+    {
       "time": "2026-07-06 21:32:57",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -44.52
-    },
-    {
-      "time": "2026-07-06 20:32:12",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -44.52
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 21:50:45",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Mikel Merino's late goal sends Spain to quarterfinals and ends Cristiano Ronaldo's World Cup career - AP News",
+      "time": "2026-07-06 22:03:07",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "What should a 'Google Home Display' be now that Google Home Speaker has set the stage? - 9to5Google",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 21:50:45",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Mikel Merino's late goal sends Spain to quarterfinals and ends Cristiano Ronaldo's World Cup career - AP News",
+      "time": "2026-07-06 22:03:07",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "What should a 'Google Home Display' be now that Google Home Speaker has set the stage? - 9to5Google",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,52 +464,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 21:50:45",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Mikel Merino's late goal sends Spain to quarterfinals and ends Cristiano Ronaldo's World Cup career - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-06 22:03:07",
+      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
+      "headline": "I switched from Chrome to Edge and finally understood why my laptop battery died so fast - MakeUseOf",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-06 21:50:45",
-      "market_question": "Will Carlos Roberto Massa J\u00fanior win the first round of the 2026 Brazilian presidential election?",
-      "headline": "Mikel Merino's late goal sends Spain to quarterfinals and ends Cristiano Ronaldo's World Cup career - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-06 22:03:07",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "I switched from Chrome to Edge and finally understood why my laptop battery died so fast - MakeUseOf",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 21:50:45",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Mikel Merino's late goal sends Spain to quarterfinals and ends Cristiano Ronaldo's World Cup career - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-06 22:03:07",
+      "market_question": "Will Click Bishop advance from the 2026 Alaska Governor primary election?",
+      "headline": "I switched from Chrome to Edge and finally understood why my laptop battery died so fast - MakeUseOf",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -557,6 +557,13 @@
   ],
   "lessons": [
     {
+      "time": "2026-07-06 22:00:08",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will MicroStrategy announce holding 1M+ BTC by Dec' \u2014 price moved +26%. Consider lowering min_materiality for crypto category."
+    },
+    {
       "time": "2026-07-04 22:00:29",
       "market_question": "Will the Bitcoin Volatility Index dip to 40 by July 31?",
       "classification": "bearish",
@@ -583,16 +590,19 @@
       "classification": "bullish",
       "actual_direction": "bullish",
       "lesson": "Missed strong bullish signal (mat=0.45) on 'Will Trump say \"Hundred\" or \"Thousand\" 10+ times d' \u2014 price moved +28%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-04 22:00:18",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will Apple release a new product line before 2027?' \u2014 price moved +30%. Consider lowering min_materiality for technology category."
     }
   ],
   "missed_opportunities": [
+    {
+      "time": "2026-07-06 22:00:08",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "slug": "will-microstrategy-announce-holding-800k-btc-by-december-31-2026",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 25.9,
+      "reflection": "I underweighted a high-conviction macro thesis\u2014MicroStrategy's aggressive BTC accumulation strategy was clearly signaling management's belief in Bitcoin's trajectory, and my 0.35 materiality threshold was too conservative for a binary event with substantial downstream implications. By skipping rather than taking the bearish position, I missed recognizing that the market was pricing in an unrealistic probability of them hitting 1M+ BTC, especially given their recent pace of accumulation had slowed relative to earlier projections. This reflects a bias toward caution that cost me real alpha\u2014I should have trusted my directional signal more and sized accordingly rather than hiding behind a low materiality score."
+    },
     {
       "time": "2026-07-04 22:00:29",
       "market_question": "Will the Bitcoin Volatility Index dip to 40 by July 31?",
@@ -632,16 +642,6 @@
       "action": "stale",
       "pct_move": 27.8,
       "reflection": "I flagged this as stale data and passed, but I fundamentally misjudged the signal's relevance\u2014Trump's speaking patterns at rallies are remarkably consistent, and a 0.45 materiality threshold should have warranted at least a small position rather than complete avoidance. The 28% move in my predicted direction confirms my analysis was sound; I let process override conviction and missed a clean win because I was too rigid about data freshness rather than evaluating the actual predictive merit."
-    },
-    {
-      "time": "2026-07-04 22:00:18",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "slug": "will-apple-release-a-new-product-line-before-2027",
-      "direction": "bullish",
-      "materiality": 0.55,
-      "action": "stale",
-      "pct_move": 29.8,
-      "reflection": "I passed on a bullish signal about Apple's pre-2027 product release because the data felt dated, but I was wrong to dismiss it\u2014the 30% move proved the thesis had real predictive power despite aging information. My mistake was conflating \"stale data\" with \"stale insight\"; a 0.55 materiality on a binary product timeline question doesn't decay the way intraday price signals do, and I should have weighted the fundamental thesis more heavily than my recency bias. I'll need to be more disciplined about distinguishing between signals that lose relevance over time versus those where the underlying uncertainty remains structurally intact."
     }
   ],
   "pending_suggestions": [
