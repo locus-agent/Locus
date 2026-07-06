@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T02:09:37.690135+00:00",
-  "last_heartbeat": "2026-07-06T02:09:37.690135+00:00",
-  "uptime_seconds": 201921,
+  "generated_at": "2026-07-06T02:14:45.230597+00:00",
+  "last_heartbeat": "2026-07-06T02:14:45.230597+00:00",
+  "uptime_seconds": 202229,
   "dry_run": false,
-  "markets_tracked": 1327,
+  "markets_tracked": 1323,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10453,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 71,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 74,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 2784,
+  "classifications_24h": 2794,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1077,
+    "prefiltered_haiku": 1083,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 300,
+    "price_target_market": 303,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 797,
-    "matched": 615,
-    "classified": 2784,
+    "news": 799,
+    "matched": 616,
+    "classified": 2794,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1941.6
+    "avg_classification_latency_ms": 1941.8
   },
   "live_readiness": {
     "ready": true,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 02:12:43",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -42.27
+    },
+    {
       "time": "2026-07-06 01:42:30",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,29 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -42.27
-    },
-    {
-      "time": "2026-07-05 21:58:05",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -42.27
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 02:07:36",
-      "market_question": "Will Donald Trump visit Mexico in 2026?",
-      "headline": "Rate the players in Mexico v England",
+      "time": "2026-07-06 02:12:05",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Trump undertakes sweeping makeover of the White House and Washington - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 02:12:05",
+      "market_question": "Will stablecoins hit $500B before 2027?",
+      "headline": "Braves left-hander Mart\u00edn P\u00e9rez likely headed to IL after getting hit on pitching arm by line drive - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -442,15 +458,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 02:07:36",
-      "market_question": "Will the Ecologist Green Party of Mexico (PVEM) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "Rate the players in Mexico v England",
+      "time": "2026-07-06 02:12:05",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Braves left-hander Mart\u00edn P\u00e9rez likely headed to IL after getting hit on pitching arm by line drive - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 02:07:36",
-      "market_question": "Will the Ecologist Green Party of Mexico (PVEM) win the second most seats in the 2027 Mexico legislative election?",
-      "headline": "Rate the players in Mexico v England",
+      "time": "2026-07-06 02:12:05",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Braves left-hander Mart\u00edn P\u00e9rez likely headed to IL after getting hit on pitching arm by line drive - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,31 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 02:07:36",
-      "market_question": "Will the Republicans win the New Mexico Senate race in 2026?",
-      "headline": "Rate the players in Mexico v England",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-06 02:07:36",
-      "market_question": "Will the Democrats win the New Mexico Senate race in 2026?",
-      "headline": "Rate the players in Mexico v England",
+      "time": "2026-07-06 02:12:05",
+      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
+      "headline": "Braves left-hander Mart\u00edn P\u00e9rez likely headed to IL after getting hit on pitching arm by line drive - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
