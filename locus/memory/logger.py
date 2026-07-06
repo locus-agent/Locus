@@ -247,6 +247,12 @@ def init_db():
             created_at TEXT NOT NULL DEFAULT (datetime('now')),
             applied_at TEXT
         );
+
+        CREATE TABLE IF NOT EXISTS meta (
+            key TEXT PRIMARY KEY,
+            value TEXT NOT NULL,
+            updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+        );
     """)
     # Add V2 columns to existing trades table if missing
     _migrate_v2_columns(conn)
@@ -513,6 +519,27 @@ def has_journal_for(date: str) -> bool:
     row = conn.execute("SELECT 1 FROM journal WHERE date = ?", (date,)).fetchone()
     conn.close()
     return row is not None
+
+
+def get_meta(key: str) -> str | None:
+    """Read a value from the persistent key-value meta table."""
+    conn = _conn()
+    row = conn.execute("SELECT value FROM meta WHERE key = ?", (key,)).fetchone()
+    conn.close()
+    return row["value"] if row else None
+
+
+def set_meta(key: str, value: str) -> None:
+    """Upsert a value in the persistent key-value meta table."""
+    conn = _conn()
+    conn.execute(
+        """INSERT INTO meta (key, value) VALUES (?, ?)
+           ON CONFLICT(key) DO UPDATE SET value = excluded.value,
+                                          updated_at = datetime('now')""",
+        (key, value),
+    )
+    conn.commit()
+    conn.close()
 
 
 def get_trades_for_performance() -> list[dict]:

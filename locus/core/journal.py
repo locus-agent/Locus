@@ -295,27 +295,39 @@ def maybe_write_journal(extra: dict | None = None, now: datetime | None = None) 
     return entry
 
 
-# Restart-safe daily guard: the UTC date the missed-opportunity sweep last ran.
-# Runs the journal's sibling daily check at most once per day (a process restart
-# inside the trigger window can rerun it once — harmless, lessons just refresh).
-_last_missed_opportunity_date: str | None = None
+# The meta-table key holding the UTC date the missed-opportunity sweep last
+# ran. Persisted in the DB (not a module global) so the once-per-day guard
+# survives the frequent agent restarts — an in-memory flag let a whole day
+# slip when no single process lived through the post-22:00-UTC window.
+_MISSED_OPPORTUNITY_META_KEY = "last_missed_opportunity_date"
 
 
 def maybe_check_missed_opportunities(now: datetime | None = None) -> int:
     """Daily trigger: run the calibrator's missed-opportunity sweep on the first
     call at/after MISSED_OPPORTUNITY_HOUR_UTC each day. Scheduled after the daily
     journal entry and before the weekly meta_evolver check. Returns the number
-    of lessons logged (0 when it didn't run or found nothing)."""
-    global _last_missed_opportunity_date
+    of lessons logged (0 when it didn't run or found nothing).
+
+    The last-run date lives in the DB meta table, so the guard is restart-safe.
+    If one or more whole days were missed (last run older than yesterday), the
+    sweep just runs for today — the missed days are accepted as lost, with a
+    warning so the gap is visible."""
     if not config.MISSED_OPPORTUNITY_ENABLED:
         return 0
     now = now or datetime.now(timezone.utc)
     if now.hour < MISSED_OPPORTUNITY_HOUR_UTC:
         return 0
     today = now.strftime("%Y-%m-%d")
-    if _last_missed_opportunity_date == today:
+    last_run = logger.get_meta(_MISSED_OPPORTUNITY_META_KEY)
+    if last_run == today:
         return 0
-    _last_missed_opportunity_date = today
+    yesterday = (now - timedelta(days=1)).strftime("%Y-%m-%d")
+    if last_run is not None and last_run < yesterday:
+        log.warning(
+            f"[journal] Missed-opportunity sweep gap: last ran {last_run}, "
+            f"today is {today} — skipped day(s) are lost, resuming with today's sweep"
+        )
+    logger.set_meta(_MISSED_OPPORTUNITY_META_KEY, today)
     from locus.memory import calibrator
     return calibrator.check_missed_opportunities()
 
