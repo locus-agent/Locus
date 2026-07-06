@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T12:11:10.492398+00:00",
-  "last_heartbeat": "2026-07-06T12:11:10.492398+00:00",
-  "uptime_seconds": 238014,
+  "generated_at": "2026-07-06T12:16:19.735307+00:00",
+  "last_heartbeat": "2026-07-06T12:16:19.735307+00:00",
+  "uptime_seconds": 238323,
   "dry_run": false,
-  "markets_tracked": 1319,
+  "markets_tracked": 1320,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10477,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 450,
-  "headlines_last_cycle": 5,
+  "headlines_scanned_today": 452,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3394,
+  "classifications_24h": 3399,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1287,
+    "prefiltered_haiku": 1291,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 0,
@@ -97,7 +97,7 @@
     "sports_event_cap": 0,
     "price_target_market": 412,
     "coinflip_market": 0,
-    "correlation_block": 9,
+    "correlation_block": 10,
     "category_limit": 0,
     "orderbook_skip": 0,
     "already_priced_in": 0,
@@ -108,12 +108,12 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 1,
+  "watched_markets_count": 0,
   "missed_opportunities_24h": 0,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-06T11:57:50.580271+00:00"
+    "last_check": "2026-07-06T12:12:51.015153+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 915,
-    "matched": 722,
-    "classified": 3394,
+    "news": 916,
+    "matched": 723,
+    "classified": 3399,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 3421.8
+    "avg_classification_latency_ms": 3420.2
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.038000000000000034,
+      "current_price": 0.038,
       "pnl_pct": -43.02,
       "amount_usd": 1.8840000000000003,
       "current_value_usd": 1.07,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 12:11:00",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
+      "time": "2026-07-06 12:15:20",
+      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
+      "headline": "Philippine Senate opens the impeachment trial of Vice President Sara Duterte - AP News",
+      "direction": "bullish",
+      "materiality": 0.55,
+      "confidence": 0.58,
+      "edge": 0.35200000000000004,
+      "fee_cost": 0.0,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.48000000000000004,
+      "action": "correlation_block",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-06 12:15:14",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Philippine Senate opens the impeachment trial of Vice President Sara Duterte - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 12:10:59",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
+      "time": "2026-07-06 12:15:14",
+      "market_question": "Will G\u00e9rard Larcher be reelected as President of the French Senate?",
+      "headline": "Philippine Senate opens the impeachment trial of Vice President Sara Duterte - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 12:10:59",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
+      "time": "2026-07-06 12:15:14",
+      "market_question": "2026 Balance of Power: R Senate, R House",
+      "headline": "Philippine Senate opens the impeachment trial of Vice President Sara Duterte - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -480,25 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-06 12:10:59",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-06 12:10:59",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Women\u2019s leagues in Canada, US, aim to take advantage of men\u2019s World Cup - AP News",
+      "time": "2026-07-06 12:15:14",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Philippine Senate opens the impeachment trial of Vice President Sara Duterte - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
