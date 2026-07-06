@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-06T16:29:12.893277+00:00",
-  "last_heartbeat": "2026-07-06T16:29:12.893277+00:00",
-  "uptime_seconds": 14561,
+  "generated_at": "2026-07-06T16:34:26.404980+00:00",
+  "last_heartbeat": "2026-07-06T16:34:26.404980+00:00",
+  "uptime_seconds": 14874,
   "dry_run": false,
-  "markets_tracked": 1344,
+  "markets_tracked": 1345,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 10486,
+    "total": 10494,
     "accuracy": 18.3,
     "by_category": {
       "other": 16.2,
       "ai": 11.3,
       "politics": 20.4,
-      "technology": 12.4,
+      "technology": 12.3,
       "crypto": 20.1,
       "sports": 26.2
     },
@@ -24,33 +24,33 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.3,
-    "overall_total": 10486,
+    "overall_total": 10494,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5841,
-        "correct": 411,
-        "accuracy_pct": 7.0,
+        "total": 5843,
+        "correct": 412,
+        "accuracy_pct": 7.1,
         "avg_pnl_pct": 9.76,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 974,
+        "total": 975,
         "correct": 341,
         "accuracy_pct": 35.0,
-        "avg_pnl_pct": 22.32,
+        "avg_pnl_pct": 22.3,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1132,
+        "total": 1135,
         "correct": 445,
-        "accuracy_pct": 39.3,
-        "avg_pnl_pct": 5.85,
+        "accuracy_pct": 39.2,
+        "avg_pnl_pct": 5.75,
         "color": "green"
       },
       {
@@ -74,7 +74,7 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1295,
+        "total": 1297,
         "correct": 240,
         "accuracy_pct": 18.5,
         "avg_pnl_pct": -2.9,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 909,
+  "headlines_scanned_today": 911,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4567,
+  "classifications_24h": 4571,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1707,
+    "prefiltered_haiku": 1711,
     "cooldown_skip": 0,
     "stale": 2,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 493,
+    "price_target_market": 491,
     "coinflip_market": 0,
     "correlation_block": 13,
     "category_limit": 0,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1213,
     "matched": 811,
-    "classified": 4567,
+    "classified": 4571,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2214.2
+    "avg_classification_latency_ms": 2207.8
   },
   "live_readiness": {
     "ready": true,
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 16:29:46",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -31.02
+    },
+    {
       "time": "2026-07-06 15:59:37",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -30.27
-    },
-    {
-      "time": "2026-07-06 13:58:13",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -43.02
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-06 16:23:54",
-      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
-      "headline": "The State of Illinois Newsroom - The State of Illinois Newsroom",
+      "time": "2026-07-06 16:32:41",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "'The spectacle Iran wants the world to see': Lyse Doucet in Tehran for Ayatollah Ali Khamenei's funeral",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 16:23:54",
-      "market_question": "Will SPD win the most seats in the 2026 Berlin state elections?",
-      "headline": "The State of Illinois Newsroom - The State of Illinois Newsroom",
+      "time": "2026-07-06 16:32:41",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "'The spectacle Iran wants the world to see': Lyse Doucet in Tehran for Ayatollah Ali Khamenei's funeral",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 16:23:54",
-      "market_question": "Will Gr\u00fcne win the most seats in the 2026 Berlin state elections?",
-      "headline": "The State of Illinois Newsroom - The State of Illinois Newsroom",
+      "time": "2026-07-06 16:32:41",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "'The spectacle Iran wants the world to see': Lyse Doucet in Tehran for Ayatollah Ali Khamenei's funeral",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 16:23:54",
-      "market_question": "Will CDU win the most seats in the 2026 Berlin state elections?",
-      "headline": "The State of Illinois Newsroom - The State of Illinois Newsroom",
+      "time": "2026-07-06 16:32:41",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "'The spectacle Iran wants the world to see': Lyse Doucet in Tehran for Ayatollah Ali Khamenei's funeral",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-06 16:23:54",
-      "market_question": "Will Linke win the most seats in the 2026 Berlin state elections?",
-      "headline": "The State of Illinois Newsroom - The State of Illinois Newsroom",
+      "time": "2026-07-06 16:32:41",
+      "market_question": "Will Trump say \"World Cup\" this week?",
+      "headline": "'The spectacle Iran wants the world to see': Lyse Doucet in Tehran for Ayatollah Ali Khamenei's funeral",
       "direction": null,
       "materiality": null,
       "confidence": null,
