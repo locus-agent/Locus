@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-06T21:32:24.702868+00:00",
-  "last_heartbeat": "2026-07-06T21:32:24.702868+00:00",
-  "uptime_seconds": 32752,
+  "generated_at": "2026-07-06T21:37:37.601497+00:00",
+  "last_heartbeat": "2026-07-06T21:37:37.601497+00:00",
+  "uptime_seconds": 33065,
   "dry_run": false,
   "markets_tracked": 1351,
   "classify_error_streak": 0,
@@ -85,17 +85,17 @@
   "headlines_scanned_today": 1134,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4486,
+  "classifications_24h": 4466,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1585,
+    "prefiltered_haiku": 1575,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 457,
+    "price_target_market": 452,
     "coinflip_market": 0,
     "correlation_block": 12,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1196,
-    "matched": 818,
-    "classified": 4486,
+    "news": 1191,
+    "matched": 814,
+    "classified": 4466,
     "signals": 1,
     "trades": 1
   },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-06 21:32:57",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "side": "YES",
+      "trigger": "time_pressure",
+      "decision": "close_failed",
+      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
+      "pnl_pct": -44.52
+    },
+    {
       "time": "2026-07-06 21:18:07",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
       "side": "NO",
@@ -413,15 +422,6 @@
     },
     {
       "time": "2026-07-06 20:32:12",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -44.52
-    },
-    {
-      "time": "2026-07-06 20:01:52",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
       "trigger": "time_pressure",
