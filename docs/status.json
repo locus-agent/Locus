@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T10:08:02.027086+00:00",
-  "last_heartbeat": "2026-07-07T10:08:02.027086+00:00",
-  "uptime_seconds": 78090,
+  "generated_at": "2026-07-07T10:13:09.766031+00:00",
+  "last_heartbeat": "2026-07-07T10:13:09.766031+00:00",
+  "uptime_seconds": 78397,
   "dry_run": false,
-  "markets_tracked": 1337,
+  "markets_tracked": 1340,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10534,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 304,
+  "headlines_scanned_today": 309,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4755,
+  "classifications_24h": 4766,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1696,
+    "prefiltered_haiku": 1702,
     "cooldown_skip": 0,
     "stale": 5,
     "capped": 3,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T09:57:24.082581+00:00"
+    "last_check": "2026-07-07T10:12:24.457056+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1258,
-    "matched": 930,
-    "classified": 4755,
+    "news": 1263,
+    "matched": 933,
+    "classified": 4766,
     "signals": 2,
     "trades": 2
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -0.93,
-    "total_pnl_usd": 42.06,
+    "unrealized_pnl_usd": -0.94,
+    "total_pnl_usd": 42.05,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2370.4
+    "avg_classification_latency_ms": 2368.8
   },
   "live_readiness": {
     "ready": true,
@@ -238,11 +238,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1305,
-      "pnl_pct": 30.5,
+      "current_price": 0.13,
+      "pnl_pct": 30.0,
       "amount_usd": 2.0,
-      "current_value_usd": 2.61,
-      "pnl_usd": 0.61,
+      "current_value_usd": 2.6,
+      "pnl_usd": 0.6,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -252,7 +252,7 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.41500000000000004,
+      "current_price": 0.415,
       "pnl_pct": 0.86,
       "amount_usd": 18.85,
       "current_value_usd": 19.01,
@@ -460,9 +460,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 10:07:22",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Messi v Salah: A World Cup meeting of two national icons",
+      "time": "2026-07-07 10:11:41",
+      "market_question": "Will Frank F. Blas Jr. win the 2026 Guam Governor Republican primary election?",
+      "headline": "Frank Carone\u2019s alleged other income stream - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-07 10:09:35",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "The man who invented a sport and played tennis with Willy Wonka",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -476,9 +492,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 10:07:21",
+      "time": "2026-07-07 10:09:32",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Messi v Salah: A World Cup meeting of two national icons",
+      "headline": "Belgium gets \u2018justice\u2019 for Balogun playing with 4-1 win over US to reach World Cup quarterfinals - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -492,9 +508,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 10:07:21",
+      "time": "2026-07-07 10:09:32",
       "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Messi v Salah: A World Cup meeting of two national icons",
+      "headline": "Belgium gets \u2018justice\u2019 for Balogun playing with 4-1 win over US to reach World Cup quarterfinals - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -508,36 +524,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 10:07:21",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Messi v Salah: A World Cup meeting of two national icons",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-07 10:09:32",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "The man who invented a sport and played tennis with Willy Wonka",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-07 10:07:21",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Messi v Salah: A World Cup meeting of two national icons",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
