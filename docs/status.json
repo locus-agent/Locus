@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T01:39:37.126329+00:00",
-  "last_heartbeat": "2026-07-07T01:39:37.126329+00:00",
-  "uptime_seconds": 47585,
+  "generated_at": "2026-07-07T01:44:44.198835+00:00",
+  "last_heartbeat": "2026-07-07T01:44:44.198835+00:00",
+  "uptime_seconds": 47892,
   "dry_run": false,
-  "markets_tracked": 1361,
+  "markets_tracked": 1359,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10518,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 32,
+  "headlines_scanned_today": 34,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4759,
+  "classifications_24h": 4757,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1694,
+    "prefiltered_haiku": 1691,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T01:27:09.663716+00:00"
+    "last_check": "2026-07-07T01:42:10.023561+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1250,
     "matched": 882,
-    "classified": 4759,
+    "classified": 4757,
     "signals": 1,
     "trades": 1
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": 1.29,
-    "total_pnl_usd": 44.28,
+    "unrealized_pnl_usd": 0.96,
+    "total_pnl_usd": 43.95,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2298.1
+    "avg_classification_latency_ms": 2293.8
   },
   "live_readiness": {
     "ready": true,
@@ -238,11 +238,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.31499999999999995,
-      "pnl_pct": 18.1,
+      "current_price": 0.32499999999999996,
+      "pnl_pct": 16.38,
       "amount_usd": 18.85,
-      "current_value_usd": 22.26,
-      "pnl_usd": 3.41,
+      "current_value_usd": 21.94,
+      "pnl_usd": 3.09,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -446,41 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 01:36:21",
-      "market_question": "Will Michael Soetaert be the Democratic nominee for Senate in Kansas?",
-      "headline": "Michael Flynn - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 01:36:21",
-      "market_question": "Will Michael Younger win the California Governor Election in 2026?",
-      "headline": "Michael Flynn - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 01:34:15",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Swiss breakout star Manzambi and 2 others leave training ahead of World Cup clash with Colombia - AP News",
+      "time": "2026-07-07 01:42:58",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Thrive Holdings Raises $2 Billion to Buy and Rewire Services Firms With AI - PYMNTS.com",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -494,9 +462,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 01:34:10",
+      "time": "2026-07-07 01:42:57",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Swiss breakout star Manzambi and 2 others leave training ahead of World Cup clash with Colombia - AP News",
+      "headline": "A stoic Cristiano Ronaldo exits last World Cup with 'clear conscience' after Portugal loses to Spain - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -510,9 +478,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 01:34:10",
+      "time": "2026-07-07 01:42:57",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "A stoic Cristiano Ronaldo exits last World Cup with 'clear conscience' after Portugal loses to Spain - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 01:42:57",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "A stoic Cristiano Ronaldo exits last World Cup with 'clear conscience' after Portugal loses to Spain - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 01:42:57",
       "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Swiss breakout star Manzambi and 2 others leave training ahead of World Cup clash with Colombia - AP News",
+      "headline": "A stoic Cristiano Ronaldo exits last World Cup with 'clear conscience' after Portugal loses to Spain - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
