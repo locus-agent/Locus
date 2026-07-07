@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T22:30:58.743446+00:00",
-  "last_heartbeat": "2026-07-07T22:30:58.743446+00:00",
-  "uptime_seconds": 20859,
+  "generated_at": "2026-07-07T22:36:07.266339+00:00",
+  "last_heartbeat": "2026-07-07T22:36:07.266339+00:00",
+  "uptime_seconds": 21168,
   "dry_run": false,
-  "markets_tracked": 1362,
+  "markets_tracked": 1364,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10615,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1217,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 1218,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4950,
+  "classifications_24h": 4942,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1892,
+    "prefiltered_haiku": 1889,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 5,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T22:16:27.027763+00:00"
+    "last_check": "2026-07-07T22:31:27.435384+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1312,
-    "matched": 903,
-    "classified": 4950,
+    "news": 1310,
+    "matched": 902,
+    "classified": 4942,
     "signals": 1,
     "trades": 1
   },
@@ -136,8 +136,8 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -0.22,
-    "total_pnl_usd": 42.77,
+    "unrealized_pnl_usd": 0.07,
+    "total_pnl_usd": 43.07,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.55,
-      "pnl_pct": 7.14,
+      "current_price": 0.545,
+      "pnl_pct": 8.33,
       "amount_usd": 24.99,
-      "current_value_usd": 26.77,
-      "pnl_usd": 1.79,
+      "current_value_usd": 27.07,
+      "pnl_usd": 2.08,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -238,7 +238,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1235,
+      "current_price": 0.12349999999999994,
       "pnl_pct": 23.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.47,
@@ -460,6 +460,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-07 22:32:46",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Exxon signals Q2 profit windfall as higher oil prices boost bottom line - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-07 22:32:46",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "Exxon signals Q2 profit windfall as higher oil prices boost bottom line - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-07 22:26:13",
       "market_question": "Will Trump attend 2 World Cup matches?",
       "headline": "Egypt seething after squandering a two-goal lead and losing 3-2 to Messi's Argentina at World Cup - AP News",
@@ -494,38 +526,6 @@
     {
       "time": "2026-07-07 22:26:13",
       "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Egypt seething after squandering a two-goal lead and losing 3-2 to Messi's Argentina at World Cup - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-07 22:26:13",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Egypt seething after squandering a two-goal lead and losing 3-2 to Messi's Argentina at World Cup - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-07 22:26:13",
-      "market_question": "President Trump to Attend World Cup Final?",
       "headline": "Egypt seething after squandering a two-goal lead and losing 3-2 to Messi's Argentina at World Cup - AP News",
       "direction": "neutral",
       "materiality": 0.0,
