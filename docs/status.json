@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-07T07:38:51.273035+00:00",
-  "last_heartbeat": "2026-07-07T07:38:51.273035+00:00",
-  "uptime_seconds": 69139,
+  "generated_at": "2026-07-07T07:43:58.489983+00:00",
+  "last_heartbeat": "2026-07-07T07:43:58.489983+00:00",
+  "uptime_seconds": 69446,
   "dry_run": false,
   "markets_tracked": 1351,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 219,
+  "headlines_scanned_today": 220,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4773,
+  "classifications_24h": 4774,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1718,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T07:27:19.789540+00:00"
+    "last_check": "2026-07-07T07:42:20.235058+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1270,
-    "matched": 908,
-    "classified": 4773,
+    "news": 1271,
+    "matched": 909,
+    "classified": 4774,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2355.0
+    "avg_classification_latency_ms": 2356.3
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.29500000000000004,
+      "current_price": 0.295,
       "pnl_pct": 1.72,
       "amount_usd": 8.555,
       "current_value_usd": 8.7,
@@ -238,7 +238,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1285,
+      "current_price": 0.12850000000000006,
       "pnl_pct": 28.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.57,
@@ -460,6 +460,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-07 07:42:35",
+      "market_question": "Will Trump and Putin meet next in another EU country?",
+      "headline": "US in talks on Europe missile co-production, source says - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-07 07:38:06",
       "market_question": "Will Anthropic or OpenAI IPO first?",
       "headline": "EXCLUSIVE: Australia's teen social media ban fails to clear first hurdle in age checks, says study - Reuters",
@@ -510,22 +526,6 @@
     {
       "time": "2026-07-07 07:38:04",
       "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "EXCLUSIVE: Australia's teen social media ban fails to clear first hurdle in age checks, says study - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 07:38:04",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
       "headline": "EXCLUSIVE: Australia's teen social media ban fails to clear first hurdle in age checks, says study - Reuters",
       "direction": null,
       "materiality": null,
