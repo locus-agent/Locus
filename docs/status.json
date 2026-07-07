@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T22:15:34.311584+00:00",
-  "last_heartbeat": "2026-07-07T22:15:34.311584+00:00",
-  "uptime_seconds": 19935,
+  "generated_at": "2026-07-07T22:20:41.900075+00:00",
+  "last_heartbeat": "2026-07-07T22:20:41.900075+00:00",
+  "uptime_seconds": 20243,
   "dry_run": false,
-  "markets_tracked": 1349,
+  "markets_tracked": 1362,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10615,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1210,
+  "headlines_scanned_today": 1213,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 5011,
+  "classifications_24h": 4970,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1915,
+    "prefiltered_haiku": 1902,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 5,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 412,
+    "price_target_market": 399,
     "coinflip_market": 0,
     "correlation_block": 16,
     "category_limit": 8,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T22:01:26.561633+00:00"
+    "last_check": "2026-07-07T22:16:27.027763+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1321,
-    "matched": 914,
-    "classified": 5011,
+    "news": 1314,
+    "matched": 907,
+    "classified": 4970,
     "signals": 1,
     "trades": 1
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -0.21,
-    "total_pnl_usd": 42.78,
+    "unrealized_pnl_usd": 0.07,
+    "total_pnl_usd": 43.07,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2213.1
+    "avg_classification_latency_ms": 2206.1
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.55,
-      "pnl_pct": 7.14,
+      "current_price": 0.5449999999999999,
+      "pnl_pct": 8.33,
       "amount_usd": 24.99,
-      "current_value_usd": 26.77,
-      "pnl_usd": 1.79,
+      "current_value_usd": 27.07,
+      "pnl_usd": 2.08,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -238,11 +238,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.124,
-      "pnl_pct": 24.0,
+      "current_price": 0.1235,
+      "pnl_pct": 23.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.48,
-      "pnl_usd": 0.48,
+      "current_value_usd": 2.47,
+      "pnl_usd": 0.47,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -460,9 +460,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 22:13:12",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "UK and the Netherlands sign new $3.2 billion maritime partnership - Reuters",
+      "time": "2026-07-07 22:19:39",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Kyle Lowry makes good on a promise: He signs with the Raptors so he can retire - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -471,30 +471,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 22:13:11",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "headline": "Bernie Sanders urges Platner to quit Maine Senate race as Democrats vie to succeed him - Reuters",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.58,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.38,
-      "action": "kelly_negative",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-07 22:13:11",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "UK and the Netherlands sign new $3.2 billion maritime partnership - Reuters",
+      "time": "2026-07-07 22:19:38",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Kyle Lowry makes good on a promise: He signs with the Raptors so he can retire - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -508,9 +492,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 22:13:11",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "UK and the Netherlands sign new $3.2 billion maritime partnership - Reuters",
+      "time": "2026-07-07 22:19:38",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Kyle Lowry makes good on a promise: He signs with the Raptors so he can retire - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -524,9 +508,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 22:13:11",
-      "market_question": "Trump declassifies new UFO files by July 7?",
-      "headline": "UK and the Netherlands sign new $3.2 billion maritime partnership - Reuters",
+      "time": "2026-07-07 22:19:38",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Kyle Lowry makes good on a promise: He signs with the Raptors so he can retire - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-07 22:19:38",
+      "market_question": "Will Trump meet with Nick Fuentes in 2026?",
+      "headline": "Kyle Lowry makes good on a promise: He signs with the Raptors so he can retire - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
