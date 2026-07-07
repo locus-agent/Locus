@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T03:22:10.420349+00:00",
-  "last_heartbeat": "2026-07-07T03:22:10.420349+00:00",
-  "uptime_seconds": 53738,
+  "generated_at": "2026-07-07T03:27:17.979338+00:00",
+  "last_heartbeat": "2026-07-07T03:27:17.979338+00:00",
+  "uptime_seconds": 54046,
   "dry_run": false,
-  "markets_tracked": 1371,
+  "markets_tracked": 1370,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10518,
@@ -82,22 +82,22 @@
       }
     ]
   },
-  "headlines_scanned_today": 94,
+  "headlines_scanned_today": 95,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4675,
+  "classifications_24h": 4658,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1662,
+    "prefiltered_haiku": 1655,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 3,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 459,
+    "price_target_market": 449,
     "coinflip_market": 0,
-    "correlation_block": 14,
+    "correlation_block": 13,
     "category_limit": 2,
     "orderbook_skip": 0,
     "already_priced_in": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T03:12:12.418050+00:00"
+    "last_check": "2026-07-07T03:27:12.781519+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1240,
-    "matched": 875,
-    "classified": 4675,
+    "news": 1237,
+    "matched": 872,
+    "classified": 4658,
     "signals": 1,
     "trades": 1
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -1.61,
-    "total_pnl_usd": 41.38,
+    "unrealized_pnl_usd": -1.58,
+    "total_pnl_usd": 41.41,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2305.5
+    "avg_classification_latency_ms": 2304.3
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.29500000000000004,
+      "current_price": 0.295,
       "pnl_pct": 1.72,
       "amount_usd": 8.555,
       "current_value_usd": 8.7,
@@ -224,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.125,
-      "pnl_pct": 25.0,
+      "current_price": 0.12650000000000006,
+      "pnl_pct": 26.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.5,
-      "pnl_usd": 0.5,
+      "current_value_usd": 2.53,
+      "pnl_usd": 0.53,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -446,25 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 03:20:18",
-      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
-      "headline": "\"Big Short\" Investor Michael Burry Is Now Betting Against Micron, Nvidia, and Tesla. Should You Be Worried? - The Motley Fool",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-07 03:20:14",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "SK Hynix seeks access to AI investors in $29 billion U.S. listing - Fortune",
+      "time": "2026-07-07 03:23:45",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Australia vows stronger ties with Solomon Islands amid China concerns - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,9 +462,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 03:20:14",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Investment firm cofounder sues after being fired for neglecting the in-person work mandate he signed - Fortune",
+      "time": "2026-07-07 03:23:44",
+      "market_question": "Will China unban Bitcoin by 2027?",
+      "headline": "Australia vows stronger ties with Solomon Islands amid China concerns - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 03:23:43",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Australia vows stronger ties with Solomon Islands amid China concerns - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -494,9 +494,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 03:20:14",
-      "market_question": "Bitcoin all time high by December 31, 2026?",
-      "headline": "We Asked 10 Travel Experts Their Favorite Island Destination\u2014and They All Chose the Same Region - Travel + Leisure",
+      "time": "2026-07-07 03:23:43",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "Australia vows stronger ties with Solomon Islands amid China concerns - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -504,15 +504,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 03:20:14",
-      "market_question": "Bitcoin all time high by September 30, 2026?",
-      "headline": "We Asked 10 Travel Experts Their Favorite Island Destination\u2014and They All Chose the Same Region - Travel + Leisure",
+      "time": "2026-07-07 03:23:43",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Australia vows stronger ties with Solomon Islands amid China concerns - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -520,7 +520,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
