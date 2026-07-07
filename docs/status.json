@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-07T09:05:59.097842+00:00",
-  "last_heartbeat": "2026-07-07T09:05:59.097842+00:00",
-  "uptime_seconds": 74367,
+  "generated_at": "2026-07-07T09:11:06.992680+00:00",
+  "last_heartbeat": "2026-07-07T09:11:06.992680+00:00",
+  "uptime_seconds": 74675,
   "dry_run": false,
   "markets_tracked": 1337,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 255,
+  "headlines_scanned_today": 258,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4633,
+  "classifications_24h": 4643,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1654,
+    "prefiltered_haiku": 1659,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 3,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1228,
-    "matched": 896,
-    "classified": 4633,
+    "news": 1231,
+    "matched": 898,
+    "classified": 4643,
     "signals": 2,
     "trades": 2
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -2.52,
-    "total_pnl_usd": 40.47,
+    "unrealized_pnl_usd": -2.53,
+    "total_pnl_usd": 40.46,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2363.5
+    "avg_classification_latency_ms": 2362.5
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.29500000000000004,
+      "current_price": 0.295,
       "pnl_pct": 1.72,
       "amount_usd": 8.555,
       "current_value_usd": 8.7,
@@ -238,11 +238,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1255,
-      "pnl_pct": 25.5,
+      "current_price": 0.125,
+      "pnl_pct": 25.0,
       "amount_usd": 2.0,
-      "current_value_usd": 2.51,
-      "pnl_usd": 0.51,
+      "current_value_usd": 2.5,
+      "pnl_usd": 0.5,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -460,25 +460,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 09:03:54",
-      "market_question": "Will Donald Trump attend NATO Summit?",
-      "headline": "\u2018Everything I\u2019ve ever asked him for, he\u2019s done\u2019: Erdo\u011fan takes the stage as NATO\u2019s Trump whisperer - Politico",
+      "time": "2026-07-07 09:10:19",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Asian markets retreat, with Korean shares slumping despite an AI-led rebound on Wall St - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 09:03:54",
-      "market_question": "Will Trump cut corporate taxes before 2027?",
-      "headline": "Synopsys to cut chip fab manufacturing control software in shift to AI design, sources say - Reuters",
+      "time": "2026-07-07 09:10:17",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Asian markets retreat, with Korean shares slumping despite an AI-led rebound on Wall St - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -492,9 +492,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 09:03:54",
-      "market_question": "Will the Democratic Party control the Senate after the 2026 Midterm elections?",
-      "headline": "Synopsys to cut chip fab manufacturing control software in shift to AI design, sources say - Reuters",
+      "time": "2026-07-07 09:10:17",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Asian markets retreat, with Korean shares slumping despite an AI-led rebound on Wall St - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -508,9 +508,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 09:03:54",
-      "market_question": "Will the Republican Party control the Senate after the 2026 Midterm elections?",
-      "headline": "Synopsys to cut chip fab manufacturing control software in shift to AI design, sources say - Reuters",
+      "time": "2026-07-07 09:10:17",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Asian markets retreat, with Korean shares slumping despite an AI-led rebound on Wall St - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -524,9 +524,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 09:03:54",
-      "market_question": "Will Chip Keating win the 2026 Oklahoma Governor Republican primary election?",
-      "headline": "Synopsys to cut chip fab manufacturing control software in shift to AI design, sources say - Reuters",
+      "time": "2026-07-07 09:10:17",
+      "market_question": "Will Trump meet with Nick Fuentes in 2026?",
+      "headline": "Asian markets retreat, with Korean shares slumping despite an AI-led rebound on Wall St - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
