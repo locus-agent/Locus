@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-07T18:11:21.026570+00:00",
-  "last_heartbeat": "2026-07-07T18:11:21.026570+00:00",
-  "uptime_seconds": 5282,
+  "generated_at": "2026-07-07T18:16:29.792983+00:00",
+  "last_heartbeat": "2026-07-07T18:16:29.792983+00:00",
+  "uptime_seconds": 5590,
   "dry_run": false,
   "markets_tracked": 1333,
   "classify_error_streak": 0,
@@ -82,22 +82,22 @@
       }
     ]
   },
-  "headlines_scanned_today": 995,
+  "headlines_scanned_today": 999,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4857,
+  "classifications_24h": 4873,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1814,
+    "prefiltered_haiku": 1815,
     "cooldown_skip": 0,
     "stale": 9,
-    "capped": 4,
+    "capped": 5,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
     "price_target_market": 404,
     "coinflip_market": 0,
-    "correlation_block": 12,
+    "correlation_block": 14,
     "category_limit": 8,
     "orderbook_skip": 1,
     "already_priced_in": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T17:58:36.736150+00:00"
+    "last_check": "2026-07-07T18:13:37.096230+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1293,
-    "matched": 899,
-    "classified": 4857,
+    "news": 1297,
+    "matched": 903,
+    "classified": 4873,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1777.3
+    "avg_classification_latency_ms": 1811.4
   },
   "live_readiness": {
     "ready": true,
@@ -460,25 +460,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 18:10:47",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "UK regulator warns of \u2018arms race\u2019 to keep up with AI use in financial services - Financial Times",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-07-07 18:13:57",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "Democrats' narrow path to Senate majority gets rockier as Platner faces sexual assault allegation - AP News",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.55,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "kelly_negative",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 18:10:47",
-      "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
-      "headline": "Fifth Third, Comerica merger: What Michigan customers need to know - ClickOnDetroit | WDIV Local 4",
+      "time": "2026-07-07 18:13:57",
+      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "headline": "Democrats' narrow path to Senate majority gets rockier as Platner faces sexual assault allegation - AP News",
+      "direction": "bearish",
+      "materiality": 0.55,
+      "confidence": 0.62,
+      "edge": 0.31625,
+      "fee_cost": 0.0,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.48000000000000004,
+      "action": "correlation_block",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 18:13:57",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "State lawmakers to explore banning foreign nationals from using Texas surrogates - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -492,9 +508,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 18:10:47",
-      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Fifth Third, Comerica merger: What Michigan customers need to know - ClickOnDetroit | WDIV Local 4",
+      "time": "2026-07-07 18:13:57",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "State lawmakers to explore banning foreign nationals from using Texas surrogates - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -508,25 +524,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 18:10:47",
-      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Fifth Third, Comerica merger: What Michigan customers need to know - ClickOnDetroit | WDIV Local 4",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 18:10:47",
-      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Fifth Third, Comerica merger: What Michigan customers need to know - ClickOnDetroit | WDIV Local 4",
+      "time": "2026-07-07 18:13:57",
+      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
+      "headline": "State lawmakers to explore banning foreign nationals from using Texas surrogates - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
