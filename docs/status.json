@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T08:14:42.830869+00:00",
-  "last_heartbeat": "2026-07-07T08:14:42.830869+00:00",
-  "uptime_seconds": 71290,
+  "generated_at": "2026-07-07T08:19:50.217072+00:00",
+  "last_heartbeat": "2026-07-07T08:19:50.217072+00:00",
+  "uptime_seconds": 71598,
   "dry_run": false,
-  "markets_tracked": 1340,
+  "markets_tracked": 1348,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10525,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 230,
+  "headlines_scanned_today": 231,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4718,
+  "classifications_24h": 4723,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1699,
+    "prefiltered_haiku": 1703,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 3,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1253,
-    "matched": 899,
-    "classified": 4718,
+    "news": 1254,
+    "matched": 900,
+    "classified": 4723,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2359.3
+    "avg_classification_latency_ms": 2360.0
   },
   "live_readiness": {
     "ready": true,
@@ -460,9 +460,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 08:13:13",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Indonesia's Prabowo and India's Modi meet to discuss expanding economic and defense ties - AP News",
+      "time": "2026-07-07 08:15:30",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Pochettino says US 'not good enough' in World Cup exit - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 08:15:27",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Pochettino says US 'not good enough' in World Cup exit - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -476,9 +492,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 08:13:13",
-      "market_question": "Trump meets with Mojtaba Khamenei by July 31?",
-      "headline": "Indonesia's Prabowo and India's Modi meet to discuss expanding economic and defense ties - AP News",
+      "time": "2026-07-07 08:15:25",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Pochettino says US 'not good enough' in World Cup exit - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -487,57 +503,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 08:13:12",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "Indonesia's Prabowo and India's Modi meet to discuss expanding economic and defense ties - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 08:15:25",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Pochettino says US 'not good enough' in World Cup exit - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-07 08:13:12",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Indonesia's Prabowo and India's Modi meet to discuss expanding economic and defense ties - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 08:15:25",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Pochettino says US 'not good enough' in World Cup exit - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 08:13:12",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Indonesia's Prabowo and India's Modi meet to discuss expanding economic and defense ties - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
