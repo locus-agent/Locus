@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T21:59:57.907627+00:00",
-  "last_heartbeat": "2026-07-07T21:59:57.907627+00:00",
-  "uptime_seconds": 18999,
+  "generated_at": "2026-07-07T22:05:19.592396+00:00",
+  "last_heartbeat": "2026-07-07T22:05:19.592396+00:00",
+  "uptime_seconds": 19320,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1349,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10615,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1204,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1205,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 5012,
+  "classifications_24h": 4993,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1912,
+    "prefiltered_haiku": 1906,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 5,
@@ -109,11 +109,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 0,
-  "missed_opportunities_24h": 1,
+  "missed_opportunities_24h": 5,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T21:46:26.131702+00:00"
+    "last_check": "2026-07-07T22:01:26.561633+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1325,
-    "matched": 916,
-    "classified": 5012,
+    "news": 1318,
+    "matched": 911,
+    "classified": 4993,
     "signals": 1,
     "trades": 1
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -0.48,
-    "total_pnl_usd": 42.51,
+    "unrealized_pnl_usd": -1.08,
+    "total_pnl_usd": 41.92,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2200.4
+    "avg_classification_latency_ms": 2215.6
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.5549999999999999,
-      "pnl_pct": 5.95,
+      "current_price": 0.565,
+      "pnl_pct": 3.57,
       "amount_usd": 24.99,
-      "current_value_usd": 26.48,
-      "pnl_usd": 1.49,
+      "current_value_usd": 25.88,
+      "pnl_usd": 0.89,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -210,11 +210,11 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.30000000000000004,
+      "current_price": 0.3,
       "pnl_pct": 3.45,
       "amount_usd": 8.555,
       "current_value_usd": 8.85,
-      "pnl_usd": 0.3,
+      "pnl_usd": 0.29,
       "edge_type": "news",
       "event_id": "528413"
     },
@@ -238,7 +238,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1255,
+      "current_price": 0.12549999999999994,
       "pnl_pct": 25.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.51,
@@ -460,84 +460,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 21:55:32",
-      "market_question": "Will stablecoins hit $500B before 2027?",
-      "headline": "US launches new strikes against Iran after three ships were hit in Strait of Hormuz - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time": "2026-07-07 22:02:14",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Belgian prime minister suggests US World Cup loss hit Trump \u2018hard\u2019 - Politico",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.55,
+      "edge": 0.315,
+      "fee_cost": 0.0036000000000000003,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "low_materiality",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-07 21:55:32",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "US launches new strikes against Iran after three ships were hit in Strait of Hormuz - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 22:02:14",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Belgian prime minister suggests US World Cup loss hit Trump \u2018hard\u2019 - Politico",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.55,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-07 21:55:32",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "US launches new strikes against Iran after three ships were hit in Strait of Hormuz - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 22:02:14",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Belgian prime minister suggests US World Cup loss hit Trump \u2018hard\u2019 - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-07 21:55:32",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "US launches new strikes against Iran after three ships were hit in Strait of Hormuz - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 22:02:14",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Belgian prime minister suggests US World Cup loss hit Trump \u2018hard\u2019 - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-07 21:55:32",
-      "market_question": "Will Polymarket mindshare hit 75% by December 31?",
-      "headline": "US launches new strikes against Iran after three ships were hit in Strait of Hormuz - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 22:02:07",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Belgian prime minister suggests US World Cup loss hit Trump \u2018hard\u2019 - Politico",
+      "direction": "bearish",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -585,91 +585,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-07-06 22:00:08",
+      "time": "2026-07-07 22:00:43",
       "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will MicroStrategy announce holding 1M+ BTC by Dec' \u2014 price moved +26%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will MicroStrategy announce holding 1M+ BTC by Dec' \u2014 price moved +15%. Consider lowering min_materiality for crypto category."
     },
     {
-      "time": "2026-07-04 22:00:29",
-      "market_question": "Will the Bitcoin Volatility Index dip to 40 by July 31?",
+      "time": "2026-07-07 22:00:41",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will the Bitcoin Volatility Index dip to 40 by Jul' \u2014 price moved +29%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Meta have a #1 AI model by December 31, 2026?' \u2014 price moved +26%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-04 22:00:27",
-      "market_question": "Will Bitcoin reach $65,000 by December 31, 2026?",
+      "time": "2026-07-07 22:00:38",
+      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Will Bitcoin reach $65,000 by December 31, 2026?' \u2014 price moved +16%. Consider lowering min_materiality for crypto category."
+      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will the Philippine Senate convict Sara Duterte? ' \u2014 price moved +38%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-07-04 22:00:25",
+      "time": "2026-07-07 22:00:36",
       "market_question": "Will Apple release a new product line before 2027?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.45) on 'Will Apple release a new product line before 2027?' \u2014 price moved +30%. Consider lowering min_materiality for technology category."
+      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will Apple release a new product line before 2027?' \u2014 price moved +13%. Consider lowering min_materiality for technology category."
     },
     {
-      "time": "2026-07-04 22:00:21",
-      "market_question": "Will Trump say \"Hundred\" or \"Thousand\" 10+ times during Tribute to America Rally?",
+      "time": "2026-07-07 22:00:33",
+      "market_question": "Will Apple release a new product line before 2027?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.45) on 'Will Trump say \"Hundred\" or \"Thousand\" 10+ times d' \u2014 price moved +28%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will Apple release a new product line before 2027?' \u2014 price moved +13%. Consider lowering min_materiality for technology category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-07-06 22:00:08",
+      "time": "2026-07-07 22:00:43",
       "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
       "slug": "will-microstrategy-announce-holding-800k-btc-by-december-31-2026",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 25.9,
-      "reflection": "I underweighted a high-conviction macro thesis\u2014MicroStrategy's aggressive BTC accumulation strategy was clearly signaling management's belief in Bitcoin's trajectory, and my 0.35 materiality threshold was too conservative for a binary event with substantial downstream implications. By skipping rather than taking the bearish position, I missed recognizing that the market was pricing in an unrealistic probability of them hitting 1M+ BTC, especially given their recent pace of accumulation had slowed relative to earlier projections. This reflects a bias toward caution that cost me real alpha\u2014I should have trusted my directional signal more and sized accordingly rather than hiding behind a low materiality score."
+      "pct_move": 14.8,
+      "reflection": "I missed a 15% move in my predicted direction because I let the low materiality threshold (0.35) override my conviction\u2014I should have recognized that even modest confidence in a high-impact binary outcome (1M+ BTC holdings) warranted action rather than avoidance. My skip decision reveals I'm still over-weighting precision over expected value; a bearish signal on a major corporate crypto milestone should have been traded regardless of how \"material\" I judged the probability shift to be."
     },
     {
-      "time": "2026-07-04 22:00:29",
-      "market_question": "Will the Bitcoin Volatility Index dip to 40 by July 31?",
-      "slug": "what-will-the-bitcoin-implied-volatility-index-hit-by-july-31",
+      "time": "2026-07-07 22:00:41",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 28.7,
-      "reflection": "I flagged a bearish signal on Bitcoin volatility dipping to 40 by July 31, but my 0.35 materiality threshold\u2014essentially a confidence score of just one-third\u2014made me hesitant to commit, so I skipped it entirely. The market proved the directional call right with a 29% move in my predicted direction, which stings because I had the thesis but lacked conviction in my own analysis. This is a reminder that sometimes a low-confidence edge is still an edge, and sitting out entirely means zero return on a partially-formed thesis I should have sized accordingly rather than abandoned."
+      "pct_move": 26.1,
+      "reflection": "I flagged Meta's AI ambitions as unlikely to produce a #1 model by end-2026 with only moderate conviction (0.35), but I skipped the signal entirely\u2014a decision that cost me 26% in unrealized gains as the market validated my directional view. My skip reveals a gap in my calibration: I had the insight right but lacked the confidence to act on a thesis where the materiality threshold should have been lower given the competitive dynamics and timeline constraints. I need to distinguish between \"uncertain about magnitude\" and \"uncertain about direction\"\u2014the former shouldn't block a trade when directional conviction is sound."
     },
     {
-      "time": "2026-07-04 22:00:27",
-      "market_question": "Will Bitcoin reach $65,000 by December 31, 2026?",
-      "slug": "what-price-will-bitcoin-hit-before-2027",
+      "time": "2026-07-07 22:00:38",
+      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
+      "slug": "will-the-philippine-senate-convict-sara-duterte",
       "direction": "bullish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 16.0,
-      "reflection": "I identified a bullish setup with moderate conviction (0.35 materiality), but my skip threshold was apparently too conservative for this particular signal\u2014the 16% move in my predicted direction suggests I underweighted the confluence of factors present. I need to recalibrate: a 0.35 materiality signal that plays out this decisively indicates either my confidence calibration is misaligned with actual edge, or I'm applying skip logic too rigidly when the risk-reward justified taking the position."
+      "materiality": 0.55,
+      "action": "stale",
+      "pct_move": 38.0,
+      "reflection": "I flagged the conviction probability as stale data and deprioritized it, but I underestimated how quickly political sentiment could crystallize around a definitive Senate vote\u2014the market was pricing in a threshold moment I dismissed as old news. The 38% move in my predicted direction suggests I was right about the directional signal but wrong about the timing decay, confusing \"information age\" with \"information relevance\" in a fast-moving political event. I need to recalibrate: staleness of *data* isn't the same as staleness of *catalysts*, and I should weight conviction signals more heavily when they precede discrete decision points, even if the underlying reporting is dated."
     },
     {
-      "time": "2026-07-04 22:00:25",
+      "time": "2026-07-07 22:00:36",
       "market_question": "Will Apple release a new product line before 2027?",
       "slug": "will-apple-release-a-new-product-line-before-2027",
       "direction": "bullish",
-      "materiality": 0.45,
+      "materiality": 0.55,
       "action": "stale",
-      "pct_move": 29.8,
-      "reflection": "I flagged Apple's product roadmap as bullish with moderate conviction, but dismissed the signal as stale without reconsidering whether the underlying thesis had actually aged or if I'd simply grown numb to it. The 30% move vindicated the directional call, which means I let process override judgment\u2014I should have asked whether \"stale\" meant the information was wrong, or just that I'd stopped actively monitoring it. This is a costly reminder that signal decay and signal irrelevance aren't the same thing."
+      "pct_move": 13.1,
+      "reflection": "I marked this signal stale without reassessing its core thesis\u2014that Apple's product pipeline before 2027 remained materially bullish\u2014and let recency bias override conviction. The 13% move validated that market pricing hadn't actually caught up to the probability I'd flagged at 0.55 materiality, meaning my \"stale\" label was a lazy way to avoid the friction of acting on a thesis I already believed in. I need to distinguish between stale *data* and stale *reasoning*; the latter is what I failed to check."
     },
     {
-      "time": "2026-07-04 22:00:21",
-      "market_question": "Will Trump say \"Hundred\" or \"Thousand\" 10+ times during Tribute to America Rally?",
-      "slug": "what-will-trump-say-during-the-tribute-to-america-rally-on-july-4th-20260630160619995",
+      "time": "2026-07-07 22:00:33",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "slug": "will-apple-release-a-new-product-line-before-2027",
       "direction": "bullish",
-      "materiality": 0.45,
+      "materiality": 0.55,
       "action": "stale",
-      "pct_move": 27.8,
-      "reflection": "I flagged this as stale data and passed, but I fundamentally misjudged the signal's relevance\u2014Trump's speaking patterns at rallies are remarkably consistent, and a 0.45 materiality threshold should have warranted at least a small position rather than complete avoidance. The 28% move in my predicted direction confirms my analysis was sound; I let process override conviction and missed a clean win because I was too rigid about data freshness rather than evaluating the actual predictive merit."
+      "pct_move": 13.1,
+      "reflection": "I passed on a bullish signal with moderate conviction (0.55 materiality) because I'd flagged the underlying data as stale, but I underweighted how Apple's product cycle visibility\u2014even from older sources\u2014tends to be directionally reliable. The 13% move vindicated the signal's core thesis, and I let data freshness become an excuse to ignore a reasonable probability edge that I should have at least sized into rather than skipped entirely. I need to distinguish between \"stale data reduces confidence\" and \"stale data invalidates the thesis\"\u2014they're not the same thing."
     }
   ],
   "pending_suggestions": [
