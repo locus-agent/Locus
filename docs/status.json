@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T06:11:48.447420+00:00",
-  "last_heartbeat": "2026-07-07T06:11:48.447420+00:00",
-  "uptime_seconds": 63916,
+  "generated_at": "2026-07-07T06:16:56.024945+00:00",
+  "last_heartbeat": "2026-07-07T06:16:56.024945+00:00",
+  "uptime_seconds": 64224,
   "dry_run": false,
-  "markets_tracked": 1336,
+  "markets_tracked": 1331,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10525,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 166,
+  "headlines_scanned_today": 188,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4634,
+  "classifications_24h": 4724,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1632,
+    "prefiltered_haiku": 1665,
     "cooldown_skip": 0,
-    "stale": 1,
+    "stale": 3,
     "capped": 3,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 416,
+    "price_target_market": 427,
     "coinflip_market": 0,
     "correlation_block": 12,
     "category_limit": 3,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T05:57:17.154718+00:00"
+    "last_check": "2026-07-07T06:12:17.543386+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1240,
-    "matched": 877,
-    "classified": 4634,
+    "news": 1262,
+    "matched": 895,
+    "classified": 4724,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2357.9
+    "avg_classification_latency_ms": 2361.6
   },
   "live_readiness": {
     "ready": true,
@@ -460,25 +460,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 05:59:18",
-      "market_question": "Will Trump flip the bird again in 2026?",
-      "headline": "Graffiti artist accused of scaling Australian bridge tower and painting giant cartoon bird - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 06:14:47",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "Gold eases as markets await Fed minutes for direction - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-07 05:57:08",
-      "market_question": "Will Donald Trump visit North Korea in 2026?",
-      "headline": "North Korea state media says Japan overseas aggression is reality, not hypothetical - Reuters",
+      "time": "2026-07-07 06:14:42",
+      "market_question": "Will Meta launch a USD stablecoin in 2026?",
+      "headline": "Gold eases as markets await Fed minutes for direction - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -487,14 +487,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 05:57:07",
-      "market_question": "Will Donald Trump visit Japan in 2026?",
-      "headline": "North Korea state media says Japan overseas aggression is reality, not hypothetical - Reuters",
+      "time": "2026-07-07 06:14:41",
+      "market_question": "USDC depeg by December 31?",
+      "headline": "Gold eases as markets await Fed minutes for direction - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 06:14:40",
+      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
+      "headline": "Gold eases as markets await Fed minutes for direction - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -508,25 +524,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 05:57:07",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "North Korea state media says Japan overseas aggression is reality, not hypothetical - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 05:57:07",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "North Korea state media says Japan overseas aggression is reality, not hypothetical - Reuters",
+      "time": "2026-07-07 06:14:40",
+      "market_question": "Will Trump sell 2.5k-5k Gold Cards in 2026?",
+      "headline": "Gold eases as markets await Fed minutes for direction - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
