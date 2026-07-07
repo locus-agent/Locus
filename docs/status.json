@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T13:38:36.367780+00:00",
-  "last_heartbeat": "2026-07-07T13:38:36.367780+00:00",
-  "uptime_seconds": 90724,
+  "generated_at": "2026-07-07T13:43:46.257053+00:00",
+  "last_heartbeat": "2026-07-07T13:43:46.257053+00:00",
+  "uptime_seconds": 91034,
   "dry_run": false,
-  "markets_tracked": 1349,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10558,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 508,
+  "headlines_scanned_today": 509,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4117,
-  "selectivity_pct": 0.0,
+  "classifications_24h": 3919,
+  "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1449,
+    "prefiltered_haiku": 1376,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 375,
+    "price_target_market": 344,
     "coinflip_market": 0,
     "correlation_block": 8,
     "category_limit": 6,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T13:27:34.461738+00:00"
+    "last_check": "2026-07-07T13:42:34.912095+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1113,
-    "matched": 897,
-    "classified": 4117,
+    "news": 1059,
+    "matched": 856,
+    "classified": 3919,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2402.4
+    "avg_classification_latency_ms": 2401.9
   },
   "live_readiness": {
     "ready": true,
@@ -238,7 +238,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.12250000000000005,
+      "current_price": 0.1225,
       "pnl_pct": 22.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.45,
@@ -460,6 +460,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-07 13:42:30",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "ECB tells banks to bolster AI cyber defences as peers take lighter approach - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-07 13:38:05",
       "market_question": "Will Bitcoin reach $100,000 in July?",
       "headline": "Bitcoin, XRP draw Japanese firms as weak yen drives treasury diversification",
@@ -510,22 +526,6 @@
     {
       "time": "2026-07-07 13:38:05",
       "market_question": "Will Bitcoin reach $82,500 in July?",
-      "headline": "Bitcoin, XRP draw Japanese firms as weak yen drives treasury diversification",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 13:38:05",
-      "market_question": "Will Bitcoin reach $75,000 in July?",
       "headline": "Bitcoin, XRP draw Japanese firms as weak yen drives treasury diversification",
       "direction": null,
       "materiality": null,
