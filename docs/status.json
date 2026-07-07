@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T13:28:19.683389+00:00",
-  "last_heartbeat": "2026-07-07T13:28:19.683389+00:00",
-  "uptime_seconds": 90107,
+  "generated_at": "2026-07-07T13:33:27.388471+00:00",
+  "last_heartbeat": "2026-07-07T13:33:27.388471+00:00",
+  "uptime_seconds": 90415,
   "dry_run": false,
-  "markets_tracked": 1349,
+  "markets_tracked": 1347,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10558,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 503,
+  "headlines_scanned_today": 505,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4144,
+  "classifications_24h": 4113,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1466,
+    "prefiltered_haiku": 1454,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1116,
-    "matched": 901,
-    "classified": 4144,
+    "news": 1112,
+    "matched": 897,
+    "classified": 4113,
     "signals": 2,
     "trades": 2
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -2.53,
-    "total_pnl_usd": 40.47,
+    "unrealized_pnl_usd": -1.65,
+    "total_pnl_usd": 41.34,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2402.9
+    "avg_classification_latency_ms": 2402.4
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.595,
-      "pnl_pct": -3.57,
+      "current_price": 0.58,
+      "pnl_pct": 0.0,
       "amount_usd": 24.99,
-      "current_value_usd": 24.1,
-      "pnl_usd": -0.89,
+      "current_value_usd": 24.99,
+      "pnl_usd": 0.0,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -210,11 +210,11 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.3,
+      "current_price": 0.30000000000000004,
       "pnl_pct": 3.45,
       "amount_usd": 8.555,
       "current_value_usd": 8.85,
-      "pnl_usd": 0.29,
+      "pnl_usd": 0.3,
       "edge_type": "news",
       "event_id": "528413"
     },
@@ -238,11 +238,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1245,
-      "pnl_pct": 24.5,
+      "current_price": 0.1235,
+      "pnl_pct": 23.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.49,
-      "pnl_usd": 0.49,
+      "current_value_usd": 2.47,
+      "pnl_usd": 0.47,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -460,6 +460,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-07 13:31:30",
+      "market_question": "Will Donald Trump attend NATO Summit?",
+      "headline": "Ex-NATO chief says UK may get 'frosty' Ankara welcome in absence of 3.5% plan - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-07 13:27:06",
       "market_question": "Will Donald Trump attend NATO Summit?",
       "headline": "Zelensky presses Nato for air defence systems after intense Russian strikes",
@@ -510,22 +526,6 @@
     {
       "time": "2026-07-07 13:27:06",
       "market_question": "Trump, Putin, and Zelensky seen together before 2027?",
-      "headline": "Zelensky presses Nato for air defence systems after intense Russian strikes",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 13:27:06",
-      "market_question": "Trump, Putin, and Zelensky meet together before 2027?",
       "headline": "Zelensky presses Nato for air defence systems after intense Russian strikes",
       "direction": null,
       "materiality": null,
