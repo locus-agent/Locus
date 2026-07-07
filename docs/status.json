@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T04:54:42.542090+00:00",
-  "last_heartbeat": "2026-07-07T04:54:42.542090+00:00",
-  "uptime_seconds": 59290,
+  "generated_at": "2026-07-07T04:59:54.768120+00:00",
+  "last_heartbeat": "2026-07-07T04:59:54.768120+00:00",
+  "uptime_seconds": 59602,
   "dry_run": false,
-  "markets_tracked": 1349,
+  "markets_tracked": 1345,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10525,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 127,
+  "headlines_scanned_today": 128,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4553,
+  "classifications_24h": 4548,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1604,
+    "prefiltered_haiku": 1603,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 3,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T04:42:14.986602+00:00"
+    "last_check": "2026-07-07T04:57:15.420940+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1220,
-    "matched": 859,
-    "classified": 4553,
+    "news": 1219,
+    "matched": 858,
+    "classified": 4548,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2317.5
+    "avg_classification_latency_ms": 2316.0
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.29500000000000004,
+      "current_price": 0.295,
       "pnl_pct": 1.72,
       "amount_usd": 8.555,
       "current_value_usd": 8.7,
@@ -446,9 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 04:53:34",
-      "market_question": "Will China unban Bitcoin by 2027?",
-      "headline": "China sentences official to death for taking $325m in bribes",
+      "time": "2026-07-07 04:55:45",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "headline": "Meta says US states are seeking $1.4 trillion in penalties in August youth safety trial - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -462,9 +462,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 04:53:32",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "China sentences official to death for taking $325m in bribes",
+      "time": "2026-07-07 04:55:45",
+      "market_question": "Will OpenAI IPO by August 31 2026?",
+      "headline": "Meta says US states are seeking $1.4 trillion in penalties in August youth safety trial - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 04:55:43",
+      "market_question": "Will Meta have the best AI model at the end of July 2026?",
+      "headline": "Meta says US states are seeking $1.4 trillion in penalties in August youth safety trial - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -478,52 +494,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 04:49:11",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "No clear favourites for World Cup, says Argentina's Scaloni ahead of Egypt clash - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-07 04:55:43",
+      "market_question": "Ukraine election called by August 31, 2026?",
+      "headline": "Meta says US states are seeking $1.4 trillion in penalties in August youth safety trial - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-07 04:49:11",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "No clear favourites for World Cup, says Argentina's Scaloni ahead of Egypt clash - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-07 04:55:43",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Meta says US states are seeking $1.4 trillion in penalties in August youth safety trial - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-07 04:49:11",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "No clear favourites for World Cup, says Argentina's Scaloni ahead of Egypt clash - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
