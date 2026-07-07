@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T19:30:46.968208+00:00",
-  "last_heartbeat": "2026-07-07T19:30:46.968208+00:00",
-  "uptime_seconds": 10048,
+  "generated_at": "2026-07-07T19:35:56.132488+00:00",
+  "last_heartbeat": "2026-07-07T19:35:56.132488+00:00",
+  "uptime_seconds": 10357,
   "dry_run": false,
-  "markets_tracked": 1351,
+  "markets_tracked": 1352,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10594,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1049,
+  "headlines_scanned_today": 1054,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4821,
+  "classifications_24h": 4832,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1820,
+    "prefiltered_haiku": 1824,
     "cooldown_skip": 0,
     "stale": 8,
     "capped": 5,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T19:16:21.898452+00:00"
+    "last_check": "2026-07-07T19:31:22.288133+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1280,
-    "matched": 884,
-    "classified": 4821,
+    "news": 1283,
+    "matched": 886,
+    "classified": 4832,
     "signals": 1,
     "trades": 1
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": 1.39,
-    "total_pnl_usd": 44.38,
+    "unrealized_pnl_usd": 1.98,
+    "total_pnl_usd": 44.97,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1870.1
+    "avg_classification_latency_ms": 1870.6
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.52,
-      "pnl_pct": 14.29,
+      "current_price": 0.51,
+      "pnl_pct": 16.67,
       "amount_usd": 24.99,
-      "current_value_usd": 28.56,
-      "pnl_usd": 3.57,
+      "current_value_usd": 29.16,
+      "pnl_usd": 4.17,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -210,11 +210,11 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.3,
+      "current_price": 0.30000000000000004,
       "pnl_pct": 3.45,
       "amount_usd": 8.555,
       "current_value_usd": 8.85,
-      "pnl_usd": 0.29,
+      "pnl_usd": 0.3,
       "edge_type": "news",
       "event_id": "528413"
     },
@@ -460,9 +460,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 19:28:47",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "headline": "Mamdani says Platner should drop out of Maine's Senate race after sexual assault allegation - AP News",
+      "time": "2026-07-07 19:35:19",
+      "market_question": "Will Trump meet with Benjamin Netanyahu in July 2026?",
+      "headline": "Israel's Netanyahu tells CNN he and Trump align on big things over Iran - Reuters",
       "direction": "neutral",
       "materiality": 0.1,
       "confidence": 0.5,
@@ -471,30 +471,30 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.03,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 19:28:45",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "Mamdani says Platner should drop out of Maine's Senate race after sexual assault allegation - AP News",
-      "direction": "bearish",
-      "materiality": 0.52,
-      "confidence": 0.58,
-      "edge": 0.299,
-      "fee_cost": 0.0,
+      "time": "2026-07-07 19:35:19",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "Israel's Netanyahu tells CNN he and Trump align on big things over Iran - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
       "time_horizon": "long_term",
-      "adjusted_materiality": 0.45,
-      "action": "correlation_block",
-      "match_source": "keyword",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 19:28:39",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "Mamdani says Platner should drop out of Maine's Senate race after sexual assault allegation - AP News",
+      "time": "2026-07-07 19:35:14",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Israel's Netanyahu tells CNN he and Trump align on big things over Iran - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -508,9 +508,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 19:28:39",
-      "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
-      "headline": "Mamdani says Platner should drop out of Maine's Senate race after sexual assault allegation - AP News",
+      "time": "2026-07-07 19:35:14",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Israel's Netanyahu tells CNN he and Trump align on big things over Iran - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -524,9 +524,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 19:28:39",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "Mamdani says Platner should drop out of Maine's Senate race after sexual assault allegation - AP News",
+      "time": "2026-07-07 19:35:14",
+      "market_question": "Netanyahu drops out of Israel election by July 31?",
+      "headline": "Israel's Netanyahu tells CNN he and Trump align on big things over Iran - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -535,7 +535,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
