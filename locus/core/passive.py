@@ -250,14 +250,12 @@ def _open_from_fill(row: dict, filled_shares: float, summary: dict) -> None:
         actual_cost_usd=cost, token_count=filled_shares,
     )
     logger.update_trade_status(row["trade_id"], "executed")
-    telegram_bot.notify_position_opened({
+    telegram_bot.notify_passive_filled({
         "market_question": market.question,
         "side": row["side"],
-        "entry_yes_price": market.yes_price,
-        "amount_usd": row["bet_amount"],
+        "price": row["limit_price"],
+        "token_count": filled_shares,
         "actual_cost_usd": cost,
-        "edge": None,
-        "confidence": None,
     })
     summary["filled"] += 1
     log.info(
@@ -307,6 +305,9 @@ def _finish_partial(row: dict, filled_shares: float, summary: dict,
         logger.update_trade_status(row["trade_id"], f"passive_{cause}")
         summary[cause] += 1
         _release(row, summary)
+        telegram_bot.notify_passive_expired(
+            row.get("market_question") or "", 0.0, reason=cause
+        )
         log.info(
             "[passive] passive_%s: order %s on \"%s\" cancelled unfilled — "
             "headline released", cause, row["order_id"],
@@ -352,6 +353,9 @@ def _resolve_vanished(client, row: dict, summary: dict) -> None:
         logger.update_trade_status(row["trade_id"], "passive_expired")
         summary["expired"] += 1
         _release(row, summary)
+        telegram_bot.notify_passive_expired(
+            row.get("market_question") or "", 0.0, reason="expired"
+        )
         log.warning(
             "[passive] order %s vanished with nothing held — released "
             "(row %s expired)", row["order_id"], row["id"],

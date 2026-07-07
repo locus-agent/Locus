@@ -102,28 +102,91 @@ def notify_position_opened(position: dict) -> bool:
     return _send(text)
 
 
+def _shares(n: float) -> str:
+    """Compact share-count display: 12.0 -> '12', 12.5 -> '12.5'."""
+    return f"{n:g}"
+
+
 def notify_position_closed(position: dict, pnl_pct: float, pnl_usd: float, reason: str) -> bool:
     """🔴 a position fully closed. Clears any drawdown-alert dedup for it.
 
     `pnl_pct` arrives from positions._close already as the realized return on
     the closed chunk's ACTUAL cost (the fill basis), so it is displayed as-is —
-    rebasing it again via pnl_pct_on_cost would double-adjust."""
+    rebasing it again via pnl_pct_on_cost would double-adjust.
+
+    `position['realized_pnl_usd']` is the position's CUMULATIVE realized PnL
+    including this final chunk (the same basis calibration-report reads). When
+    earlier half-closes made the total differ from this chunk, both are shown
+    so the final chunk's number doesn't read as the whole position's result."""
     _drawdown_alerted.discard(position.get("id"))
+    total = position.get("realized_pnl_usd")
+    lines = ["🔴 CLOSED", f"Market: {_q(position)}"]
+    if total is not None and abs(total - pnl_usd) > 0.005:
+        lines.append(f"This close: {pnl_usd:+.2f} ({pnl_pct:+.2f}%) | Reason: {reason}")
+        lines.append(f"Position total: {total:+.2f} (incl. earlier partial sales)")
+    else:
+        lines.append(f"PnL: {pnl_usd:+.2f} ({pnl_pct:+.2f}%) | Reason: {reason}")
+    return _send("\n".join(lines))
+
+
+def notify_half_closed(position: dict, pnl_pct: float, pnl_usd: float) -> bool:
+    """🟡 part of the position was realized, the rest left to ride.
+
+    `pnl_usd`/`pnl_pct` are THIS chunk's realized return on the sold chunk's
+    cost; `position` carries the post-close state — realized_pnl_usd (cumulative
+    on this position so far), token_count and amount_usd (the remainder). A
+    near-zero chunk is normal: Polymarket has no trading fees, so the spread is
+    the only cost and it can eat the whole gain."""
+    total = position.get("realized_pnl_usd")
+    total = pnl_usd if total is None else total
+    spread_note = " (spread)" if abs(pnl_usd) < 0.01 else ""
+    tokens = position.get("token_count")
+    amount = position.get("amount_usd") or 0.0
+    if tokens:
+        open_line = f"Still open: {_shares(tokens)} tokens (~${amount:.0f}) riding"
+    else:
+        open_line = f"Still open: ~${amount:.0f} riding"
     text = (
-        "🔴 CLOSED\n"
+        "🟡 HALF CLOSED\n"
         f"Market: {_q(position)}\n"
-        f"PnL: {pnl_usd:+.2f} ({pnl_pct:+.2f}%) | Reason: {reason}"
+        f"This sale: {pnl_usd:+.2f} ({pnl_pct:+.1f}%){spread_note}\n"
+        f"Position total realized so far: {total:+.2f}\n"
+        f"{open_line}"
     )
     return _send(text)
 
 
-def notify_half_closed(position: dict, pnl_pct: float, pnl_usd: float) -> bool:
-    """🟡 half the position was realized, the rest left to ride."""
+def notify_passive_filled(position: dict) -> bool:
+    """🔵 a resting passive limit order filled — the position is now open.
+    `position` carries market_question, side, price (the side-token limit
+    price the fill happened at), token_count, and actual_cost_usd."""
+    price = position.get("price")
+    tokens = position.get("token_count") or 0.0
+    cost = position.get("actual_cost_usd") or position.get("amount_usd") or 0.0
+    price_part = f" | Entry: {price:.3f}" if price is not None else ""
     text = (
-        "🟡 HALF CLOSED\n"
+        "🔵 PASSIVE FILL\n"
         f"Market: {_q(position)}\n"
-        f"Locked: ${pnl_usd:.2f} ({pnl_pct:+.1f}%)"
+        f"Side: {position.get('side', '?')}{price_part}\n"
+        f"Filled: {_shares(tokens)} tokens for ${cost:.2f}"
     )
+    return _send(text)
+
+
+def notify_passive_expired(market_question: str, filled_tokens: float,
+                           reason: str = "expired") -> bool:
+    """⚪ a resting passive limit order ended without becoming a (full)
+    position: `reason` is 'expired' (timeout) or 'chased_away' (the ask ran
+    away from our limit). A viable partial fill that DID open a position is
+    announced by notify_passive_filled instead; this covers the nothing-opened
+    endings, plus a defensive partial-fill wording if ever called with one."""
+    header = f"⚪ PASSIVE {reason.replace('_', ' ').upper()}"
+    if filled_tokens and filled_tokens > 0:
+        detail = (f"Partial fill: {_shares(filled_tokens)} tokens "
+                  "opened as a position")
+    else:
+        detail = "No fill — nothing opened"
+    text = f"{header}\nMarket: {market_question}\n{detail}"
     return _send(text)
 
 

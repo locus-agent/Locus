@@ -81,6 +81,8 @@ def test_disabled_is_noop(monkeypatch, token, chat):
     assert telegram_bot.notify_half_closed(pos, 5.0, 1.0) is False
     assert telegram_bot.notify_daily_summary({"opened": 1, "closed": 0}) is False
     assert telegram_bot.notify_drawdown_alert({"id": 1, **pos}, -30.0) is False
+    assert telegram_bot.notify_passive_filled(pos) is False
+    assert telegram_bot.notify_passive_expired("Q", 0.0) is False
 
 
 def test_start_bot_polling_noop_when_disabled(monkeypatch):
@@ -169,12 +171,105 @@ def test_notify_position_closed_pct_shown_as_is(enabled):
 
 
 def test_notify_half_closed_format(enabled):
-    pos = {"market_question": "Will X?"}
+    # Three-line picture: this chunk's realized, the position's cumulative
+    # realized so far, and what's still riding.
+    pos = {"market_question": "Will X?", "realized_pnl_usd": 3.0,
+           "token_count": 20.0, "amount_usd": 10.0}
     assert telegram_bot.notify_half_closed(pos, 20.0, 3.0) is True
     assert enabled[-1] == (
         "🟡 HALF CLOSED\n"
         "Market: Will X?\n"
-        "Locked: $3.00 (+20.0%)"
+        "This sale: +3.00 (+20.0%)\n"
+        "Position total realized so far: +3.00\n"
+        "Still open: 20 tokens (~$10) riding"
+    )
+
+
+def test_notify_half_closed_near_zero_chunk_reads_as_spread(enabled):
+    # A ~$0 chunk is correct (the spread ate the profit — Polymarket has no
+    # fees); the message notes the spread instead of looking broken.
+    pos = {"market_question": "Will X?", "realized_pnl_usd": 1.2,
+           "token_count": 15.0, "amount_usd": 8.0}
+    assert telegram_bot.notify_half_closed(pos, -0.04, -0.004) is True
+    assert enabled[-1] == (
+        "🟡 HALF CLOSED\n"
+        "Market: Will X?\n"
+        "This sale: -0.00 (-0.0%) (spread)\n"
+        "Position total realized so far: +1.20\n"
+        "Still open: 15 tokens (~$8) riding"
+    )
+
+
+def test_notify_half_closed_without_token_count(enabled):
+    # Dry-run/legacy rows have no token_count — the riding line degrades to
+    # dollars only, and the cumulative falls back to this chunk.
+    pos = {"market_question": "Will X?", "amount_usd": 12.5}
+    assert telegram_bot.notify_half_closed(pos, 20.0, 2.5) is True
+    assert "Still open: ~$12 riding" in enabled[-1]
+    assert "Position total realized so far: +2.50" in enabled[-1]
+
+
+def test_notify_position_closed_shows_total_after_partials(enabled):
+    # A full close after earlier half-closes: the final chunk and the
+    # position's cumulative realized differ — show both.
+    pos = {"market_question": "Will X?", "realized_pnl_usd": 5.0}
+    assert telegram_bot.notify_position_closed(pos, 40.0, 2.0, "manual") is True
+    assert enabled[-1] == (
+        "🔴 CLOSED\n"
+        "Market: Will X?\n"
+        "This close: +2.00 (+40.00%) | Reason: manual\n"
+        "Position total: +5.00 (incl. earlier partial sales)"
+    )
+
+
+def test_notify_position_closed_simple_when_total_matches_chunk(enabled):
+    # No prior partial realizations: cumulative == chunk -> keep it simple.
+    pos = {"market_question": "Will X?", "realized_pnl_usd": -4.5}
+    assert telegram_bot.notify_position_closed(pos, -12.3, -4.5, "sl") is True
+    assert enabled[-1] == (
+        "🔴 CLOSED\n"
+        "Market: Will X?\n"
+        "PnL: -4.50 (-12.30%) | Reason: sl"
+    )
+
+
+def test_notify_passive_filled_format(enabled):
+    pos = {"market_question": "Will X?", "side": "YES", "price": 0.41,
+           "token_count": 24.0, "actual_cost_usd": 9.84}
+    assert telegram_bot.notify_passive_filled(pos) is True
+    assert enabled[-1] == (
+        "🔵 PASSIVE FILL\n"
+        "Market: Will X?\n"
+        "Side: YES | Entry: 0.410\n"
+        "Filled: 24 tokens for $9.84"
+    )
+
+
+def test_notify_passive_expired_no_fill(enabled):
+    assert telegram_bot.notify_passive_expired("Will X?", 0.0) is True
+    assert enabled[-1] == (
+        "⚪ PASSIVE EXPIRED\n"
+        "Market: Will X?\n"
+        "No fill — nothing opened"
+    )
+
+
+def test_notify_passive_expired_partial_fill_wording(enabled):
+    assert telegram_bot.notify_passive_expired("Will X?", 12.0) is True
+    assert enabled[-1] == (
+        "⚪ PASSIVE EXPIRED\n"
+        "Market: Will X?\n"
+        "Partial fill: 12 tokens opened as a position"
+    )
+
+
+def test_notify_passive_chased_away(enabled):
+    assert telegram_bot.notify_passive_expired("Will X?", 0.0,
+                                               reason="chased_away") is True
+    assert enabled[-1] == (
+        "⚪ PASSIVE CHASED AWAY\n"
+        "Market: Will X?\n"
+        "No fill — nothing opened"
     )
 
 
@@ -209,6 +304,42 @@ def test_notify_drawdown_alert_format_and_dedup(enabled):
     # Closing it clears the dedup, so a future drawdown can alert again.
     telegram_bot.notify_position_closed(pos, -35.0, -5.0, "sl")
     assert telegram_bot.notify_drawdown_alert(pos, -40.0) is True
+
+
+def test_close_notifications_cumulative_through_real_path(tmp_db, enabled, monkeypatch):
+    # End-to-end through positions._close: a half close then the full close.
+    # The half-close message must show this chunk AND the cumulative realized;
+    # the final close must show both the last chunk and the position total —
+    # all on the same realized_pnl_usd basis calibration-report reads.
+    import json
+    market = types.SimpleNamespace(
+        condition_id="c1", question="Will X happen?", slug="", yes_price=0.5,
+        event_id="", category="crypto", end_date="", volume=5000,
+    )
+    positions_mod.open_position(1, market, "YES", 25.0, token_count=50.0)
+    pos = positions_mod.get_open_positions()[0]
+
+    def create(**kwargs):
+        text = json.dumps({"decision": "close_half", "reasoning": "r"})
+        return types.SimpleNamespace(content=[types.SimpleNamespace(text=text)])
+    fake = types.SimpleNamespace(messages=types.SimpleNamespace(create=create))
+    monkeypatch.setattr(positions_mod.anthropic, "Anthropic", lambda api_key=None: fake)
+
+    # Half close at 0.60: 25 of 50 tokens sold, +$2.50 on a $12.50 chunk.
+    positions_mod.reevaluate(pos, trigger="news_reeval", yes_price=0.60)
+    assert enabled[-1] == (
+        "🟡 HALF CLOSED\n"
+        "Market: Will X happen?\n"
+        "This sale: +2.50 (+20.0%)\n"
+        "Position total realized so far: +2.50\n"
+        "Still open: 25 tokens (~$12) riding"
+    )
+
+    # Full close of the remainder at the marked 0.60: another +$2.50 chunk,
+    # position total +$5.00 — both shown.
+    positions_mod.close_manual(pos["id"])
+    assert "This close: +2.50 (+20.00%)" in enabled[-1]
+    assert "Position total: +5.00 (incl. earlier partial sales)" in enabled[-1]
 
 
 # --- Interactive views -------------------------------------------------------

@@ -1056,11 +1056,17 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
 
     # Real-time notification — single choke point for every close path (manual,
     # resolution, stop, hard exit, re-eval, half close). The % is the realized
-    # return on the closed chunk's actual cost.
+    # return on the closed chunk's actual cost. The dict is synced to the row
+    # just written so the notification describes post-close state: cumulative
+    # realized including this chunk, and (on a half close) the remainder's
+    # basis and token count.
     realized_pct = realized / chunk_cost * 100.0 if chunk_cost > 0 else 0.0
+    position["realized_pnl_usd"] = (position.get("realized_pnl_usd") or 0.0) + realized
     if fraction >= 1.0:
         telegram_bot.notify_position_closed(position, realized_pct, realized, exit_reason)
     else:
+        position["amount_usd"] = amount * (1.0 - sold_fraction)
+        position["token_count"] = new_token_count
         telegram_bot.notify_half_closed(position, realized_pct, realized)
     return realized
 

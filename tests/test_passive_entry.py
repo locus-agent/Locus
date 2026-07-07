@@ -510,6 +510,66 @@ def test_no_chase_when_ask_within_threshold(tmp_db, monkeypatch):
     assert _pending_rows("pending")   # still resting
 
 
+# --- Telegram wiring -----------------------------------------------------------
+
+def _capture_telegram(monkeypatch):
+    """Capture passive-lifecycle Telegram notifications instead of sending."""
+    from locus.core import telegram_bot
+    calls = {"filled": [], "expired": []}
+    monkeypatch.setattr(telegram_bot, "notify_passive_filled",
+                        lambda position: calls["filled"].append(position) or True)
+    monkeypatch.setattr(
+        telegram_bot, "notify_passive_expired",
+        lambda q, tokens, reason="expired":
+        calls["expired"].append((q, tokens, reason)) or True,
+    )
+    return calls
+
+
+def test_fill_sends_passive_fill_notification(tmp_db, monkeypatch):
+    _seed_pending(tmp_db)
+    calls = _capture_telegram(monkeypatch)
+    client = LifecycleClient(order={"status": "MATCHED", "size_matched": "24"})
+
+    passive.check_pending_orders(client=client)
+
+    [note] = calls["filled"]
+    assert note["market_question"] == "Will X happen?"
+    assert note["side"] == "YES"
+    assert note["price"] == pytest.approx(0.41)
+    assert note["token_count"] == pytest.approx(24.0)
+    assert note["actual_cost_usd"] == pytest.approx(9.84)
+    assert calls["expired"] == []
+
+
+def test_expiry_sends_passive_expired_notification(tmp_db, monkeypatch):
+    _seed_pending(tmp_db, hours_to_expiry=-0.1)
+    _stub_cancel(monkeypatch)
+    calls = _capture_telegram(monkeypatch)
+    client = LifecycleClient(order={"status": "LIVE", "size_matched": "0"})
+
+    passive.check_pending_orders(client=client)
+
+    assert calls["expired"] == [("Will X happen?", 0.0, "expired")]
+    assert calls["filled"] == []
+
+
+def test_chase_away_sends_passive_expired_notification(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PASSIVE_CHASE_AWAY_PCT", 10.0)
+    _seed_pending(tmp_db, hours_to_expiry=6.0)
+    _stub_cancel(monkeypatch)
+    calls = _capture_telegram(monkeypatch)
+    client = LifecycleClient(
+        order={"status": "LIVE", "size_matched": "0"},
+        book=SimpleNamespace(bids=[_level(0.44, 500)], asks=[_level(0.50, 500)]),
+    )
+
+    passive.check_pending_orders(client=client)
+
+    assert calls["expired"] == [("Will X happen?", 0.0, "chased_away")]
+    assert calls["filled"] == []
+
+
 # --- crash-restart reconciliation (both directions) ---------------------------
 
 def test_startup_reconcile_opens_fill_that_happened_while_down(tmp_db, monkeypatch):
