@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-07T11:24:58.622918+00:00",
-  "last_heartbeat": "2026-07-07T11:24:58.622918+00:00",
-  "uptime_seconds": 82706,
+  "generated_at": "2026-07-07T11:30:06.592270+00:00",
+  "last_heartbeat": "2026-07-07T11:30:06.592270+00:00",
+  "uptime_seconds": 83014,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1349,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10534,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 372,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 378,
+  "headlines_last_cycle": 2,
   "signals_24h": 2,
-  "classifications_24h": 4620,
+  "classifications_24h": 4627,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1665,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 419,
+    "price_target_market": 424,
     "coinflip_market": 0,
     "correlation_block": 12,
     "category_limit": 4,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-07T11:12:26.508686+00:00"
+    "last_check": "2026-07-07T11:27:26.884525+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1230,
-    "matched": 966,
-    "classified": 4620,
+    "news": 1235,
+    "matched": 969,
+    "classified": 4627,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2388.9
+    "avg_classification_latency_ms": 2393.9
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.58,
+      "current_price": 0.5800000000000001,
       "pnl_pct": 0.0,
       "amount_usd": 24.99,
       "current_value_usd": 24.99,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -210,7 +210,7 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.29500000000000004,
+      "current_price": 0.295,
       "pnl_pct": 1.72,
       "amount_usd": 8.555,
       "current_value_usd": 8.7,
@@ -460,9 +460,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 11:19:40",
-      "market_question": "Will Morgan Stanley or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Stanley McChrystal - Politico",
+      "time": "2026-07-07 11:28:41",
+      "market_question": "Will Donald Trump visit Italy in 2026?",
+      "headline": "Italy's Meloni seeks to avoid escalation after Trump revives personal feud - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 11:28:41",
+      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
+      "headline": "Two tankers damaged near Strait of Hormuz after reports of Iranian missile fire, sources say - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -476,68 +492,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 11:19:40",
-      "market_question": "Will Morgan Stanley or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?Will Morgan Stanley or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Stanley McChrystal - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 11:28:40",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Italy's Meloni seeks to avoid escalation after Trump revives personal feud - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-07 11:17:28",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "Public to be asked who should pay for social care as part of major review",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 11:28:36",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Italy's Meloni seeks to avoid escalation after Trump revives personal feud - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-07 11:17:28",
-      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
-      "headline": "Public to be asked who should pay for social care as part of major review",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-07 11:28:36",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Italy's Meloni seeks to avoid escalation after Trump revives personal feud - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-07 11:17:28",
-      "market_question": "Will the Swedish Social Democratic Party (S) win the most seats in the 2026 Swedish parliamentary election?",
-      "headline": "Public to be asked who should pay for social care as part of major review",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
