@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-07T15:52:27.370379+00:00",
-  "last_heartbeat": "2026-07-07T15:52:27.370379+00:00",
-  "uptime_seconds": 98755,
+  "generated_at": "2026-07-07T15:57:35.122907+00:00",
+  "last_heartbeat": "2026-07-07T15:57:35.122907+00:00",
+  "uptime_seconds": 99063,
   "dry_run": false,
   "markets_tracked": 1347,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 611,
+  "headlines_scanned_today": 614,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
   "classifications_24h": 3746,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1339,
+    "prefiltered_haiku": 1335,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 2,
@@ -121,7 +121,7 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1003,
+    "news": 1004,
     "matched": 814,
     "classified": 3746,
     "signals": 2,
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": 3.72,
-    "total_pnl_usd": 46.71,
+    "unrealized_pnl_usd": 2.83,
+    "total_pnl_usd": 45.82,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2427.1
+    "avg_classification_latency_ms": 2426.0
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.485,
-      "pnl_pct": 22.62,
+      "current_price": 0.5,
+      "pnl_pct": 19.05,
       "amount_usd": 24.99,
-      "current_value_usd": 30.64,
-      "pnl_usd": 5.65,
+      "current_value_usd": 29.75,
+      "pnl_usd": 4.76,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -210,11 +210,11 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.3,
+      "current_price": 0.30000000000000004,
       "pnl_pct": 3.45,
       "amount_usd": 8.555,
       "current_value_usd": 8.85,
-      "pnl_usd": 0.29,
+      "pnl_usd": 0.3,
       "edge_type": "news",
       "event_id": "528413"
     },
@@ -460,9 +460,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 15:49:43",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Rodri sorry after World Cup spat with longtime Man City teammate Bernardo Silva - AP News",
+      "time": "2026-07-07 15:56:24",
+      "market_question": "Will Donald Trump attend NATO Summit?",
+      "headline": "Thank you!NATO is stronger because Trump demanded more:",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.15,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-07 15:56:17",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Thank you!NATO is stronger because Trump demanded more:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -476,9 +492,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 15:49:42",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Rodri sorry after World Cup spat with longtime Man City teammate Bernardo Silva - AP News",
+      "time": "2026-07-07 15:56:17",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Thank you!NATO is stronger because Trump demanded more:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -492,9 +508,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 15:49:42",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Rodri sorry after World Cup spat with longtime Man City teammate Bernardo Silva - AP News",
+      "time": "2026-07-07 15:56:17",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Thank you!NATO is stronger because Trump demanded more:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -508,25 +524,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-07 15:49:42",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Rodri sorry after World Cup spat with longtime Man City teammate Bernardo Silva - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-07 15:49:42",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Rodri sorry after World Cup spat with longtime Man City teammate Bernardo Silva - AP News",
+      "time": "2026-07-07 15:56:17",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Thank you!NATO is stronger because Trump demanded more:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
