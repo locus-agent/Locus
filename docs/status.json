@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-07T08:30:05.257706+00:00",
-  "last_heartbeat": "2026-07-07T08:30:05.257706+00:00",
-  "uptime_seconds": 72213,
+  "generated_at": "2026-07-07T08:35:12.757590+00:00",
+  "last_heartbeat": "2026-07-07T08:35:12.757590+00:00",
+  "uptime_seconds": 72520,
   "dry_run": false,
-  "markets_tracked": 1348,
+  "markets_tracked": 1347,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 10525,
+    "total": 10534,
     "accuracy": 18.3,
     "by_category": {
       "other": 16.2,
@@ -17,19 +17,19 @@
       "sports": 26.2
     },
     "by_source": {
-      "rss": 18.8,
+      "rss": 18.7,
       "newsapi": 17.4,
       "truthsocial": 7.0
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.3,
-    "overall_total": 10525,
+    "overall_total": 10534,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5855,
+        "total": 5858,
         "correct": 412,
         "accuracy_pct": 7.0,
         "avg_pnl_pct": 9.74,
@@ -38,19 +38,19 @@
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 981,
+        "total": 983,
         "correct": 341,
-        "accuracy_pct": 34.8,
-        "avg_pnl_pct": 22.14,
+        "accuracy_pct": 34.7,
+        "avg_pnl_pct": 22.09,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1139,
+        "total": 1141,
         "correct": 445,
-        "accuracy_pct": 39.1,
-        "avg_pnl_pct": 5.65,
+        "accuracy_pct": 39.0,
+        "avg_pnl_pct": 5.62,
         "color": "green"
       },
       {
@@ -74,7 +74,7 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1302,
+        "total": 1304,
         "correct": 240,
         "accuracy_pct": 18.4,
         "avg_pnl_pct": -2.88,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 236,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 239,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 4694,
+  "classifications_24h": 4704,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1685,
+    "prefiltered_haiku": 1686,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 3,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 420,
+    "price_target_market": 425,
     "coinflip_market": 0,
     "correlation_block": 12,
     "category_limit": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1248,
-    "matched": 894,
-    "classified": 4694,
+    "news": 1251,
+    "matched": 896,
+    "classified": 4704,
     "signals": 2,
     "trades": 2
   },
@@ -224,7 +224,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03600000000000003,
+      "current_price": 0.036000000000000004,
       "pnl_pct": -8.45,
       "amount_usd": 0.7176150234741786,
       "current_value_usd": 0.66,
@@ -460,25 +460,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-07 08:26:23",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Erika Kirk comes face-to-face in court with husband's alleged killer",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-07 08:26:22",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Erika Kirk comes face-to-face in court with husband's alleged killer",
+      "time": "2026-07-07 08:35:10",
+      "market_question": "Will Bitcoin reach $100,000 in July?",
+      "headline": "Two traders sue Polymarket over disputed resolution of Strategy bitcoin sale market",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -486,15 +470,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 08:26:22",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Erika Kirk comes face-to-face in court with husband's alleged killer",
+      "time": "2026-07-07 08:35:10",
+      "market_question": "Will Bitcoin reach $65,000 in July?",
+      "headline": "Two traders sue Polymarket over disputed resolution of Strategy bitcoin sale market",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -502,15 +486,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 08:26:22",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Erika Kirk comes face-to-face in court with husband's alleged killer",
+      "time": "2026-07-07 08:35:10",
+      "market_question": "Will Bitcoin reach $82,500 in July?",
+      "headline": "Two traders sue Polymarket over disputed resolution of Strategy bitcoin sale market",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -518,15 +502,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-07 08:26:22",
-      "market_question": "Will Trump meet with Nick Fuentes in 2026?",
-      "headline": "Erika Kirk comes face-to-face in court with husband's alleged killer",
+      "time": "2026-07-07 08:35:10",
+      "market_question": "Will Bitcoin reach $67,500 in July?",
+      "headline": "Two traders sue Polymarket over disputed resolution of Strategy bitcoin sale market",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -534,7 +518,23 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-07 08:35:10",
+      "market_question": "Will Bitcoin reach $75,000 in July?",
+      "headline": "Two traders sue Polymarket over disputed resolution of Strategy bitcoin sale market",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
