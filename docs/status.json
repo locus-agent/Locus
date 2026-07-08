@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T17:27:39.758484+00:00",
-  "last_heartbeat": "2026-07-08T17:27:39.758484+00:00",
-  "uptime_seconds": 11823,
+  "generated_at": "2026-07-08T17:32:48.768082+00:00",
+  "last_heartbeat": "2026-07-08T17:32:48.768082+00:00",
+  "uptime_seconds": 12132,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1341,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10690,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 925,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 927,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 5148,
+  "classifications_24h": 5153,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1696,
+    "prefiltered_haiku": 1698,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 1,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1331,
-    "matched": 873,
-    "classified": 5148,
+    "matched": 874,
+    "classified": 5153,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2386.2
+    "avg_classification_latency_ms": 2383.3
   },
   "live_readiness": {
     "ready": true,
@@ -446,25 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 17:26:00",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "US officials compiling 'menu' of Spanish goods, as Trump weighs embargo - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:25:56",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "US officials compiling 'menu' of Spanish goods, as Trump weighs embargo - Politico",
+      "time": "2026-07-08 17:32:31",
+      "market_question": "Will Michel-Edouard Leclerc be on the ballot for the 2027 French presidential election?",
+      "headline": "A timeline of Marine Le Pen\u2019s political career and the rise of the French far right - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -473,14 +457,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:25:56",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "US officials compiling 'menu' of Spanish goods, as Trump weighs embargo - Politico",
+      "time": "2026-07-08 17:32:31",
+      "market_question": "Will Marine Tondelier be the joint left nominee for the 2027 French presidential election?",
+      "headline": "A timeline of Marine Le Pen\u2019s political career and the rise of the French far right - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -489,14 +473,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:25:56",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "US officials compiling 'menu' of Spanish goods, as Trump weighs embargo - Politico",
+      "time": "2026-07-08 17:32:31",
+      "market_question": "Will Lydie Massard be the joint left nominee for the 2027 French presidential election?",
+      "headline": "A timeline of Marine Le Pen\u2019s political career and the rise of the French far right - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -505,14 +489,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:25:55",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "US officials compiling 'menu' of Spanish goods, as Trump weighs embargo - Politico",
+      "time": "2026-07-08 17:32:31",
+      "market_question": "Will Cl\u00e9mentine Autain be the joint left nominee for the 2027 French presidential election?",
+      "headline": "A timeline of Marine Le Pen\u2019s political career and the rise of the French far right - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -521,7 +505,23 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:32:31",
+      "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
+      "headline": "A timeline of Marine Le Pen\u2019s political career and the rise of the French far right - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
