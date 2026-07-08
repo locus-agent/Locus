@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-08T23:40:10.379295+00:00",
-  "last_heartbeat": "2026-07-08T23:40:10.379295+00:00",
-  "uptime_seconds": 34174,
+  "generated_at": "2026-07-08T23:45:23.053392+00:00",
+  "last_heartbeat": "2026-07-08T23:45:23.053392+00:00",
+  "uptime_seconds": 34486,
   "dry_run": false,
-  "markets_tracked": 1338,
-  "classify_error_streak": 229,
+  "markets_tracked": 1336,
+  "classify_error_streak": 234,
   "track_record": {
     "total": 10786,
     "accuracy": 18.2,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1245,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1246,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4937,
+  "classifications_24h": 4943,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1487,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 379,
+    "price_target_market": 381,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-08T23:26:13.110726+00:00"
+    "last_check": "2026-07-08T23:41:13.594089+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1250,
+    "news": 1249,
     "matched": 849,
-    "classified": 4937,
+    "classified": 4943,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2428.2
+    "avg_classification_latency_ms": 2428.5
   },
   "live_readiness": {
     "ready": true,
@@ -196,10 +196,10 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.33,
+      "current_price": 0.32999999999999996,
       "pnl_pct": 13.79,
       "amount_usd": 8.555,
-      "current_value_usd": 9.74,
+      "current_value_usd": 9.73,
       "pnl_usd": 1.18,
       "edge_type": "news",
       "event_id": "528413"
@@ -446,9 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 23:40:05",
-      "market_question": "2026 Balance of Power: R Senate, D House",
-      "headline": "Senate committee to vote on bill to tighten US ban on Chinese vehicles - Reuters",
+      "time": "2026-07-08 23:44:26",
+      "market_question": "Will Meta have the best AI model at the end of July 2026?",
+      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -462,9 +462,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 23:40:05",
-      "market_question": "2026 Balance of Power: R Senate, R House",
-      "headline": "Senate committee to vote on bill to tighten US ban on Chinese vehicles - Reuters",
+      "time": "2026-07-08 23:44:26",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 23:44:26",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -478,9 +494,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 23:40:05",
-      "market_question": "Will Al Mina be the Republican nominee for Senate in Virginia?",
-      "headline": "Senate committee to vote on bill to tighten US ban on Chinese vehicles - Reuters",
+      "time": "2026-07-08 23:44:26",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 23:44:26",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -492,38 +524,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 23:40:05",
-      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
-      "headline": "Senate committee to vote on bill to tighten US ban on Chinese vehicles - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 23:40:01",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Senate committee to vote on bill to tighten US ban on Chinese vehicles - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
