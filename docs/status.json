@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T17:01:54.866616+00:00",
-  "last_heartbeat": "2026-07-08T17:01:54.866616+00:00",
-  "uptime_seconds": 10278,
+  "generated_at": "2026-07-08T17:07:03.486275+00:00",
+  "last_heartbeat": "2026-07-08T17:07:03.486275+00:00",
+  "uptime_seconds": 10587,
   "dry_run": false,
-  "markets_tracked": 1349,
+  "markets_tracked": 1345,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10690,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 904,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 906,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5111,
+  "classifications_24h": 5112,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1671,
+    "prefiltered_haiku": 1673,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1324,
-    "matched": 872,
-    "classified": 5111,
+    "news": 1322,
+    "matched": 869,
+    "classified": 5112,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 16,
     "win_rate_pct": 55.6,
     "realized_pnl_usd": 34.66,
-    "unrealized_pnl_usd": -0.81,
-    "total_pnl_usd": 33.86,
+    "unrealized_pnl_usd": -0.66,
+    "total_pnl_usd": 34.0,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2387.4
+    "avg_classification_latency_ms": 2399.1
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.33999999999999997,
-      "pnl_pct": 17.24,
+      "current_price": 0.345,
+      "pnl_pct": 18.97,
       "amount_usd": 8.555,
-      "current_value_usd": 10.03,
-      "pnl_usd": 1.47,
+      "current_value_usd": 10.18,
+      "pnl_usd": 1.62,
       "edge_type": "news",
       "event_id": "528413"
     },
@@ -446,9 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 17:01:54",
-      "market_question": "Will Jalen Brunson win the 2028 US Presidential Election?",
-      "headline": "With Le Pen sentencing, France\u2019s presidential election veers into the extraordinary - AP News",
+      "time": "2026-07-08 17:03:59",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "Democratic-led states face backlash over National Guard deployments in Washington - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -462,9 +462,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:01:54",
-      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
-      "headline": "With Le Pen sentencing, France\u2019s presidential election veers into the extraordinary - AP News",
+      "time": "2026-07-08 17:03:59",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "Democratic-led states face backlash over National Guard deployments in Washington - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,41 +478,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:01:52",
-      "market_question": "Will Nigel Farage win the Clacton by-election?",
-      "headline": "Who is Count Binface, aiming to face Farage in by-election?",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:01:52",
-      "market_question": "Will Count Binface win the Clacton by-election?",
-      "headline": "Who is Count Binface, aiming to face Farage in by-election?",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:01:46",
-      "market_question": "Will Colin Sutton win the 2026 Norfolk Police and Crime Commissioner by-election?",
-      "headline": "Who is Count Binface, aiming to face Farage in by-election?",
+      "time": "2026-07-08 17:03:57",
+      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
+      "headline": "Paradigm raises $1.2 billion fourth fund, expanding beyond crypto into AI and robotics",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -521,9 +489,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:03:57",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Paradigm raises $1.2 billion fourth fund, expanding beyond crypto into AI and robotics",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:03:57",
+      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Democratic-led states face backlash over National Guard deployments in Washington - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
