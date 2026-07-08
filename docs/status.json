@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T05:21:07.943796+00:00",
-  "last_heartbeat": "2026-07-08T05:21:07.943796+00:00",
-  "uptime_seconds": 45469,
+  "generated_at": "2026-07-08T05:26:15.230319+00:00",
+  "last_heartbeat": "2026-07-08T05:26:15.230319+00:00",
+  "uptime_seconds": 45776,
   "dry_run": false,
-  "markets_tracked": 1339,
+  "markets_tracked": 1332,
   "classify_error_streak": 5,
   "track_record": {
     "total": 10648,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 176,
+  "headlines_scanned_today": 177,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4907,
+  "classifications_24h": 4900,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1873,
+    "prefiltered_haiku": 1868,
     "cooldown_skip": 0,
     "stale": 12,
     "capped": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1297,
-    "matched": 896,
-    "classified": 4907,
+    "news": 1296,
+    "matched": 895,
+    "classified": 4900,
     "signals": 0,
     "trades": 0
   },
@@ -136,8 +136,8 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -4.71,
-    "total_pnl_usd": 38.29,
+    "unrealized_pnl_usd": -5.0,
+    "total_pnl_usd": 37.99,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.625,
-      "pnl_pct": -10.71,
+      "current_price": 0.63,
+      "pnl_pct": -11.9,
       "amount_usd": 24.99,
-      "current_value_usd": 22.31,
-      "pnl_usd": -2.68,
+      "current_value_usd": 22.02,
+      "pnl_usd": -2.97,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -460,6 +460,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-08 05:22:28",
+      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
+      "headline": "Latin American countries, some steelmakers argue for US tariff exemptions - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-08 05:11:35",
       "market_question": "Will Trump and Putin not meet?",
       "headline": "Russian fuel shortages bite \u2013 but will Putin change tack in Ukraine war?",
@@ -510,22 +526,6 @@
     {
       "time": "2026-07-08 05:11:34",
       "market_question": "Putin out as President of Russia by September 30, 2026?",
-      "headline": "Russian fuel shortages bite \u2013 but will Putin change tack in Ukraine war?",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 05:11:34",
-      "market_question": "Putin out as President of Russia by August 31, 2026?",
       "headline": "Russian fuel shortages bite \u2013 but will Putin change tack in Ukraine war?",
       "direction": "neutral",
       "materiality": 0.0,
