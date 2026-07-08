@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-08T10:24:53.304715+00:00",
-  "last_heartbeat": "2026-07-08T10:24:53.304715+00:00",
-  "uptime_seconds": 63694,
+  "generated_at": "2026-07-08T10:30:04.824391+00:00",
+  "last_heartbeat": "2026-07-08T10:30:04.824391+00:00",
+  "uptime_seconds": 64006,
   "dry_run": false,
-  "markets_tracked": 1353,
-  "classify_error_streak": 353,
+  "markets_tracked": 1350,
+  "classify_error_streak": 354,
   "track_record": {
     "total": 10667,
     "accuracy": 18.2,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 349,
+  "headlines_scanned_today": 350,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4930,
+  "classifications_24h": 4923,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1631,
+    "prefiltered_haiku": 1628,
     "cooldown_skip": 0,
     "stale": 8,
     "capped": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1303,
-    "matched": 897,
-    "classified": 4930,
+    "news": 1299,
+    "matched": 896,
+    "classified": 4923,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2292.0
+    "avg_classification_latency_ms": 2292.7
   },
   "live_readiness": {
     "ready": true,
@@ -210,11 +210,11 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.30000000000000004,
+      "current_price": 0.3,
       "pnl_pct": 3.45,
       "amount_usd": 8.555,
       "current_value_usd": 8.85,
-      "pnl_usd": 0.3,
+      "pnl_usd": 0.29,
       "edge_type": "news",
       "event_id": "528413"
     },
@@ -224,7 +224,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03600000000000003,
+      "current_price": 0.036000000000000004,
       "pnl_pct": -8.45,
       "amount_usd": 0.7176150234741786,
       "current_value_usd": 0.66,
@@ -460,6 +460,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-08 10:25:14",
+      "market_question": "Republicans win Trifecta with Senate Supermajority in midterms?",
+      "headline": "Midterms - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-08 10:23:01",
       "market_question": "Will AI be charged with a crime before 2027?",
       "headline": "Hegseth cancels meeting with Netanyahu over possible sale of F-35s to Turkey, source tells Reuters - Reuters",
@@ -510,22 +526,6 @@
     {
       "time": "2026-07-08 10:23:01",
       "market_question": "Will OpenAI\u2019s market cap be between $1T and $1.25T at market close on IPO day?",
-      "headline": "SK Hynix to close $28 billion ADR bookbuild on Wednesday after oversubscription, source says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 10:23:01",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "headline": "SK Hynix to close $28 billion ADR bookbuild on Wednesday after oversubscription, source says - Reuters",
       "direction": null,
       "materiality": null,
