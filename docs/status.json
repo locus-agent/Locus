@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T03:33:27.703826+00:00",
-  "last_heartbeat": "2026-07-08T03:33:27.703826+00:00",
-  "uptime_seconds": 39008,
+  "generated_at": "2026-07-08T03:38:34.829435+00:00",
+  "last_heartbeat": "2026-07-08T03:38:34.829435+00:00",
+  "uptime_seconds": 39316,
   "dry_run": false,
-  "markets_tracked": 1358,
+  "markets_tracked": 1357,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10638,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 97,
+  "headlines_scanned_today": 98,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4798,
+  "classifications_24h": 4801,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1844,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1270,
-    "matched": 872,
-    "classified": 4798,
+    "news": 1271,
+    "matched": 873,
+    "classified": 4801,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2174.5
+    "avg_classification_latency_ms": 2181.0
   },
   "live_readiness": {
     "ready": true,
@@ -238,7 +238,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.11349999999999993,
+      "current_price": 0.1135,
       "pnl_pct": 13.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.27,
@@ -460,6 +460,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-08 03:37:28",
+      "market_question": "Will Donald Trump attend NATO Summit?",
+      "headline": "The NATO summit was supposed to focus on defense spending. Trump's strikes on Iran changed that - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 03:37:27",
+      "market_question": "Will Trump's approval rating hit 35% in 2026?",
+      "headline": "The NATO summit was supposed to focus on defense spending. Trump's strikes on Iran changed that - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 03:37:27",
+      "market_question": "Will Trump's approval rating hit 30% in 2026?",
+      "headline": "The NATO summit was supposed to focus on defense spending. Trump's strikes on Iran changed that - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-08 03:24:18",
       "market_question": "Ukraine election called by December 31, 2026?",
       "headline": "Russia\u2019s War on Ukraine - Politico",
@@ -478,54 +526,6 @@
     {
       "time": "2026-07-08 03:24:11",
       "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "Russia\u2019s War on Ukraine - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 03:24:11",
-      "market_question": "Ukraine election called by August 31, 2026?",
-      "headline": "Russia\u2019s War on Ukraine - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 03:24:11",
-      "market_question": "Will Donald Trump visit Ukraine in 2026?",
-      "headline": "Russia\u2019s War on Ukraine - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 03:24:11",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
       "headline": "Russia\u2019s War on Ukraine - Politico",
       "direction": "neutral",
       "materiality": 0.0,
