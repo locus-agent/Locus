@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T13:30:55.461386+00:00",
-  "last_heartbeat": "2026-07-08T13:30:55.461386+00:00",
-  "uptime_seconds": 74856,
+  "generated_at": "2026-07-08T13:36:04.730270+00:00",
+  "last_heartbeat": "2026-07-08T13:36:04.730270+00:00",
+  "uptime_seconds": 75165,
   "dry_run": false,
-  "markets_tracked": 1374,
+  "markets_tracked": 1377,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10690,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 492,
+  "headlines_scanned_today": 493,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4844,
+  "classifications_24h": 4841,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1478,
+    "prefiltered_haiku": 1480,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 4,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-08T13:16:58.285435+00:00"
+    "last_check": "2026-07-08T13:31:58.722369+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1258,
-    "matched": 924,
-    "classified": 4844,
+    "news": 1256,
+    "matched": 923,
+    "classified": 4841,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2330.4
+    "avg_classification_latency_ms": 2328.9
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03600000000000003,
+      "current_price": 0.036000000000000004,
       "pnl_pct": -8.45,
       "amount_usd": 0.7176150234741786,
       "current_value_usd": 0.66,
@@ -446,6 +446,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-08 13:31:42",
+      "market_question": "Will Alex Villanueva win the 2026 Los Angeles County Sheriff election?",
+      "headline": "POLITICO Names Alex Ruoff Deputy Congress Editor for Energy and Environment - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 13:31:42",
+      "market_question": "Will Alex De Paula be the Republican nominee for Senate in Virginia?",
+      "headline": "POLITICO Names Alex Ruoff Deputy Congress Editor for Energy and Environment - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 13:31:42",
+      "market_question": "Will Alex Padilla win the California Governor Election in 2026?",
+      "headline": "POLITICO Names Alex Ruoff Deputy Congress Editor for Energy and Environment - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-08 13:29:29",
       "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
       "headline": "Robert Gates - Politico",
@@ -476,54 +524,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 13:29:29",
-      "market_question": "Will Bill Gates Jr. win the 2026 Minnesota Governor Democratic primary election?",
-      "headline": "Robert Gates - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 13:29:29",
-      "market_question": "Will Robert Mitchell win the 2026 Cornwall-Meadowbank PEI Legislative Assembly by-election?",
-      "headline": "Robert Gates - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 13:27:19",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Bezos' Blue Origin raises first outside funding at $130 billion valuation, NYT DealBook reports - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
