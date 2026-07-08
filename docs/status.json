@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T17:12:11.710317+00:00",
-  "last_heartbeat": "2026-07-08T17:12:11.710317+00:00",
-  "uptime_seconds": 10895,
+  "generated_at": "2026-07-08T17:17:19.879085+00:00",
+  "last_heartbeat": "2026-07-08T17:17:19.879085+00:00",
+  "uptime_seconds": 11203,
   "dry_run": false,
-  "markets_tracked": 1343,
+  "markets_tracked": 1345,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10690,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 909,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 912,
+  "headlines_last_cycle": 3,
   "signals_24h": 0,
-  "classifications_24h": 5120,
+  "classifications_24h": 5114,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1676,
+    "prefiltered_haiku": 1677,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 4,
@@ -99,7 +99,7 @@
     "coinflip_market": 0,
     "correlation_block": 12,
     "category_limit": 0,
-    "orderbook_skip": 2,
+    "orderbook_skip": 1,
     "already_priced_in": 3,
     "needs_confirmation": 0,
     "event_exposure_block": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1322,
-    "matched": 870,
-    "classified": 5120,
+    "news": 1323,
+    "matched": 868,
+    "classified": 5114,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2394.6
+    "avg_classification_latency_ms": 2400.5
   },
   "live_readiness": {
     "ready": true,
@@ -446,9 +446,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 17:10:40",
-      "market_question": "Will Trump\u2019s remarks not air?",
-      "headline": "No air con? Here's how to get the most out of your electric fan",
+      "time": "2026-07-08 17:17:16",
+      "market_question": "Will Fl\u00e1vio Bolsonaro win the first round of the 2026 Brazilian presidential election by at least 10%?",
+      "headline": "Brazilian police search former President Bolsonaro's home for weapons - Reuters",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.52,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:17:16",
+      "market_question": "Will Eduardo Bolsonaro finish in third place in the first round of the 2026 Brazilian presidential election?",
+      "headline": "Brazilian police search former President Bolsonaro's home for weapons - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:17:15",
+      "market_question": "Will Eduardo Bolsonaro finish in second place in the first round of the 2026 Brazilian presidential election?",
+      "headline": "Brazilian police search former President Bolsonaro's home for weapons - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:17:11",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Brazilian police search former President Bolsonaro's home for weapons - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -462,9 +510,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:10:38",
+      "time": "2026-07-08 17:17:11",
       "market_question": "Trump out as President before GTA VI?",
-      "headline": "No air con? Here's how to get the most out of your electric fan",
+      "headline": "Brazilian police search former President Bolsonaro's home for weapons - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -476,54 +524,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:10:38",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "No air con? Here's how to get the most out of your electric fan",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:10:37",
-      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
-      "headline": "If Microsoft sold off Xbox, who would even buy it?",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:10:37",
-      "market_question": "Will Solana dip to $40 in July?",
-      "headline": "Twelve South\u2019s AirFly Pro is a great travel companion, and it&#8217;s on sale for $40",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
