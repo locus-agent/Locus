@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T04:34:59.910337+00:00",
-  "last_heartbeat": "2026-07-08T04:34:59.910337+00:00",
-  "uptime_seconds": 42701,
+  "generated_at": "2026-07-08T04:40:07.739891+00:00",
+  "last_heartbeat": "2026-07-08T04:40:07.739891+00:00",
+  "uptime_seconds": 43008,
   "dry_run": false,
-  "markets_tracked": 1341,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10638,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 160,
+  "headlines_scanned_today": 161,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4931,
+  "classifications_24h": 4933,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1893,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1306,
-    "matched": 901,
-    "classified": 4931,
+    "news": 1307,
+    "matched": 902,
+    "classified": 4933,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -4.71,
-    "total_pnl_usd": 38.29,
+    "unrealized_pnl_usd": -5.3,
+    "total_pnl_usd": 37.69,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2208.4
+    "avg_classification_latency_ms": 2209.9
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.625,
-      "pnl_pct": -10.71,
+      "current_price": 0.635,
+      "pnl_pct": -13.1,
       "amount_usd": 24.99,
-      "current_value_usd": 22.31,
-      "pnl_usd": -2.68,
+      "current_value_usd": 21.72,
+      "pnl_usd": -3.27,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -460,6 +460,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-08 04:36:34",
+      "market_question": "Will Trump cut corporate taxes before 2027?",
+      "headline": "Tax Cut - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 04:36:28",
+      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "headline": "Tax Cut - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-08 04:32:58",
       "market_question": "Trump x Greenland deal signed by December 31?",
       "headline": "Sky To Take Over ITV In $2.1B Deal That Dramatically Reshapes British Television - Deadline",
@@ -506,38 +538,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 04:32:56",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "Publix recalls blueberries after multiple people reportedly became severely sick with E. coli. Here are the impacted states - WSFA",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 04:32:56",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Versant Extends Golf Game With Plans to Acquire Full Swing for $530 Million - Variety",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
