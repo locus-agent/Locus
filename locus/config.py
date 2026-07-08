@@ -315,6 +315,15 @@ MIN_HOURS_TO_RESOLUTION = float(os.getenv("MIN_HOURS_TO_RESOLUTION", "4"))
 EXCLUDE_PRICE_TARGET_MARKETS = os.getenv("EXCLUDE_PRICE_TARGET_MARKETS", "true").lower() == "true"
 PRICE_TARGET_KEYWORDS = [
     "reach $", "hit $", "above $", "below $", "exceed $", "surpass $",
+    # Downside verb + threshold phrasings ("Will Bitcoin dip to $60,000?").
+    # Position 56 lost -$8.33 on exactly this gap. Upside "rise/climb/jump
+    # to $" are deliberately absent: they false-positive on non-asset markets
+    # ("Will the minimum wage rise to $15?"), and real upside price targets
+    # use reach/hit/above, already covered. "X below $" needs no verb
+    # variants — "below $" above already matches them.
+    "dip to $", "dips to $", "fall to $", "falls to $",
+    "drop to $", "drops to $", "sink to $", "sinks to $",
+    "crash to $", "crashes to $",
     "new all-time high", "new ath", "all time high",
     "will bitcoin reach", "will ethereum hit",
 ]

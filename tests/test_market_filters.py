@@ -23,6 +23,9 @@ def _pin_filter_config(monkeypatch):
     monkeypatch.setattr(config, "EXCLUDE_PRICE_TARGET_MARKETS", True)
     monkeypatch.setattr(config, "PRICE_TARGET_KEYWORDS", [
         "reach $", "hit $", "above $", "below $", "exceed $", "surpass $",
+        "dip to $", "dips to $", "fall to $", "falls to $",
+        "drop to $", "drops to $", "sink to $", "sinks to $",
+        "crash to $", "crashes to $",
         "new all-time high", "new ath", "all time high",
         "will bitcoin reach", "will ethereum hit",
     ])
@@ -108,7 +111,33 @@ PRICE_TARGET_QUESTIONS = [
     "Will Ethereum reach an all time high?",
     "Will Bitcoin reach the moon?",
     "Will Ethereum hit a record?",
+    # Downside verb + threshold phrasings (position 56 regression).
+    "Will Bitcoin dip to $60,000 in July?",
+    "Bitcoin dips to $58,000 this week?",
+    "Will ETH fall to $2,000?",
+    "Bitcoin falls to $50k by August?",
+    "Will Solana drop to $100?",
+    "Dogecoin drops to $0.10 in 2026?",
+    "Will Bitcoin drop below $55,000?",   # covered by the existing "below $"
+    "Will Bitcoin sink to $40,000?",
+    "Will ETH crash to $1,000?",
 ]
+
+
+NON_PRICE_TARGET_QUESTIONS = [
+    "Will the Fed cut rates in July?",
+    # A "$" threshold in a non-asset-price context must not be swept in.
+    "Will X raise $60,000 for charity?",
+    # "rise to $" is deliberately NOT a keyword (policy/salary markets).
+    "Will the federal minimum wage rise to $15 per hour?",
+    "Will the average salary rise to $60,000?",
+    "Will Ethereum launch sharding by 2027?",
+]
+
+
+@pytest.mark.parametrize("question", NON_PRICE_TARGET_QUESTIONS)
+def test_non_price_threshold_dollar_mentions_not_flagged(question):
+    assert not is_price_target_market(question)
 
 
 @pytest.mark.parametrize("question", PRICE_TARGET_QUESTIONS)
