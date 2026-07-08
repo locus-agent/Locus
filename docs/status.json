@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-08T22:00:59.143055+00:00",
-  "last_heartbeat": "2026-07-08T22:00:59.143055+00:00",
-  "uptime_seconds": 28223,
+  "generated_at": "2026-07-08T22:06:12.922131+00:00",
+  "last_heartbeat": "2026-07-08T22:06:12.922131+00:00",
+  "uptime_seconds": 28536,
   "dry_run": false,
-  "markets_tracked": 1335,
-  "classify_error_streak": 88,
+  "markets_tracked": 1331,
+  "classify_error_streak": 94,
   "track_record": {
     "total": 10747,
     "accuracy": 18.2,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1180,
+  "headlines_scanned_today": 1182,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4881,
+  "classifications_24h": 4886,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1567,
+    "prefiltered_haiku": 1566,
     "cooldown_skip": 0,
     "stale": 10,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1246,
-    "matched": 834,
-    "classified": 4881,
+    "news": 1247,
+    "matched": 835,
+    "classified": 4886,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2410.8
+    "avg_classification_latency_ms": 2411.1
   },
   "live_readiness": {
     "ready": true,
@@ -446,41 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 21:56:44",
-      "market_question": "Will OpenAI IPO by August 31 2026?",
-      "headline": "BofA extends first $520 million loan to OpenAI ahead of IPO, source says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 21:56:44",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "BofA extends first $520 million loan to OpenAI ahead of IPO, source says - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 21:56:44",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "BofA extends first $520 million loan to OpenAI ahead of IPO, source says - Reuters",
+      "time": "2026-07-08 22:03:21",
+      "market_question": "Will Trump praise Elon Musk by July 31?",
+      "headline": "US judge approves Elon Musk settlement with SEC despite misgivings, 'red flags' - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -494,9 +462,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 21:56:44",
-      "market_question": "Will OpenAI IPO by December 31 2026?",
-      "headline": "BofA extends first $520 million loan to OpenAI ahead of IPO, source says - Reuters",
+      "time": "2026-07-08 22:03:21",
+      "market_question": "Will Trump pardon Elon Musk before 2027?",
+      "headline": "US judge approves Elon Musk settlement with SEC despite misgivings, 'red flags' - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -505,14 +473,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 21:56:44",
-      "market_question": "Will OpenAI IPO by July 31 2026?",
-      "headline": "BofA extends first $520 million loan to OpenAI ahead of IPO, source says - Reuters",
+      "time": "2026-07-08 22:03:21",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "US judge approves Elon Musk settlement with SEC despite misgivings, 'red flags' - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -521,7 +489,39 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 22:03:21",
+      "market_question": "Will Elon Musk rejoin the Trump Administration in 2026?",
+      "headline": "US judge approves Elon Musk settlement with SEC despite misgivings, 'red flags' - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 22:03:18",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Sen. Wyden urges Senate leaders to preserve contested blockchain developer protections in broader crypto bill",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
