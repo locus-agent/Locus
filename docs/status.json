@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-08T09:07:01.797635+00:00",
-  "last_heartbeat": "2026-07-08T09:07:01.797635+00:00",
-  "uptime_seconds": 59022,
+  "generated_at": "2026-07-08T09:12:14.004220+00:00",
+  "last_heartbeat": "2026-07-08T09:12:14.004220+00:00",
+  "uptime_seconds": 59335,
   "dry_run": false,
   "markets_tracked": 1349,
-  "classify_error_streak": 224,
+  "classify_error_streak": 230,
   "track_record": {
-    "total": 10648,
+    "total": 10667,
     "accuracy": 18.2,
     "by_category": {
       "other": 16.2,
@@ -19,17 +19,17 @@
     "by_source": {
       "rss": 18.7,
       "newsapi": 17.4,
-      "truthsocial": 7.0
+      "truthsocial": 6.9
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.2,
-    "overall_total": 10648,
+    "overall_total": 10667,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5897,
+        "total": 5905,
         "correct": 413,
         "accuracy_pct": 7.0,
         "avg_pnl_pct": 9.65,
@@ -38,17 +38,17 @@
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 995,
-        "correct": 342,
+        "total": 997,
+        "correct": 343,
         "accuracy_pct": 34.4,
-        "avg_pnl_pct": 21.81,
+        "avg_pnl_pct": 21.7,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1160,
-        "correct": 450,
+        "total": 1162,
+        "correct": 451,
         "accuracy_pct": 38.8,
         "avg_pnl_pct": 5.55,
         "color": "green"
@@ -56,39 +56,39 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 667,
-        "correct": 233,
+        "total": 671,
+        "correct": 234,
         "accuracy_pct": 34.9,
-        "avg_pnl_pct": 1.51,
+        "avg_pnl_pct": 1.46,
         "color": "green"
       },
       {
         "name": "high",
         "range": "0.70-0.85",
-        "total": 603,
+        "total": 604,
         "correct": 262,
         "accuracy_pct": 43.4,
-        "avg_pnl_pct": 3.74,
+        "avg_pnl_pct": 3.73,
         "color": "green"
       },
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1326,
+        "total": 1328,
         "correct": 241,
-        "accuracy_pct": 18.2,
-        "avg_pnl_pct": -2.79,
+        "accuracy_pct": 18.1,
+        "avg_pnl_pct": -2.78,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 296,
-  "headlines_last_cycle": 19,
+  "headlines_scanned_today": 300,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4947,
+  "classifications_24h": 4952,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1715,
+    "prefiltered_haiku": 1710,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1311,
-    "matched": 900,
-    "classified": 4947,
+    "news": 1312,
+    "matched": 901,
+    "classified": 4952,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -10.38,
-    "total_pnl_usd": 32.61,
+    "unrealized_pnl_usd": -11.27,
+    "total_pnl_usd": 31.72,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2272.6
+    "avg_classification_latency_ms": 2273.7
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.72,
-      "pnl_pct": -33.33,
+      "current_price": 0.735,
+      "pnl_pct": -36.9,
       "amount_usd": 24.99,
-      "current_value_usd": 16.66,
-      "pnl_usd": -8.33,
+      "current_value_usd": 15.77,
+      "pnl_usd": -9.22,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -224,7 +224,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.036000000000000004,
+      "current_price": 0.03600000000000003,
       "pnl_pct": -8.45,
       "amount_usd": 0.7176150234741786,
       "current_value_usd": 0.66,
@@ -460,25 +460,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 09:06:59",
-      "market_question": "Quantum breaks Bitcoin by December 31, 2027?",
-      "headline": "New Quantum Sensor Opens a Window Into the Invisible Universe - SciTechDaily",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 09:06:57",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "New Quantum Sensor Opens a Window Into the Invisible Universe - SciTechDaily",
+      "time": "2026-07-08 09:10:28",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Germany could gain from planned U.S. port fees on China-built ships, DIW says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -492,9 +476,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-08 09:06:57",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "New Quantum Sensor Opens a Window Into the Invisible Universe - SciTechDaily",
+      "time": "2026-07-08 09:10:28",
+      "market_question": "Will Donald Trump visit Germany in 2026?",
+      "headline": "Germany could gain from planned U.S. port fees on China-built ships, DIW says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -508,9 +492,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-08 09:06:57",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "New Quantum Sensor Opens a Window Into the Invisible Universe - SciTechDaily",
+      "time": "2026-07-08 09:10:28",
+      "market_question": "Trump suspends U.S. entry for more countries by by June 30?",
+      "headline": "Germany could gain from planned U.S. port fees on China-built ships, DIW says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -524,9 +508,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-08 09:06:57",
-      "market_question": "Trump declassifies new UFO files by July 31?",
-      "headline": "New Quantum Sensor Opens a Window Into the Invisible Universe - SciTechDaily",
+      "time": "2026-07-08 09:10:28",
+      "market_question": "Will Rodina gain the most seats in the next Russian parliamentary election?",
+      "headline": "Germany could gain from planned U.S. port fees on China-built ships, DIW says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-08 09:10:28",
+      "market_question": "Will Mike Rogers win the Republican Primary for U.S. Senate in Michigan?",
+      "headline": "Germany could gain from planned U.S. port fees on China-built ships, DIW says - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
