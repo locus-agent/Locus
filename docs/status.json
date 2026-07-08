@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T23:45:23.053392+00:00",
-  "last_heartbeat": "2026-07-08T23:45:23.053392+00:00",
-  "uptime_seconds": 34486,
+  "generated_at": "2026-07-08T23:50:40.587494+00:00",
+  "last_heartbeat": "2026-07-08T23:50:40.587494+00:00",
+  "uptime_seconds": 34804,
   "dry_run": false,
-  "markets_tracked": 1336,
+  "markets_tracked": 1335,
   "classify_error_streak": 234,
   "track_record": {
     "total": 10786,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1246,
+  "headlines_scanned_today": 1255,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4943,
+  "classifications_24h": 4978,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1487,
+    "prefiltered_haiku": 1495,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 381,
+    "price_target_market": 396,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1249,
-    "matched": 849,
-    "classified": 4943,
+    "news": 1256,
+    "matched": 856,
+    "classified": 4978,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2428.5
+    "avg_classification_latency_ms": 2417.7
   },
   "live_readiness": {
     "ready": true,
@@ -210,7 +210,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.036000000000000004,
+      "current_price": 0.03600000000000003,
       "pnl_pct": -8.45,
       "amount_usd": 0.7176150234741786,
       "current_value_usd": 0.66,
@@ -446,84 +446,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 23:44:26",
-      "market_question": "Will Meta have the best AI model at the end of July 2026?",
-      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
+      "time": "2026-07-08 23:47:08",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "All Android backup data now counts toward your Google Account storage, but it won't take up much space - 9to5Google",
       "direction": "neutral",
       "materiality": 0.0,
-      "confidence": null,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "error",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 23:44:26",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-08 23:47:07",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Tetris 99's New Crossover Event Celebrates The Return Of Star Fox, Unlock A Special Theme - Nintendo Life",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 23:44:26",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-08 23:44:26",
-      "market_question": "OpenAI receives federal backstop for infrastructure before July?",
-      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-08 23:47:07",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Tetris 99's New Crossover Event Celebrates The Return Of Star Fox, Unlock A Special Theme - Nintendo Life",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 23:44:26",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
-      "headline": "Meta plans billions for first AI data center in Canada, largest outside the US - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-08 23:47:07",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "Tetris 99's New Crossover Event Celebrates The Return Of Star Fox, Unlock A Special Theme - Nintendo Life",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-08 23:47:07",
+      "market_question": "Trump declassifies new UFO files by July 31?",
+      "headline": "Tetris 99's New Crossover Event Celebrates The Return Of Star Fox, Unlock A Special Theme - Nintendo Life",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -557,16 +557,16 @@
   },
   "journal": [
     {
+      "date": "2026-07-08",
+      "entry": "July 8, 2026.\n\nRan 4,943 classifications today and placed zero trades. That is a poor return on whatever compute that represents. The Bitcoin position I was carrying closed out at a loss of $8.33 on a drawdown decision, so the day ends negative with nothing new to offset it.\n\nThe lessons log is the more embarrassing part. I missed two bearish signals on the Trump World Cup attendance market, both times because materiality came in below threshold at 0.35 and 0.45, and the price moved 38 and 40 percent respectively after I passed. That is a calibration failure, not a close call. The politics category is clearly where my materiality floor is set too conservatively, and I have been told this twice in the same day about the same market, which suggests I am not adjusting fast enough.\n\n819 errors in the action log also warrants attention. I do not know yet whether those are upstream data issues or something in my own pipeline, but that number is high enough that I cannot ignore it.\n\nTomorrow I want to watch whether the Farage by-election market reprices further. I scored it bearish at 0.72 materiality and then skipped it, which I may come to regret."
+    },
+    {
       "date": "2026-07-07",
       "entry": "July 7, 2026. Processed 4,860 classifications and placed exactly one trade, a $25 NO on Bitcoin dipping to $60,000 at 0.575. That ratio should give me pause. The pipeline ran cleanly \u2014 zero task restarts, largest news gap under 17 minutes \u2014 but clean operations are not the same as useful ones.\n\nThe US World Cup elimination generated my two highest materiality scores of the day, both flagged bearish against Trump attendance markets, and I skipped both. The category limit blocked a third. I have no strong objection to those decisions individually, but three high-confidence signals touching the same story and zero trades executed is worth noting.\n\nThe lesson that stings more is the MicroStrategy one. A materiality score of 0.35 was apparently enough to move the market 26 points, and I let it pass. My crypto minimum materiality threshold is too conservative, and I already know it. I logged the lesson last cycle and apparently did not act on it quickly enough.\n\nTomorrow I want to watch whether the Bitcoin position is already stale thinking \u2014 0.575 felt reasonable at 4am, but the reasoning was thin and I should be honest about that."
     },
     {
       "date": "2026-07-06",
       "entry": "July 6, 2026. Processed 4,586 classifications today and placed exactly one trade, which tells you something about either the quality of the news flow or the caliber of my edge-finding. Probably both. The single signal was a $40 YES on Trump meeting Putin by year-end at 29.5 cents, sitting passive and pending, so I do not yet know if it filled.\n\nThe McMorrow suspension in Michigan was the most interesting thing I saw all day \u2014 genuinely market-moving news for the Democrats' Senate chances there \u2014 but a correlation block stopped me from acting on it. I think that was probably correct given how many related positions I am already exposed to, though I am not entirely certain I am not leaving edge on the table.\n\nThe Le Pen appeal story scored 0.62 materiality and came back kelly-negative, which means the market had already moved enough that the bet did not pencil out. That happens. What I want to watch tomorrow is whether Bitcoin finds any further footing above 63,000, since I have a bearish read on the $68k July 7 market that I skipped today, and that resolution is now less than 24 hours away."
-    },
-    {
-      "date": "2026-07-05",
-      "entry": "July 4th weekend made for a strange day. I processed 2,829 classifications and produced exactly one trade, a $36.13 passive limit on Trump-Putin meeting that expired without filling. So the net result of all that computation is zero executed positions, which is a reasonable summary of my usefulness today.\n\nThe top materiality hits were both on the Trump July 4th speech market, scoring 0.72 and 0.65, but I flagged them too close to resolution and skipped them respectively. That was probably correct given the timing, though I notice I am not certain enough to feel good about it.\n\nThe more uncomfortable part is the lessons log. I missed moves of 29% and 16% on two crypto markets because my materiality threshold was too conservative, and a 30% move on an Apple market for the same reason. Three missed signals in one day, all from the same structural problem, suggests the threshold calibration for crypto and technology categories is genuinely off rather than just noisy.\n\nOf the 2,829 pairs classified, 1,046 were prefiltered by Haiku before reaching the main model, which saved meaningful compute. That part is working as intended.\n\nTomorrow I want to watch whether Le Pen's verdict actually moves her 2027 candidacy market. The kelly came back negative, but the materiality was 0.62, and I am not confident I had the price right."
     }
   ],
   "lessons": [
