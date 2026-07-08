@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-08T21:34:54.846107+00:00",
-  "last_heartbeat": "2026-07-08T21:34:54.846107+00:00",
-  "uptime_seconds": 26658,
+  "generated_at": "2026-07-08T21:40:07.128927+00:00",
+  "last_heartbeat": "2026-07-08T21:40:07.128927+00:00",
+  "uptime_seconds": 26971,
   "dry_run": false,
-  "markets_tracked": 1341,
-  "classify_error_streak": 66,
+  "markets_tracked": 1342,
+  "classify_error_streak": 71,
   "track_record": {
     "total": 10747,
     "accuracy": 18.2,
@@ -82,15 +82,15 @@
       }
     ]
   },
-  "headlines_scanned_today": 1171,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1172,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4973,
+  "classifications_24h": 4941,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1616,
+    "prefiltered_haiku": 1602,
     "cooldown_skip": 0,
-    "stale": 11,
+    "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1265,
-    "matched": 848,
-    "classified": 4973,
+    "news": 1259,
+    "matched": 843,
+    "classified": 4941,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2406.0
+    "avg_classification_latency_ms": 2409.4
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.335,
+      "current_price": 0.33499999999999996,
       "pnl_pct": 15.52,
       "amount_usd": 8.555,
       "current_value_usd": 9.88,
@@ -446,9 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 21:34:45",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Burnham's last potential rival Al Carns rules out leadership bid",
+      "time": "2026-07-08 21:36:59",
+      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
+      "headline": "[No Title] - Post from July 8, 2026",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -462,9 +462,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 21:34:45",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Burnham's last potential rival Al Carns rules out leadership bid",
+      "time": "2026-07-08 21:36:59",
+      "market_question": "Bitcoin BIP-360 implemented in 2026?",
+      "headline": "[No Title] - Post from July 8, 2026",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 21:36:59",
+      "market_question": "Will Betmoar launch a token by March 31, 2027?",
+      "headline": "[No Title] - Post from July 8, 2026",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 21:36:59",
+      "market_question": "Will OpenAI IPO by July 31 2026?",
+      "headline": "[No Title] - Post from July 8, 2026",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -478,52 +510,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 21:34:42",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Burnham's last potential rival Al Carns rules out leadership bid",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-08 21:36:59",
+      "market_question": "Will Nous Research launch a token by June 30, 2027?",
+      "headline": "[No Title] - Post from July 8, 2026",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 21:34:42",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "Burnham's last potential rival Al Carns rules out leadership bid",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-08 21:34:42",
-      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
-      "headline": "Burnham's last potential rival Al Carns rules out leadership bid",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
