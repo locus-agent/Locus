@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-08T12:34:08.317157+00:00",
-  "last_heartbeat": "2026-07-08T12:34:08.317157+00:00",
-  "uptime_seconds": 71449,
+  "generated_at": "2026-07-08T12:39:26.013907+00:00",
+  "last_heartbeat": "2026-07-08T12:39:26.013907+00:00",
+  "uptime_seconds": 71767,
   "dry_run": false,
-  "markets_tracked": 1371,
-  "classify_error_streak": 583,
+  "markets_tracked": 1372,
+  "classify_error_streak": 585,
   "track_record": {
     "total": 10667,
     "accuracy": 18.2,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 449,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 453,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 4924,
+  "classifications_24h": 4903,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1473,
+    "prefiltered_haiku": 1463,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 4,
@@ -108,7 +108,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 0,
+  "watched_markets_count": 1,
   "missed_opportunities_24h": 5,
   "whale": {
     "watched_wallets": 4,
@@ -121,39 +121,39 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1285,
-    "matched": 922,
-    "classified": 4924,
+    "news": 1279,
+    "matched": 921,
+    "classified": 4903,
     "signals": 0,
     "trades": 0
   },
   "performance": {
     "trades_total": 49,
     "deployed_usd": 1144.55,
-    "open_count": 7,
-    "closed_count": 35,
+    "open_count": 6,
+    "closed_count": 36,
     "wins": 20,
-    "losses": 15,
-    "win_rate_pct": 57.1,
-    "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -8.33,
-    "total_pnl_usd": 34.66,
-    "recent_winrate": 0.75,
-    "kelly_factor": 1.0,
+    "losses": 16,
+    "win_rate_pct": 55.6,
+    "realized_pnl_usd": 34.66,
+    "unrealized_pnl_usd": -0.6,
+    "total_pnl_usd": 34.06,
+    "recent_winrate": 0.7,
+    "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2330.5
+    "avg_classification_latency_ms": 2330.9
   },
   "live_readiness": {
     "ready": true,
     "criteria_met": 4,
     "criteria_total": 4,
-    "sharpe_days_count": 13,
+    "sharpe_days_count": 14,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 35,
+        "value": 36,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -161,7 +161,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 57.1,
+        "value": 55.6,
         "threshold_display": "> 55%",
         "pass": true
       },
@@ -169,7 +169,7 @@
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 4.28,
+        "value": 3.33,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -177,7 +177,7 @@
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 4.3,
+        "value": 5.1,
         "threshold_display": "< 15%",
         "pass": true
       }
@@ -186,24 +186,10 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0304,
-    "sharpe_7d": null
+    "drawdown_7d": 0.1819,
+    "sharpe_7d": -0.85
   },
   "open_positions": [
-    {
-      "time": "2026-07-07 05:10:20",
-      "market_question": "Will Bitcoin dip to $60,000 in July?",
-      "slug": "what-price-will-bitcoin-hit-in-july-2026",
-      "side": "NO",
-      "entry_price": 0.58,
-      "current_price": 0.71,
-      "pnl_pct": -30.95,
-      "amount_usd": 24.99,
-      "current_value_usd": 17.26,
-      "pnl_usd": -7.73,
-      "edge_type": "news",
-      "event_id": "655630"
-    },
     {
       "time": "2026-07-06 22:06:57",
       "market_question": "Trump meets with Putin by December 31?",
@@ -290,6 +276,18 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-07-08T12:35:50.839385+00:00",
+      "market_question": "Will Bitcoin dip to $60,000 in July?",
+      "slug": "what-price-will-bitcoin-hit-in-july-2026",
+      "side": "NO",
+      "entry_price": 0.58,
+      "exit_price": 0.715,
+      "realized_pnl_usd": -8.329999999999998,
+      "exit_reason": "drawdown_decision",
+      "event_id": "655630",
+      "partial": false
+    },
     {
       "time": "2026-07-07 16:01:01",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -397,21 +395,18 @@
       "exit_reason": "manual",
       "event_id": "48292",
       "partial": false
-    },
-    {
-      "time": "2026-06-27T15:00:58.387519+00:00",
-      "market_question": "Will Trump Mobile release a phone by June 30, 2026?",
-      "slug": "will-trump-mobile-release-a-phone-by",
-      "side": "YES",
-      "entry_price": 0.085,
-      "exit_price": 0.1,
-      "realized_pnl_usd": 0.7782352941176472,
-      "exit_reason": "manual",
-      "event_id": "314846",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-07-08 12:35:51",
+      "market_question": "Will Bitcoin dip to $60,000 in July?",
+      "side": "NO",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The position is down 32% and the YES price at 0.715 implies the market now believes a $60K dip is more likely than not, directly contradicting the NO thesis; with the original reasoning unrecorded and no clear catalyst to reverse the move, holding is speculative hope rather than edge.",
+      "pnl_pct": -32.14
+    },
     {
       "time": "2026-07-07 16:01:01",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -447,22 +442,13 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -44.52
-    },
-    {
-      "time": "2026-07-06 21:18:07",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "side": "NO",
-      "trigger": "news",
-      "decision": "close_half",
-      "reasoning": "The original thesis (Democratic momentum in Maine making a Republican Senate win unlikely) still broadly holds, but the Platner scandal headline introduces genuine uncertainty about the Democratic candidate's viability, which is modestly bullish for YES and threatens the remaining edge. With +8.6% already captured on a thin market, locking in half the profit while letting the rest ride balances protecting gains against the possibility the scandal fades and the original thesis reasserts.",
-      "pnl_pct": 8.62
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 12:30:22",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Texas universities are offering AI degrees. Is it the answer for a changing workforce? - Dallas News",
+      "time": "2026-07-08 12:34:42",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "headline": "Outcry as Meta lets users make AI images from public Instagram profile pics",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -476,9 +462,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 12:30:22",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Texas universities are offering AI degrees. Is it the answer for a changing workforce? - Dallas News",
+      "time": "2026-07-08 12:34:42",
+      "market_question": "Will Meta have the best AI model at the end of July 2026?",
+      "headline": "Outcry as Meta lets users make AI images from public Instagram profile pics",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -492,52 +478,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 12:30:22",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Texas universities are offering AI degrees. Is it the answer for a changing workforce? - Dallas News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-08 12:34:39",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "Beaumont to retire from international cricket",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-08 12:30:22",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Texas universities are offering AI degrees. Is it the answer for a changing workforce? - Dallas News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-08 12:34:39",
+      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
+      "headline": "Beaumont to retire from international cricket",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 12:30:19",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "US markets retreat, oil prices jump more than 5% after Trump says ceasefire with Iran is 'over' - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-08 12:34:39",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Beaumont to retire from international cricket",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
