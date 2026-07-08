@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T17:58:35.745087+00:00",
-  "last_heartbeat": "2026-07-08T17:58:35.745087+00:00",
-  "uptime_seconds": 13679,
+  "generated_at": "2026-07-08T18:03:44.852452+00:00",
+  "last_heartbeat": "2026-07-08T18:03:44.852452+00:00",
+  "uptime_seconds": 13988,
   "dry_run": false,
-  "markets_tracked": 1336,
+  "markets_tracked": 1335,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10690,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 944,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 950,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 4858,
+  "classifications_24h": 4886,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1580,
+    "prefiltered_haiku": 1591,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 416,
+    "price_target_market": 417,
     "coinflip_market": 0,
     "correlation_block": 11,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1259,
-    "matched": 819,
-    "classified": 4858,
+    "news": 1262,
+    "matched": 824,
+    "classified": 4886,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2362.2
+    "avg_classification_latency_ms": 2397.1
   },
   "live_readiness": {
     "ready": true,
@@ -446,15 +446,15 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 17:56:51",
-      "market_question": "Will Trump\u2019s remarks not air?",
-      "headline": "Judges deny request to return Trump\u2019s name to Kennedy Center pending an appeal - AP News",
+      "time": "2026-07-08 18:03:32",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Judge orders E. Jean Carroll be paid $5M after jury found Trump sexually abused and defamed her - AP News",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
       "match_source": "keyword",
@@ -462,9 +462,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:56:45",
-      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
-      "headline": "Judges deny request to return Trump\u2019s name to Kennedy Center pending an appeal - AP News",
+      "time": "2026-07-08 18:03:31",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Judge orders E. Jean Carroll be paid $5M after jury found Trump sexually abused and defamed her - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 18:03:26",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Judge orders E. Jean Carroll be paid $5M after jury found Trump sexually abused and defamed her - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,9 +494,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:56:43",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Oil prices rise 5%, and Dow drops 500 points after Trump says ceasefire with Iran is \u2018over\u2019 - AP News",
+      "time": "2026-07-08 18:03:25",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Judge orders E. Jean Carroll be paid $5M after jury found Trump sexually abused and defamed her - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -494,25 +510,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:56:43",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Oil prices rise 5%, and Dow drops 500 points after Trump says ceasefire with Iran is \u2018over\u2019 - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:56:43",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Oil prices rise 5%, and Dow drops 500 points after Trump says ceasefire with Iran is \u2018over\u2019 - AP News",
+      "time": "2026-07-08 18:03:25",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Judge orders E. Jean Carroll be paid $5M after jury found Trump sexually abused and defamed her - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
