@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-08T19:41:25.440642+00:00",
-  "last_heartbeat": "2026-07-08T19:41:25.440642+00:00",
-  "uptime_seconds": 19849,
+  "generated_at": "2026-07-08T19:46:33.666736+00:00",
+  "last_heartbeat": "2026-07-08T19:46:33.666736+00:00",
+  "uptime_seconds": 20157,
   "dry_run": false,
   "markets_tracked": 1335,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1035,
+  "headlines_scanned_today": 1036,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4810,
+  "classifications_24h": 4808,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1597,
+    "prefiltered_haiku": 1601,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 390,
+    "price_target_market": 385,
     "coinflip_market": 0,
     "correlation_block": 8,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1234,
-    "matched": 806,
-    "classified": 4810,
+    "news": 1231,
+    "matched": 805,
+    "classified": 4808,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2411.6
+    "avg_classification_latency_ms": 2405.9
   },
   "live_readiness": {
     "ready": true,
@@ -446,9 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 19:33:39",
-      "market_question": "Will Al Mina be the Republican nominee for Senate in Virginia?",
-      "headline": "SDNY leadership change set to take effect despite Senate gridlock - Politico",
+      "time": "2026-07-08 19:44:33",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Justin Bieber and more join World Cup final halftime show featuring Madonna, Shakira and BTS - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -462,25 +462,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 19:33:39",
-      "market_question": "2026 Balance of Power: R Senate, R House",
-      "headline": "SDNY leadership change set to take effect despite Senate gridlock - Politico",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 19:33:39",
-      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
-      "headline": "SDNY leadership change set to take effect despite Senate gridlock - Politico",
+      "time": "2026-07-08 19:44:33",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Justin Bieber and more join World Cup final halftime show featuring Madonna, Shakira and BTS - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -494,9 +478,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 19:33:39",
-      "market_question": "2026 Balance of Power: R Senate, D House",
-      "headline": "SDNY leadership change set to take effect despite Senate gridlock - Politico",
+      "time": "2026-07-08 19:44:33",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Justin Bieber and more join World Cup final halftime show featuring Madonna, Shakira and BTS - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -510,17 +494,33 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 19:33:38",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Europe prepares to go it alone as Trump returns to war in Iran - Politico",
+      "time": "2026-07-08 19:44:32",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Justin Bieber and more join World Cup final halftime show featuring Madonna, Shakira and BTS - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 19:44:32",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Justin Bieber and more join World Cup final halftime show featuring Madonna, Shakira and BTS - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
