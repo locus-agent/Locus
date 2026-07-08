@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T17:48:17.530224+00:00",
-  "last_heartbeat": "2026-07-08T17:48:17.530224+00:00",
-  "uptime_seconds": 13061,
+  "generated_at": "2026-07-08T17:53:26.912621+00:00",
+  "last_heartbeat": "2026-07-08T17:53:26.912621+00:00",
+  "uptime_seconds": 13370,
   "dry_run": false,
-  "markets_tracked": 1341,
+  "markets_tracked": 1336,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10690,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 935,
+  "headlines_scanned_today": 938,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5018,
+  "classifications_24h": 5021,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1636,
+    "prefiltered_haiku": 1642,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 437,
+    "price_target_market": 432,
     "coinflip_market": 0,
     "correlation_block": 11,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1300,
+    "news": 1302,
     "matched": 848,
-    "classified": 5018,
+    "classified": 5021,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2367.1
+    "avg_classification_latency_ms": 2365.6
   },
   "live_readiness": {
     "ready": true,
@@ -446,9 +446,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 17:45:42",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Trump unexpectedly switches back to old Air Force One, sidelining Qatari jet - Reuters",
+      "time": "2026-07-08 17:52:26",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:52:24",
+      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:52:19",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -462,9 +494,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:45:42",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump unexpectedly switches back to old Air Force One, sidelining Qatari jet - Reuters",
+      "time": "2026-07-08 17:52:19",
+      "market_question": "Will Virginia have the closest Senate race in 2026?",
+      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,41 +510,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:45:41",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump unexpectedly switches back to old Air Force One, sidelining Qatari jet - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:45:41",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump unexpectedly switches back to old Air Force One, sidelining Qatari jet - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:45:41",
-      "market_question": "Will Trump\u2019s remarks not air?",
-      "headline": "Trump unexpectedly switches back to old Air Force One, sidelining Qatari jet - Reuters",
+      "time": "2026-07-08 17:52:19",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
