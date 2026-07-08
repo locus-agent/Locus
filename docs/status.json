@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-08T02:26:49.096585+00:00",
-  "last_heartbeat": "2026-07-08T02:26:49.096585+00:00",
-  "uptime_seconds": 35010,
+  "generated_at": "2026-07-08T02:31:56.438450+00:00",
+  "last_heartbeat": "2026-07-08T02:31:56.438450+00:00",
+  "uptime_seconds": 35317,
   "dry_run": false,
   "markets_tracked": 1362,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 63,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 66,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 4806,
+  "classifications_24h": 4815,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1812,
+    "prefiltered_haiku": 1818,
     "cooldown_skip": 0,
     "stale": 12,
     "capped": 5,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-08T02:16:36.745294+00:00"
+    "last_check": "2026-07-08T02:31:37.182801+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1286,
-    "matched": 879,
-    "classified": 4806,
+    "news": 1285,
+    "matched": 881,
+    "classified": 4815,
     "signals": 1,
     "trades": 1
   },
@@ -136,12 +136,12 @@
     "losses": 15,
     "win_rate_pct": 57.1,
     "realized_pnl_usd": 42.99,
-    "unrealized_pnl_usd": -4.1,
-    "total_pnl_usd": 38.9,
+    "unrealized_pnl_usd": -4.72,
+    "total_pnl_usd": 38.27,
     "recent_winrate": 0.75,
     "kelly_factor": 1.0,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2193.8
+    "avg_classification_latency_ms": 2188.0
   },
   "live_readiness": {
     "ready": true,
@@ -196,11 +196,11 @@
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
       "side": "NO",
       "entry_price": 0.58,
-      "current_price": 0.615,
-      "pnl_pct": -8.33,
+      "current_price": 0.625,
+      "pnl_pct": -10.71,
       "amount_usd": 24.99,
-      "current_value_usd": 22.91,
-      "pnl_usd": -2.08,
+      "current_value_usd": 22.31,
+      "pnl_usd": -2.68,
       "edge_type": "news",
       "event_id": "655630"
     },
@@ -210,11 +210,11 @@
       "slug": "trump-meets-with-putin-by",
       "side": "YES",
       "entry_price": 0.29,
-      "current_price": 0.3,
+      "current_price": 0.30000000000000004,
       "pnl_pct": 3.45,
       "amount_usd": 8.555,
       "current_value_usd": 8.85,
-      "pnl_usd": 0.29,
+      "pnl_usd": 0.3,
       "edge_type": "news",
       "event_id": "528413"
     },
@@ -238,11 +238,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.115,
-      "pnl_pct": 15.0,
+      "current_price": 0.11349999999999993,
+      "pnl_pct": 13.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.3,
-      "pnl_usd": 0.3,
+      "current_value_usd": 2.27,
+      "pnl_usd": 0.27,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -460,25 +460,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 02:22:56",
-      "market_question": "Will Donald Trump attend the US-Iran Signing Ceremony?",
-      "headline": "US launches new wave of strikes on Iran as ceasefire frays - Politico",
-      "direction": "bearish",
-      "materiality": 0.05,
-      "confidence": 0.55,
+      "time": "2026-07-08 02:31:36",
+      "market_question": "Will Trump say \"Outside\" this week?",
+      "headline": "Parents of Bucknell football player who died say they appreciate criminal charges against coach - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.05,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 02:22:49",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "US launches new wave of strikes on Iran as ceasefire frays - Politico",
+      "time": "2026-07-08 02:31:34",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "Parents of Bucknell football player who died say they appreciate criminal charges against coach - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -492,9 +492,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-08 02:22:49",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "US launches new wave of strikes on Iran as ceasefire frays - Politico",
+      "time": "2026-07-08 02:31:34",
+      "market_question": "Will Trump say \"Crypto\" or \"Bitcoin\" during events with Turkish president?",
+      "headline": "Parents of Bucknell football player who died say they appreciate criminal charges against coach - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -508,9 +508,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-08 02:22:49",
-      "market_question": "Trump declassifies new UFO files by July 7?",
-      "headline": "US launches new wave of strikes on Iran as ceasefire frays - Politico",
+      "time": "2026-07-08 02:31:34",
+      "market_question": "Will Trump say \"World Cup\" during events with Turkish president?",
+      "headline": "Parents of Bucknell football player who died say they appreciate criminal charges against coach - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -524,20 +524,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-08 02:22:49",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "US launches new wave of strikes on Iran as ceasefire frays - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-08 02:29:25",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Switzerland edge Colombia on penalties to reach first World Cup quarter-final since 1954 - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
