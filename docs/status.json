@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-08T17:53:26.912621+00:00",
-  "last_heartbeat": "2026-07-08T17:53:26.912621+00:00",
-  "uptime_seconds": 13370,
+  "generated_at": "2026-07-08T17:58:35.745087+00:00",
+  "last_heartbeat": "2026-07-08T17:58:35.745087+00:00",
+  "uptime_seconds": 13679,
   "dry_run": false,
   "markets_tracked": 1336,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 938,
+  "headlines_scanned_today": 944,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5021,
+  "classifications_24h": 4858,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1642,
+    "prefiltered_haiku": 1580,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 1,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 432,
+    "price_target_market": 416,
     "coinflip_market": 0,
     "correlation_block": 11,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-08T17:41:02.975616+00:00"
+    "last_check": "2026-07-08T17:56:03.459999+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1302,
-    "matched": 848,
-    "classified": 5021,
+    "news": 1259,
+    "matched": 819,
+    "classified": 4858,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 16,
     "win_rate_pct": 55.6,
     "realized_pnl_usd": 34.66,
-    "unrealized_pnl_usd": -0.81,
-    "total_pnl_usd": 33.86,
+    "unrealized_pnl_usd": -0.72,
+    "total_pnl_usd": 33.95,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2365.6
+    "avg_classification_latency_ms": 2362.2
   },
   "live_readiness": {
     "ready": true,
@@ -224,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.104,
-      "pnl_pct": 4.0,
+      "current_price": 0.10850000000000004,
+      "pnl_pct": 8.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.08,
-      "pnl_usd": 0.08,
+      "current_value_usd": 2.17,
+      "pnl_usd": 0.17,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -446,41 +446,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-08 17:52:26",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
+      "time": "2026-07-08 17:56:51",
+      "market_question": "Will Trump\u2019s remarks not air?",
+      "headline": "Judges deny request to return Trump\u2019s name to Kennedy Center pending an appeal - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:52:24",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-08 17:52:19",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
+      "time": "2026-07-08 17:56:45",
+      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
+      "headline": "Judges deny request to return Trump\u2019s name to Kennedy Center pending an appeal - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -494,9 +478,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:52:19",
-      "market_question": "Will Virginia have the closest Senate race in 2026?",
-      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
+      "time": "2026-07-08 17:56:43",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Oil prices rise 5%, and Dow drops 500 points after Trump says ceasefire with Iran is \u2018over\u2019 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -510,9 +494,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-08 17:52:19",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "What to know about Graham Platner and the Maine US Senate race - AP News",
+      "time": "2026-07-08 17:56:43",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Oil prices rise 5%, and Dow drops 500 points after Trump says ceasefire with Iran is \u2018over\u2019 - AP News",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-08 17:56:43",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Oil prices rise 5%, and Dow drops 500 points after Trump says ceasefire with Iran is \u2018over\u2019 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
