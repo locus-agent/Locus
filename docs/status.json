@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-09T10:16:21.733765+00:00",
-  "last_heartbeat": "2026-07-09T10:16:21.733765+00:00",
-  "uptime_seconds": 72345,
+  "generated_at": "2026-07-09T10:21:29.563585+00:00",
+  "last_heartbeat": "2026-07-09T10:21:29.563585+00:00",
+  "uptime_seconds": 72653,
   "dry_run": false,
   "markets_tracked": 1312,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 339,
-  "headlines_last_cycle": 4,
+  "headlines_scanned_today": 340,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4943,
+  "classifications_24h": 4925,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1699,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1257,
-    "matched": 915,
-    "classified": 4943,
+    "news": 1253,
+    "matched": 913,
+    "classified": 4925,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2398.5
+    "avg_classification_latency_ms": 2402.4
   },
   "live_readiness": {
     "ready": false,
@@ -432,6 +432,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-09 10:18:23",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "1 year in, ICE\u2019s mass detention policy is on the ropes - Politico",
+      "direction": "bearish",
+      "materiality": 0.12,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.04999999999999999,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 10:18:23",
+      "market_question": "Will Trump deport 600-700k people?",
+      "headline": "1 year in, ICE\u2019s mass detention policy is on the ropes - Politico",
+      "direction": "bearish",
+      "materiality": 0.12,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.04999999999999999,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 10:18:23",
+      "market_question": "Will Trump deport 900k-1m people?",
+      "headline": "1 year in, ICE\u2019s mass detention policy is on the ropes - Politico",
+      "direction": "bearish",
+      "materiality": 0.12,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.04999999999999999,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-09 10:16:06",
       "market_question": "Will X launch a USD stablecoin in 2026?",
       "headline": "POLITICO appoints founding Spain editorial team ahead of Madrid Playbook launch - Politico",
@@ -462,54 +510,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 10:16:06",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "POLITICO appoints founding Spain editorial team ahead of Madrid Playbook launch - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 10:16:06",
-      "market_question": "Will Patty Murray be the next Senate Majority Leader?",
-      "headline": "McEnroe and Murray explain why Fery is ruling Wimbledon",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 10:16:06",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "TotalEnergies divests its distributed solar generation activities in Europe - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
