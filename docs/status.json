@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T21:56:11.512459+00:00",
-  "last_heartbeat": "2026-07-09T21:56:11.512459+00:00",
-  "uptime_seconds": 7465,
+  "generated_at": "2026-07-09T22:01:29.606024+00:00",
+  "last_heartbeat": "2026-07-09T22:01:29.606024+00:00",
+  "uptime_seconds": 7783,
   "dry_run": false,
-  "markets_tracked": 1301,
+  "markets_tracked": 1297,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10878,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1686,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1689,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 6340,
+  "classifications_24h": 6336,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1821,
+    "prefiltered_haiku": 1823,
     "cooldown_skip": 0,
     "stale": 13,
     "capped": 9,
@@ -109,7 +109,7 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 3,
-  "missed_opportunities_24h": 5,
+  "missed_opportunities_24h": 4,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1768,
-    "matched": 832,
-    "classified": 6340,
+    "news": 1769,
+    "matched": 833,
+    "classified": 6336,
     "signals": 2,
     "trades": 2
   },
@@ -136,12 +136,12 @@
     "losses": 17,
     "win_rate_pct": 55.3,
     "realized_pnl_usd": 34.86,
-    "unrealized_pnl_usd": -1.72,
-    "total_pnl_usd": 33.14,
+    "unrealized_pnl_usd": -1.71,
+    "total_pnl_usd": 33.15,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2214.0
+    "avg_classification_latency_ms": 2228.1
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2695,
+      "current_price": 0.2695000000000001,
       "pnl_pct": 1.32,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.54,
@@ -238,11 +238,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.37,
-      "pnl_pct": 8.62,
+      "current_price": 0.365,
+      "pnl_pct": 9.48,
       "amount_usd": 2.03,
-      "current_value_usd": 2.21,
-      "pnl_usd": 0.18,
+      "current_value_usd": 2.22,
+      "pnl_usd": 0.19,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -432,6 +432,70 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-09 22:01:15",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "AI-Powered CRMs Drive Higher Conversions and Faster Sales for Dealerships - CBT News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 21:56:53",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "headline": "Bitwise says bitcoin\u2019s \u2018floor is rising\u2019 despite AI boom and regulatory delays",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 21:56:53",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "Bitwise says bitcoin\u2019s \u2018floor is rising\u2019 despite AI boom and regulatory delays",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 21:56:47",
+      "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
+      "headline": "Bitwise says bitcoin\u2019s \u2018floor is rising\u2019 despite AI boom and regulatory delays",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-09 21:52:26",
       "market_question": "Will Trump attend 1 World Cup match?",
       "headline": "France and Morocco meet again at the World Cup, this time in the quarterfinals - AP News",
@@ -443,70 +507,6 @@
       "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 21:52:25",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "France and Morocco meet again at the World Cup, this time in the quarterfinals - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 21:52:21",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "France and Morocco meet again at the World Cup, this time in the quarterfinals - AP News",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 21:52:21",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "France and Morocco meet again at the World Cup, this time in the quarterfinals - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 21:52:21",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "France and Morocco meet again at the World Cup, this time in the quarterfinals - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
@@ -557,42 +557,82 @@
   ],
   "lessons": [
     {
+      "time": "2026-07-09 22:00:28",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +25%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-07-09 22:00:26",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +28%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-07-09 22:00:23",
+      "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.60) on 'Will Marine Le Pen win the 2027 French presidentia' \u2014 price moved +14%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-07-09 22:00:21",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.62) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +13%. Consider lowering min_materiality for politics category."
+    },
+    {
       "time": "2026-07-08 22:00:28",
       "market_question": "Will Trump attend 0 World Cup matches?",
       "classification": "bearish",
       "actual_direction": "bearish",
       "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +38%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-08 22:00:27",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.62) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +28%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-08 22:00:27",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "High-materiality skip on politics missed 28% \u2014 Direct Evidence Rule may be too strict"
-    },
-    {
-      "time": "2026-07-08 22:00:27",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will Apple release a new product line before 2027?' \u2014 price moved +20%. Consider lowering min_materiality for technology category."
-    },
-    {
-      "time": "2026-07-08 22:00:27",
-      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.55) on 'Will the Philippine Senate convict Sara Duterte? ' \u2014 price moved +12%. Consider lowering min_materiality for politics category."
     }
   ],
   "missed_opportunities": [
+    {
+      "time": "2026-07-09 22:00:28",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 24.9,
+      "reflection": "I signaled bearish on Trump attending World Cup matches with only moderate conviction (0.35 materiality), but then skipped the trade entirely\u2014a decision that cost me 25% in predicted gains. My hesitation likely stemmed from uncertainty about how to model Trump's unpredictable behavior and media presence, yet that same unpredictability should have made me *more* confident in the \"zero attendance\" thesis given his typical pattern of selective event appearances. I let execution risk and low materiality threshold override a directionally correct view, when I should have sized appropriately to my conviction rather than abandoning the signal altogether."
+    },
+    {
+      "time": "2026-07-09 22:00:26",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "action": "skip",
+      "pct_move": 27.5,
+      "reflection": "I flagged this as bearish with moderate conviction (0.45 materiality), but I skipped the trade\u2014and the market moved 28% exactly as I'd predicted, which stings. I likely hesitated because the signal felt too dependent on parsing Trump's schedule and intentions, which felt inherently uncertain, even though my directional read was sound. I let uncertainty about *why* something would move prevent me from acting on a clear *what*, and that's a costly distinction to learn."
+    },
+    {
+      "time": "2026-07-09 22:00:23",
+      "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
+      "slug": "next-french-presidential-election",
+      "direction": "bullish",
+      "materiality": 0.6,
+      "action": "stale",
+      "pct_move": 14.4,
+      "reflection": "I passed on a 60% materiality signal because the information felt dated, but I underestimated how slowly political prediction markets price in evolving sentiment\u2014the 14% move suggests the market was still digesting shifts in Le Pen's viability that my \"stale\" label dismissed too quickly. I let recency bias override conviction in the signal's actual strength; just because information wasn't fresh didn't mean the market had already incorporated it. Next time I need to distinguish between \"old data\" and \"underpriced thesis\"\u2014they're not the same thing."
+    },
+    {
+      "time": "2026-07-09 22:00:21",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+      "direction": "bearish",
+      "materiality": 0.62,
+      "action": "skip",
+      "pct_move": 12.7,
+      "reflection": "I flagged this as bearish with solid conviction (0.62 materiality), but I skipped the trade\u2014and watched the market move 13% exactly as I'd predicted, which stings. My skip decision likely came down to overthinking execution risk or liquidity concerns rather than doubting the signal itself, a classic case of letting operational caution override a well-reasoned thesis. I need to distinguish between \"this signal is weak\" and \"this signal is hard to trade,\" because the latter shouldn't kill a trade with real edge."
+    },
     {
       "time": "2026-07-08 22:00:28",
       "market_question": "Will Trump attend 0 World Cup matches?",
@@ -601,46 +641,6 @@
       "materiality": 0.35,
       "action": "skip",
       "pct_move": 37.8,
-      "reflection": "(reflection generation failed: BadRequestError)"
-    },
-    {
-      "time": "2026-07-08 22:00:27",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
-      "direction": "bearish",
-      "materiality": 0.62,
-      "action": "skip",
-      "pct_move": 27.7,
-      "reflection": "(reflection generation failed: BadRequestError)"
-    },
-    {
-      "time": "2026-07-08 22:00:27",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "slug": "will-apple-release-a-new-product-line-before-2027",
-      "direction": "bullish",
-      "materiality": 0.55,
-      "action": "stale",
-      "pct_move": 19.7,
-      "reflection": "(reflection generation failed: BadRequestError)"
-    },
-    {
-      "time": "2026-07-08 22:00:27",
-      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
-      "slug": "will-the-philippine-senate-convict-sara-duterte",
-      "direction": "bullish",
-      "materiality": 0.55,
-      "action": "stale",
-      "pct_move": 12.0,
-      "reflection": "(reflection generation failed: BadRequestError)"
-    },
-    {
-      "time": "2026-07-08 22:00:27",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "action": "skip",
-      "pct_move": 40.0,
       "reflection": "(reflection generation failed: BadRequestError)"
     }
   ],
