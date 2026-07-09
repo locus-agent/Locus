@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-09T00:36:51.154984+00:00",
-  "last_heartbeat": "2026-07-09T00:36:51.154984+00:00",
-  "uptime_seconds": 37575,
+  "generated_at": "2026-07-09T00:41:58.896451+00:00",
+  "last_heartbeat": "2026-07-09T00:41:58.896451+00:00",
+  "uptime_seconds": 37882,
   "dry_run": false,
   "markets_tracked": 1342,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 24,
+  "headlines_scanned_today": 26,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5072,
+  "classifications_24h": 5077,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1534,
+    "prefiltered_haiku": 1536,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
@@ -97,7 +97,7 @@
     "sports_event_cap": 0,
     "price_target_market": 406,
     "coinflip_market": 0,
-    "correlation_block": 6,
+    "correlation_block": 9,
     "category_limit": 0,
     "orderbook_skip": 1,
     "already_priced_in": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-09T00:26:15.638967+00:00"
+    "last_check": "2026-07-09T00:41:16.040308+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1273,
-    "matched": 870,
-    "classified": 5072,
+    "news": 1274,
+    "matched": 871,
+    "classified": 5077,
     "signals": 0,
     "trades": 0
   },
@@ -135,13 +135,13 @@
     "wins": 20,
     "losses": 16,
     "win_rate_pct": 55.6,
-    "realized_pnl_usd": 34.66,
-    "unrealized_pnl_usd": -0.31,
-    "total_pnl_usd": 34.35,
+    "realized_pnl_usd": 35.06,
+    "unrealized_pnl_usd": -0.75,
+    "total_pnl_usd": 34.31,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2421.3
+    "avg_classification_latency_ms": 2426.4
   },
   "live_readiness": {
     "ready": true,
@@ -240,9 +240,9 @@
       "entry_price": 0.425,
       "current_price": 0.365,
       "pnl_pct": 9.48,
-      "amount_usd": 9.57,
-      "current_value_usd": 10.48,
-      "pnl_usd": 0.91,
+      "amount_usd": 4.93,
+      "current_value_usd": 5.4,
+      "pnl_usd": 0.47,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -277,6 +277,18 @@
   ],
   "closed_positions": [
     {
+      "time": "2026-07-09 00:37:24",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "slug": "maine-senate-election-winner",
+      "side": "NO",
+      "entry_price": 0.425,
+      "exit_price": 0.365,
+      "realized_pnl_usd": 0.8199999999999976,
+      "exit_reason": "\u00bd closed at +9%",
+      "event_id": "57650",
+      "partial": true
+    },
+    {
       "time": "2026-07-08T12:35:50.839385+00:00",
       "market_question": "Will Bitcoin dip to $60,000 in July?",
       "slug": "what-price-will-bitcoin-hit-in-july-2026",
@@ -287,18 +299,6 @@
       "exit_reason": "drawdown_decision",
       "event_id": "655630",
       "partial": false
-    },
-    {
-      "time": "2026-07-07 16:01:01",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "slug": "maine-senate-election-winner",
-      "side": "NO",
-      "entry_price": 0.425,
-      "exit_price": 0.41000000000000003,
-      "realized_pnl_usd": 0.41999999999999815,
-      "exit_reason": "\u00bd closed at +2%",
-      "event_id": "57650",
-      "partial": true
     },
     {
       "time": "2026-07-03T12:15:36.844587+00:00",
@@ -399,6 +399,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-09 00:37:24",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "side": "NO",
+      "trigger": "news",
+      "decision": "close_half",
+      "reasoning": "The dropout of Democrat Graham Platner is a meaningful bearish development for my NO position (bullish for Republicans), with materiality 0.55 suggesting partial but not decisive impact; I've already captured ~9.5% gain so locking in half protects profit while leaving exposure in case the market hasn't fully repriced the reduced Democratic field strength.",
+      "pnl_pct": 9.48
+    },
+    {
       "time": "2026-07-08 12:35:51",
       "market_question": "Will Bitcoin dip to $60,000 in July?",
       "side": "NO",
@@ -433,97 +442,88 @@
       "decision": "close_failed",
       "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
       "pnl_pct": -44.52
-    },
-    {
-      "time": "2026-07-06 21:32:57",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -44.52
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 00:32:56",
-      "market_question": "Will Trump say \"Bomber\" or \"Bomb\" during press conference?",
-      "headline": "Several explosions rock Iran as US launches new strikes - AP News",
-      "direction": "bullish",
+      "time": "2026-07-09 00:39:22",
+      "market_question": "Will Trump say \"Ukraine,\" \"Russia,\" or \"Iran\" 15+ times during press conference?",
+      "headline": "Oil rises more than a dollar per barrel as US launches fresh strikes against Iran - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-09 00:37:17",
+      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "headline": "Democrat Graham Platner drops out of key US Senate race in Maine",
+      "direction": "bearish",
       "materiality": 0.55,
-      "confidence": 0.58,
-      "edge": 0.41305000000000003,
-      "fee_cost": 0.00747996,
-      "time_horizon": "immediate",
+      "confidence": 0.65,
+      "edge": 0.34375,
+      "fee_cost": 0.0,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.48000000000000004,
+      "action": "correlation_block",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 00:37:17",
+      "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
+      "headline": "Democrat Graham Platner drops out of key US Senate race in Maine",
+      "direction": "bullish",
+      "materiality": 0.62,
+      "confidence": 0.65,
+      "edge": 0.3875,
+      "fee_cost": 0.0,
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.55,
-      "action": "too_close_to_resolution",
+      "action": "correlation_block",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 00:32:45",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Several explosions rock Iran as US launches new strikes - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time": "2026-07-09 00:37:17",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "headline": "Democrat Graham Platner drops out of key US Senate race in Maine",
+      "direction": "bullish",
+      "materiality": 0.55,
+      "confidence": 0.62,
+      "edge": 0.34925000000000006,
+      "fee_cost": 0.0,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.48000000000000004,
+      "action": "correlation_block",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-09 00:32:45",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Several explosions rock Iran as US launches new strikes - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-09 00:37:16",
+      "market_question": "Will Virginia have the closest Senate race in 2026?",
+      "headline": "Democrat Graham Platner drops out of key US Senate race in Maine",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 00:32:45",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Several explosions rock Iran as US launches new strikes - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 00:32:45",
-      "market_question": "Trump declassifies new UFO files by July 31?",
-      "headline": "Several explosions rock Iran as US launches new strikes - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
