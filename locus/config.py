@@ -98,6 +98,14 @@ PASSIVE_PRICE_IMPROVE_TICKS = int(os.getenv("PASSIVE_PRICE_IMPROVE_TICKS", "1"))
 # percent above our resting limit, the edge thesis is stale — cancel rather
 # than chase (action 'passive_chased_away'). 0 disables the check.
 PASSIVE_CHASE_AWAY_PCT = float(os.getenv("PASSIVE_CHASE_AWAY_PCT", "10"))
+# Full-fill tolerance: the matching engine rounds fill sizes DOWN, so a
+# completely filled order reports slightly under the ordered size (observed
+# live: 149.995067 sh matched on a 150 sh order). A MATCHED order filled to at
+# least (100 - this)% of its ordered size counts as fully filled — the
+# sub-share remainder is economically meaningless dust. The default (0.5% =
+# 99.5% filled) still keeps any real partial (even 149 of 150) on the
+# partial-fill paths.
+PASSIVE_FILL_TOLERANCE_PCT = float(os.getenv("PASSIVE_FILL_TOLERANCE_PCT", "0.5"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 # Public trades feed (no auth). The CLOB /data/trades endpoint requires API

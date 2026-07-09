@@ -77,9 +77,20 @@ from locus.core import executor, positions, telegram_bot
 
 log = logging.getLogger(__name__)
 
-# Fill-size comparison slack: matched sizes come back as strings of the snapped
-# order size, so anything within this of the ordered shares is a full fill.
-_FULL_FILL_EPS = 1e-4
+# Nonzero-balance slack for the vanished-order path: an on-chain balance above
+# this counts as "something is held".
+_HELD_EPS = 1e-4
+
+
+def _is_full_fill(filled: float, shares: float) -> bool:
+    """Whether a reported matched size counts as a complete fill. The matching
+    engine rounds fill sizes DOWN, so a fully matched order routinely reports
+    slightly under the ordered size (observed live: 149.995067 of 150 — a
+    ~0.005-share shortfall). Anything within PASSIVE_FILL_TOLERANCE_PCT of the
+    ordered size is economically meaningless dust and counts as full; a real
+    partial (say 60 of 150, or even 149 of 150 at the 0.5% default) stays
+    below the bar and takes the timeout / chase-away partial-fill paths."""
+    return filled >= shares * (1.0 - config.PASSIVE_FILL_TOLERANCE_PCT / 100.0)
 
 
 def routes_passive(signal) -> bool:
@@ -339,7 +350,7 @@ def _resolve_vanished(client, row: dict, summary: dict) -> None:
             row["order_id"], row["id"],
         )
         return
-    if held > _FULL_FILL_EPS:
+    if held > _HELD_EPS:
         # Balance may include tokens from other holdings on this market; cap
         # to the ordered size (logged so the ambiguity is visible).
         log.warning(
@@ -377,13 +388,14 @@ def _check_one(client, row: dict, now: datetime, summary: dict) -> None:
     status = str(executor._field(order, "status") or "").upper()
     filled = _fill_size(order)
 
-    # Full fill: FILLED is terminal; MATCHED at (or within eps of) the ordered
-    # size is complete too. A LIVE order is NEVER a fill regardless of any
-    # echoed size field — resting orders echo order-sized amounts, the exact
+    # Full fill: FILLED is terminal; MATCHED within the fill tolerance of the
+    # ordered size is complete too (the engine rounds fills down — see
+    # _is_full_fill). A LIVE order is NEVER a fill regardless of any echoed
+    # size field — resting orders echo order-sized amounts, the exact
     # phantom-fill class reconcile_order defends against; a real fill on a
     # LIVE-looking order is confirmed by on-chain balance at timeout instead.
     if status == "FILLED" or (status == "MATCHED"
-                              and filled + _FULL_FILL_EPS >= row["shares"]):
+                              and _is_full_fill(filled, row["shares"])):
         _open_from_fill(row, filled if filled > 0 else row["shares"], summary)
         return
 

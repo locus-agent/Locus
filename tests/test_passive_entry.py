@@ -377,6 +377,92 @@ def test_fill_opens_position_with_aggressive_identical_accounting(tmp_db, monkey
     assert len(positions.get_open_positions()) == 1
 
 
+def test_matched_within_rounding_tolerance_is_a_full_fill(tmp_db, monkeypatch):
+    # The matching engine rounds fills DOWN: a fully matched 150 sh order
+    # reports size_matched=149.995067 (observed live). That must count as a
+    # full fill NOW — not linger pending (unprotected by drawdown/stop-loss)
+    # until the timeout's on-chain-balance path picks it up hours later. The
+    # position opens with the REAL filled size and cost.
+    _, trade_id = _seed_pending(tmp_db, shares=150.0)
+    cancels = _stub_cancel(monkeypatch)
+    client = LifecycleClient(order={"status": "MATCHED",
+                                    "size_matched": "149.995067"})
+
+    summary = passive.check_pending_orders(client=client)
+
+    assert summary["filled"] == 1
+    assert cancels == []
+    [pos] = positions.get_open_positions()
+    assert pos["token_count"] == pytest.approx(149.995067)
+    assert pos["actual_cost_usd"] == pytest.approx(149.995067 * 0.41, abs=1e-4)
+    assert _trade_status(trade_id) == "executed"
+
+
+def test_matched_just_below_tolerance_is_not_full(tmp_db, monkeypatch):
+    # 149 of 150 = 99.33% filled — below the 99.5% bar (0.5% default
+    # tolerance), so it is a real partial, NOT a full fill: the row stays
+    # pending inside its window and resolves via the timeout/chase-away
+    # partial paths, never the full-fill path.
+    _seed_pending(tmp_db, shares=150.0)
+    _stub_cancel(monkeypatch)
+    client = LifecycleClient(order={"status": "MATCHED", "size_matched": "149"})
+
+    summary = passive.check_pending_orders(client=client)
+
+    assert summary["filled"] == 0
+    assert positions.get_open_positions() == []
+    assert _pending_rows("pending")
+
+
+def test_matched_genuine_partial_takes_the_timeout_path(tmp_db, monkeypatch):
+    # 60 of 150 MATCHED is nowhere near the tolerance: not a full fill. At
+    # expiry the remainder is cancelled and the balance-confirmed partial
+    # opens via the MIN_FILL_USD split — with the partial size, not 150.
+    monkeypatch.setattr(config, "MIN_FILL_USD", 1.0)
+    _seed_pending(tmp_db, shares=150.0, hours_to_expiry=-0.1)
+    cancels = _stub_cancel(monkeypatch)
+    monkeypatch.setattr(executor, "held_token_shares", lambda c, t: 60.0)
+    client = LifecycleClient(order={"status": "MATCHED", "size_matched": "60"})
+
+    summary = passive.check_pending_orders(client=client)
+
+    assert summary["filled"] == 1
+    assert cancels == ["PASSIVE-1"]
+    [pos] = positions.get_open_positions()
+    assert pos["token_count"] == pytest.approx(60.0)
+    assert pos["actual_cost_usd"] == pytest.approx(60 * 0.41)
+
+
+def test_live_echo_of_full_size_stays_pending_in_window(tmp_db, monkeypatch):
+    # Phantom defense unchanged by the tolerance: a LIVE order echoing the
+    # full order size is never a fill — only FILLED/MATCHED statuses qualify.
+    _seed_pending(tmp_db, shares=150.0)
+    cancels = _stub_cancel(monkeypatch)
+    client = LifecycleClient(order={"status": "LIVE", "size_matched": "150"})
+
+    summary = passive.check_pending_orders(client=client)
+
+    assert summary["filled"] == 0
+    assert cancels == []
+    assert positions.get_open_positions() == []
+    assert _pending_rows("pending")
+
+
+def test_filled_status_is_terminal_regardless_of_size_report(tmp_db, monkeypatch):
+    # FILLED is the CLOB's own terminal state: full fill even when the size
+    # field is absent/zero — the position opens with the ordered shares.
+    _, trade_id = _seed_pending(tmp_db, shares=150.0)
+    _stub_cancel(monkeypatch)
+    client = LifecycleClient(order={"status": "FILLED", "size_matched": "0"})
+
+    summary = passive.check_pending_orders(client=client)
+
+    assert summary["filled"] == 1
+    [pos] = positions.get_open_positions()
+    assert pos["token_count"] == pytest.approx(150.0)
+    assert _trade_status(trade_id) == "executed"
+
+
 def test_timeout_unfilled_cancels_and_releases(tmp_db, monkeypatch):
     pending_id, trade_id = _seed_pending(tmp_db, hours_to_expiry=-0.1)  # expired
     cancels = _stub_cancel(monkeypatch)

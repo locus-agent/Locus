@@ -43,6 +43,7 @@ def _pin_passive_defaults(monkeypatch):
     monkeypatch.setattr(config, "PASSIVE_LIMIT_TIMEOUT_HOURS", 6.0, raising=False)
     monkeypatch.setattr(config, "PASSIVE_PRICE_IMPROVE_TICKS", 1, raising=False)
     monkeypatch.setattr(config, "PASSIVE_CHASE_AWAY_PCT", 10.0, raising=False)
+    monkeypatch.setattr(config, "PASSIVE_FILL_TOLERANCE_PCT", 0.5, raising=False)
 
 
 @pytest.fixture(autouse=True)
