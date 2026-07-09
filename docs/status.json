@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T21:20:06.628104+00:00",
-  "last_heartbeat": "2026-07-09T21:20:06.628104+00:00",
-  "uptime_seconds": 5300,
+  "generated_at": "2026-07-09T21:25:16.014275+00:00",
+  "last_heartbeat": "2026-07-09T21:25:16.014275+00:00",
+  "uptime_seconds": 5610,
   "dry_run": false,
-  "markets_tracked": 1298,
+  "markets_tracked": 1296,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10878,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1672,
-  "headlines_last_cycle": 19,
+  "headlines_scanned_today": 1675,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 6345,
+  "classifications_24h": 6342,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1806,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-09T21:07:43.144911+00:00"
+    "last_check": "2026-07-09T21:22:44.183806+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1767,
-    "matched": 833,
-    "classified": 6345,
+    "news": 1768,
+    "matched": 832,
+    "classified": 6342,
     "signals": 2,
     "trades": 2
   },
@@ -136,12 +136,12 @@
     "losses": 17,
     "win_rate_pct": 55.3,
     "realized_pnl_usd": 34.86,
-    "unrealized_pnl_usd": -1.71,
-    "total_pnl_usd": 33.15,
+    "unrealized_pnl_usd": -1.69,
+    "total_pnl_usd": 33.17,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2067.6
+    "avg_classification_latency_ms": 2134.1
   },
   "live_readiness": {
     "ready": true,
@@ -224,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.087,
-      "pnl_pct": -13.0,
+      "current_price": 0.08749999999999991,
+      "pnl_pct": -12.5,
       "amount_usd": 2.0,
-      "current_value_usd": 1.74,
-      "pnl_usd": -0.26,
+      "current_value_usd": 1.75,
+      "pnl_usd": -0.25,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -238,11 +238,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.425,
-      "current_price": 0.37,
-      "pnl_pct": 8.62,
+      "current_price": 0.365,
+      "pnl_pct": 9.48,
       "amount_usd": 2.03,
-      "current_value_usd": 2.21,
-      "pnl_usd": 0.18,
+      "current_value_usd": 2.22,
+      "pnl_usd": 0.19,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 21:20:06",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "Perplexity is building a secret weapon to join the AI coding wars - Business Insider",
+      "time": "2026-07-09 21:20:15",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "headline": "Experts Say There\u2019s Now an Open Source AI Model as Scary as Mythos - Futurism",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -448,68 +448,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 21:20:06",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "SpaceX Joins the Nasdaq-100. What the Fast-Track Addition Means for the Stock. - Barron's",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 21:20:06",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
-      "headline": "Meta says it\u2019s facing $1.4T in penalties in teen mental health case \u2014 a sum equal to tech giant\u2019s valuation - New York Post",
+      "time": "2026-07-09 21:20:15",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Experts Say There\u2019s Now an Open Source AI Model as Scary as Mythos - Futurism",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "cached",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-09 21:20:06",
-      "market_question": "Will Meta have the best AI model at the end of July 2026?",
-      "headline": "Meta says it\u2019s facing $1.4T in penalties in teen mental health case \u2014 a sum equal to tech giant\u2019s valuation - New York Post",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-09 21:20:15",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Experts Say There\u2019s Now an Open Source AI Model as Scary as Mythos - Futurism",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-09 21:20:06",
-      "market_question": "Will Meta launch a USD stablecoin in 2026?",
-      "headline": "Meta says it\u2019s facing $1.4T in penalties in teen mental health case \u2014 a sum equal to tech giant\u2019s valuation - New York Post",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-09 21:20:15",
+      "market_question": "Will Mistral have a #1 AI model by December 31, 2026?",
+      "headline": "Experts Say There\u2019s Now an Open Source AI Model as Scary as Mythos - Futurism",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 21:20:15",
+      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "headline": "Experts Say There\u2019s Now an Open Source AI Model as Scary as Mythos - Futurism",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.52,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
