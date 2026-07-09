@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-09T15:41:32.977733+00:00",
-  "last_heartbeat": "2026-07-09T15:41:32.977733+00:00",
-  "uptime_seconds": 91856,
+  "generated_at": "2026-07-09T15:46:48.557770+00:00",
+  "last_heartbeat": "2026-07-09T15:46:48.557770+00:00",
+  "uptime_seconds": 92172,
   "dry_run": false,
   "markets_tracked": 1302,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 647,
+  "headlines_scanned_today": 652,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4059,
+  "classifications_24h": 4076,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1335,
+    "prefiltered_haiku": 1332,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 9,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-09T15:26:42.036070+00:00"
+    "last_check": "2026-07-09T15:41:42.605115+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1058,
-    "matched": 869,
-    "classified": 4059,
+    "news": 1061,
+    "matched": 872,
+    "classified": 4076,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2424.1
+    "avg_classification_latency_ms": 2430.6
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1045,
+      "current_price": 0.10450000000000004,
       "pnl_pct": 4.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.09,
@@ -432,9 +432,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 15:40:19",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Muchova beats Gauff in epic tie-break to reach final",
+      "time": "2026-07-09 15:44:56",
+      "market_question": "Will OpenAI IPO by December 31 2026?",
+      "headline": "News outlets urge a judge to sanction OpenAI in a high-stakes AI copyright fight - AP News",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 15:44:56",
+      "market_question": "OpenAI IPO before 2027?",
+      "headline": "News outlets urge a judge to sanction OpenAI in a high-stakes AI copyright fight - AP News",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 15:44:56",
+      "market_question": "Will OpenAI announce bankruptcy before 2027?",
+      "headline": "News outlets urge a judge to sanction OpenAI in a high-stakes AI copyright fight - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 15:44:56",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New US and Iran strikes trigger big drop in Hormuz ship traffic",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,57 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 15:33:40",
-      "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "Ukraine strikes Russian ships near Crimea, escalating attacks on fuel supplies",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 15:33:40",
-      "market_question": "Ukraine election called by August 31, 2026?",
-      "headline": "Ukraine strikes Russian ships near Crimea, escalating attacks on fuel supplies",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 15:33:40",
-      "market_question": "Ukraine election called by December 31, 2026?",
-      "headline": "Ukraine strikes Russian ships near Crimea, escalating attacks on fuel supplies",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 15:33:40",
-      "market_question": "Will Donald Trump visit Ukraine in 2026?",
-      "headline": "Ukraine strikes Russian ships near Crimea, escalating attacks on fuel supplies",
+      "time": "2026-07-09 15:44:56",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "New US and Iran strikes trigger big drop in Hormuz ship traffic",
       "direction": null,
       "materiality": null,
       "confidence": null,
