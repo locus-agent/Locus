@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-09T06:35:43.939529+00:00",
-  "last_heartbeat": "2026-07-09T06:35:43.939529+00:00",
-  "uptime_seconds": 59107,
+  "generated_at": "2026-07-09T06:40:51.298071+00:00",
+  "last_heartbeat": "2026-07-09T06:40:51.298071+00:00",
+  "uptime_seconds": 59415,
   "dry_run": false,
   "markets_tracked": 1312,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 205,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 209,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 4968,
+  "classifications_24h": 4975,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1529,
+    "prefiltered_haiku": 1536,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 7,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1241,
-    "matched": 873,
-    "classified": 4968,
+    "news": 1244,
+    "matched": 875,
+    "classified": 4975,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 17,
     "win_rate_pct": 54.1,
     "realized_pnl_usd": 33.23,
-    "unrealized_pnl_usd": 0.98,
-    "total_pnl_usd": 34.21,
+    "unrealized_pnl_usd": 0.94,
+    "total_pnl_usd": 34.17,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2417.3
+    "avg_classification_latency_ms": 2415.1
   },
   "live_readiness": {
     "ready": false,
@@ -224,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1135,
-      "pnl_pct": 13.5,
+      "current_price": 0.1115,
+      "pnl_pct": 11.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.27,
-      "pnl_usd": 0.27,
+      "current_value_usd": 2.23,
+      "pnl_usd": 0.23,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 06:33:46",
-      "market_question": "Will CryptoPunks floor price reach 50 ETH before 2027?",
-      "headline": "Peanut butter floor returns to Dutch museum as tribute to late artist - AP News",
+      "time": "2026-07-09 06:40:25",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Idolises Ronaldo, plays like Saka - meet  \u00a340m Chelsea winger Quenda",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 06:40:24",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "Idolises Ronaldo, plays like Saka - meet  \u00a340m Chelsea winger Quenda",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 06:33:46",
-      "market_question": "Will Milady floor price reach 4 ETH before 2027?",
-      "headline": "Peanut butter floor returns to Dutch museum as tribute to late artist - AP News",
+      "time": "2026-07-09 06:40:24",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Idolises Ronaldo, plays like Saka - meet  \u00a340m Chelsea winger Quenda",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 06:33:46",
-      "market_question": "Will CryptoPunks floor price dip to 10 ETH before 2027?",
-      "headline": "Peanut butter floor returns to Dutch museum as tribute to late artist - AP News",
+      "time": "2026-07-09 06:40:24",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Idolises Ronaldo, plays like Saka - meet  \u00a340m Chelsea winger Quenda",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,25 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 06:33:46",
-      "market_question": "Will CryptoPunks floor price dip to 20 ETH before 2027?",
-      "headline": "Peanut butter floor returns to Dutch museum as tribute to late artist - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 06:33:46",
-      "market_question": "Will Pudgy Penguins floor price dip to 2 ETH before 2027?",
-      "headline": "Peanut butter floor returns to Dutch museum as tribute to late artist - AP News",
+      "time": "2026-07-09 06:40:24",
+      "market_question": "Will Trump and Putin meet next in Turkey?",
+      "headline": "Idolises Ronaldo, plays like Saka - meet  \u00a340m Chelsea winger Quenda",
       "direction": null,
       "materiality": null,
       "confidence": null,
