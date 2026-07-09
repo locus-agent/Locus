@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T06:20:19.171884+00:00",
-  "last_heartbeat": "2026-07-09T06:20:19.171884+00:00",
-  "uptime_seconds": 58183,
+  "generated_at": "2026-07-09T06:25:27.715290+00:00",
+  "last_heartbeat": "2026-07-09T06:25:27.715290+00:00",
+  "uptime_seconds": 58491,
   "dry_run": false,
-  "markets_tracked": 1314,
+  "markets_tracked": 1313,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10815,
@@ -82,22 +82,22 @@
       }
     ]
   },
-  "headlines_scanned_today": 192,
+  "headlines_scanned_today": 196,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4957,
+  "classifications_24h": 4949,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1520,
+    "prefiltered_haiku": 1522,
     "cooldown_skip": 0,
     "stale": 7,
-    "capped": 5,
+    "capped": 7,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 387,
+    "price_target_market": 384,
     "coinflip_market": 0,
-    "correlation_block": 16,
+    "correlation_block": 18,
     "category_limit": 0,
     "orderbook_skip": 1,
     "already_priced_in": 1,
@@ -108,7 +108,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 1,
+  "watched_markets_count": 2,
   "missed_opportunities_24h": 5,
   "whale": {
     "watched_wallets": 4,
@@ -121,39 +121,39 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1238,
-    "matched": 868,
-    "classified": 4957,
+    "news": 1237,
+    "matched": 867,
+    "classified": 4949,
     "signals": 0,
     "trades": 0
   },
   "performance": {
     "trades_total": 49,
     "deployed_usd": 1144.55,
-    "open_count": 6,
-    "closed_count": 36,
+    "open_count": 5,
+    "closed_count": 37,
     "wins": 20,
-    "losses": 16,
-    "win_rate_pct": 55.6,
-    "realized_pnl_usd": 35.06,
-    "unrealized_pnl_usd": -0.42,
-    "total_pnl_usd": 34.64,
+    "losses": 17,
+    "win_rate_pct": 54.1,
+    "realized_pnl_usd": 33.23,
+    "unrealized_pnl_usd": 0.97,
+    "total_pnl_usd": 34.2,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2414.2
+    "avg_classification_latency_ms": 2421.5
   },
   "live_readiness": {
-    "ready": true,
-    "criteria_met": 4,
+    "ready": false,
+    "criteria_met": 3,
     "criteria_total": 4,
-    "sharpe_days_count": 14,
+    "sharpe_days_count": 15,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 36,
+        "value": 37,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -161,15 +161,15 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 55.6,
+        "value": 54.1,
         "threshold_display": "> 55%",
-        "pass": true
+        "pass": false
       },
       {
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 3.33,
+        "value": 3.06,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -186,8 +186,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.1819,
-    "sharpe_7d": -0.85
+    "drawdown_7d": 0.1458,
+    "sharpe_7d": -0.89
   },
   "open_positions": [
     {
@@ -224,7 +224,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.113,
+      "current_price": 0.11299999999999999,
       "pnl_pct": 13.0,
       "amount_usd": 2.0,
       "current_value_usd": 2.26,
@@ -247,20 +247,6 @@
       "event_id": "57650"
     },
     {
-      "time": "2026-06-30 15:20:30",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "slug": "texas-senate-election-winner",
-      "side": "NO",
-      "entry_price": 0.555,
-      "current_price": 0.575,
-      "pnl_pct": -5.56,
-      "amount_usd": 24.93,
-      "current_value_usd": 23.55,
-      "pnl_usd": -1.38,
-      "edge_type": "news",
-      "event_id": "57672"
-    },
-    {
       "time": "2026-06-30 00:56:15",
       "market_question": "Will Dan Sullivan win the Alaska Senate race in 2026?",
       "slug": "alaska-senate-election-winner",
@@ -276,6 +262,18 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-07-09T06:20:53.251892+00:00",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "slug": "texas-senate-election-winner",
+      "side": "NO",
+      "entry_price": 0.555,
+      "exit_price": 0.575,
+      "realized_pnl_usd": -1.8300000000000018,
+      "exit_reason": "news_decision",
+      "event_id": "57672",
+      "partial": false
+    },
     {
       "time": "2026-07-09 00:37:24",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -383,21 +381,18 @@
       "exit_reason": "manual",
       "event_id": "637204",
       "partial": false
-    },
-    {
-      "time": "2026-06-27T15:01:03.149802+00:00",
-      "market_question": "Will OpenAI not IPO by December 31, 2026?",
-      "slug": "openai-ipo-closing-market-cap",
-      "side": "YES",
-      "entry_price": 0.705,
-      "exit_price": 0.765,
-      "realized_pnl_usd": 2.127659574468088,
-      "exit_reason": "manual",
-      "event_id": "48292",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-07-09 06:20:53",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "side": "NO",
+      "trigger": "news",
+      "decision": "close",
+      "reasoning": "The suspension of Democrat Graham Platner due to an assault allegation directly weakens the Democratic field and bolsters Republican prospects, contradicting my NO thesis. With an already negative PnL and a material adverse development, there is no strong reason to hold \u2014 cutting losses now is preferable to hoping the thesis recovers.",
+      "pnl_pct": -5.56
+    },
     {
       "time": "2026-07-09 00:37:24",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -433,22 +428,13 @@
       "decision": "partial_close",
       "reasoning": "Partial live SELL (time_pressure): sold 40.0 @ 0.033 (realized $-0.85); 18.25 tokens remain, position kept open",
       "pnl_pct": -32.61
-    },
-    {
-      "time": "2026-07-06 22:03:16",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (time_pressure); position kept open",
-      "pnl_pct": -44.52
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 06:18:26",
-      "market_question": "Will X launch a USD stablecoin in 2026?",
-      "headline": "Asian stocks slip and oil prices jump as Iran and US launch fresh attacks - AP News",
+      "time": "2026-07-09 06:22:49",
+      "market_question": "Will China unban Bitcoin by 2027?",
+      "headline": "China, Taiwan brace for Typhoon Bavi, possibly the most powerful storm in years - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -462,41 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 06:18:26",
-      "market_question": "Will OpenAI launch a token before 2027?",
-      "headline": "Asian stocks slip and oil prices jump as Iran and US launch fresh attacks - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 06:18:26",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "Asian stocks slip and oil prices jump as Iran and US launch fresh attacks - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 06:18:25",
-      "market_question": "Will MetaMask launch a token by September 30, 2026?",
-      "headline": "Asian stocks slip and oil prices jump as Iran and US launch fresh attacks - AP News",
+      "time": "2026-07-09 06:22:48",
+      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "China, Taiwan brace for Typhoon Bavi, possibly the most powerful storm in years - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -510,9 +464,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 06:18:25",
-      "market_question": "Will Base launch a token by December 31, 2026?",
-      "headline": "Asian stocks slip and oil prices jump as Iran and US launch fresh attacks - AP News",
+      "time": "2026-07-09 06:22:48",
+      "market_question": "Will Donald Trump visit Taiwan in 2026?",
+      "headline": "China, Taiwan brace for Typhoon Bavi, possibly the most powerful storm in years - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-09 06:22:48",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "China, Taiwan brace for Typhoon Bavi, possibly the most powerful storm in years - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-09 06:22:48",
+      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "China, Taiwan brace for Typhoon Bavi, possibly the most powerful storm in years - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
