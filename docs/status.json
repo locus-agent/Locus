@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T02:34:46.043967+00:00",
-  "last_heartbeat": "2026-07-09T02:34:46.043967+00:00",
-  "uptime_seconds": 44649,
+  "generated_at": "2026-07-09T02:39:54.371308+00:00",
+  "last_heartbeat": "2026-07-09T02:39:54.371308+00:00",
+  "uptime_seconds": 44958,
   "dry_run": false,
-  "markets_tracked": 1333,
+  "markets_tracked": 1332,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10802,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 117,
+  "headlines_scanned_today": 118,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5240,
+  "classifications_24h": 5210,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1584,
+    "prefiltered_haiku": 1563,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 5,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 412,
+    "price_target_market": 407,
     "coinflip_market": 0,
     "correlation_block": 16,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1310,
-    "matched": 905,
-    "classified": 5240,
+    "news": 1305,
+    "matched": 900,
+    "classified": 5210,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2432.0
+    "avg_classification_latency_ms": 2431.5
   },
   "live_readiness": {
     "ready": true,
@@ -224,7 +224,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.10149999999999992,
+      "current_price": 0.1015,
       "pnl_pct": 1.5,
       "amount_usd": 2.0,
       "current_value_usd": 2.03,
@@ -446,6 +446,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-09 02:36:23",
+      "market_question": "Will Otzma Yehudit win the most seats in the 2026 Israeli legislative election?",
+      "headline": "Gaza - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-09 02:34:20",
       "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
       "headline": "Platner's disastrous candidacy exposes rifts that could dampen Democrats' Senate hopes",
@@ -505,22 +521,6 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.07999999999999999,
       "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 02:34:16",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "Platner's disastrous candidacy exposes rifts that could dampen Democrats' Senate hopes",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.58,
-      "edge": 0.1935,
-      "fee_cost": 0.0,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.38,
-      "action": "capped",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
