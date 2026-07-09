@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-09T18:08:42.202293+00:00",
-  "last_heartbeat": "2026-07-09T18:08:42.202293+00:00",
-  "uptime_seconds": 43,
+  "generated_at": "2026-07-09T18:13:54.256896+00:00",
+  "last_heartbeat": "2026-07-09T18:13:54.256896+00:00",
+  "uptime_seconds": 356,
   "dry_run": false,
-  "markets_tracked": 0,
+  "markets_tracked": 1290,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 10859,
+    "total": 10867,
     "accuracy": 18.2,
     "by_category": {
       "other": 16.2,
@@ -18,39 +18,39 @@
     },
     "by_source": {
       "rss": 18.6,
-      "newsapi": 17.3,
+      "newsapi": 17.2,
       "truthsocial": 7.7
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.2,
-    "overall_total": 10859,
+    "overall_total": 10867,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5980,
+        "total": 5982,
         "correct": 422,
         "accuracy_pct": 7.1,
-        "avg_pnl_pct": 9.66,
+        "avg_pnl_pct": 9.65,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 1011,
+        "total": 1013,
         "correct": 346,
         "accuracy_pct": 34.2,
-        "avg_pnl_pct": 21.23,
+        "avg_pnl_pct": 21.19,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1191,
+        "total": 1193,
         "correct": 460,
         "accuracy_pct": 38.6,
-        "avg_pnl_pct": 5.53,
+        "avg_pnl_pct": 5.52,
         "color": "green"
       },
       {
@@ -74,7 +74,7 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1372,
+        "total": 1374,
         "correct": 242,
         "accuracy_pct": 17.6,
         "avg_pnl_pct": -2.67,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 957,
+  "headlines_scanned_today": 1118,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4747,
+  "classifications_24h": 5290,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1465,
+    "prefiltered_haiku": 1609,
     "cooldown_skip": 0,
     "stale": 10,
     "capped": 9,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 391,
+    "price_target_market": 433,
     "coinflip_market": 0,
     "correlation_block": 18,
     "category_limit": 1,
@@ -108,12 +108,12 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 2,
+  "watched_markets_count": 3,
   "missed_opportunities_24h": 5,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": null
+    "last_check": "2026-07-09T18:08:47.381208+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,31 +121,31 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1264,
-    "matched": 911,
-    "classified": 4747,
+    "news": 1424,
+    "matched": 917,
+    "classified": 5290,
     "signals": 2,
     "trades": 2
   },
   "performance": {
     "trades_total": 50,
     "deployed_usd": 1184.55,
-    "open_count": 6,
-    "closed_count": 37,
-    "wins": 20,
+    "open_count": 5,
+    "closed_count": 38,
+    "wins": 21,
     "losses": 17,
-    "win_rate_pct": 54.1,
-    "realized_pnl_usd": 34.33,
-    "unrealized_pnl_usd": -0.78,
-    "total_pnl_usd": 33.55,
+    "win_rate_pct": 55.3,
+    "realized_pnl_usd": 35.01,
+    "unrealized_pnl_usd": -1.62,
+    "total_pnl_usd": 33.39,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 0.0
+    "avg_classification_latency_ms": 1836.6
   },
   "live_readiness": {
-    "ready": false,
-    "criteria_met": 3,
+    "ready": true,
+    "criteria_met": 4,
     "criteria_total": 4,
     "sharpe_days_count": 15,
     "metrics": [
@@ -153,7 +153,7 @@
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 37,
+        "value": 38,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -161,15 +161,15 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 54.1,
+        "value": 55.3,
         "threshold_display": "> 55%",
-        "pass": false
+        "pass": true
       },
       {
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 3.06,
+        "value": 3.19,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -186,8 +186,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.1458,
-    "sharpe_7d": -0.89
+    "drawdown_7d": 0.1385,
+    "sharpe_7d": -0.7
   },
   "open_positions": [
     {
@@ -203,20 +203,6 @@
       "pnl_usd": -0.08,
       "edge_type": "news",
       "event_id": "79987"
-    },
-    {
-      "time": "2026-07-06 22:06:57",
-      "market_question": "Trump meets with Putin by December 31?",
-      "slug": "trump-meets-with-putin-by",
-      "side": "YES",
-      "entry_price": 0.29,
-      "current_price": 0.35,
-      "pnl_pct": 20.69,
-      "amount_usd": 3.915,
-      "current_value_usd": 4.72,
-      "pnl_usd": 0.81,
-      "edge_type": "news",
-      "event_id": "528413"
     },
     {
       "time": "2026-07-02 10:08:30",
@@ -238,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.0955,
-      "pnl_pct": -4.5,
+      "current_price": 0.094,
+      "pnl_pct": -6.0,
       "amount_usd": 2.0,
-      "current_value_usd": 1.91,
-      "pnl_usd": -0.09,
+      "current_value_usd": 1.88,
+      "pnl_usd": -0.12,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -276,6 +262,18 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-07-09T18:09:07.903870+00:00",
+      "market_question": "Trump meets with Putin by December 31?",
+      "slug": "trump-meets-with-putin-by",
+      "side": "YES",
+      "entry_price": 0.29,
+      "exit_price": 0.35,
+      "realized_pnl_usd": 1.4750000000000005,
+      "exit_reason": "manual",
+      "event_id": "528413",
+      "partial": false
+    },
     {
       "time": "2026-07-09T06:20:53.251892+00:00",
       "market_question": "Will the Republicans win the Texas Senate race in 2026?",
@@ -383,21 +381,18 @@
       "exit_reason": "phantom_position",
       "event_id": "73866",
       "partial": false
-    },
-    {
-      "time": "2026-06-27T19:12:55.829761+00:00",
-      "market_question": "Bitcoin Up or Down on June 28?",
-      "slug": "bitcoin-up-or-down-on-june-28-2026",
-      "side": "NO",
-      "entry_price": 0.465,
-      "exit_price": 0.395,
-      "realized_pnl_usd": 0.3885981308411222,
-      "exit_reason": "manual",
-      "event_id": "637204",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-07-09 18:09:08",
+      "market_question": "Trump meets with Putin by December 31?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "close",
+      "reasoning": "Manual close requested by user",
+      "pnl_pct": 20.69
+    },
     {
       "time": "2026-07-09 18:08:31",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -433,70 +428,13 @@
       "decision": "close",
       "reasoning": "The suspension of Democrat Graham Platner due to an assault allegation directly weakens the Democratic field and bolsters Republican prospects, contradicting my NO thesis. With an already negative PnL and a material adverse development, there is no strong reason to hold \u2014 cutting losses now is preferable to hoping the thesis recovers.",
       "pnl_pct": -5.56
-    },
-    {
-      "time": "2026-07-09 00:37:24",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "side": "NO",
-      "trigger": "news",
-      "decision": "close_half",
-      "reasoning": "The dropout of Democrat Graham Platner is a meaningful bearish development for my NO position (bullish for Republicans), with materiality 0.55 suggesting partial but not decisive impact; I've already captured ~9.5% gain so locking in half protects profit while leaving exposure in case the market hasn't fully repriced the reduced Democratic field strength.",
-      "pnl_pct": 9.48
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 18:07:51",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Google Photos rolling out \u2018Video Remix\u2019 powered by Gemini Omni - 9to5Google",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 18:07:50",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Google Photos rolling out \u2018Video Remix\u2019 powered by Gemini Omni - 9to5Google",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 18:07:50",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "Google Photos rolling out \u2018Video Remix\u2019 powered by Gemini Omni - 9to5Google",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 18:07:49",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "Google Photos rolling out \u2018Video Remix\u2019 powered by Gemini Omni - 9to5Google",
+      "time": "2026-07-09 18:12:55",
+      "market_question": "Trump renames ICE to NICE by December 31?",
+      "headline": "What to know about the fatal shooting of a Houston man by an ICE officer - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -510,9 +448,57 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 18:07:48",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Microsoft\u2019s Xbox to Shift Obsidian Studio to New \u2018Fallout\u2019 Video Game - Bloomberg.com",
+      "time": "2026-07-09 18:12:55",
+      "market_question": "Will Fubo: Watch Live TV & Sports be #1 Free App in the US Apple App Store on July 10?",
+      "headline": "Sports - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-09 18:11:21",
+      "market_question": "Will the Democrats win the Massachusetts Senate race in 2026?",
+      "headline": "Maine Democrats plan convention to replace Platner: What to know about Senate race - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 18:11:20",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "Maine Democrats plan convention to replace Platner: What to know about Senate race - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 18:11:20",
+      "market_question": "Will the Democrats win the Michigan Senate race in 2026?",
+      "headline": "Maine Democrats plan convention to replace Platner: What to know about Senate race - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
