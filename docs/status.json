@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T09:19:54.626220+00:00",
-  "last_heartbeat": "2026-07-09T09:19:54.626220+00:00",
-  "uptime_seconds": 68958,
+  "generated_at": "2026-07-09T09:25:02.042941+00:00",
+  "last_heartbeat": "2026-07-09T09:25:02.042941+00:00",
+  "uptime_seconds": 69265,
   "dry_run": false,
-  "markets_tracked": 1306,
+  "markets_tracked": 1311,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10815,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 308,
+  "headlines_scanned_today": 309,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4998,
+  "classifications_24h": 4979,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1663,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1265,
-    "matched": 904,
-    "classified": 4998,
+    "news": 1258,
+    "matched": 903,
+    "classified": 4979,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2381.8
+    "avg_classification_latency_ms": 2383.4
   },
   "live_readiness": {
     "ready": false,
@@ -432,6 +432,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-09 09:21:11",
+      "market_question": "Will Trump and Putin meet next in a Gulf country?",
+      "headline": "US and Iran exchange intensifying fire across the Gulf, threatening the interim deal to end war - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 09:21:04",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "headline": "US and Iran exchange intensifying fire across the Gulf, threatening the interim deal to end war - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-09 09:21:04",
+      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
+      "headline": "US and Iran exchange intensifying fire across the Gulf, threatening the interim deal to end war - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-09 09:19:06",
       "market_question": "Lee Jae-myung out as president of South Korea in 2026?",
       "headline": "South Korea\u2019s Supreme Court upholds prison sentence for Yoon in first martial law case - AP News",
@@ -462,54 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 09:19:00",
-      "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
-      "headline": "What we know \u2013 and don\u2019t \u2013 about how Maine Democrats will replace Graham Platner - Politico",
-      "direction": "neutral",
-      "materiality": 0.35,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.27999999999999997,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 09:19:00",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "South Korea\u2019s Supreme Court upholds prison sentence for Yoon in first martial law case - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 09:19:00",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "South Korea\u2019s Supreme Court upholds prison sentence for Yoon in first martial law case - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
