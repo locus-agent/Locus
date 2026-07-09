@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T06:04:56.117637+00:00",
-  "last_heartbeat": "2026-07-09T06:04:56.117637+00:00",
-  "uptime_seconds": 57260,
+  "generated_at": "2026-07-09T06:10:03.816465+00:00",
+  "last_heartbeat": "2026-07-09T06:10:03.816465+00:00",
+  "uptime_seconds": 57567,
   "dry_run": false,
-  "markets_tracked": 1309,
+  "markets_tracked": 1308,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10802,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 178,
+  "headlines_scanned_today": 179,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4929,
+  "classifications_24h": 4926,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1503,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1233,
     "matched": 861,
-    "classified": 4929,
+    "classified": 4926,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2410.2
+    "avg_classification_latency_ms": 2411.7
   },
   "live_readiness": {
     "ready": true,
@@ -224,7 +224,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.11299999999999999,
+      "current_price": 0.113,
       "pnl_pct": 13.0,
       "amount_usd": 2.0,
       "current_value_usd": 2.26,
@@ -446,6 +446,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-09 06:07:33",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "Gold eases as Middle East hostilities revive inflation fears - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 06:07:27",
+      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
+      "headline": "Gold eases as Middle East hostilities revive inflation fears - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-09 06:03:03",
       "market_question": "Will Donald Trump visit Lebanon in 2026?",
       "headline": "Trump\u2019s plan for a triumphal arch in the nation\u2019s capital is getting another review - AP News",
@@ -492,38 +524,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 06:03:03",
-      "market_question": "Will Trump and Putin meet next in another country?",
-      "headline": "Trump\u2019s plan for a triumphal arch in the nation\u2019s capital is getting another review - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 06:03:03",
-      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
-      "headline": "Fresno State launches artificial intelligence minor open to students across disciplines - ABC30 Fresno",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
