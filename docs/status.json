@@ -1,35 +1,35 @@
 {
-  "generated_at": "2026-07-09T18:46:50.611626+00:00",
-  "last_heartbeat": "2026-07-09T18:46:50.611626+00:00",
-  "uptime_seconds": 40,
+  "generated_at": "2026-07-09T18:52:01.756717+00:00",
+  "last_heartbeat": "2026-07-09T18:52:01.756717+00:00",
+  "uptime_seconds": 351,
   "dry_run": false,
-  "markets_tracked": 0,
+  "markets_tracked": 1292,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 10867,
+    "total": 10872,
     "accuracy": 18.2,
     "by_category": {
       "other": 16.2,
       "ai": 11.2,
       "politics": 20.2,
-      "technology": 12.1,
+      "technology": 12.2,
       "crypto": 20.0,
       "sports": 26.2
     },
     "by_source": {
       "rss": 18.6,
-      "newsapi": 17.2,
+      "newsapi": 17.3,
       "truthsocial": 7.7
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.2,
-    "overall_total": 10867,
+    "overall_total": 10872,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 5982,
+        "total": 5983,
         "correct": 422,
         "accuracy_pct": 7.1,
         "avg_pnl_pct": 9.65,
@@ -47,8 +47,8 @@
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1193,
-        "correct": 460,
+        "total": 1194,
+        "correct": 461,
         "accuracy_pct": 38.6,
         "avg_pnl_pct": 5.52,
         "color": "green"
@@ -74,28 +74,28 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1374,
+        "total": 1377,
         "correct": 242,
         "accuracy_pct": 17.6,
-        "avg_pnl_pct": -2.67,
+        "avg_pnl_pct": -2.66,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 1136,
+  "headlines_scanned_today": 1303,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5124,
+  "classifications_24h": 5678,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1529,
+    "prefiltered_haiku": 1676,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 9,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 438,
+    "price_target_market": 486,
     "coinflip_market": 0,
     "correlation_block": 18,
     "category_limit": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": null
+    "last_check": "2026-07-09T18:46:58.070841+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1390,
-    "matched": 879,
-    "classified": 5124,
+    "news": 1552,
+    "matched": 883,
+    "classified": 5678,
     "signals": 2,
     "trades": 2
   },
@@ -135,13 +135,13 @@
     "wins": 21,
     "losses": 17,
     "win_rate_pct": 55.3,
-    "realized_pnl_usd": 35.01,
-    "unrealized_pnl_usd": -1.68,
-    "total_pnl_usd": 33.33,
+    "realized_pnl_usd": 34.86,
+    "unrealized_pnl_usd": -1.61,
+    "total_pnl_usd": 33.25,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 0.0
+    "avg_classification_latency_ms": 1424.2
   },
   "live_readiness": {
     "ready": true,
@@ -198,9 +198,9 @@
       "entry_price": 0.266,
       "current_price": 0.2655,
       "pnl_pct": -0.19,
-      "amount_usd": 39.8987,
-      "current_value_usd": 39.82,
-      "pnl_usd": -0.08,
+      "amount_usd": 0.5306879839781693,
+      "current_value_usd": 0.53,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "79987"
     },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-09 18:46:56",
+      "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "partial_close",
+      "reasoning": "Partial live SELL (manual): sold 148.0 @ 0.265 (realized $-0.15); 1.995067000000006 tokens remain, position kept open",
+      "pnl_pct": -0.19
+    },
+    {
       "time": "2026-07-09 18:09:08",
       "market_question": "Trump meets with Putin by December 31?",
       "side": "YES",
@@ -419,86 +428,77 @@
       "decision": "partial_close",
       "reasoning": "Partial live SELL (manual): sold 5.0 @ 0.64 (realized $+0.30); 3.5 tokens remain, position kept open",
       "pnl_pct": 12.07
-    },
-    {
-      "time": "2026-07-09 06:20:53",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "side": "NO",
-      "trigger": "news",
-      "decision": "close",
-      "reasoning": "The suspension of Democrat Graham Platner due to an assault allegation directly weakens the Democratic field and bolsters Republican prospects, contradicting my NO thesis. With an already negative PnL and a material adverse development, there is no strong reason to hold \u2014 cutting losses now is preferable to hoping the thesis recovers.",
-      "pnl_pct": -5.56
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 18:41:57",
-      "market_question": "Will DeepSeek have a #1 AI model by December 31, 2026?",
-      "headline": "DeepFabric Launches Supply Chain AI Platform - WWD",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-09 18:51:11",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New York sues 3M, DuPont and other companies over so-called forever chemicals - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-09 18:41:57",
-      "market_question": "Will DeepSeek have the best AI model at the end of July 2026?",
-      "headline": "DeepFabric Launches Supply Chain AI Platform - WWD",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-09 18:51:11",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "New York sues 3M, DuPont and other companies over so-called forever chemicals - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-09 18:41:56",
-      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
-      "headline": "OpenAI launches ChatGPT Work, adding to competition for professional AI tools - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-09 18:51:11",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "New York sues 3M, DuPont and other companies over so-called forever chemicals - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-09 18:41:56",
-      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
-      "headline": "OpenAI launches ChatGPT Work, adding to competition for professional AI tools - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
+      "time": "2026-07-09 18:51:11",
+      "market_question": "Trump declassifies new UFO files by July 31?",
+      "headline": "New York sues 3M, DuPont and other companies over so-called forever chemicals - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-09 18:41:56",
-      "market_question": "Will Civic Platform (GP) gain the most seats in the next Russian parliamentary election?",
-      "headline": "DeepFabric Launches Supply Chain AI Platform - WWD",
+      "time": "2026-07-09 18:51:11",
+      "market_question": "Trump declassifies new UFO files by July 15?",
+      "headline": "New York sues 3M, DuPont and other companies over so-called forever chemicals - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
