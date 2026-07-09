@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T05:18:48.955123+00:00",
-  "last_heartbeat": "2026-07-09T05:18:48.955123+00:00",
-  "uptime_seconds": 54492,
+  "generated_at": "2026-07-09T05:23:56.016998+00:00",
+  "last_heartbeat": "2026-07-09T05:23:56.016998+00:00",
+  "uptime_seconds": 54799,
   "dry_run": false,
-  "markets_tracked": 1309,
+  "markets_tracked": 1310,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10802,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 164,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 165,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 4994,
+  "classifications_24h": 4995,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1492,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1248,
     "matched": 868,
-    "classified": 4994,
+    "classified": 4995,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2414.9
+    "avg_classification_latency_ms": 2416.6
   },
   "live_readiness": {
     "ready": true,
@@ -446,6 +446,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-09 05:23:35",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "Gold falls as Middle East hostilities revive inflation woes - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 05:23:28",
+      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
+      "headline": "Gold falls as Middle East hostilities revive inflation woes - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-09 05:14:40",
       "market_question": "Will OpenAI\u2019s market cap be $1.5T or greater at market close on IPO day by December 31, 2027?",
       "headline": "Indian shares stage partial rebound; Mideast tensions cap gains - Reuters",
@@ -489,38 +521,6 @@
       "time_horizon": null,
       "adjusted_materiality": null,
       "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 05:14:39",
-      "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
-      "headline": "Indian shares stage partial rebound; Mideast tensions cap gains - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 05:14:39",
-      "market_question": "Will OpenAI have the highest IPO Market Cap 2026?",
-      "headline": "Indian shares stage partial rebound; Mideast tensions cap gains - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
