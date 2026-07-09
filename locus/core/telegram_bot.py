@@ -8,11 +8,16 @@ Two independent halves:
    from the pipeline's executor threads (executor, positions, journal). They are
    no-ops — never raising — when TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is unset.
 
-2. Interactive command bot (python-telegram-bot Application long-polling) for
-   /portfolio with inline [Close] / [Refresh] / [Balance] buttons, and
-   /positions — the operator control view with per-position [Close] / [Half] /
-   [Force close] buttons (Force is a two-step confirmation that previews the
-   realized outcome at the current best bid before selling into it). Every
+2. Interactive command bot (python-telegram-bot Application long-polling).
+   /portfolio and /positions render the portfolio card: one row per open
+   position (PnL% or "stuck" for sub-minimum holdings) with [📊 #id] detail
+   buttons — NO sell buttons in the list. A detail card shows the full
+   DB-authoritative numbers, enriched (never overwritten) by Polymarket's
+   public Data API: live curPrice, event link/end date, and an independent
+   PnL cross-check (✓ / ⚠️ расходится past tolerance / unavailable). Selling
+   happens only from detail cards: [Close] [Half] [Force] on a normal card;
+   a provably-unsellable (stuck) card offers only Force, whose two-step
+   preview shows the realized outcome at the current best bid first. Every
    command and button tap is auth-gated to TELEGRAM_CHAT_ID. Runs in a
    daemon thread with its own event loop, started from `cli.py watch`.
 
@@ -28,6 +33,8 @@ python-telegram-bot is imported lazily inside the polling thread so this module
 from __future__ import annotations
 
 import logging
+import time
+from datetime import datetime
 
 import httpx
 
@@ -278,36 +285,284 @@ def _failure_text(reason: dict | None) -> str:
                  "resolution")
     return text
 
-def _build_portfolio():
-    """(text, InlineKeyboardMarkup) for the portfolio view: each open position
-    with live PnL and a [🔴 Close #id] button, then a [📈 Refresh] [💰 Balance]
-    row. Imports telegram lazily — only called from the polling thread."""
+# --- Polymarket public Data API (read-only enrichment) ------------------------
+#
+# GET {POLYMARKET_DATA_HOST}/positions?user={proxy wallet} — no auth. Used ONLY
+# for presentation extras: the live curPrice, event slug / end date for links,
+# and an INDEPENDENT cross-check of our PnL. Our DB (token_count,
+# actual_cost_usd, realized_pnl_usd) stays the source of truth for OUR numbers
+# — API values are never written back. Any API failure degrades to DB-only
+# cards; it must never break a card or its buttons.
+
+_API_POSITIONS_TTL = 45.0  # seconds; a /positions render + Refresh taps share one fetch
+
+# {"ts": monotonic timestamp of last attempt, "rows": list | None}. A failed
+# fetch caches None for the TTL too, so a Refresh burst against a down API
+# doesn't hammer the endpoint.
+_api_positions_cache: dict = {"ts": 0.0, "rows": None}
+
+
+def _fetch_api_positions() -> list[dict] | None:
+    """Rows from the Data API for our wallet (config.POLYMARKET_FUNDER_ADDRESS),
+    cached for _API_POSITIONS_TTL seconds. None when the wallet is unset, the
+    call fails, or the response isn't a list — callers degrade to DB-only."""
+    now = time.monotonic()
+    if now - _api_positions_cache["ts"] < _API_POSITIONS_TTL:
+        return _api_positions_cache["rows"]
+    _api_positions_cache["ts"] = now
+    rows = None
+    wallet = config.POLYMARKET_FUNDER_ADDRESS
+    if wallet:
+        try:
+            resp = httpx.get(
+                f"{config.POLYMARKET_DATA_HOST}/positions",
+                params={"user": wallet}, timeout=10,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            if isinstance(data, list):
+                rows = data
+            else:
+                log.warning("[telegram] Data API positions: unexpected shape %s",
+                            type(data).__name__)
+        except Exception as e:
+            log.warning(f"[telegram] Data API positions fetch failed: {e}")
+    _api_positions_cache["rows"] = rows
+    return rows
+
+
+def _api_row_for(position: dict, api_rows: list[dict] | None) -> dict | None:
+    """The Data API row for one of our positions: matched by conditionId +
+    outcome (our side). None when the API is down or the position is absent."""
+    for row in api_rows or []:
+        if (row.get("conditionId") == position["condition_id"]
+                and str(row.get("outcome", "")).upper() == position["side"].upper()):
+            return row
+    return None
+
+
+def _usd_signed(v: float) -> str:
+    """-0.59 -> '-$0.59', 3.6 -> '+$3.60' (sign before the currency symbol)."""
+    return f"{'+' if v >= 0 else '-'}${abs(v):.2f}"
+
+
+def _short_name(question: str, limit: int = 26) -> str:
+    """One-line market name for portfolio rows: drop the 'Will …?' scaffolding
+    and truncate."""
+    name = (question or "").strip()
+    if name.lower().startswith("will "):
+        name = name[5:]
+    name = name.rstrip("?")
+    return name[:limit].rstrip()
+
+
+def _end_date_dt(end_date) -> datetime | None:
+    """Parse an ISO/Gamma end date into a datetime, or None."""
+    if not end_date:
+        return None
+    try:
+        return datetime.fromisoformat(str(end_date).replace("Z", "+00:00"))
+    except (ValueError, AttributeError):
+        return None
+
+
+def _position_card_data(p: dict, api_rows: list[dict] | None) -> dict:
+    """Every display number for one open position.
+
+    DB-authoritative: tokens, cost basis, realized come from our row. The
+    matched API row contributes the live curPrice (the held outcome token's
+    price — no side adjustment needed), the event link / end date, and the
+    independent PnL cross-check; without it everything falls back to the DB
+    mark and the verification line reads 'unavailable'."""
+    from locus.core import positions
+    from locus.core.performance import position_shares
+
+    tokens = position_shares(
+        p["side"], p["entry_yes_price"], p.get("amount_usd") or 0.0,
+        token_count=p.get("token_count"),
+    )
+    cost = positions.position_cost_basis(p)
+    entry_price = cost / tokens if tokens > 0 else 0.0
+
+    api = _api_row_for(p, api_rows)
+    cur_price = None
+    if api is not None:
+        try:
+            cur_price = float(api["curPrice"])
+        except (KeyError, TypeError, ValueError):
+            cur_price = None
+    if cur_price is None:
+        yes = p.get("current_yes_price")
+        yes = p["entry_yes_price"] if yes is None else yes
+        price = yes if p["side"] == "YES" else 1.0 - yes
+    else:
+        price = cur_price
+
+    value = tokens * price
+    pnl_usd = value - cost
+    pnl_pct = pnl_usd / cost * 100.0 if cost > 0 else 0.0
+    # Stuck = below the exchange sell minimums: can NOT be sold as-is.
+    stuck = (tokens < config.MIN_ORDER_SHARES
+             or value < config.MIN_ORDER_USD)
+
+    # Independent cross-check of PnL against Polymarket's own accounting.
+    # Within tolerance when the dollar OR the percent difference is small;
+    # beyond both -> accounting drift (we've shipped a bad entry price
+    # before), flagged on the card and logged.
+    verify = None
+    if api is not None:
+        try:
+            api_cash = float(api["cashPnl"])
+            api_pct = float(api["percentPnl"])
+        except (KeyError, TypeError, ValueError):
+            api_cash = api_pct = None
+        if api_cash is not None:
+            ok = (abs(api_cash - pnl_usd) <= 0.10
+                  or abs(api_pct - pnl_pct) <= 2.0)
+            if not ok:
+                log.warning(
+                    "[telegram] PnL cross-check DISAGREES on position %s: ours "
+                    "%+.2f (%+.1f%%) vs Polymarket %+.2f (%+.1f%%) — check the "
+                    "entry price / cost basis", p["id"], pnl_usd, pnl_pct,
+                    api_cash, api_pct,
+                )
+            verify = {"cash": api_cash, "pct": api_pct, "ok": ok}
+
+    # End date: DB first (kept fresh from Gamma by positions.refresh_end_dates),
+    # API as fallback. The Data API returns epoch-zero placeholders for some
+    # markets ('1970-01-01' on the live Maine row) — treat anything pre-2000
+    # as unknown rather than showing "ends Jan 1970".
+    end_dt = None
+    for candidate in (p.get("end_date"), (api or {}).get("endDate")):
+        dt = _end_date_dt(candidate)
+        if dt is not None and dt.year >= 2000:
+            end_dt = dt
+            break
+    event_slug = (api or {}).get("eventSlug")
+    if event_slug:
+        link = f"https://polymarket.com/event/{event_slug}"
+    elif p.get("slug"):
+        link = f"https://polymarket.com/market/{p['slug']}"
+    else:
+        link = None
+
+    return {
+        "tokens": tokens, "cost": cost, "entry_price": entry_price,
+        "price": price, "value": value, "pnl_usd": pnl_usd, "pnl_pct": pnl_pct,
+        "stuck": stuck, "api": api, "verify": verify,
+        "end_dt": end_dt, "link": link,
+    }
+
+
+def _position_history(p: dict) -> dict:
+    """DB context for the detail card: how many partial sales this position
+    has had (close_half / partial_close rows in exit_decisions), the trade's
+    original stake (for the 'из $X' display after partial sales), and whether
+    the entry came from a passive limit order (a pending_orders row exists
+    for its trade)."""
+    from locus.memory import logger as db
+
+    conn = db._conn()
+    try:
+        sales = conn.execute(
+            "SELECT COUNT(*) AS c FROM exit_decisions "
+            "WHERE position_id=? AND decision IN ('close_half', 'partial_close')",
+            (p["id"],),
+        ).fetchone()["c"]
+        original = None
+        passive = False
+        if p.get("trade_id"):
+            row = conn.execute(
+                "SELECT amount_usd FROM trades WHERE id=?", (p["trade_id"],)
+            ).fetchone()
+            original = row["amount_usd"] if row else None
+            passive = conn.execute(
+                "SELECT 1 FROM pending_orders WHERE trade_id=? LIMIT 1",
+                (p["trade_id"],),
+            ).fetchone() is not None
+    finally:
+        conn.close()
+    return {"partial_sales": sales, "original_stake": original, "passive": passive}
+
+
+_PORTFOLIO_PAGE_ROWS = 20  # positions per portfolio page (Telegram 4096-char cap)
+
+
+def _build_portfolio(page: int = 0):
+    """(text, InlineKeyboardMarkup) for the portfolio card (/portfolio and
+    /positions): one line per open position (colored dot, id/side/name, PnL%
+    or 'stuck', current value), a USDC balance line when readable, and a
+    footer with open/realized totals. NO sell buttons here — selling happens
+    only from a detail card where the numbers are visible; each position gets
+    a [📊 #id] detail button (3 per row). Paginates past _PORTFOLIO_PAGE_ROWS."""
     from telegram import InlineKeyboardButton, InlineKeyboardMarkup
     from locus.core import positions
+    from locus.core import executor
+    from locus.core.performance import compute_performance
 
     open_pos = positions.get_open_positions()
-    header = f"💼 PORTFOLIO {_mode_badge()}"
-    if open_pos:
-        lines = [header, ""]
-        for p in open_pos:
-            # Stored unrealized_pnl_pct is already marked on the actual fill
-            # basis (positions.pnl_pct_basis), i.e. return-on-cost — display
-            # it as-is; rebasing again would double-adjust.
-            pct = p.get("unrealized_pnl_pct") or 0.0
-            lines.append(f"#{p['id']} {p['side']} {p['market_question'][:40]} ({pct:+.1f}%)")
-        text = "\n".join(lines)
-    else:
-        text = f"{header}\n\nNo open positions."
+    api_rows = _fetch_api_positions()
 
-    rows = [
-        [InlineKeyboardButton(f"🔴 Close #{p['id']}", callback_data=f"close:{p['id']}")]
-        for p in open_pos
-    ]
+    lines = [f"💼 PORTFOLIO · {_mode_badge()}"]
+    if not config.DRY_RUN:
+        balance = executor.get_live_balance()
+        if balance is not None:
+            lines.append(f"USDC: ${balance:.2f}")
+    lines.append("")
+
+    pages = max(1, -(-len(open_pos) // _PORTFOLIO_PAGE_ROWS))
+    page = max(0, min(page, pages - 1))
+    chunk = open_pos[page * _PORTFOLIO_PAGE_ROWS:(page + 1) * _PORTFOLIO_PAGE_ROWS]
+
+    open_total = 0.0
+    for p in open_pos:
+        open_total += positions.position_cost_basis(p)
+
+    if open_pos:
+        for p in chunk:
+            d = _position_card_data(p, api_rows)
+            dot = "🟡" if d["stuck"] else ("🟩" if d["pnl_usd"] >= 0 else "🟥")
+            # A PnL% on an unsellable holding is misleading — say "stuck".
+            pct_part = "stuck" if d["stuck"] else f"{d['pnl_pct']:+.1f}%"
+            lines.append(
+                f"{dot} #{p['id']} {p['side']} · {_short_name(p['market_question'])}"
+                f"  {pct_part}  ${d['value']:.2f}"
+            )
+    else:
+        lines.append("No open positions.")
+
+    perf = compute_performance()
+    lines.append("")
+    lines.append(
+        f"Открыто: ${open_total:.2f} · "
+        f"Realized: {perf['realized_pnl_usd']:+.2f} · "
+        f"{perf['closed_count']} closed"
+    )
+    if pages > 1:
+        lines.append(f"Стр. {page + 1}/{pages}")
+
+    rows = []
+    btn_row = []
+    for p in chunk:
+        btn_row.append(InlineKeyboardButton(f"📊 #{p['id']}",
+                                            callback_data=f"pos:{p['id']}"))
+        if len(btn_row) == 3:
+            rows.append(btn_row)
+            btn_row = []
+    if btn_row:
+        rows.append(btn_row)
+    if pages > 1:
+        nav = []
+        if page > 0:
+            nav.append(InlineKeyboardButton("⬅️", callback_data=f"portfolio:{page - 1}"))
+        if page < pages - 1:
+            nav.append(InlineKeyboardButton("➡️", callback_data=f"portfolio:{page + 1}"))
+        rows.append(nav)
     rows.append([
-        InlineKeyboardButton("📈 Refresh", callback_data="refresh"),
+        InlineKeyboardButton("🔄 Refresh", callback_data=f"portfolio:{page}"),
         InlineKeyboardButton("💰 Balance", callback_data="balance"),
     ])
-    return text, InlineKeyboardMarkup(rows)
+    return "\n".join(lines), InlineKeyboardMarkup(rows)
 
 
 def _build_balance():
@@ -359,64 +614,104 @@ def _build_balance():
     return text, markup
 
 
-def _position_metrics(p: dict) -> tuple[float, float, float, float]:
-    """(tokens, cost_basis, current_value, pnl_pct) for an open-position row."""
-    from locus.core import positions
-    from locus.core.performance import position_shares
+def _build_position_detail(pid: int):
+    """(text, InlineKeyboardMarkup) for one position's detail card — the ONLY
+    place with sell buttons, so the operator always sees the numbers before
+    acting.
 
-    tokens = position_shares(
-        p["side"], p["entry_yes_price"], p.get("amount_usd") or 0.0,
-        token_count=p.get("token_count"),
-    )
-    cost = positions.position_cost_basis(p)
-    yes = p.get("current_yes_price")
-    yes = p["entry_yes_price"] if yes is None else yes
-    side_price = yes if p["side"] == "YES" else 1.0 - yes
-    value = tokens * side_price
-    pct = p.get("unrealized_pnl_pct") or 0.0
-    return tokens, cost, value, pct
+    Normal card: our cost basis / shares / live price / value / PnL, the
+    Data-API cross-check line (✓ when Polymarket's cashPnl agrees with ours,
+    ⚠️ расходится past tolerance, 'unavailable' when the API is down), the end
+    date and a Polymarket link, and [Close] [Half] [Force] buttons.
 
-
-def _build_positions():
-    """(text, InlineKeyboardMarkup) for the /positions operator view: every
-    open position with tokens / cost basis / current value / unrealized PnL%,
-    and a [Close] [Half] [Force] button row per position. Close runs the
-    normal manual close path; Half realizes half (with the anti-dust
-    escalation); Force is a two-step confirmed sell into whatever bid exists."""
+    Stuck card (holding below the exchange sell minimums): additionally shows
+    the original stake and realized-so-far after partial sales, an explicit
+    "нельзя продать" block with the real top-up blocker when one was recorded,
+    and NO plain Close/Half buttons — Force (with its preview) is the only
+    exit for a provably unsellable holding."""
     from telegram import InlineKeyboardButton, InlineKeyboardMarkup
     from locus.core import positions
 
-    open_pos = positions.get_open_positions()
-    header = f"📋 POSITIONS {_mode_badge()}"
-    rows = []
-    if open_pos:
-        lines = [header, ""]
-        for p in open_pos:
-            tokens, cost, value, pct = _position_metrics(p)
-            lines.append(f"#{p['id']} {p['side']} {p['market_question'][:40]}")
-            lines.append(
-                f"    {_shares(round(tokens, 2))} tok | cost ${cost:.2f} | "
-                f"value ${value:.2f} | {pct:+.1f}%"
-            )
-            rows.append([
-                InlineKeyboardButton(f"🔴 Close #{p['id']}",
-                                     callback_data=f"pclose:{p['id']}"),
-                InlineKeyboardButton(f"🟡 Half #{p['id']}",
-                                     callback_data=f"phalf:{p['id']}"),
-                InlineKeyboardButton(f"⚠️ Force #{p['id']}",
-                                     callback_data=f"pforce:{p['id']}"),
-            ])
-        text = "\n".join(lines)
+    p = next((x for x in positions.get_open_positions() if x["id"] == pid), None)
+    if p is None:
+        return _build_action_result(
+            f"⚠️ Position #{pid} not found or already closed.")
+
+    d = _position_card_data(p, _fetch_api_positions())
+    hist = _position_history(p)
+
+    header = f"📊 Position #{pid} · {_mode_badge()}"
+    if hist["passive"]:
+        header += " · passive fill"
+    dot = "🟡" if d["stuck"] else ("🟩" if d["pnl_usd"] >= 0 else "🟥")
+    lines = [header, f"{dot} {p['side']} · {p['market_question']}", ""]
+
+    invested = f"Вложено:     ${d['cost']:.2f}"
+    if hist["partial_sales"] and hist["original_stake"]:
+        invested += f" ← из ${hist['original_stake']:.2f}"
+    lines.append(invested)
+    lines.append(f"Shares:      {_shares(round(d['tokens'], 3))} @ ${d['entry_price']:.3f}")
+    lines.append(f"Тек. цена:   ${d['price']:.3f}")
+    lines.append(f"Стоимость:   ${d['value']:.2f}")
+    pnl_dot = "🟢" if d["pnl_usd"] >= 0 else "🔴"
+    lines.append(f"PnL:         {pnl_dot} {_usd_signed(d['pnl_usd'])} ({d['pnl_pct']:+.1f}%)")
+    if hist["partial_sales"]:
+        realized = p.get("realized_pnl_usd") or 0.0
+        n = hist["partial_sales"]
+        sales_word = "продажа" if n == 1 else ("продажи" if n < 5 else "продаж")
+        lines.append(f"Realized:    {_usd_signed(realized)} · {n} {sales_word}")
+
+    lines.append("")
+    if d["verify"] is not None:
+        v = d["verify"]
+        mark = "✓" if v["ok"] else "⚠️ расходится"
+        lines.append(
+            f"🔍 Polymarket API: {_usd_signed(v['cash'])} ({v['pct']:+.1f}%) {mark}")
     else:
-        text = f"{header}\n\nNo open positions."
-    rows.append([InlineKeyboardButton("🔄 Refresh", callback_data="positions")])
-    return text, InlineKeyboardMarkup(rows)
+        lines.append("🔍 Polymarket API: unavailable")
+
+    if d["stuck"]:
+        lines.append("")
+        lines.append(
+            f"⚠️ Нельзя продать. Ниже минимумов биржи "
+            f"({config.MIN_ORDER_SHARES:g} shares / ${config.MIN_ORDER_USD:g})."
+        )
+        from locus.core.positions import _last_close_failure
+        skip = (_last_close_failure.get(pid) or {}).get("topup_skipped")
+        if skip:
+            lines.append(f"   Top-up отклонён: {_TOPUP_SKIP_TEXT.get(skip, skip)}.")
+        when = d["end_dt"].strftime("%Y-%m-%d") if d["end_dt"] else "дата неизвестна"
+        lines.append(f"   → застряла до резолюции ({when}).")
+        lines.append(f"   При выигрыше вернёт ${d['tokens']:.2f}")
+
+    end_dt = d["end_dt"]
+    footer = f"⏱ ends {end_dt.strftime('%b %Y')}" if end_dt else "⏱ ends: unknown"
+    lines.append("")
+    lines.append(footer)
+    lines.append(f"🕒 {datetime.now().strftime('%H:%M')}")
+
+    if d["stuck"]:
+        rows = [[InlineKeyboardButton("⚠️ Force (превью)",
+                                      callback_data=f"pforce:{pid}")]]
+    else:
+        rows = [[
+            InlineKeyboardButton("🔴 Close", callback_data=f"pclose:{pid}"),
+            InlineKeyboardButton("½ Half", callback_data=f"phalf:{pid}"),
+            InlineKeyboardButton("⚠️ Force", callback_data=f"pforce:{pid}"),
+        ]]
+    rows.append([
+        InlineKeyboardButton("🔄 Refresh", callback_data=f"pos:{pid}"),
+        InlineKeyboardButton("📁 Portfolio", callback_data="portfolio"),
+    ])
+    if d["link"]:
+        rows.append([InlineKeyboardButton("🔗 Polymarket", url=d["link"])])
+    return "\n".join(lines), InlineKeyboardMarkup(rows)
 
 
-def _build_positions_result(header: str):
-    """(text, markup) for an action result: the outcome header above the
-    freshly-refreshed positions list."""
-    text, markup = _build_positions()
+def _build_action_result(header: str):
+    """(text, markup) for a manual-action outcome: the result header above the
+    freshly-refreshed portfolio card."""
+    text, markup = _build_portfolio()
     return f"{header}\n\n{text}", markup
 
 
@@ -441,41 +736,44 @@ def _fetch_best_bid(position: dict) -> float | None:
 
 
 def _build_force_preview(pid: int):
-    """(text, markup) for the force-close confirmation step: the realized
-    outcome (proceeds vs cost, in $ and %) at the CURRENT best bid, with
-    [Yes, force] / [Cancel]. Nothing is sold until the second tap."""
+    """(text, markup) for the force-close confirmation step: the FULL realized
+    outcome (held / paid / mark / best bid / proceeds / realized $ and %) at
+    the CURRENT best bid, plus a dead-book warning when the bid sits far below
+    the mark. Nothing is sold until the [✅ Да, force] tap."""
     from telegram import InlineKeyboardButton, InlineKeyboardMarkup
     from locus.core import positions
 
     p = next((x for x in positions.get_open_positions() if x["id"] == pid), None)
     if p is None:
-        return _build_positions_result(
+        return _build_action_result(
             f"⚠️ Position #{pid} not found or already closed.")
 
-    tokens, cost, _, _ = _position_metrics(p)
-    yes = p.get("current_yes_price")
-    yes = p["entry_yes_price"] if yes is None else yes
-    mark = yes if p["side"] == "YES" else 1.0 - yes
+    d = _position_card_data(p, _fetch_api_positions())
+    tokens, cost, mark = d["tokens"], d["cost"], d["price"]
     bid = _fetch_best_bid(p)
-    bid_note = ""
-    if bid is None:
+    bid_known = bid is not None
+    if not bid_known:
         bid = mark
-        bid_note = " (live bid unavailable — assuming the mark)"
     proceeds = tokens * bid
     realized = proceeds - cost
     realized_pct = realized / cost * 100.0 if cost > 0 else 0.0
-    text = (
-        f"⚠️ FORCE CLOSE #{pid} — {p['market_question'][:50]}\n"
-        f"Best bid {bid:.3f} vs mark {mark:.3f}{bid_note}.\n"
-        f"Selling {_shares(round(tokens, 2))} tokens returns ~${proceeds:.2f} "
-        f"(you paid ${cost:.2f}).\n"
-        f"This realizes {realized_pct:+.0f}% (${realized:+.2f}). Confirm?"
-    )
+
+    lines = [
+        f"⚠️ FORCE CLOSE #{pid} — {p['market_question'][:50]}",
+        f"Держим: {_shares(round(tokens, 2))} tok · Заплачено: ${cost:.2f}",
+        f"Марк-цена: {mark:.3f} · Лучший бид: {bid:.3f}"
+        + ("" if bid_known else " (бид недоступен — берём марк)"),
+        f"Вернётся ≈ ${proceeds:.2f}",
+        f"Реализует {_usd_signed(realized)} ({realized_pct:+.0f}%)",
+    ]
+    if bid_known and mark > 0 and bid < mark * 0.5:
+        lines.append("⚠️ Мёртвый стакан: лучший бид далеко от марк-цены.")
+    lines.append("Это необратимо. Продолжить?")
     markup = InlineKeyboardMarkup([[
-        InlineKeyboardButton("⚠️ Yes, force", callback_data=f"pforceyes:{pid}"),
-        InlineKeyboardButton("Cancel", callback_data="positions"),
+        InlineKeyboardButton("✅ Да, force", callback_data=f"pforceyes:{pid}"),
+        InlineKeyboardButton("✖️ Отмена", callback_data=f"pos:{pid}"),
     ]])
-    return text, markup
+    return "\n".join(lines), markup
 
 
 def _manual_action_header(pid: int, result: dict | None, label: str) -> str:
@@ -496,39 +794,17 @@ def _manual_action_header(pid: int, result: dict | None, label: str) -> str:
     return header
 
 
-def _build_close_confirmation(header: str):
-    """(text, InlineKeyboardMarkup) shown after a Close tap: a confirmation
-    header above the freshly-refreshed portfolio list, with a [📊 Portfolio]
-    button on top to dismiss the header and go back."""
-    from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-
-    text, portfolio_markup = _build_portfolio()
-    text = f"{header}\n\n{text}"
-    rows = [[InlineKeyboardButton("📊 Portfolio", callback_data="portfolio")]]
-    rows.extend(portfolio_markup.inline_keyboard)
-    return text, InlineKeyboardMarkup(rows)
-
-
 async def _portfolio_cmd(update, context):
-    """/portfolio (and /start): show the interactive portfolio."""
+    """/portfolio, /positions (and /start): show the portfolio card."""
     if not _authorized(update):
         return
     text, markup = _build_portfolio()
     await update.message.reply_text(text, reply_markup=markup)
 
 
-async def _positions_cmd(update, context):
-    """/positions: the operator control view — every open position with
-    per-position [Close] [Half] [Force] buttons."""
-    if not _authorized(update):
-        return
-    text, markup = _build_positions()
-    await update.message.reply_text(text, reply_markup=markup)
-
-
 async def _button_cmd(update, context):
-    """Inline-button taps: navigate (portfolio/refresh/balance/positions),
-    close/half/force-close a position."""
+    """Inline-button taps: navigate (portfolio/balance/detail cards),
+    close/half/force-close a position from its detail card."""
     query = update.callback_query
     if not _authorized(update):
         return
@@ -541,38 +817,24 @@ async def _button_cmd(update, context):
         except (ValueError, IndexError):
             return None
 
-    if data in ("portfolio", "refresh"):
+    if data in ("portfolio", "refresh", "positions"):
         text, markup = _build_portfolio()
+    elif data.startswith("portfolio:"):
+        text, markup = _build_portfolio(_pid() or 0)
     elif data == "balance":
         text, markup = _build_balance()
-    elif data == "positions":
-        text, markup = _build_positions()
-    elif data.startswith("close:"):
-        from locus.core import positions
+    elif data.startswith("pos:"):
         pid = _pid()
         if pid is None:
             return
-        result = positions.close_manual(pid)
-        if result and not result.get("close_failed"):
-            header = (
-                f"✅ Closed #{pid} — {result['market_question'][:50]}\n"
-                f"{result['side']} @ {result['price']:.3f} "
-                f"({result['pnl_pct']:+.1f}%, ${result['realized']:+.2f})"
-            )
-        elif result:
-            header = (f"❌ Close #{pid} failed: "
-                      f"{_failure_text(result.get('failure_reason'))}")
-        else:
-            header = f"⚠️ Position #{pid} not found or already closed."
-        # Auto-refresh: the confirmation embeds the updated portfolio list.
-        text, markup = _build_close_confirmation(header)
+        text, markup = _build_position_detail(pid)
     elif data.startswith("pclose:"):
         from locus.core import positions
         pid = _pid()
         if pid is None:
             return
         result = positions.close_manual(pid)
-        text, markup = _build_positions_result(
+        text, markup = _build_action_result(
             _manual_action_header(pid, result, "Closed"))
     elif data.startswith("phalf:"):
         from locus.core import positions
@@ -581,11 +843,11 @@ async def _button_cmd(update, context):
             return
         result = positions.close_manual_half(pid)
         label = "Closed" if (result or {}).get("escalated") else "Half closed"
-        text, markup = _build_positions_result(
+        text, markup = _build_action_result(
             _manual_action_header(pid, result, label))
     elif data.startswith("pforce:"):
         # Step 1 of 2: preview only — show the realized outcome at the current
-        # best bid. Nothing is sold until the [Yes, force] tap.
+        # best bid. Nothing is sold until the [✅ Да, force] tap.
         pid = _pid()
         if pid is None:
             return
@@ -599,7 +861,7 @@ async def _button_cmd(update, context):
         if pid is None:
             return
         result = positions.close_manual(pid, force=True)
-        text, markup = _build_positions_result(
+        text, markup = _build_action_result(
             _manual_action_header(pid, result, "Force closed"))
     else:
         return
@@ -624,8 +886,8 @@ def _run_polling():
     try:
         asyncio.set_event_loop(asyncio.new_event_loop())
         app = Application.builder().token(config.TELEGRAM_BOT_TOKEN).build()
-        app.add_handler(CommandHandler(["portfolio", "start"], _portfolio_cmd))
-        app.add_handler(CommandHandler("positions", _positions_cmd))
+        app.add_handler(CommandHandler(["portfolio", "positions", "start"],
+                                       _portfolio_cmd))
         app.add_handler(CallbackQueryHandler(_button_cmd))
         log.info("[telegram] interactive bot polling started")
         # stop_signals=None: signal handlers can only be installed on the main

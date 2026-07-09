@@ -26,6 +26,42 @@ def _authorized_chat(monkeypatch):
     monkeypatch.setattr(config, "TELEGRAM_CHAT_ID", "123")
 
 
+@pytest.fixture(autouse=True)
+def _no_data_api(monkeypatch):
+    """Keep the Polymarket Data API off by default (no wallet -> no fetch) and
+    reset its cache around every test — a developer .env carries a real
+    POLYMARKET_FUNDER_ADDRESS, and builders must never hit the network here.
+    API-path tests monkeypatch telegram_bot._fetch_api_positions directly."""
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    telegram_bot._api_positions_cache.update(ts=0.0, rows=None)
+    # The portfolio card reads the live USDC balance in live mode — pin it to
+    # "unreadable" so no test builds a real CLOB client; balance-line tests
+    # override explicitly.
+    from locus.core import executor
+    monkeypatch.setattr(executor, "get_live_balance", lambda: None)
+    yield
+    telegram_bot._api_positions_cache.update(ts=0.0, rows=None)
+
+
+def _api_row(p, cur_price, cash_pnl=None, percent_pnl=None,
+             event_slug="some-event", end_date="2027-03-31T00:00:00Z"):
+    """A Data API positions row matching one of our positions."""
+    return {
+        "conditionId": p["condition_id"],
+        "outcome": "Yes" if p["side"] == "YES" else "No",
+        "curPrice": cur_price,
+        "cashPnl": cash_pnl,
+        "percentPnl": percent_pnl,
+        "eventSlug": event_slug,
+        "endDate": end_date,
+        "title": p["market_question"],
+    }
+
+
+def _with_api(monkeypatch, rows):
+    monkeypatch.setattr(telegram_bot, "_fetch_api_positions", lambda: rows)
+
+
 def _chat(chat_id="123"):
     return types.SimpleNamespace(id=chat_id)
 
@@ -403,38 +439,44 @@ def test_balance_respects_performance_start_date(tmp_db, monkeypatch):
     assert "Open: 1 |" in text
 
 
-def test_portfolio_view_has_refresh_and_balance(tmp_db):
+def test_portfolio_view_has_detail_refresh_and_balance_buttons(tmp_db):
     pid = _open(1, "c1", "Will A happen?")
     text, markup = telegram_bot._build_portfolio()
     assert text.startswith("💼 PORTFOLIO")
     btns = _btns(markup)
-    assert (f"🔴 Close #{pid}", f"close:{pid}") in btns
-    assert ("📈 Refresh", "refresh") in btns
+    assert (f"📊 #{pid}", f"pos:{pid}") in btns
+    assert ("🔄 Refresh", "portfolio:0") in btns
     assert ("💰 Balance", "balance") in btns
 
 
-def test_portfolio_pct_shown_as_stored(tmp_db):
-    # Stored unrealized_pnl_pct is already marked on the actual fill basis
-    # (positions.pnl_pct_basis) — the portfolio shows it unchanged; a second
-    # rebase would double-adjust.
+def test_portfolio_has_no_sell_buttons(tmp_db):
+    # Selling happens only from a detail card where the numbers are visible.
+    _open(1, "c1", "Will A happen?")
+    _open(2, "c2", "Will B happen?")
+    _, markup = telegram_bot._build_portfolio()
+    for _, cb in _btns(markup):
+        assert not cb.startswith(("pclose:", "phalf:", "pforce:", "close:"))
+
+
+def test_portfolio_pct_is_return_on_cost(tmp_db):
+    # Portfolio % is computed on the actual cost basis: $25 nominal that
+    # filled for $21, marked flat at entry -> value $25 vs cost $21 = +19.0%.
     pid = _open(1, "c1", "Will A happen?", amount=25.0)
     conn = tmp_db._conn()
     conn.execute(
-        "UPDATE positions SET unrealized_pnl_pct=23.8, actual_cost_usd=21.0 WHERE id=?",
-        (pid,),
+        "UPDATE positions SET actual_cost_usd=21.0 WHERE id=?", (pid,),
     )
     conn.commit()
     conn.close()
     text, _ = telegram_bot._build_portfolio()
-    assert "(+23.8%)" in text  # stored basis-aware pct, displayed as-is
+    assert "+19.0%" in text
 
 
-def test_close_confirmation_has_back_to_portfolio_button(tmp_db):
-    text, markup = telegram_bot._build_close_confirmation("✅ Closed #5 — Foo")
+def test_action_result_embeds_portfolio(tmp_db):
+    text, markup = telegram_bot._build_action_result("✅ Closed #5 — Foo")
     assert text.startswith("✅ Closed #5 — Foo")
-    assert "💼 PORTFOLIO" in text  # embeds the refreshed portfolio list
-    btns = _btns(markup)
-    assert btns[0] == ("📊 Portfolio", "portfolio")  # back button on top
+    assert "💼 PORTFOLIO" in text  # embeds the refreshed portfolio card
+    assert ("💰 Balance", "balance") in _btns(markup)
 
 
 def test_button_navigation_between_portfolio_and_balance(tmp_db):
@@ -447,19 +489,27 @@ def test_button_navigation_between_portfolio_and_balance(tmp_db):
     assert ("💰 Balance", "balance") in _btns(pmarkup)
 
 
-def test_button_close_auto_refreshes_portfolio(tmp_db):
+def test_detail_button_opens_card_then_close_refreshes_portfolio(tmp_db):
     pid = _open(1, "c1", "Will A happen?")
-    text, markup = _run_button(f"close:{pid}")
-    # Confirmation header + the refreshed (now empty) portfolio list.
+    # Tap the detail button first — the card, not an action, renders.
+    dtext, dmarkup = _run_button(f"pos:{pid}")
+    assert dtext.startswith(f"📊 Position #{pid}")
+    assert (f"pclose:{pid}") in [cb for _, cb in _btns(dmarkup)]
+    assert positions_mod.get_open_positions()  # nothing sold yet
+    # Close from the card: result header + refreshed (now empty) portfolio.
+    text, _ = _run_button(f"pclose:{pid}")
     assert "✅ Closed" in text
     assert "No open positions" in text
-    assert _btns(markup)[0] == ("📊 Portfolio", "portfolio")
-    # The position is actually closed in the DB.
     assert positions_mod.get_open_positions() == []
 
 
 def test_button_close_missing_position(tmp_db):
-    text, _ = _run_button("close:999")
+    text, _ = _run_button("pclose:999")
+    assert "not found or already closed" in text
+
+
+def test_detail_card_missing_position(tmp_db):
+    text, _ = _run_button("pos:999")
     assert "not found or already closed" in text
 
 
@@ -530,16 +580,28 @@ def test_build_balance_dry_run_shows_deployed(tmp_db, monkeypatch):
 def test_build_portfolio_badge_reflects_mode(tmp_db, monkeypatch):
     _open(1, "c1", "Will A happen?")
     monkeypatch.setattr(config, "DRY_RUN", False)
-    assert telegram_bot._build_portfolio()[0].startswith("💼 PORTFOLIO 🟢 LIVE")
+    assert telegram_bot._build_portfolio()[0].startswith("💼 PORTFOLIO · 🟢 LIVE")
     monkeypatch.setattr(config, "DRY_RUN", True)
-    assert telegram_bot._build_portfolio()[0].startswith("💼 PORTFOLIO 🔵 DRY RUN")
+    assert telegram_bot._build_portfolio()[0].startswith("💼 PORTFOLIO · 🔵 DRY RUN")
 
 
 def test_build_portfolio_badge_when_empty(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", False)
     text, _ = telegram_bot._build_portfolio()
-    assert text.startswith("💼 PORTFOLIO 🟢 LIVE")
+    assert text.startswith("💼 PORTFOLIO · 🟢 LIVE")
     assert "No open positions" in text
+
+
+def test_portfolio_usdc_line_only_when_balance_readable(tmp_db, monkeypatch):
+    from locus.core import executor
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(executor, "get_live_balance", lambda: 187.42)
+    text, _ = telegram_bot._build_portfolio()
+    assert "USDC: $187.42" in text
+    # Unreadable balance: the line is omitted, not shown as an error.
+    monkeypatch.setattr(executor, "get_live_balance", lambda: None)
+    text, _ = telegram_bot._build_portfolio()
+    assert "USDC" not in text
 
 
 def test_notify_position_opened_live_header(enabled, monkeypatch):
@@ -569,21 +631,33 @@ def _open_sized(trade_id, cid, question, amount, tokens, yes=0.5, side="YES"):
                                        token_count=tokens)
 
 
-def test_positions_view_renders(tmp_db):
+def test_portfolio_row_shows_stuck_instead_of_pct(tmp_db):
+    # 3.5 tokens at $0.05 is below the exchange minimums: the row says "stuck"
+    # (a % on an unsellable holding is misleading) with the 🟡 dot, and shows
+    # the current value.
     pid = _open_sized(1, "c1", "Will the Maine candidate drop out?", 2.03, 3.5,
                       yes=0.05)
-    text, markup = telegram_bot._build_positions()
-    assert text.startswith("📋 POSITIONS")
-    assert f"#{pid} YES Will the Maine candidate drop out?" in text
-    assert "3.5 tok | cost $2.03 | value $0.18" in text  # 3.5 x 0.05
-    btns = _btns(markup)
-    assert (f"🔴 Close #{pid}", f"pclose:{pid}") in btns
-    assert (f"🟡 Half #{pid}", f"phalf:{pid}") in btns
-    assert (f"⚠️ Force #{pid}", f"pforce:{pid}") in btns
-    assert ("🔄 Refresh", "positions") in btns
+    healthy = _open_sized(2, "c2", "Will B happen?", 10.0, 20.0)
+    text, _ = telegram_bot._build_portfolio()
+    stuck_line = next(l for l in text.splitlines() if f"#{pid}" in l)
+    assert stuck_line.startswith("🟡")
+    assert "stuck" in stuck_line
+    assert "%" not in stuck_line
+    assert "$0.18" in stuck_line  # 3.5 x 0.05
+    healthy_line = next(l for l in text.splitlines() if f"#{healthy}" in l)
+    assert "%" in healthy_line and "stuck" not in healthy_line
 
 
-def test_positions_command_renders(tmp_db):
+def test_portfolio_footer_totals(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "PERFORMANCE_START_DATE", "")
+    _open_sized(1, "c1", "Will A happen?", 10.0, 20.0)
+    _open_sized(2, "c2", "Will B happen?", 5.0, 10.0)
+    text, _ = telegram_bot._build_portfolio()
+    assert "Открыто: $15.00" in text
+    assert "Realized:" in text and "closed" in text
+
+
+def test_positions_command_renders_portfolio_card(tmp_db):
     _open_sized(1, "c1", "Will A happen?", 10.0, 20.0)
     replies = []
 
@@ -594,8 +668,8 @@ def test_positions_command_renders(tmp_db):
         message=types.SimpleNamespace(reply_text=reply_text),
         effective_chat=_chat(),
     )
-    asyncio.run(telegram_bot._positions_cmd(update, None))
-    assert replies and replies[0].startswith("📋 POSITIONS")
+    asyncio.run(telegram_bot._portfolio_cmd(update, None))
+    assert replies and replies[0].startswith("💼 PORTFOLIO")
 
 
 def test_positions_close_success(tmp_db):
@@ -674,16 +748,27 @@ def test_force_close_first_tap_previews_only(tmp_db, monkeypatch):
     pid = _open_sized(1, "c1", "Will A happen?", 0.72, 18.25, yes=0.05)
 
     text, markup = _run_button(f"pforce:{pid}")
-    # Preview shows the realized outcome at the live best bid...
-    assert "Best bid 0.007 vs mark 0.050" in text
-    assert "Selling 18.25 tokens returns ~$0.13 (you paid $0.72)" in text
-    assert "This realizes -82%" in text
-    assert "Confirm?" in text
+    # Preview shows the full realized outcome at the live best bid...
+    assert "Держим: 18.25 tok · Заплачено: $0.72" in text
+    assert "Марк-цена: 0.050 · Лучший бид: 0.007" in text
+    assert "Вернётся ≈ $0.13" in text
+    assert "Реализует -$0.59 (-82%)" in text
+    # ...warns about the dead book (bid at 14% of the mark)...
+    assert "Мёртвый стакан" in text
+    assert "Это необратимо. Продолжить?" in text
     btns = _btns(markup)
-    assert ("⚠️ Yes, force", f"pforceyes:{pid}") in btns
-    assert ("Cancel", "positions") in btns
+    assert ("✅ Да, force", f"pforceyes:{pid}") in btns
+    assert ("✖️ Отмена", f"pos:{pid}") in btns
     # ...and nothing was sold.
     assert positions_mod.get_open_positions()
+
+
+def test_force_preview_no_dead_book_warning_near_mark(tmp_db, monkeypatch):
+    # Bid close to the mark: no dead-book warning.
+    monkeypatch.setattr(telegram_bot, "_fetch_best_bid", lambda p: 0.048)
+    pid = _open_sized(1, "c1", "Will A happen?", 0.72, 18.25, yes=0.05)
+    text, _ = _run_button(f"pforce:{pid}")
+    assert "Мёртвый стакан" not in text
 
 
 def test_force_close_second_tap_executes(tmp_db, monkeypatch):
@@ -701,8 +786,8 @@ def test_force_preview_falls_back_to_mark_without_live_bid(tmp_db, monkeypatch):
     monkeypatch.setattr(telegram_bot, "_fetch_best_bid", lambda p: None)
     pid = _open_sized(1, "c1", "Will A happen?", 0.72, 18.25, yes=0.05)
     text, _ = _run_button(f"pforce:{pid}")
-    assert "live bid unavailable" in text
-    assert "Confirm?" in text
+    assert "бид недоступен — берём марк" in text
+    assert "Это необратимо. Продолжить?" in text
 
 
 def test_force_close_subminimum_holding_tries_topup(tmp_db, monkeypatch):
@@ -746,7 +831,6 @@ def test_unauthorized_positions_command_ignored(tmp_db):
         message=types.SimpleNamespace(reply_text=reply_text),
         effective_chat=_chat("999"),
     )
-    asyncio.run(telegram_bot._positions_cmd(update, None))
     asyncio.run(telegram_bot._portfolio_cmd(update, None))
     assert replies == []
 
@@ -757,3 +841,250 @@ def test_no_configured_chat_id_rejects_everything(tmp_db, monkeypatch):
     text, _ = _run_button(f"pclose:{pid}", chat_id="")
     assert text is None
     assert positions_mod.get_open_positions()
+
+
+# --- Detail card: Data API enrichment + verification ---------------------------
+
+def _open_57(trade_id=1):
+    """A #57-lookalike: 149.995 tokens for $39.90 (avg $0.266)."""
+    return _open_sized(trade_id, "c57", "Will Marine Le Pen win the 2027 French presidential election?",
+                       39.90, 149.995, yes=0.266)
+
+
+def test_detail_card_renders_with_api(tmp_db, monkeypatch):
+    pid = _open_57()
+    p = positions_mod.get_open_positions()[0]
+    _with_api(monkeypatch, [_api_row(p, cur_price=0.29, cash_pnl=3.61,
+                                     percent_pnl=9.1)])
+
+    text, markup = telegram_bot._build_position_detail(pid)
+    assert text.startswith(f"📊 Position #{pid} · 🔵 DRY RUN")
+    assert "🟩 YES · Will Marine Le Pen win the 2027" in text
+    assert "Вложено:     $39.90" in text            # our cost basis
+    assert "Shares:      149.995 @ $0.266" in text  # our tokens @ our avg
+    assert "Тек. цена:   $0.290" in text            # API curPrice
+    assert "Стоимость:   $43.50" in text            # tokens x curPrice
+    assert "PnL:         🟢 +$3.60 (+9.0%)" in text  # OUR basis
+    assert "🔍 Polymarket API: +$3.61 (+9.1%) ✓" in text
+    assert "⏱ ends Mar 2027" in text
+    btns = _btns(markup)
+    assert ("🔴 Close", f"pclose:{pid}") in btns
+    assert ("½ Half", f"phalf:{pid}") in btns
+    assert ("⚠️ Force", f"pforce:{pid}") in btns
+    assert ("📁 Portfolio", "portfolio") in btns
+    urls = [b.url for row in markup.inline_keyboard for b in row
+            if getattr(b, "url", None)]
+    assert "https://polymarket.com/event/some-event" in urls
+
+
+def test_detail_card_renders_without_api(tmp_db, monkeypatch):
+    # API down: the card renders from DB values only, verification degrades,
+    # buttons stay intact.
+    pid = _open_57()
+    _with_api(monkeypatch, None)
+
+    text, markup = telegram_bot._build_position_detail(pid)
+    assert "Вложено:     $39.90" in text
+    assert "Тек. цена:   $0.266" in text  # DB mark (entry, never re-marked)
+    assert "🔍 Polymarket API: unavailable" in text
+    assert ("🔴 Close", f"pclose:{pid}") in _btns(markup)
+
+
+def test_verification_flags_disagreement_and_logs(tmp_db, monkeypatch, caplog):
+    import logging
+    pid = _open_57()
+    p = positions_mod.get_open_positions()[0]
+    # Polymarket says +$6.41 (+31%) while our basis says +$3.60 (+9.0%) —
+    # beyond both tolerances -> flagged and logged (accounting drift).
+    _with_api(monkeypatch, [_api_row(p, cur_price=0.29, cash_pnl=6.41,
+                                     percent_pnl=31.0)])
+    with caplog.at_level(logging.WARNING, logger="locus.core.telegram_bot"):
+        text, _ = telegram_bot._build_position_detail(pid)
+    assert "🔍 Polymarket API: +$6.41 (+31.0%) ⚠️ расходится" in text
+    assert any("PnL cross-check DISAGREES" in r.message for r in caplog.records)
+
+
+def test_verification_tolerates_small_differences(tmp_db, monkeypatch):
+    pid = _open_57()
+    p = positions_mod.get_open_positions()[0]
+    # 8 cents / 0.2pp apart: within tolerance, no flag.
+    _with_api(monkeypatch, [_api_row(p, cur_price=0.29, cash_pnl=3.68,
+                                     percent_pnl=9.2)])
+    text, _ = telegram_bot._build_position_detail(pid)
+    assert "✓" in text
+    assert "расходится" not in text
+
+
+def test_detail_card_position_missing_from_api_degrades(tmp_db, monkeypatch):
+    # API is up but doesn't know this position (e.g. dry-run position that
+    # exists only in our DB) -> DB-only card, unavailable verification.
+    pid = _open_57()
+    _with_api(monkeypatch, [{"conditionId": "other", "outcome": "Yes",
+                             "curPrice": 0.5}])
+    text, _ = telegram_bot._build_position_detail(pid)
+    assert "🔍 Polymarket API: unavailable" in text
+
+
+# --- Stuck-position detail card -------------------------------------------------
+
+def test_stuck_detail_card_warning_and_force_only(tmp_db, monkeypatch):
+    # 3.5 tokens worth $0.18: below the exchange minimums. The card explains
+    # why it can't be sold (with the recorded top-up blocker), shows the
+    # resolution payout, and offers ONLY Force (with preview) — no plain
+    # Close/Half on a provably unsellable holding.
+    pid = _open_sized(1, "c52", "Will the Republicans win the Maine Senate seat?",
+                      2.03, 3.5, yes=0.64, side="NO")
+    positions_mod._last_close_failure[pid] = {
+        "status": "skipped_thin_book", "error": None,
+        "topup_skipped": "no_bid_liquidity",
+    }
+    _with_api(monkeypatch, None)
+
+    text, markup = telegram_bot._build_position_detail(pid)
+    assert "⚠️ Нельзя продать. Ниже минимумов биржи (5 shares / $1)." in text
+    assert "Top-up отклонён: no real bid liquidity near the ask (zombie book)." in text
+    assert "→ застряла до резолюции" in text
+    assert "При выигрыше вернёт $3.50" in text  # 3.5 tokens x $1
+    btns = _btns(markup)
+    assert ("⚠️ Force (превью)", f"pforce:{pid}") in btns
+    callbacks = [cb for _, cb in btns]
+    assert f"pclose:{pid}" not in callbacks
+    assert f"phalf:{pid}" not in callbacks
+
+
+def test_stuck_detection_boundary(tmp_db, monkeypatch):
+    # 5 shares AND $1 notional clears the minimums -> not stuck.
+    ok_pid = _open_sized(1, "c1", "Will A happen?", 2.0, 5.0, yes=0.5)
+    # 4.9 shares -> stuck regardless of value.
+    stuck_pid = _open_sized(2, "c2", "Will B happen?", 3.0, 4.9, yes=0.9)
+    _with_api(monkeypatch, None)
+    ok_text, ok_markup = telegram_bot._build_position_detail(ok_pid)
+    assert "Нельзя продать" not in ok_text
+    assert (f"pclose:{ok_pid}") in [cb for _, cb in _btns(ok_markup)]
+    stuck_text, _ = telegram_bot._build_position_detail(stuck_pid)
+    assert "Нельзя продать" in stuck_text
+
+
+def test_detail_card_partial_sale_history(tmp_db, monkeypatch):
+    # After partial sales: show the original stake and the realized-so-far row.
+    conn = tmp_db._conn()
+    cur = conn.execute(
+        """INSERT INTO trades (market_id, market_question, claude_score,
+           market_price, edge, side, amount_usd, status)
+           VALUES ('c52', 'Will X?', 0.7, 0.5, 0.1, 'NO', 24.94, 'executed')"""
+    )
+    trade_id = cur.lastrowid
+    conn.commit()
+    conn.close()
+    pid = _open_sized(trade_id, "c52", "Will X?", 2.03, 3.5, yes=0.64, side="NO")
+    conn = tmp_db._conn()
+    conn.execute(
+        """INSERT INTO exit_decisions (position_id, trigger, decision, reasoning,
+           pnl_pct, yes_price) VALUES (?, 'take_profit', 'close_half', 'r', 10, 0.6)""",
+        (pid,),
+    )
+    conn.execute("UPDATE positions SET realized_pnl_usd=0.42 WHERE id=?", (pid,))
+    conn.commit()
+    conn.close()
+    _with_api(monkeypatch, None)
+
+    text, _ = telegram_bot._build_position_detail(pid)
+    assert "Вложено:     $2.03 ← из $24.94" in text
+    assert "Realized:    +$0.42 · 1 продажа" in text
+
+
+def test_detail_card_passive_fill_tag(tmp_db, monkeypatch):
+    conn = tmp_db._conn()
+    cur = conn.execute(
+        """INSERT INTO trades (market_id, market_question, claude_score,
+           market_price, edge, side, amount_usd, status)
+           VALUES ('c9', 'Will X?', 0.7, 0.5, 0.1, 'YES', 10.0, 'executed')"""
+    )
+    trade_id = cur.lastrowid
+    conn.execute(
+        """INSERT INTO pending_orders (order_id, trade_id, condition_id, side,
+           limit_price, shares, bet_amount, status, expires_at)
+           VALUES ('ord-1', ?, 'c9', 'YES', 0.41, 24.0, 10.0, 'filled',
+                   '2026-01-01T00:00:00')""",
+        (trade_id,),
+    )
+    conn.commit()
+    conn.close()
+    pid = _open_sized(trade_id, "c9", "Will X?", 9.84, 24.0, yes=0.41)
+    _with_api(monkeypatch, None)
+
+    text, _ = telegram_bot._build_position_detail(pid)
+    assert text.splitlines()[0].endswith("· passive fill")
+
+
+# --- Data API cache --------------------------------------------------------------
+
+def test_api_response_cached_across_refresh_burst(tmp_db, monkeypatch):
+    calls = []
+
+    class FakeResp:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return []
+
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xabc")
+    monkeypatch.setattr(telegram_bot.httpx, "get",
+                        lambda url, params=None, timeout=None:
+                        (calls.append(url), FakeResp())[1])
+    telegram_bot._api_positions_cache.update(ts=0.0, rows=None)
+
+    assert telegram_bot._fetch_api_positions() == []
+    assert telegram_bot._fetch_api_positions() == []  # served from cache
+    telegram_bot._build_portfolio()                    # a Refresh tap
+    assert len(calls) == 1
+
+
+def test_api_failure_cached_and_degrades(tmp_db, monkeypatch):
+    calls = []
+
+    def boom(url, params=None, timeout=None):
+        calls.append(url)
+        raise RuntimeError("api down")
+
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xabc")
+    monkeypatch.setattr(telegram_bot.httpx, "get", boom)
+    telegram_bot._api_positions_cache.update(ts=0.0, rows=None)
+    pid = _open_57()
+
+    assert telegram_bot._fetch_api_positions() is None
+    assert telegram_bot._fetch_api_positions() is None  # failure cached too
+    assert len(calls) == 1
+    # And the card still renders, buttons intact.
+    text, markup = telegram_bot._build_position_detail(pid)
+    assert "🔍 Polymarket API: unavailable" in text
+    assert ("🔴 Close", f"pclose:{pid}") in _btns(markup)
+
+
+def test_end_date_prefers_db_and_ignores_epoch_placeholder(tmp_db, monkeypatch):
+    # The live Data API returns endDate '1970-01-01' for some markets (epoch
+    # placeholder, seen on the real Maine row). DB end_date wins; a
+    # placeholder-only date renders as unknown, never "ends Jan 1970".
+    market = types.SimpleNamespace(
+        condition_id="c52", question="Will X?", slug="", yes_price=0.64,
+        event_id="", category="politics", end_date="2026-11-03T00:00:00Z",
+    )
+    pid = positions_mod.open_position(1, market, "NO", 2.03, token_count=3.5)
+    p = positions_mod.get_open_positions()[0]
+    _with_api(monkeypatch, [_api_row(p, cur_price=0.36, cash_pnl=0.21,
+                                     percent_pnl=10.3, end_date="1970-01-01")])
+    text, _ = telegram_bot._build_position_detail(pid)
+    assert "⏱ ends Nov 2026" in text  # DB date, not the API placeholder
+
+    # No DB date + placeholder API date -> unknown.
+    market2 = types.SimpleNamespace(
+        condition_id="c99", question="Will Y?", slug="", yes_price=0.5,
+        event_id="", category="politics", end_date="",
+    )
+    pid2 = positions_mod.open_position(2, market2, "YES", 10.0, token_count=20.0)
+    p2 = next(x for x in positions_mod.get_open_positions() if x["id"] == pid2)
+    _with_api(monkeypatch, [_api_row(p2, cur_price=0.5, end_date="1970-01-01")])
+    text2, _ = telegram_bot._build_position_detail(pid2)
+    assert "1970" not in text2
+    assert "⏱ ends: unknown" in text2
