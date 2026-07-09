@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T01:02:29.157687+00:00",
-  "last_heartbeat": "2026-07-09T01:02:29.157687+00:00",
-  "uptime_seconds": 39113,
+  "generated_at": "2026-07-09T01:07:36.656783+00:00",
+  "last_heartbeat": "2026-07-09T01:07:36.656783+00:00",
+  "uptime_seconds": 39420,
   "dry_run": false,
-  "markets_tracked": 1334,
+  "markets_tracked": 1335,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10786,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 35,
+  "headlines_scanned_today": 37,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5051,
+  "classifications_24h": 5037,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1517,
+    "prefiltered_haiku": 1510,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1265,
-    "matched": 866,
-    "classified": 5051,
+    "news": 1264,
+    "matched": 864,
+    "classified": 5037,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2436.5
+    "avg_classification_latency_ms": 2439.0
   },
   "live_readiness": {
     "ready": true,
@@ -446,9 +446,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 00:59:23",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "US launches more strikes on Iran with blasts reported in south of country",
+      "time": "2026-07-09 01:03:44",
+      "market_question": "Will Trump say \"Ukraine,\" \"Russia,\" or \"Iran\" 15+ times during press conference?",
+      "headline": "Russia denounces NATO summit decisions on aid for Ukraine, defence - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 01:03:44",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Russia denounces NATO summit decisions on aid for Ukraine, defence - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 01:03:39",
+      "market_question": "Will Donald Trump attend NATO Summit?",
+      "headline": "Russia denounces NATO summit decisions on aid for Ukraine, defence - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -457,30 +489,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 00:59:22",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "headline": "Democrat Graham Platner says he plans to withdraw from Maine Senate race after sexual assault claim - AP News",
-      "direction": "bullish",
-      "materiality": 0.55,
-      "confidence": 0.62,
-      "edge": 0.34925000000000006,
-      "fee_cost": 0.0,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.48000000000000004,
-      "action": "correlation_block",
       "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 00:59:22",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "US launches more strikes on Iran with blasts reported in south of country",
+      "time": "2026-07-09 01:03:37",
+      "market_question": "Ukraine election held by December 31, 2026?",
+      "headline": "Russia denounces NATO summit decisions on aid for Ukraine, defence - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -494,25 +510,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 00:59:22",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "US launches more strikes on Iran with blasts reported in south of country",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 00:59:22",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "US launches more strikes on Iran with blasts reported in south of country",
+      "time": "2026-07-09 01:03:37",
+      "market_question": "Ukraine election called by August 31, 2026?",
+      "headline": "Russia denounces NATO summit decisions on aid for Ukraine, defence - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
