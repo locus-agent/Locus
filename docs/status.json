@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T04:07:03.439692+00:00",
-  "last_heartbeat": "2026-07-09T04:07:03.439692+00:00",
-  "uptime_seconds": 50187,
+  "generated_at": "2026-07-09T04:12:11.236403+00:00",
+  "last_heartbeat": "2026-07-09T04:12:11.236403+00:00",
+  "uptime_seconds": 50495,
   "dry_run": false,
-  "markets_tracked": 1324,
+  "markets_tracked": 1325,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10802,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 142,
+  "headlines_scanned_today": 144,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5074,
+  "classifications_24h": 5077,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1504,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-09T03:56:21.635024+00:00"
+    "last_check": "2026-07-09T04:11:22.055086+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1269,
+    "news": 1270,
     "matched": 877,
-    "classified": 5074,
+    "classified": 5077,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2425.2
+    "avg_classification_latency_ms": 2422.6
   },
   "live_readiness": {
     "ready": true,
@@ -446,25 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 04:06:35",
-      "market_question": "Will Trump praise Elon Musk by July 31?",
-      "headline": "Elon Musk - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 04:06:31",
-      "market_question": "Will Elon Musk rejoin the Trump Administration in 2026?",
-      "headline": "Elon Musk - Politico",
+      "time": "2026-07-09 04:10:55",
+      "market_question": "Will Jordan Bardella win the 2027 French presidential election?",
+      "headline": "Saibari out for Morocco but coach says France game will not hold any surprises - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -473,14 +457,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 04:06:31",
-      "market_question": "Will Trump pardon Elon Musk before 2027?",
-      "headline": "Elon Musk - Politico",
+      "time": "2026-07-09 04:10:55",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Saibari out for Morocco but coach says France game will not hold any surprises - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -494,9 +478,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 04:04:22",
-      "market_question": "Will China unban Bitcoin by 2027?",
-      "headline": "Typhoon Bavi churns towards Taiwan as China braces for landfall - Reuters",
+      "time": "2026-07-09 04:10:55",
+      "market_question": "Will David Lisnard win the 2027 French presidential election?",
+      "headline": "Saibari out for Morocco but coach says France game will not hold any surprises - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 04:10:55",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Saibari out for Morocco but coach says France game will not hold any surprises - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -510,9 +510,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 04:04:21",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "US launches new airstrikes on Iran and Tehran fires back at Gulf Arab states - AP News",
+      "time": "2026-07-09 04:10:55",
+      "market_question": "Will Juan Branco win the 2027 French presidential election?",
+      "headline": "Saibari out for Morocco but coach says France game will not hold any surprises - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -521,7 +521,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
