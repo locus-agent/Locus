@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-09T20:07:56.352704+00:00",
-  "last_heartbeat": "2026-07-09T20:07:56.352704+00:00",
-  "uptime_seconds": 970,
+  "generated_at": "2026-07-09T20:13:05.331229+00:00",
+  "last_heartbeat": "2026-07-09T20:13:05.331229+00:00",
+  "uptime_seconds": 1279,
   "dry_run": false,
   "markets_tracked": 1294,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1521,
+  "headlines_scanned_today": 1525,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 6261,
+  "classifications_24h": 6147,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1790,
+    "prefiltered_haiku": 1744,
     "cooldown_skip": 0,
-    "stale": 10,
+    "stale": 9,
     "capped": 9,
     "too_close_to_resolution": 1,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 552,
+    "price_target_market": 536,
     "coinflip_market": 0,
     "correlation_block": 17,
     "category_limit": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1733,
-    "matched": 873,
-    "classified": 6261,
+    "news": 1705,
+    "matched": 849,
+    "classified": 6147,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1553.5
+    "avg_classification_latency_ms": 1553.4
   },
   "live_readiness": {
     "ready": true,
@@ -196,7 +196,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2695,
+      "current_price": 0.2695000000000001,
       "pnl_pct": 1.32,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.54,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 20:05:42",
+      "time": "2026-07-09 20:12:24",
       "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "The tricky business of AI cloning - Politico",
+      "headline": "The AI Republic? Governing Artificial Intelligence at America\u2019s 250th Anniversary - Foley & Lardner LLP",
       "direction": "neutral",
       "materiality": 0.15,
       "confidence": 0.5,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 19:58:58",
-      "market_question": "Will Donald Trump visit Taiwan in 2026?",
-      "headline": "Meghan not expected to appear at UK events during Harry visit",
+      "time": "2026-07-09 20:12:24",
+      "market_question": "Will Trump flip the bird again in 2026?",
+      "headline": "Who is Telemachus, again? Circe? A guide to the characters of Christopher Nolan's 'The Odyssey' - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 19:58:58",
-      "market_question": "Will Donald Trump visit Italy in 2026?",
-      "headline": "Meghan not expected to appear at UK events during Harry visit",
+      "time": "2026-07-09 20:12:24",
+      "market_question": "Will Christopher Beardsley be the Democratic nominee for Senate in Delaware?",
+      "headline": "Who is Telemachus, again? Circe? A guide to the characters of Christopher Nolan's 'The Odyssey' - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 19:58:58",
-      "market_question": "Will Donald Trump visit Lebanon in 2026?",
-      "headline": "Meghan not expected to appear at UK events during Harry visit",
+      "time": "2026-07-09 20:12:24",
+      "market_question": "Will the number of Republican Senate members who retire in 2026 be 12 or more?",
+      "headline": "Who is Telemachus, again? Circe? A guide to the characters of Christopher Nolan's 'The Odyssey' - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,20 +496,20 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 19:58:58",
-      "market_question": "Will Donald Trump visit Israel in 2026?",
-      "headline": "Meghan not expected to appear at UK events during Harry visit",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-09 20:12:22",
+      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
+      "headline": "Google will now tell you if an ad was made with AI",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
