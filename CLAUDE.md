@@ -175,26 +175,15 @@ PipelineV2._execute_signals:
   grinds positions into unsellable dust (positions 52/55). The exit prompt also
   carries the split history (count of prior close_half decisions from
   `exit_decisions`) with guidance, so the model can choose the full close itself.
-  The Telegram bot (`core/telegram_bot.py`) is the operator control surface,
-  auth-gated to `TELEGRAM_CHAT_ID` on every command and callback. `/portfolio` and
-  `/positions` render the portfolio card — one row per open position (PnL% or
-  "stuck" for holdings below the exchange minimums), [📊 #id] detail buttons, NO
-  sell buttons in the list. Detail cards carry the DB-authoritative numbers
-  (token_count / actual_cost_usd / realized_pnl_usd are never overwritten),
-  enriched by Polymarket's public Data API
-  (`GET {POLYMARKET_DATA_HOST}/positions?user={POLYMARKET_FUNDER_ADDRESS}`, cached
-  ~45s in `_api_positions_cache`): live curPrice, event link, endDate fallback
-  (DB end_date wins; pre-2000 API placeholder dates are ignored), and an
-  independent PnL cross-check line (✓ within $0.10-or-2pp tolerance, "⚠️
-  расходится" + logged warning past it — catches accounting drift). Selling
-  happens only from detail cards: Close/Half run the manual paths (`close_manual`
-  / `close_manual_half`, backoff-bypassing, failures reported with the real
-  executor status); a stuck card explains the blocker and offers only Force close
-  — a two-step confirmation that previews proceeds/realized % at the live best
-  bid, then sells with the wide-spread gate disabled (`close_manual(force=True)`
-  -> `max_spread=inf`). Sub-minimum holdings go through top-up-and-sell first; a
-  skipped top-up reports why (`topup_skipped` on the executor result /
-  `positions._last_close_failure`).
+  The Telegram bot's `/positions` command is the operator control surface: per-
+  position [Close] / [Half] / [Force close] buttons (auth-gated to
+  `TELEGRAM_CHAT_ID`). Close/Half run the manual paths (`close_manual` /
+  `close_manual_half`, backoff-bypassing, failures reported with the real executor
+  status); Force close is a two-step confirmation that previews proceeds/realized %
+  at the live best bid, then sells with the wide-spread gate disabled
+  (`close_manual(force=True)` -> `max_spread=inf`). Sub-minimum holdings go through
+  top-up-and-sell first; a skipped top-up reports why (`topup_skipped` on the
+  executor result / `positions._last_close_failure`).
 - Re-entry logic lives in `core/positions.py` (`check_reentry_opportunity`, with the
   pipeline calling `_check_reentry`) — there is no separate `core/reentry.py`. Every
   non-resolution close writes a row to `watched_closed_positions` (via `positions._close`
