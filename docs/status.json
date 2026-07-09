@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T01:38:22.637292+00:00",
-  "last_heartbeat": "2026-07-09T01:38:22.637292+00:00",
-  "uptime_seconds": 41266,
+  "generated_at": "2026-07-09T01:43:30.668221+00:00",
+  "last_heartbeat": "2026-07-09T01:43:30.668221+00:00",
+  "uptime_seconds": 41574,
   "dry_run": false,
-  "markets_tracked": 1344,
+  "markets_tracked": 1343,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10786,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 83,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 100,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 5187,
+  "classifications_24h": 5247,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1572,
+    "prefiltered_haiku": 1592,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-09T01:26:17.212032+00:00"
+    "last_check": "2026-07-09T01:41:17.613164+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1298,
-    "matched": 893,
-    "classified": 5187,
+    "news": 1312,
+    "matched": 908,
+    "classified": 5247,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 16,
     "win_rate_pct": 55.6,
     "realized_pnl_usd": 35.06,
-    "unrealized_pnl_usd": -0.73,
-    "total_pnl_usd": 34.33,
+    "unrealized_pnl_usd": -0.75,
+    "total_pnl_usd": 34.31,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2420.4
+    "avg_classification_latency_ms": 2412.7
   },
   "live_readiness": {
     "ready": true,
@@ -224,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.10250000000000001,
-      "pnl_pct": 2.5,
+      "current_price": 0.1015,
+      "pnl_pct": 1.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.05,
-      "pnl_usd": 0.05,
+      "current_value_usd": 2.03,
+      "pnl_usd": 0.03,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -446,9 +446,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 01:28:17",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "President Trump - Politico",
+      "time": "2026-07-09 01:43:30",
+      "market_question": "Will Trump pardon Himself before 2027?",
+      "headline": "The last woman executed in Britain is given a conditional pardon - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -462,9 +462,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 01:28:17",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "President Trump - Politico",
+      "time": "2026-07-09 01:43:30",
+      "market_question": "Will Trump pardon Ghislaine Maxwell by end of 2026?",
+      "headline": "The last woman executed in Britain is given a conditional pardon - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 01:43:29",
+      "market_question": "Will Trump pardon SBF by July 31?",
+      "headline": "The last woman executed in Britain is given a conditional pardon - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -478,41 +494,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-09 01:28:17",
+      "time": "2026-07-09 01:43:28",
+      "market_question": "Will Donald Trump attend NATO Summit?",
+      "headline": "Thank you to the brilliant and highly respected Gwynne Shotwell, and her husband, Robert, for their extreme Generosity in helping children to attain the ever magnificent American Dream! Their Gift of 325 Million Dollars of SpaceX Stock is greatly appreciated by all. Thousands of children have just been given a better life. Thank you Gwynne and Robert, and continued Great Success! President DONALD J. TRUMP",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 01:43:28",
       "market_question": "Trump out as President by July 31?",
-      "headline": "President Trump - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 01:28:17",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "President Trump - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 01:28:17",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "President Trump - Politico",
+      "headline": "Thank you to the brilliant and highly respected Gwynne Shotwell, and her husband, Robert, for their extreme Generosity in helping children to attain the ever magnificent American Dream! Their Gift of 325 Million Dollars of SpaceX Stock is greatly appreciated by all. Thousands of children have just been given a better life. Thank you Gwynne and Robert, and continued Great Success! President DONALD J. TRUMP",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
