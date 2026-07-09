@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T04:42:54.616001+00:00",
-  "last_heartbeat": "2026-07-09T04:42:54.616001+00:00",
-  "uptime_seconds": 52338,
+  "generated_at": "2026-07-09T04:48:02.117916+00:00",
+  "last_heartbeat": "2026-07-09T04:48:02.117916+00:00",
+  "uptime_seconds": 52646,
   "dry_run": false,
-  "markets_tracked": 1311,
+  "markets_tracked": 1312,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10802,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 145,
+  "headlines_scanned_today": 146,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4968,
+  "classifications_24h": 4954,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1476,
+    "prefiltered_haiku": 1472,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 5,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1243,
-    "matched": 864,
-    "classified": 4968,
+    "news": 1241,
+    "matched": 862,
+    "classified": 4954,
     "signals": 0,
     "trades": 0
   },
@@ -136,8 +136,8 @@
     "losses": 16,
     "win_rate_pct": 55.6,
     "realized_pnl_usd": 35.06,
-    "unrealized_pnl_usd": -0.84,
-    "total_pnl_usd": 34.22,
+    "unrealized_pnl_usd": -0.72,
+    "total_pnl_usd": 34.34,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
@@ -224,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.1045,
-      "pnl_pct": 4.5,
+      "current_price": 0.11049999999999999,
+      "pnl_pct": 10.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.09,
-      "pnl_usd": 0.09,
+      "current_value_usd": 2.21,
+      "pnl_usd": 0.21,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -446,6 +446,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-09 04:46:01",
+      "market_question": "Will Phil Scott win the 2026 Vermont Governor Republican primary election?",
+      "headline": "Phil Regan, former MLB pitcher dubbed 'The Vulture' by Sandy Koufax and a longtime coach, dies at 89 - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-09 04:41:45",
       "market_question": "Over $1B crypto hack value in 2026?",
       "headline": "AscendEX crypto exchange shuts down, no assurance on user payouts",
@@ -496,22 +512,6 @@
     {
       "time": "2026-07-09 04:41:44",
       "market_question": "Record crypto liquidation in 2026?",
-      "headline": "AscendEX crypto exchange shuts down, no assurance on user payouts",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 04:41:44",
-      "market_question": "Over $1.5B crypto hack value in 2026?",
       "headline": "AscendEX crypto exchange shuts down, no assurance on user payouts",
       "direction": "neutral",
       "materiality": 0.05,
