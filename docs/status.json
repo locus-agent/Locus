@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T17:37:30.410715+00:00",
-  "last_heartbeat": "2026-07-09T17:37:30.410715+00:00",
-  "uptime_seconds": 2520,
+  "generated_at": "2026-07-09T17:42:38.180921+00:00",
+  "last_heartbeat": "2026-07-09T17:42:38.180921+00:00",
+  "uptime_seconds": 2827,
   "dry_run": false,
-  "markets_tracked": 1290,
+  "markets_tracked": 1293,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10859,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 907,
+  "headlines_scanned_today": 908,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4654,
+  "classifications_24h": 4650,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1465,
+    "prefiltered_haiku": 1459,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 9,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-09T17:26:30.483667+00:00"
+    "last_check": "2026-07-09T17:41:31.145912+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1236,
+    "news": 1235,
     "matched": 890,
-    "classified": 4654,
+    "classified": 4650,
     "signals": 2,
     "trades": 2
   },
@@ -135,13 +135,13 @@
     "wins": 20,
     "losses": 17,
     "win_rate_pct": 54.1,
-    "realized_pnl_usd": 33.23,
-    "unrealized_pnl_usd": 0.69,
-    "total_pnl_usd": 33.92,
+    "realized_pnl_usd": 34.33,
+    "unrealized_pnl_usd": -0.76,
+    "total_pnl_usd": 33.57,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1730.4
+    "avg_classification_latency_ms": 1774.8
   },
   "live_readiness": {
     "ready": false,
@@ -212,9 +212,9 @@
       "entry_price": 0.29,
       "current_price": 0.35,
       "pnl_pct": 20.69,
-      "amount_usd": 8.555,
-      "current_value_usd": 10.32,
-      "pnl_usd": 1.77,
+      "amount_usd": 3.915,
+      "current_value_usd": 4.72,
+      "pnl_usd": 0.81,
       "edge_type": "news",
       "event_id": "528413"
     },
@@ -238,11 +238,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.10400000000000001,
-      "pnl_pct": 4.0,
+      "current_price": 0.0955,
+      "pnl_pct": -4.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.08,
-      "pnl_usd": 0.08,
+      "current_value_usd": 1.91,
+      "pnl_usd": -0.09,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -254,9 +254,9 @@
       "entry_price": 0.425,
       "current_price": 0.355,
       "pnl_pct": 11.21,
-      "amount_usd": 4.93,
-      "current_value_usd": 5.48,
-      "pnl_usd": 0.55,
+      "amount_usd": 2.03,
+      "current_value_usd": 2.26,
+      "pnl_usd": 0.23,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -295,7 +295,7 @@
       "side": "NO",
       "entry_price": 0.425,
       "exit_price": 0.365,
-      "realized_pnl_usd": 0.8199999999999976,
+      "realized_pnl_usd": 1.1199999999999979,
       "exit_reason": "\u00bd closed at +9%",
       "event_id": "57650",
       "partial": true
@@ -399,6 +399,24 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-09 17:40:45",
+      "market_question": "Trump meets with Putin by December 31?",
+      "side": "YES",
+      "trigger": "manual",
+      "decision": "partial_close",
+      "reasoning": "Partial live SELL (manual): sold 16.0 @ 0.34 (realized $+0.80); 13.5 tokens remain, position kept open",
+      "pnl_pct": 20.69
+    },
+    {
+      "time": "2026-07-09 17:40:29",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "side": "NO",
+      "trigger": "manual",
+      "decision": "partial_close",
+      "reasoning": "Partial live SELL (manual): sold 5.0 @ 0.64 (realized $+0.30); 3.5 tokens remain, position kept open",
+      "pnl_pct": 12.07
+    },
+    {
       "time": "2026-07-09 06:20:53",
       "market_question": "Will the Republicans win the Texas Senate race in 2026?",
       "side": "NO",
@@ -424,27 +442,57 @@
       "decision": "close",
       "reasoning": "The position is down 32% and the YES price at 0.715 implies the market now believes a $60K dip is more likely than not, directly contradicting the NO thesis; with the original reasoning unrecorded and no clear catalyst to reverse the move, holding is speculative hope rather than edge.",
       "pnl_pct": -32.14
-    },
-    {
-      "time": "2026-07-07 16:01:01",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "side": "NO",
-      "trigger": "news",
-      "decision": "close_half",
-      "reasoning": "The sexual assault allegation against the Democratic nominee is a material development that directly undermines the original bearish-on-Republicans thesis, shifting odds toward a Republican win (YES price likely to rise, hurting the NO position). Closing half locks in the existing +1.7% gain while leaving exposure in case the allegation proves unsubstantiated or the market overreacts.",
-      "pnl_pct": 1.72
-    },
-    {
-      "time": "2026-07-06 22:33:45",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "partial_close",
-      "reasoning": "Partial live SELL (time_pressure): sold 40.0 @ 0.033 (realized $-0.85); 18.25 tokens remain, position kept open",
-      "pnl_pct": -32.61
     }
   ],
   "recent_classifications": [
+    {
+      "time": "2026-07-09 17:38:52",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Redistricting - Politico",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 17:38:51",
+      "market_question": "Will Missouri use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Redistricting - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 17:38:50",
+      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Redistricting - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
     {
       "time": "2026-07-09 17:34:16",
       "market_question": "Will Bitcoin have the best performance in 2026?",
@@ -473,54 +521,6 @@
       "time_horizon": null,
       "adjusted_materiality": null,
       "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 17:34:15",
-      "market_question": "Will stablecoins hit $500B before 2027?",
-      "headline": "Google&#8217;s Nest Thermostat has hit its best price of the year",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 17:34:15",
-      "market_question": "Will the price of Bitcoin be above $68,000 on July 10?",
-      "headline": "Google&#8217;s Nest Thermostat has hit its best price of the year",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 17:34:15",
-      "market_question": "Will the price of Bitcoin be above $56,000 on July 10?",
-      "headline": "Google&#8217;s Nest Thermostat has hit its best price of the year",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
