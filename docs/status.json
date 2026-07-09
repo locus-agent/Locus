@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T03:26:03.918067+00:00",
-  "last_heartbeat": "2026-07-09T03:26:03.918067+00:00",
-  "uptime_seconds": 47727,
+  "generated_at": "2026-07-09T03:31:12.007353+00:00",
+  "last_heartbeat": "2026-07-09T03:31:12.007353+00:00",
+  "uptime_seconds": 48035,
   "dry_run": false,
-  "markets_tracked": 1326,
+  "markets_tracked": 1324,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10802,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 132,
+  "headlines_scanned_today": 133,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5162,
+  "classifications_24h": 5164,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1540,
+    "prefiltered_haiku": 1541,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 5,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-09T03:11:20.247358+00:00"
+    "last_check": "2026-07-09T03:26:20.756142+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1295,
-    "matched": 892,
-    "classified": 5162,
+    "news": 1296,
+    "matched": 893,
+    "classified": 5164,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 16,
     "win_rate_pct": 55.6,
     "realized_pnl_usd": 35.06,
-    "unrealized_pnl_usd": -0.57,
-    "total_pnl_usd": 34.49,
+    "unrealized_pnl_usd": -0.55,
+    "total_pnl_usd": 34.51,
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2428.3
+    "avg_classification_latency_ms": 2428.0
   },
   "live_readiness": {
     "ready": true,
@@ -224,11 +224,11 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.11049999999999999,
-      "pnl_pct": 10.5,
+      "current_price": 0.11149999999999999,
+      "pnl_pct": 11.5,
       "amount_usd": 2.0,
-      "current_value_usd": 2.21,
-      "pnl_usd": 0.21,
+      "current_value_usd": 2.23,
+      "pnl_usd": 0.23,
       "edge_type": "news",
       "event_id": "556131"
     },
@@ -446,6 +446,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-09 03:29:10",
+      "market_question": "Will Trump pardon Himself before 2027?",
+      "headline": "US reiterates backing for Tibetan aspirations to preserve culture after man set himself on fire - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-09 03:29:08",
+      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
+      "headline": "US reiterates backing for Tibetan aspirations to preserve culture after man set himself on fire - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-09 03:22:32",
       "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
       "headline": "Jackson Barton - Politico",
@@ -480,38 +512,6 @@
     {
       "time": "2026-07-09 03:15:55",
       "market_question": "Will Hana Ghassan win the Governor of Par\u00e1 election?",
-      "headline": "Pa. Governor - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 03:15:55",
-      "market_question": "Will Dr. Luizinho win the Governor of Rio de Janeiro election?",
-      "headline": "Pa. Governor - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-09 03:15:55",
-      "market_question": "Will Eduardo Braide win the Governor of Maranh\u00e3o election?",
       "headline": "Pa. Governor - Politico",
       "direction": null,
       "materiality": null,
