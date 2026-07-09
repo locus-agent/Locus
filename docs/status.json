@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-09T08:59:21.814416+00:00",
-  "last_heartbeat": "2026-07-09T08:59:21.814416+00:00",
-  "uptime_seconds": 67725,
+  "generated_at": "2026-07-09T09:04:29.681450+00:00",
+  "last_heartbeat": "2026-07-09T09:04:29.681450+00:00",
+  "uptime_seconds": 68033,
   "dry_run": false,
   "markets_tracked": 1311,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 293,
+  "headlines_scanned_today": 296,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 5059,
+  "classifications_24h": 5065,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1644,
+    "prefiltered_haiku": 1647,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 7,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1280,
-    "matched": 911,
-    "classified": 5059,
+    "news": 1282,
+    "matched": 914,
+    "classified": 5065,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.7,
     "kelly_factor": 0.925,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2382.4
+    "avg_classification_latency_ms": 2380.7
   },
   "live_readiness": {
     "ready": false,
@@ -210,7 +210,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03600000000000003,
+      "current_price": 0.036000000000000004,
       "pnl_pct": -8.45,
       "amount_usd": 0.7176150234741786,
       "current_value_usd": 0.66,
@@ -224,7 +224,7 @@
       "slug": "which-company-has-best-ai-model-end-of-july-299",
       "side": "YES",
       "entry_price": 0.0985,
-      "current_price": 0.11199999999999999,
+      "current_price": 0.112,
       "pnl_pct": 12.0,
       "amount_usd": 2.0,
       "current_value_usd": 2.24,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-09 08:56:57",
-      "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "Live markets: Second day of U.S, Iran conflict keeps markets volatile as oil drops",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-09 08:56:50",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Live markets: Second day of U.S, Iran conflict keeps markets volatile as oil drops",
+      "time": "2026-07-09 09:03:27",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "The administration has a new climate change office. It\u2019s headed by a climate critic. - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 08:56:50",
-      "market_question": "Netanyahu drops out of Israel election by July 31?",
-      "headline": "Live markets: Second day of U.S, Iran conflict keeps markets volatile as oil drops",
+      "time": "2026-07-09 09:03:27",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "The administration has a new climate change office. It\u2019s headed by a climate critic. - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 08:56:50",
-      "market_question": "Will Count Binface get second place in the Clacton by-election?",
-      "headline": "Live markets: Second day of U.S, Iran conflict keeps markets volatile as oil drops",
+      "time": "2026-07-09 09:03:27",
+      "market_question": "Will Kash Patel leave the Trump administration before 2027?",
+      "headline": "The administration has a new climate change office. It\u2019s headed by a climate critic. - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +480,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-09 08:56:50",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "Live markets: Second day of U.S, Iran conflict keeps markets volatile as oil drops",
+      "time": "2026-07-09 09:03:27",
+      "market_question": "Will Kristi Noem leave the Trump administration before 2027?",
+      "headline": "The administration has a new climate change office. It\u2019s headed by a climate critic. - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-09 09:03:27",
+      "market_question": "Will Howard Lutnick leave the Trump administration before 2027?",
+      "headline": "The administration has a new climate change office. It\u2019s headed by a climate critic. - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
