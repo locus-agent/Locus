@@ -218,21 +218,24 @@ def bid_depth_within(book, reference_price: float, max_slippage_pct: float) -> f
 
 def _execute_topup(client, token_id: str, held_shares: float,
                    best_bid: float | None, best_ask: float | None,
-                   book) -> tuple[float, float]:
+                   book) -> tuple[float, float, str | None]:
     """Place and reconcile the top-up BUY for a dust holding.
 
-    Returns (filled_cost_usd, filled_shares) — (0.0, 0.0) when no buy was
-    placed (holding not dust / cap exceeded / no ask / no bid liquidity near
-    the ask) or nothing filled (an unfilled GTC buy is cancelled by
-    reconcile_order, so no money moved). A PARTIAL fill still returns its real
-    cost/shares: those tokens were bought and MUST land in the position's
-    basis even if the follow-up sell can't happen this cycle."""
+    Returns (filled_cost_usd, filled_shares, skip_reason) — (0.0, 0.0, reason)
+    when no buy was placed (holding not dust / cap exceeded / no ask / no bid
+    liquidity near the ask) or nothing filled (an unfilled GTC buy is
+    cancelled by reconcile_order, so no money moved); skip_reason is None on a
+    fill. The reason string lets the caller tell the operator WHY the dust
+    stayed stuck ("no_bid_liquidity" vs "topup_too_expensive" are very
+    different situations). A PARTIAL fill still returns its real cost/shares:
+    those tokens were bought and MUST land in the position's basis even if the
+    follow-up sell can't happen this cycle."""
     if best_bid is None or best_ask is None or best_ask <= 0:
-        return 0.0, 0.0
+        return 0.0, 0.0, "no_book"
     buy_shares, est_cost, status = plan_topup_buy(held_shares, best_bid, best_ask)
     if status != "ok":
         log.info("[executor] top-up NOT placed (%s); dust left as-is", status)
-        return 0.0, 0.0
+        return 0.0, 0.0, status
 
     # Liquidity precheck BEFORE spending anything: the post-top-up holding must
     # be plausibly sellable near what the top-up pays (the ask — the executor's
@@ -248,7 +251,7 @@ def _execute_topup(client, token_id: str, held_shares: float,
             "dust left as-is",
             depth_near, config.TOPUP_MAX_BID_SLIPPAGE_PCT, best_ask, target_shares,
         )
-        return 0.0, 0.0
+        return 0.0, 0.0, "no_bid_liquidity"
 
     from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
 
@@ -265,17 +268,17 @@ def _execute_topup(client, token_id: str, held_shares: float,
         resp = client.post_order(signed, OrderType.GTC)
     except Exception as order_exc:
         _diagnose_order_error(order_exc, token_id, buy_price, buy_shares, "BUY", tick_size)
-        return 0.0, 0.0
+        return 0.0, 0.0, "order_error"
     order_id = resp.get("orderID", resp.get("id", "unknown"))
     fill_status, fill_cost = reconcile_order(client, order_id, buy_shares, buy_price)
     if fill_status != "executed" or not fill_cost or not buy_price:
         log.warning("[executor] top-up BUY %s not filled (reconcile=%s); dust "
                     "left as-is", order_id, fill_status)
-        return 0.0, 0.0
+        return 0.0, 0.0, "not_filled"
     filled_shares = min(round(fill_cost / buy_price, 4), buy_shares)
     log.info("[executor] top-up BUY filled: %.4f sh @ %.4f ($%.2f, order %s)",
              filled_shares, buy_price, fill_cost, order_id)
-    return fill_cost, filled_shares
+    return fill_cost, filled_shares, None
 
 
 def round_to_tick(price: float, tick_size) -> float:
@@ -519,11 +522,17 @@ def close_position_live(
     # path (including the outer exception handler) must report it.
     topup_cost = 0.0
     topup_shares = 0.0
+    topup_skip: str | None = None
 
     def _with_topup(result: dict) -> dict:
         if topup_shares > 0:
             result["topup_cost_usd"] = round(topup_cost, 4)
             result["topup_shares"] = topup_shares
+        elif topup_skip is not None:
+            # A top-up was attempted (dust holding, explicit close) but not
+            # placed/filled — tell the caller why so the operator knows the
+            # position is genuinely stuck until resolution.
+            result["topup_skipped"] = topup_skip
         return result
     log.info(
         "[executor] close_position_live START: condition_id=%s side=%s shares=%.4f "
@@ -566,7 +575,7 @@ def close_position_live(
         # Only on explicit close attempts (the caller gates allow_topup) and
         # only when the holding — not the bid depth — is the blocker.
         if status == "skipped_thin_book" and allow_topup:
-            topup_cost, topup_shares = _execute_topup(
+            topup_cost, topup_shares, topup_skip = _execute_topup(
                 client, token_id, shares, best_bid, best_ask, book
             )
             if topup_shares > 0:

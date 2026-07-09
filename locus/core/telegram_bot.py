@@ -9,7 +9,11 @@ Two independent halves:
    no-ops — never raising — when TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is unset.
 
 2. Interactive command bot (python-telegram-bot Application long-polling) for
-   /portfolio with inline [Close] / [Refresh] / [Balance] buttons. Runs in a
+   /portfolio with inline [Close] / [Refresh] / [Balance] buttons, and
+   /positions — the operator control view with per-position [Close] / [Half] /
+   [Force close] buttons (Force is a two-step confirmation that previews the
+   realized outcome at the current best bid before selling into it). Every
+   command and button tap is auth-gated to TELEGRAM_CHAT_ID. Runs in a
    daemon thread with its own event loop, started from `cli.py watch`.
 
    NOTE: Telegram permits only one getUpdates long-poll per bot token. The news
@@ -220,7 +224,59 @@ def notify_drawdown_alert(position: dict, pnl_pct: float) -> bool:
     return _send(text)
 
 
-# --- Interactive command bot (/portfolio) ------------------------------------
+# --- Interactive command bot (/portfolio, /positions) ------------------------
+
+def _authorized(update) -> bool:
+    """Only the configured TELEGRAM_CHAT_ID may issue commands or tap buttons.
+    Anything else (a stranger finding the bot, a group it was added to) is
+    ignored — commands from it must never move money."""
+    if not config.TELEGRAM_CHAT_ID:
+        return False
+    chat = getattr(update, "effective_chat", None)
+    chat_id = getattr(chat, "id", None)
+    if chat_id is None:
+        return False
+    if str(chat_id) != str(config.TELEGRAM_CHAT_ID):
+        log.warning(f"[telegram] unauthorized chat {chat_id} rejected")
+        return False
+    return True
+
+
+# Human-readable close-failure reasons (executor statuses -> operator text).
+_CLOSE_FAILURE_TEXT = {
+    "skipped_thin_book": "below exchange minimums / book too thin to sell into",
+    "skipped_empty_book": "no bids at all (empty book)",
+    "skipped_wide_spread": "spread too wide (protective gate — use Force close "
+                           "to sell anyway)",
+}
+
+_TOPUP_SKIP_TEXT = {
+    "no_bid_liquidity": "no real bid liquidity near the ask (zombie book)",
+    "topup_too_expensive": "top-up cost would exceed the cap",
+    "not_filled": "top-up buy did not fill",
+    "order_error": "top-up buy was rejected",
+    "no_book": "no book to price a top-up against",
+    "not_dust": "holding already clears the minimums (bid depth is the blocker)",
+}
+
+
+def _failure_text(reason: dict | None) -> str:
+    """Operator-facing explanation of why a manual close failed, from the
+    failure_reason dict positions.close_manual returns."""
+    if not reason:
+        return "live SELL not confirmed"
+    status = reason.get("status") or ""
+    text = _CLOSE_FAILURE_TEXT.get(status, status or "live SELL not confirmed")
+    if reason.get("error"):
+        text += f" — {reason['error']}"
+    skip = reason.get("topup_skipped")
+    if skip:
+        skip_text = _TOPUP_SKIP_TEXT.get(skip, skip)
+        if skip == "topup_too_expensive":
+            skip_text += f" (${config.TOPUP_MAX_USD:.2f})"
+        text += (f"; top-up skipped: {skip_text} — position is stuck until "
+                 "resolution")
+    return text
 
 def _build_portfolio():
     """(text, InlineKeyboardMarkup) for the portfolio view: each open position
@@ -303,6 +359,143 @@ def _build_balance():
     return text, markup
 
 
+def _position_metrics(p: dict) -> tuple[float, float, float, float]:
+    """(tokens, cost_basis, current_value, pnl_pct) for an open-position row."""
+    from locus.core import positions
+    from locus.core.performance import position_shares
+
+    tokens = position_shares(
+        p["side"], p["entry_yes_price"], p.get("amount_usd") or 0.0,
+        token_count=p.get("token_count"),
+    )
+    cost = positions.position_cost_basis(p)
+    yes = p.get("current_yes_price")
+    yes = p["entry_yes_price"] if yes is None else yes
+    side_price = yes if p["side"] == "YES" else 1.0 - yes
+    value = tokens * side_price
+    pct = p.get("unrealized_pnl_pct") or 0.0
+    return tokens, cost, value, pct
+
+
+def _build_positions():
+    """(text, InlineKeyboardMarkup) for the /positions operator view: every
+    open position with tokens / cost basis / current value / unrealized PnL%,
+    and a [Close] [Half] [Force] button row per position. Close runs the
+    normal manual close path; Half realizes half (with the anti-dust
+    escalation); Force is a two-step confirmed sell into whatever bid exists."""
+    from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+    from locus.core import positions
+
+    open_pos = positions.get_open_positions()
+    header = f"📋 POSITIONS {_mode_badge()}"
+    rows = []
+    if open_pos:
+        lines = [header, ""]
+        for p in open_pos:
+            tokens, cost, value, pct = _position_metrics(p)
+            lines.append(f"#{p['id']} {p['side']} {p['market_question'][:40]}")
+            lines.append(
+                f"    {_shares(round(tokens, 2))} tok | cost ${cost:.2f} | "
+                f"value ${value:.2f} | {pct:+.1f}%"
+            )
+            rows.append([
+                InlineKeyboardButton(f"🔴 Close #{p['id']}",
+                                     callback_data=f"pclose:{p['id']}"),
+                InlineKeyboardButton(f"🟡 Half #{p['id']}",
+                                     callback_data=f"phalf:{p['id']}"),
+                InlineKeyboardButton(f"⚠️ Force #{p['id']}",
+                                     callback_data=f"pforce:{p['id']}"),
+            ])
+        text = "\n".join(lines)
+    else:
+        text = f"{header}\n\nNo open positions."
+    rows.append([InlineKeyboardButton("🔄 Refresh", callback_data="positions")])
+    return text, InlineKeyboardMarkup(rows)
+
+
+def _build_positions_result(header: str):
+    """(text, markup) for an action result: the outcome header above the
+    freshly-refreshed positions list."""
+    text, markup = _build_positions()
+    return f"{header}\n\n{text}", markup
+
+
+def _fetch_best_bid(position: dict) -> float | None:
+    """Live best bid for the held side's token, or None when unavailable
+    (dry-run, no CLOB client, book fetch failure). The force-close preview
+    falls back to the marked price then."""
+    from locus.core import executor
+    try:
+        client = executor.create_clob_client()
+        token_id = executor._resolve_token_id(
+            client, position["condition_id"], position["side"]
+        )
+        if not token_id:
+            return None
+        book = client.get_order_book(token_id)
+        best_bid, _, _ = executor._bid_levels(book)
+        return best_bid
+    except Exception as e:
+        log.warning(f"[telegram] best-bid fetch failed: {e}")
+        return None
+
+
+def _build_force_preview(pid: int):
+    """(text, markup) for the force-close confirmation step: the realized
+    outcome (proceeds vs cost, in $ and %) at the CURRENT best bid, with
+    [Yes, force] / [Cancel]. Nothing is sold until the second tap."""
+    from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+    from locus.core import positions
+
+    p = next((x for x in positions.get_open_positions() if x["id"] == pid), None)
+    if p is None:
+        return _build_positions_result(
+            f"⚠️ Position #{pid} not found or already closed.")
+
+    tokens, cost, _, _ = _position_metrics(p)
+    yes = p.get("current_yes_price")
+    yes = p["entry_yes_price"] if yes is None else yes
+    mark = yes if p["side"] == "YES" else 1.0 - yes
+    bid = _fetch_best_bid(p)
+    bid_note = ""
+    if bid is None:
+        bid = mark
+        bid_note = " (live bid unavailable — assuming the mark)"
+    proceeds = tokens * bid
+    realized = proceeds - cost
+    realized_pct = realized / cost * 100.0 if cost > 0 else 0.0
+    text = (
+        f"⚠️ FORCE CLOSE #{pid} — {p['market_question'][:50]}\n"
+        f"Best bid {bid:.3f} vs mark {mark:.3f}{bid_note}.\n"
+        f"Selling {_shares(round(tokens, 2))} tokens returns ~${proceeds:.2f} "
+        f"(you paid ${cost:.2f}).\n"
+        f"This realizes {realized_pct:+.0f}% (${realized:+.2f}). Confirm?"
+    )
+    markup = InlineKeyboardMarkup([[
+        InlineKeyboardButton("⚠️ Yes, force", callback_data=f"pforceyes:{pid}"),
+        InlineKeyboardButton("Cancel", callback_data="positions"),
+    ]])
+    return text, markup
+
+
+def _manual_action_header(pid: int, result: dict | None, label: str) -> str:
+    """Outcome header for a manual Close/Half/Force action, surfacing the real
+    failure reason (not a generic 'failed') and any half->full escalation."""
+    if result is None:
+        return f"⚠️ Position #{pid} not found or already closed."
+    if result.get("close_failed"):
+        return (f"❌ {label} #{pid} failed: "
+                f"{_failure_text(result.get('failure_reason'))}")
+    header = (
+        f"✅ {label} #{pid} — {result['market_question'][:50]}\n"
+        f"{result['side']} @ {result['price']:.3f} "
+        f"({result['pnl_pct']:+.1f}%, ${result['realized']:+.2f})"
+    )
+    if result.get("escalated"):
+        header += (f"\n(half escalated to FULL close: {result['escalated']})")
+    return header
+
+
 def _build_close_confirmation(header: str):
     """(text, InlineKeyboardMarkup) shown after a Close tap: a confirmation
     header above the freshly-refreshed portfolio list, with a [📊 Portfolio]
@@ -318,37 +511,96 @@ def _build_close_confirmation(header: str):
 
 async def _portfolio_cmd(update, context):
     """/portfolio (and /start): show the interactive portfolio."""
+    if not _authorized(update):
+        return
     text, markup = _build_portfolio()
     await update.message.reply_text(text, reply_markup=markup)
 
 
+async def _positions_cmd(update, context):
+    """/positions: the operator control view — every open position with
+    per-position [Close] [Half] [Force] buttons."""
+    if not _authorized(update):
+        return
+    text, markup = _build_positions()
+    await update.message.reply_text(text, reply_markup=markup)
+
+
 async def _button_cmd(update, context):
-    """Inline-button taps: navigate (portfolio/refresh/balance) or close a position."""
+    """Inline-button taps: navigate (portfolio/refresh/balance/positions),
+    close/half/force-close a position."""
     query = update.callback_query
+    if not _authorized(update):
+        return
     await query.answer()
     data = query.data or ""
+
+    def _pid() -> int | None:
+        try:
+            return int(data.split(":", 1)[1])
+        except (ValueError, IndexError):
+            return None
 
     if data in ("portfolio", "refresh"):
         text, markup = _build_portfolio()
     elif data == "balance":
         text, markup = _build_balance()
+    elif data == "positions":
+        text, markup = _build_positions()
     elif data.startswith("close:"):
         from locus.core import positions
-        try:
-            pid = int(data.split(":", 1)[1])
-        except (ValueError, IndexError):
+        pid = _pid()
+        if pid is None:
             return
         result = positions.close_manual(pid)
-        if result:
+        if result and not result.get("close_failed"):
             header = (
                 f"✅ Closed #{pid} — {result['market_question'][:50]}\n"
                 f"{result['side']} @ {result['price']:.3f} "
                 f"({result['pnl_pct']:+.1f}%, ${result['realized']:+.2f})"
             )
+        elif result:
+            header = (f"❌ Close #{pid} failed: "
+                      f"{_failure_text(result.get('failure_reason'))}")
         else:
             header = f"⚠️ Position #{pid} not found or already closed."
         # Auto-refresh: the confirmation embeds the updated portfolio list.
         text, markup = _build_close_confirmation(header)
+    elif data.startswith("pclose:"):
+        from locus.core import positions
+        pid = _pid()
+        if pid is None:
+            return
+        result = positions.close_manual(pid)
+        text, markup = _build_positions_result(
+            _manual_action_header(pid, result, "Closed"))
+    elif data.startswith("phalf:"):
+        from locus.core import positions
+        pid = _pid()
+        if pid is None:
+            return
+        result = positions.close_manual_half(pid)
+        label = "Closed" if (result or {}).get("escalated") else "Half closed"
+        text, markup = _build_positions_result(
+            _manual_action_header(pid, result, label))
+    elif data.startswith("pforce:"):
+        # Step 1 of 2: preview only — show the realized outcome at the current
+        # best bid. Nothing is sold until the [Yes, force] tap.
+        pid = _pid()
+        if pid is None:
+            return
+        text, markup = _build_force_preview(pid)
+    elif data.startswith("pforceyes:"):
+        # Step 2 of 2: the confirmed force close — bypasses the wide-spread
+        # protective gate and sells into whatever bid exists (a sub-minimum
+        # holding still tries top-up-and-sell first).
+        from locus.core import positions
+        pid = _pid()
+        if pid is None:
+            return
+        result = positions.close_manual(pid, force=True)
+        text, markup = _build_positions_result(
+            _manual_action_header(pid, result, "Force closed"))
     else:
         return
 
@@ -373,6 +625,7 @@ def _run_polling():
         asyncio.set_event_loop(asyncio.new_event_loop())
         app = Application.builder().token(config.TELEGRAM_BOT_TOKEN).build()
         app.add_handler(CommandHandler(["portfolio", "start"], _portfolio_cmd))
+        app.add_handler(CommandHandler("positions", _positions_cmd))
         app.add_handler(CallbackQueryHandler(_button_cmd))
         log.info("[telegram] interactive bot polling started")
         # stop_signals=None: signal handlers can only be installed on the main

@@ -167,6 +167,23 @@ PipelineV2._execute_signals:
   Claude `decide_investigation` call; on "investigate" the market runs the normal
   classify -> gates path and is logged with action `whale_triggered`, `edge_type='whale'`.
   Empty `WHALE_WALLETS` disables the task (clean return).
+- Exit re-evaluations (`positions.reevaluate`) apply an anti-dust floor to
+  close_half decisions (`resolve_close_half`): if the post-sale remainder would be
+  worth less than `CLOSE_HALF_MIN_REMAINDER_USD` ($5), the position's current value
+  is already below that floor, or the remainder couldn't clear the exchange minimums
+  (5 shares AND $1), the half escalates to a FULL close — repeated halving otherwise
+  grinds positions into unsellable dust (positions 52/55). The exit prompt also
+  carries the split history (count of prior close_half decisions from
+  `exit_decisions`) with guidance, so the model can choose the full close itself.
+  The Telegram bot's `/positions` command is the operator control surface: per-
+  position [Close] / [Half] / [Force close] buttons (auth-gated to
+  `TELEGRAM_CHAT_ID`). Close/Half run the manual paths (`close_manual` /
+  `close_manual_half`, backoff-bypassing, failures reported with the real executor
+  status); Force close is a two-step confirmation that previews proceeds/realized %
+  at the live best bid, then sells with the wide-spread gate disabled
+  (`close_manual(force=True)` -> `max_spread=inf`). Sub-minimum holdings go through
+  top-up-and-sell first; a skipped top-up reports why (`topup_skipped` on the
+  executor result / `positions._last_close_failure`).
 - Re-entry logic lives in `core/positions.py` (`check_reentry_opportunity`, with the
   pipeline calling `_check_reentry`) — there is no separate `core/reentry.py`. Every
   non-resolution close writes a row to `watched_closed_positions` (via `positions._close`

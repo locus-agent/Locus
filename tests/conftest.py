@@ -58,14 +58,17 @@ def _disable_momentum(monkeypatch):
 
 @pytest.fixture(autouse=True)
 def _clear_close_backoff():
-    """The close-retry backoff map is in-memory and keyed by position id, and
-    position ids restart at 1 in every tmp_db — clear it around each test so a
-    backoff armed in one test can't suppress closes in another."""
+    """The close-retry backoff and last-close-failure maps are in-memory and
+    keyed by position id, and position ids restart at 1 in every tmp_db —
+    clear them around each test so state from one test can't leak into
+    another."""
     from locus.core import positions
 
     positions._close_backoff.clear()
+    positions._last_close_failure.clear()
     yield
     positions._close_backoff.clear()
+    positions._last_close_failure.clear()
 
 
 @pytest.fixture

@@ -18,6 +18,18 @@ def _default_dry_run(monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", True)
 
 
+@pytest.fixture(autouse=True)
+def _authorized_chat(monkeypatch):
+    """Every interactive handler is auth-gated on the configured chat id; pin a
+    known id so the helpers below can build authorized updates. Unauthorized-
+    path tests pass a different chat id explicitly."""
+    monkeypatch.setattr(config, "TELEGRAM_CHAT_ID", "123")
+
+
+def _chat(chat_id="123"):
+    return types.SimpleNamespace(id=chat_id)
+
+
 def _btns(markup):
     """Flatten an InlineKeyboardMarkup to a list of (text, callback_data)."""
     return [(b.text, b.callback_data) for row in markup.inline_keyboard for b in row]
@@ -32,7 +44,7 @@ def _open(trade_id, cid, question, side="YES", amount=10.0, yes=0.5):
     return positions_mod.open_position(trade_id, market, side, amount)
 
 
-def _run_button(data):
+def _run_button(data, chat_id="123"):
     """Drive _button_cmd with a fake callback query; return (text, markup) of the
     single edit_message_text call it makes."""
     edits = []
@@ -44,7 +56,7 @@ def _run_button(data):
         pass
 
     query = types.SimpleNamespace(data=data, answer=answer, edit_message_text=edit)
-    update = types.SimpleNamespace(callback_query=query)
+    update = types.SimpleNamespace(callback_query=query, effective_chat=_chat(chat_id))
     asyncio.run(telegram_bot._button_cmd(update, None))
     return edits[0] if edits else (None, None)
 
@@ -456,7 +468,8 @@ def _run_button_with_edit(data, edit):
         pass
 
     query = types.SimpleNamespace(data=data, answer=answer, edit_message_text=edit)
-    asyncio.run(telegram_bot._button_cmd(types.SimpleNamespace(callback_query=query), None))
+    update = types.SimpleNamespace(callback_query=query, effective_chat=_chat())
+    asyncio.run(telegram_bot._button_cmd(update, None))
 
 
 def test_refresh_swallows_not_modified_error(tmp_db):
@@ -542,3 +555,205 @@ def test_notify_position_opened_live_header(enabled, monkeypatch):
         "Side: YES | Entry: 0.420 | Amount: $12.50\n"
         "Edge: 10.0% | Conf: 70%"
     )
+
+
+# --- /positions operator view (Close / Half / Force close) --------------------
+
+def _open_sized(trade_id, cid, question, amount, tokens, yes=0.5, side="YES"):
+    """Open a position with a real token_count so the view shows true holdings."""
+    market = types.SimpleNamespace(
+        condition_id=cid, question=question, slug="", yes_price=yes,
+        event_id="", category="crypto", end_date="",
+    )
+    return positions_mod.open_position(trade_id, market, side, amount,
+                                       token_count=tokens)
+
+
+def test_positions_view_renders(tmp_db):
+    pid = _open_sized(1, "c1", "Will the Maine candidate drop out?", 2.03, 3.5,
+                      yes=0.05)
+    text, markup = telegram_bot._build_positions()
+    assert text.startswith("📋 POSITIONS")
+    assert f"#{pid} YES Will the Maine candidate drop out?" in text
+    assert "3.5 tok | cost $2.03 | value $0.18" in text  # 3.5 x 0.05
+    btns = _btns(markup)
+    assert (f"🔴 Close #{pid}", f"pclose:{pid}") in btns
+    assert (f"🟡 Half #{pid}", f"phalf:{pid}") in btns
+    assert (f"⚠️ Force #{pid}", f"pforce:{pid}") in btns
+    assert ("🔄 Refresh", "positions") in btns
+
+
+def test_positions_command_renders(tmp_db):
+    _open_sized(1, "c1", "Will A happen?", 10.0, 20.0)
+    replies = []
+
+    async def reply_text(text, reply_markup=None):
+        replies.append(text)
+
+    update = types.SimpleNamespace(
+        message=types.SimpleNamespace(reply_text=reply_text),
+        effective_chat=_chat(),
+    )
+    asyncio.run(telegram_bot._positions_cmd(update, None))
+    assert replies and replies[0].startswith("📋 POSITIONS")
+
+
+def test_positions_close_success(tmp_db):
+    pid = _open_sized(1, "c1", "Will A happen?", 10.0, 20.0)
+    text, _ = _run_button(f"pclose:{pid}")
+    assert f"✅ Closed #{pid}" in text
+    assert "No open positions" in text  # embedded refreshed list
+    assert positions_mod.get_open_positions() == []
+
+
+@pytest.mark.parametrize("status,phrase", [
+    ("skipped_thin_book", "below exchange minimums"),
+    ("skipped_empty_book", "no bids at all"),
+    ("skipped_wide_spread", "spread too wide"),
+])
+def test_positions_close_failure_reason_surfaces(tmp_db, monkeypatch, status, phrase):
+    from locus.core import executor
+    monkeypatch.setattr(config, "DRY_RUN", False)
+
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+        return {"status": status, "order_id": None, "price": None, "shares": None}
+
+    monkeypatch.setattr(executor, "close_position_live", fake_close)
+    pid = _open_sized(1, "c1", "Will A happen?", 10.0, 20.0)
+
+    text, _ = _run_button(f"pclose:{pid}")
+    assert f"❌ Closed #{pid} failed" in text
+    assert phrase in text
+    assert positions_mod.get_open_positions()  # still open
+
+
+def test_close_failure_reports_topup_skip(tmp_db, monkeypatch):
+    # A sub-minimum holding whose top-up was skipped: the operator must learn
+    # the position is genuinely stuck, and why.
+    from locus.core import executor
+    monkeypatch.setattr(config, "DRY_RUN", False)
+
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+        return {"status": "skipped_thin_book", "order_id": None, "price": None,
+                "shares": None, "topup_skipped": "no_bid_liquidity"}
+
+    monkeypatch.setattr(executor, "close_position_live", fake_close)
+    pid = _open_sized(1, "c1", "Will A happen?", 0.72, 3.5, yes=0.05)
+
+    text, _ = _run_button(f"pclose:{pid}")
+    assert "top-up skipped: no real bid liquidity" in text
+    assert "stuck until resolution" in text
+
+
+def test_half_button_realizes_half(tmp_db, enabled):
+    pid = _open_sized(1, "c1", "Will A happen?", 40.0, 80.0)
+    text, _ = _run_button(f"phalf:{pid}")
+    assert f"✅ Half closed #{pid}" in text
+    p = positions_mod.get_open_positions()[0]
+    assert p["token_count"] == pytest.approx(40.0)
+    assert p["amount_usd"] == pytest.approx(20.0)
+    # The manual action produced the standard half-close notification.
+    assert enabled[-1].startswith("🟡 HALF CLOSED")
+
+
+def test_half_button_escalates_dust_to_full_close(tmp_db, enabled):
+    # 3.5 tokens at 0.05 is worth $0.18 — far below the remainder floor, so
+    # the manual Half escalates to a FULL close with the reason shown.
+    pid = _open_sized(1, "c1", "Will A happen?", 2.03, 3.5, yes=0.05)
+    text, _ = _run_button(f"phalf:{pid}")
+    assert f"✅ Closed #{pid}" in text
+    assert "half escalated to FULL close" in text
+    assert positions_mod.get_open_positions() == []
+    assert enabled[-1].startswith("🔴 CLOSED")
+
+
+# --- Force close: two-step confirmation ----------------------------------------
+
+def test_force_close_first_tap_previews_only(tmp_db, monkeypatch):
+    monkeypatch.setattr(telegram_bot, "_fetch_best_bid", lambda p: 0.007)
+    pid = _open_sized(1, "c1", "Will A happen?", 0.72, 18.25, yes=0.05)
+
+    text, markup = _run_button(f"pforce:{pid}")
+    # Preview shows the realized outcome at the live best bid...
+    assert "Best bid 0.007 vs mark 0.050" in text
+    assert "Selling 18.25 tokens returns ~$0.13 (you paid $0.72)" in text
+    assert "This realizes -82%" in text
+    assert "Confirm?" in text
+    btns = _btns(markup)
+    assert ("⚠️ Yes, force", f"pforceyes:{pid}") in btns
+    assert ("Cancel", "positions") in btns
+    # ...and nothing was sold.
+    assert positions_mod.get_open_positions()
+
+
+def test_force_close_second_tap_executes(tmp_db, monkeypatch):
+    monkeypatch.setattr(telegram_bot, "_fetch_best_bid", lambda p: 0.007)
+    pid = _open_sized(1, "c1", "Will A happen?", 0.72, 18.25, yes=0.05)
+
+    _run_button(f"pforce:{pid}")  # preview
+    assert positions_mod.get_open_positions()  # still open after tap 1
+    text, _ = _run_button(f"pforceyes:{pid}")  # confirm
+    assert f"✅ Force closed #{pid}" in text
+    assert positions_mod.get_open_positions() == []
+
+
+def test_force_preview_falls_back_to_mark_without_live_bid(tmp_db, monkeypatch):
+    monkeypatch.setattr(telegram_bot, "_fetch_best_bid", lambda p: None)
+    pid = _open_sized(1, "c1", "Will A happen?", 0.72, 18.25, yes=0.05)
+    text, _ = _run_button(f"pforce:{pid}")
+    assert "live bid unavailable" in text
+    assert "Confirm?" in text
+
+
+def test_force_close_subminimum_holding_tries_topup(tmp_db, monkeypatch):
+    # A confirmed force close on a sub-minimum holding must go through the
+    # executor with top-up armed and the spread gate disabled.
+    from locus.core import executor
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    calls = []
+
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+        calls.append({"shares": shares, "max_spread": max_spread,
+                      "allow_topup": allow_topup})
+        return {"status": "executed", "order_id": "F-1", "price": 0.04,
+                "shares": shares, "sold_shares": shares, "remaining_shares": 0.0}
+
+    monkeypatch.setattr(executor, "close_position_live", fake_close)
+    pid = _open_sized(1, "c1", "Will A happen?", 0.72, 3.5, yes=0.05)
+
+    text, _ = _run_button(f"pforceyes:{pid}")
+    assert calls and calls[0]["allow_topup"] is True
+    assert calls[0]["max_spread"] == float("inf")
+    assert f"✅ Force closed #{pid}" in text
+
+
+# --- Auth: only the configured chat id may act ---------------------------------
+
+def test_unauthorized_chat_button_rejected(tmp_db):
+    pid = _open_sized(1, "c1", "Will A happen?", 10.0, 20.0)
+    text, markup = _run_button(f"pclose:{pid}", chat_id="999")
+    assert text is None  # no edit performed at all
+    assert positions_mod.get_open_positions()  # position untouched
+
+
+def test_unauthorized_positions_command_ignored(tmp_db):
+    replies = []
+
+    async def reply_text(text, reply_markup=None):
+        replies.append(text)
+
+    update = types.SimpleNamespace(
+        message=types.SimpleNamespace(reply_text=reply_text),
+        effective_chat=_chat("999"),
+    )
+    asyncio.run(telegram_bot._positions_cmd(update, None))
+    asyncio.run(telegram_bot._portfolio_cmd(update, None))
+    assert replies == []
+
+
+def test_no_configured_chat_id_rejects_everything(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "TELEGRAM_CHAT_ID", "")
+    pid = _open_sized(1, "c1", "Will A happen?", 10.0, 20.0)
+    text, _ = _run_button(f"pclose:{pid}", chat_id="")
+    assert text is None
+    assert positions_mod.get_open_positions()

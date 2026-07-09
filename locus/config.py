@@ -511,6 +511,15 @@ TAKE_PROFIT_TRIGGER_PCT = float(os.getenv("TAKE_PROFIT_TRIGGER_PCT", "50"))
 REEVAL_LOSS_PCT = float(os.getenv("REEVAL_LOSS_PCT", "-30"))
 STOP_LOSS_PCT = float(os.getenv("STOP_LOSS_PCT", "-50"))
 REEVAL_COOLDOWN_HOURS = float(os.getenv("REEVAL_COOLDOWN_HOURS", "6"))
+# Anti-dust floor for close_half: repeated half-closes grind a position down
+# geometrically (position 52: 43 -> 32.5 -> 16.5 -> 8.5 -> 3.5 tokens) until
+# the remainder is below the exchange minimums and can never be sold. Before
+# executing a close_half, the post-sale remainder value (remaining tokens x
+# current price) must clear this floor — and the exchange minimums — or the
+# half-close escalates to a FULL close. A half-close already means the thesis
+# is deteriorating; a sub-floor remainder is worthless to hold and impossible
+# to exit.
+CLOSE_HALF_MIN_REMAINDER_USD = float(os.getenv("CLOSE_HALF_MIN_REMAINDER_USD", "5.00"))
 # A position sitting on a big unrealized gain deserves a fresh look even inside
 # the cooldown window — at/above this PnL%, re-eval bypasses the cooldown.
 REEVAL_FORCE_PCT = float(os.getenv("REEVAL_FORCE_PCT", "150.0"))

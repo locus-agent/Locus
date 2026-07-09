@@ -177,7 +177,7 @@ Your reasoning then: {entry_reasoning}
 
 ## Trigger
 {trigger_description}
-
+{split_history}
 ## Task
 Decide: "hold" (keep the position), "close" (exit fully at the current price), or
 "close_half" (realize half, let the rest ride). Consider whether your original thesis
@@ -187,6 +187,82 @@ holding a loser needs a reason beyond hope.
 
 Respond with ONLY valid JSON:
 {{"decision": "hold" | "close" | "close_half", "reasoning": "<1-2 sentences>"}}"""
+
+
+def count_prior_half_closes(position_id: int) -> int:
+    """How many close_half decisions have already executed on this position
+    (from exit_decisions) — the split history fed to the exit prompt."""
+    conn = logger._conn()
+    try:
+        row = conn.execute(
+            "SELECT COUNT(*) AS c FROM exit_decisions "
+            "WHERE position_id=? AND decision='close_half'",
+            (position_id,),
+        ).fetchone()
+        return row["c"] if row else 0
+    finally:
+        conn.close()
+
+
+def _split_history_context(prior_half_closes: int) -> str:
+    """Prompt context for the exit decision: how many times this position has
+    already been split, plus guidance about when repeated splitting is the
+    wrong move. The model gets the fact and the guidance — never a hard-coded
+    choice. Empty string when the position has never been half-closed."""
+    if prior_half_closes <= 0:
+        return ""
+    times = "time" if prior_half_closes == 1 else "times"
+    return (
+        "\n## Split history\n"
+        f"This position has already been half-closed {prior_half_closes} "
+        f"{times} on this developing story.\n"
+        "Guidance: when a position has already been half-closed 2 or more "
+        "times and the thesis keeps deteriorating, a full close is usually "
+        "correct — a candidate dropping out of a race is a broken thesis, not "
+        "lingering uncertainty. Repeatedly halving the remainder just grinds "
+        "the position into unsellable dust.\n"
+    )
+
+
+def resolve_close_half(position: dict, yes_price: float) -> tuple[str, str | None]:
+    """Anti-dust gate for a close_half decision: ("close_half", None) when the
+    half may proceed, ("close", why) when it must escalate to a FULL close.
+
+    Escalation cases (config.CLOSE_HALF_MIN_REMAINDER_USD is the floor):
+      - the position's CURRENT value is already below the floor — halving a
+        near-worthless position just makes worthless dust;
+      - the post-sale remainder value (remaining tokens x current side price)
+        would fall below the floor;
+      - hard rule: the remainder could not clear the exchange minimums
+        (MIN_ORDER_SHARES shares AND MIN_ORDER_USD notional), i.e. it could
+        never be sold at all.
+    """
+    shares = position_shares(
+        position["side"], position["entry_yes_price"],
+        position.get("amount_usd") or 0.0,
+        token_count=position.get("token_count"),
+    )
+    side_price = yes_price if position["side"] == "YES" else 1.0 - yes_price
+    floor = config.CLOSE_HALF_MIN_REMAINDER_USD
+    current_value = shares * side_price
+    if current_value < floor:
+        return "close", (
+            f"position value ${current_value:.2f} is already below the "
+            f"${floor:.2f} floor"
+        )
+    remainder_shares = shares * 0.5
+    remainder_value = remainder_shares * side_price
+    if remainder_value < floor:
+        return "close", (
+            f"remainder would be ${remainder_value:.2f} < ${floor:.2f} floor"
+        )
+    if (remainder_shares < config.MIN_ORDER_SHARES
+            or remainder_value < config.MIN_ORDER_USD):
+        return "close", (
+            f"remainder ({remainder_shares:g} sh, ${remainder_value:.2f}) "
+            "could not clear the exchange minimums"
+        )
+    return "close_half", None
 
 TRIGGER_DESCRIPTIONS = {
     "take_profit": "Unrealized PnL crossed +{tp:.0f}% (take-profit review).",
@@ -228,6 +304,13 @@ NON_TRANSIENT_CLOSE_STATUSES = frozenset(
 )
 
 _close_backoff: dict[int, float] = {}
+
+# Last live-close failure per position (position_id -> {"status", "error",
+# "topup_skipped"}), so a manual close from the Telegram bot / CLI can report
+# the ACTUAL reason (skipped_thin_book / skipped_wide_spread / below exchange
+# minimums, and why a top-up didn't rescue it) instead of a generic "failed".
+# In-memory only, cleared whenever a close on that position succeeds.
+_last_close_failure: dict[int, dict] = {}
 
 
 def _close_backoff_remaining(position_id: int) -> float:
@@ -677,9 +760,14 @@ def cooldown_allows(position: dict, trigger: str, now: datetime | None = None) -
 
 
 def _live_close(
-    position: dict, exit_reason: str, fraction: float
+    position: dict, exit_reason: str, fraction: float, force: bool = False
 ) -> tuple[str, str | None, float | None, float | None, float | None, float, float]:
     """Flatten `fraction` of the position on the CLOB (live trading only).
+
+    `force=True` (operator force-close) disables the wide-spread protective
+    gate — the SELL goes into whatever bid exists, however far below the mark.
+    The exchange minimums still apply (the CLOB rejects sub-minimum orders),
+    so a dust holding still goes through top-up-and-sell first.
 
     Returns (outcome, order_id, remaining_shares, sold_shares, fill_price,
     topup_cost_usd, topup_shares).
@@ -755,6 +843,7 @@ def _live_close(
     )
     result = executor.close_position_live(
         position["condition_id"], position["side"], shares,
+        max_spread=(float("inf") if force else None),
         allow_topup=allow_topup,
     )
     log.info(
@@ -768,7 +857,16 @@ def _live_close(
         # Something actually sold — any standing backoff no longer describes
         # this book.
         _close_backoff.pop(position["id"], None)
-    elif result["status"] in NON_TRANSIENT_CLOSE_STATUSES:
+        _last_close_failure.pop(position["id"], None)
+    else:
+        # Remember WHY this close failed so a manual close can report the real
+        # reason (thin/empty/wide book, sub-minimum holding, top-up skipped).
+        _last_close_failure[position["id"]] = {
+            "status": result["status"],
+            "error": result.get("error"),
+            "topup_skipped": result.get("topup_skipped"),
+        }
+    if result["status"] in NON_TRANSIENT_CLOSE_STATUSES:
         # The book can't support the sell and won't shortly: arm the backoff
         # so the management cycle stops re-placing a doomed order every ~30s.
         # Transient failures (close_failed) and error_* keep retrying as before.
@@ -814,7 +912,8 @@ def _live_close(
 
 
 def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str,
-           fraction: float = 1.0, bypass_backoff: bool = False) -> float:
+           fraction: float = 1.0, bypass_backoff: bool = False,
+           force: bool = False) -> float:
     """Realize `fraction` of the position at yes_price. Live trading places a
     real CLOB sell to flatten the shares; dry-run simulates the fill.
 
@@ -853,7 +952,8 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
         "fraction=%.2f)", position["id"], exit_reason, fraction,
     )
     (outcome, exit_order_id, remaining_shares, sold_shares, fill_price,
-     topup_cost, topup_shares) = _live_close(position, exit_reason, fraction)
+     topup_cost, topup_shares) = _live_close(position, exit_reason, fraction,
+                                             force=force)
     log.info(
         "[positions] _close: _live_close returned outcome=%s exit_order_id=%s "
         "remaining_shares=%s sold_shares=%s fill_price=%s topup_cost=%s "
@@ -1084,12 +1184,18 @@ def close_on_resolution(trade_id: int, exit_yes_price: float) -> None:
     conn.close()
 
 
-def close_manual(position_id: int) -> dict | None:
+def close_manual(position_id: int, force: bool = False) -> dict | None:
     """User-requested exit: close an open position at its last-marked price.
 
     Returns a result dict (id, market_question, side, price, pnl_pct, realized)
     on success, or None when the position doesn't exist or is already closed.
-    The close is logged to exit_decisions as an explicit user decision."""
+    The close is logged to exit_decisions as an explicit user decision.
+
+    `force=True` (operator force-close, two-step confirmed in the Telegram
+    bot) bypasses the wide-spread protective gate and sells into whatever bid
+    exists. On failure the result carries `failure_reason` (the executor's
+    last status/error/top-up-skip for this position) so the operator sees the
+    actual blocker, not a generic "failed"."""
     conn = logger._conn()
     row = conn.execute("SELECT * FROM positions WHERE id=?", (position_id,)).fetchone()
     if row is None or row["status"] != "open":
@@ -1110,7 +1216,7 @@ def close_manual(position_id: int) -> dict | None:
     # failed attempt itself), so re-read the row to see if it actually closed.
     # A user-requested close always tries the exchange, even mid-backoff.
     realized = _close(conn, position, yes_price, "closed_manual", "manual",
-                      bypass_backoff=True)
+                      bypass_backoff=True, force=force)
     still_open = conn.execute(
         "SELECT status FROM positions WHERE id=?", (position_id,)
     ).fetchone()["status"] == "open"
@@ -1131,6 +1237,7 @@ def close_manual(position_id: int) -> dict | None:
             # stays open; report those real dollars, not a flat 0.
             "realized": realized,
             "close_failed": True,
+            "failure_reason": _last_close_failure.get(position_id),
         }
     conn.execute(
         """INSERT INTO exit_decisions (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
@@ -1152,6 +1259,86 @@ def close_manual(position_id: int) -> dict | None:
         "pnl_pct": current_pnl,
         "realized": realized,
         "close_failed": False,
+    }
+
+
+def close_manual_half(position_id: int) -> dict | None:
+    """User-requested half close (Telegram [Half] button): realize half at the
+    last-marked price, leaving the rest to ride.
+
+    The same anti-dust gate as an automated close_half applies
+    (resolve_close_half): a half whose remainder would fall below
+    CLOSE_HALF_MIN_REMAINDER_USD or the exchange minimums escalates to a FULL
+    close instead — the result dict's `escalated` carries the reason (None on
+    a plain half). Returns None when the position doesn't exist or is already
+    closed; on failure `close_failed` is True and `failure_reason` carries the
+    executor's actual blocker."""
+    conn = logger._conn()
+    row = conn.execute("SELECT * FROM positions WHERE id=?", (position_id,)).fetchone()
+    if row is None or row["status"] != "open":
+        conn.close()
+        return None
+
+    position = dict(row)
+    yes_price = position["current_yes_price"]
+    if yes_price is None:
+        yes_price = position["entry_yes_price"]
+    current_pnl = pnl_pct_basis(position, yes_price)
+    before_amount = position.get("amount_usd") or 0.0
+
+    action, escalation = resolve_close_half(position, yes_price)
+    if action == "close":
+        log.warning(
+            "[positions] manual close_half escalated to full close: %s "
+            "(position %s)", escalation, position_id,
+        )
+        realized = _close(conn, position, yes_price, "closed_manual", "manual",
+                          bypass_backoff=True)
+        decision = "close"
+        reasoning = ("Manual half close requested by user "
+                     f"[close_half escalated to full close: {escalation}]")
+    else:
+        realized = _close(conn, position, yes_price, "", "", fraction=0.5,
+                          bypass_backoff=True)
+        decision = "close_half"
+        reasoning = "Manual half close requested by user"
+
+    after = conn.execute(
+        "SELECT status, amount_usd FROM positions WHERE id=?", (position_id,)
+    ).fetchone()
+    if decision == "close":
+        close_failed = after["status"] == "open"
+    else:
+        # A half close keeps the row open either way; success shows as the
+        # basis shrinking (the partial/failed branches of _close leave it
+        # unchanged or record their own exit_decisions rows).
+        close_failed = (after["status"] == "open"
+                        and (after["amount_usd"] or 0.0) >= before_amount - 1e-9)
+    if not close_failed:
+        conn.execute(
+            """INSERT INTO exit_decisions
+               (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
+               VALUES (?, 'manual', ?, ?, ?, ?)""",
+            (position_id, decision, reasoning, round(current_pnl, 2), yes_price),
+        )
+    conn.commit()
+    conn.close()
+    log.info(
+        f"[positions] Manual half close of position {position_id} -> {decision} "
+        f"pnl {current_pnl:+.1f}% realized ${realized:+.2f}"
+        + (" FAILED" if close_failed else "")
+    )
+    return {
+        "id": position_id,
+        "market_question": position["market_question"],
+        "side": position["side"],
+        "price": yes_price,
+        "pnl_pct": current_pnl,
+        "realized": realized,
+        "close_failed": close_failed,
+        "escalated": escalation,
+        "failure_reason": (_last_close_failure.get(position_id)
+                           if close_failed else None),
     }
 
 
@@ -1336,7 +1523,9 @@ def reevaluate(position: dict, trigger: str, trigger_detail: str = "",
     desc = TRIGGER_DESCRIPTIONS.get(trigger, "{detail}").format(
         tp=config.TAKE_PROFIT_TRIGGER_PCT, dd=config.REEVAL_LOSS_PCT, detail=trigger_detail
     )
+    prior_half_closes = count_prior_half_closes(position["id"])
     prompt = EXIT_PROMPT.format(
+        split_history=_split_history_context(prior_half_closes),
         question=position["market_question"],
         side=position["side"],
         entry_yes_price=position["entry_yes_price"],
@@ -1374,7 +1563,24 @@ def reevaluate(position: dict, trigger: str, trigger_detail: str = "",
         status, reason = CLOSE_MAP.get(trigger, ("closed_news", "news_decision"))
         realized = _close(conn, position, yes_price, status, reason)
     elif decision == "close_half":
-        realized = _close(conn, position, yes_price, "", "", fraction=0.5)
+        # Anti-dust gate: a close_half whose remainder would fall below the
+        # value floor (or the exchange minimums) escalates to a FULL close —
+        # the remainder would be worthless to hold and impossible to exit.
+        action, escalation = resolve_close_half(position, yes_price)
+        if action == "close":
+            status, reason = CLOSE_MAP.get(trigger, ("closed_news", "news_decision"))
+            log.warning(
+                "[positions] close_half escalated to full close: %s "
+                "(position %s, \"%s\")", escalation, position["id"],
+                position["market_question"][:40],
+            )
+            realized = _close(conn, position, yes_price, status, reason)
+            decision = "close"
+            reasoning = (
+                f"{reasoning} [close_half escalated to full close: {escalation}]"
+            ).strip()
+        else:
+            realized = _close(conn, position, yes_price, "", "", fraction=0.5)
     else:
         realized = 0.0
     conn.execute(
