@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T19:04:19.798549+00:00",
-  "last_heartbeat": "2026-07-10T19:04:19.798549+00:00",
-  "uptime_seconds": 5603,
+  "generated_at": "2026-07-10T19:09:28.017704+00:00",
+  "last_heartbeat": "2026-07-10T19:09:28.017704+00:00",
+  "uptime_seconds": 5911,
   "dry_run": false,
-  "markets_tracked": 1287,
+  "markets_tracked": 1284,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11018,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 934,
+  "headlines_scanned_today": 935,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
   "classifications_24h": 5064,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1631,
+    "prefiltered_haiku": 1633,
     "cooldown_skip": 0,
     "stale": 17,
     "capped": 0,
@@ -121,8 +121,8 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1382,
-    "matched": 881,
+    "news": 1379,
+    "matched": 882,
     "classified": 5064,
     "signals": 2,
     "trades": 2
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1672.4
+    "avg_classification_latency_ms": 1670.1
   },
   "live_readiness": {
     "ready": false,
@@ -404,57 +404,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 19:03:55",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 19:03:53",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 19:03:53",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 19:03:48",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
+      "time": "2026-07-10 19:08:10",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Passenger partly sucked out of window soon after takeoff from Greece but others pull him back in - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -463,14 +415,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 19:03:48",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
+      "time": "2026-07-10 19:08:10",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Passenger partly sucked out of window soon after takeoff from Greece but others pull him back in - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -479,9 +431,57 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 19:08:08",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Passenger partly sucked out of window soon after takeoff from Greece but others pull him back in - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-10 19:08:08",
+      "market_question": "Tamas Sulyok out as President of Hungary by July 31?",
+      "headline": "Passenger partly sucked out of window soon after takeoff from Greece but others pull him back in - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-10 19:08:08",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Passenger partly sucked out of window soon after takeoff from Greece but others pull him back in - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
