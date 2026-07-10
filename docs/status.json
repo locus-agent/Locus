@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-10T21:08:06.551754+00:00",
-  "last_heartbeat": "2026-07-10T21:08:06.551754+00:00",
-  "uptime_seconds": 13030,
+  "generated_at": "2026-07-10T21:13:15.246820+00:00",
+  "last_heartbeat": "2026-07-10T21:13:15.246820+00:00",
+  "uptime_seconds": 13338,
   "dry_run": false,
   "markets_tracked": 1286,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1081,
+  "headlines_scanned_today": 1084,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4585,
+  "classifications_24h": 4594,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1530,
+    "prefiltered_haiku": 1533,
     "cooldown_skip": 0,
     "stale": 17,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1215,
-    "matched": 811,
-    "classified": 4585,
+    "news": 1217,
+    "matched": 813,
+    "classified": 4594,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1931.9
+    "avg_classification_latency_ms": 1930.2
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 21:06:55",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Eliminated Morocco turn attention to co-hosting 2030 World Cup - Reuters",
+      "time": "2026-07-10 21:11:19",
+      "market_question": "Will OpenAI\u2019s market cap be between $500B and $750B at market close on IPO day by December 31, 2027?",
+      "headline": "Wall Street ends higher as investors turn to earnings season - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -415,14 +415,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 21:06:55",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Eliminated Morocco turn attention to co-hosting 2030 World Cup - Reuters",
+      "time": "2026-07-10 21:11:19",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day by December 31, 2027?",
+      "headline": "Wall Street ends higher as investors turn to earnings season - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -431,14 +431,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 21:06:55",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Eliminated Morocco turn attention to co-hosting 2030 World Cup - Reuters",
+      "time": "2026-07-10 21:11:19",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Wall Street ends higher as investors turn to earnings season - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -447,41 +447,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 21:06:55",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Eliminated Morocco turn attention to co-hosting 2030 World Cup - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-10 21:11:18",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Wall Street ends higher as investors turn to earnings season - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-10 21:06:55",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Eliminated Morocco turn attention to co-hosting 2030 World Cup - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-10 21:11:18",
+      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
+      "headline": "Wall Street ends higher as investors turn to earnings season - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
