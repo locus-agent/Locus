@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T12:51:47.582543+00:00",
-  "last_heartbeat": "2026-07-10T12:51:47.582543+00:00",
-  "uptime_seconds": 61201,
+  "generated_at": "2026-07-10T12:56:55.653026+00:00",
+  "last_heartbeat": "2026-07-10T12:56:55.653026+00:00",
+  "uptime_seconds": 61509,
   "dry_run": false,
-  "markets_tracked": 1296,
+  "markets_tracked": 1293,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10954,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 391,
+  "headlines_scanned_today": 393,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 5979,
+  "classifications_24h": 5984,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1753,
+    "prefiltered_haiku": 1754,
     "cooldown_skip": 0,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 563,
+    "price_target_market": 561,
     "coinflip_market": 0,
     "correlation_block": 1,
     "category_limit": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T12:36:54.435966+00:00"
+    "last_check": "2026-07-10T12:51:55.092501+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1696,
-    "matched": 804,
-    "classified": 5979,
+    "news": 1697,
+    "matched": 805,
+    "classified": 5984,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 5614.9
+    "avg_classification_latency_ms": 5611.7
   },
   "live_readiness": {
     "ready": false,
@@ -404,25 +404,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 12:48:26",
-      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
-      "headline": "\u2018Communication challenge, nothing more\u2019: Standard Chartered keeps $100,000 bitcoin target, calls Strategy selloff a signaling problem",
+      "time": "2026-07-10 12:54:55",
+      "market_question": "Will China unban Bitcoin by 2027?",
+      "headline": "BMW deliveries slide in Q2, as sales in China drop nearly a third - Reuters",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 12:48:26",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "The Kingdom showcases its experience in building an integrated artificial intelligence (AI) ecosystem at the World Summit on the Information Society (WSIS) Forum - \u0635\u062d\u064a\u0641\u0629 \u0645\u0627\u0644",
+      "time": "2026-07-10 12:54:53",
+      "market_question": "Will stablecoins hit $500B before 2027?",
+      "headline": "Delta signals fare hikes will stay as resilient demand cushions fuel-cost hit - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -430,15 +430,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 12:48:26",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "The Kingdom showcases its experience in building an integrated artificial intelligence (AI) ecosystem at the World Summit on the Information Society (WSIS) Forum - \u0635\u062d\u064a\u0641\u0629 \u0645\u0627\u0644",
+      "time": "2026-07-10 12:54:53",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Delta signals fare hikes will stay as resilient demand cushions fuel-cost hit - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -446,15 +446,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 12:48:26",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "The Kingdom showcases its experience in building an integrated artificial intelligence (AI) ecosystem at the World Summit on the Information Society (WSIS) Forum - \u0635\u062d\u064a\u0641\u0629 \u0645\u0627\u0644",
+      "time": "2026-07-10 12:54:53",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Delta signals fare hikes will stay as resilient demand cushions fuel-cost hit - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -462,15 +462,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 12:48:26",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "The Kingdom showcases its experience in building an integrated artificial intelligence (AI) ecosystem at the World Summit on the Information Society (WSIS) Forum - \u0635\u062d\u064a\u0641\u0629 \u0645\u0627\u0644",
+      "time": "2026-07-10 12:54:53",
+      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
+      "headline": "Delta signals fare hikes will stay as resilient demand cushions fuel-cost hit - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
