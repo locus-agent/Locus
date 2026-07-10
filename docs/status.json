@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-10T21:59:29.588884+00:00",
-  "last_heartbeat": "2026-07-10T21:59:29.588884+00:00",
-  "uptime_seconds": 16113,
+  "generated_at": "2026-07-10T22:04:30.008813+00:00",
+  "last_heartbeat": "2026-07-10T22:04:30.008813+00:00",
+  "uptime_seconds": 16413,
   "dry_run": false,
   "markets_tracked": 1300,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1098,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 1104,
+  "headlines_last_cycle": 2,
   "signals_24h": 2,
-  "classifications_24h": 4404,
+  "classifications_24h": 4428,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1495,
+    "prefiltered_haiku": 1508,
     "cooldown_skip": 0,
     "stale": 14,
     "capped": 0,
@@ -109,11 +109,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 4,
-  "missed_opportunities_24h": 4,
+  "missed_opportunities_24h": 7,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T21:46:34.161414+00:00"
+    "last_check": "2026-07-10T22:01:34.504533+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1166,
-    "matched": 775,
-    "classified": 4404,
+    "news": 1168,
+    "matched": 779,
+    "classified": 4428,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1981.6
+    "avg_classification_latency_ms": 2001.8
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2735,
-      "pnl_pct": 2.82,
+      "current_price": 0.27449999999999997,
+      "pnl_pct": 3.2,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
-      "pnl_usd": 0.01,
+      "pnl_usd": 0.02,
       "edge_type": "news",
       "event_id": "79987"
     },
@@ -404,9 +404,73 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 21:53:01",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Man partly sucked out of broken window on flight from Greece was pulled back by fellow passengers - AP News",
+      "time": "2026-07-10 22:04:09",
+      "market_question": "Will the average monthly Ethereum gas price hit 15 Gwei before 2027?",
+      "headline": "Global oil demand is dropping, but US drivers keep buying more gas - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 22:04:09",
+      "market_question": "Will the average monthly Ethereum gas price hit 25 Gwei before 2027?",
+      "headline": "Global oil demand is dropping, but US drivers keep buying more gas - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 22:04:09",
+      "market_question": "Will the average monthly Ethereum gas price hit 5 Gwei before 2027?",
+      "headline": "Global oil demand is dropping, but US drivers keep buying more gas - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 22:04:09",
+      "market_question": "Will the average monthly Ethereum gas price hit 40 Gwei before 2027?",
+      "headline": "Global oil demand is dropping, but US drivers keep buying more gas - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 22:04:07",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Trump demands \u2018public statement\u2019 from Iran in ongoing negotiations - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -418,70 +482,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 21:53:00",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Man partly sucked out of broken window on flight from Greece was pulled back by fellow passengers - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 21:52:59",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Man partly sucked out of broken window on flight from Greece was pulled back by fellow passengers - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 21:52:59",
-      "market_question": "Tamas Sulyok out as President of Hungary by July 31?",
-      "headline": "Man partly sucked out of broken window on flight from Greece was pulled back by fellow passengers - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 21:52:59",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "Man partly sucked out of broken window on flight from Greece was pulled back by fellow passengers - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -529,91 +529,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-07-09 22:00:28",
-      "market_question": "Will Trump attend 0 World Cup matches?",
+      "time": "2026-07-10 22:00:23",
+      "market_question": "OpenAI IPO before 2027?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +25%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'OpenAI IPO before 2027?' \u2014 price moved +12%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-09 22:00:26",
-      "market_question": "Will Trump attend 0 World Cup matches?",
+      "time": "2026-07-10 22:00:20",
+      "market_question": "Will OpenAI IPO by December 31 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +28%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.38) on 'Will OpenAI IPO by December 31 2026?' \u2014 price moved +21%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-09 22:00:23",
+      "time": "2026-07-10 22:00:17",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump and Putin meet next in Russia?' \u2014 price moved +44%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-07-10 22:00:14",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.55) on 'Trump x Greenland deal signed by December 31?' \u2014 price moved +14%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-07-10 22:00:10",
       "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
       "classification": "bullish",
       "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.60) on 'Will Marine Le Pen win the 2027 French presidentia' \u2014 price moved +14%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-09 22:00:21",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.62) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +13%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-08 22:00:28",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump attend 0 World Cup matches?' \u2014 price moved +38%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bullish signal (mat=0.60) on 'Will Marine Le Pen win the 2027 French presidentia' \u2014 price moved +17%. Consider lowering min_materiality for politics category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-07-09 22:00:28",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+      "time": "2026-07-10 22:00:23",
+      "market_question": "OpenAI IPO before 2027?",
+      "slug": "ipos-before-2027",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 24.9,
-      "reflection": "I signaled bearish on Trump attending World Cup matches with only moderate conviction (0.35 materiality), but then skipped the trade entirely\u2014a decision that cost me 25% in predicted gains. My hesitation likely stemmed from uncertainty about how to model Trump's unpredictable behavior and media presence, yet that same unpredictability should have made me *more* confident in the \"zero attendance\" thesis given his typical pattern of selective event appearances. I let execution risk and low materiality threshold override a directionally correct view, when I should have sized appropriately to my conviction rather than abandoning the signal altogether."
+      "pct_move": 12.5,
+      "reflection": "I flagged OpenAI's pre-2027 IPO prospects as bearish with moderate conviction (0.35 materiality), but my skip decision meant I took no position when the market moved 12% in my predicted direction\u2014a meaningful miss that suggests my confidence threshold was miscalibrated relative to the actual signal strength. The gap between identifying a directional view and acting on it reveals I was likely overthinking execution risk or waiting for false certainty, when a smaller position sized to my actual conviction level would have been appropriate. This is a reminder that perfect confidence shouldn't be the enemy of good positioning."
     },
     {
-      "time": "2026-07-09 22:00:26",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
+      "time": "2026-07-10 22:00:20",
+      "market_question": "Will OpenAI IPO by December 31 2026?",
+      "slug": "openai-ipo-by",
+      "direction": "bearish",
+      "materiality": 0.38,
+      "action": "skip",
+      "pct_move": 21.3,
+      "reflection": "I flagged OpenAI's IPO prospects as bearish with moderate conviction (0.38), but I skipped the trade despite the signal pointing in the right direction\u2014a decision that cost me 21% of potential gains. My skip likely reflected uncertainty about the timeline and execution risk rather than fundamental disagreement with the bearish thesis, suggesting I was overly cautious about a signal I actually believed in. This is a reminder that moderate-confidence directional views still deserve position sizing rather than complete avoidance."
+    },
+    {
+      "time": "2026-07-10 22:00:17",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "slug": "where-will-trump-and-putin-meet-next-678",
       "direction": "bearish",
       "materiality": 0.45,
       "action": "skip",
-      "pct_move": 27.5,
-      "reflection": "I flagged this as bearish with moderate conviction (0.45 materiality), but I skipped the trade\u2014and the market moved 28% exactly as I'd predicted, which stings. I likely hesitated because the signal felt too dependent on parsing Trump's schedule and intentions, which felt inherently uncertain, even though my directional read was sound. I let uncertainty about *why* something would move prevent me from acting on a clear *what*, and that's a costly distinction to learn."
+      "pct_move": 44.3,
+      "reflection": "I flagged this geopolitical event as only moderately material (0.45) and chose to skip rather than act on my bearish conviction, which proved to be a costly misjudgment\u2014the 44% move vindicated the signal's directional logic despite my uncertainty threshold. My skip decision reveals I'm still too conservative with medium-conviction calls; I let the threshold for \"material enough to trade\" become an excuse to avoid the discomfort of geopolitical uncertainty rather than sizing appropriately to my actual confidence level. I should have taken a smaller position or trusted that a 0.45 materiality score with clear directional reasoning deserved at least a modest bet, rather than treating it as a binary skip-or-nothing choice."
     },
     {
-      "time": "2026-07-09 22:00:23",
+      "time": "2026-07-10 22:00:14",
+      "market_question": "Trump x Greenland deal signed by December 31?",
+      "slug": "trump-x-greenland-deal-signed-by-december-31",
+      "direction": "bearish",
+      "materiality": 0.55,
+      "action": "stale",
+      "pct_move": 13.5,
+      "reflection": "I flagged this as stale and sat on the sidelines while the market repriced a 14% move in my predicted direction\u2014a costly mistake in conviction. The bearish signal with 0.55 materiality was solid enough to act on, but I let the \"stale\" label become an excuse for inaction rather than reassessing whether the underlying thesis had actually degraded or if I was just pattern-matching to recency bias. I should have distinguished between stale *data* and stale *logic*; the geopolitical dynamics around a Trump-Greenland deal don't age out in days, and my hesitation cost real alpha."
+    },
+    {
+      "time": "2026-07-10 22:00:10",
       "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
       "slug": "next-french-presidential-election",
       "direction": "bullish",
       "materiality": 0.6,
       "action": "stale",
-      "pct_move": 14.4,
-      "reflection": "I passed on a 60% materiality signal because the information felt dated, but I underestimated how slowly political prediction markets price in evolving sentiment\u2014the 14% move suggests the market was still digesting shifts in Le Pen's viability that my \"stale\" label dismissed too quickly. I let recency bias override conviction in the signal's actual strength; just because information wasn't fresh didn't mean the market had already incorporated it. Next time I need to distinguish between \"old data\" and \"underpriced thesis\"\u2014they're not the same thing."
-    },
-    {
-      "time": "2026-07-09 22:00:21",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
-      "direction": "bearish",
-      "materiality": 0.62,
-      "action": "skip",
-      "pct_move": 12.7,
-      "reflection": "I flagged this as bearish with solid conviction (0.62 materiality), but I skipped the trade\u2014and watched the market move 13% exactly as I'd predicted, which stings. My skip decision likely came down to overthinking execution risk or liquidity concerns rather than doubting the signal itself, a classic case of letting operational caution override a well-reasoned thesis. I need to distinguish between \"this signal is weak\" and \"this signal is hard to trade,\" because the latter shouldn't kill a trade with real edge."
-    },
-    {
-      "time": "2026-07-08 22:00:28",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "slug": "how-many-world-cup-matches-will-trump-attend-20260610185739769",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 37.8,
-      "reflection": "(reflection generation failed: BadRequestError)"
+      "pct_move": 16.6,
+      "reflection": "I missed a 17% move in the direction my model clearly indicated because I dismissed the signal as \"stale\" without reassessing the underlying fundamentals\u2014a lazy heuristic that cost me real alpha. The 0.60 materiality score should have compelled me to at least verify whether new information had genuinely invalidated the thesis, rather than reflexively discounting it based on signal age alone. This is a painful reminder that staleness is a property of *data*, not necessarily of *edge*, and I need to distinguish between the two before walking away from conviction."
     }
   ],
   "pending_suggestions": [
