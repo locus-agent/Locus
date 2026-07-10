@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-10T18:48:54.890482+00:00",
-  "last_heartbeat": "2026-07-10T18:48:54.890482+00:00",
-  "uptime_seconds": 4678,
+  "generated_at": "2026-07-10T18:54:02.896891+00:00",
+  "last_heartbeat": "2026-07-10T18:54:02.896891+00:00",
+  "uptime_seconds": 4986,
   "dry_run": false,
   "markets_tracked": 1289,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 883,
+  "headlines_scanned_today": 888,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4849,
+  "classifications_24h": 4845,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1550,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1342,
-    "matched": 861,
-    "classified": 4849,
+    "news": 1339,
+    "matched": 863,
+    "classified": 4845,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1572.2
+    "avg_classification_latency_ms": 1580.3
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 18:46:09",
-      "market_question": "Will the Institutional Revolutionary Party (PRI) win the most seats in the 2027 Mexico legislative election?",
-      "headline": "AI Is Democratizing Institutional Real Estate Intelligence - Shoppe Black",
+      "time": "2026-07-10 18:52:53",
+      "market_question": "Will the Philippine Senate convict Sara Duterte? ",
+      "headline": "Another Philippine senator arrested for alleged large-scale corruption - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 18:52:45",
+      "market_question": "Another crypto hack over $100m by December 31?",
+      "headline": "Another Philippine senator arrested for alleged large-scale corruption - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,41 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 18:43:42",
-      "market_question": "Will OpenAI announce a watch in 2026?",
-      "headline": "Pixel Watch 5 price increase expected as configs and release date leaked ahead of Made by Google event - PC Guide",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 18:43:42",
-      "market_question": "Will Apple release iPhone 18 in 2026?",
-      "headline": "Pixel Watch 5 price increase expected as configs and release date leaked ahead of Made by Google event - PC Guide",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 18:43:42",
-      "market_question": "Will the Union for Central African Renewal win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "This open\u2011source tool makes Windows 11 cleanup easy - Windows Central",
+      "time": "2026-07-10 18:52:45",
+      "market_question": "Another crypto hack over $100m by September 30?",
+      "headline": "Another Philippine senator arrested for alleged large-scale corruption - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -468,9 +452,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 18:43:42",
-      "market_question": "Will the Central African Democratic Rally win the most seats in the 2025 Central African Republic National Assembly election?",
-      "headline": "This open\u2011source tool makes Windows 11 cleanup easy - Windows Central",
+      "time": "2026-07-10 18:52:45",
+      "market_question": "Will Trump and Putin meet next in another country?",
+      "headline": "Another Philippine senator arrested for alleged large-scale corruption - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-10 18:52:45",
+      "market_question": "Will Trump and Putin meet next in another EU country?",
+      "headline": "Another Philippine senator arrested for alleged large-scale corruption - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
