@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T16:12:24.290299+00:00",
-  "last_heartbeat": "2026-07-10T16:12:24.290299+00:00",
-  "uptime_seconds": 73238,
+  "generated_at": "2026-07-10T16:17:33.255041+00:00",
+  "last_heartbeat": "2026-07-10T16:17:33.255041+00:00",
+  "uptime_seconds": 73547,
   "dry_run": false,
-  "markets_tracked": 1293,
+  "markets_tracked": 1294,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10954,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 560,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 568,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5811,
+  "classifications_24h": 5836,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1745,
+    "prefiltered_haiku": 1757,
     "cooldown_skip": 0,
     "stale": 19,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 520,
+    "price_target_market": 521,
     "coinflip_market": 0,
     "correlation_block": 1,
     "category_limit": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T16:01:48.125426+00:00"
+    "last_check": "2026-07-10T16:16:48.519115+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1647,
-    "matched": 849,
-    "classified": 5811,
+    "news": 1653,
+    "matched": 857,
+    "classified": 5836,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 4874.8
+    "avg_classification_latency_ms": 4850.2
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2735,
+      "current_price": 0.2735000000000001,
       "pnl_pct": 2.82,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
@@ -404,9 +404,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 16:09:47",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Ryanair passenger partially sucked out of window on flight from Greece - Reuters",
+      "time": "2026-07-10 16:16:26",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Mission creep: FIFA's embrace of technology backfires in controversy-riven World Cup - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,25 +420,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 16:09:47",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "Baker Hughes wins conditional EU nod for $13.6 billion Chart deal - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-10 16:16:26",
+      "market_question": "Will the announcers say \"Trump\" during the Spain vs Belgium FIFA World Cup Match?",
+      "headline": "Mission creep: FIFA's embrace of technology backfires in controversy-riven World Cup - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-10 16:09:43",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Ryanair passenger partially sucked out of window on flight from Greece - Reuters",
+      "time": "2026-07-10 16:16:26",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Mission creep: FIFA's embrace of technology backfires in controversy-riven World Cup - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -452,36 +452,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 16:09:42",
-      "market_question": "Will Ethereum reach $2,500 in July?",
-      "headline": "Cambridge research puts 31% of Ethereum node activity in the US, where a third offline can stall finalization",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-10 16:16:25",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Mission creep: FIFA's embrace of technology backfires in controversy-riven World Cup - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-10 16:09:42",
-      "market_question": "Will Ethereum reach $1,900 in July?",
-      "headline": "Cambridge research puts 31% of Ethereum node activity in the US, where a third offline can stall finalization",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-10 16:16:25",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Mission creep: FIFA's embrace of technology backfires in controversy-riven World Cup - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
