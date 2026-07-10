@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T20:16:26.733077+00:00",
-  "last_heartbeat": "2026-07-10T20:16:26.733077+00:00",
-  "uptime_seconds": 9930,
+  "generated_at": "2026-07-10T20:21:36.062266+00:00",
+  "last_heartbeat": "2026-07-10T20:21:36.062266+00:00",
+  "uptime_seconds": 10239,
   "dry_run": false,
-  "markets_tracked": 1292,
+  "markets_tracked": 1288,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11018,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1004,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 1008,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4608,
+  "classifications_24h": 4618,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1535,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 402,
+    "price_target_market": 407,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T20:01:31.313610+00:00"
+    "last_check": "2026-07-10T20:16:31.641945+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1235,
-    "matched": 823,
-    "classified": 4608,
+    "news": 1236,
+    "matched": 825,
+    "classified": 4618,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1842.6
+    "avg_classification_latency_ms": 1858.4
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 20:16:20",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
+      "time": "2026-07-10 20:21:03",
+      "market_question": "Will Donald Trump visit Canada in 2026?",
+      "headline": "US-Canadian bridge set to open by late July after delay due to issues between countries, sources say - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 20:20:58",
+      "market_question": "Will The Left win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?",
+      "headline": "Congressman Abe Hamadeh is an America First Patriot who is doing a fantastic job representing Arizona\u2019s 8th Congressional District!\u00a0A Brave U.S. Army Veteran, and former Criminal Prosecutor, Abe is fighting tirelessly to Keep our Border SECURE, Stop Migrant Crime, Grow our Economy, Cut Taxes, Strengthen our Military/Vets, Safeguard our Elections, and Protect our always under siege Second Amendment.\u00a0Abe Hamadeh has my Complete and Total Endorsement for Re-Election \u2013 HE WILL NEVER LET YOU DOWN!",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,25 +436,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 20:16:19",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 20:16:17",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
+      "time": "2026-07-10 20:20:58",
+      "market_question": "Will Bitcoin reach $100,000 in July?",
+      "headline": "US-Canadian bridge set to open by late July after delay due to issues between countries, sources say - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -446,15 +446,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 20:16:17",
-      "market_question": "Tamas Sulyok out as President of Hungary by July 31?",
-      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
+      "time": "2026-07-10 20:20:58",
+      "market_question": "Will Bitcoin reach $67,500 in July?",
+      "headline": "US-Canadian bridge set to open by late July after delay due to issues between countries, sources say - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -462,15 +462,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 20:16:17",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk - AP News",
+      "time": "2026-07-10 20:20:58",
+      "market_question": "Will Bitcoin reach $65,000 in July?",
+      "headline": "US-Canadian bridge set to open by late July after delay due to issues between countries, sources say - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -478,7 +478,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
