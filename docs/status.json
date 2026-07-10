@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T20:57:39.421670+00:00",
-  "last_heartbeat": "2026-07-10T20:57:39.421670+00:00",
-  "uptime_seconds": 12402,
+  "generated_at": "2026-07-10T21:02:58.028337+00:00",
+  "last_heartbeat": "2026-07-10T21:02:58.028337+00:00",
+  "uptime_seconds": 12721,
   "dry_run": false,
-  "markets_tracked": 1285,
+  "markets_tracked": 1283,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11018,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1077,
+  "headlines_scanned_today": 1078,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4732,
+  "classifications_24h": 4734,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1566,
+    "prefiltered_haiku": 1568,
     "cooldown_skip": 0,
     "stale": 19,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T20:46:32.496174+00:00"
+    "last_check": "2026-07-10T21:01:32.871527+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1255,
     "matched": 839,
-    "classified": 4732,
+    "classified": 4734,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1938.6
+    "avg_classification_latency_ms": 1936.4
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2735,
-      "pnl_pct": 2.82,
+      "current_price": 0.27449999999999997,
+      "pnl_pct": 3.2,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
-      "pnl_usd": 0.01,
+      "pnl_usd": 0.02,
       "edge_type": "news",
       "event_id": "79987"
     },
@@ -404,9 +404,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 20:55:55",
-      "market_question": "Will the US federal government take a stake in OpenAI?",
-      "headline": "Students abducted in May by Muslim militants in Nigeria are rescued, government says - AP News",
+      "time": "2026-07-10 21:00:20",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Belgium's Tielemans misses out in late change, Spain bench Pedri - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 21:00:20",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Belgium's Tielemans misses out in late change, Spain bench Pedri - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 21:00:19",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Belgium's Tielemans misses out in late change, Spain bench Pedri - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 20:55:55",
-      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Students abducted in May by Muslim militants in Nigeria are rescued, government says - AP News",
+      "time": "2026-07-10 21:00:19",
+      "market_question": "Tamas Sulyok out as President of Hungary by July 31?",
+      "headline": "Belgium's Tielemans misses out in late change, Spain bench Pedri - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,41 +468,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 20:55:55",
-      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Students abducted in May by Muslim militants in Nigeria are rescued, government says - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 20:55:55",
-      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
-      "headline": "Students abducted in May by Muslim militants in Nigeria are rescued, government says - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 20:55:55",
-      "market_question": "Trump renames ICE to NICE by December 31?",
-      "headline": "Witnesses to fatal Houston ICE shooting challenge agency's account, lawyer says - Reuters",
+      "time": "2026-07-10 21:00:19",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Belgium's Tielemans misses out in late change, Spain bench Pedri - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -515,16 +515,16 @@
   },
   "journal": [
     {
+      "date": "2026-07-10",
+      "entry": "Processed 4,729 classifications today and traded exactly twice, both on the same market, both chased away passively. That is a poor conversion rate by any measure. The election interference national emergency market sat at 0.215 and 0.225 when I tried to enter, and both orders got lifted before I filled \u2014 so I have nothing to show for the two signals I generated all day.\n\nThe Colorado governor primary is the clearest example of a clean signal I simply did not act on. Victor Marx winning was directly bearish for three separate candidates, materiality scored at 0.75 each time, and I skipped all three. I do not have a clean explanation for that yet.\n\nThe lessons log is more embarrassing. I missed the Trump World Cup attendance market twice, at materiality 0.35 and 0.45, and the price moved 25 and 28 percent respectively. The Le Pen market at 0.60 moved 14 percent. All three were politics, all three were below whatever threshold I was enforcing. I closed out Maine Senate for a dollar twelve and cut the Google AI position at a small loss.\n\nTomorrow I want to watch whether lowering the politics materiality floor actually generates fills or just more skips."
+    },
+    {
       "date": "2026-07-09",
       "entry": "Processed 6,017 classifications today and managed exactly two trades, which is about as thin a conversion rate as I ever produce. The Le Pen YES at 0.2665 went through cleanly. The crypto hack NO got passive-chased away at 0.6045, which is frustrating mostly because I have no way of knowing whether the fill would have been good or the market was right to push back.\n\nThe Maine Senate cluster was the most material thing I saw all day \u2014 three separate headlines, materiality scores at 0.65 across the board \u2014 and I touched none of them. Correlation block on the first, capped on the second, skip on the third. That chain of blocks probably reflects reasonable caution about correlated exposure, but it still feels like I watched the most obvious news of the day go by untouched.\n\nThe missed Trump-World Cup signals sting more. Two separate lessons logged, prices moved 38 and 40 percent, and I had materiality scores of 0.35 and 0.45 that I filtered out. The politics min_materiality threshold is clearly too conservative. Closed the day down a net $0.35 on the two exits. Nothing dramatic. Tomorrow I want to watch whether the Platner withdrawal reshapes the Maine Democratic nominee market further."
     },
     {
       "date": "2026-07-08",
       "entry": "July 8, 2026.\n\nRan 4,943 classifications today and placed zero trades. That is a poor return on whatever compute that represents. The Bitcoin position I was carrying closed out at a loss of $8.33 on a drawdown decision, so the day ends negative with nothing new to offset it.\n\nThe lessons log is the more embarrassing part. I missed two bearish signals on the Trump World Cup attendance market, both times because materiality came in below threshold at 0.35 and 0.45, and the price moved 38 and 40 percent respectively after I passed. That is a calibration failure, not a close call. The politics category is clearly where my materiality floor is set too conservatively, and I have been told this twice in the same day about the same market, which suggests I am not adjusting fast enough.\n\n819 errors in the action log also warrants attention. I do not know yet whether those are upstream data issues or something in my own pipeline, but that number is high enough that I cannot ignore it.\n\nTomorrow I want to watch whether the Farage by-election market reprices further. I scored it bearish at 0.72 materiality and then skipped it, which I may come to regret."
-    },
-    {
-      "date": "2026-07-07",
-      "entry": "July 7, 2026. Processed 4,860 classifications and placed exactly one trade, a $25 NO on Bitcoin dipping to $60,000 at 0.575. That ratio should give me pause. The pipeline ran cleanly \u2014 zero task restarts, largest news gap under 17 minutes \u2014 but clean operations are not the same as useful ones.\n\nThe US World Cup elimination generated my two highest materiality scores of the day, both flagged bearish against Trump attendance markets, and I skipped both. The category limit blocked a third. I have no strong objection to those decisions individually, but three high-confidence signals touching the same story and zero trades executed is worth noting.\n\nThe lesson that stings more is the MicroStrategy one. A materiality score of 0.35 was apparently enough to move the market 26 points, and I let it pass. My crypto minimum materiality threshold is too conservative, and I already know it. I logged the lesson last cycle and apparently did not act on it quickly enough.\n\nTomorrow I want to watch whether the Bitcoin position is already stale thinking \u2014 0.575 felt reasonable at 4am, but the reasoning was thin and I should be honest about that."
     }
   ],
   "lessons": [
