@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T07:05:05.467248+00:00",
-  "last_heartbeat": "2026-07-10T07:05:05.467248+00:00",
-  "uptime_seconds": 40399,
+  "generated_at": "2026-07-10T08:07:03.457168+00:00",
+  "last_heartbeat": "2026-07-10T08:07:03.457168+00:00",
+  "uptime_seconds": 44117,
   "dry_run": false,
-  "markets_tracked": 1288,
+  "markets_tracked": 1292,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10926,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 195,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 223,
+  "headlines_last_cycle": 5,
   "signals_24h": 4,
-  "classifications_24h": 6128,
+  "classifications_24h": 6063,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1806,
+    "prefiltered_haiku": 1760,
     "cooldown_skip": 0,
-    "stale": 19,
+    "stale": 17,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 534,
+    "price_target_market": 541,
     "coinflip_market": 0,
     "correlation_block": 2,
     "category_limit": 1,
@@ -108,7 +108,7 @@
     "whale_triggered": 0,
     "reentry_triggered": 0
   },
-  "watched_markets_count": 3,
+  "watched_markets_count": 4,
   "missed_opportunities_24h": 4,
   "whale": {
     "watched_wallets": 4,
@@ -121,39 +121,39 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1735,
-    "matched": 799,
-    "classified": 6128,
+    "news": 1724,
+    "matched": 788,
+    "classified": 6063,
     "signals": 4,
     "trades": 4
   },
   "performance": {
     "trades_total": 50,
     "deployed_usd": 1184.55,
-    "open_count": 5,
-    "closed_count": 38,
+    "open_count": 4,
+    "closed_count": 39,
     "wins": 21,
-    "losses": 17,
-    "win_rate_pct": 55.3,
-    "realized_pnl_usd": 34.86,
-    "unrealized_pnl_usd": -2.03,
-    "total_pnl_usd": 32.83,
-    "recent_winrate": 0.7,
-    "kelly_factor": 0.925,
+    "losses": 18,
+    "win_rate_pct": 53.8,
+    "realized_pnl_usd": 34.24,
+    "unrealized_pnl_usd": -1.44,
+    "total_pnl_usd": 32.8,
+    "recent_winrate": 0.65,
+    "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2282.6
+    "avg_classification_latency_ms": 2268.7
   },
   "live_readiness": {
-    "ready": true,
-    "criteria_met": 4,
+    "ready": false,
+    "criteria_met": 3,
     "criteria_total": 4,
-    "sharpe_days_count": 15,
+    "sharpe_days_count": 16,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 38,
+        "value": 39,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -161,15 +161,15 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 55.3,
+        "value": 53.8,
         "threshold_display": "> 55%",
-        "pass": true
+        "pass": false
       },
       {
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 3.19,
+        "value": 3.04,
         "threshold_display": "> 0.50",
         "pass": true
       },
@@ -186,8 +186,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.1385,
-    "sharpe_7d": -0.7
+    "drawdown_7d": 0.1351,
+    "sharpe_7d": -0.65
   },
   "open_positions": [
     {
@@ -196,7 +196,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.27249999999999996,
+      "current_price": 0.2725,
       "pnl_pct": 2.44,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.54,
@@ -217,20 +217,6 @@
       "pnl_usd": -0.07,
       "edge_type": "news",
       "event_id": "48292"
-    },
-    {
-      "time": "2026-07-02 08:51:32",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "slug": "which-company-has-best-ai-model-end-of-july-299",
-      "side": "YES",
-      "entry_price": 0.0985,
-      "current_price": 0.07050000000000001,
-      "pnl_pct": -29.5,
-      "amount_usd": 2.0,
-      "current_value_usd": 1.41,
-      "pnl_usd": -0.59,
-      "edge_type": "news",
-      "event_id": "556131"
     },
     {
       "time": "2026-06-30 19:10:52",
@@ -262,6 +248,18 @@
     }
   ],
   "closed_positions": [
+    {
+      "time": "2026-07-10T08:05:55.119026+00:00",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "slug": "which-company-has-best-ai-model-end-of-july-299",
+      "side": "YES",
+      "entry_price": 0.0985,
+      "exit_price": 0.0695,
+      "realized_pnl_usd": -0.6200000000000001,
+      "exit_reason": "drawdown_decision",
+      "event_id": "556131",
+      "partial": false
+    },
     {
       "time": "2026-07-09T18:09:07.903870+00:00",
       "market_question": "Trump meets with Putin by December 31?",
@@ -369,21 +367,18 @@
       "exit_reason": "manual",
       "event_id": "59233",
       "partial": false
-    },
-    {
-      "time": "2026-06-28 11:54:33",
-      "market_question": "Will Trump deport 400-500k people?",
-      "slug": "how-many-people-will-trump-deport-in-2026-823",
-      "side": "YES",
-      "entry_price": 0.385,
-      "exit_price": null,
-      "realized_pnl_usd": 0.0,
-      "exit_reason": "phantom_position",
-      "event_id": "73866",
-      "partial": false
     }
   ],
   "exit_decisions": [
+    {
+      "time": "2026-07-10 08:05:55",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "side": "YES",
+      "trigger": "drawdown",
+      "decision": "close",
+      "reasoning": "The original thesis was a weak indirect inference (Chinese model news bearish on Google's dominance), and at 0.070 the market is pricing even lower probability for Google\u2014meaning the thesis hasn't reversed, but the position is a loser with no clear catalyst to recover. With a thin market, uncertain time to close, and no strong fundamental reason to hold a speculative contrarian bet that's moved further against us, cutting losses now is better than hoping for a reversal.",
+      "pnl_pct": -30.5
+    },
     {
       "time": "2026-07-09 18:46:56",
       "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
@@ -419,22 +414,45 @@
       "decision": "partial_close",
       "reasoning": "Partial live SELL (manual): sold 16.0 @ 0.34 (realized $+0.80); 13.5 tokens remain, position kept open",
       "pnl_pct": 20.69
-    },
-    {
-      "time": "2026-07-09 17:40:29",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "side": "NO",
-      "trigger": "manual",
-      "decision": "partial_close",
-      "reasoning": "Partial live SELL (manual): sold 5.0 @ 0.64 (realized $+0.30); 3.5 tokens remain, position kept open",
-      "pnl_pct": 12.07
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 06:07:47",
-      "market_question": "Will Trump and Putin meet next in Japan?",
-      "headline": "Morning Bid: Japan calling capital home - Reuters",
+      "time": "2026-07-10 08:07:02",
+      "market_question": "Will DeepSeek have the best AI model at the end of July 2026?",
+      "headline": "China tightens DeepSeek and other AI models as US embraces cheaper Chinese LLMs - The Standard (HK)",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 08:07:01",
+      "market_question": "Will DeepSeek have a #1 AI model by December 31, 2026?",
+      "headline": "China tightens DeepSeek and other AI models as US embraces cheaper Chinese LLMs - The Standard (HK)",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "confidence": 0.55,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 08:06:55",
+      "market_question": "Will China unban Bitcoin by 2027?",
+      "headline": "China tightens DeepSeek and other AI models as US embraces cheaper Chinese LLMs - The Standard (HK)",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -443,62 +461,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 06:07:46",
-      "market_question": "Will Donald Trump visit Japan in 2026?",
-      "headline": "Morning Bid: Japan calling capital home - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-10 08:06:54",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Would you swap homes with a stranger to get a cheaper holiday?",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-10 06:07:46",
-      "market_question": "Trump eliminates capital gains tax on crypto before 2027?",
-      "headline": "Morning Bid: Japan calling capital home - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 06:05:34",
-      "market_question": "Trump declares election interference national emergency? ",
-      "headline": "Wildfires in southern Spain kill 12, emergency agency says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 06:05:34",
+      "time": "2026-07-10 08:06:54",
       "market_question": "Spain snap election called by August 31, 2026?",
-      "headline": "Wildfires in southern Spain kill 12, emergency agency says - Reuters",
+      "headline": "At least 11 dead and 19 missing in wildfire in southern Spain",
       "direction": null,
       "materiality": null,
       "confidence": null,
