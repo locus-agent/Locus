@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T12:36:23.701053+00:00",
-  "last_heartbeat": "2026-07-10T12:36:23.701053+00:00",
-  "uptime_seconds": 60277,
+  "generated_at": "2026-07-10T12:41:31.643952+00:00",
+  "last_heartbeat": "2026-07-10T12:41:31.643952+00:00",
+  "uptime_seconds": 60585,
   "dry_run": false,
-  "markets_tracked": 1286,
+  "markets_tracked": 1292,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10926,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 383,
+  "headlines_scanned_today": 384,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 5987,
+  "classifications_24h": 5978,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1758,
+    "prefiltered_haiku": 1754,
     "cooldown_skip": 0,
     "stale": 18,
     "capped": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T12:21:53.948800+00:00"
+    "last_check": "2026-07-10T12:36:54.435966+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1699,
-    "matched": 803,
-    "classified": 5987,
+    "news": 1693,
+    "matched": 801,
+    "classified": 5978,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 5636.7
+    "avg_classification_latency_ms": 5620.7
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 12:32:57",
-      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
-      "headline": "UK to regulate cloud service providers Microsoft, Google and others to protect financial stability - Reuters",
+      "time": "2026-07-10 12:37:20",
+      "market_question": "Will Trump and Putin meet next in Belarus?",
+      "headline": "Kremlin says Russia is in touch with Turkey on fate of Russian S-400 missiles - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 12:37:20",
+      "market_question": "Will Trump and Putin meet next in Ukraine?",
+      "headline": "Kremlin says Russia is in touch with Turkey on fate of Russian S-400 missiles - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 12:37:20",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Kremlin says Russia is in touch with Turkey on fate of Russian S-400 missiles - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 12:37:20",
+      "market_question": "Will Trump and Putin meet next in Turkey?",
+      "headline": "Kremlin says Russia is in touch with Turkey on fate of Russian S-400 missiles - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -415,62 +463,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 12:32:57",
-      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
-      "headline": "UK to regulate cloud service providers Microsoft, Google and others to protect financial stability - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 12:32:57",
-      "market_question": "Sundar Pichai out as Google CEO before 2027?",
-      "headline": "UK to regulate cloud service providers Microsoft, Google and others to protect financial stability - Reuters",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 12:32:56",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "UK to regulate cloud service providers Microsoft, Google and others to protect financial stability - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 12:32:56",
-      "market_question": "Will Microsoft have the best AI model at the end of July 2026?",
-      "headline": "UK to regulate cloud service providers Microsoft, Google and others to protect financial stability - Reuters",
+      "time": "2026-07-10 12:37:19",
+      "market_question": "Will United Russia (ER) win the most seats in the next Russian parliamentary election?",
+      "headline": "Kremlin says Russia is in touch with Turkey on fate of Russian S-400 missiles - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
