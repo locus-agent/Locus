@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T12:46:39.562076+00:00",
-  "last_heartbeat": "2026-07-10T12:46:39.562076+00:00",
-  "uptime_seconds": 60893,
+  "generated_at": "2026-07-10T12:51:47.582543+00:00",
+  "last_heartbeat": "2026-07-10T12:51:47.582543+00:00",
+  "uptime_seconds": 61201,
   "dry_run": false,
-  "markets_tracked": 1295,
+  "markets_tracked": 1296,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10954,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 388,
+  "headlines_scanned_today": 391,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 5966,
+  "classifications_24h": 5979,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1751,
+    "prefiltered_haiku": 1753,
     "cooldown_skip": 0,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 558,
+    "price_target_market": 563,
     "coinflip_market": 0,
     "correlation_block": 1,
     "category_limit": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1693,
-    "matched": 802,
-    "classified": 5966,
+    "news": 1696,
+    "matched": 804,
+    "classified": 5979,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 5621.3
+    "avg_classification_latency_ms": 5614.9
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 12:41:51",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $1.75T by December 31?",
-      "headline": "Global equity fund inflows surge to three-week high on AI optimism - Reuters",
+      "time": "2026-07-10 12:48:26",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "headline": "\u2018Communication challenge, nothing more\u2019: Standard Chartered keeps $100,000 bitcoin target, calls Strategy selloff a signaling problem",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -415,14 +415,14 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 12:41:51",
-      "market_question": "Trump declares election interference national emergency? ",
-      "headline": "Ryanair jet window 'dislodged' during flight forcing emergency landing in Greece - Reuters",
+      "time": "2026-07-10 12:48:26",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "The Kingdom showcases its experience in building an integrated artificial intelligence (AI) ecosystem at the World Summit on the Information Society (WSIS) Forum - \u0635\u062d\u064a\u0641\u0629 \u0645\u0627\u0644",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,25 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 12:41:49",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
-      "headline": "Global equity fund inflows surge to three-week high on AI optimism - Reuters",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 12:41:42",
-      "market_question": "Bitcoin all time high by December 31, 2026?",
-      "headline": "Global equity fund inflows surge to three-week high on AI optimism - Reuters",
+      "time": "2026-07-10 12:48:26",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "The Kingdom showcases its experience in building an integrated artificial intelligence (AI) ecosystem at the World Summit on the Information Society (WSIS) Forum - \u0635\u062d\u064a\u0641\u0629 \u0645\u0627\u0644",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -462,15 +446,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 12:41:42",
-      "market_question": "Bitcoin all time high by September 30, 2026?",
-      "headline": "Global equity fund inflows surge to three-week high on AI optimism - Reuters",
+      "time": "2026-07-10 12:48:26",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "The Kingdom showcases its experience in building an integrated artificial intelligence (AI) ecosystem at the World Summit on the Information Society (WSIS) Forum - \u0635\u062d\u064a\u0641\u0629 \u0645\u0627\u0644",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -478,7 +462,23 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-10 12:48:26",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "The Kingdom showcases its experience in building an integrated artificial intelligence (AI) ecosystem at the World Summit on the Information Society (WSIS) Forum - \u0635\u062d\u064a\u0641\u0629 \u0645\u0627\u0644",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
