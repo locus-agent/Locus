@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T18:59:11.255857+00:00",
-  "last_heartbeat": "2026-07-10T18:59:11.255857+00:00",
-  "uptime_seconds": 5294,
+  "generated_at": "2026-07-10T19:04:19.798549+00:00",
+  "last_heartbeat": "2026-07-10T19:04:19.798549+00:00",
+  "uptime_seconds": 5603,
   "dry_run": false,
-  "markets_tracked": 1289,
+  "markets_tracked": 1287,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11018,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 931,
-  "headlines_last_cycle": 14,
+  "headlines_scanned_today": 934,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5053,
+  "classifications_24h": 5064,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1621,
+    "prefiltered_haiku": 1631,
     "cooldown_skip": 0,
     "stale": 17,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 444,
+    "price_target_market": 446,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T18:46:29.162757+00:00"
+    "last_check": "2026-07-10T19:01:29.510928+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1380,
-    "matched": 878,
-    "classified": 5053,
+    "news": 1382,
+    "matched": 881,
+    "classified": 5064,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1661.0
+    "avg_classification_latency_ms": 1672.4
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 18:59:04",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "SpaceX hits all-time low, dips below IPO opening price as rival Blue Origin seeks new funding - Yahoo Finance",
+      "time": "2026-07-10 19:03:55",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 19:03:53",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 19:03:53",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 19:03:48",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,25 +468,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 18:59:04",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "SpaceX hits all-time low, dips below IPO opening price as rival Blue Origin seeks new funding - Yahoo Finance",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 18:59:04",
-      "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
-      "headline": "SpaceX hits all-time low, dips below IPO opening price as rival Blue Origin seeks new funding - Yahoo Finance",
+      "time": "2026-07-10 19:03:48",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "World Cup quarterfinal resale prices drop, FIFA selling nearly 1,200 more seats for final at $7,380 - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,38 +480,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 18:59:04",
-      "market_question": "Will OpenAI IPO by December 31 2026?",
-      "headline": "SpaceX hits all-time low, dips below IPO opening price as rival Blue Origin seeks new funding - Yahoo Finance",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-10 18:59:04",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "SpaceX hits all-time low, dips below IPO opening price as rival Blue Origin seeks new funding - Yahoo Finance",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
