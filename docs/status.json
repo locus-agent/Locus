@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T18:18:01.153150+00:00",
-  "last_heartbeat": "2026-07-10T18:18:01.153150+00:00",
-  "uptime_seconds": 2824,
+  "generated_at": "2026-07-10T18:23:10.080128+00:00",
+  "last_heartbeat": "2026-07-10T18:23:10.080128+00:00",
+  "uptime_seconds": 3133,
   "dry_run": false,
-  "markets_tracked": 1288,
+  "markets_tracked": 1289,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11018,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 794,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 799,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5092,
+  "classifications_24h": 5106,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1595,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1427,
-    "matched": 872,
-    "classified": 5092,
+    "news": 1430,
+    "matched": 875,
+    "classified": 5106,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1522.4
+    "avg_classification_latency_ms": 1574.2
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 18:17:34",
-      "market_question": "Will the Swedish Social Democratic Party (S) win the most seats in the 2026 Swedish parliamentary election?",
-      "headline": "Democratic Party - Politico",
+      "time": "2026-07-10 18:22:08",
+      "market_question": "Will Trump meet with Pope Leo XIV in 2026?",
+      "headline": "Is AI the next Tower of Babel? Pope Leo worries artificial intelligence bringing 'Babel syndrome', 'idolatry of profit' - The Star Democrat",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,25 +420,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 18:17:34",
-      "market_question": "Will the Democratic Party control the Senate after the 2026 Midterm elections?",
-      "headline": "Democratic Party - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-10 18:22:07",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "US senators say agreement reached with Trump on Russia sanctions bill - Reuters",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "confidence": 0.58,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.38,
+      "action": "kelly_negative",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 18:17:33",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Superb Sinner ends Djokovic's latest bid for history",
+      "time": "2026-07-10 18:22:07",
+      "market_question": "Will Donald Trump visit Russia in 2026?",
+      "headline": "US senators say agreement reached with Trump on Russia sanctions bill - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 18:22:07",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "Is AI the next Tower of Babel? Pope Leo worries artificial intelligence bringing 'Babel syndrome', 'idolatry of profit' - The Star Democrat",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,25 +468,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 18:17:33",
-      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
-      "headline": "Superb Sinner ends Djokovic's latest bid for history",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 18:17:33",
-      "market_question": "Will the Democratic Party win the popular vote in the 2026 U.S. House of Representatives midterm elections by between 4% and 6%?",
-      "headline": "Democratic Party - Politico",
+      "time": "2026-07-10 18:22:07",
+      "market_question": "Will Trump and Putin meet next in Turkey?",
+      "headline": "Is AI the next Tower of Babel? Pope Leo worries artificial intelligence bringing 'Babel syndrome', 'idolatry of profit' - The Star Democrat",
       "direction": null,
       "materiality": null,
       "confidence": null,
