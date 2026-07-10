@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T12:05:33.783282+00:00",
-  "last_heartbeat": "2026-07-10T12:05:33.783282+00:00",
-  "uptime_seconds": 58427,
+  "generated_at": "2026-07-10T12:10:42.953880+00:00",
+  "last_heartbeat": "2026-07-10T12:10:42.953880+00:00",
+  "uptime_seconds": 58737,
   "dry_run": false,
-  "markets_tracked": 1297,
+  "markets_tracked": 1284,
   "classify_error_streak": 0,
   "track_record": {
     "total": 10926,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 360,
+  "headlines_scanned_today": 373,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 5966,
+  "classifications_24h": 6001,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1732,
+    "prefiltered_haiku": 1752,
     "cooldown_skip": 0,
     "stale": 18,
     "capped": 1,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 549,
+    "price_target_market": 558,
     "coinflip_market": 0,
     "correlation_block": 1,
     "category_limit": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T11:51:53.362520+00:00"
+    "last_check": "2026-07-10T12:06:53.736967+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1698,
-    "matched": 792,
-    "classified": 5966,
+    "news": 1707,
+    "matched": 801,
+    "classified": 6001,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 5789.0
+    "avg_classification_latency_ms": 5675.7
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 12:04:22",
-      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "How to trade on Washington - Politico",
+      "time": "2026-07-10 12:07:44",
+      "market_question": "Will any AI model reach 1560 Coding Arena Score by December 31, 2026?",
+      "headline": "Want a software engineering job? You'll need more than coding skills in the AI era. - Business Insider",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-10 12:07:44",
+      "market_question": "Bitcoin all time high by December 31, 2026?",
+      "headline": "Japan\u2019s borrowing costs soar to 30-year high on debt fears - Financial Times",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -414,15 +430,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 12:04:22",
-      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
-      "headline": "Southern Black leaders warn their power is on the line \u2014 and Democrats are looking elsewhere - Politico",
+      "time": "2026-07-10 12:07:44",
+      "market_question": "Bitcoin all time high by September 30, 2026?",
+      "headline": "Japan\u2019s borrowing costs soar to 30-year high on debt fears - Financial Times",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -430,15 +446,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 12:04:22",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "headline": "Southern Black leaders warn their power is on the line \u2014 and Democrats are looking elsewhere - Politico",
+      "time": "2026-07-10 12:07:44",
+      "market_question": "Ethereum all time high by December 31, 2026?",
+      "headline": "Japan\u2019s borrowing costs soar to 30-year high on debt fears - Financial Times",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -446,31 +462,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 12:04:22",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Southern Black leaders warn their power is on the line \u2014 and Democrats are looking elsewhere - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 12:04:22",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "Southern Black leaders warn their power is on the line \u2014 and Democrats are looking elsewhere - Politico",
+      "time": "2026-07-10 12:07:44",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
+      "headline": "Japan\u2019s borrowing costs soar to 30-year high on debt fears - Financial Times",
       "direction": null,
       "materiality": null,
       "confidence": null,
