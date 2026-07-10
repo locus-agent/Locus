@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T17:41:59.112060+00:00",
-  "last_heartbeat": "2026-07-10T17:41:59.112060+00:00",
-  "uptime_seconds": 662,
+  "generated_at": "2026-07-10T17:47:07.532343+00:00",
+  "last_heartbeat": "2026-07-10T17:47:07.532343+00:00",
+  "uptime_seconds": 971,
   "dry_run": false,
-  "markets_tracked": 1282,
+  "markets_tracked": 1280,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11018,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 772,
+  "headlines_scanned_today": 773,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 5750,
+  "classifications_24h": 5746,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1763,
+    "prefiltered_haiku": 1767,
     "cooldown_skip": 0,
     "stale": 18,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T17:31:25.100643+00:00"
+    "last_check": "2026-07-10T17:46:25.421367+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1620,
+    "news": 1616,
     "matched": 868,
-    "classified": 5750,
+    "classified": 5746,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 1519.8
+    "avg_classification_latency_ms": 1524.2
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2735,
+      "current_price": 0.2735000000000001,
       "pnl_pct": 2.82,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
@@ -404,25 +404,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 17:40:18",
-      "market_question": "Will Donald Trump visit Ukraine in 2026?",
-      "headline": "A US license could let Ukraine produce Patriot missiles, but it won\u2019t be simple or quick - AP News",
+      "time": "2026-07-10 17:44:39",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "President Trump - Politico",
       "direction": "neutral",
-      "materiality": 0.15,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 17:40:15",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Passenger was injured after being partially sucked out of plane on takeoff from Greece - AP News",
+      "time": "2026-07-10 17:44:36",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "President Trump - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,52 +436,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-10 17:40:15",
-      "market_question": "Will the Democratic Party control the Senate after the 2026 Midterm elections?",
-      "headline": "Gun Control - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-10 17:44:36",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "President Trump - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-10 17:40:15",
-      "market_question": "Will the Republican Party control the Senate after the 2026 Midterm elections?",
-      "headline": "Gun Control - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-10 17:44:35",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "President Trump - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-10 17:40:15",
-      "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "A US license could let Ukraine produce Patriot missiles, but it won\u2019t be simple or quick - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-10 17:44:35",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "President Trump - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
