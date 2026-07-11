@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T04:57:12.561887+00:00",
-  "last_heartbeat": "2026-07-11T04:57:12.561887+00:00",
-  "uptime_seconds": 41176,
+  "generated_at": "2026-07-11T05:02:25.887455+00:00",
+  "last_heartbeat": "2026-07-11T05:02:25.887455+00:00",
+  "uptime_seconds": 41489,
   "dry_run": false,
-  "markets_tracked": 1309,
+  "markets_tracked": 1306,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11146,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 137,
+  "headlines_scanned_today": 139,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4555,
+  "classifications_24h": 4557,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1575,
+    "prefiltered_haiku": 1578,
     "cooldown_skip": 0,
     "stale": 13,
     "capped": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-11T04:46:45.732871+00:00"
+    "last_check": "2026-07-11T05:01:46.103083+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1187,
-    "matched": 802,
-    "classified": 4555,
+    "news": 1188,
+    "matched": 803,
+    "classified": 4557,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2148.0
+    "avg_classification_latency_ms": 2153.1
   },
   "live_readiness": {
     "ready": false,
@@ -418,84 +418,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-11 04:56:31",
-      "market_question": "Spain snap election called by August 31, 2026?",
-      "headline": "Spain battles to contain one of its deadliest wildfires as at least 12 killed",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 04:58:51",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Trump says missiles aimed at Iran if Tehran targets US president - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 04:56:31",
-      "market_question": "Will the next model released by OpenAI debut at a score of at least 1450?",
-      "headline": "Spain battles to contain one of its deadliest wildfires as at least 12 killed",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 04:58:49",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Trump says missiles aimed at Iran if Tehran targets US president - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 04:56:31",
-      "market_question": "Will Nigel Farage win at least 80% of votes in the Clacton parliamentary by-election?",
-      "headline": "Spain battles to contain one of its deadliest wildfires as at least 12 killed",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 04:58:48",
+      "market_question": "Will Donald Trump visit Syria in 2026?",
+      "headline": "Trump says missiles aimed at Iran if Tehran targets US president - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 04:56:31",
-      "market_question": "Will the next GPT model released by OpenAI debut at a score of at least 1520 by December 31, 2026?",
-      "headline": "Spain battles to contain one of its deadliest wildfires as at least 12 killed",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 04:58:44",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Trump says missiles aimed at Iran if Tehran targets US president - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 04:56:31",
-      "market_question": "Will the next GPT model released by OpenAI debut at a score of at least 1470 by December 31, 2026?",
-      "headline": "Spain battles to contain one of its deadliest wildfires as at least 12 killed",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 04:58:44",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Trump says missiles aimed at Iran if Tehran targets US president - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
