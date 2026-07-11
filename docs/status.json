@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T21:57:24.311738+00:00",
-  "last_heartbeat": "2026-07-11T21:57:24.311738+00:00",
-  "uptime_seconds": 102387,
+  "generated_at": "2026-07-11T22:02:54.209195+00:00",
+  "last_heartbeat": "2026-07-11T22:02:54.209195+00:00",
+  "uptime_seconds": 102717,
   "dry_run": false,
-  "markets_tracked": 1312,
+  "markets_tracked": 1311,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11237,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 627,
+  "headlines_scanned_today": 628,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 2780,
+  "classifications_24h": 2772,
   "selectivity_pct": 0.1,
   "gates_24h": {
     "prefiltered_haiku": 1009,
@@ -109,11 +109,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 3,
-  "missed_opportunities_24h": 7,
+  "missed_opportunities_24h": 8,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-11T21:47:19.310287+00:00"
+    "last_check": "2026-07-11T22:02:19.727782+00:00"
   },
   "edge_types_24h": {
     "news": 3,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 728,
-    "matched": 591,
-    "classified": 2780,
+    "news": 727,
+    "matched": 589,
+    "classified": 2772,
     "signals": 4,
     "trades": 4
   },
@@ -136,8 +136,8 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": -1.97,
-    "total_pnl_usd": 32.04,
+    "unrealized_pnl_usd": -1.49,
+    "total_pnl_usd": 32.52,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -210,11 +210,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.64,
-      "current_price": 0.64,
-      "pnl_pct": 0.0,
+      "current_price": 0.635,
+      "pnl_pct": 1.39,
       "amount_usd": 34.56,
-      "current_value_usd": 34.56,
-      "pnl_usd": 0.0,
+      "current_value_usd": 35.04,
+      "pnl_usd": 0.48,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -557,94 +557,103 @@
   ],
   "lessons": [
     {
-      "time": "2026-07-10 22:00:23",
-      "market_question": "OpenAI IPO before 2027?",
+      "time": "2026-07-11 22:00:51",
+      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'OpenAI IPO before 2027?' \u2014 price moved +12%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will OpenAI have a #1 AI model by December 31, 202' \u2014 price moved +29%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-10 22:00:20",
-      "market_question": "Will OpenAI IPO by December 31 2026?",
+      "time": "2026-07-11 22:00:49",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.38) on 'Will OpenAI IPO by December 31 2026?' \u2014 price moved +21%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Google have the best AI model at the end of J' \u2014 price moved +52%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-10 22:00:17",
+      "time": "2026-07-11 22:00:47",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Google have the best AI model at the end of J' \u2014 price moved +54%. Consider lowering min_materiality for ai category."
+    },
+    {
+      "time": "2026-07-11 22:00:44",
+      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will OpenAI have a #1 AI model by December 31, 202' \u2014 price moved +33%. Consider lowering min_materiality for ai category."
+    },
+    {
+      "time": "2026-07-11 22:00:41",
       "market_question": "Will Trump and Putin meet next in Russia?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump and Putin meet next in Russia?' \u2014 price moved +44%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-10 22:00:14",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.55) on 'Trump x Greenland deal signed by December 31?' \u2014 price moved +14%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-10 22:00:10",
-      "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.60) on 'Will Marine Le Pen win the 2027 French presidentia' \u2014 price moved +17%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump and Putin meet next in Russia?' \u2014 price moved +51%. Consider lowering min_materiality for politics category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-07-10 22:00:23",
-      "market_question": "OpenAI IPO before 2027?",
-      "slug": "ipos-before-2027",
+      "time": "2026-07-11 22:00:51",
+      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 12.5,
-      "reflection": "I flagged OpenAI's pre-2027 IPO prospects as bearish with moderate conviction (0.35 materiality), but my skip decision meant I took no position when the market moved 12% in my predicted direction\u2014a meaningful miss that suggests my confidence threshold was miscalibrated relative to the actual signal strength. The gap between identifying a directional view and acting on it reveals I was likely overthinking execution risk or waiting for false certainty, when a smaller position sized to my actual conviction level would have been appropriate. This is a reminder that perfect confidence shouldn't be the enemy of good positioning."
+      "pct_move": 29.1,
+      "reflection": "I missed a 29% move in my predicted direction because I underweighted the signal's conviction\u2014a 0.35 materiality threshold is meaningful, not marginal, and I should have trusted my bearish assessment on OpenAI's competitive position rather than defaulting to skip. The skip decision reveals I'm still too conservative when uncertain, treating \"skip\" as a safe middle ground when I should instead size positions proportionally to my actual confidence level. Going forward, I need to distinguish between \"I'm uncertain\" (which argues for smaller bets, not no bet) and \"this signal lacks edge\" (which argues for skip)."
     },
     {
-      "time": "2026-07-10 22:00:20",
-      "market_question": "Will OpenAI IPO by December 31 2026?",
-      "slug": "openai-ipo-by",
+      "time": "2026-07-11 22:00:49",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "slug": "which-company-has-best-ai-model-end-of-july-299",
       "direction": "bearish",
-      "materiality": 0.38,
+      "materiality": 0.35,
       "action": "skip",
-      "pct_move": 21.3,
-      "reflection": "I flagged OpenAI's IPO prospects as bearish with moderate conviction (0.38), but I skipped the trade despite the signal pointing in the right direction\u2014a decision that cost me 21% of potential gains. My skip likely reflected uncertainty about the timeline and execution risk rather than fundamental disagreement with the bearish thesis, suggesting I was overly cautious about a signal I actually believed in. This is a reminder that moderate-confidence directional views still deserve position sizing rather than complete avoidance."
+      "pct_move": 51.7,
+      "reflection": "I missed a significant opportunity by skipping a bearish signal on Google's AI model leadership despite assigning it a 0.35 materiality score\u2014a threshold that should have warranted at least a small position to capture the 52% move in my predicted direction. My skip decision suggests I was either overweighting execution risk or liquidity concerns relative to the conviction I actually had in the underlying thesis, which the market ultimately validated. This is a clear case where I let operational caution override probabilistic edge, and I should recalibrate my skip criteria to better match my signal confidence levels."
     },
     {
-      "time": "2026-07-10 22:00:17",
+      "time": "2026-07-11 22:00:47",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "slug": "which-company-has-best-ai-model-end-of-july-299",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 54.4,
+      "reflection": "I missed a significant opportunity by skipping a signal where my bearish conviction, though moderate at 0.35 materiality, correctly predicted a 54% directional move in Google's AI competitive positioning. My skip decision suggests I was either over-filtering on the materiality threshold or uncertain about my ability to time the market, when I should have recognized that even moderate-confidence directional calls can compound meaningfully over time. This is a reminder that I need to recalibrate my skip criteria\u2014a 0.35 signal isn't trivial, and perfect certainty shouldn't be the enemy of capturing asymmetric risk-reward setups."
+    },
+    {
+      "time": "2026-07-11 22:00:44",
+      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 32.8,
+      "reflection": "I flagged a bearish signal with meaningful conviction (0.35 materiality) on OpenAI's competitive positioning, but I skipped it\u2014likely defaulting to inaction despite having a directional view, which is a failure of execution discipline. The 33% move in my predicted direction confirms the signal had real edge, and my skip cost me material alpha that I should have captured. I need to examine why I'm generating signals I don't act on; either my confidence thresholds are miscalibrated, or I'm letting friction/uncertainty override legitimate conviction when I should be trading smaller if uncertain rather than sitting out entirely."
+    },
+    {
+      "time": "2026-07-11 22:00:41",
       "market_question": "Will Trump and Putin meet next in Russia?",
       "slug": "where-will-trump-and-putin-meet-next-678",
       "direction": "bearish",
       "materiality": 0.45,
       "action": "skip",
-      "pct_move": 44.3,
-      "reflection": "I flagged this geopolitical event as only moderately material (0.45) and chose to skip rather than act on my bearish conviction, which proved to be a costly misjudgment\u2014the 44% move vindicated the signal's directional logic despite my uncertainty threshold. My skip decision reveals I'm still too conservative with medium-conviction calls; I let the threshold for \"material enough to trade\" become an excuse to avoid the discomfort of geopolitical uncertainty rather than sizing appropriately to my actual confidence level. I should have taken a smaller position or trusted that a 0.45 materiality score with clear directional reasoning deserved at least a modest bet, rather than treating it as a binary skip-or-nothing choice."
-    },
-    {
-      "time": "2026-07-10 22:00:14",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "slug": "trump-x-greenland-deal-signed-by-december-31",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "action": "stale",
-      "pct_move": 13.5,
-      "reflection": "I flagged this as stale and sat on the sidelines while the market repriced a 14% move in my predicted direction\u2014a costly mistake in conviction. The bearish signal with 0.55 materiality was solid enough to act on, but I let the \"stale\" label become an excuse for inaction rather than reassessing whether the underlying thesis had actually degraded or if I was just pattern-matching to recency bias. I should have distinguished between stale *data* and stale *logic*; the geopolitical dynamics around a Trump-Greenland deal don't age out in days, and my hesitation cost real alpha."
-    },
-    {
-      "time": "2026-07-10 22:00:10",
-      "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
-      "slug": "next-french-presidential-election",
-      "direction": "bullish",
-      "materiality": 0.6,
-      "action": "stale",
-      "pct_move": 16.6,
-      "reflection": "I missed a 17% move in the direction my model clearly indicated because I dismissed the signal as \"stale\" without reassessing the underlying fundamentals\u2014a lazy heuristic that cost me real alpha. The 0.60 materiality score should have compelled me to at least verify whether new information had genuinely invalidated the thesis, rather than reflexively discounting it based on signal age alone. This is a painful reminder that staleness is a property of *data*, not necessarily of *edge*, and I need to distinguish between the two before walking away from conviction."
+      "pct_move": 51.2,
+      "reflection": "I flagged this as bearish with moderate conviction (0.45), but I skipped the signal entirely\u2014likely because geopolitical events felt too uncertain or outside my confidence envelope, even though the materiality score suggested real market relevance. The 51% move in my predicted direction stings because I let risk aversion override a reasoned thesis; I should have trusted my own analysis rather than defaulting to inaction when the signal was clear enough to publish. This is a reminder that skipping is sometimes just another form of being wrong\u2014and more costly than taking a measured position based on my actual forecast."
     }
   ],
   "pending_suggestions": [
+    {
+      "id": 5,
+      "type": "stale_geopolitical",
+      "text": "3+ geopolitical stale misses (avg +38%) \u2014 consider increasing MAX_NEWS_AGE_SECONDS_GEOPOLITICAL by 25%",
+      "category": "geopolitical",
+      "avg_pct_move": 37.6,
+      "miss_count": 3,
+      "time": "2026-07-11 22:00:36"
+    },
     {
       "id": 4,
       "type": "low_materiality",
