@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T04:36:22.451051+00:00",
-  "last_heartbeat": "2026-07-11T04:36:22.451051+00:00",
-  "uptime_seconds": 39925,
+  "generated_at": "2026-07-11T04:41:35.618742+00:00",
+  "last_heartbeat": "2026-07-11T04:41:35.618742+00:00",
+  "uptime_seconds": 40239,
   "dry_run": false,
-  "markets_tracked": 1312,
+  "markets_tracked": 1309,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11146,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 133,
+  "headlines_scanned_today": 136,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4548,
+  "classifications_24h": 4553,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1571,
+    "prefiltered_haiku": 1575,
     "cooldown_skip": 0,
     "stale": 13,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1187,
-    "matched": 801,
-    "classified": 4548,
+    "news": 1188,
+    "matched": 802,
+    "classified": 4553,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2151.4
+    "avg_classification_latency_ms": 2148.0
   },
   "live_readiness": {
     "ready": false,
@@ -210,7 +210,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2735000000000001,
+      "current_price": 0.2735,
       "pnl_pct": 2.82,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
@@ -418,41 +418,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-11 04:34:30",
-      "market_question": "Will Trump's approval rating hit 35% in 2026?",
-      "headline": "Courts reject Trump's Hail Mary bids to avoid paying E. Jean Carroll - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-11 04:34:30",
-      "market_question": "Will Trump's approval rating hit 30% in 2026?",
-      "headline": "Courts reject Trump's Hail Mary bids to avoid paying E. Jean Carroll - Politico",
+      "time": "2026-07-11 04:38:58",
+      "market_question": "Will National Party win the second-most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
+      "headline": "New Zealand, India upgrade ties as PM Modi visits Auckland - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-11 04:34:30",
-      "market_question": "Will Donald Trump visit Mississippi in 2026?",
-      "headline": "Officials Seek Public\u2019s Help in Nolan Wells Death Investigation as Misinformation Spreads - Mississippi Free Press",
+      "time": "2026-07-11 04:38:58",
+      "market_question": "Will The Left win the most seats in the 2026 Sachsen-Anhalt parliamentary elections?",
+      "headline": "Dodgers star Shohei Ohtani to have left knee drained Sunday and will miss All-Star Game - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -466,9 +450,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-11 04:34:30",
-      "market_question": "Will Free Patriotic Movement win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "Officials Seek Public\u2019s Help in Nolan Wells Death Investigation as Misinformation Spreads - Mississippi Free Press",
+      "time": "2026-07-11 04:38:58",
+      "market_question": "Will the 2026 United Left primary for the 2027 French presidential election be canceled?",
+      "headline": "Dodgers star Shohei Ohtani to have left knee drained Sunday and will miss All-Star Game - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -482,9 +466,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-11 04:34:30",
-      "market_question": "Will Wells Fargo or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Officials Seek Public\u2019s Help in Nolan Wells Death Investigation as Misinformation Spreads - Mississippi Free Press",
+      "time": "2026-07-11 04:38:58",
+      "market_question": "Will Marine Tondelier be the joint left nominee for the 2027 French presidential election?",
+      "headline": "Dodgers star Shohei Ohtani to have left knee drained Sunday and will miss All-Star Game - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-11 04:38:58",
+      "market_question": "Will The Left win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?",
+      "headline": "Dodgers star Shohei Ohtani to have left knee drained Sunday and will miss All-Star Game - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
