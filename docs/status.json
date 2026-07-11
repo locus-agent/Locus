@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-11T04:25:51.190303+00:00",
-  "last_heartbeat": "2026-07-11T04:25:51.190303+00:00",
-  "uptime_seconds": 39294,
+  "generated_at": "2026-07-11T04:31:06.890915+00:00",
+  "last_heartbeat": "2026-07-11T04:31:06.890915+00:00",
+  "uptime_seconds": 39610,
   "dry_run": false,
   "markets_tracked": 1313,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 114,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 117,
+  "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4491,
+  "classifications_24h": 4500,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1559,
+    "prefiltered_haiku": 1560,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 384,
+    "price_target_market": 386,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1170,
-    "matched": 788,
-    "classified": 4491,
+    "news": 1172,
+    "matched": 790,
+    "classified": 4500,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2135.2
+    "avg_classification_latency_ms": 2134.4
   },
   "live_readiness": {
     "ready": false,
@@ -404,9 +404,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-11 04:25:47",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) gain the most seats in the next Russian parliamentary election?",
-      "headline": "Kyiv under Russian missile attack, officials say - Reuters",
+      "time": "2026-07-11 04:30:12",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Japan\u2019s space agency conducts first test flight for experimental reusable rocket - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-11 04:30:12",
+      "market_question": "Will Donald Trump visit Taiwan in 2026?",
+      "headline": "Typhoon Bavi lashes Japan's southern islands, Taiwan evacuates thousands - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-11 04:25:47",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
-      "headline": "Kyiv under Russian missile attack, officials say - Reuters",
+      "time": "2026-07-11 04:30:12",
+      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Typhoon Bavi lashes Japan's southern islands, Taiwan evacuates thousands - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,9 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-11 04:25:47",
-      "market_question": "Will Rodina gain the most seats in the next Russian parliamentary election?",
-      "headline": "Kyiv under Russian missile attack, officials say - Reuters",
+      "time": "2026-07-11 04:30:12",
+      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Typhoon Bavi lashes Japan's southern islands, Taiwan evacuates thousands - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,25 +468,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-11 04:25:47",
-      "market_question": "Will Rodina win the most seats in the next Russian parliamentary election?",
-      "headline": "Kyiv under Russian missile attack, officials say - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-11 04:25:47",
-      "market_question": "Will Rodina win the second-most seats in the next Russian parliamentary election?",
-      "headline": "Kyiv under Russian missile attack, officials say - Reuters",
+      "time": "2026-07-11 04:30:12",
+      "market_question": "Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Typhoon Bavi lashes Japan's southern islands, Taiwan evacuates thousands - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
