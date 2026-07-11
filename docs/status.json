@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T16:53:24.912526+00:00",
-  "last_heartbeat": "2026-07-11T16:53:24.912526+00:00",
-  "uptime_seconds": 84148,
+  "generated_at": "2026-07-11T16:58:33.582002+00:00",
+  "last_heartbeat": "2026-07-11T16:58:33.582002+00:00",
+  "uptime_seconds": 84457,
   "dry_run": false,
-  "markets_tracked": 1302,
+  "markets_tracked": 1304,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11180,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 408,
+  "headlines_scanned_today": 410,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 3913,
+  "classifications_24h": 3910,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1394,
+    "prefiltered_haiku": 1393,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 2,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1015,
-    "matched": 796,
-    "classified": 3913,
+    "matched": 798,
+    "classified": 3910,
     "signals": 4,
     "trades": 4
   },
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2745,
+      "current_price": 0.27449999999999997,
       "pnl_pct": 3.2,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0295,
+      "current_price": 0.02950000000000008,
       "pnl_pct": -14.98,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.28,
@@ -432,6 +432,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-11 16:57:00",
+      "market_question": "Will the announcers say \"Trump\" during the Norway vs England FIFA World Cup Match?",
+      "headline": "Iran must pledge to stop shooting at ships in Strait of Hormuz, US officials say",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-11 16:54:48",
+      "market_question": "Nguesso out as President of the Republic of the Congo by December 31, 2026?",
+      "headline": "US citizen tests positive for Ebola in Congo - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-11 16:46:01",
       "market_question": "President Trump to Attend World Cup Final?",
       "headline": "Prince Harry talks grief, stress and loss in final event of UK trip",
@@ -478,38 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-11 16:41:36",
-      "market_question": "Will the announcers say \"Trump\" during the Norway vs England FIFA World Cup Match?",
-      "headline": "Eleven-try England thrash sorry Fiji to end losing run",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-11 16:37:15",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Masked World Cup players spotlight soccer's overlooked facial injury risk - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
