@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T21:21:17.253393+00:00",
-  "last_heartbeat": "2026-07-11T21:21:17.253393+00:00",
-  "uptime_seconds": 100220,
+  "generated_at": "2026-07-11T21:26:27.241183+00:00",
+  "last_heartbeat": "2026-07-11T21:26:27.241183+00:00",
+  "uptime_seconds": 100530,
   "dry_run": false,
-  "markets_tracked": 1310,
+  "markets_tracked": 1311,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11193,
@@ -82,22 +82,22 @@
       }
     ]
   },
-  "headlines_scanned_today": 558,
+  "headlines_scanned_today": 585,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 2538,
+  "classifications_24h": 2653,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 931,
+    "prefiltered_haiku": 972,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 217,
+    "price_target_market": 221,
     "coinflip_market": 0,
-    "correlation_block": 1,
+    "correlation_block": 3,
     "category_limit": 0,
     "orderbook_skip": 2,
     "already_priced_in": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 668,
-    "matched": 540,
-    "classified": 2538,
+    "news": 695,
+    "matched": 564,
+    "classified": 2653,
     "signals": 4,
     "trades": 4
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": -1.97,
-    "total_pnl_usd": 32.04,
+    "unrealized_pnl_usd": -1.49,
+    "total_pnl_usd": 32.52,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2097.5
+    "avg_classification_latency_ms": 2100.3
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.6699999999999999,
+      "current_price": 0.67,
       "pnl_pct": -1.47,
       "amount_usd": 24.99,
       "current_value_usd": 24.62,
@@ -210,11 +210,11 @@
       "slug": "maine-senate-election-winner",
       "side": "NO",
       "entry_price": 0.64,
-      "current_price": 0.64,
-      "pnl_pct": 0.0,
+      "current_price": 0.635,
+      "pnl_pct": 1.39,
       "amount_usd": 34.56,
-      "current_value_usd": 34.56,
-      "pnl_usd": 0.0,
+      "current_value_usd": 35.04,
+      "pnl_usd": 0.48,
       "edge_type": "news",
       "event_id": "57650"
     },
@@ -385,6 +385,15 @@
   ],
   "exit_decisions": [
     {
+      "time": "2026-07-11 21:22:33",
+      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "side": "NO",
+      "trigger": "news",
+      "decision": "hold",
+      "reasoning": "The trigger headline is essentially the same news as the original thesis (Platner withdrawing), just a duplicate/confirmation from a different outlet \u2014 it doesn't contradict the NO position. With no PnL change and the original thesis intact (a weakened Democratic field), holding is appropriate.",
+      "pnl_pct": 0.0
+    },
+    {
       "time": "2026-07-11 06:14:24",
       "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
       "side": "YES",
@@ -419,22 +428,13 @@
       "decision": "close",
       "reasoning": "Manual close requested by user",
       "pnl_pct": 20.69
-    },
-    {
-      "time": "2026-07-09 18:08:31",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "side": "NO",
-      "trigger": "manual",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (manual); position kept open",
-      "pnl_pct": 10.34
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-11 21:20:19",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Argentine Antonio Ratt\u00edn, whose dismissal in the 1966 World Cup prompted a rules change, dies at 84 - AP News",
+      "time": "2026-07-11 21:23:13",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "William Tarr on Shipping Production AI in Government - StartupHub.ai",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-11 21:20:19",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Argentine Antonio Ratt\u00edn, whose dismissal in the 1966 World Cup prompted a rules change, dies at 84 - AP News",
+      "time": "2026-07-11 21:23:12",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Box Office: \u2018Moana\u2019 Sets Sail With $4.5 Million in Thursday Previews - Variety",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,52 +464,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-11 21:20:19",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Argentine Antonio Ratt\u00edn, whose dismissal in the 1966 World Cup prompted a rules change, dies at 84 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-11 21:23:12",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New York construction scare highlights the challenges of converting offices into housing - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-11 21:20:19",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Argentine Antonio Ratt\u00edn, whose dismissal in the 1966 World Cup prompted a rules change, dies at 84 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-11 21:23:12",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "New York construction scare highlights the challenges of converting offices into housing - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-11 21:20:19",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Argentine Antonio Ratt\u00edn, whose dismissal in the 1966 World Cup prompted a rules change, dies at 84 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-11 21:23:12",
+      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
+      "headline": "New York construction scare highlights the challenges of converting offices into housing - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
