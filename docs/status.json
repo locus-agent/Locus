@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T22:02:54.209195+00:00",
-  "last_heartbeat": "2026-07-11T22:02:54.209195+00:00",
-  "uptime_seconds": 102717,
+  "generated_at": "2026-07-11T22:08:02.621763+00:00",
+  "last_heartbeat": "2026-07-11T22:08:02.621763+00:00",
+  "uptime_seconds": 103026,
   "dry_run": false,
-  "markets_tracked": 1311,
+  "markets_tracked": 1314,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11237,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 628,
+  "headlines_scanned_today": 629,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 2772,
+  "classifications_24h": 2746,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1009,
+    "prefiltered_haiku": 995,
     "cooldown_skip": 0,
     "stale": 9,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 727,
-    "matched": 589,
-    "classified": 2772,
+    "news": 723,
+    "matched": 585,
+    "classified": 2746,
     "signals": 4,
     "trades": 4
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": -1.49,
-    "total_pnl_usd": 32.52,
+    "unrealized_pnl_usd": -0.94,
+    "total_pnl_usd": 33.07,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2103.9
+    "avg_classification_latency_ms": 2103.5
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.67,
-      "pnl_pct": -1.47,
+      "current_price": 0.685,
+      "pnl_pct": 0.74,
       "amount_usd": 24.99,
-      "current_value_usd": 24.62,
-      "pnl_usd": -0.37,
+      "current_value_usd": 25.17,
+      "pnl_usd": 0.18,
       "edge_type": "momentum",
       "event_id": "674406"
     },
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2755,
+      "current_price": 0.2755000000000001,
       "pnl_pct": 3.57,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-11 22:04:11",
+      "market_question": "Will the announcers say \"Trump\" during the Norway vs England FIFA World Cup Match?",
+      "headline": "Rate the players as England face Norway",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-11 21:55:24",
       "market_question": "Will AI be charged with a crime before 2027?",
       "headline": "Trinidad and Tobago signs agreements with US companies that pave the way for data centers - AP News",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-11 21:55:22",
       "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Trinidad and Tobago signs agreements with US companies that pave the way for data centers - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-11 21:55:22",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
       "headline": "Trinidad and Tobago signs agreements with US companies that pave the way for data centers - AP News",
       "direction": null,
       "materiality": null,
