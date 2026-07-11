@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T23:57:44.677377+00:00",
-  "last_heartbeat": "2026-07-10T23:57:44.677377+00:00",
-  "uptime_seconds": 23208,
+  "generated_at": "2026-07-11T00:02:55.169313+00:00",
+  "last_heartbeat": "2026-07-11T00:02:55.169313+00:00",
+  "uptime_seconds": 23518,
   "dry_run": false,
-  "markets_tracked": 1294,
+  "markets_tracked": 1286,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11120,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1198,
+  "headlines_scanned_today": 19,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4581,
+  "classifications_24h": 4672,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1572,
+    "prefiltered_haiku": 1602,
     "cooldown_skip": 0,
     "stale": 13,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 385,
+    "price_target_market": 388,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-10T23:46:37.539016+00:00"
+    "last_check": "2026-07-11T00:01:37.926631+00:00"
   },
   "edge_types_24h": {
     "news": 4,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1198,
-    "matched": 804,
-    "classified": 4581,
+    "news": 1218,
+    "matched": 822,
+    "classified": 4672,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2038.6
+    "avg_classification_latency_ms": 2065.7
   },
   "live_readiness": {
     "ready": false,
@@ -186,8 +186,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.1318,
-    "sharpe_7d": -0.55
+    "drawdown_7d": 0.1756,
+    "sharpe_7d": -0.56
   },
   "open_positions": [
     {
@@ -404,9 +404,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-10 23:53:43",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "New York Politics - Politico",
+      "time": "2026-07-11 00:01:12",
+      "market_question": "Will Trump praise Elon Musk by July 31?",
+      "headline": "Elon Musk Claims SpaceX Will Send \u2018Thousands\u2019 Of People To The Moon And Mars In Next Ten Years - Forbes",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-11 00:01:12",
+      "market_question": "Will Bitcoin kimchi premium hit 8% in 2026?",
+      "headline": "Delta Just Unveiled a Cheaper Way to Fly Business Class\u2014But You\u2019ll Give Up Some Premium Perks - Travel + Leisure",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -420,9 +436,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 23:53:43",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "New York Politics - Politico",
+      "time": "2026-07-11 00:01:12",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) gain the most seats in the next Russian parliamentary election?",
+      "headline": "Delta Just Unveiled a Cheaper Way to Fly Business Class\u2014But You\u2019ll Give Up Some Premium Perks - Travel + Leisure",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -436,9 +452,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 23:53:43",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "New York Politics - Politico",
+      "time": "2026-07-11 00:01:12",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the most seats in the next Russian parliamentary election?",
+      "headline": "Delta Just Unveiled a Cheaper Way to Fly Business Class\u2014But You\u2019ll Give Up Some Premium Perks - Travel + Leisure",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -452,25 +468,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-10 23:53:43",
-      "market_question": "Will the Democrats win the New Jersey Senate race in 2026?",
-      "headline": "New York Politics - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-10 23:53:43",
-      "market_question": "Will Karishma Manzur be the Democratic nominee for Senate in New Hampshire?",
-      "headline": "New York Politics - Politico",
+      "time": "2026-07-11 00:01:12",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the second-most seats in the next Russian parliamentary election?",
+      "headline": "Delta Just Unveiled a Cheaper Way to Fly Business Class\u2014But You\u2019ll Give Up Some Premium Perks - Travel + Leisure",
       "direction": null,
       "materiality": null,
       "confidence": null,
