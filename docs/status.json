@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T04:04:58.524729+00:00",
-  "last_heartbeat": "2026-07-11T04:04:58.524729+00:00",
-  "uptime_seconds": 38042,
+  "generated_at": "2026-07-11T04:10:11.468452+00:00",
+  "last_heartbeat": "2026-07-11T04:10:11.468452+00:00",
+  "uptime_seconds": 38354,
   "dry_run": false,
-  "markets_tracked": 1315,
+  "markets_tracked": 1319,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11146,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 106,
+  "headlines_scanned_today": 109,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4465,
+  "classifications_24h": 4476,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1547,
+    "prefiltered_haiku": 1556,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1164,
-    "matched": 783,
-    "classified": 4465,
+    "news": 1167,
+    "matched": 785,
+    "classified": 4476,
     "signals": 3,
     "trades": 3
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2111.4
+    "avg_classification_latency_ms": 2110.8
   },
   "live_readiness": {
     "ready": false,
@@ -210,7 +210,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.035500000000000004,
+      "current_price": 0.03550000000000009,
       "pnl_pct": -9.72,
       "amount_usd": 0.7176150234741786,
       "current_value_usd": 0.65,
@@ -404,9 +404,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-11 03:55:03",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Fellow passengers pull back man partly sucked out of broken window on a flight from Greece - AP News",
+      "time": "2026-07-11 04:08:15",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "FIFA selling the field to be used for the World Cup final in $450 pieces - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-11 04:08:14",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "FIFA selling the field to be used for the World Cup final in $450 pieces - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -420,9 +436,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-11 03:55:03",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Fellow passengers pull back man partly sucked out of broken window on a flight from Greece - AP News",
+      "time": "2026-07-11 04:08:14",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "FIFA selling the field to be used for the World Cup final in $450 pieces - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -436,52 +452,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-11 03:55:02",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Fellow passengers pull back man partly sucked out of broken window on a flight from Greece - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 04:08:14",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "FIFA selling the field to be used for the World Cup final in $450 pieces - AP News",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 03:55:02",
-      "market_question": "Tamas Sulyok out as President of Hungary by July 31?",
-      "headline": "Fellow passengers pull back man partly sucked out of broken window on a flight from Greece - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 04:08:14",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "FIFA selling the field to be used for the World Cup final in $450 pieces - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-11 03:55:02",
-      "market_question": "Putin out as President of Russia by September 30, 2026?",
-      "headline": "Fellow passengers pull back man partly sucked out of broken window on a flight from Greece - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
