@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-11T09:36:50.199547+00:00",
-  "last_heartbeat": "2026-07-11T09:36:50.199547+00:00",
-  "uptime_seconds": 57953,
+  "generated_at": "2026-07-11T09:41:58.059550+00:00",
+  "last_heartbeat": "2026-07-11T09:41:58.059550+00:00",
+  "uptime_seconds": 58261,
   "dry_run": false,
   "markets_tracked": 1312,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 11161,
+    "total": 11168,
     "accuracy": 18.2,
     "by_category": {
       "other": 16.2,
@@ -18,18 +18,18 @@
     },
     "by_source": {
       "rss": 18.6,
-      "newsapi": 17.3,
+      "newsapi": 17.4,
       "truthsocial": 7.6
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.2,
-    "overall_total": 11161,
+    "overall_total": 11168,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 6089,
+        "total": 6093,
         "correct": 440,
         "accuracy_pct": 7.2,
         "avg_pnl_pct": 9.58,
@@ -47,10 +47,10 @@
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1256,
-        "correct": 474,
-        "accuracy_pct": 37.7,
-        "avg_pnl_pct": 5.37,
+        "total": 1258,
+        "correct": 475,
+        "accuracy_pct": 37.8,
+        "avg_pnl_pct": 5.35,
         "color": "green"
       },
       {
@@ -74,21 +74,21 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1407,
+        "total": 1408,
         "correct": 244,
         "accuracy_pct": 17.3,
-        "avg_pnl_pct": -2.74,
+        "avg_pnl_pct": -2.75,
         "color": "yellow"
       }
     ]
   },
-  "headlines_scanned_today": 211,
+  "headlines_scanned_today": 213,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 4423,
+  "classifications_24h": 4429,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1598,
+    "prefiltered_haiku": 1600,
     "cooldown_skip": 0,
     "stale": 12,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1148,
-    "matched": 773,
-    "classified": 4423,
+    "news": 1150,
+    "matched": 775,
+    "classified": 4429,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2115.5
+    "avg_classification_latency_ms": 2114.4
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.27449999999999997,
+      "current_price": 0.2745,
       "pnl_pct": 3.2,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
@@ -432,9 +432,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-11 09:22:17",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Multiple New York Times reporters issued subpoenas over Air Force One reporting - AP News",
+      "time": "2026-07-11 09:39:53",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Jordan breaks All Blacks try record in win over Italy",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-11 09:39:53",
+      "market_question": "Will Jordan Bardella win the 2027 French presidential election?",
+      "headline": "Jordan breaks All Blacks try record in win over Italy",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-11 09:39:52",
+      "market_question": "Will Count Binface win the Clacton by-election?",
+      "headline": "Jordan breaks All Blacks try record in win over Italy",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-11 09:22:17",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Multiple New York Times reporters issued subpoenas over Air Force One reporting - AP News",
+      "time": "2026-07-11 09:39:52",
+      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
+      "headline": "Jordan breaks All Blacks try record in win over Italy",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,41 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-11 09:22:17",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Multiple New York Times reporters issued subpoenas over Air Force One reporting - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-11 09:22:17",
-      "market_question": "Will the Democrats win the New Jersey Senate race in 2026?",
-      "headline": "Multiple New York Times reporters issued subpoenas over Air Force One reporting - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-11 09:22:17",
-      "market_question": "Will Karishma Manzur be the Democratic nominee for Senate in New Hampshire?",
-      "headline": "Multiple New York Times reporters issued subpoenas over Air Force One reporting - AP News",
+      "time": "2026-07-11 09:39:52",
+      "market_question": "Will Nigel Farage win the Clacton by-election?",
+      "headline": "Jordan breaks All Blacks try record in win over Italy",
       "direction": null,
       "materiality": null,
       "confidence": null,
