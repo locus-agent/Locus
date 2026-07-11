@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T17:08:51.520437+00:00",
-  "last_heartbeat": "2026-07-11T17:08:51.520437+00:00",
-  "uptime_seconds": 85075,
+  "generated_at": "2026-07-11T17:13:59.726648+00:00",
+  "last_heartbeat": "2026-07-11T17:13:59.726648+00:00",
+  "uptime_seconds": 85383,
   "dry_run": false,
-  "markets_tracked": 1305,
+  "markets_tracked": 1306,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11180,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 411,
+  "headlines_scanned_today": 412,
   "headlines_last_cycle": 0,
   "signals_24h": 4,
-  "classifications_24h": 3816,
+  "classifications_24h": 3796,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1373,
+    "prefiltered_haiku": 1361,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 988,
-    "matched": 799,
-    "classified": 3816,
+    "news": 984,
+    "matched": 800,
+    "classified": 3796,
     "signals": 4,
     "trades": 4
   },
@@ -136,8 +136,8 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": -1.68,
-    "total_pnl_usd": 32.33,
+    "unrealized_pnl_usd": -1.49,
+    "total_pnl_usd": 32.52,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -196,11 +196,11 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.665,
-      "pnl_pct": -2.21,
+      "current_price": 0.6699999999999999,
+      "pnl_pct": -1.47,
       "amount_usd": 24.99,
-      "current_value_usd": 24.44,
-      "pnl_usd": -0.55,
+      "current_value_usd": 24.62,
+      "pnl_usd": -0.37,
       "edge_type": "momentum",
       "event_id": "674406"
     },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-11 17:12:20",
+      "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
+      "headline": "Village in shock as 'horrific' Ann Widdecombe murder case unfolds",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-11 17:08:04",
       "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
       "headline": "Crypto IPO market stalls as capital rotates to AI and macro uncertainty weighs",
@@ -491,22 +507,6 @@
       "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-11 17:08:00",
-      "market_question": "Will Anthropic\u2019s market cap be less than $100B at market close on IPO day by December 31, 2027?",
-      "headline": "Crypto IPO market stalls as capital rotates to AI and macro uncertainty weighs",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
