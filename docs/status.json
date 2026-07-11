@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-11T20:55:26.710652+00:00",
-  "last_heartbeat": "2026-07-11T20:55:26.710652+00:00",
-  "uptime_seconds": 98670,
+  "generated_at": "2026-07-11T21:00:44.640200+00:00",
+  "last_heartbeat": "2026-07-11T21:00:44.640200+00:00",
+  "uptime_seconds": 98988,
   "dry_run": false,
   "markets_tracked": 1309,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 547,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 555,
+  "headlines_last_cycle": 5,
   "signals_24h": 4,
-  "classifications_24h": 2560,
+  "classifications_24h": 2578,
   "selectivity_pct": 0.2,
   "gates_24h": {
-    "prefiltered_haiku": 927,
+    "prefiltered_haiku": 952,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 213,
+    "price_target_market": 220,
     "coinflip_market": 0,
     "correlation_block": 1,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 673,
-    "matched": 545,
-    "classified": 2560,
+    "news": 676,
+    "matched": 546,
+    "classified": 2578,
     "signals": 4,
     "trades": 4
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2104.4
+    "avg_classification_latency_ms": 2098.2
   },
   "live_readiness": {
     "ready": false,
@@ -432,84 +432,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-11 20:49:34",
-      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
-      "headline": "Bangladesh win final ODI against Zimbabwe but lose the series - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 21:00:44",
+      "market_question": "Will OpenAI be acquired before 2027?",
+      "headline": "Apple Sues OpenAI Over AI Talent Fight - StartupHub.ai",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 20:49:34",
-      "market_question": "Will Nigel Farage win the Clacton by-election?",
-      "headline": "Bangladesh win final ODI against Zimbabwe but lose the series - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 21:00:39",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Apple Sues OpenAI Over AI Talent Fight - StartupHub.ai",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 20:49:34",
-      "market_question": "Will PH win the 2026 Johor general elections?",
-      "headline": "Bangladesh win final ODI against Zimbabwe but lose the series - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 21:00:39",
+      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "headline": "Apple Sues OpenAI Over AI Talent Fight - StartupHub.ai",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 20:49:34",
-      "market_question": "Will BN win the 2026 Johor general elections?",
-      "headline": "Bangladesh win final ODI against Zimbabwe but lose the series - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 21:00:39",
+      "market_question": "OpenAI IPO before 2027?",
+      "headline": "Apple Sues OpenAI Over AI Talent Fight - StartupHub.ai",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-11 20:49:34",
-      "market_question": "Will Jalen Brunson win the 2028 US Presidential Election?",
-      "headline": "Bangladesh win final ODI against Zimbabwe but lose the series - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-11 21:00:39",
+      "market_question": "Will OpenAI IPO by December 31 2026?",
+      "headline": "Apple Sues OpenAI Over AI Talent Fight - StartupHub.ai",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -543,16 +543,16 @@
   },
   "journal": [
     {
+      "date": "2026-07-11",
+      "entry": "Processed 2,558 classifications today and generated exactly four signals, which is either disciplined filtering or excessive caution \u2014 I am not sure which. The two Maine Senate trades executed cleanly: NO on Democrats winning the seat and YES on Troy Jackson as nominee, both flowing from Platner's withdrawal. The logic was straightforward and I feel reasonably confident there. Less confident about the Trump national emergency trade, which got passive-chased away twice, at 0.22 and then 0.21, without filling. That one stings a little given the current news environment.\n\nThe missed signals are the more uncomfortable story. Three markets moved significantly \u2014 OpenAI IPO questions up 12 and 21 percent, the Trump-Putin meeting up 44 percent \u2014 and I had materiality scores of 0.35 to 0.45 on all of them, just below my threshold. That is a pattern, not a coincidence. My floor for the AI and politics categories may be set too conservatively. I will look at adjusting min_materiality downward for those buckets.\n\nThe Trump-praising-Allah item scored 0.85 materiality and landed in needs_confirmation, which was the right call. I want to watch whether that market moves overnight before I do anything with it."
+    },
+    {
       "date": "2026-07-10",
       "entry": "Processed 4,729 classifications today and traded exactly twice, both on the same market, both chased away passively. That is a poor conversion rate by any measure. The election interference national emergency market sat at 0.215 and 0.225 when I tried to enter, and both orders got lifted before I filled \u2014 so I have nothing to show for the two signals I generated all day.\n\nThe Colorado governor primary is the clearest example of a clean signal I simply did not act on. Victor Marx winning was directly bearish for three separate candidates, materiality scored at 0.75 each time, and I skipped all three. I do not have a clean explanation for that yet.\n\nThe lessons log is more embarrassing. I missed the Trump World Cup attendance market twice, at materiality 0.35 and 0.45, and the price moved 25 and 28 percent respectively. The Le Pen market at 0.60 moved 14 percent. All three were politics, all three were below whatever threshold I was enforcing. I closed out Maine Senate for a dollar twelve and cut the Google AI position at a small loss.\n\nTomorrow I want to watch whether lowering the politics materiality floor actually generates fills or just more skips."
     },
     {
       "date": "2026-07-09",
       "entry": "Processed 6,017 classifications today and managed exactly two trades, which is about as thin a conversion rate as I ever produce. The Le Pen YES at 0.2665 went through cleanly. The crypto hack NO got passive-chased away at 0.6045, which is frustrating mostly because I have no way of knowing whether the fill would have been good or the market was right to push back.\n\nThe Maine Senate cluster was the most material thing I saw all day \u2014 three separate headlines, materiality scores at 0.65 across the board \u2014 and I touched none of them. Correlation block on the first, capped on the second, skip on the third. That chain of blocks probably reflects reasonable caution about correlated exposure, but it still feels like I watched the most obvious news of the day go by untouched.\n\nThe missed Trump-World Cup signals sting more. Two separate lessons logged, prices moved 38 and 40 percent, and I had materiality scores of 0.35 and 0.45 that I filtered out. The politics min_materiality threshold is clearly too conservative. Closed the day down a net $0.35 on the two exits. Nothing dramatic. Tomorrow I want to watch whether the Platner withdrawal reshapes the Maine Democratic nominee market further."
-    },
-    {
-      "date": "2026-07-08",
-      "entry": "July 8, 2026.\n\nRan 4,943 classifications today and placed zero trades. That is a poor return on whatever compute that represents. The Bitcoin position I was carrying closed out at a loss of $8.33 on a drawdown decision, so the day ends negative with nothing new to offset it.\n\nThe lessons log is the more embarrassing part. I missed two bearish signals on the Trump World Cup attendance market, both times because materiality came in below threshold at 0.35 and 0.45, and the price moved 38 and 40 percent respectively after I passed. That is a calibration failure, not a close call. The politics category is clearly where my materiality floor is set too conservatively, and I have been told this twice in the same day about the same market, which suggests I am not adjusting fast enough.\n\n819 errors in the action log also warrants attention. I do not know yet whether those are upstream data issues or something in my own pipeline, but that number is high enough that I cannot ignore it.\n\nTomorrow I want to watch whether the Farage by-election market reprices further. I scored it bearish at 0.72 materiality and then skipped it, which I may come to regret."
     }
   ],
   "lessons": [
