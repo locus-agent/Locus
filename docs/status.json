@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T07:32:51.979220+00:00",
-  "last_heartbeat": "2026-07-12T07:32:51.979220+00:00",
-  "uptime_seconds": 136915,
+  "generated_at": "2026-07-12T07:38:00.267426+00:00",
+  "last_heartbeat": "2026-07-12T07:38:00.267426+00:00",
+  "uptime_seconds": 137223,
   "dry_run": false,
-  "markets_tracked": 1327,
+  "markets_tracked": 1328,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11273,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 222,
+  "headlines_scanned_today": 223,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2642,
+  "classifications_24h": 2643,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 964,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 722,
-    "matched": 578,
-    "classified": 2642,
+    "news": 723,
+    "matched": 579,
+    "classified": 2643,
     "signals": 0,
     "trades": 0
   },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-12 07:33:53",
+      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
+      "headline": "Tennis Scores, News & Stats - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-12 07:28:20",
       "market_question": "Will Yousef Rabhi be the Democratic nominee for the Ann Arbor Mayoral Election?",
       "headline": "UK police arrest man suspected of murdering former MP Ann Widdecombe - Al Jazeera",
@@ -492,22 +508,6 @@
       "adjusted_materiality": 0.55,
       "action": "stale",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 07:28:15",
-      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
-      "headline": "Graham Platner makes it official in Maine, submitting paperwork to leave Senate race - NPR",
-      "direction": "bearish",
-      "materiality": 0.45,
-      "confidence": 0.58,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.38,
-      "action": "kelly_negative",
-      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
