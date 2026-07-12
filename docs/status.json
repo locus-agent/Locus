@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T11:18:58.538170+00:00",
-  "last_heartbeat": "2026-07-12T11:18:58.538170+00:00",
-  "uptime_seconds": 150482,
+  "generated_at": "2026-07-12T11:24:07.885923+00:00",
+  "last_heartbeat": "2026-07-12T11:24:07.885923+00:00",
+  "uptime_seconds": 150791,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1341,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11277,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 308,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 311,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 2602,
+  "classifications_24h": 2615,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 929,
+    "prefiltered_haiku": 934,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 325,
+    "price_target_market": 331,
     "coinflip_market": 0,
     "correlation_block": 3,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 726,
-    "matched": 575,
-    "classified": 2602,
+    "news": 729,
+    "matched": 577,
+    "classified": 2615,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2088.9
+    "avg_classification_latency_ms": 2089.1
   },
   "live_readiness": {
     "ready": false,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0345,
-      "pnl_pct": -0.57,
+      "current_price": 0.034,
+      "pnl_pct": -2.02,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.33,
-      "pnl_usd": -0.0,
+      "current_value_usd": 0.32,
+      "pnl_usd": -0.01,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,9 +432,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 11:18:28",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "The Pollution Being Churned Out by AI Data Centers Is So Severe That It's Almost Incomprehensible - Futurism",
+      "time": "2026-07-12 11:24:06",
+      "market_question": "Will Lindsey Graham be the next Senate Majority Leader?",
+      "headline": "Sen. Lindsey Graham, a close Trump ally, dies after a brief and unexpected illness, his office says - AP News",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.85,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-12 11:24:04",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Sen. Lindsey Graham, a close Trump ally, dies after a brief and unexpected illness, his office says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-12 11:24:01",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Sen. Lindsey Graham, a close Trump ally, dies after a brief and unexpected illness, his office says - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,25 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 11:18:28",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "The Pollution Being Churned Out by AI Data Centers Is So Severe That It's Almost Incomprehensible - Futurism",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 11:18:28",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "The Pollution Being Churned Out by AI Data Centers Is So Severe That It's Almost Incomprehensible - Futurism",
+      "time": "2026-07-12 11:24:00",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Sen. Lindsey Graham, a close Trump ally, dies after a brief and unexpected illness, his office says - AP News",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -480,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 11:18:27",
-      "market_question": "Will Grok AI beat T1 in 2026? ",
-      "headline": "Delta Air Lines announces June quarter 2026 financial results - Delta News Hub",
+      "time": "2026-07-12 11:24:00",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Sen. Lindsey Graham, a close Trump ally, dies after a brief and unexpected illness, his office says - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -494,22 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 11:18:27",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "The Pollution Being Churned Out by AI Data Centers Is So Severe That It's Almost Incomprehensible - Futurism",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
