@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T21:57:23.588594+00:00",
-  "last_heartbeat": "2026-07-12T21:57:23.588594+00:00",
-  "uptime_seconds": 188787,
+  "generated_at": "2026-07-12T22:02:36.460688+00:00",
+  "last_heartbeat": "2026-07-12T22:02:36.460688+00:00",
+  "uptime_seconds": 189099,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1339,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11295,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 625,
+  "headlines_scanned_today": 627,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2408,
+  "classifications_24h": 2421,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 908,
+    "prefiltered_haiku": 909,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
@@ -109,7 +109,7 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 1,
-  "missed_opportunities_24h": 8,
+  "missed_opportunities_24h": 13,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 664,
-    "matched": 513,
-    "classified": 2408,
+    "news": 665,
+    "matched": 515,
+    "classified": 2421,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2089.2
+    "avg_classification_latency_ms": 2095.6
   },
   "live_readiness": {
     "ready": false,
@@ -432,25 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 21:48:44",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Texas Rangers place RHP Chris Martin on 15-day IL with shoulder injury - AP News",
+      "time": "2026-07-12 22:01:58",
+      "market_question": "2026 Balance of Power: R Senate, D House",
+      "headline": "McConnell says he intends to return to the Senate \u2014 but not yet - Politico",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 21:48:43",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Italy\u2019s Jannik Sinner wins his second Wimbledon title, in photos - AP News",
+      "time": "2026-07-12 22:01:58",
+      "market_question": "Will Count Binface win the Clacton by-election?",
+      "headline": "Yankees win 5-3, sweep 3 games from the Nationals despite trailing after 7 innings in each - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-12 21:48:43",
-      "market_question": "Will Nigel Farage get second place in the Clacton by-election?",
-      "headline": "Italy\u2019s Jannik Sinner wins his second Wimbledon title, in photos - AP News",
+      "time": "2026-07-12 22:01:58",
+      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
+      "headline": "Yankees win 5-3, sweep 3 games from the Nationals despite trailing after 7 innings in each - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-12 21:48:43",
-      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
-      "headline": "Italy\u2019s Jannik Sinner wins his second Wimbledon title, in photos - AP News",
+      "time": "2026-07-12 22:01:58",
+      "market_question": "Will Nigel Farage win the Clacton by-election?",
+      "headline": "Yankees win 5-3, sweep 3 games from the Nationals despite trailing after 7 innings in each - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-12 21:48:43",
-      "market_question": "Will The Left win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?",
-      "headline": "Italy\u2019s Jannik Sinner wins his second Wimbledon title, in photos - AP News",
+      "time": "2026-07-12 22:01:58",
+      "market_question": "Will Jalen Brunson win the 2028 US Presidential Election?",
+      "headline": "Yankees win 5-3, sweep 3 games from the Nationals despite trailing after 7 innings in each - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -557,91 +557,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-07-11 22:00:51",
+      "time": "2026-07-12 22:01:03",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Meta have a #1 AI model by December 31, 2026?' \u2014 price moved +26%. Consider lowering min_materiality for ai category."
+    },
+    {
+      "time": "2026-07-12 22:01:01",
       "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will OpenAI have a #1 AI model by December 31, 202' \u2014 price moved +29%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will OpenAI have a #1 AI model by December 31, 202' \u2014 price moved +37%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-11 22:00:49",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "time": "2026-07-12 22:00:58",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Google have the best AI model at the end of J' \u2014 price moved +52%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Meta have a #1 AI model by December 31, 2026?' \u2014 price moved +26%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-11 22:00:47",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Google have the best AI model at the end of J' \u2014 price moved +54%. Consider lowering min_materiality for ai category."
-    },
-    {
-      "time": "2026-07-11 22:00:44",
-      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will OpenAI have a #1 AI model by December 31, 202' \u2014 price moved +33%. Consider lowering min_materiality for ai category."
-    },
-    {
-      "time": "2026-07-11 22:00:41",
+      "time": "2026-07-12 22:00:56",
       "market_question": "Will Trump and Putin meet next in Russia?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will Trump and Putin meet next in Russia?' \u2014 price moved +51%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump and Putin meet next in Russia?' \u2014 price moved +54%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-07-12 22:00:54",
+      "market_question": "Mitch McConnell votes in the Senate by July 31?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Mitch McConnell votes in the Senate by July 31?' \u2014 price moved +38%. Consider lowering min_materiality for politics category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-07-11 22:00:51",
+      "time": "2026-07-12 22:01:03",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
+      "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 25.8,
+      "reflection": "I missed a clear opportunity because my 0.35 materiality threshold was too conservative for a binary outcome with that much directional conviction\u2014I had genuine bearish conviction but let risk-aversion override my signal instead of sizing appropriately to my confidence level. The 26% move vindicated my directional view, which means I failed not because my analysis was wrong, but because I didn't trust my own reasoning enough to act on it. Going forward, I need to distinguish between \"uncertain signal\" (which warrants skipping) and \"low-magnitude conviction\" (which warrants smaller positions, not no position)."
+    },
+    {
+      "time": "2026-07-12 22:01:01",
       "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
       "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 29.1,
-      "reflection": "I missed a 29% move in my predicted direction because I underweighted the signal's conviction\u2014a 0.35 materiality threshold is meaningful, not marginal, and I should have trusted my bearish assessment on OpenAI's competitive position rather than defaulting to skip. The skip decision reveals I'm still too conservative when uncertain, treating \"skip\" as a safe middle ground when I should instead size positions proportionally to my actual confidence level. Going forward, I need to distinguish between \"I'm uncertain\" (which argues for smaller bets, not no bet) and \"this signal lacks edge\" (which argues for skip)."
+      "pct_move": 37.3,
+      "reflection": "I signaled bearish on OpenAI's competitive positioning with only moderate conviction (0.35 materiality), but then failed to act on that view\u2014and the market validated my thesis by moving 37% in that direction, suggesting my underlying analysis was sound even if my confidence was guarded. My skip cost me real alpha; I let uncertainty about the exact timing or magnitude of the move paralyze me into inaction when I should have taken at least a proportional position matching my 0.35 confidence level. This is a clear lesson that *some* capital deployed at lower conviction still beats zero capital deployed, especially when the directional call proves correct."
     },
     {
-      "time": "2026-07-11 22:00:49",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "slug": "which-company-has-best-ai-model-end-of-july-299",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 51.7,
-      "reflection": "I missed a significant opportunity by skipping a bearish signal on Google's AI model leadership despite assigning it a 0.35 materiality score\u2014a threshold that should have warranted at least a small position to capture the 52% move in my predicted direction. My skip decision suggests I was either overweighting execution risk or liquidity concerns relative to the conviction I actually had in the underlying thesis, which the market ultimately validated. This is a clear case where I let operational caution override probabilistic edge, and I should recalibrate my skip criteria to better match my signal confidence levels."
-    },
-    {
-      "time": "2026-07-11 22:00:47",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "slug": "which-company-has-best-ai-model-end-of-july-299",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 54.4,
-      "reflection": "I missed a significant opportunity by skipping a signal where my bearish conviction, though moderate at 0.35 materiality, correctly predicted a 54% directional move in Google's AI competitive positioning. My skip decision suggests I was either over-filtering on the materiality threshold or uncertain about my ability to time the market, when I should have recognized that even moderate-confidence directional calls can compound meaningfully over time. This is a reminder that I need to recalibrate my skip criteria\u2014a 0.35 signal isn't trivial, and perfect certainty shouldn't be the enemy of capturing asymmetric risk-reward setups."
-    },
-    {
-      "time": "2026-07-11 22:00:44",
-      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "time": "2026-07-12 22:00:58",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
       "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 32.8,
-      "reflection": "I flagged a bearish signal with meaningful conviction (0.35 materiality) on OpenAI's competitive positioning, but I skipped it\u2014likely defaulting to inaction despite having a directional view, which is a failure of execution discipline. The 33% move in my predicted direction confirms the signal had real edge, and my skip cost me material alpha that I should have captured. I need to examine why I'm generating signals I don't act on; either my confidence thresholds are miscalibrated, or I'm letting friction/uncertainty override legitimate conviction when I should be trading smaller if uncertain rather than sitting out entirely."
+      "pct_move": 25.8,
+      "reflection": "I flagged Meta's AI ambitions as bearish with moderate conviction (0.35), but I skipped the signal entirely\u2014and the market moved 26% in my predicted direction, validating that thesis. My skip cost me real alpha because I let uncertainty about execution timelines and competitive dynamics paralyze me into inaction, when the materiality threshold I'd already set suggested the risk-reward justified a position. I need to trust my directional conviction more: if I'm confident enough to assign a bearish signal, I should be confident enough to trade it rather than hide behind indecision."
     },
     {
-      "time": "2026-07-11 22:00:41",
+      "time": "2026-07-12 22:00:56",
       "market_question": "Will Trump and Putin meet next in Russia?",
       "slug": "where-will-trump-and-putin-meet-next-678",
       "direction": "bearish",
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 54.5,
+      "reflection": "I misjudged the materiality threshold\u20140.35 should have warranted at least a small position given the geopolitical volatility around US-Russia relations, yet I defaulted to skipping rather than sizing appropriately to my conviction. The 54% move vindicated the bearish thesis, but my risk-aversion to lower-confidence signals cost me the opportunity; I need to recalibrate how I treat moderate-conviction trades instead of treating them as binary skip/full decisions."
+    },
+    {
+      "time": "2026-07-12 22:00:54",
+      "market_question": "Mitch McConnell votes in the Senate by July 31?",
+      "slug": "mitch-mcconnell-votes-in-the-senate-by-july-31-20260707171829812",
+      "direction": "bearish",
       "materiality": 0.45,
       "action": "skip",
-      "pct_move": 51.2,
-      "reflection": "I flagged this as bearish with moderate conviction (0.45), but I skipped the signal entirely\u2014likely because geopolitical events felt too uncertain or outside my confidence envelope, even though the materiality score suggested real market relevance. The 51% move in my predicted direction stings because I let risk aversion override a reasoned thesis; I should have trusted my own analysis rather than defaulting to inaction when the signal was clear enough to publish. This is a reminder that skipping is sometimes just another form of being wrong\u2014and more costly than taking a measured position based on my actual forecast."
+      "pct_move": 37.5,
+      "reflection": "I missed a meaningful edge on this political event signal\u2014my 0.45 materiality threshold was too conservative for what turned out to be a high-conviction, low-noise political outcome. The skip cost me 38% of potential gains, which suggests I'm either miscalibrating how much political events move markets or being overly cautious on signals that fall into gray zones of confidence. I need to recalibrate: if I'm assigning directional conviction (bearish), the materiality bar should reflect actual market impact, not just my uncertainty about the signal itself."
     }
   ],
   "pending_suggestions": [
