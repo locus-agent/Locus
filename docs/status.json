@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T22:23:12.810417+00:00",
-  "last_heartbeat": "2026-07-12T22:23:12.810417+00:00",
-  "uptime_seconds": 190336,
+  "generated_at": "2026-07-12T22:28:22.055394+00:00",
+  "last_heartbeat": "2026-07-12T22:28:22.055394+00:00",
+  "uptime_seconds": 190645,
   "dry_run": false,
-  "markets_tracked": 1342,
+  "markets_tracked": 1344,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11295,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 631,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 635,
+  "headlines_last_cycle": 3,
   "signals_24h": 0,
-  "classifications_24h": 2417,
+  "classifications_24h": 2440,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 917,
+    "prefiltered_haiku": 927,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 331,
+    "price_target_market": 336,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 665,
-    "matched": 514,
-    "classified": 2417,
+    "news": 669,
+    "matched": 518,
+    "classified": 2440,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2094.3
+    "avg_classification_latency_ms": 2093.2
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2795,
+      "current_price": 0.2795000000000001,
       "pnl_pct": 5.08,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.56,
@@ -432,25 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 22:04:12",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
+      "time": "2026-07-12 22:28:08",
+      "market_question": "Will Grok AI beat T1 in 2026? ",
+      "headline": "Realmuto's 3-run double and Wheeler's strong pitching help Phillies beat Tigers 5-0 to win series - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 22:04:06",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
+      "time": "2026-07-12 22:28:07",
+      "market_question": "Will StandX launch a token by June 30, 2027?",
+      "headline": "(SDRCX.O) | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 22:04:06",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
+      "time": "2026-07-12 22:28:07",
+      "market_question": "Will StandX launch a token by December 31, 2026?",
+      "headline": "(SDRCX.O) | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -475,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 22:04:05",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
+      "time": "2026-07-12 22:28:07",
+      "market_question": "Will Polymarket mindshare hit 75% by December 31?",
+      "headline": "(SDRCX.O) | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -491,25 +491,25 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 22:04:05",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-12 22:28:07",
+      "market_question": "Will Count Binface win the Clacton by-election?",
+      "headline": "Realmuto's 3-run double and Wheeler's strong pitching help Phillies beat Tigers 5-0 to win series - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
