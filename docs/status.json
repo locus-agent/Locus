@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T20:04:05.922058+00:00",
-  "last_heartbeat": "2026-07-12T20:04:05.922058+00:00",
-  "uptime_seconds": 181989,
+  "generated_at": "2026-07-12T20:09:14.226760+00:00",
+  "last_heartbeat": "2026-07-12T20:09:14.226760+00:00",
+  "uptime_seconds": 182297,
   "dry_run": false,
-  "markets_tracked": 1333,
+  "markets_tracked": 1331,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11284,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 575,
+  "headlines_scanned_today": 578,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2633,
+  "classifications_24h": 2643,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 984,
+    "prefiltered_haiku": 991,
     "cooldown_skip": 0,
     "stale": 8,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 714,
-    "matched": 561,
-    "classified": 2633,
+    "news": 717,
+    "matched": 563,
+    "classified": 2643,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2094.6
+    "avg_classification_latency_ms": 2094.0
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 19:56:54",
-      "market_question": "Will xAI have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 12, 2026",
+      "time": "2026-07-12 20:05:47",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "New York Democrats confront brutal redistricting referendum math - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-12 20:05:46",
+      "market_question": "Will the Democrats win the New Jersey Senate race in 2026?",
+      "headline": "New York Democrats confront brutal redistricting referendum math - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 19:56:54",
-      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 12, 2026",
+      "time": "2026-07-12 20:05:46",
+      "market_question": "Will the Democrats win the New Mexico Senate race in 2026?",
+      "headline": "New York Democrats confront brutal redistricting referendum math - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,52 +480,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 19:56:54",
-      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
-      "headline": "[No Title] - Post from July 12, 2026",
+      "time": "2026-07-12 20:05:45",
+      "market_question": "Will Donald Trump visit South Carolina in 2026?",
+      "headline": "RT @realDonaldTrumpIn honor of the remarkable life and achievements of Senator Lindsey Graham, a dear friend of mine, and a truly great man, who achieved so much for our Country, and his beloved Home State of South Carolina, I am ordering all American Flags throughout the United States lowered to Half Mast until Saturday evening at 6 P.M. GOD BLESS YOU LINDSEY! President DONALD J. TRUMP",
       "direction": "neutral",
-      "materiality": 0.0,
+      "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 19:56:54",
-      "market_question": "Bitcoin BIP-360 implemented in 2026?",
-      "headline": "[No Title] - Post from July 12, 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-12 20:05:45",
+      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
+      "headline": "New York Democrats confront brutal redistricting referendum math - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 19:56:54",
-      "market_question": "Will Betmoar launch a token by March 31, 2027?",
-      "headline": "[No Title] - Post from July 12, 2026",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
