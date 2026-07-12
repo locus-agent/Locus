@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T07:07:11.535391+00:00",
-  "last_heartbeat": "2026-07-12T07:07:11.535391+00:00",
-  "uptime_seconds": 135375,
+  "generated_at": "2026-07-12T07:12:19.103587+00:00",
+  "last_heartbeat": "2026-07-12T07:12:19.103587+00:00",
+  "uptime_seconds": 135682,
   "dry_run": false,
-  "markets_tracked": 1320,
+  "markets_tracked": 1321,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11273,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 206,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 208,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 2584,
+  "classifications_24h": 2587,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 932,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 712,
-    "matched": 566,
-    "classified": 2584,
+    "news": 714,
+    "matched": 567,
+    "classified": 2587,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2089.4
+    "avg_classification_latency_ms": 2090.5
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.034499999999999975,
+      "current_price": 0.0345,
       "pnl_pct": -0.57,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.33,
@@ -432,6 +432,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-12 07:12:06",
+      "market_question": "Will Lindsey Graham be the next Senate Majority Leader?",
+      "headline": "Lindsey Graham dies at 71 after \u2018brief and sudden illness,\u2019 his office says - Politico",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.95,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.05,
+      "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-12 07:12:00",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Lindsey Graham dies at 71 after \u2018brief and sudden illness,\u2019 his office says - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-12 07:12:00",
+      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
+      "headline": "Lindsey Graham dies at 71 after \u2018brief and sudden illness,\u2019 his office says - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-12 07:03:25",
       "market_question": "Will Pacifica launch a token by December 31 2026?",
       "headline": "Asia Pacific - AP News",
@@ -460,54 +508,6 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 07:03:24",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Senegal fire coach Thiaw after disappointing World Cup - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 07:03:24",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Senegal fire coach Thiaw after disappointing World Cup - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 07:03:23",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Senegal fire coach Thiaw after disappointing World Cup - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
