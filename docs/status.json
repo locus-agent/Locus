@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T12:00:04.440823+00:00",
-  "last_heartbeat": "2026-07-12T12:00:04.440823+00:00",
-  "uptime_seconds": 152947,
+  "generated_at": "2026-07-12T12:05:13.219104+00:00",
+  "last_heartbeat": "2026-07-12T12:05:13.219104+00:00",
+  "uptime_seconds": 153256,
   "dry_run": false,
-  "markets_tracked": 1329,
+  "markets_tracked": 1325,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11277,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 319,
+  "headlines_scanned_today": 320,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2540,
+  "classifications_24h": 2532,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 918,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 320,
+    "price_target_market": 315,
     "coinflip_market": 0,
     "correlation_block": 3,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-12T11:47:42.376225+00:00"
+    "last_check": "2026-07-12T12:02:42.839818+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 712,
-    "matched": 561,
-    "classified": 2540,
+    "news": 709,
+    "matched": 559,
+    "classified": 2532,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2088.9
+    "avg_classification_latency_ms": 2090.2
   },
   "live_readiness": {
     "ready": false,
@@ -432,84 +432,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 11:48:09",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "SoFi Stadium's World Cup run boosts confidence ahead of Super Bowl, LA Olympics - Reuters",
+      "time": "2026-07-12 12:03:32",
+      "market_question": "Will Microsoft have the best AI model at the end of July 2026?",
+      "headline": "The fight against AI data centers is just beginning",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 11:48:09",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "SoFi Stadium's World Cup run boosts confidence ahead of Super Bowl, LA Olympics - Reuters",
+      "time": "2026-07-12 12:03:30",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "The fight against AI data centers is just beginning",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 11:48:09",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "SoFi Stadium's World Cup run boosts confidence ahead of Super Bowl, LA Olympics - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-12 12:03:26",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) gain the most seats in the next Russian parliamentary election?",
+      "headline": "The fight against AI data centers is just beginning",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-12 11:48:09",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "SoFi Stadium's World Cup run boosts confidence ahead of Super Bowl, LA Olympics - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-12 12:03:26",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the most seats in the next Russian parliamentary election?",
+      "headline": "The fight against AI data centers is just beginning",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-12 11:48:09",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "SoFi Stadium's World Cup run boosts confidence ahead of Super Bowl, LA Olympics - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-12 12:03:26",
+      "market_question": "Will A Just Russia \u2013 For Truth (SRZP) win the second-most seats in the next Russian parliamentary election?",
+      "headline": "The fight against AI data centers is just beginning",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
