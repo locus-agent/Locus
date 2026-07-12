@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T03:52:05.168296+00:00",
-  "last_heartbeat": "2026-07-12T03:52:05.168296+00:00",
-  "uptime_seconds": 123668,
+  "generated_at": "2026-07-12T03:57:12.863763+00:00",
+  "last_heartbeat": "2026-07-12T03:57:12.863763+00:00",
+  "uptime_seconds": 123976,
   "dry_run": false,
-  "markets_tracked": 1323,
+  "markets_tracked": 1328,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11258,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 124,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 125,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 2520,
+  "classifications_24h": 2518,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 928,
+    "prefiltered_haiku": 929,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 1,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 686,
     "matched": 549,
-    "classified": 2520,
+    "classified": 2518,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2098.5
+    "avg_classification_latency_ms": 2097.3
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.705,
+      "current_price": 0.7050000000000001,
       "pnl_pct": 3.68,
       "amount_usd": 24.99,
       "current_value_usd": 25.91,
@@ -432,6 +432,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-12 03:57:07",
+      "market_question": "Will Theo launch a token by December 31 2026?",
+      "headline": "WILL WEISSERT - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-12 03:57:06",
+      "market_question": "Will Theo launch a token by September 30 2026?",
+      "headline": "WILL WEISSERT - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-12 03:57:06",
+      "market_question": "Will the announcers say \"Trump\" during the Norway vs England FIFA World Cup Match?",
+      "headline": "WILL WEISSERT - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-12 03:48:24",
       "market_question": "OpenAI announces it has achieved AGI before 2027?",
       "headline": "Artificial Intelligence is Reshaping the US Financial Market; EX DeFi Launches AI-Driven Trading Technology - Yahoo Finance Singapore",
@@ -460,54 +508,6 @@
       "adjusted_materiality": 0.020000000000000004,
       "action": "prefiltered_haiku",
       "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 03:48:20",
-      "market_question": "Will a Chinese company have the best AI model by December 31?",
-      "headline": "Artificial Intelligence is Reshaping the US Financial Market; EX DeFi Launches AI-Driven Trading Technology - Yahoo Finance Singapore",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 03:41:51",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "US attacks Iran over ship being hit in Strait of Hormuz; Tehran lashes out again at Gulf Arab states - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 03:41:51",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "US attacks Iran over ship being hit in Strait of Hormuz; Tehran lashes out again at Gulf Arab states - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
