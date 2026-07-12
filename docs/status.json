@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T12:41:16.237891+00:00",
-  "last_heartbeat": "2026-07-12T12:41:16.237891+00:00",
-  "uptime_seconds": 155419,
+  "generated_at": "2026-07-12T12:46:26.091141+00:00",
+  "last_heartbeat": "2026-07-12T12:46:26.091141+00:00",
+  "uptime_seconds": 155729,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1336,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11277,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 343,
+  "headlines_scanned_today": 345,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2574,
+  "classifications_24h": 2583,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 942,
+    "prefiltered_haiku": 948,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 719,
-    "matched": 568,
-    "classified": 2574,
+    "news": 720,
+    "matched": 569,
+    "classified": 2583,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2091.6
+    "avg_classification_latency_ms": 2093.9
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 12:40:39",
-      "market_question": "Will the Republicans win the West Virginia Senate race in 2026?",
-      "headline": "Murder arrest as woman stabbed in west London",
+      "time": "2026-07-12 12:45:05",
+      "market_question": "Will GTE launch a token by December 31, 2027?",
+      "headline": "(GTERR.O) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-12 12:45:02",
+      "market_question": "Will the price of Bitcoin be above $62,000 on July 12?",
+      "headline": "(GTERR.O) | Stock Price & Latest News - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -442,15 +458,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-12 12:40:39",
-      "market_question": "Will the Democrats win the West Virginia Senate race in 2026?",
-      "headline": "Murder arrest as woman stabbed in west London",
+      "time": "2026-07-12 12:45:02",
+      "market_question": "Will the price of Bitcoin be above $60,000 on July 12?",
+      "headline": "(GTERR.O) | Stock Price & Latest News - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-12 12:40:39",
-      "market_question": "Will Marlon Scott West win the 2026 Greater Manchester Mayoral Election?",
-      "headline": "Murder arrest as woman stabbed in west London",
+      "time": "2026-07-12 12:45:02",
+      "market_question": "Will the price of Bitcoin be above $68,000 on July 12?",
+      "headline": "(GTERR.O) | Stock Price & Latest News - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-12 12:31:54",
-      "market_question": "Ukraine election held by December 31, 2026?",
-      "headline": "Germany funds 50,000 strike drones for Ukraine, source says - Reuters",
+      "time": "2026-07-12 12:45:02",
+      "market_question": "Will the price of Bitcoin be above $66,000 on July 12?",
+      "headline": "(GTERR.O) | Stock Price & Latest News - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,23 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-12 12:31:54",
-      "market_question": "Ukraine election called by August 31, 2026?",
-      "headline": "Germany funds 50,000 strike drones for Ukraine, source says - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
