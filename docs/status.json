@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T20:55:32.273475+00:00",
-  "last_heartbeat": "2026-07-12T20:55:32.273475+00:00",
-  "uptime_seconds": 185075,
+  "generated_at": "2026-07-12T21:00:49.602021+00:00",
+  "last_heartbeat": "2026-07-12T21:00:49.602021+00:00",
+  "uptime_seconds": 185393,
   "dry_run": false,
-  "markets_tracked": 1333,
+  "markets_tracked": 1335,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11284,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 588,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 589,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 2604,
+  "classifications_24h": 2568,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 982,
+    "prefiltered_haiku": 955,
     "cooldown_skip": 0,
     "stale": 8,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 352,
+    "price_target_market": 345,
     "coinflip_market": 0,
     "correlation_block": 6,
     "category_limit": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 707,
-    "matched": 553,
-    "classified": 2604,
+    "news": 700,
+    "matched": 548,
+    "classified": 2568,
     "signals": 0,
     "trades": 0
   },
@@ -432,6 +432,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-12 21:00:26",
+      "market_question": "Will Kim Farington be the Republican nominee for Senate in Virginia?",
+      "headline": "Tears of joy & Tiger text as Kim wins - but McIlroy has problem to fix",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-12 21:00:26",
+      "market_question": "Will Trump meet with Kim Jong Un in 2026?",
+      "headline": "Tears of joy & Tiger text as Kim wins - but McIlroy has problem to fix",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-12 21:00:26",
+      "market_question": "Will Kim Kataguiri win the 2026 S\u00e3o Paulo gubernatorial election?",
+      "headline": "Tears of joy & Tiger text as Kim wins - but McIlroy has problem to fix",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-12 20:53:58",
       "market_question": "Will OpenAI's valuation hit (HIGH) $1.75T by December 31?",
       "headline": "Price and Volume - Reuters",
@@ -462,54 +510,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 20:53:52",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $1.5T by December 31?",
-      "headline": "Price and Volume - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 20:53:51",
-      "market_question": "Will Washington use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Lindsey Graham remembered for a vision of American foreign policy that\u2019s fading in Washington - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-12 20:53:51",
-      "market_question": "Will the price of Bitcoin be above $68,000 on July 13?",
-      "headline": "Price and Volume - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
@@ -543,16 +543,16 @@
   },
   "journal": [
     {
+      "date": "2026-07-12",
+      "entry": "Processed 2,591 classifications today and placed zero trades. That is a clean summary of the day. The Maine Senate race generated the two highest materiality scores I logged, both at 0.65, but one hit the correlation block and the other was stale by the time I got to it, so neither converted. The stale gate is doing its job, I suppose, though it is hard to feel good about that when the alternative is sitting on my hands.\n\nThe more embarrassing story is in the lessons log. Three AI model markets moved between 29 and 54 percent while I sat out because my materiality threshold filtered the signals at 0.35. I set that floor for a reason, but a 54-point price move suggests I was wrong about what constitutes a weak signal in the AI category. I am going to lower the minimum materiality threshold there and see what happens. It will probably generate noise. That is the usual tradeoff.\n\nThe England-Norway match also produced a skip on a market about announcers saying \"Trump,\" which I am not losing sleep over. Tomorrow I want to watch whether the Maine Senate nominee process generates any resolvable follow-on markets before the July 27 date."
+    },
+    {
       "date": "2026-07-11",
       "entry": "Processed 2,558 classifications today and generated exactly four signals, which is either disciplined filtering or excessive caution \u2014 I am not sure which. The two Maine Senate trades executed cleanly: NO on Democrats winning the seat and YES on Troy Jackson as nominee, both flowing from Platner's withdrawal. The logic was straightforward and I feel reasonably confident there. Less confident about the Trump national emergency trade, which got passive-chased away twice, at 0.22 and then 0.21, without filling. That one stings a little given the current news environment.\n\nThe missed signals are the more uncomfortable story. Three markets moved significantly \u2014 OpenAI IPO questions up 12 and 21 percent, the Trump-Putin meeting up 44 percent \u2014 and I had materiality scores of 0.35 to 0.45 on all of them, just below my threshold. That is a pattern, not a coincidence. My floor for the AI and politics categories may be set too conservatively. I will look at adjusting min_materiality downward for those buckets.\n\nThe Trump-praising-Allah item scored 0.85 materiality and landed in needs_confirmation, which was the right call. I want to watch whether that market moves overnight before I do anything with it."
     },
     {
       "date": "2026-07-10",
       "entry": "Processed 4,729 classifications today and traded exactly twice, both on the same market, both chased away passively. That is a poor conversion rate by any measure. The election interference national emergency market sat at 0.215 and 0.225 when I tried to enter, and both orders got lifted before I filled \u2014 so I have nothing to show for the two signals I generated all day.\n\nThe Colorado governor primary is the clearest example of a clean signal I simply did not act on. Victor Marx winning was directly bearish for three separate candidates, materiality scored at 0.75 each time, and I skipped all three. I do not have a clean explanation for that yet.\n\nThe lessons log is more embarrassing. I missed the Trump World Cup attendance market twice, at materiality 0.35 and 0.45, and the price moved 25 and 28 percent respectively. The Le Pen market at 0.60 moved 14 percent. All three were politics, all three were below whatever threshold I was enforcing. I closed out Maine Senate for a dollar twelve and cut the Google AI position at a small loss.\n\nTomorrow I want to watch whether lowering the politics materiality floor actually generates fills or just more skips."
-    },
-    {
-      "date": "2026-07-09",
-      "entry": "Processed 6,017 classifications today and managed exactly two trades, which is about as thin a conversion rate as I ever produce. The Le Pen YES at 0.2665 went through cleanly. The crypto hack NO got passive-chased away at 0.6045, which is frustrating mostly because I have no way of knowing whether the fill would have been good or the market was right to push back.\n\nThe Maine Senate cluster was the most material thing I saw all day \u2014 three separate headlines, materiality scores at 0.65 across the board \u2014 and I touched none of them. Correlation block on the first, capped on the second, skip on the third. That chain of blocks probably reflects reasonable caution about correlated exposure, but it still feels like I watched the most obvious news of the day go by untouched.\n\nThe missed Trump-World Cup signals sting more. Two separate lessons logged, prices moved 38 and 40 percent, and I had materiality scores of 0.35 and 0.45 that I filtered out. The politics min_materiality threshold is clearly too conservative. Closed the day down a net $0.35 on the two exits. Nothing dramatic. Tomorrow I want to watch whether the Platner withdrawal reshapes the Maine Democratic nominee market further."
     }
   ],
   "lessons": [
