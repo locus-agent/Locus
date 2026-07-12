@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T22:02:36.460688+00:00",
-  "last_heartbeat": "2026-07-12T22:02:36.460688+00:00",
-  "uptime_seconds": 189099,
+  "generated_at": "2026-07-12T22:07:46.556650+00:00",
+  "last_heartbeat": "2026-07-12T22:07:46.556650+00:00",
+  "uptime_seconds": 189410,
   "dry_run": false,
-  "markets_tracked": 1339,
+  "markets_tracked": 1342,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11295,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 627,
+  "headlines_scanned_today": 631,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2421,
+  "classifications_24h": 2432,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 909,
+    "prefiltered_haiku": 918,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-12T21:47:58.916224+00:00"
+    "last_check": "2026-07-12T22:02:59.328408+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 665,
-    "matched": 515,
-    "classified": 2421,
+    "news": 668,
+    "matched": 517,
+    "classified": 2432,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2095.6
+    "avg_classification_latency_ms": 2094.3
   },
   "live_readiness": {
     "ready": false,
@@ -432,11 +432,11 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 22:01:58",
-      "market_question": "2026 Balance of Power: R Senate, D House",
-      "headline": "McConnell says he intends to return to the Senate \u2014 but not yet - Politico",
+      "time": "2026-07-12 22:04:12",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
@@ -448,68 +448,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 22:01:58",
-      "market_question": "Will Count Binface win the Clacton by-election?",
-      "headline": "Yankees win 5-3, sweep 3 games from the Nationals despite trailing after 7 innings in each - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-12 22:04:06",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-12 22:01:58",
-      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
-      "headline": "Yankees win 5-3, sweep 3 games from the Nationals despite trailing after 7 innings in each - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-12 22:04:06",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-12 22:01:58",
-      "market_question": "Will Nigel Farage win the Clacton by-election?",
-      "headline": "Yankees win 5-3, sweep 3 games from the Nationals despite trailing after 7 innings in each - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-12 22:04:05",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-12 22:01:58",
-      "market_question": "Will Jalen Brunson win the 2028 US Presidential Election?",
-      "headline": "Yankees win 5-3, sweep 3 games from the Nationals despite trailing after 7 innings in each - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-12 22:04:05",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "World Cup semifinals: Four previous champions, a bitter rivalry, Mbapp\u00e9 vs Yamal and Messi vs Kane - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
