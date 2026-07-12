@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T00:31:51.947267+00:00",
-  "last_heartbeat": "2026-07-12T00:31:51.947267+00:00",
-  "uptime_seconds": 111655,
+  "generated_at": "2026-07-12T00:36:59.840076+00:00",
+  "last_heartbeat": "2026-07-12T00:36:59.840076+00:00",
+  "uptime_seconds": 111963,
   "dry_run": false,
-  "markets_tracked": 1317,
+  "markets_tracked": 1319,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11237,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 11,
+  "headlines_scanned_today": 13,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 2341,
+  "classifications_24h": 2338,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 854,
+    "prefiltered_haiku": 855,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-12T00:17:23.275074+00:00"
+    "last_check": "2026-07-12T00:32:23.690828+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 641,
+    "news": 642,
     "matched": 507,
-    "classified": 2341,
+    "classified": 2338,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2089.6
+    "avg_classification_latency_ms": 2088.9
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2755,
+      "current_price": 0.2755000000000001,
       "pnl_pct": 3.57,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
@@ -432,6 +432,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-12 00:35:31",
+      "market_question": "Will the announcers say \"Trump\" during the Norway vs England FIFA World Cup Match?",
+      "headline": "Watch fans react to every goal of England v Norway",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-12 00:35:31",
+      "market_question": "Will OpenAI announce a watch in 2026?",
+      "headline": "Watch fans react to every goal of England v Norway",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-12 00:31:06",
       "market_question": "Will Trump flip the bird again in 2026?",
       "headline": "Who else? How Bellingham became indispensable again",
@@ -478,38 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-12 00:28:57",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "From Algerian fervour to Oranje march, World Cup transforms Kansas City - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 00:28:56",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "From Algerian fervour to Oranje march, World Cup transforms Kansas City - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
