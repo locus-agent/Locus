@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-12T16:58:40.519842+00:00",
-  "last_heartbeat": "2026-07-12T16:58:40.519842+00:00",
-  "uptime_seconds": 170864,
+  "generated_at": "2026-07-12T17:03:48.877443+00:00",
+  "last_heartbeat": "2026-07-12T17:03:48.877443+00:00",
+  "uptime_seconds": 171172,
   "dry_run": false,
   "markets_tracked": 1326,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 459,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 462,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 2594,
+  "classifications_24h": 2606,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 939,
+    "prefiltered_haiku": 945,
     "cooldown_skip": 0,
     "stale": 8,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-12T16:47:50.603400+00:00"
+    "last_check": "2026-07-12T17:02:51.042432+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 715,
-    "matched": 562,
-    "classified": 2594,
+    "news": 718,
+    "matched": 565,
+    "classified": 2606,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2098.4
+    "avg_classification_latency_ms": 2097.2
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2775,
+      "current_price": 0.2775000000000001,
       "pnl_pct": 4.32,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.55,
@@ -432,25 +432,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 16:57:01",
-      "market_question": "Will Donald Trump visit South Carolina in 2026?",
-      "headline": "In honor of the remarkable life and achievements of Senator Lindsey Graham, a dear friend of mine, and a truly great man, who achieved so much for our Country, and his beloved Home State of South Carolina, I am ordering all American Flags throughout the United States lowered to Half Mast until Saturday evening at 6 P.M. GOD BLESS YOU LINDSEY! President DONALD J. TRUMP",
+      "time": "2026-07-12 17:03:30",
+      "market_question": "Will Trump speak to Emmanuel Macron in July?",
+      "headline": "Macron warns of resurgent demons of antisemitism as France honors Alfred Dreyfus - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-12 16:59:11",
+      "market_question": "Will Trump cut corporate taxes before 2027?",
+      "headline": "Does Andy Burnham Have A New Plan For Tax?",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 16:56:56",
-      "market_question": "Will Donald Trump visit South Korea in 2026?",
-      "headline": "In honor of the remarkable life and achievements of Senator Lindsey Graham, a dear friend of mine, and a truly great man, who achieved so much for our Country, and his beloved Home State of South Carolina, I am ordering all American Flags throughout the United States lowered to Half Mast until Saturday evening at 6 P.M. GOD BLESS YOU LINDSEY! President DONALD J. TRUMP",
+      "time": "2026-07-12 16:59:10",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Argentina cool rivalry talk ahead of England World Cup semi-final - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,52 +480,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 16:56:56",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "In honor of the remarkable life and achievements of Senator Lindsey Graham, a dear friend of mine, and a truly great man, who achieved so much for our Country, and his beloved Home State of South Carolina, I am ordering all American Flags throughout the United States lowered to Half Mast until Saturday evening at 6 P.M. GOD BLESS YOU LINDSEY! President DONALD J. TRUMP",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-12 16:59:10",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Does Andy Burnham Have A New Plan For Tax?",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-12 16:56:56",
-      "market_question": "Will Trump and Putin meet next in United States?",
-      "headline": "In honor of the remarkable life and achievements of Senator Lindsey Graham, a dear friend of mine, and a truly great man, who achieved so much for our Country, and his beloved Home State of South Carolina, I am ordering all American Flags throughout the United States lowered to Half Mast until Saturday evening at 6 P.M. GOD BLESS YOU LINDSEY! President DONALD J. TRUMP",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-12 16:59:10",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "headline": "Does Andy Burnham Have A New Plan For Tax?",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 16:56:56",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "In honor of the remarkable life and achievements of Senator Lindsey Graham, a dear friend of mine, and a truly great man, who achieved so much for our Country, and his beloved Home State of South Carolina, I am ordering all American Flags throughout the United States lowered to Half Mast until Saturday evening at 6 P.M. GOD BLESS YOU LINDSEY! President DONALD J. TRUMP",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
