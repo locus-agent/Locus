@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T21:58:50.395727+00:00",
-  "last_heartbeat": "2026-07-13T21:58:50.395727+00:00",
-  "uptime_seconds": 275273,
+  "generated_at": "2026-07-13T22:04:18.064721+00:00",
+  "last_heartbeat": "2026-07-13T22:04:18.064721+00:00",
+  "uptime_seconds": 275601,
   "dry_run": false,
-  "markets_tracked": 1327,
+  "markets_tracked": 1323,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11357,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 940,
+  "headlines_scanned_today": 941,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3670,
+  "classifications_24h": 3653,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1222,
+    "prefiltered_haiku": 1213,
     "cooldown_skip": 0,
     "stale": 3,
     "capped": 0,
@@ -109,11 +109,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 0,
-  "missed_opportunities_24h": 13,
+  "missed_opportunities_24h": 7,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T21:48:38.626767+00:00"
+    "last_check": "2026-07-13T22:03:39.004204+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1012,
-    "matched": 797,
-    "classified": 3670,
+    "news": 1008,
+    "matched": 793,
+    "classified": 3653,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2164.1
+    "avg_classification_latency_ms": 2167.1
   },
   "live_readiness": {
     "ready": false,
@@ -432,84 +432,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 21:54:22",
-      "market_question": "Will Microsoft have a #1 AI model by December 31, 2026?",
-      "headline": "Microsoft tests Windows Search without all the ads and fluff",
+      "time": "2026-07-13 22:01:04",
+      "market_question": "Will David Crowley win the 2026 Wisconsin Governor Democratic primary election?",
+      "headline": "Wisconsin governor candidate says her campaign has far less money than she thought - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
+      "time_horizon": "immediate",
       "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 21:54:21",
-      "market_question": "Will Microsoft have the best AI model at the end of July 2026?",
-      "headline": "Microsoft tests Windows Search without all the ads and fluff",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-13 22:01:03",
+      "market_question": "Will Joel Brennan win the 2026 Wisconsin Governor Democratic primary election?",
+      "headline": "Wisconsin governor candidate says her campaign has far less money than she thought - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-13 21:54:21",
-      "market_question": "Bitcoin all time high by December 31, 2026?",
-      "headline": "Microsoft tests Windows Search without all the ads and fluff",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-13 22:01:02",
+      "market_question": "Will Rebecca Kleefisch win the 2026 Wisconsin Governor Republican primary election?",
+      "headline": "Wisconsin governor candidate says her campaign has far less money than she thought - AP News",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.55,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-13 21:54:21",
-      "market_question": "Bitcoin all time high by September 30, 2026?",
-      "headline": "Microsoft tests Windows Search without all the ads and fluff",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-13 22:01:02",
+      "market_question": "Will Kelda Roys win the 2026 Wisconsin Governor Democratic primary election?",
+      "headline": "Wisconsin governor candidate says her campaign has far less money than she thought - AP News",
+      "direction": "bearish",
+      "materiality": 0.05,
+      "confidence": 0.55,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-13 21:54:21",
-      "market_question": "Ethereum all time high by December 31, 2026?",
-      "headline": "Microsoft tests Windows Search without all the ads and fluff",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-13 22:01:02",
+      "market_question": "Will Tommy Thompson win the 2026 Wisconsin Governor Republican primary election?",
+      "headline": "Wisconsin governor candidate says her campaign has far less money than she thought - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -557,91 +557,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-07-12 22:01:03",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "time": "2026-07-13 22:00:43",
+      "market_question": "OpenAI IPO before 2027?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Meta have a #1 AI model by December 31, 2026?' \u2014 price moved +26%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'OpenAI IPO before 2027?' \u2014 price moved +20%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-12 22:01:01",
-      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "time": "2026-07-13 22:00:41",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will OpenAI have a #1 AI model by December 31, 202' \u2014 price moved +37%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'U.S. enacts AI safety bill before 2027?' \u2014 price moved +16%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-12 22:00:58",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Meta have a #1 AI model by December 31, 2026?' \u2014 price moved +26%. Consider lowering min_materiality for ai category."
+      "time": "2026-07-13 22:00:37",
+      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.40) on 'Will Mitch McConnell step down from the Senate bef' \u2014 price moved +25%. Consider lowering min_materiality for politics category."
     },
     {
-      "time": "2026-07-12 22:00:56",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "classification": "bearish",
-      "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Trump and Putin meet next in Russia?' \u2014 price moved +54%. Consider lowering min_materiality for politics category."
+      "time": "2026-07-13 22:00:35",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "classification": "bullish",
+      "actual_direction": "bullish",
+      "lesson": "Missed strong bullish signal (mat=0.45) on 'Will Apple release a new product line before 2027?' \u2014 price moved +30%. Consider lowering min_materiality for technology category."
     },
     {
-      "time": "2026-07-12 22:00:54",
-      "market_question": "Mitch McConnell votes in the Senate by July 31?",
+      "time": "2026-07-13 22:00:32",
+      "market_question": "OpenAI IPO before 2027?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.45) on 'Mitch McConnell votes in the Senate by July 31?' \u2014 price moved +38%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'OpenAI IPO before 2027?' \u2014 price moved +15%. Consider lowering min_materiality for ai category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-07-12 22:01:03",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
-      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
+      "time": "2026-07-13 22:00:43",
+      "market_question": "OpenAI IPO before 2027?",
+      "slug": "ipos-before-2027",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 25.8,
-      "reflection": "I missed a clear opportunity because my 0.35 materiality threshold was too conservative for a binary outcome with that much directional conviction\u2014I had genuine bearish conviction but let risk-aversion override my signal instead of sizing appropriately to my confidence level. The 26% move vindicated my directional view, which means I failed not because my analysis was wrong, but because I didn't trust my own reasoning enough to act on it. Going forward, I need to distinguish between \"uncertain signal\" (which warrants skipping) and \"low-magnitude conviction\" (which warrants smaller positions, not no position)."
+      "pct_move": 20.4,
+      "reflection": "I flagged OpenAI's IPO probability as bearish with only moderate conviction (0.35 materiality), which meant I lacked sufficient confidence to act\u2014but I underestimated how the market would price in near-term regulatory headwinds and valuation concerns that materialized quickly. The 20% move vindicated the directional thesis, revealing that my skip threshold was too conservative for a signal where the reasoning was sound; I let low materiality become an excuse for inaction rather than a reason to size appropriately and trade it anyway."
     },
     {
-      "time": "2026-07-12 22:01:01",
-      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
-      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
+      "time": "2026-07-13 22:00:41",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "slug": "us-enacts-ai-safety-bill-before-2027",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 37.3,
-      "reflection": "I signaled bearish on OpenAI's competitive positioning with only moderate conviction (0.35 materiality), but then failed to act on that view\u2014and the market validated my thesis by moving 37% in that direction, suggesting my underlying analysis was sound even if my confidence was guarded. My skip cost me real alpha; I let uncertainty about the exact timing or magnitude of the move paralyze me into inaction when I should have taken at least a proportional position matching my 0.35 confidence level. This is a clear lesson that *some* capital deployed at lower conviction still beats zero capital deployed, especially when the directional call proves correct."
+      "pct_move": 15.6,
+      "reflection": "I flagged this as bearish with only moderate materiality (0.35), which meant I lacked conviction despite having directional insight\u2014I should have recognized that regulatory clarity on AI safety actually reduces systemic risk and uncertainty premiums, making the bearish case stronger than my confidence level reflected. By skipping the signal, I left 16% on the table because I was too conservative in my materiality threshold rather than trusting my directional read; this suggests I'm over-penalizing positions where I have a clear thesis but incomplete certainty. Going forward, I need to distinguish between \"I'm unsure about the direction\" (skip-worthy) and \"I'm sure about direction but uncertain about magnitude\" (trade-worthy at appropriate sizing)."
     },
     {
-      "time": "2026-07-12 22:00:58",
-      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
-      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 25.8,
-      "reflection": "I flagged Meta's AI ambitions as bearish with moderate conviction (0.35), but I skipped the signal entirely\u2014and the market moved 26% in my predicted direction, validating that thesis. My skip cost me real alpha because I let uncertainty about execution timelines and competitive dynamics paralyze me into inaction, when the materiality threshold I'd already set suggested the risk-reward justified a position. I need to trust my directional conviction more: if I'm confident enough to assign a bearish signal, I should be confident enough to trade it rather than hide behind indecision."
+      "time": "2026-07-13 22:00:37",
+      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
+      "slug": "will-mitch-mcconnell-resign-from-the-senate-before-his-term-ends",
+      "direction": "bullish",
+      "materiality": 0.4,
+      "action": "stale",
+      "pct_move": 25.4,
+      "reflection": "I flagged this as stale without accounting for the fact that political prediction markets can have long dormancy periods before sudden catalyst events\u2014McConnell's health situation was clearly evolving in real-time, and my rigid staleness threshold blinded me to the actual information value. A 0.40 materiality signal with directional conviction should have at least triggered deeper analysis rather than automatic dismissal, especially in markets where catalysts are binary and time-sensitive. I let process override judgment and missed a 25% move because I was too quick to assume old data meant no edge."
     },
     {
-      "time": "2026-07-12 22:00:56",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "slug": "where-will-trump-and-putin-meet-next-678",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "action": "skip",
-      "pct_move": 54.5,
-      "reflection": "I misjudged the materiality threshold\u20140.35 should have warranted at least a small position given the geopolitical volatility around US-Russia relations, yet I defaulted to skipping rather than sizing appropriately to my conviction. The 54% move vindicated the bearish thesis, but my risk-aversion to lower-confidence signals cost me the opportunity; I need to recalibrate how I treat moderate-conviction trades instead of treating them as binary skip/full decisions."
+      "time": "2026-07-13 22:00:35",
+      "market_question": "Will Apple release a new product line before 2027?",
+      "slug": "will-apple-release-a-new-product-line-before-2027",
+      "direction": "bullish",
+      "materiality": 0.45,
+      "action": "stale",
+      "pct_move": 29.9,
+      "reflection": "I marked this signal stale and walked away, but I underestimated how much conviction the market was building into Apple's product pipeline\u2014the 30% move in the bullish direction suggests I was too rigid about freshness thresholds when the underlying thesis remained sound. My \"stale\" dismissal was really just risk aversion masquerading as discipline; I should have weighted the 0.45 materiality signal against my recency bias instead of letting it be a kill switch. The lesson is that staleness of *timing* doesn't invalidate soundness of *direction*, and I need to distinguish between outdated data and outdated logic."
     },
     {
-      "time": "2026-07-12 22:00:54",
-      "market_question": "Mitch McConnell votes in the Senate by July 31?",
-      "slug": "mitch-mcconnell-votes-in-the-senate-by-july-31-20260707171829812",
+      "time": "2026-07-13 22:00:32",
+      "market_question": "OpenAI IPO before 2027?",
+      "slug": "ipos-before-2027",
       "direction": "bearish",
       "materiality": 0.45,
       "action": "skip",
-      "pct_move": 37.5,
-      "reflection": "I missed a meaningful edge on this political event signal\u2014my 0.45 materiality threshold was too conservative for what turned out to be a high-conviction, low-noise political outcome. The skip cost me 38% of potential gains, which suggests I'm either miscalibrating how much political events move markets or being overly cautious on signals that fall into gray zones of confidence. I need to recalibrate: if I'm assigning directional conviction (bearish), the materiality bar should reflect actual market impact, not just my uncertainty about the signal itself."
+      "pct_move": 15.2,
+      "reflection": "I flagged OpenAI's IPO probability as bearish with moderate conviction (0.45), but I skipped the trade entirely\u2014and watched it move 15% in exactly the direction I'd predicted, which stings. I likely hesitated because 0.45 materiality felt like a coin flip dressed up as analysis, and I defaulted to inaction rather than taking a sized position that matched my actual confidence level. The real lesson: a directionally correct thesis with weak conviction still deserves *some* capital allocation, not zero\u2014I let perfectionism about certainty become an excuse for missed opportunity."
     }
   ],
   "pending_suggestions": [
