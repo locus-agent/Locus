@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-13T14:45:24.412718+00:00",
-  "last_heartbeat": "2026-07-13T14:45:24.412718+00:00",
-  "uptime_seconds": 249267,
+  "generated_at": "2026-07-13T14:50:32.781091+00:00",
+  "last_heartbeat": "2026-07-13T14:50:32.781091+00:00",
+  "uptime_seconds": 249576,
   "dry_run": false,
   "markets_tracked": 1358,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 602,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 606,
+  "headlines_last_cycle": 1,
   "signals_24h": 2,
-  "classifications_24h": 3234,
+  "classifications_24h": 3244,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1105,
+    "prefiltered_haiku": 1112,
     "cooldown_skip": 0,
     "stale": 3,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 361,
+    "price_target_market": 362,
     "coinflip_market": 0,
     "correlation_block": 7,
     "category_limit": 4,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T14:33:26.903417+00:00"
+    "last_check": "2026-07-13T14:48:27.269531+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 881,
-    "matched": 688,
-    "classified": 3234,
+    "news": 884,
+    "matched": 691,
+    "classified": 3244,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2141.7
+    "avg_classification_latency_ms": 2141.5
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0335,
+      "current_price": 0.033500000000000085,
       "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 14:44:09",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Trump administration launches effort to isolate International Criminal Court - Reuters",
+      "time": "2026-07-13 14:50:32",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "Bolivia weighs adding Tether's USDT to its national payments system",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 14:44:09",
-      "market_question": "Will Islamic Group win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "UK police arrest 12 after \"extreme right-wing\" threat at Islamic event - Reuters",
+      "time": "2026-07-13 14:50:32",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "Bolivia weighs adding Tether's USDT to its national payments system",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 14:50:31",
+      "market_question": "Trump declares election interference national emergency? ",
+      "headline": "Bolivia weighs adding Tether's USDT to its national payments system",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +480,25 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 14:44:09",
-      "market_question": "Will Islamic Charitable Projects Association win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "UK police arrest 12 after \"extreme right-wing\" threat at Islamic event - Reuters",
+      "time": "2026-07-13 14:50:31",
+      "market_question": "Will USDT market cap hit $200B before 2027?",
+      "headline": "Bolivia weighs adding Tether's USDT to its national payments system",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 14:50:31",
+      "market_question": "Will the National Movement of Independents win the most seats in the 2025 Central African Republic National Assembly election?",
+      "headline": "Bolivia weighs adding Tether's USDT to its national payments system",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -478,38 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 14:44:08",
-      "market_question": "Will Howard Lutnick leave the Trump administration before 2027?",
-      "headline": "Trump administration launches effort to isolate International Criminal Court - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 14:44:08",
-      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
-      "headline": "Trump administration launches effort to isolate International Criminal Court - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
