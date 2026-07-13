@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T16:49:21.623738+00:00",
-  "last_heartbeat": "2026-07-13T16:49:21.623738+00:00",
-  "uptime_seconds": 256705,
+  "generated_at": "2026-07-13T16:54:30.207274+00:00",
+  "last_heartbeat": "2026-07-13T16:54:30.207274+00:00",
+  "uptime_seconds": 257013,
   "dry_run": false,
-  "markets_tracked": 1323,
+  "markets_tracked": 1322,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11334,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 713,
+  "headlines_scanned_today": 714,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3480,
+  "classifications_24h": 3471,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1182,
+    "prefiltered_haiku": 1177,
     "cooldown_skip": 0,
     "stale": 3,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 954,
-    "matched": 750,
-    "classified": 3480,
+    "news": 953,
+    "matched": 749,
+    "classified": 3471,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2164.8
+    "avg_classification_latency_ms": 2165.5
   },
   "live_readiness": {
     "ready": false,
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-13 16:51:19",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Hundreds of economists say \u2018we must act now\u2019 on AI\u2019s economic impact and job displacement risks - Orlando Sentinel",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-13 16:46:49",
       "market_question": "Trump x Greenland deal signed by December 31?",
       "headline": "UK-Switzerland deal to scrap roaming charges and allow Britons to use e-gates",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-13 16:46:49",
       "market_question": "Will Virginia use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "UK-Switzerland deal to scrap roaming charges and allow Britons to use e-gates",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 16:46:49",
-      "market_question": "Will Ohio use a new congressional map for the 2026 United States midterm elections?",
       "headline": "UK-Switzerland deal to scrap roaming charges and allow Britons to use e-gates",
       "direction": null,
       "materiality": null,
