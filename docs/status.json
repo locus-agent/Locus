@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T13:07:29.345889+00:00",
-  "last_heartbeat": "2026-07-13T13:07:29.345889+00:00",
-  "uptime_seconds": 243392,
+  "generated_at": "2026-07-13T13:12:39.900746+00:00",
+  "last_heartbeat": "2026-07-13T13:12:39.900746+00:00",
+  "uptime_seconds": 243703,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1337,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11327,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 492,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 497,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3077,
+  "classifications_24h": 3101,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1037,
+    "prefiltered_haiku": 1050,
     "cooldown_skip": 0,
     "stale": 3,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 380,
+    "price_target_market": 383,
     "coinflip_market": 0,
     "correlation_block": 7,
     "category_limit": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 839,
-    "matched": 655,
-    "classified": 3077,
+    "news": 844,
+    "matched": 659,
+    "classified": 3101,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2119.8
+    "avg_classification_latency_ms": 2121.2
   },
   "live_readiness": {
     "ready": false,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 13:07:23",
-      "market_question": "Lee Jae-myung out as president of South Korea in 2026?",
-      "headline": "South Korean court sentences ousted President Yoon to 2 years over manipulated opinion polls - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 13:07:14",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "South Korean court sentences ousted President Yoon to 2 years over manipulated opinion polls - AP News",
+      "time": "2026-07-13 13:11:53",
+      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
+      "headline": "FBI agents descend on Skid Row in massive voter fraud probe after stunning claims of election bribery:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 13:07:14",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "South Korean court sentences ousted President Yoon to 2 years over manipulated opinion polls - AP News",
+      "time": "2026-07-13 13:11:52",
+      "market_question": "Peru Presidential Election Invalidated?",
+      "headline": "FBI agents descend on Skid Row in massive voter fraud probe after stunning claims of election bribery:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -480,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 13:07:14",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "South Korean court sentences ousted President Yoon to 2 years over manipulated opinion polls - AP News",
+      "time": "2026-07-13 13:11:52",
+      "market_question": "Ukraine election called by August 31, 2026?",
+      "headline": "FBI agents descend on Skid Row in massive voter fraud probe after stunning claims of election bribery:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -496,9 +480,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 13:07:14",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "South Korean court sentences ousted President Yoon to 2 years over manipulated opinion polls - AP News",
+      "time": "2026-07-13 13:11:52",
+      "market_question": "Ukraine election held by December 31, 2026?",
+      "headline": "FBI agents descend on Skid Row in massive voter fraud probe after stunning claims of election bribery:",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 13:11:52",
+      "market_question": "Will voter turnout be between 47% and 50% in the 2026 Russian parliamentary election?",
+      "headline": "FBI agents descend on Skid Row in massive voter fraud probe after stunning claims of election bribery:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
