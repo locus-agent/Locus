@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-13T03:16:13.209530+00:00",
-  "last_heartbeat": "2026-07-13T03:16:13.209530+00:00",
-  "uptime_seconds": 207916,
+  "generated_at": "2026-07-13T03:21:21.186934+00:00",
+  "last_heartbeat": "2026-07-13T03:21:21.186934+00:00",
+  "uptime_seconds": 208224,
   "dry_run": false,
   "markets_tracked": 1352,
   "classify_error_streak": 0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 94,
+  "headlines_scanned_today": 95,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2479,
+  "classifications_24h": 2475,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 910,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T03:03:06.929575+00:00"
+    "last_check": "2026-07-13T03:18:07.242638+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 678,
     "matched": 525,
-    "classified": 2479,
+    "classified": 2475,
     "signals": 0,
     "trades": 0
   },
@@ -136,8 +136,8 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": -0.88,
-    "total_pnl_usd": 33.13,
+    "unrealized_pnl_usd": -0.89,
+    "total_pnl_usd": 33.12,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2815000000000001,
+      "current_price": 0.2815,
       "pnl_pct": 5.83,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.56,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0345,
-      "pnl_pct": -0.57,
+      "current_price": 0.034,
+      "pnl_pct": -2.02,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.33,
-      "pnl_usd": -0.0,
+      "current_value_usd": 0.32,
+      "pnl_usd": -0.01,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-13 03:19:15",
+      "market_question": "Will Tim Louis win the 2026 Vancouver mayoral election?",
+      "headline": "St. Louis Cardinals - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-13 03:06:08",
       "market_question": "Will Deutsche Bank or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
       "headline": "Deutsche Bank pays $1.3 million penalty for Australian trade reporting failures - Reuters",
@@ -494,22 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 03:01:47",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Zach Johnson wins at Firestone for first senior major title - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
