@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T22:14:37.478109+00:00",
-  "last_heartbeat": "2026-07-13T22:14:37.478109+00:00",
-  "uptime_seconds": 276220,
+  "generated_at": "2026-07-13T22:19:48.690392+00:00",
+  "last_heartbeat": "2026-07-13T22:19:48.690392+00:00",
+  "uptime_seconds": 276532,
   "dry_run": false,
-  "markets_tracked": 1321,
+  "markets_tracked": 1326,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11357,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 961,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 965,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3742,
+  "classifications_24h": 3759,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1246,
+    "prefiltered_haiku": 1248,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T22:03:39.004204+00:00"
+    "last_check": "2026-07-13T22:18:39.346672+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1027,
-    "matched": 810,
-    "classified": 3742,
+    "news": 1031,
+    "matched": 814,
+    "classified": 3759,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2164.2
+    "avg_classification_latency_ms": 2163.8
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 22:14:36",
-      "market_question": "Will the Democrats win the New Jersey Senate race in 2026?",
-      "headline": "Swing state candidates faced with conundrum over midterm convention - Politico",
+      "time": "2026-07-13 22:19:00",
+      "market_question": "Will Donald Trump visit Russia in 2026?",
+      "headline": "The US government warns that Russia state hackers are coming after your router",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -443,62 +443,62 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 22:14:36",
-      "market_question": "Will Douglas Moylan win the 2026 Guam Governor Republican primary election?",
-      "headline": "Swing state candidates faced with conundrum over midterm convention - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-13 22:18:58",
+      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
+      "headline": "Ex-Canada MP arrested after police seize 439 guns and antique cannon from his home",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 22:14:36",
-      "market_question": "Will the Republicans win the New Jersey Senate race in 2026?",
-      "headline": "Swing state candidates faced with conundrum over midterm convention - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 22:14:36",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Swing state candidates faced with conundrum over midterm convention - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-13 22:14:34",
-      "market_question": "Will the 2026 Midterm Elections happen as scheduled?",
-      "headline": "Swing state candidates faced with conundrum over midterm convention - Politico",
+      "time": "2026-07-13 22:18:58",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Ex-Canada MP arrested after police seize 439 guns and antique cannon from his home",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 22:18:58",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Ex-Canada MP arrested after police seize 439 guns and antique cannon from his home",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 22:18:58",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "Ex-Canada MP arrested after police seize 439 guns and antique cannon from his home",
       "direction": null,
       "materiality": null,
       "confidence": null,
