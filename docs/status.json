@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T00:01:06.454159+00:00",
-  "last_heartbeat": "2026-07-13T00:01:06.454159+00:00",
-  "uptime_seconds": 196209,
+  "generated_at": "2026-07-13T00:06:14.431099+00:00",
+  "last_heartbeat": "2026-07-13T00:06:14.431099+00:00",
+  "uptime_seconds": 196517,
   "dry_run": false,
-  "markets_tracked": 1346,
+  "markets_tracked": 1348,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11295,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 0,
+  "headlines_scanned_today": 3,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2590,
+  "classifications_24h": 2594,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 970,
+    "prefiltered_haiku": 975,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 323,
+    "price_target_market": 318,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-12T23:48:02.095342+00:00"
+    "last_check": "2026-07-13T00:03:02.554973+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 696,
+    "news": 697,
     "matched": 549,
-    "classified": 2590,
+    "classified": 2594,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2088.1
+    "avg_classification_latency_ms": 2087.0
   },
   "live_readiness": {
     "ready": false,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-12 23:55:44",
-      "market_question": "Will Chico Machado win the Governor of Rio de Janeiro election?",
-      "headline": "Machado leads rally that carries Padres past Blue Jays 5-4 - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-12 23:55:42",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "headline": "Burnham set for No 10: BBC correspondents on what Trump, Putin and others will make of him",
+      "time": "2026-07-13 00:02:17",
+      "market_question": "Will Trump deport 400-500k people?",
+      "headline": "Bangkok pub fire kills 27 people and 22 critically injured, officials say - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,52 +448,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-12 23:55:42",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Burnham set for No 10: BBC correspondents on what Trump, Putin and others will make of him",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-13 00:02:17",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Zverev hopes he can be more than just \u2018the third guy\u2019 in tennis after run to Wimbledon final - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-12 23:55:42",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "Burnham set for No 10: BBC correspondents on what Trump, Putin and others will make of him",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-13 00:02:17",
+      "market_question": "Will Hunter Biden announce a Presidential run before 2027?",
+      "headline": "Zverev hopes he can be more than just \u2018the third guy\u2019 in tennis after run to Wimbledon final - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-12 23:55:42",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Burnham set for No 10: BBC correspondents on what Trump, Putin and others will make of him",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
+      "time": "2026-07-13 00:02:17",
+      "market_question": "Will Donald Trump Jr. announce a presidential run before 2027?",
+      "headline": "Zverev hopes he can be more than just \u2018the third guy\u2019 in tennis after run to Wimbledon final - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 00:02:17",
+      "market_question": "Will the Moderate Party (M) win the third most seats in the 2026 Swedish parliamentary election?",
+      "headline": "Zverev hopes he can be more than just \u2018the third guy\u2019 in tennis after run to Wimbledon final - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
