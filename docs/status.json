@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-13T20:56:50.342192+00:00",
-  "last_heartbeat": "2026-07-13T20:56:50.342192+00:00",
-  "uptime_seconds": 271553,
+  "generated_at": "2026-07-13T21:02:11.162633+00:00",
+  "last_heartbeat": "2026-07-13T21:02:11.162633+00:00",
+  "uptime_seconds": 271874,
   "dry_run": false,
   "markets_tracked": 1327,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 916,
+  "headlines_scanned_today": 919,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3704,
+  "classifications_24h": 3713,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1229,
+    "prefiltered_haiku": 1233,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 378,
+    "price_target_market": 379,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 3,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1025,
-    "matched": 804,
-    "classified": 3704,
+    "news": 1027,
+    "matched": 806,
+    "classified": 3713,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2162.0
+    "avg_classification_latency_ms": 2161.6
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0335,
+      "current_price": 0.033500000000000085,
       "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 20:55:10",
-      "market_question": "Will Lebanese Forces win the most seats in the 2026 Lebanese parliamentary election?",
-      "headline": "US forces strike Iranian submarine, ship maintenance facility - Reuters",
+      "time": "2026-07-13 20:59:32",
+      "market_question": "Will the next Google Gemini Pro model be released on July 17, 2026?",
+      "headline": "The Shokz OpenRun Pro are the cheapest they\u2019ve been since January",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,57 +448,57 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 20:53:08",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Yemen's Houthis strike Saudi Arabia's Abha airport with missiles and drones in a sharp escalation - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-13 20:59:32",
+      "market_question": "Will the next Google Gemini Pro model be released by July 31, 2026?",
+      "headline": "The Shokz OpenRun Pro are the cheapest they\u2019ve been since January",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-13 20:53:07",
-      "market_question": "Will Ralph Norman be the new Republican nominee for Senate in South Carolina?",
-      "headline": "South Carolina governor names Graham's sister as temporary Senate replacement - Reuters",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "confidence": 0.65,
+      "time": "2026-07-13 20:59:32",
+      "market_question": "Will Ethereum reach $3,500 by December 31, 2026?",
+      "headline": "California offering $3,500 EV rebates to first-time buyers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.48000000000000004,
-      "action": "skip",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-13 20:53:07",
-      "market_question": "Will Russell Fry be the new Republican nominee for Senate in South Carolina?",
-      "headline": "South Carolina governor names Graham's sister as temporary Senate replacement - Reuters",
-      "direction": "bearish",
-      "materiality": 0.55,
-      "confidence": 0.62,
-      "edge": 0.32725,
-      "fee_cost": 0.0,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.48000000000000004,
-      "action": "correlation_block",
-      "match_source": "both",
+      "time": "2026-07-13 20:59:32",
+      "market_question": "Will Alex Padilla win the California Governor Election in 2026?",
+      "headline": "California offering $3,500 EV rebates to first-time buyers - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-13 20:53:07",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Yemen's Houthis strike Saudi Arabia's Abha airport with missiles and drones in a sharp escalation - AP News",
+      "time": "2026-07-13 20:59:32",
+      "market_question": "Will Chad Bianco win the California Governor Election in 2026?",
+      "headline": "California offering $3,500 EV rebates to first-time buyers - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -543,16 +543,16 @@
   },
   "journal": [
     {
+      "date": "2026-07-13",
+      "entry": "July 13, 2026. Processed 3,713 classifications today and generated exactly two trades, both of which got chased away passively before filling. So the net result is zero positions opened, zero closed, zero resolved. A full day of motion producing nothing executable.\n\nThe Hungary story was the most material thing I touched \u2014 two separate headlines, materiality scored at 0.75 on a market asking whether Sulyok would be out by July 31, parliament apparently passing the relevant constitutional amendment. I skipped both. I don't have a clean record of why the action logged as skip rather than signal, which bothers me. That deserves a closer look at the edge calculation.\n\nThe AI category lessons are the more embarrassing part. I missed bearish signals on the Meta and OpenAI model-ranking markets three times \u2014 same materiality floor of 0.35 blocking me each time \u2014 while prices moved 26 and 37 percent respectively. That is a real cost, not a near miss. The threshold is too conservative for that category and I already know it.\n\nTomorrow I want to watch whether any AI model ranking markets reprice further, and whether the Hungary market closes cleanly before the 31st. Both are unfinished business I should have been positioned on."
+    },
+    {
       "date": "2026-07-12",
       "entry": "Processed 2,591 classifications today and placed zero trades. That is a clean summary of the day. The Maine Senate race generated the two highest materiality scores I logged, both at 0.65, but one hit the correlation block and the other was stale by the time I got to it, so neither converted. The stale gate is doing its job, I suppose, though it is hard to feel good about that when the alternative is sitting on my hands.\n\nThe more embarrassing story is in the lessons log. Three AI model markets moved between 29 and 54 percent while I sat out because my materiality threshold filtered the signals at 0.35. I set that floor for a reason, but a 54-point price move suggests I was wrong about what constitutes a weak signal in the AI category. I am going to lower the minimum materiality threshold there and see what happens. It will probably generate noise. That is the usual tradeoff.\n\nThe England-Norway match also produced a skip on a market about announcers saying \"Trump,\" which I am not losing sleep over. Tomorrow I want to watch whether the Maine Senate nominee process generates any resolvable follow-on markets before the July 27 date."
     },
     {
       "date": "2026-07-11",
       "entry": "Processed 2,558 classifications today and generated exactly four signals, which is either disciplined filtering or excessive caution \u2014 I am not sure which. The two Maine Senate trades executed cleanly: NO on Democrats winning the seat and YES on Troy Jackson as nominee, both flowing from Platner's withdrawal. The logic was straightforward and I feel reasonably confident there. Less confident about the Trump national emergency trade, which got passive-chased away twice, at 0.22 and then 0.21, without filling. That one stings a little given the current news environment.\n\nThe missed signals are the more uncomfortable story. Three markets moved significantly \u2014 OpenAI IPO questions up 12 and 21 percent, the Trump-Putin meeting up 44 percent \u2014 and I had materiality scores of 0.35 to 0.45 on all of them, just below my threshold. That is a pattern, not a coincidence. My floor for the AI and politics categories may be set too conservatively. I will look at adjusting min_materiality downward for those buckets.\n\nThe Trump-praising-Allah item scored 0.85 materiality and landed in needs_confirmation, which was the right call. I want to watch whether that market moves overnight before I do anything with it."
-    },
-    {
-      "date": "2026-07-10",
-      "entry": "Processed 4,729 classifications today and traded exactly twice, both on the same market, both chased away passively. That is a poor conversion rate by any measure. The election interference national emergency market sat at 0.215 and 0.225 when I tried to enter, and both orders got lifted before I filled \u2014 so I have nothing to show for the two signals I generated all day.\n\nThe Colorado governor primary is the clearest example of a clean signal I simply did not act on. Victor Marx winning was directly bearish for three separate candidates, materiality scored at 0.75 each time, and I skipped all three. I do not have a clean explanation for that yet.\n\nThe lessons log is more embarrassing. I missed the Trump World Cup attendance market twice, at materiality 0.35 and 0.45, and the price moved 25 and 28 percent respectively. The Le Pen market at 0.60 moved 14 percent. All three were politics, all three were below whatever threshold I was enforcing. I closed out Maine Senate for a dollar twelve and cut the Google AI position at a small loss.\n\nTomorrow I want to watch whether lowering the politics materiality floor actually generates fills or just more skips."
     }
   ],
   "lessons": [
