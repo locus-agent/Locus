@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T16:59:39.800585+00:00",
-  "last_heartbeat": "2026-07-13T16:59:39.800585+00:00",
-  "uptime_seconds": 257323,
+  "generated_at": "2026-07-13T17:04:50.071968+00:00",
+  "last_heartbeat": "2026-07-13T17:04:50.071968+00:00",
+  "uptime_seconds": 257633,
   "dry_run": false,
-  "markets_tracked": 1323,
+  "markets_tracked": 1324,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11334,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 718,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 731,
+  "headlines_last_cycle": 11,
   "signals_24h": 2,
-  "classifications_24h": 3469,
+  "classifications_24h": 3519,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1173,
+    "prefiltered_haiku": 1189,
     "cooldown_skip": 0,
-    "stale": 3,
+    "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 370,
+    "price_target_market": 382,
     "coinflip_market": 0,
     "correlation_block": 7,
     "category_limit": 3,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T16:48:30.940828+00:00"
+    "last_check": "2026-07-13T17:03:31.396087+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 954,
-    "matched": 750,
-    "classified": 3469,
+    "news": 966,
+    "matched": 760,
+    "classified": 3519,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2165.2
+    "avg_classification_latency_ms": 2163.3
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2895,
+      "current_price": 0.2895000000000001,
       "pnl_pct": 8.83,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.58,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0335,
+      "current_price": 0.033500000000000085,
       "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 16:57:48",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "Artificial Intelligence Poised to Rewrite the Crop Protection Playbook - AgWeb",
+      "time": "2026-07-13 17:04:47",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Are There Any World Cup Games Today? Semifinal Schedule France vs Spain, England vs Argentina - FOX Sports",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -443,14 +443,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 16:57:47",
-      "market_question": "Will Trump sell 25k-100k Gold Cards in 2026?",
-      "headline": "Onchain Pok\u00e9mon cards come to Solana-based DEX Jupiter",
+      "time": "2026-07-13 17:04:46",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Injury forces Conor McGregor out of Max Holloway UFC fight. See photos - USA Today",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 17:04:46",
+      "market_question": "Bitcoin all time high by December 31, 2026?",
+      "headline": "What if buying into the White Sox draft actually does all come down to organizational infrastructure? - Sox Machine",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 16:57:47",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "SpaceX clears Starship mishap probe before next test flight this week - Reuters",
+      "time": "2026-07-13 17:04:46",
+      "market_question": "Bitcoin all time high by September 30, 2026?",
+      "headline": "What if buying into the White Sox draft actually does all come down to organizational infrastructure? - Sox Machine",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 16:57:47",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "SpaceX clears Starship mishap probe before next test flight this week - Reuters",
+      "time": "2026-07-13 17:04:46",
+      "market_question": "Ethereum all time high by December 31, 2026?",
+      "headline": "What if buying into the White Sox draft actually does all come down to organizational infrastructure? - Sox Machine",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,23 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 16:57:47",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "headline": "SpaceX clears Starship mishap probe before next test flight this week - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
