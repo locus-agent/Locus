@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T12:15:53.078971+00:00",
-  "last_heartbeat": "2026-07-13T12:15:53.078971+00:00",
-  "uptime_seconds": 240296,
+  "generated_at": "2026-07-13T12:21:03.308931+00:00",
+  "last_heartbeat": "2026-07-13T12:21:03.308931+00:00",
+  "uptime_seconds": 240606,
   "dry_run": false,
-  "markets_tracked": 1334,
+  "markets_tracked": 1338,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11327,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 447,
+  "headlines_scanned_today": 458,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3039,
+  "classifications_24h": 3091,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1028,
+    "prefiltered_haiku": 1035,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 374,
+    "price_target_market": 390,
     "coinflip_market": 0,
     "correlation_block": 7,
     "category_limit": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T12:03:21.944158+00:00"
+    "last_check": "2026-07-13T12:18:22.478932+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 820,
-    "matched": 644,
-    "classified": 3039,
+    "news": 831,
+    "matched": 655,
+    "classified": 3091,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2112.3
+    "avg_classification_latency_ms": 2112.8
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0335,
+      "current_price": 0.033500000000000085,
       "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 12:14:29",
-      "market_question": "Will Trump try to fire Powell as Fed Board Member by December 31, 2026?",
-      "headline": "What to know about the Bangkok bar fire that killed 27 - AP News",
+      "time": "2026-07-13 12:19:01",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "Strategy sells $467 million in MSTR shares, makes no bitcoin purchases as USD reserve hits $3 billion",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 12:18:52",
+      "market_question": "Will Islamic Group win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "UK bans support for Iran's Islamic Revolutionary Guard Corps",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 12:12:18",
-      "market_question": "Will stablecoins hit $500B before 2027?",
-      "headline": "Houthi rebels in Yemen say Sanaa International Airport is hit by Saudi strikes - AP News",
+      "time": "2026-07-13 12:18:52",
+      "market_question": "Will Armenian Revolutionary Federation win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "UK bans support for Iran's Islamic Revolutionary Guard Corps",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 12:12:18",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "Houthi rebels in Yemen say Sanaa International Airport is hit by Saudi strikes - AP News",
+      "time": "2026-07-13 12:18:52",
+      "market_question": "Will Islamic Charitable Projects Association win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "UK bans support for Iran's Islamic Revolutionary Guard Corps",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,31 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 12:12:18",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "Houthi rebels in Yemen say Sanaa International Airport is hit by Saudi strikes - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 12:12:18",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "Houthi rebels in Yemen say Sanaa International Airport is hit by Saudi strikes - AP News",
+      "time": "2026-07-13 12:18:52",
+      "market_question": "Will the Institutional Revolutionary Party (PRI) win the most seats in the 2027 Mexico legislative election?",
+      "headline": "UK bans support for Iran's Islamic Revolutionary Guard Corps",
       "direction": null,
       "materiality": null,
       "confidence": null,
