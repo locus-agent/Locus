@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-13T19:29:05.163448+00:00",
-  "last_heartbeat": "2026-07-13T19:29:05.163448+00:00",
-  "uptime_seconds": 266288,
+  "generated_at": "2026-07-13T19:34:14.729417+00:00",
+  "last_heartbeat": "2026-07-13T19:34:14.729417+00:00",
+  "uptime_seconds": 266598,
   "dry_run": false,
   "markets_tracked": 1326,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 835,
+  "headlines_scanned_today": 838,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3501,
+  "classifications_24h": 3490,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1150,
+    "prefiltered_haiku": 1155,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 376,
+    "price_target_market": 369,
     "coinflip_market": 0,
     "correlation_block": 4,
     "category_limit": 3,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T19:18:34.821295+00:00"
+    "last_check": "2026-07-13T19:33:35.209147+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 971,
-    "matched": 760,
-    "classified": 3501,
+    "news": 970,
+    "matched": 759,
+    "classified": 3490,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2164.0
+    "avg_classification_latency_ms": 2162.2
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 19:27:24",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Wetherholt has $20 million in escalators as part of $112.5 million, 8-year contract with Cardinals - AP News",
+      "time": "2026-07-13 19:31:45",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Mahmood sets out plan to deport grooming gang leader",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,68 +448,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 19:27:20",
-      "market_question": "Will Solana dip to $20 in July?",
-      "headline": "Wetherholt has $20 million in escalators as part of $112.5 million, 8-year contract with Cardinals - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-13 19:31:45",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Mahmood sets out plan to deport grooming gang leader",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-13 19:27:20",
-      "market_question": "Will Solana dip to $20 by December 31, 2026?",
-      "headline": "Wetherholt has $20 million in escalators as part of $112.5 million, 8-year contract with Cardinals - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-13 19:31:45",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "Mahmood sets out plan to deport grooming gang leader",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-13 19:27:20",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Wetherholt has $20 million in escalators as part of $112.5 million, 8-year contract with Cardinals - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-13 19:31:45",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Mahmood sets out plan to deport grooming gang leader",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-13 19:27:20",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Wetherholt has $20 million in escalators as part of $112.5 million, 8-year contract with Cardinals - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-13 19:31:44",
+      "market_question": "Will Trump deport 200-300k people?",
+      "headline": "Mahmood sets out plan to deport grooming gang leader",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
