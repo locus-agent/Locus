@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T01:43:49.282776+00:00",
-  "last_heartbeat": "2026-07-13T01:43:49.282776+00:00",
-  "uptime_seconds": 202372,
+  "generated_at": "2026-07-13T01:48:56.912152+00:00",
+  "last_heartbeat": "2026-07-13T01:48:56.912152+00:00",
+  "uptime_seconds": 202680,
   "dry_run": false,
-  "markets_tracked": 1350,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11303,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 69,
+  "headlines_scanned_today": 72,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2630,
+  "classifications_24h": 2635,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 974,
+    "prefiltered_haiku": 980,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T01:33:04.670461+00:00"
+    "last_check": "2026-07-13T01:48:05.040930+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 714,
-    "matched": 560,
-    "classified": 2630,
+    "news": 716,
+    "matched": 561,
+    "classified": 2635,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2080.4
+    "avg_classification_latency_ms": 2078.8
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2815,
+      "current_price": 0.2815000000000001,
       "pnl_pct": 5.83,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.56,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 01:27:39",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "AI not replacing human intelligence... yet; let bots enhance, say educationists - Telegraph India",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 01:27:38",
-      "market_question": "Will Anthropic have the best AI model at the end of July 2026?",
-      "headline": "AI not replacing human intelligence... yet; let bots enhance, say educationists - Telegraph India",
+      "time": "2026-07-13 01:47:24",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Diamondbacks place RHP Zac Gallen on 15-day IL with elbow inflammation - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -459,14 +443,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 01:27:37",
-      "market_question": "Will Donald Trump visit India in 2026?",
-      "headline": "AI not replacing human intelligence... yet; let bots enhance, say educationists - Telegraph India",
+      "time": "2026-07-13 01:47:22",
+      "market_question": "Will OpenAI IPO by July 31 2026?",
+      "headline": "[No Title] - Post from July 13, 2026",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 01:47:22",
+      "market_question": "Will Meta have the best AI model at the end of July 2026?",
+      "headline": "[No Title] - Post from July 13, 2026",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 01:47:22",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Diamondbacks place RHP Zac Gallen on 15-day IL with elbow inflammation - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,25 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 01:25:27",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Lightning and rain cause delay with Blaney leading NASCAR Cup Series race in Atlanta - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 01:25:26",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Lightning and rain cause delay with Blaney leading NASCAR Cup Series race in Atlanta - AP News",
+      "time": "2026-07-13 01:47:22",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Diamondbacks place RHP Zac Gallen on 15-day IL with elbow inflammation - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
