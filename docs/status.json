@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-13T02:14:37.289802+00:00",
-  "last_heartbeat": "2026-07-13T02:14:37.289802+00:00",
-  "uptime_seconds": 204220,
+  "generated_at": "2026-07-13T02:19:45.645511+00:00",
+  "last_heartbeat": "2026-07-13T02:19:45.645511+00:00",
+  "uptime_seconds": 204529,
   "dry_run": false,
   "markets_tracked": 1351,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 79,
+  "headlines_scanned_today": 81,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2638,
+  "classifications_24h": 2651,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 982,
+    "prefiltered_haiku": 990,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T02:03:05.352182+00:00"
+    "last_check": "2026-07-13T02:18:05.731954+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 718,
-    "matched": 560,
-    "classified": 2638,
+    "news": 720,
+    "matched": 562,
+    "classified": 2651,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2081.0
+    "avg_classification_latency_ms": 2080.5
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2815000000000001,
+      "current_price": 0.2815,
       "pnl_pct": 5.83,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.56,
@@ -432,41 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 02:13:44",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Bitcoin whale moves $188 million in BTC after seven-year dormancy: onchain data",
+      "time": "2026-07-13 02:18:00",
+      "market_question": "Will Grok AI beat T1 in 2026? ",
+      "headline": "Bueckers\u2019 22 points, 11 rebounds help Wings beat Sky 96-81, extend win streak to 5 games - AP News",
       "direction": "neutral",
-      "materiality": 0.05,
+      "materiality": 0.0,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "long_term",
+      "time_horizon": "medium",
       "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 02:13:43",
-      "market_question": "Bitcoin more valuable than any company before 2027?",
-      "headline": "Bitcoin whale moves $188 million in BTC after seven-year dormancy: onchain data",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 02:13:36",
-      "market_question": "Will Bitcoin reach $100,000 in July?",
-      "headline": "Bitcoin whale moves $188 million in BTC after seven-year dormancy: onchain data",
+      "time": "2026-07-13 02:17:59",
+      "market_question": "Will Count Binface win the Clacton by-election?",
+      "headline": "Bueckers\u2019 22 points, 11 rebounds help Wings beat Sky 96-81, extend win streak to 5 games - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +458,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 02:13:36",
-      "market_question": "Will Bitcoin reach $67,500 in July?",
-      "headline": "Bitcoin whale moves $188 million in BTC after seven-year dormancy: onchain data",
+      "time": "2026-07-13 02:17:59",
+      "market_question": "Will the Democrats win the 2028 US Presidential Election?",
+      "headline": "Bueckers\u2019 22 points, 11 rebounds help Wings beat Sky 96-81, extend win streak to 5 games - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 02:13:36",
-      "market_question": "Will Bitcoin reach $65,000 in July?",
-      "headline": "Bitcoin whale moves $188 million in BTC after seven-year dormancy: onchain data",
+      "time": "2026-07-13 02:17:59",
+      "market_question": "Will Nigel Farage win the Clacton by-election?",
+      "headline": "Bueckers\u2019 22 points, 11 rebounds help Wings beat Sky 96-81, extend win streak to 5 games - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -506,7 +490,23 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 02:17:59",
+      "market_question": "Will Jalen Brunson win the 2028 US Presidential Election?",
+      "headline": "Bueckers\u2019 22 points, 11 rebounds help Wings beat Sky 96-81, extend win streak to 5 games - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
