@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T18:47:50.808350+00:00",
-  "last_heartbeat": "2026-07-13T18:47:50.808350+00:00",
-  "uptime_seconds": 263814,
+  "generated_at": "2026-07-13T18:52:58.688091+00:00",
+  "last_heartbeat": "2026-07-13T18:52:58.688091+00:00",
+  "uptime_seconds": 264122,
   "dry_run": false,
-  "markets_tracked": 1327,
+  "markets_tracked": 1326,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11348,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 803,
+  "headlines_scanned_today": 806,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3522,
+  "classifications_24h": 3533,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1167,
+    "prefiltered_haiku": 1176,
     "cooldown_skip": 0,
     "stale": 4,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T18:33:33.648301+00:00"
+    "last_check": "2026-07-13T18:48:34.104152+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 974,
-    "matched": 764,
-    "classified": 3522,
+    "news": 976,
+    "matched": 766,
+    "classified": 3533,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2163.2
+    "avg_classification_latency_ms": 2166.9
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 18:36:55",
-      "market_question": "Putin out as President of Russia by September 30, 2026?",
-      "headline": "Police briefly detain Boris Nadezhdin, a liberal Russian politician and Putin critic - AP News",
+      "time": "2026-07-13 18:52:29",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
+      "headline": "EXCLUSIVE: Canada regulator cited Anthropic's Claude Mythos in warning to banks on cyber risks, email shows - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -443,30 +443,14 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 18:36:55",
-      "market_question": "Putin out as President of Russia by August 31, 2026?",
-      "headline": "Police briefly detain Boris Nadezhdin, a liberal Russian politician and Putin critic - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 18:36:54",
-      "market_question": "Putin out as President of Russia by June 30, 2027?",
-      "headline": "Police briefly detain Boris Nadezhdin, a liberal Russian politician and Putin critic - AP News",
+      "time": "2026-07-13 18:52:28",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $1.75T by December 31?",
+      "headline": "EXCLUSIVE: Canada regulator cited Anthropic's Claude Mythos in warning to banks on cyber risks, email shows - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
@@ -475,30 +459,46 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 18:36:50",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Police briefly detain Boris Nadezhdin, a liberal Russian politician and Putin critic - AP News",
+      "time": "2026-07-13 18:52:28",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $3.0T by December 31?",
+      "headline": "EXCLUSIVE: Canada regulator cited Anthropic's Claude Mythos in warning to banks on cyber risks, email shows - Reuters",
       "direction": "neutral",
       "materiality": 0.05,
       "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 18:52:22",
+      "market_question": "Will Anthropic's valuation hit (HIGH) $4.0T by December 31?",
+      "headline": "EXCLUSIVE: Canada regulator cited Anthropic's Claude Mythos in warning to banks on cyber risks, email shows - Reuters",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
       "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
+      "adjusted_materiality": 0.12,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 18:36:48",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Full Transcript: NATO Secretary General Mark Rutte on \u201cThe Conversation with Dasha Burns\u201d - Politico",
+      "time": "2026-07-13 18:52:21",
+      "market_question": "Will Trump speak to Xi Jinping in July?",
+      "headline": "President Trump will be making a Speech to the Nation on Thursday evening, at 9 P.M. Eastern. Thank you for your attention to this matter!",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -507,7 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
