@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T10:33:00.853662+00:00",
-  "last_heartbeat": "2026-07-13T10:33:00.853662+00:00",
-  "uptime_seconds": 234124,
+  "generated_at": "2026-07-13T10:38:09.246344+00:00",
+  "last_heartbeat": "2026-07-13T10:38:09.246344+00:00",
+  "uptime_seconds": 234432,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1341,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11327,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 361,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 374,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 2859,
+  "classifications_24h": 2906,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 992,
+    "prefiltered_haiku": 1009,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 354,
+    "price_target_market": 348,
     "coinflip_market": 0,
     "correlation_block": 6,
     "category_limit": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T10:18:19.016145+00:00"
+    "last_check": "2026-07-13T10:33:19.401001+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 771,
-    "matched": 604,
-    "classified": 2859,
+    "news": 781,
+    "matched": 613,
+    "classified": 2906,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2100.9
+    "avg_classification_latency_ms": 2098.9
   },
   "live_readiness": {
     "ready": false,
@@ -432,41 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 10:31:22",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Profit-taking, MidEast hostilities drag crypto lower after bullish week",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 10:31:22",
-      "market_question": "Over $1B crypto hack value in 2026?",
-      "headline": "Profit-taking, MidEast hostilities drag crypto lower after bullish week",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.020000000000000004,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 10:31:22",
-      "market_question": "Will Donald Trump visit South Korea in 2026?",
-      "headline": "Wildfire raging south of Paris could have been set deliberately, says minister",
+      "time": "2026-07-13 10:37:49",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "Volkswagen CEO says 50,000 more job cuts may be needed to close competitive gap - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 10:31:22",
-      "market_question": "Will Trump and Putin meet next in South Korea?",
-      "headline": "Wildfire raging south of Paris could have been set deliberately, says minister",
+      "time": "2026-07-13 10:37:49",
+      "market_question": "Brian Armstrong out as Coinbase CEO before 2027?",
+      "headline": "Volkswagen CEO says 50,000 more job cuts may be needed to close competitive gap - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +464,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 10:31:22",
-      "market_question": "Will Donald Trump visit South Carolina in 2026?",
-      "headline": "Wildfire raging south of Paris could have been set deliberately, says minister",
+      "time": "2026-07-13 10:37:49",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Volkswagen CEO says 50,000 more job cuts may be needed to close competitive gap - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 10:37:49",
+      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
+      "headline": "Volkswagen CEO says 50,000 more job cuts may be needed to close competitive gap - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 10:37:49",
+      "market_question": "Will OpenAI\u2019s market cap be between $1.25T and $1.5T at market close on IPO day?",
+      "headline": "Volkswagen CEO says 50,000 more job cuts may be needed to close competitive gap - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
