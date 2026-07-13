@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T00:16:31.188540+00:00",
-  "last_heartbeat": "2026-07-13T00:16:31.188540+00:00",
-  "uptime_seconds": 197134,
+  "generated_at": "2026-07-13T00:21:40.157529+00:00",
+  "last_heartbeat": "2026-07-13T00:21:40.157529+00:00",
+  "uptime_seconds": 197443,
   "dry_run": false,
-  "markets_tracked": 1348,
+  "markets_tracked": 1350,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11295,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 29,
-  "headlines_last_cycle": 17,
+  "headlines_scanned_today": 35,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2670,
+  "classifications_24h": 2702,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 982,
+    "prefiltered_haiku": 999,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 329,
+    "price_target_market": 339,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T00:03:02.554973+00:00"
+    "last_check": "2026-07-13T00:18:02.978259+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 719,
-    "matched": 567,
-    "classified": 2670,
+    "news": 724,
+    "matched": 572,
+    "classified": 2702,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2087.4
+    "avg_classification_latency_ms": 2084.5
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 00:16:30",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Last U.S. polio patient with an iron lung dies at 78 in Oklahoma - NBC News",
+      "time": "2026-07-13 00:19:46",
+      "market_question": "Will Ethereal launch a token by December 31, 2026?",
+      "headline": "(EAPDX.O) | Stock Price & Latest News - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -443,14 +443,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 00:16:30",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "Meet Erling Haaland's family including lookalike famous sister and athlete parents - Yahoo",
+      "time": "2026-07-13 00:19:46",
+      "market_question": "Will Pudgy Penguins floor price dip to 2 ETH before 2027?",
+      "headline": "(EAPDX.O) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 00:19:46",
+      "market_question": "Will Anthropic IPO by October 31, 2026?",
+      "headline": "(EAPDX.O) | Stock Price & Latest News - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 00:19:45",
+      "market_question": "Will the price of Bitcoin be above $60,000 on July 13?",
+      "headline": "(EAPDX.O) | Stock Price & Latest News - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 00:16:30",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Meet Erling Haaland's family including lookalike famous sister and athlete parents - Yahoo",
+      "time": "2026-07-13 00:19:45",
+      "market_question": "Will the price of Bitcoin be above $68,000 on July 13?",
+      "headline": "(EAPDX.O) | Stock Price & Latest News - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,39 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 00:16:30",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Meet Erling Haaland's family including lookalike famous sister and athlete parents - Yahoo",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 00:16:30",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "Meet Erling Haaland's family including lookalike famous sister and athlete parents - Yahoo",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
