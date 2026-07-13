@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T13:28:11.719000+00:00",
-  "last_heartbeat": "2026-07-13T13:28:11.719000+00:00",
-  "uptime_seconds": 244635,
+  "generated_at": "2026-07-13T13:33:20.691258+00:00",
+  "last_heartbeat": "2026-07-13T13:33:20.691258+00:00",
+  "uptime_seconds": 244944,
   "dry_run": false,
-  "markets_tracked": 1351,
+  "markets_tracked": 1350,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11327,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 520,
+  "headlines_scanned_today": 522,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 3182,
+  "classifications_24h": 3172,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1104,
+    "prefiltered_haiku": 1099,
     "cooldown_skip": 0,
     "stale": 3,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 864,
-    "matched": 675,
-    "classified": 3182,
+    "news": 862,
+    "matched": 673,
+    "classified": 3172,
     "signals": 0,
     "trades": 0
   },
@@ -432,6 +432,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-13 13:31:23",
+      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
+      "headline": "Wall Street set for lower open as Iran tensions jolt sentiment; chip stocks fall - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 13:31:23",
+      "market_question": "Will Chip Keating win the 2026 Oklahoma Governor Republican primary election?",
+      "headline": "Wall Street set for lower open as Iran tensions jolt sentiment; chip stocks fall - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-13 13:27:20",
       "market_question": "Trump out as President before GTA VI?",
       "headline": "RT @realDonaldTrump59% Approval Rating. Prices coming down along with the lowering of oil and gas. Thank you! President DJT",
@@ -476,38 +508,6 @@
       "adjusted_materiality": 0.05,
       "action": "skip",
       "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 13:27:18",
-      "market_question": "Will Trump's approval rating hit 30% in 2026?",
-      "headline": "RT @realDonaldTrump59% Approval Rating. Prices coming down along with the lowering of oil and gas. Thank you! President DJT",
-      "direction": "bearish",
-      "materiality": 0.35,
-      "confidence": 0.62,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.27999999999999997,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 13:27:13",
-      "market_question": "Trump signs housing bill by end of July?",
-      "headline": "RT @realDonaldTrump59% Approval Rating. Prices coming down along with the lowering of oil and gas. Thank you! President DJT",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
