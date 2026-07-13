@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-13T09:36:27.999579+00:00",
-  "last_heartbeat": "2026-07-13T09:36:27.999579+00:00",
-  "uptime_seconds": 230731,
+  "generated_at": "2026-07-13T09:41:36.855720+00:00",
+  "last_heartbeat": "2026-07-13T09:41:36.855720+00:00",
+  "uptime_seconds": 231040,
   "dry_run": false,
-  "markets_tracked": 1333,
+  "markets_tracked": 1340,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 11315,
+    "total": 11327,
     "accuracy": 18.1,
     "by_category": {
       "other": 16.2,
       "ai": 12.7,
-      "politics": 19.8,
+      "politics": 19.7,
       "technology": 11.9,
       "crypto": 19.8,
       "sports": 26.2
@@ -24,12 +24,12 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.1,
-    "overall_total": 11315,
+    "overall_total": 11327,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 6154,
+        "total": 6160,
         "correct": 449,
         "accuracy_pct": 7.3,
         "avg_pnl_pct": 9.5,
@@ -38,27 +38,27 @@
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 1090,
-        "correct": 367,
+        "total": 1093,
+        "correct": 368,
         "accuracy_pct": 33.7,
-        "avg_pnl_pct": 19.58,
+        "avg_pnl_pct": 19.53,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1278,
+        "total": 1279,
         "correct": 479,
         "accuracy_pct": 37.5,
-        "avg_pnl_pct": 5.29,
+        "avg_pnl_pct": 5.28,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 754,
+        "total": 756,
         "correct": 246,
-        "accuracy_pct": 32.6,
+        "accuracy_pct": 32.5,
         "avg_pnl_pct": 0.99,
         "color": "green"
       },
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 327,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 332,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2800,
+  "classifications_24h": 2826,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 975,
+    "prefiltered_haiku": 984,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 751,
-    "matched": 589,
-    "classified": 2800,
+    "news": 756,
+    "matched": 594,
+    "classified": 2826,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2096.1
+    "avg_classification_latency_ms": 2097.2
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 09:36:23",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "Hollywood blockbusters and arthouse films: Sam Neill's best-known roles in pictures - adding",
+      "time": "2026-07-13 09:40:53",
+      "market_question": "Will Mary Peltola win the 2026 Alaska governor election?",
+      "headline": "How Governor Kathy Hochul Is Shaping New York's Energy Future - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 09:40:51",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Amber Davies calls out audience member for filming Legally Blonde performance",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 09:40:51",
+      "market_question": "Will Deaglan McEachern win the 2026 New Hampshire Governor Democratic primary election?",
+      "headline": "How Governor Kathy Hochul Is Shaping New York's Energy Future - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 09:29:48",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) gain the most seats in the next Russian parliamentary election?",
-      "headline": "France set to summon Russian ambassador to Paris over alleged cyberattack campaign - Reuters",
+      "time": "2026-07-13 09:40:51",
+      "market_question": "Will Kelly Ayotte win the 2026 New Hampshire Governor Republican primary election?",
+      "headline": "How Governor Kathy Hochul Is Shaping New York's Energy Future - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,41 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 09:29:48",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
-      "headline": "France set to summon Russian ambassador to Paris over alleged cyberattack campaign - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 09:29:48",
-      "market_question": "Will Rodina gain the most seats in the next Russian parliamentary election?",
-      "headline": "France set to summon Russian ambassador to Paris over alleged cyberattack campaign - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 09:29:48",
-      "market_question": "Will Rodina win the most seats in the next Russian parliamentary election?",
-      "headline": "France set to summon Russian ambassador to Paris over alleged cyberattack campaign - Reuters",
+      "time": "2026-07-13 09:40:51",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "How Governor Kathy Hochul Is Shaping New York's Energy Future - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
