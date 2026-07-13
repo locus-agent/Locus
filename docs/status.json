@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T06:10:54.172027+00:00",
-  "last_heartbeat": "2026-07-13T06:10:54.172027+00:00",
-  "uptime_seconds": 218397,
+  "generated_at": "2026-07-13T06:16:02.692476+00:00",
+  "last_heartbeat": "2026-07-13T06:16:02.692476+00:00",
+  "uptime_seconds": 218706,
   "dry_run": false,
-  "markets_tracked": 1325,
+  "markets_tracked": 1324,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11315,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 216,
+  "headlines_scanned_today": 219,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2644,
+  "classifications_24h": 2637,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 948,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 725,
+    "news": 726,
     "matched": 565,
-    "classified": 2644,
+    "classified": 2637,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2092.4
+    "avg_classification_latency_ms": 2092.5
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2815,
+      "current_price": 0.2815000000000001,
       "pnl_pct": 5.83,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.56,
@@ -432,6 +432,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-13 06:14:36",
+      "market_question": "Will Trump and Putin meet next in a Gulf country?",
+      "headline": "US and Iran vie for Strait of Hormuz, waterway key to global energy supplies, in latest attacks - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 06:12:20",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "TCS plays big on artificial intelligence: Hiring 9,000 AI engineers, billion-dollar training spend and hunt for acquisitions - ET Now",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-13 06:12:20",
+      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
+      "headline": "TCS plays big on artificial intelligence: Hiring 9,000 AI engineers, billion-dollar training spend and hunt for acquisitions - ET Now",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-13 06:08:03",
       "market_question": "Will Trump and Putin meet next in Ukraine?",
       "headline": "Russia-Ukraine | Breaking News & Live Updates - AP News",
@@ -462,54 +510,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 06:07:58",
-      "market_question": "Will Trump and Putin meet next in Belarus?",
-      "headline": "Russia-Ukraine | Breaking News & Live Updates - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 06:07:57",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 06:07:56",
-      "market_question": "Will Nigel Farage get second place in the Clacton by-election?",
-      "headline": "UK heatwave to intensify in second week as wildfires burn across UK",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
