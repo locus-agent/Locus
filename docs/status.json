@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T23:47:37.018847+00:00",
-  "last_heartbeat": "2026-07-13T23:47:37.018847+00:00",
-  "uptime_seconds": 281800,
+  "generated_at": "2026-07-13T23:52:46.557078+00:00",
+  "last_heartbeat": "2026-07-13T23:52:46.557078+00:00",
+  "uptime_seconds": 282110,
   "dry_run": false,
-  "markets_tracked": 1324,
+  "markets_tracked": 1326,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11357,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 1002,
+  "headlines_scanned_today": 1014,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3628,
+  "classifications_24h": 3681,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1191,
+    "prefiltered_haiku": 1209,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 382,
+    "price_target_market": 387,
     "coinflip_market": 0,
     "correlation_block": 4,
     "category_limit": 3,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T23:33:42.257094+00:00"
+    "last_check": "2026-07-13T23:48:42.728569+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1005,
-    "matched": 786,
-    "classified": 3628,
+    "news": 1016,
+    "matched": 796,
+    "classified": 3681,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2163.2
+    "avg_classification_latency_ms": 2158.9
   },
   "live_readiness": {
     "ready": false,
@@ -432,57 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 23:40:08",
-      "market_question": "Will stablecoins hit $500B before 2027?",
-      "headline": "UAE says two tankers hit by Iranian cruise missiles in Strait of Hormuz; one crew member killed - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 23:40:08",
-      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "UAE says two tankers hit by Iranian cruise missiles in Strait of Hormuz; one crew member killed - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 23:40:08",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "UAE says two tankers hit by Iranian cruise missiles in Strait of Hormuz; one crew member killed - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 23:40:08",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "UAE says two tankers hit by Iranian cruise missiles in Strait of Hormuz; one crew member killed - Reuters",
+      "time": "2026-07-13 23:48:54",
+      "market_question": "Will Likud win the most seats in the 2026 Israeli legislative election?",
+      "headline": "Postcards from the legislative recess - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +448,57 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 23:40:08",
-      "market_question": "Will Polymarket mindshare hit 75% by December 31?",
-      "headline": "UAE says two tankers hit by Iranian cruise missiles in Strait of Hormuz; one crew member killed - Reuters",
+      "time": "2026-07-13 23:48:54",
+      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
+      "headline": "Postcards from the legislative recess - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 23:48:54",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "Postcards from the legislative recess - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 23:48:54",
+      "market_question": "Will Citizens\u2019 Movement (MC) win the most seats in the 2027 Mexico legislative election?",
+      "headline": "Postcards from the legislative recess - Politico",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 23:48:54",
+      "market_question": "Will Adam Crum advance from the 2026 Alaska Governor primary election?",
+      "headline": "Postcards from the legislative recess - Politico",
       "direction": null,
       "materiality": null,
       "confidence": null,
