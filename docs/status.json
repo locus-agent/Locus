@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T03:26:29.428282+00:00",
-  "last_heartbeat": "2026-07-13T03:26:29.428282+00:00",
-  "uptime_seconds": 208532,
+  "generated_at": "2026-07-13T03:31:37.656668+00:00",
+  "last_heartbeat": "2026-07-13T03:31:37.656668+00:00",
+  "uptime_seconds": 208841,
   "dry_run": false,
-  "markets_tracked": 1352,
+  "markets_tracked": 1353,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11303,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 97,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 100,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 2479,
+  "classifications_24h": 2465,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 910,
+    "prefiltered_haiku": 905,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 324,
+    "price_target_market": 321,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 678,
-    "matched": 525,
-    "classified": 2479,
+    "news": 676,
+    "matched": 523,
+    "classified": 2465,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2079.3
+    "avg_classification_latency_ms": 2079.0
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.2815,
+      "current_price": 0.2815000000000001,
       "pnl_pct": 5.83,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.56,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.034,
+      "current_price": 0.03400000000000003,
       "pnl_pct": -2.02,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-13 03:30:12",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Corporation, stakeholders fear AI-related risks in data centres, institutions - The Guardian Nigeria News",
+      "direction": "neutral",
+      "materiality": 0.15,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-13 03:25:48",
       "market_question": "Will Trump be impeached before his term ends?",
       "headline": "US ends latest round of airstrikes on Iran after Tehran strikes Gulf states - AP News",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-13 03:25:48",
       "market_question": "Will Trump and Putin meet next in a Gulf country?",
-      "headline": "US ends latest round of airstrikes on Iran after Tehran strikes Gulf states - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-13 03:25:48",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
       "headline": "US ends latest round of airstrikes on Iran after Tehran strikes Gulf states - AP News",
       "direction": null,
       "materiality": null,
