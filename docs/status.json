@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-13T03:00:49.660539+00:00",
-  "last_heartbeat": "2026-07-13T03:00:49.660539+00:00",
-  "uptime_seconds": 206993,
+  "generated_at": "2026-07-13T03:05:57.553903+00:00",
+  "last_heartbeat": "2026-07-13T03:05:57.553903+00:00",
+  "uptime_seconds": 207301,
   "dry_run": false,
   "markets_tracked": 1350,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 91,
+  "headlines_scanned_today": 92,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 2486,
+  "classifications_24h": 2491,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 915,
+    "prefiltered_haiku": 916,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 322,
+    "price_target_market": 324,
     "coinflip_market": 0,
     "correlation_block": 5,
     "category_limit": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-13T02:48:06.570397+00:00"
+    "last_check": "2026-07-13T03:03:06.929575+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 681,
-    "matched": 527,
-    "classified": 2486,
+    "news": 682,
+    "matched": 528,
+    "classified": 2491,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2079.6
+    "avg_classification_latency_ms": 2079.3
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0345,
+      "current_price": 0.034499999999999975,
       "pnl_pct": -0.57,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.33,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-13 02:50:49",
-      "market_question": "Will Grok AI beat T1 in 2026? ",
-      "headline": "Shakira Austin scores 10 of her 27 points in the 4th quarter as the Mystics beat the Storm 84-79 - AP News",
+      "time": "2026-07-13 03:01:47",
+      "market_question": "Will Anthropic or OpenAI IPO first?",
+      "headline": "Zach Johnson wins at Firestone for first senior major title - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-13 02:50:48",
-      "market_question": "AI model scores \u2265 90% on FrontierMath Benchmark before 2027?",
-      "headline": "Shakira Austin scores 10 of her 27 points in the 4th quarter as the Mystics beat the Storm 84-79 - AP News",
+      "time": "2026-07-13 03:01:46",
+      "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
+      "headline": "Zach Johnson wins at Firestone for first senior major title - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 03:01:46",
+      "market_question": "Will Solana hit $60 or $140 first?",
+      "headline": "Zach Johnson wins at Firestone for first senior major title - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-13 03:01:46",
+      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
+      "headline": "Zach Johnson wins at Firestone for first senior major title - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,41 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-13 02:48:35",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "An emboldened India holds out for better terms in US trade talks - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 02:48:35",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "An emboldened India holds out for better terms in US trade talks - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-13 02:48:34",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "An emboldened India holds out for better terms in US trade talks - Reuters",
+      "time": "2026-07-13 03:01:46",
+      "market_question": "Will Renan Santos win the first round of the 2026 Brazilian presidential election?",
+      "headline": "Zach Johnson wins at Firestone for first senior major title - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
