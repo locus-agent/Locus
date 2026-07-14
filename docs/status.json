@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T00:23:42.599851+00:00",
-  "last_heartbeat": "2026-07-14T00:23:42.599851+00:00",
-  "uptime_seconds": 283966,
+  "generated_at": "2026-07-14T00:28:53.189995+00:00",
+  "last_heartbeat": "2026-07-14T00:28:53.189995+00:00",
+  "uptime_seconds": 284276,
   "dry_run": false,
-  "markets_tracked": 1330,
+  "markets_tracked": 1334,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11357,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 21,
+  "headlines_scanned_today": 24,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3647,
+  "classifications_24h": 3658,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1221,
+    "prefiltered_haiku": 1230,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1002,
-    "matched": 784,
-    "classified": 3647,
+    "news": 1005,
+    "matched": 786,
+    "classified": 3658,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2154.9
+    "avg_classification_latency_ms": 2154.0
   },
   "live_readiness": {
     "ready": false,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 00:19:42",
-      "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
-      "headline": "EXCLUSIVE: Shein executive chairman to pass the baton as IPO nears completion, sources say - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "immediate",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 00:19:38",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "EXCLUSIVE: Shein executive chairman to pass the baton as IPO nears completion, sources say - Reuters",
+      "time": "2026-07-14 00:26:12",
+      "market_question": "Trump declares election interference national emergency? ",
+      "headline": "Trump slashes the size of two Utah national monuments - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -459,14 +443,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 00:19:37",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "EXCLUSIVE: Shein executive chairman to pass the baton as IPO nears completion, sources say - Reuters",
+      "time": "2026-07-14 00:26:12",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Trump slashes the size of two Utah national monuments - Reuters",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 00:26:11",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump slashes the size of two Utah national monuments - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -475,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 00:19:37",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "EXCLUSIVE: Shein executive chairman to pass the baton as IPO nears completion, sources say - Reuters",
+      "time": "2026-07-14 00:26:11",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Trump slashes the size of two Utah national monuments - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -491,14 +491,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 00:19:37",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "EXCLUSIVE: Shein executive chairman to pass the baton as IPO nears completion, sources say - Reuters",
+      "time": "2026-07-14 00:26:11",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Trump slashes the size of two Utah national monuments - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -507,7 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
