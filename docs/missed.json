@@ -1,6 +1,66 @@
 {
  "missed": [
   {
+   "time": "2026-07-14 22:00:39",
+   "market_question": "Trump declares election interference national emergency? ",
+   "slug": "trump-declares-election-interference-national-emergency",
+   "direction": "bullish",
+   "materiality": 0.35,
+   "action": "low_materiality",
+   "pct_move": 18.5,
+   "reflection": "I underweighted a signal that combined high political salience with concrete market catalysts\u2014a 0.35 materiality threshold was too conservative for an event with this kind of directional clarity and volatility potential. My skip logic treated materiality as a hard floor rather than a probabilistic input, missing that even \"low\" materiality can compound into significant P&L when conviction and move magnitude align. I need to recalibrate: materiality should inform position sizing, not gate entry entirely."
+  },
+  {
+   "time": "2026-07-14 22:00:36",
+   "market_question": "Trump declares election interference national emergency? ",
+   "slug": "trump-declares-election-interference-national-emergency",
+   "direction": "bullish",
+   "materiality": 0.35,
+   "action": "low_materiality",
+   "pct_move": 18.5,
+   "reflection": "I underweighted a signal with 0.35 materiality because I'd calibrated my threshold too conservatively\u2014but I missed that Trump's emergency declaration, regardless of its actual policy impact, was *semantically explosive* for market sentiment and would trigger cascading algorithmic responses before fundamental questions even mattered. I let a mechanical materiality score override the signal's obvious capacity to move prices, which is ultimately what I'm supposed to predict, not what I think *should* move prices."
+  },
+  {
+   "time": "2026-07-14 22:00:33",
+   "market_question": "OpenAI IPO before 2027?",
+   "slug": "ipos-before-2027",
+   "direction": "bearish",
+   "materiality": 0.35,
+   "action": "skip",
+   "pct_move": 22.4,
+   "reflection": "I flagged OpenAI's IPO probability as bearish with only moderate conviction (0.35 materiality), which meant I lacked sufficient confidence to act despite identifying the directional bias\u2014and the market's 22% move validated that bearish case. My skip cost me real alpha because I let uncertainty paralyze execution; a 0.35 signal isn't high confidence, but it's directional enough that I should have sized a position proportional to that conviction rather than sitting out entirely. I need to recalibrate: skipping trades to avoid false positives is risk management, but it's only sound if I'm actually uncertain\u2014here I had a view and abandoned it, which is just indecision masquerading as discipline."
+  },
+  {
+   "time": "2026-07-14 22:00:26",
+   "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
+   "slug": "will-mitch-mcconnell-resign-from-the-senate-before-his-term-ends",
+   "direction": "bullish",
+   "materiality": 0.4,
+   "action": "stale",
+   "pct_move": 28.6,
+   "reflection": "I flagged this as stale without properly accounting for the timing of McConnell's health situation and the genuine uncertainty around his tenure\u2014a classic mistake of dismissing political signals as \"old news\" when the actual resolution remained live and material. The 29% move showed there was real edge in that 0.40 materiality signal, and I let process override judgment by mechanically discarding it rather than asking whether staleness actually meant irrelevance. I should have weighted the signal's directional conviction more heavily and accepted the risk of being early rather than sitting out entirely."
+  },
+  {
+   "time": "2026-07-14 22:00:23",
+   "market_question": "Will Trump praise Allah again by July 31?",
+   "slug": "will-trump-praise-allah-again-by-july-31-20260709192527504",
+   "direction": "bearish",
+   "materiality": 0.52,
+   "action": "stale",
+   "pct_move": 32.1,
+   "reflection": "I flagged this as stale without properly reassessing the underlying probability\u2014a lazy heuristic that cost me real edge. The 32% move in my predicted direction suggests the market hadn't actually priced in Trump's historical pattern of religious rhetoric, and my bearish signal had genuine predictive value that I discarded based on data freshness rather than signal quality. I need to distinguish between stale *data* and stale *analysis*; a bearish thesis on an unlikely event doesn't expire just because the market hasn't updated it yet."
+  },
+  {
+   "time": "2026-07-14 22:00:21",
+   "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
+   "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
+   "direction": "bullish",
+   "materiality": 0.65,
+   "action": "stale",
+   "pct_move": 18.3,
+   "reflection": "I flagged Troy Jackson as a strong bullish opportunity at 0.65 materiality but dismissed the signal as stale without reassessing the underlying fundamentals\u2014a mistake that cost me an 18% move in my predicted direction. My assumption that age alone disqualifies a signal prevented me from asking whether new information had actually emerged or if the market was simply slow to price in what I already knew. Next time I need to distinguish between truly outdated analysis and signals that remain valid despite sitting in my queue."
+  },
+  {
    "time": "2026-07-13 22:00:43",
    "market_question": "OpenAI IPO before 2027?",
    "slug": "ipos-before-2027",
