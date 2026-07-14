@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-14T11:01:11.213009+00:00",
-  "last_heartbeat": "2026-07-14T11:01:11.213009+00:00",
-  "uptime_seconds": 322214,
+  "generated_at": "2026-07-14T11:06:20.186076+00:00",
+  "last_heartbeat": "2026-07-14T11:06:20.186076+00:00",
+  "uptime_seconds": 322523,
   "dry_run": false,
   "markets_tracked": 1342,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 302,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 310,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 3472,
+  "classifications_24h": 3497,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1164,
+    "prefiltered_haiku": 1172,
     "cooldown_skip": 0,
     "stale": 10,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-14T10:49:01.022004+00:00"
+    "last_check": "2026-07-14T11:04:01.351598+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 940,
-    "matched": 749,
-    "classified": 3472,
+    "news": 943,
+    "matched": 752,
+    "classified": 3497,
     "signals": 3,
     "trades": 3
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2176.4
+    "avg_classification_latency_ms": 2179.3
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.033500000000000085,
+      "current_price": 0.0335,
       "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 11:00:45",
-      "market_question": "Will Howard Lutnick leave the Trump administration before 2027?",
-      "headline": "Trump administration gives Tom Kean Jr. a new headache in tough midterm fight - Politico",
+      "time": "2026-07-14 11:05:03",
+      "market_question": "Will Krum Zarkov win the next Bulgarian presidential election?",
+      "headline": "It\u2019s \u2018Super Tuesday\u2019 for EU enlargement as 4 candidates move forward with negotiations - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 11:05:00",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "It\u2019s \u2018Super Tuesday\u2019 for EU enlargement as 4 candidates move forward with negotiations - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,57 +464,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 11:00:45",
-      "market_question": "Will Nigel Farage win the Clacton by-election?",
-      "headline": "Government failing Farage over security, says Jenrick",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-14 11:05:00",
+      "market_question": "Will Kostadin Kostadinov win the next  Bulgarian presidential election?",
+      "headline": "It\u2019s \u2018Super Tuesday\u2019 for EU enlargement as 4 candidates move forward with negotiations - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-14 11:00:45",
-      "market_question": "Will the US federal government take a stake in OpenAI?",
-      "headline": "Government failing Farage over security, says Jenrick",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-14 11:05:00",
+      "market_question": "Will Blagomir Kotsev win the next Bulgarian presidential election?",
+      "headline": "It\u2019s \u2018Super Tuesday\u2019 for EU enlargement as 4 candidates move forward with negotiations - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-14 11:00:45",
-      "market_question": "Will Nigel Farage get second place in the Clacton by-election?",
-      "headline": "Government failing Farage over security, says Jenrick",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 11:00:45",
-      "market_question": "Will Nigel Farage win the 2026 Clacton by-election by 30% or more?",
-      "headline": "Government failing Farage over security, says Jenrick",
+      "time": "2026-07-14 11:04:59",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "It\u2019s \u2018Super Tuesday\u2019 for EU enlargement as 4 candidates move forward with negotiations - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
