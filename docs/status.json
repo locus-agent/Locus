@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-14T23:14:59.256857+00:00",
-  "last_heartbeat": "2026-07-14T23:14:59.256857+00:00",
-  "uptime_seconds": 366242,
+  "generated_at": "2026-07-14T23:20:08.070150+00:00",
+  "last_heartbeat": "2026-07-14T23:20:08.070150+00:00",
+  "uptime_seconds": 366551,
   "dry_run": false,
   "markets_tracked": 1347,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 998,
+  "headlines_scanned_today": 1002,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3874,
+  "classifications_24h": 3881,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1298,
+    "prefiltered_haiku": 1304,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-14T23:04:21.886495+00:00"
+    "last_check": "2026-07-14T23:19:22.237011+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1024,
-    "matched": 847,
-    "classified": 3874,
+    "news": 1026,
+    "matched": 849,
+    "classified": 3881,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2217.5
+    "avg_classification_latency_ms": 2216.6
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 23:11:11",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "After record heat, could the Atlantic make Britain's weather even more extreme?",
+      "time": "2026-07-14 23:15:36",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "Shell targets 2027 drilling at Venezuela's key offshore gas field, sources say - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,57 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 23:09:07",
-      "market_question": "Will Elon Musk rejoin the Trump Administration in 2026?",
-      "headline": "Elon Musk likely broke the law by promising voters $1 million payouts, Wisconsin board says - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 23:09:07",
-      "market_question": "Will Trump pardon Elon Musk before 2027?",
-      "headline": "Elon Musk likely broke the law by promising voters $1 million payouts, Wisconsin board says - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 23:09:06",
-      "market_question": "Will Trump praise Elon Musk by July 31?",
-      "headline": "Elon Musk likely broke the law by promising voters $1 million payouts, Wisconsin board says - AP News",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 23:09:00",
-      "market_question": "Will Daylight launch a token by September 30, 2026?",
-      "headline": "US House passes bill to make daylight saving time permanent - Reuters",
+      "time": "2026-07-14 23:15:36",
+      "market_question": "Will Anthropic be acquired before 2027?",
+      "headline": "Shell targets 2027 drilling at Venezuela's key offshore gas field, sources say - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -507,7 +459,55 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 23:15:36",
+      "market_question": "Will OpenAI be acquired before 2027?",
+      "headline": "Shell targets 2027 drilling at Venezuela's key offshore gas field, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 23:15:36",
+      "market_question": "OpenAI IPO before 2027?",
+      "headline": "Shell targets 2027 drilling at Venezuela's key offshore gas field, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 23:15:36",
+      "market_question": "Mistral AI IPO before 2027?",
+      "headline": "Shell targets 2027 drilling at Venezuela's key offshore gas field, sources say - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
