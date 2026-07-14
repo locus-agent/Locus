@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T06:44:08.381816+00:00",
-  "last_heartbeat": "2026-07-14T06:44:08.381816+00:00",
-  "uptime_seconds": 306791,
+  "generated_at": "2026-07-14T06:49:16.823330+00:00",
+  "last_heartbeat": "2026-07-14T06:49:16.823330+00:00",
+  "uptime_seconds": 307100,
   "dry_run": false,
-  "markets_tracked": 1323,
+  "markets_tracked": 1322,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11377,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 198,
+  "headlines_scanned_today": 199,
   "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 3647,
+  "classifications_24h": 3646,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1233,
+    "prefiltered_haiku": 1230,
     "cooldown_skip": 0,
     "stale": 8,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-14T06:33:54.028170+00:00"
+    "last_check": "2026-07-14T06:48:54.415851+00:00"
   },
   "edge_types_24h": {
     "news": 2,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 987,
     "matched": 779,
-    "classified": 3647,
+    "classified": 3646,
     "signals": 3,
     "trades": 3
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2156.1
+    "avg_classification_latency_ms": 2156.7
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3055000000000001,
+      "current_price": 0.3055,
       "pnl_pct": 14.85,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.61,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.033500000000000085,
+      "current_price": 0.0335,
       "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,6 +432,70 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-14 06:45:51",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "SoftBank's Son says AI will need $5 trillion per year by 2040, dismisses bubble talk - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 06:45:44",
+      "market_question": "Over $1.5B crypto hack value in 2026?",
+      "headline": "SoftBank's Son says AI will need $5 trillion per year by 2040, dismisses bubble talk - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 06:45:44",
+      "market_question": "Over $1B crypto hack value in 2026?",
+      "headline": "SoftBank's Son says AI will need $5 trillion per year by 2040, dismisses bubble talk - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 06:45:43",
+      "market_question": "Will Trump talk to Mojtaba Khamenei by December 31?",
+      "headline": "SoftBank's Son says AI will need $5 trillion per year by 2040, dismisses bubble talk - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-14 06:43:40",
       "market_question": "Over $800M raised on Coinbase in 2026?",
       "headline": "U.S. government moves $288 million in seized bitcoin, ether to Coinbase Prime",
@@ -446,70 +510,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 06:43:39",
-      "market_question": "Over $200M raised on Coinbase in 2026?",
-      "headline": "U.S. government moves $288 million in seized bitcoin, ether to Coinbase Prime",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 06:43:39",
-      "market_question": "Over $400M raised on Coinbase in 2026?",
-      "headline": "U.S. government moves $288 million in seized bitcoin, ether to Coinbase Prime",
-      "direction": "neutral",
-      "materiality": 0.05,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "long_term",
-      "adjusted_materiality": 0.0,
-      "action": "skip",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 06:43:32",
-      "market_question": "Will Bitcoin reach $100,000 in July?",
-      "headline": "U.S. government moves $288 million in seized bitcoin, ether to Coinbase Prime",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 06:43:32",
-      "market_question": "Will Bitcoin reach $67,500 in July?",
-      "headline": "U.S. government moves $288 million in seized bitcoin, ether to Coinbase Prime",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
