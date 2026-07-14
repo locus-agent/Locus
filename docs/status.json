@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T16:26:42.105967+00:00",
-  "last_heartbeat": "2026-07-14T16:26:42.105967+00:00",
-  "uptime_seconds": 341745,
+  "generated_at": "2026-07-14T16:31:51.130673+00:00",
+  "last_heartbeat": "2026-07-14T16:31:51.130673+00:00",
+  "uptime_seconds": 342054,
   "dry_run": false,
-  "markets_tracked": 1320,
+  "markets_tracked": 1318,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11396,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 614,
+  "headlines_scanned_today": 615,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3552,
+  "classifications_24h": 3544,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1182,
+    "prefiltered_haiku": 1181,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 938,
-    "matched": 763,
-    "classified": 3552,
+    "news": 932,
+    "matched": 759,
+    "classified": 3544,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2205.2
+    "avg_classification_latency_ms": 2205.3
   },
   "live_readiness": {
     "ready": false,
@@ -224,8 +224,8 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3095000000000001,
-      "pnl_pct": 16.35,
+      "current_price": 0.3105,
+      "pnl_pct": 16.73,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.62,
       "pnl_usd": 0.09,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 16:21:01",
-      "market_question": "Will China unban Bitcoin by 2027?",
-      "headline": "US official says shipments of H200 chips to China have begun - Reuters",
+      "time": "2026-07-14 16:27:40",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Trump pays writer E Jean Carroll $5m in damages over sexual abuse and defamation",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 16:27:33",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Trump pays writer E Jean Carroll $5m in damages over sexual abuse and defamation",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 16:21:00",
-      "market_question": "Will Hylo launch a token by December 31, 2026?",
-      "headline": "US official says shipments of H200 chips to China have begun - Reuters",
+      "time": "2026-07-14 16:27:33",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Trump pays writer E Jean Carroll $5m in damages over sexual abuse and defamation",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -459,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 16:20:59",
-      "market_question": "Will Hylo launch a token by December 31, 2027?",
-      "headline": "US official says shipments of H200 chips to China have begun - Reuters",
+      "time": "2026-07-14 16:27:33",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump pays writer E Jean Carroll $5m in damages over sexual abuse and defamation",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -475,41 +491,25 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 16:20:57",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "US official says shipments of H200 chips to China have begun - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-14 16:27:33",
+      "market_question": "Trump out as President by July 31?",
+      "headline": "Trump pays writer E Jean Carroll $5m in damages over sexual abuse and defamation",
+      "direction": "bullish",
+      "materiality": 0.15,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.12,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 16:20:57",
-      "market_question": "Will Trump accuse China of election interference by July 16?",
-      "headline": "US official says shipments of H200 chips to China have begun - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
