@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-14T04:09:53.985550+00:00",
-  "last_heartbeat": "2026-07-14T04:09:53.985550+00:00",
-  "uptime_seconds": 297537,
+  "generated_at": "2026-07-14T04:15:02.050108+00:00",
+  "last_heartbeat": "2026-07-14T04:15:02.050108+00:00",
+  "uptime_seconds": 297845,
   "dry_run": false,
   "markets_tracked": 1335,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 129,
+  "headlines_scanned_today": 130,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3721,
+  "classifications_24h": 3726,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1238,
+    "prefiltered_haiku": 1239,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 0,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1011,
     "matched": 798,
-    "classified": 3721,
+    "classified": 3726,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2154.4
+    "avg_classification_latency_ms": 2154.8
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 04:07:58",
-      "market_question": "OpenAI announces it has achieved AGI before 2027?",
-      "headline": "US artificial intelligence sovereign wealth fund sees surge in support as AI job losses mount - MSN",
+      "time": "2026-07-14 04:14:32",
+      "market_question": "Will Bitcoin outperform Gold in 2026?",
+      "headline": "Gold recovers from two-week low ahead of US inflation figures - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -443,14 +443,30 @@
       "time_horizon": "long_term",
       "adjusted_materiality": 0.0,
       "action": "skip",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 04:14:27",
+      "market_question": "Will Meta launch a USD stablecoin in 2026?",
+      "headline": "Gold recovers from two-week low ahead of US inflation figures - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 04:07:58",
-      "market_question": "Bitcoin all time high by December 31, 2026?",
-      "headline": "Oil hits one-month high as US, Iran step up attacks in Strait of Hormuz - Reuters",
+      "time": "2026-07-14 04:14:25",
+      "market_question": "Will OpenAI's valuation hit (LOW) $750B by December 31?",
+      "headline": "Gold recovers from two-week low ahead of US inflation figures - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 04:07:58",
-      "market_question": "Bitcoin all time high by September 30, 2026?",
-      "headline": "Oil hits one-month high as US, Iran step up attacks in Strait of Hormuz - Reuters",
+      "time": "2026-07-14 04:14:25",
+      "market_question": "Will Anthropic's valuation hit (LOW) $800B by December 31?",
+      "headline": "Gold recovers from two-week low ahead of US inflation figures - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,31 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 04:07:58",
-      "market_question": "Ethereum all time high by December 31, 2026?",
-      "headline": "Oil hits one-month high as US, Iran step up attacks in Strait of Hormuz - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 04:07:58",
-      "market_question": "Will Anthropic's valuation hit (HIGH) $2.0T by December 31?",
-      "headline": "Oil hits one-month high as US, Iran step up attacks in Strait of Hormuz - Reuters",
+      "time": "2026-07-14 04:14:25",
+      "market_question": "Will OpenAI's valuation hit (LOW) $800B by December 31?",
+      "headline": "Gold recovers from two-week low ahead of US inflation figures - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
