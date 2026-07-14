@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T18:15:13.955950+00:00",
-  "last_heartbeat": "2026-07-14T18:15:13.955950+00:00",
-  "uptime_seconds": 348257,
+  "generated_at": "2026-07-14T18:20:25.637180+00:00",
+  "last_heartbeat": "2026-07-14T18:20:25.637180+00:00",
+  "uptime_seconds": 348569,
   "dry_run": false,
-  "markets_tracked": 1322,
+  "markets_tracked": 1321,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11410,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 717,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 738,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3627,
+  "classifications_24h": 3697,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1218,
+    "prefiltered_haiku": 1253,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 365,
+    "price_target_market": 370,
     "coinflip_market": 0,
     "correlation_block": 1,
     "category_limit": 2,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-14T18:04:14.236568+00:00"
+    "last_check": "2026-07-14T18:19:14.555853+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 941,
-    "matched": 777,
-    "classified": 3627,
+    "news": 960,
+    "matched": 793,
+    "classified": 3697,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2215.7
+    "avg_classification_latency_ms": 2213.0
   },
   "live_readiness": {
     "ready": false,
@@ -224,8 +224,8 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3105,
-      "pnl_pct": 16.73,
+      "current_price": 0.3115,
+      "pnl_pct": 17.11,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.62,
       "pnl_usd": 0.09,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 18:12:57",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Takeout Boxes Are Filling Landfills. This Town Has A Plan To Phase Them Out - AP News",
+      "time": "2026-07-14 18:19:28",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "How we know this Mitch McConnell photo isn't AI-generated",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 18:12:53",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Takeout Boxes Are Filling Landfills. This Town Has A Plan To Phase Them Out - AP News",
+      "time": "2026-07-14 18:19:27",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Supreme Court justices plead with Congress for more security fundung - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,25 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 18:12:52",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "England's one-day woes continue with India defeat",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 18:12:52",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Takeout Boxes Are Filling Landfills. This Town Has A Plan To Phase Them Out - AP News",
+      "time": "2026-07-14 18:19:27",
+      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
+      "headline": "How we know this Mitch McConnell photo isn't AI-generated",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,20 +480,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 18:12:52",
-      "market_question": "Tamas Sulyok out as President of Hungary by July 31?",
-      "headline": "Takeout Boxes Are Filling Landfills. This Town Has A Plan To Phase Them Out - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-14 18:19:26",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Supreme Court justices plead with Congress for more security fundung - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 18:19:26",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Supreme Court justices plead with Congress for more security fundung - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
