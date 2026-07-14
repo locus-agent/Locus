@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T14:06:58.947511+00:00",
-  "last_heartbeat": "2026-07-14T14:06:58.947511+00:00",
-  "uptime_seconds": 333362,
+  "generated_at": "2026-07-14T14:12:08.625693+00:00",
+  "last_heartbeat": "2026-07-14T14:12:08.625693+00:00",
+  "uptime_seconds": 333672,
   "dry_run": false,
-  "markets_tracked": 1356,
+  "markets_tracked": 1357,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11396,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 475,
+  "headlines_scanned_today": 481,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 3405,
+  "classifications_24h": 3389,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1118,
+    "prefiltered_haiku": 1111,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 323,
+    "price_target_market": 321,
     "coinflip_market": 0,
     "correlation_block": 2,
     "category_limit": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 915,
-    "matched": 734,
-    "classified": 3405,
+    "news": 911,
+    "matched": 732,
+    "classified": 3389,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2184.3
+    "avg_classification_latency_ms": 2183.8
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0335,
+      "current_price": 0.033500000000000085,
       "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 14:05:04",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "BofA beats profit estimates on record trading, investment banking strength - Reuters",
+      "time": "2026-07-14 14:11:35",
+      "market_question": "US national Bitcoin reserve before 2027?",
+      "headline": "Australia to create Office of AI to shape national artificial intelligence rules - The Citizen",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 14:02:48",
-      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
-      "headline": "Sam Altman didn\u2019t need another lawsuit",
+      "time": "2026-07-14 14:11:34",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Australia to create Office of AI to shape national artificial intelligence rules - The Citizen",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.020000000000000004,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 14:11:34",
+      "market_question": "US national Ethereum reserve before 2027?",
+      "headline": "Australia to create Office of AI to shape national artificial intelligence rules - The Citizen",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -459,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 14:02:47",
-      "market_question": "Another crypto hack over $100m by December 31?",
-      "headline": "Sam Altman didn\u2019t need another lawsuit",
+      "time": "2026-07-14 14:11:33",
+      "market_question": "Will Trump and Putin meet next in Australia?",
+      "headline": "Australia to create Office of AI to shape national artificial intelligence rules - The Citizen",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,25 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 14:02:47",
-      "market_question": "Another crypto hack over $100m by September 30?",
-      "headline": "Sam Altman didn\u2019t need another lawsuit",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 14:02:47",
-      "market_question": "Will Trump and Putin meet next in another country?",
-      "headline": "Sam Altman didn\u2019t need another lawsuit",
+      "time": "2026-07-14 14:11:33",
+      "market_question": "Trump declares election interference national emergency? ",
+      "headline": "Australia to create Office of AI to shape national artificial intelligence rules - The Citizen",
       "direction": null,
       "materiality": null,
       "confidence": null,
