@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T07:04:42.712337+00:00",
-  "last_heartbeat": "2026-07-14T07:04:42.712337+00:00",
-  "uptime_seconds": 308026,
+  "generated_at": "2026-07-14T07:09:51.399515+00:00",
+  "last_heartbeat": "2026-07-14T07:09:51.399515+00:00",
+  "uptime_seconds": 308334,
   "dry_run": false,
-  "markets_tracked": 1326,
+  "markets_tracked": 1319,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11377,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 204,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 207,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 3639,
+  "classifications_24h": 3643,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1227,
+    "prefiltered_haiku": 1222,
     "cooldown_skip": 0,
     "stale": 8,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 986,
-    "matched": 778,
-    "classified": 3639,
+    "news": 988,
+    "matched": 780,
+    "classified": 3643,
     "signals": 3,
     "trades": 3
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2160.2
+    "avg_classification_latency_ms": 2160.6
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 06:58:51",
-      "market_question": "Bitcoin all time high by December 31, 2026?",
-      "headline": "An artificial intelligence (AI)-based public interest security project analyzed all of the standard - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-07-14 07:09:49",
+      "market_question": "Will Free Patriotic Movement win the most seats in the 2026 Lebanese parliamentary election?",
+      "headline": "Free school meal pupils falling further behind their peers, report warns",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -442,15 +442,31 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 06:58:51",
-      "market_question": "Bitcoin all time high by September 30, 2026?",
-      "headline": "An artificial intelligence (AI)-based public interest security project analyzed all of the standard - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-07-14 07:07:43",
+      "market_question": "Will China unban Bitcoin by 2027?",
+      "headline": "Chip toolmaker ASML expected to shine light on capacity and China challenges - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 07:07:37",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "Chip toolmaker ASML expected to shine light on capacity and China challenges - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 06:58:51",
-      "market_question": "Ethereum all time high by December 31, 2026?",
-      "headline": "An artificial intelligence (AI)-based public interest security project analyzed all of the standard - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-07-14 07:07:37",
+      "market_question": "Will Chip Keating win the 2026 Oklahoma Governor Republican primary election?",
+      "headline": "Chip toolmaker ASML expected to shine light on capacity and China challenges - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 06:58:51",
-      "market_question": "Ethereum all time high by September 30, 2026?",
-      "headline": "An artificial intelligence (AI)-based public interest security project analyzed all of the standard - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-07-14 07:05:26",
+      "market_question": "Will BULK launch a token by June 30, 2027?",
+      "headline": "US consumer inflation likely increased at a slow pace in June as gasoline prices retreated - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,23 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 06:58:51",
-      "market_question": "Solana all time high by December 31, 2026?",
-      "headline": "An artificial intelligence (AI)-based public interest security project analyzed all of the standard - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
