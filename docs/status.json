@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T22:44:01.448470+00:00",
-  "last_heartbeat": "2026-07-14T22:44:01.448470+00:00",
-  "uptime_seconds": 364384,
+  "generated_at": "2026-07-14T22:49:11.204607+00:00",
+  "last_heartbeat": "2026-07-14T22:49:11.204607+00:00",
+  "uptime_seconds": 364694,
   "dry_run": false,
-  "markets_tracked": 1345,
+  "markets_tracked": 1346,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11419,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 988,
+  "headlines_scanned_today": 990,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3851,
+  "classifications_24h": 3858,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1280,
+    "prefiltered_haiku": 1285,
     "cooldown_skip": 0,
     "stale": 7,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1019,
-    "matched": 842,
-    "classified": 3851,
+    "news": 1021,
+    "matched": 844,
+    "classified": 3858,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2218.3
+    "avg_classification_latency_ms": 2217.5
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 22:42:41",
-      "market_question": "Will Daylight launch a token by December 31, 2026?",
-      "headline": "House passes bill to \u2018ditch the switch\u2019 and make daylight saving time permanent - AP News",
+      "time": "2026-07-14 22:47:04",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Spain\u2019s anaconda grip crushes French World Cup dream - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -443,14 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 22:42:40",
-      "market_question": "Will Daylight launch a token by December 31, 2027?",
-      "headline": "House passes bill to \u2018ditch the switch\u2019 and make daylight saving time permanent - AP News",
+      "time": "2026-07-14 22:47:04",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Spain\u2019s anaconda grip crushes French World Cup dream - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -459,30 +459,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 22:42:40",
-      "market_question": "Will Daylight launch a token by September 30, 2026?",
-      "headline": "House passes bill to \u2018ditch the switch\u2019 and make daylight saving time permanent - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 22:42:39",
-      "market_question": "2026 Balance of Power: R Senate, R House",
-      "headline": "White House launches cybersecurity clearinghouse to patch software flaws discovered by AI - Politico",
+      "time": "2026-07-14 22:47:04",
+      "market_question": "Will Tom Cotton be the next Senate Majority Leader?",
+      "headline": "Tom Cruise\u2019s love for \u2018Amores Perros\u2019 led him to \u2018Digger\u2019 - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 22:42:39",
-      "market_question": "2026 Balance of Power: R Senate, D House",
-      "headline": "White House launches cybersecurity clearinghouse to patch software flaws discovered by AI - Politico",
+      "time": "2026-07-14 22:47:04",
+      "market_question": "Will Tom Begich win the 2026 Alaska governor election?",
+      "headline": "Tom Cruise\u2019s love for \u2018Amores Perros\u2019 led him to \u2018Digger\u2019 - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -510,6 +494,22 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
+    },
+    {
+      "time": "2026-07-14 22:47:03",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Spain\u2019s anaconda grip crushes French World Cup dream - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
