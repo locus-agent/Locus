@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T03:33:57.517143+00:00",
-  "last_heartbeat": "2026-07-14T03:33:57.517143+00:00",
-  "uptime_seconds": 295381,
+  "generated_at": "2026-07-14T03:39:05.300731+00:00",
+  "last_heartbeat": "2026-07-14T03:39:05.300731+00:00",
+  "uptime_seconds": 295688,
   "dry_run": false,
-  "markets_tracked": 1344,
+  "markets_tracked": 1345,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11369,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 111,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 121,
+  "headlines_last_cycle": 10,
   "signals_24h": 2,
-  "classifications_24h": 3766,
+  "classifications_24h": 3744,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1241,
+    "prefiltered_haiku": 1237,
     "cooldown_skip": 0,
-    "stale": 8,
+    "stale": 7,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 369,
+    "price_target_market": 375,
     "coinflip_market": 0,
     "correlation_block": 4,
     "category_limit": 3,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1027,
-    "matched": 806,
-    "classified": 3766,
+    "news": 1020,
+    "matched": 802,
+    "classified": 3744,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2158.0
+    "avg_classification_latency_ms": 2155.9
   },
   "live_readiness": {
     "ready": false,
@@ -224,8 +224,8 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3015000000000001,
-      "pnl_pct": 13.35,
+      "current_price": 0.3025,
+      "pnl_pct": 13.72,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.6,
       "pnl_usd": 0.07,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 03:24:10",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Our Acura Integra Type S Is So Fun, We Can Overlook Its Interior Shortcomings - Edmunds",
+      "time": "2026-07-14 03:38:49",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "headline": "I'm Calling It. It's Time to Load Up on These 3 High-Yielding Dividend Stocks Right Now (1 Currently Yields Over 8.5%) - The Motley Fool",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 03:38:49",
+      "market_question": "Will the average monthly Ethereum gas price hit 25 Gwei before 2027?",
+      "headline": "The war driving up gas prices isnt the one you think - thestreet.com",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 03:24:10",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Our Acura Integra Type S Is So Fun, We Can Overlook Its Interior Shortcomings - Edmunds",
+      "time": "2026-07-14 03:38:49",
+      "market_question": "Will the average monthly Ethereum gas price hit 20 Gwei before 2027?",
+      "headline": "The war driving up gas prices isnt the one you think - thestreet.com",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 03:24:10",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Our Acura Integra Type S Is So Fun, We Can Overlook Its Interior Shortcomings - Edmunds",
+      "time": "2026-07-14 03:38:49",
+      "market_question": "Will the average monthly Ethereum gas price hit 40 Gwei before 2027?",
+      "headline": "The war driving up gas prices isnt the one you think - thestreet.com",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,25 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 03:24:10",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Our Acura Integra Type S Is So Fun, We Can Overlook Its Interior Shortcomings - Edmunds",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 03:24:10",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Our Acura Integra Type S Is So Fun, We Can Overlook Its Interior Shortcomings - Edmunds",
+      "time": "2026-07-14 03:38:49",
+      "market_question": "Will the average monthly Ethereum gas price hit 15 Gwei before 2027?",
+      "headline": "The war driving up gas prices isnt the one you think - thestreet.com",
       "direction": null,
       "materiality": null,
       "confidence": null,
