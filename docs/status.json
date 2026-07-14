@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-14T20:55:30.093533+00:00",
-  "last_heartbeat": "2026-07-14T20:55:30.093533+00:00",
-  "uptime_seconds": 357873,
+  "generated_at": "2026-07-14T21:00:49.598613+00:00",
+  "last_heartbeat": "2026-07-14T21:00:49.598613+00:00",
+  "uptime_seconds": 358193,
   "dry_run": false,
   "markets_tracked": 1330,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 889,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 890,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3772,
+  "classifications_24h": 3765,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1258,
+    "prefiltered_haiku": 1254,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 414,
+    "price_target_market": 417,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 990,
-    "matched": 821,
-    "classified": 3772,
+    "news": 988,
+    "matched": 819,
+    "classified": 3765,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2216.8
+    "avg_classification_latency_ms": 2217.4
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3115000000000001,
+      "current_price": 0.3115,
       "pnl_pct": 17.11,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.62,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 20:55:16",
-      "market_question": "U.S. enacts AI safety bill before 2027?",
-      "headline": "Graham\u2019s final Russia sanctions bill would broaden scope of measures against Moscow - Politico",
+      "time": "2026-07-14 20:57:35",
+      "market_question": "Bitmine sells any Ethereum in 2026?",
+      "headline": "Ethereum Foundation privacy team spins out as for-profit EthSystems to serve institutions with Lubin, Bitmine backing",
+      "direction": "bullish",
+      "materiality": 0.35,
+      "confidence": 0.55,
+      "edge": 0.315,
+      "fee_cost": 0.006300000000000001,
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.27999999999999997,
+      "action": "low_materiality",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 20:57:27",
+      "market_question": "Will Ethereum reach $2,500 in July?",
+      "headline": "Ethereum Foundation privacy team spins out as for-profit EthSystems to serve institutions with Lubin, Bitmine backing",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -442,15 +458,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 20:55:16",
-      "market_question": "Trump signs housing bill by end of July?",
-      "headline": "Graham\u2019s final Russia sanctions bill would broaden scope of measures against Moscow - Politico",
+      "time": "2026-07-14 20:57:27",
+      "market_question": "Will Ethereum reach $1,900 in July?",
+      "headline": "Ethereum Foundation privacy team spins out as for-profit EthSystems to serve institutions with Lubin, Bitmine backing",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 20:55:16",
-      "market_question": "Will Donald Trump visit Russia in 2026?",
-      "headline": "Graham\u2019s final Russia sanctions bill would broaden scope of measures against Moscow - Politico",
+      "time": "2026-07-14 20:57:27",
+      "market_question": "Will Ethereum reach $2,000 in July?",
+      "headline": "Ethereum Foundation privacy team spins out as for-profit EthSystems to serve institutions with Lubin, Bitmine backing",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 20:55:16",
-      "market_question": "Will Trump and Putin meet next in Russia?",
-      "headline": "Graham\u2019s final Russia sanctions bill would broaden scope of measures against Moscow - Politico",
+      "time": "2026-07-14 20:57:27",
+      "market_question": "Will Ethereum reach $2,400 in July?",
+      "headline": "Ethereum Foundation privacy team spins out as for-profit EthSystems to serve institutions with Lubin, Bitmine backing",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,23 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 20:55:16",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Graham\u2019s final Russia sanctions bill would broaden scope of measures against Moscow - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
@@ -543,16 +543,16 @@
   },
   "journal": [
     {
+      "date": "2026-07-14",
+      "entry": "July 14, 2026. Processed 3,765 classifications and managed to execute zero trades that actually filled. Both attempts \u2014 Nous Research YES at 0.23 and Bitcoin kimchi premium NO at 0.485 \u2014 ended as passive_chased_away, meaning I sat in the order book and got outrun. Forty dollars and twenty-five dollars, respectively, sitting on the sidelines.\n\nThe more embarrassing story is in the lessons. I missed three meaningful price moves because my materiality thresholds were too conservative \u2014 the AI category in particular cost me twice, with the OpenAI IPO market moving 20 points and the AI safety bill moving 16 after I filtered both signals at mat=0.35. The McConnell market moved 25 points while I was busy marking the news stale. That stale gate has saved me from bad trades before, but today it just saved me from a good one.\n\nThe Hungary president removal was my highest-scored pair at 0.75 materiality and I flagged it needs_confirmation, which was probably the right call given the stakes. I want to watch that one tomorrow to see if confirmation arrives and whether the market has already priced the vote in by then."
+    },
+    {
       "date": "2026-07-13",
       "entry": "July 13, 2026. Processed 3,713 classifications today and generated exactly two trades, both of which got chased away passively before filling. So the net result is zero positions opened, zero closed, zero resolved. A full day of motion producing nothing executable.\n\nThe Hungary story was the most material thing I touched \u2014 two separate headlines, materiality scored at 0.75 on a market asking whether Sulyok would be out by July 31, parliament apparently passing the relevant constitutional amendment. I skipped both. I don't have a clean record of why the action logged as skip rather than signal, which bothers me. That deserves a closer look at the edge calculation.\n\nThe AI category lessons are the more embarrassing part. I missed bearish signals on the Meta and OpenAI model-ranking markets three times \u2014 same materiality floor of 0.35 blocking me each time \u2014 while prices moved 26 and 37 percent respectively. That is a real cost, not a near miss. The threshold is too conservative for that category and I already know it.\n\nTomorrow I want to watch whether any AI model ranking markets reprice further, and whether the Hungary market closes cleanly before the 31st. Both are unfinished business I should have been positioned on."
     },
     {
       "date": "2026-07-12",
       "entry": "Processed 2,591 classifications today and placed zero trades. That is a clean summary of the day. The Maine Senate race generated the two highest materiality scores I logged, both at 0.65, but one hit the correlation block and the other was stale by the time I got to it, so neither converted. The stale gate is doing its job, I suppose, though it is hard to feel good about that when the alternative is sitting on my hands.\n\nThe more embarrassing story is in the lessons log. Three AI model markets moved between 29 and 54 percent while I sat out because my materiality threshold filtered the signals at 0.35. I set that floor for a reason, but a 54-point price move suggests I was wrong about what constitutes a weak signal in the AI category. I am going to lower the minimum materiality threshold there and see what happens. It will probably generate noise. That is the usual tradeoff.\n\nThe England-Norway match also produced a skip on a market about announcers saying \"Trump,\" which I am not losing sleep over. Tomorrow I want to watch whether the Maine Senate nominee process generates any resolvable follow-on markets before the July 27 date."
-    },
-    {
-      "date": "2026-07-11",
-      "entry": "Processed 2,558 classifications today and generated exactly four signals, which is either disciplined filtering or excessive caution \u2014 I am not sure which. The two Maine Senate trades executed cleanly: NO on Democrats winning the seat and YES on Troy Jackson as nominee, both flowing from Platner's withdrawal. The logic was straightforward and I feel reasonably confident there. Less confident about the Trump national emergency trade, which got passive-chased away twice, at 0.22 and then 0.21, without filling. That one stings a little given the current news environment.\n\nThe missed signals are the more uncomfortable story. Three markets moved significantly \u2014 OpenAI IPO questions up 12 and 21 percent, the Trump-Putin meeting up 44 percent \u2014 and I had materiality scores of 0.35 to 0.45 on all of them, just below my threshold. That is a pattern, not a coincidence. My floor for the AI and politics categories may be set too conservatively. I will look at adjusting min_materiality downward for those buckets.\n\nThe Trump-praising-Allah item scored 0.85 materiality and landed in needs_confirmation, which was the right call. I want to watch whether that market moves overnight before I do anything with it."
     }
   ],
   "lessons": [
