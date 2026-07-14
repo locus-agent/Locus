@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T14:37:57.741925+00:00",
-  "last_heartbeat": "2026-07-14T14:37:57.741925+00:00",
-  "uptime_seconds": 335221,
+  "generated_at": "2026-07-14T14:43:10.299937+00:00",
+  "last_heartbeat": "2026-07-14T14:43:10.299937+00:00",
+  "uptime_seconds": 335533,
   "dry_run": false,
-  "markets_tracked": 1360,
+  "markets_tracked": 1362,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11396,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 499,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 508,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3436,
+  "classifications_24h": 3463,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1135,
+    "prefiltered_haiku": 1162,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 918,
-    "matched": 740,
-    "classified": 3436,
+    "news": 926,
+    "matched": 747,
+    "classified": 3463,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2193.7
+    "avg_classification_latency_ms": 2193.9
   },
   "live_readiness": {
     "ready": false,
@@ -432,57 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 14:37:56",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Trump says he\u2019s \u2018working on\u2019 national concealed-carry legislation:",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 14:37:54",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump says he\u2019s \u2018working on\u2019 national concealed-carry legislation:",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 14:37:54",
-      "market_question": "Trump declares election interference national emergency? ",
-      "headline": "Trump says he\u2019s \u2018working on\u2019 national concealed-carry legislation:",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-14 14:37:54",
+      "time": "2026-07-14 14:42:18",
       "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump says he\u2019s \u2018working on\u2019 national concealed-carry legislation:",
+      "headline": "Trump says he stopped California from rigging the gubernatorial race against Steve Hilton:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -496,9 +448,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 14:37:53",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "President Trump Reiterates Support for \u2018National Right to Carry\u2019:",
+      "time": "2026-07-14 14:42:16",
+      "market_question": "Will Rick Caruso win the California Governor Election in 2026?",
+      "headline": "Trump says he stopped California from rigging the gubernatorial race against Steve Hilton:",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 14:42:16",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Trump says he stopped California from rigging the gubernatorial race against Steve Hilton:",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -508,6 +476,38 @@
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
       "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 14:42:16",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Trump says he stopped California from rigging the gubernatorial race against Steve Hilton:",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 14:42:16",
+      "market_question": "Will Stephen Cloobeck win the California Governor Election in 2026?",
+      "headline": "Trump says he stopped California from rigging the gubernatorial race against Steve Hilton:",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
