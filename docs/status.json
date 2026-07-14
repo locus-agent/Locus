@@ -1,35 +1,35 @@
 {
-  "generated_at": "2026-07-14T21:36:56.790865+00:00",
-  "last_heartbeat": "2026-07-14T21:36:56.790865+00:00",
-  "uptime_seconds": 360360,
+  "generated_at": "2026-07-14T21:42:08.944302+00:00",
+  "last_heartbeat": "2026-07-14T21:42:08.944302+00:00",
+  "uptime_seconds": 360672,
   "dry_run": false,
   "markets_tracked": 1338,
   "classify_error_streak": 0,
   "track_record": {
-    "total": 11410,
+    "total": 11419,
     "accuracy": 18.1,
     "by_category": {
       "other": 16.2,
       "ai": 12.8,
-      "politics": 19.7,
+      "politics": 19.6,
       "technology": 11.9,
       "crypto": 19.8,
       "sports": 26.2
     },
     "by_source": {
-      "rss": 18.6,
+      "rss": 18.5,
       "newsapi": 17.4,
       "truthsocial": 7.4
     }
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.1,
-    "overall_total": 11410,
+    "overall_total": 11419,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 6194,
+        "total": 6199,
         "correct": 449,
         "accuracy_pct": 7.2,
         "avg_pnl_pct": 9.44,
@@ -38,10 +38,10 @@
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 1110,
+        "total": 1112,
         "correct": 376,
-        "accuracy_pct": 33.9,
-        "avg_pnl_pct": 19.32,
+        "accuracy_pct": 33.8,
+        "avg_pnl_pct": 19.29,
         "color": "green"
       },
       {
@@ -56,10 +56,10 @@
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 764,
+        "total": 765,
         "correct": 248,
-        "accuracy_pct": 32.5,
-        "avg_pnl_pct": 1.05,
+        "accuracy_pct": 32.4,
+        "avg_pnl_pct": 1.02,
         "color": "green"
       },
       {
@@ -74,7 +74,7 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1421,
+        "total": 1422,
         "correct": 244,
         "accuracy_pct": 17.2,
         "avg_pnl_pct": -2.74,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 905,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 927,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 3747,
+  "classifications_24h": 3839,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1229,
+    "prefiltered_haiku": 1261,
     "cooldown_skip": 0,
     "stale": 11,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 413,
+    "price_target_market": 422,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 986,
-    "matched": 817,
-    "classified": 3747,
+    "news": 1007,
+    "matched": 836,
+    "classified": 3839,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2219.9
+    "avg_classification_latency_ms": 2222.1
   },
   "live_readiness": {
     "ready": false,
@@ -432,73 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 21:36:55",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Security video shows deadly encounter with ICE in Biddeford, Maine - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 21:36:55",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Security video shows deadly encounter with ICE in Biddeford, Maine - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 21:36:55",
-      "market_question": "Will Trump meet with MrBeast in 2026?",
-      "headline": "Security video shows deadly encounter with ICE in Biddeford, Maine - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 21:36:55",
-      "market_question": "Trump renames ICE to NICE by December 31?",
-      "headline": "Security video shows deadly encounter with ICE in Biddeford, Maine - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 21:34:45",
-      "market_question": "Will Trump and Putin meet next in Ukraine?",
-      "headline": "US-Russian crew arrives at the International Space Station for 8-month mission - AP News",
+      "time": "2026-07-14 21:40:12",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Scientists Just Figured Out How Much Time Is Left for Life on Earth - Yahoo",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -507,9 +443,73 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-07-14 21:40:12",
+      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
+      "headline": "T. rex could become most expensive fossil ever - but it's a \u200bproblem for scientists - BBC",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-14 21:40:12",
+      "market_question": "Will FW win the most seats in the 2026 Berlin state elections?",
+      "headline": "T. rex could become most expensive fossil ever - but it's a \u200bproblem for scientists - BBC",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-14 21:40:12",
+      "market_question": "Will Rodina gain the most seats in the next Russian parliamentary election?",
+      "headline": "T. rex could become most expensive fossil ever - but it's a \u200bproblem for scientists - BBC",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-14 21:40:12",
+      "market_question": "Will CDU win the most seats in the 2026 Sachsen-Anhalt parliamentary elections?",
+      "headline": "T. rex could become most expensive fossil ever - but it's a \u200bproblem for scientists - BBC",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
