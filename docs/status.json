@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T12:08:12.500263+00:00",
-  "last_heartbeat": "2026-07-14T12:08:12.500263+00:00",
-  "uptime_seconds": 326236,
+  "generated_at": "2026-07-14T12:13:21.760595+00:00",
+  "last_heartbeat": "2026-07-14T12:13:21.760595+00:00",
+  "uptime_seconds": 326545,
   "dry_run": false,
-  "markets_tracked": 1338,
+  "markets_tracked": 1337,
   "classify_error_streak": 0,
   "track_record": {
     "total": 11378,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 370,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 372,
+  "headlines_last_cycle": 2,
   "signals_24h": 3,
-  "classifications_24h": 3493,
+  "classifications_24h": 3488,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1183,
+    "prefiltered_haiku": 1184,
     "cooldown_skip": 0,
     "stale": 10,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 328,
+    "price_target_market": 322,
     "coinflip_market": 0,
     "correlation_block": 2,
     "category_limit": 3,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 944,
-    "matched": 752,
-    "classified": 3493,
+    "news": 943,
+    "matched": 751,
+    "classified": 3488,
     "signals": 3,
     "trades": 3
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2178.9
+    "avg_classification_latency_ms": 2178.7
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-14 12:04:20",
-      "market_question": "Will Arch Network launch a token by December 31, 2026?",
-      "headline": "Japan\u2019s biggest card network taps Circle to bring stablecoins to 40 million merchants",
+      "time": "2026-07-14 12:13:08",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "JPMorgan posts record profit on big gains from dealmaking, stock trading - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,25 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-14 12:04:19",
-      "market_question": "Will stablecoins hit $500B before 2027?",
-      "headline": "Japan\u2019s biggest card network taps Circle to bring stablecoins to 40 million merchants",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-14 12:04:19",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "Japan\u2019s biggest card network taps Circle to bring stablecoins to 40 million merchants",
+      "time": "2026-07-14 12:13:07",
+      "market_question": "Will Revolut launch a USD stablecoin in 2026?",
+      "headline": "ECB picks firms including Deutsche Bank, Revolut for digital euro pilot",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,36 +464,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-14 12:03:28",
-      "market_question": "Trump out as President by July 31?",
-      "headline": "Social Security is being paid out on Wednesday, July 15: who benefits? - Diario AS",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-14 12:13:07",
+      "market_question": "Will Deutsche Bank or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
+      "headline": "ECB picks firms including Deutsche Bank, Revolut for digital euro pilot",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-14 12:03:27",
-      "market_question": "Will Meta launch a USD stablecoin in 2026?",
-      "headline": "Funds Fret Over $4.4 Trillion AI Trio\u2019s Grip on Emerging Markets - Bloomberg.com",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": 0.5,
+      "time": "2026-07-14 12:13:07",
+      "market_question": "Will Deutsche Bank or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "ECB picks firms including Deutsche Bank, Revolut for digital euro pilot",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-14 12:13:07",
+      "market_question": "Will Bank of America or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
+      "headline": "ECB picks firms including Deutsche Bank, Revolut for digital euro pilot",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
