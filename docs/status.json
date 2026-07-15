@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T15:38:15.099745+00:00",
-  "last_heartbeat": "2026-07-15T15:38:15.099745+00:00",
-  "uptime_seconds": 425238,
+  "generated_at": "2026-07-15T15:43:25.878086+00:00",
+  "last_heartbeat": "2026-07-15T15:43:25.878086+00:00",
+  "uptime_seconds": 425549,
   "dry_run": false,
   "markets_tracked": 1390,
-  "classify_error_streak": 696,
+  "classify_error_streak": 715,
   "track_record": {
     "total": 11454,
     "accuracy": 18.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 592,
+  "headlines_scanned_today": 597,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4055,
+  "classifications_24h": 4083,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 826,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1081,
-    "matched": 893,
-    "classified": 4055,
+    "news": 1086,
+    "matched": 898,
+    "classified": 4083,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2259.4
+    "avg_classification_latency_ms": 2260.5
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 15:36:31",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
-      "headline": "Newsom\u2019s answer to AI anxiety: Share the wealth - Politico",
+      "time": "2026-07-15 15:40:59",
+      "market_question": "Will Trump say \"Venezuela\" during Speech to the Nation?",
+      "headline": "Trump's ICC order violates free speech, advocacy groups say in lawsuit - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 15:40:59",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "Trump's ICC order violates free speech, advocacy groups say in lawsuit - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,25 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 15:36:28",
-      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
-      "headline": "Newsom\u2019s answer to AI anxiety: Share the wealth - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 15:34:22",
-      "market_question": "Will John Barrasso be the next Senate Majority Leader?",
-      "headline": "Starmer says his political journey is over at his last question session as UK leader - AP News",
+      "time": "2026-07-15 15:40:59",
+      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
+      "headline": "Trump's ICC order violates free speech, advocacy groups say in lawsuit - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 15:34:21",
-      "market_question": "Will Tom Cotton be the next Senate Majority Leader?",
-      "headline": "Starmer says his political journey is over at his last question session as UK leader - AP News",
+      "time": "2026-07-15 15:40:59",
+      "market_question": "Will Trump's Speech to the Nation be between 25 and 30 minutes long?",
+      "headline": "Trump's ICC order violates free speech, advocacy groups say in lawsuit - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 15:34:21",
-      "market_question": "Will Patty Murray be the next Senate Majority Leader?",
-      "headline": "Starmer says his political journey is over at his last question session as UK leader - AP News",
+      "time": "2026-07-15 15:40:59",
+      "market_question": "Will Trump say \"Transgender\" during Speech to the Nation?",
+      "headline": "Trump's ICC order violates free speech, advocacy groups say in lawsuit - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
