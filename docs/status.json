@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T15:02:04.453029+00:00",
-  "last_heartbeat": "2026-07-15T15:02:04.453029+00:00",
-  "uptime_seconds": 423067,
+  "generated_at": "2026-07-15T15:07:14.850196+00:00",
+  "last_heartbeat": "2026-07-15T15:07:14.850196+00:00",
+  "uptime_seconds": 423378,
   "dry_run": false,
-  "markets_tracked": 1392,
-  "classify_error_streak": 633,
+  "markets_tracked": 1393,
+  "classify_error_streak": 637,
   "track_record": {
     "total": 11454,
     "accuracy": 18.1,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 562,
+  "headlines_scanned_today": 568,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4189,
+  "classifications_24h": 4209,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 912,
+    "prefiltered_haiku": 909,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 0,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 435,
+    "price_target_market": 439,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-15T14:49:52.303817+00:00"
+    "last_check": "2026-07-15T15:04:52.792390+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1114,
-    "matched": 924,
-    "classified": 4189,
+    "news": 1119,
+    "matched": 927,
+    "classified": 4209,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2254.9
+    "avg_classification_latency_ms": 2255.1
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03300000000000003,
+      "current_price": 0.033,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 15:01:30",
-      "market_question": "Will Bitmine announce that it holds more than 7M ETH before 2027?",
-      "headline": "Crypto Long & Short: To ETH or not to ETH \u2014 is SOL the better diversifier?",
+      "time": "2026-07-15 15:05:51",
+      "market_question": "Will the price of Ethereum be greater than $2,200 on July 16?",
+      "headline": "US producer prices unexpectedly fall in June - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,14 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 15:01:30",
-      "market_question": "Will Milady floor price reach 2 ETH before 2027?",
-      "headline": "Crypto Long & Short: To ETH or not to ETH \u2014 is SOL the better diversifier?",
+      "time": "2026-07-15 15:05:51",
+      "market_question": "Will the price of Ethereum be less than $1,300 on July 16?",
+      "headline": "US producer prices unexpectedly fall in June - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -459,14 +459,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 15:01:29",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Crypto Long & Short: To ETH or not to ETH \u2014 is SOL the better diversifier?",
+      "time": "2026-07-15 15:05:47",
+      "market_question": "Will OpenAI's valuation hit (LOW) $800B by December 31?",
+      "headline": "Stani Kulechov on Aave V4, Avalanche, and why RWAs will hit $100 billion this year",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -475,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 15:01:29",
-      "market_question": "Will HYPE flip SOL by December 31?",
-      "headline": "Crypto Long & Short: To ETH or not to ETH \u2014 is SOL the better diversifier?",
+      "time": "2026-07-15 15:05:47",
+      "market_question": "Will OpenAI's valuation hit (HIGH) $900B by December 31?",
+      "headline": "Stani Kulechov on Aave V4, Avalanche, and why RWAs will hit $100 billion this year",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -491,25 +491,25 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 15:01:29",
-      "market_question": "Over $1B crypto hack value in 2026?",
-      "headline": "Crypto Long & Short: To ETH or not to ETH \u2014 is SOL the better diversifier?",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-15 15:05:47",
+      "market_question": "Will BULK launch a token by June 30, 2027?",
+      "headline": "US producer prices unexpectedly fall in June - Reuters",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
