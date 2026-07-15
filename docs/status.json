@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T08:25:07.643275+00:00",
-  "last_heartbeat": "2026-07-15T08:25:07.643275+00:00",
-  "uptime_seconds": 399251,
+  "generated_at": "2026-07-15T08:30:16.133277+00:00",
+  "last_heartbeat": "2026-07-15T08:30:16.133277+00:00",
+  "uptime_seconds": 399559,
   "dry_run": false,
-  "markets_tracked": 1364,
-  "classify_error_streak": 103,
+  "markets_tracked": 1365,
+  "classify_error_streak": 104,
   "track_record": {
     "total": 11437,
     "accuracy": 18.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 245,
+  "headlines_scanned_today": 246,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4102,
+  "classifications_24h": 4105,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1283,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1084,
-    "matched": 905,
-    "classified": 4102,
+    "news": 1085,
+    "matched": 906,
+    "classified": 4105,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2219.6
+    "avg_classification_latency_ms": 2219.7
   },
   "live_readiness": {
     "ready": false,
@@ -432,6 +432,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-15 08:26:03",
+      "market_question": "Will Trump\u2019s remarks not air?",
+      "headline": "Air India crash probe enters final stages after cockpit recorder, psychology reviews - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 08:26:00",
+      "market_question": "Will Donald Trump visit India in 2026?",
+      "headline": "Air India crash probe enters final stages after cockpit recorder, psychology reviews - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-15 08:26:00",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Air India crash probe enters final stages after cockpit recorder, psychology reviews - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-15 08:23:51",
       "market_question": "US national Ethereum reserve before 2027?",
       "headline": "France\u2019s National Assembly will give final approval to assisted-dying bill after years of debate - AP News",
@@ -462,54 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 08:23:51",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) gain the most seats in the next Russian parliamentary election?",
-      "headline": "Russian strike on Ukraine's Odesa kills three as Moscow, Kyiv battle over Black Sea - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 08:23:51",
-      "market_question": "Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?",
-      "headline": "Russian strike on Ukraine's Odesa kills three as Moscow, Kyiv battle over Black Sea - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 08:23:51",
-      "market_question": "Will Rodina gain the most seats in the next Russian parliamentary election?",
-      "headline": "Russian strike on Ukraine's Odesa kills three as Moscow, Kyiv battle over Black Sea - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
