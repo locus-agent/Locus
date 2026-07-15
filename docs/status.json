@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T12:52:55.616502+00:00",
-  "last_heartbeat": "2026-07-15T12:52:55.616502+00:00",
-  "uptime_seconds": 415319,
+  "generated_at": "2026-07-15T12:58:06.306964+00:00",
+  "last_heartbeat": "2026-07-15T12:58:06.306964+00:00",
+  "uptime_seconds": 415629,
   "dry_run": false,
-  "markets_tracked": 1378,
-  "classify_error_streak": 444,
+  "markets_tracked": 1380,
+  "classify_error_streak": 448,
   "track_record": {
     "total": 11441,
     "accuracy": 18.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 446,
+  "headlines_scanned_today": 449,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4280,
+  "classifications_24h": 4276,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1096,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 434,
+    "price_target_market": 429,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1126,
+    "news": 1127,
     "matched": 943,
-    "classified": 4280,
+    "classified": 4276,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2242.0
+    "avg_classification_latency_ms": 2242.2
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 12:51:51",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "SpaceX's slide risks turning blockbuster IPO into confidence test - Reuters",
+      "time": "2026-07-15 12:56:13",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Apple Intelligence AI service registered with Chinese cyberspace regulator - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 12:56:13",
+      "market_question": "Will a Chinese company have the best AI model by December 31?",
+      "headline": "Apple Intelligence AI service registered with Chinese cyberspace regulator - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 12:51:50",
-      "market_question": "Will Anthropic IPO by September 30, 2026?",
-      "headline": "SpaceX's slide risks turning blockbuster IPO into confidence test - Reuters",
+      "time": "2026-07-15 12:56:13",
+      "market_question": "Will Alibaba have the best Chinese AI model at the end of July 2026?",
+      "headline": "Apple Intelligence AI service registered with Chinese cyberspace regulator - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,41 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 12:51:50",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "SpaceX's slide risks turning blockbuster IPO into confidence test - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 12:51:50",
-      "market_question": "Will OpenAI IPO by December 31 2026?",
-      "headline": "SpaceX's slide risks turning blockbuster IPO into confidence test - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 12:51:50",
-      "market_question": "Will OpenAI not IPO by December 31, 2026?",
-      "headline": "SpaceX's slide risks turning blockbuster IPO into confidence test - Reuters",
+      "time": "2026-07-15 12:56:13",
+      "market_question": "Will Apple release iPhone 18 in 2026?",
+      "headline": "Apple Intelligence AI service registered with Chinese cyberspace regulator - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -510,6 +494,22 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 12:56:10",
+      "market_question": "Will Apple release a foldable iPhone before 2027?",
+      "headline": "Apple Intelligence AI service registered with Chinese cyberspace regulator - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
