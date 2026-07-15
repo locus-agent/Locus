@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T12:42:35.550257+00:00",
-  "last_heartbeat": "2026-07-15T12:42:35.550257+00:00",
-  "uptime_seconds": 414699,
+  "generated_at": "2026-07-15T12:47:45.571267+00:00",
+  "last_heartbeat": "2026-07-15T12:47:45.571267+00:00",
+  "uptime_seconds": 415009,
   "dry_run": false,
-  "markets_tracked": 1378,
-  "classify_error_streak": 432,
+  "markets_tracked": 1377,
+  "classify_error_streak": 435,
   "track_record": {
     "total": 11441,
     "accuracy": 18.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 438,
+  "headlines_scanned_today": 441,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4256,
+  "classifications_24h": 4271,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1099,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 422,
+    "price_target_market": 434,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1124,
-    "matched": 939,
-    "classified": 4256,
+    "news": 1126,
+    "matched": 941,
+    "classified": 4271,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2241.0
+    "avg_classification_latency_ms": 2241.4
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 12:40:48",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "EXCLUSIVE: Former DP World boss Bin Sulayem takes charge of Malaysia MMC Port, memo shows - Reuters",
+      "time": "2026-07-15 12:45:16",
+      "market_question": "Bitcoin more valuable than any company before 2027?",
+      "headline": "Live markets: Bitcoin flirts with $65,000 as markets get more good inflation news",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 12:45:12",
+      "market_question": "Will the price of Bitcoin be above $68,000 on July 15?",
+      "headline": "Ten countries urge EU to rethink new carbon price on fuel - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -442,15 +458,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 12:40:48",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "EXCLUSIVE: Former DP World boss Bin Sulayem takes charge of Malaysia MMC Port, memo shows - Reuters",
+      "time": "2026-07-15 12:45:12",
+      "market_question": "Will the price of Bitcoin be above $64,000 on July 15?",
+      "headline": "Ten countries urge EU to rethink new carbon price on fuel - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -458,15 +474,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 12:40:48",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "EXCLUSIVE: Former DP World boss Bin Sulayem takes charge of Malaysia MMC Port, memo shows - Reuters",
+      "time": "2026-07-15 12:45:12",
+      "market_question": "Will the price of Bitcoin be above $60,000 on July 15?",
+      "headline": "Ten countries urge EU to rethink new carbon price on fuel - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 12:40:48",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "EXCLUSIVE: Former DP World boss Bin Sulayem takes charge of Malaysia MMC Port, memo shows - Reuters",
+      "time": "2026-07-15 12:45:12",
+      "market_question": "Will the price of Bitcoin be above $62,000 on July 15?",
+      "headline": "Ten countries urge EU to rethink new carbon price on fuel - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,23 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 12:40:48",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "EXCLUSIVE: Former DP World boss Bin Sulayem takes charge of Malaysia MMC Port, memo shows - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "action": "price_target_market",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
