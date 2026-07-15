@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T21:24:57.343274+00:00",
-  "last_heartbeat": "2026-07-15T21:24:57.343274+00:00",
-  "uptime_seconds": 446040,
+  "generated_at": "2026-07-15T21:30:11.771496+00:00",
+  "last_heartbeat": "2026-07-15T21:30:11.771496+00:00",
+  "uptime_seconds": 446355,
   "dry_run": false,
-  "markets_tracked": 1379,
-  "classify_error_streak": 1348,
+  "markets_tracked": 1380,
+  "classify_error_streak": 1362,
   "track_record": {
     "total": 11483,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 937,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 947,
+  "headlines_last_cycle": 1,
   "signals_24h": 1,
-  "classifications_24h": 4225,
+  "classifications_24h": 4249,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 424,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 347,
+    "price_target_market": 349,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1108,
-    "matched": 911,
-    "classified": 4225,
+    "news": 1117,
+    "matched": 919,
+    "classified": 4249,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2293.5
+    "avg_classification_latency_ms": 2294.1
   },
   "live_readiness": {
     "ready": false,
@@ -224,8 +224,8 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.301,
-      "pnl_pct": 13.16,
+      "current_price": 0.3005,
+      "pnl_pct": 12.97,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.6,
       "pnl_usd": 0.07,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 21:23:16",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Final two World Cup matches to be shown live on BBC",
+      "time": "2026-07-15 21:29:50",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "Drained Reflecting Pool reveals Trump\u2019s \u2018American flag blue\u2019 liner is now closer to gray - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:23:16",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Final two World Cup matches to be shown live on BBC",
+      "time": "2026-07-15 21:29:50",
+      "market_question": "Will Trump\u2019s remarks not air?",
+      "headline": "Drained Reflecting Pool reveals Trump\u2019s \u2018American flag blue\u2019 liner is now closer to gray - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:23:16",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Final two World Cup matches to be shown live on BBC",
+      "time": "2026-07-15 21:26:01",
+      "market_question": "Will Apple release iPhone 18 in 2026?",
+      "headline": "WhatsApp Beta Reveals iCloud Backup Alternative for iPhone - MacRumors",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:23:16",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Final two World Cup matches to be shown live on BBC",
+      "time": "2026-07-15 21:25:57",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "As feared, those new Call of Duty Black Ops 1 and 2 ports are riddled with hackers, but Activision is at least doing something about it - Eurogamer.net",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -496,20 +496,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:23:16",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Final two World Cup matches to be shown live on BBC",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-15 21:25:57",
+      "market_question": "Will Apple release a foldable iPhone before 2027?",
+      "headline": "WhatsApp Beta Reveals iCloud Backup Alternative for iPhone - MacRumors",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
