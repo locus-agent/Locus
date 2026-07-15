@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T13:34:17.209743+00:00",
-  "last_heartbeat": "2026-07-15T13:34:17.209743+00:00",
-  "uptime_seconds": 417800,
+  "generated_at": "2026-07-15T13:39:27.008557+00:00",
+  "last_heartbeat": "2026-07-15T13:39:27.008557+00:00",
+  "uptime_seconds": 418110,
   "dry_run": false,
   "markets_tracked": 1382,
-  "classify_error_streak": 514,
+  "classify_error_streak": 517,
   "track_record": {
     "total": 11441,
     "accuracy": 18.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 489,
+  "headlines_scanned_today": 492,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4237,
+  "classifications_24h": 4224,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1051,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 439,
+    "price_target_market": 435,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 1,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-15T13:19:47.529248+00:00"
+    "last_check": "2026-07-15T13:34:47.834127+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1116,
-    "matched": 932,
-    "classified": 4237,
+    "matched": 930,
+    "classified": 4224,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2245.5
+    "avg_classification_latency_ms": 2246.2
   },
   "live_readiness": {
     "ready": false,
@@ -432,6 +432,54 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-15 13:37:58",
+      "market_question": "Will Dreamcash launch a token by September 30, 2026?",
+      "headline": "Tokenization startup Tradable plans to bring $1 billion worth of private credit assets to Stellar",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 13:37:55",
+      "market_question": "Will Dreamcash launch a token by December 31, 2026?",
+      "headline": "Tokenization startup Tradable plans to bring $1 billion worth of private credit assets to Stellar",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 13:37:55",
+      "market_question": "Will Abstract launch a token by December 31, 2026",
+      "headline": "Tokenization startup Tradable plans to bring $1 billion worth of private credit assets to Stellar",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-15 13:29:12",
       "market_question": "Record crypto liquidation in 2026?",
       "headline": "BlackRock assets hit record $15 trillion on boost from buoyant markets, ETF inflows - Reuters",
@@ -450,54 +498,6 @@
     {
       "time": "2026-07-15 13:29:04",
       "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
-      "headline": "BlackRock assets hit record $15 trillion on boost from buoyant markets, ETF inflows - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 13:29:04",
-      "market_question": "Will Solana hit $60 or $140 first?",
-      "headline": "BlackRock assets hit record $15 trillion on boost from buoyant markets, ETF inflows - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 13:29:04",
-      "market_question": "Will Bitcoin Dominance hit 70% before 2027?",
-      "headline": "BlackRock assets hit record $15 trillion on boost from buoyant markets, ETF inflows - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 13:29:03",
-      "market_question": "Will stablecoins hit $500B before 2027?",
       "headline": "BlackRock assets hit record $15 trillion on boost from buoyant markets, ETF inflows - Reuters",
       "direction": null,
       "materiality": null,
