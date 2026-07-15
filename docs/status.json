@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T18:59:53.953264+00:00",
-  "last_heartbeat": "2026-07-15T18:59:53.953264+00:00",
-  "uptime_seconds": 437337,
+  "generated_at": "2026-07-15T19:05:04.173987+00:00",
+  "last_heartbeat": "2026-07-15T19:05:04.173987+00:00",
+  "uptime_seconds": 437647,
   "dry_run": false,
   "markets_tracked": 1362,
-  "classify_error_streak": 1111,
+  "classify_error_streak": 1116,
   "track_record": {
     "total": 11483,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 801,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 805,
+  "headlines_last_cycle": 3,
   "signals_24h": 1,
-  "classifications_24h": 4115,
+  "classifications_24h": 4128,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 566,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-15T18:49:58.583175+00:00"
+    "last_check": "2026-07-15T19:04:58.915502+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1090,
-    "matched": 895,
-    "classified": 4115,
+    "news": 1092,
+    "matched": 897,
+    "classified": 4128,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2283.1
+    "avg_classification_latency_ms": 2283.5
   },
   "live_readiness": {
     "ready": false,
@@ -432,41 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 18:58:11",
-      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
-      "headline": "A horde of golden mini-Mozarts marks 270 years since the composer\u2019s birth in Salzburg - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 18:58:11",
-      "market_question": "Will Trump say \"Golden Dome\" at Defense and Innovation Summit?",
-      "headline": "A horde of golden mini-Mozarts marks 270 years since the composer\u2019s birth in Salzburg - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 18:56:07",
-      "market_question": "Will Nigel Farage win 60\u201370% of votes in the Clacton parliamentary by-election?",
-      "headline": "Police arrest man who threatened to shoot Reform UK party leader Nigel Farage - AP News",
+      "time": "2026-07-15 19:04:50",
+      "market_question": "Will Trump deport 200-300k people?",
+      "headline": "More people around the world now favour China over the US, Pew study suggests",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -475,14 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 18:56:07",
-      "market_question": "Will Nigel Farage win 50\u201360% of votes in the Clacton parliamentary by-election?",
-      "headline": "Police arrest man who threatened to shoot Reform UK party leader Nigel Farage - AP News",
+      "time": "2026-07-15 19:04:49",
+      "market_question": "Will Trump deport 400-500k people?",
+      "headline": "More people around the world now favour China over the US, Pew study suggests",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -491,14 +459,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 18:56:07",
-      "market_question": "Will Nigel Farage win the Clacton by-election?",
-      "headline": "Police arrest man who threatened to shoot Reform UK party leader Nigel Farage - AP News",
+      "time": "2026-07-15 19:04:49",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "More people around the world now favour China over the US, Pew study suggests",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -507,7 +475,39 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 19:04:49",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "More people around the world now favour China over the US, Pew study suggests",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 19:04:49",
+      "market_question": "Will China unban Bitcoin by 2027?",
+      "headline": "More people around the world now favour China over the US, Pew study suggests",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
