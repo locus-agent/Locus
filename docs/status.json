@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T23:04:30.269645+00:00",
-  "last_heartbeat": "2026-07-15T23:04:30.269645+00:00",
-  "uptime_seconds": 452013,
+  "generated_at": "2026-07-15T23:09:45.867983+00:00",
+  "last_heartbeat": "2026-07-15T23:09:45.867983+00:00",
+  "uptime_seconds": 452329,
   "dry_run": false,
   "markets_tracked": 1384,
-  "classify_error_streak": 1520,
+  "classify_error_streak": 1540,
   "track_record": {
     "total": 11494,
     "accuracy": 18.0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 1010,
-  "headlines_last_cycle": 4,
+  "headlines_scanned_today": 1019,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4166,
+  "classifications_24h": 4189,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 300,
+    "prefiltered_haiku": 293,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-15T22:50:04.915823+00:00"
+    "last_check": "2026-07-15T23:05:05.300133+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1085,
-    "matched": 897,
-    "classified": 4166,
+    "news": 1091,
+    "matched": 903,
+    "classified": 4189,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2301.2
+    "avg_classification_latency_ms": 2302.1
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 23:04:05",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Argentina shatter England's World Cup dreams in semi-final",
+      "time": "2026-07-15 23:06:50",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "headline": "Spotify is now an AI chatbot, too - The Verge",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 23:06:50",
+      "market_question": "Will Amazon have the best AI model at the end of July 2026?",
+      "headline": "Spotify is now an AI chatbot, too - The Verge",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 23:06:49",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Spotify is now an AI chatbot, too - The Verge",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 23:06:46",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "47 revelatory hours with Assassin\u2019s Creed Black Flag Resynced - Game File | Stephen Totilo",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,68 +496,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 23:04:05",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Argentina shatter England's World Cup dreams in semi-final",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-15 23:06:46",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "Starlink's New V5 Dish: No Speed Boost, But It Trims Power Consumption, Weight - PCMag",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 23:04:05",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Argentina shatter England's World Cup dreams in semi-final",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 23:04:05",
-      "market_question": "Will Trump attend 3 or more World Cup matches?",
-      "headline": "Argentina shatter England's World Cup dreams in semi-final",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 23:04:05",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Argentina shatter England's World Cup dreams in semi-final",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
