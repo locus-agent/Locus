@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T14:10:30.566764+00:00",
-  "last_heartbeat": "2026-07-15T14:10:30.566764+00:00",
-  "uptime_seconds": 419974,
+  "generated_at": "2026-07-15T14:15:40.619523+00:00",
+  "last_heartbeat": "2026-07-15T14:15:40.619523+00:00",
+  "uptime_seconds": 420284,
   "dry_run": false,
-  "markets_tracked": 1388,
-  "classify_error_streak": 551,
+  "markets_tracked": 1389,
+  "classify_error_streak": 560,
   "track_record": {
     "total": 11454,
     "accuracy": 18.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 505,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 512,
+  "headlines_last_cycle": 4,
   "signals_24h": 2,
-  "classifications_24h": 4162,
+  "classifications_24h": 4184,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1017,
+    "prefiltered_haiku": 1014,
     "cooldown_skip": 0,
     "stale": 1,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1094,
-    "matched": 909,
-    "classified": 4162,
+    "news": 1099,
+    "matched": 914,
+    "classified": 4184,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2248.1
+    "avg_classification_latency_ms": 2248.8
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 14:08:45",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Can the next CDC director keep the peace with RFK Jr.? - Politico",
+      "time": "2026-07-15 14:15:19",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Starmer says it's the 'end of my political journey' at his final Prime Minister's Questions",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 14:08:45",
-      "market_question": "Will Trump announce Kyle Diamantas as the next FDA commissioner by December 31?",
-      "headline": "Can the next CDC director keep the peace with RFK Jr.? - Politico",
+      "time": "2026-07-15 14:15:19",
+      "market_question": "Will Trump be impeached before his term ends?",
+      "headline": "Starmer says it's the 'end of my political journey' at his final Prime Minister's Questions",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 14:15:19",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "Starmer says it's the 'end of my political journey' at his final Prime Minister's Questions",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,25 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 14:08:44",
-      "market_question": "Will Robert F. Kennedy Jr. leave the Trump administration before 2027?",
-      "headline": "Can the next CDC director keep the peace with RFK Jr.? - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 14:08:41",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Can the next CDC director keep the peace with RFK Jr.? - Politico",
+      "time": "2026-07-15 14:15:19",
+      "market_question": "LA Mayoral Election: Recount of 1st Round?",
+      "headline": "US launches new round of strikes against Iran as escalation threatens shipping - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 14:08:41",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "Can the next CDC director keep the peace with RFK Jr.? - Politico",
+      "time": "2026-07-15 14:15:19",
+      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "US launches new round of strikes against Iran as escalation threatens shipping - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
