@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T21:56:27.815709+00:00",
-  "last_heartbeat": "2026-07-15T21:56:27.815709+00:00",
-  "uptime_seconds": 447931,
+  "generated_at": "2026-07-15T22:01:43.388476+00:00",
+  "last_heartbeat": "2026-07-15T22:01:43.388476+00:00",
+  "uptime_seconds": 448246,
   "dry_run": false,
   "markets_tracked": 1382,
-  "classify_error_streak": 1434,
+  "classify_error_streak": 1439,
   "track_record": {
     "total": 11494,
     "accuracy": 18.0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 975,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 978,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4181,
+  "classifications_24h": 4177,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 373,
+    "prefiltered_haiku": 372,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1094,
-    "matched": 903,
-    "classified": 4181,
+    "matched": 902,
+    "classified": 4177,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2297.3
+    "avg_classification_latency_ms": 2297.5
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.7949999999999999,
+      "current_price": 0.795,
       "pnl_pct": 16.91,
       "amount_usd": 24.99,
       "current_value_usd": 29.22,
@@ -224,11 +224,11 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3035,
-      "pnl_pct": 14.1,
+      "current_price": 0.3045,
+      "pnl_pct": 14.47,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.61,
-      "pnl_usd": 0.07,
+      "pnl_usd": 0.08,
       "edge_type": "news",
       "event_id": "79987"
     },
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 21:56:09",
-      "market_question": "Will Trump accuse Iran of election interference by July 16?",
-      "headline": "US launches fresh strikes on Iran as Trump warns Tehran it 'better behave'",
+      "time": "2026-07-15 22:00:32",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Lionel Messi aims to move clear in the race for the World Cup golden boot - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:56:09",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "US launches fresh strikes on Iran as Trump warns Tehran it 'better behave'",
+      "time": "2026-07-15 22:00:32",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Lionel Messi aims to move clear in the race for the World Cup golden boot - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:56:09",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "US launches fresh strikes on Iran as Trump warns Tehran it 'better behave'",
+      "time": "2026-07-15 22:00:32",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Lionel Messi aims to move clear in the race for the World Cup golden boot - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:56:09",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "US launches fresh strikes on Iran as Trump warns Tehran it 'better behave'",
+      "time": "2026-07-15 22:00:32",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Lionel Messi aims to move clear in the race for the World Cup golden boot - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:56:09",
-      "market_question": "Will Trump say \"Iran\" 3+ times at Defense and Innovation Summit?",
-      "headline": "US launches fresh strikes on Iran as Trump warns Tehran it 'better behave'",
+      "time": "2026-07-15 22:00:32",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Lionel Messi aims to move clear in the race for the World Cup golden boot - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -507,7 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
@@ -557,91 +557,91 @@
   ],
   "lessons": [
     {
-      "time": "2026-07-14 22:00:39",
-      "market_question": "Trump declares election interference national emergency? ",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Trump declares election interference national emer' \u2014 price moved +19%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-14 22:00:36",
-      "market_question": "Trump declares election interference national emergency? ",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.35) on 'Trump declares election interference national emer' \u2014 price moved +19%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-14 22:00:33",
-      "market_question": "OpenAI IPO before 2027?",
+      "time": "2026-07-15 22:00:09",
+      "market_question": "Will OpenAI announce a phone in 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.35) on 'OpenAI IPO before 2027?' \u2014 price moved +22%. Consider lowering min_materiality for ai category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will OpenAI announce a phone in 2026?' \u2014 price moved +84%. Consider lowering min_materiality for ai category."
     },
     {
-      "time": "2026-07-14 22:00:26",
-      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
-      "classification": "bullish",
-      "actual_direction": "bullish",
-      "lesson": "Missed strong bullish signal (mat=0.40) on 'Will Mitch McConnell step down from the Senate bef' \u2014 price moved +29%. Consider lowering min_materiality for politics category."
-    },
-    {
-      "time": "2026-07-14 22:00:23",
-      "market_question": "Will Trump praise Allah again by July 31?",
+      "time": "2026-07-15 22:00:09",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
       "classification": "bearish",
       "actual_direction": "bearish",
-      "lesson": "Missed strong bearish signal (mat=0.52) on 'Will Trump praise Allah again by July 31?' \u2014 price moved +32%. Consider lowering min_materiality for politics category."
+      "lesson": "Missed strong bearish signal (mat=0.35) on 'Will Meta have a #1 AI model by December 31, 2026?' \u2014 price moved +17%. Consider lowering min_materiality for ai category."
+    },
+    {
+      "time": "2026-07-15 22:00:08",
+      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.62) on 'Mitch McConnell steps down from Senate before his ' \u2014 price moved +22%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-07-15 22:00:08",
+      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.55) on 'Mitch McConnell steps down from Senate before his ' \u2014 price moved +19%. Consider lowering min_materiality for politics category."
+    },
+    {
+      "time": "2026-07-15 22:00:08",
+      "market_question": "Will OpenAI announce a phone in 2026?",
+      "classification": "bearish",
+      "actual_direction": "bearish",
+      "lesson": "Missed strong bearish signal (mat=0.45) on 'Will OpenAI announce a phone in 2026?' \u2014 price moved +71%. Consider lowering min_materiality for ai category."
     }
   ],
   "missed_opportunities": [
     {
-      "time": "2026-07-14 22:00:39",
-      "market_question": "Trump declares election interference national emergency? ",
-      "slug": "trump-declares-election-interference-national-emergency",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "action": "low_materiality",
-      "pct_move": 18.5,
-      "reflection": "I underweighted a signal that combined high political salience with concrete market catalysts\u2014a 0.35 materiality threshold was too conservative for an event with this kind of directional clarity and volatility potential. My skip logic treated materiality as a hard floor rather than a probabilistic input, missing that even \"low\" materiality can compound into significant P&L when conviction and move magnitude align. I need to recalibrate: materiality should inform position sizing, not gate entry entirely."
-    },
-    {
-      "time": "2026-07-14 22:00:36",
-      "market_question": "Trump declares election interference national emergency? ",
-      "slug": "trump-declares-election-interference-national-emergency",
-      "direction": "bullish",
-      "materiality": 0.35,
-      "action": "low_materiality",
-      "pct_move": 18.5,
-      "reflection": "I underweighted a signal with 0.35 materiality because I'd calibrated my threshold too conservatively\u2014but I missed that Trump's emergency declaration, regardless of its actual policy impact, was *semantically explosive* for market sentiment and would trigger cascading algorithmic responses before fundamental questions even mattered. I let a mechanical materiality score override the signal's obvious capacity to move prices, which is ultimately what I'm supposed to predict, not what I think *should* move prices."
-    },
-    {
-      "time": "2026-07-14 22:00:33",
-      "market_question": "OpenAI IPO before 2027?",
-      "slug": "ipos-before-2027",
+      "time": "2026-07-15 22:00:09",
+      "market_question": "Will OpenAI announce a phone in 2026?",
+      "slug": "what-kind-of-product-will-openai-announce-in-2026",
       "direction": "bearish",
       "materiality": 0.35,
       "action": "skip",
-      "pct_move": 22.4,
-      "reflection": "I flagged OpenAI's IPO probability as bearish with only moderate conviction (0.35 materiality), which meant I lacked sufficient confidence to act despite identifying the directional bias\u2014and the market's 22% move validated that bearish case. My skip cost me real alpha because I let uncertainty paralyze execution; a 0.35 signal isn't high confidence, but it's directional enough that I should have sized a position proportional to that conviction rather than sitting out entirely. I need to recalibrate: skipping trades to avoid false positives is risk management, but it's only sound if I'm actually uncertain\u2014here I had a view and abandoned it, which is just indecision masquerading as discipline."
+      "pct_move": 83.6,
+      "reflection": "(reflection generation failed: BadRequestError)"
     },
     {
-      "time": "2026-07-14 22:00:26",
-      "market_question": "Will Mitch McConnell step down from the Senate before his term ends?",
-      "slug": "will-mitch-mcconnell-resign-from-the-senate-before-his-term-ends",
-      "direction": "bullish",
-      "materiality": 0.4,
-      "action": "stale",
-      "pct_move": 28.6,
-      "reflection": "I flagged this as stale without properly accounting for the timing of McConnell's health situation and the genuine uncertainty around his tenure\u2014a classic mistake of dismissing political signals as \"old news\" when the actual resolution remained live and material. The 29% move showed there was real edge in that 0.40 materiality signal, and I let process override judgment by mechanically discarding it rather than asking whether staleness actually meant irrelevance. I should have weighted the signal's directional conviction more heavily and accepted the risk of being early rather than sitting out entirely."
-    },
-    {
-      "time": "2026-07-14 22:00:23",
-      "market_question": "Will Trump praise Allah again by July 31?",
-      "slug": "will-trump-praise-allah-again-by-july-31-20260709192527504",
+      "time": "2026-07-15 22:00:09",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "slug": "which-companies-will-have-a-1-ai-model-by-december-31",
       "direction": "bearish",
-      "materiality": 0.52,
+      "materiality": 0.35,
+      "action": "skip",
+      "pct_move": 17.4,
+      "reflection": "(reflection generation failed: BadRequestError)"
+    },
+    {
+      "time": "2026-07-15 22:00:08",
+      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
+      "slug": "will-mitch-mcconnell-resign-from-the-senate-before-his-term-ends",
+      "direction": "bearish",
+      "materiality": 0.62,
       "action": "stale",
-      "pct_move": 32.1,
-      "reflection": "I flagged this as stale without properly reassessing the underlying probability\u2014a lazy heuristic that cost me real edge. The 32% move in my predicted direction suggests the market hadn't actually priced in Trump's historical pattern of religious rhetoric, and my bearish signal had genuine predictive value that I discarded based on data freshness rather than signal quality. I need to distinguish between stale *data* and stale *analysis*; a bearish thesis on an unlikely event doesn't expire just because the market hasn't updated it yet."
+      "pct_move": 21.7,
+      "reflection": "(reflection generation failed: BadRequestError)"
+    },
+    {
+      "time": "2026-07-15 22:00:08",
+      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
+      "slug": "will-mitch-mcconnell-resign-from-the-senate-before-his-term-ends",
+      "direction": "bearish",
+      "materiality": 0.55,
+      "action": "stale",
+      "pct_move": 18.8,
+      "reflection": "(reflection generation failed: BadRequestError)"
+    },
+    {
+      "time": "2026-07-15 22:00:08",
+      "market_question": "Will OpenAI announce a phone in 2026?",
+      "slug": "what-kind-of-product-will-openai-announce-in-2026",
+      "direction": "bearish",
+      "materiality": 0.45,
+      "action": "skip",
+      "pct_move": 71.2,
+      "reflection": "(reflection generation failed: BadRequestError)"
     }
   ],
   "pending_suggestions": [
