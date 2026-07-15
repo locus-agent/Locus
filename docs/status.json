@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T18:54:43.509509+00:00",
-  "last_heartbeat": "2026-07-15T18:54:43.509509+00:00",
-  "uptime_seconds": 437027,
+  "generated_at": "2026-07-15T18:59:53.953264+00:00",
+  "last_heartbeat": "2026-07-15T18:59:53.953264+00:00",
+  "uptime_seconds": 437337,
   "dry_run": false,
   "markets_tracked": 1362,
-  "classify_error_streak": 1099,
+  "classify_error_streak": 1111,
   "track_record": {
     "total": 11483,
     "accuracy": 18.0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 798,
+  "headlines_scanned_today": 801,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4108,
+  "classifications_24h": 4115,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 570,
+    "prefiltered_haiku": 566,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1089,
-    "matched": 894,
-    "classified": 4108,
+    "news": 1090,
+    "matched": 895,
+    "classified": 4115,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2282.5
+    "avg_classification_latency_ms": 2283.1
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 18:49:30",
-      "market_question": "Will Bitcoin replace SHA-256 before 2027?",
-      "headline": "Why AI Can't Replace These Two Human Abilities - Tempo.co English",
+      "time": "2026-07-15 18:58:11",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "A horde of golden mini-Mozarts marks 270 years since the composer\u2019s birth in Salzburg - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-15 18:58:11",
+      "market_question": "Will Trump say \"Golden Dome\" at Defense and Innovation Summit?",
+      "headline": "A horde of golden mini-Mozarts marks 270 years since the composer\u2019s birth in Salzburg - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-15 18:56:07",
+      "market_question": "Will Nigel Farage win 60\u201370% of votes in the Clacton parliamentary by-election?",
+      "headline": "Police arrest man who threatened to shoot Reform UK party leader Nigel Farage - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 18:47:26",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "Fairfax County social workers use AI to cut down on paperwork - WJLA",
+      "time": "2026-07-15 18:56:07",
+      "market_question": "Will Nigel Farage win 50\u201360% of votes in the Clacton parliamentary by-election?",
+      "headline": "Police arrest man who threatened to shoot Reform UK party leader Nigel Farage - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -459,14 +491,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 18:47:23",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Fed chair Warsh sidesteps Senate questions on inflation, AI, contact with Trump - AP News",
+      "time": "2026-07-15 18:56:07",
+      "market_question": "Will Nigel Farage win the Clacton by-election?",
+      "headline": "Police arrest man who threatened to shoot Reform UK party leader Nigel Farage - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -475,39 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 18:47:23",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Fed chair Warsh sidesteps Senate questions on inflation, AI, contact with Trump - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 18:47:23",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
-      "headline": "Fed chair Warsh sidesteps Senate questions on inflation, AI, contact with Trump - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     }
