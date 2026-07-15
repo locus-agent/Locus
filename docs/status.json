@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T10:33:45.279438+00:00",
-  "last_heartbeat": "2026-07-15T10:33:45.279438+00:00",
-  "uptime_seconds": 406968,
+  "generated_at": "2026-07-15T10:38:53.533605+00:00",
+  "last_heartbeat": "2026-07-15T10:38:53.533605+00:00",
+  "uptime_seconds": 407277,
   "dry_run": false,
   "markets_tracked": 1371,
-  "classify_error_streak": 260,
+  "classify_error_streak": 263,
   "track_record": {
     "total": 11441,
     "accuracy": 18.1,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 332,
+  "headlines_scanned_today": 333,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4214,
+  "classifications_24h": 4221,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 1214,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-15T10:19:42.705945+00:00"
+    "last_check": "2026-07-15T10:34:43.069441+00:00"
   },
   "edge_types_24h": {
     "news": 1,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1112,
-    "matched": 925,
-    "classified": 4214,
+    "matched": 926,
+    "classified": 4221,
     "signals": 2,
     "trades": 2
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2229.5
+    "avg_classification_latency_ms": 2229.7
   },
   "live_readiness": {
     "ready": false,
@@ -432,25 +432,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 10:28:53",
-      "market_question": "Trump removed via 25th Amendment before 2027?",
-      "headline": "Watch: Celebrations as Gibraltar-Spain border fence removed",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-15 10:37:43",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Data centres face new regulation as government pivots on AI - AFR",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-15 10:24:31",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "New rights for shoppers using Buy Now Pay Later services",
+      "time": "2026-07-15 10:37:43",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Data centres face new regulation as government pivots on AI - AFR",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 10:37:43",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "Data centres face new regulation as government pivots on AI - AFR",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 10:24:28",
+      "time": "2026-07-15 10:37:40",
       "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "New rights for shoppers using Buy Now Pay Later services",
+      "headline": "Data centres face new regulation as government pivots on AI - AFR",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,25 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 10:24:28",
+      "time": "2026-07-15 10:37:40",
       "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "New rights for shoppers using Buy Now Pay Later services",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 10:24:28",
-      "market_question": "Trump declassifies new UFO files by August 15?",
-      "headline": "New rights for shoppers using Buy Now Pay Later services",
+      "headline": "Data centres face new regulation as government pivots on AI - AFR",
       "direction": null,
       "materiality": null,
       "confidence": null,
