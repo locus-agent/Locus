@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T17:11:25.771554+00:00",
-  "last_heartbeat": "2026-07-15T17:11:25.771554+00:00",
-  "uptime_seconds": 430829,
+  "generated_at": "2026-07-15T17:16:37.422324+00:00",
+  "last_heartbeat": "2026-07-15T17:16:37.422324+00:00",
+  "uptime_seconds": 431140,
   "dry_run": false,
   "markets_tracked": 1354,
-  "classify_error_streak": 936,
+  "classify_error_streak": 940,
   "track_record": {
     "total": 11454,
     "accuracy": 18.1,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 697,
+  "headlines_scanned_today": 701,
   "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4138,
+  "classifications_24h": 4139,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 708,
+    "prefiltered_haiku": 698,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1094,
+    "news": 1092,
     "matched": 899,
-    "classified": 4138,
+    "classified": 4139,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2275.0
+    "avg_classification_latency_ms": 2275.1
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 17:10:57",
-      "market_question": "Will Anthropic IPO by October 31, 2026?",
-      "headline": "SpaceX shares slide below IPO price for the first time as blistering rally unravels - Reuters",
+      "time": "2026-07-15 17:15:12",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "How Meta\u2019s AI layoff lawsuit can redefine artificial intelligence use in the workplace - Business News Nigeria",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,41 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 17:10:53",
-      "market_question": "Will Anthropic IPO by September 30, 2026?",
-      "headline": "SpaceX shares slide below IPO price for the first time as blistering rally unravels - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 17:10:53",
-      "market_question": "Mistral AI IPO before 2027?",
-      "headline": "SpaceX shares slide below IPO price for the first time as blistering rally unravels - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 17:10:53",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "SpaceX shares slide below IPO price for the first time as blistering rally unravels - Reuters",
+      "time": "2026-07-15 17:15:12",
+      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
+      "headline": "How Meta\u2019s AI layoff lawsuit can redefine artificial intelligence use in the workplace - Business News Nigeria",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -496,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 17:10:53",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "SpaceX shares slide below IPO price for the first time as blistering rally unravels - Reuters",
+      "time": "2026-07-15 17:15:12",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "How Meta\u2019s AI layoff lawsuit can redefine artificial intelligence use in the workplace - Business News Nigeria",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -507,9 +475,41 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 17:15:09",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "How Meta\u2019s AI layoff lawsuit can redefine artificial intelligence use in the workplace - Business News Nigeria",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-15 17:15:09",
+      "market_question": "Will Utah use a new congressional map for the 2026 United States midterm elections?",
+      "headline": "How Meta\u2019s AI layoff lawsuit can redefine artificial intelligence use in the workplace - Business News Nigeria",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
