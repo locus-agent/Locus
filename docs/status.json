@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-15T03:57:51.873375+00:00",
-  "last_heartbeat": "2026-07-15T03:57:51.873375+00:00",
-  "uptime_seconds": 383215,
+  "generated_at": "2026-07-15T04:02:59.764557+00:00",
+  "last_heartbeat": "2026-07-15T04:02:59.764557+00:00",
+  "uptime_seconds": 383523,
   "dry_run": false,
   "markets_tracked": 1355,
   "classify_error_streak": 0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 122,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 124,
+  "headlines_last_cycle": 1,
   "signals_24h": 3,
-  "classifications_24h": 4026,
+  "classifications_24h": 4034,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1337,
+    "prefiltered_haiku": 1343,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1066,
-    "matched": 894,
-    "classified": 4026,
+    "news": 1067,
+    "matched": 895,
+    "classified": 4034,
     "signals": 3,
     "trades": 3
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2213.5
+    "avg_classification_latency_ms": 2213.4
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.033,
+      "current_price": 0.03300000000000003,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 03:52:01",
-      "market_question": "Will Trump say \"Venezuela\" during Speech to the Nation?",
-      "headline": "EXCLUSIVE: Stripe, Advent offer to buy PayPal for more than $53 billion, sources say - Reuters",
+      "time": "2026-07-15 04:02:58",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Illinois joins California and New York with Artificial Intelligence Safety Measures Act - Beinsure",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 03:52:01",
-      "market_question": "Will Trump say \"Maduro\" during Speech to the Nation?",
-      "headline": "EXCLUSIVE: Stripe, Advent offer to buy PayPal for more than $53 billion, sources say - Reuters",
+      "time": "2026-07-15 04:02:58",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Illinois joins California and New York with Artificial Intelligence Safety Measures Act - Beinsure",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,52 +464,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 03:52:01",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "EXCLUSIVE: Stripe, Advent offer to buy PayPal for more than $53 billion, sources say - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-15 03:58:44",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Trump threatens to bomb bridges and power plants unless Iran resumes talks",
+      "direction": "neutral",
+      "materiality": 0.05,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "long_term",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-15 03:52:01",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
-      "headline": "EXCLUSIVE: Stripe, Advent offer to buy PayPal for more than $53 billion, sources say - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-15 03:58:42",
+      "market_question": "Will Trump accuse Iran of election interference by July 16?",
+      "headline": "Trump threatens to bomb bridges and power plants unless Iran resumes talks",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "immediate",
+      "adjusted_materiality": 0.0,
+      "action": "skip",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-15 03:49:49",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Federal appeals court ends a decades-old school desegregation order in Louisiana - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
+      "time": "2026-07-15 03:58:38",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Trump threatens to bomb bridges and power plants unless Iran resumes talks",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
