@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T22:48:48.597486+00:00",
-  "last_heartbeat": "2026-07-15T22:48:48.597486+00:00",
-  "uptime_seconds": 451072,
+  "generated_at": "2026-07-15T22:54:02.466924+00:00",
+  "last_heartbeat": "2026-07-15T22:54:02.466924+00:00",
+  "uptime_seconds": 451385,
   "dry_run": false,
   "markets_tracked": 1384,
-  "classify_error_streak": 1502,
+  "classify_error_streak": 1507,
   "track_record": {
     "total": 11494,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1001,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1004,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4146,
+  "classifications_24h": 4159,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 310,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-15T22:35:04.536937+00:00"
+    "last_check": "2026-07-15T22:50:04.915823+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1080,
-    "matched": 893,
-    "classified": 4146,
+    "news": 1083,
+    "matched": 896,
+    "classified": 4159,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2300.6
+    "avg_classification_latency_ms": 2300.8
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 22:48:40",
-      "market_question": "Trump x Greenland deal signed by December 31?",
-      "headline": "HP&#8217;s OLED-equipped 2-in-1 laptop is a solid back-to-school deal",
+      "time": "2026-07-15 22:53:04",
+      "market_question": "Will El Salvador hold $1b+ of BTC by December 31, 2026?",
+      "headline": "England tried to hold on but it wasn't enough, says Kane - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,68 +448,68 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 22:44:20",
-      "market_question": "Will Trump say \"SpaceX\" at Defense and Innovation Summit?",
-      "headline": "Trump drifts into campaign topics while addressing defense technology gathering - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-15 22:53:04",
+      "market_question": "Will the Republican Party hold exactly 28 or 29 governorships after the 2026 midterm elections?",
+      "headline": "England tried to hold on but it wasn't enough, says Kane - Reuters",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-15 22:44:20",
-      "market_question": "Will Trump say \"Hottest\" at Defense and Innovation Summit?",
-      "headline": "Trump drifts into campaign topics while addressing defense technology gathering - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-15 22:53:04",
+      "market_question": "Will the Republican Party hold fewer than 22 governorships after the 2026 midterm elections?",
+      "headline": "England tried to hold on but it wasn't enough, says Kane - Reuters",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 22:44:20",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Trump drifts into campaign topics while addressing defense technology gathering - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-15 22:44:20",
-      "market_question": "Will Trump say \"Golden Dome\" at Defense and Innovation Summit?",
-      "headline": "Trump drifts into campaign topics while addressing defense technology gathering - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-15 22:53:04",
+      "market_question": "Will the Republican Party hold exactly 22 or 23 governorships after the 2026 midterm elections?",
+      "headline": "England tried to hold on but it wasn't enough, says Kane - Reuters",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-15 22:53:04",
+      "market_question": "Will the Republican Party hold exactly 30 or 31 governorships after the 2026 midterm elections?",
+      "headline": "England tried to hold on but it wasn't enough, says Kane - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
