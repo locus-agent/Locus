@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T21:30:11.771496+00:00",
-  "last_heartbeat": "2026-07-15T21:30:11.771496+00:00",
-  "uptime_seconds": 446355,
+  "generated_at": "2026-07-15T21:35:27.511053+00:00",
+  "last_heartbeat": "2026-07-15T21:35:27.511053+00:00",
+  "uptime_seconds": 446671,
   "dry_run": false,
-  "markets_tracked": 1380,
-  "classify_error_streak": 1362,
+  "markets_tracked": 1382,
+  "classify_error_streak": 1372,
   "track_record": {
     "total": 11483,
     "accuracy": 18.0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 947,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 954,
+  "headlines_last_cycle": 0,
   "signals_24h": 1,
-  "classifications_24h": 4249,
+  "classifications_24h": 4263,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 424,
+    "prefiltered_haiku": 423,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-15T21:20:02.572766+00:00"
+    "last_check": "2026-07-15T21:35:02.975745+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1117,
-    "matched": 919,
-    "classified": 4249,
+    "news": 1119,
+    "matched": 921,
+    "classified": 4263,
     "signals": 1,
     "trades": 1
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2294.1
+    "avg_classification_latency_ms": 2294.5
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 21:29:50",
-      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
-      "headline": "Drained Reflecting Pool reveals Trump\u2019s \u2018American flag blue\u2019 liner is now closer to gray - AP News",
+      "time": "2026-07-15 21:34:17",
+      "market_question": "Putin out as President of Russia by September 30, 2026?",
+      "headline": "Sanctioned former president Michel Martelly returns to Haiti as some cheer - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:29:50",
-      "market_question": "Will Trump\u2019s remarks not air?",
-      "headline": "Drained Reflecting Pool reveals Trump\u2019s \u2018American flag blue\u2019 liner is now closer to gray - AP News",
+      "time": "2026-07-15 21:34:17",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Sanctioned former president Michel Martelly returns to Haiti as some cheer - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:26:01",
-      "market_question": "Will Apple release iPhone 18 in 2026?",
-      "headline": "WhatsApp Beta Reveals iCloud Backup Alternative for iPhone - MacRumors",
+      "time": "2026-07-15 21:34:17",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Sanctioned former president Michel Martelly returns to Haiti as some cheer - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:25:57",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "As feared, those new Call of Duty Black Ops 1 and 2 ports are riddled with hackers, but Activision is at least doing something about it - Eurogamer.net",
+      "time": "2026-07-15 21:34:17",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Sanctioned former president Michel Martelly returns to Haiti as some cheer - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -496,20 +496,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 21:25:57",
-      "market_question": "Will Apple release a foldable iPhone before 2027?",
-      "headline": "WhatsApp Beta Reveals iCloud Backup Alternative for iPhone - MacRumors",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-15 21:34:17",
+      "market_question": "Will Trump endorse JD Vance for president before 2027?",
+      "headline": "Sanctioned former president Michel Martelly returns to Haiti as some cheer - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
