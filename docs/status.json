@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T08:35:24.870020+00:00",
-  "last_heartbeat": "2026-07-15T08:35:24.870020+00:00",
-  "uptime_seconds": 399868,
+  "generated_at": "2026-07-15T08:40:33.377229+00:00",
+  "last_heartbeat": "2026-07-15T08:40:33.377229+00:00",
+  "uptime_seconds": 400176,
   "dry_run": false,
-  "markets_tracked": 1364,
-  "classify_error_streak": 106,
+  "markets_tracked": 1366,
+  "classify_error_streak": 109,
   "track_record": {
     "total": 11437,
     "accuracy": 18.1,
@@ -82,7 +82,7 @@
       }
     ]
   },
-  "headlines_scanned_today": 249,
+  "headlines_scanned_today": 250,
   "headlines_last_cycle": 0,
   "signals_24h": 2,
   "classifications_24h": 4109,
@@ -121,7 +121,7 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1086,
+    "news": 1085,
     "matched": 906,
     "classified": 4109,
     "signals": 2,
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2220.1
+    "avg_classification_latency_ms": 2220.4
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 08:34:51",
-      "market_question": "Will OpenAI announce earbuds or headphones in 2026?",
-      "headline": "Nokia\u2019s AI-RAN platform: a radio comeback that runs on NVIDIA - AI News",
+      "time": "2026-07-15 08:39:12",
+      "market_question": "Will Bitcoin have the best performance in 2026?",
+      "headline": "Mates, tea and freedom - how Argentina got the best out of Messi",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,14 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 08:34:49",
-      "market_question": "Will OpenAI announce a phone in 2026?",
-      "headline": "Nokia\u2019s AI-RAN platform: a radio comeback that runs on NVIDIA - AI News",
+      "time": "2026-07-15 08:39:12",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "Mates, tea and freedom - how Argentina got the best out of Messi",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -459,14 +459,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 08:30:23",
-      "market_question": "Will Bitcoin reach $100,000 in July?",
-      "headline": "Live markets: Bitcoin, ether ETFs draw inflows as majors rise as much as 5%",
+      "time": "2026-07-15 08:39:12",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Mates, tea and freedom - how Argentina got the best out of Messi",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 08:39:09",
+      "market_question": "Will xAI have the best AI model at the end of July 2026?",
+      "headline": "Mates, tea and freedom - how Argentina got the best out of Messi",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 08:30:23",
-      "market_question": "Will Bitcoin reach $67,500 in July?",
-      "headline": "Live markets: Bitcoin, ether ETFs draw inflows as majors rise as much as 5%",
+      "time": "2026-07-15 08:39:09",
+      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
+      "headline": "Mates, tea and freedom - how Argentina got the best out of Messi",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,23 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 08:30:23",
-      "market_question": "Will Bitcoin reach $75,000 in July?",
-      "headline": "Live markets: Bitcoin, ether ETFs draw inflows as majors rise as much as 5%",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
