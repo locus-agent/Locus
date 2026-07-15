@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-15T03:11:38.224147+00:00",
-  "last_heartbeat": "2026-07-15T03:11:38.224147+00:00",
-  "uptime_seconds": 380441,
+  "generated_at": "2026-07-15T03:16:47.308979+00:00",
+  "last_heartbeat": "2026-07-15T03:16:47.308979+00:00",
+  "uptime_seconds": 380750,
   "dry_run": false,
   "markets_tracked": 1358,
   "classify_error_streak": 0,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 111,
-  "headlines_last_cycle": 10,
+  "headlines_scanned_today": 113,
+  "headlines_last_cycle": 0,
   "signals_24h": 3,
-  "classifications_24h": 4060,
+  "classifications_24h": 4063,
   "selectivity_pct": 0.1,
   "gates_24h": {
-    "prefiltered_haiku": 1350,
+    "prefiltered_haiku": 1354,
     "cooldown_skip": 0,
     "stale": 6,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 444,
+    "price_target_market": 446,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 1,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1075,
     "matched": 900,
-    "classified": 4060,
+    "classified": 4063,
     "signals": 3,
     "trades": 3
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2215.6
+    "avg_classification_latency_ms": 2215.0
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03300000000000003,
+      "current_price": 0.033,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 03:11:37",
-      "market_question": "OpenAI IPO before 2027?",
-      "headline": "I loved ChatGPT Desktop until OpenAI gutted it to make room for Codex and Work - ZDNET",
+      "time": "2026-07-15 03:14:47",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Scottish traffic cone gets dignitary\u2019s welcome in Boston after World Cup friendship - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 03:11:37",
-      "market_question": "Will OpenAI not IPO by December 31, 2026?",
-      "headline": "I loved ChatGPT Desktop until OpenAI gutted it to make room for Codex and Work - ZDNET",
+      "time": "2026-07-15 03:14:46",
+      "market_question": "Will Trump attend 3 or more World Cup matches?",
+      "headline": "Scottish traffic cone gets dignitary\u2019s welcome in Boston after World Cup friendship - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -464,25 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 03:11:37",
-      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
-      "headline": "I loved ChatGPT Desktop until OpenAI gutted it to make room for Codex and Work - ZDNET",
-      "direction": "neutral",
-      "materiality": 0.15,
-      "confidence": 0.5,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.12,
-      "action": "prefiltered_haiku",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 03:11:37",
-      "market_question": "OpenAI acquired before 2027?",
-      "headline": "I loved ChatGPT Desktop until OpenAI gutted it to make room for Codex and Work - ZDNET",
+      "time": "2026-07-15 03:14:46",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Scottish traffic cone gets dignitary\u2019s welcome in Boston after World Cup friendship - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
@@ -496,9 +480,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-15 03:11:37",
-      "market_question": "Will OpenAI be acquired before 2027?",
-      "headline": "I loved ChatGPT Desktop until OpenAI gutted it to make room for Codex and Work - ZDNET",
+      "time": "2026-07-15 03:14:46",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Scottish traffic cone gets dignitary\u2019s welcome in Boston after World Cup friendship - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": 0.5,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "prefiltered_haiku",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-15 03:14:46",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Scottish traffic cone gets dignitary\u2019s welcome in Boston after World Cup friendship - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": 0.5,
