@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T13:29:06.228128+00:00",
-  "last_heartbeat": "2026-07-15T13:29:06.228128+00:00",
-  "uptime_seconds": 417489,
+  "generated_at": "2026-07-15T13:34:17.209743+00:00",
+  "last_heartbeat": "2026-07-15T13:34:17.209743+00:00",
+  "uptime_seconds": 417800,
   "dry_run": false,
-  "markets_tracked": 1383,
-  "classify_error_streak": 513,
+  "markets_tracked": 1382,
+  "classify_error_streak": 514,
   "track_record": {
     "total": 11441,
     "accuracy": 18.1,
@@ -82,20 +82,20 @@
       }
     ]
   },
-  "headlines_scanned_today": 488,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 489,
+  "headlines_last_cycle": 0,
   "signals_24h": 2,
-  "classifications_24h": 4287,
+  "classifications_24h": 4237,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 1065,
+    "prefiltered_haiku": 1051,
     "cooldown_skip": 0,
     "stale": 2,
     "capped": 2,
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 444,
+    "price_target_market": 439,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 1,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1129,
-    "matched": 944,
-    "classified": 4287,
+    "news": 1116,
+    "matched": 932,
+    "classified": 4237,
     "signals": 2,
     "trades": 2
   },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-15 13:29:12",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "BlackRock assets hit record $15 trillion on boost from buoyant markets, ETF inflows - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-15 13:29:04",
       "market_question": "Will Ethereum hit $1,000 or $3,000 first?",
       "headline": "BlackRock assets hit record $15 trillion on boost from buoyant markets, ETF inflows - Reuters",
@@ -491,22 +507,6 @@
       "time_horizon": null,
       "adjusted_materiality": null,
       "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-15 13:24:40",
-      "market_question": "SpaceX or OpenAI higher IPO Market Cap?",
-      "headline": "Wall St set to open higher as investors weigh earnings; PayPal jumps - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
