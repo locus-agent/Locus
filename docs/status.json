@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-16T22:55:04.506354+00:00",
-  "last_heartbeat": "2026-07-16T22:55:04.506354+00:00",
-  "uptime_seconds": 537848,
+  "generated_at": "2026-07-16T23:00:17.385747+00:00",
+  "last_heartbeat": "2026-07-16T23:00:17.385747+00:00",
+  "uptime_seconds": 538160,
   "dry_run": false,
   "markets_tracked": 1383,
   "classify_error_streak": 3376,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1030,
+  "headlines_scanned_today": 1031,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4211,
+  "classifications_24h": 4200,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1076,
-    "matched": 903,
-    "classified": 4211,
+    "news": 1075,
+    "matched": 902,
+    "classified": 4200,
     "signals": 0,
     "trades": 0
   },
@@ -136,8 +136,8 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 1.08,
-    "total_pnl_usd": 35.09,
+    "unrealized_pnl_usd": 1.09,
+    "total_pnl_usd": 35.1,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0475,
-      "pnl_pct": 36.89,
+      "current_price": 0.0485,
+      "pnl_pct": 39.77,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.45,
-      "pnl_usd": 0.12,
+      "current_value_usd": 0.46,
+      "pnl_usd": 0.13,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-16 22:59:41",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "Hegseth backs low-altitude military flyovers as a series of maneuvers draws scrutiny - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-16 22:53:09",
       "market_question": "Will Kristi Noem leave the Trump administration before 2027?",
       "headline": "Trump administration tightens visa rules for foreign students",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-16 22:53:08",
       "market_question": "Will Kash Patel leave the Trump administration before 2027?",
-      "headline": "Trump administration tightens visa rules for foreign students",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 22:53:08",
-      "market_question": "Will Howard Lutnick leave the Trump administration before 2027?",
       "headline": "Trump administration tightens visa rules for foreign students",
       "direction": "neutral",
       "materiality": 0.0,
