@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T13:46:11.063002+00:00",
-  "last_heartbeat": "2026-07-16T13:46:11.063002+00:00",
-  "uptime_seconds": 504914,
+  "generated_at": "2026-07-16T13:51:20.444540+00:00",
+  "last_heartbeat": "2026-07-16T13:51:20.444540+00:00",
+  "uptime_seconds": 505223,
   "dry_run": false,
   "markets_tracked": 1397,
-  "classify_error_streak": 2351,
+  "classify_error_streak": 2378,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 503,
+  "headlines_scanned_today": 510,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4061,
+  "classifications_24h": 4091,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 296,
+    "price_target_market": 298,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T13:35:30.108970+00:00"
+    "last_check": "2026-07-16T13:50:30.389785+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1057,
-    "matched": 883,
-    "classified": 4061,
+    "news": 1063,
+    "matched": 888,
+    "classified": 4091,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 1.04,
-    "total_pnl_usd": 35.06,
+    "unrealized_pnl_usd": 1.03,
+    "total_pnl_usd": 35.05,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2332.8
+    "avg_classification_latency_ms": 2334.4
   },
   "live_readiness": {
     "ready": false,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.045,
-      "pnl_pct": 29.69,
+      "current_price": 0.044,
+      "pnl_pct": 26.8,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.43,
-      "pnl_usd": 0.1,
+      "current_value_usd": 0.42,
+      "pnl_usd": 0.09,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 13:44:11",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Vice President Mike Pence - Politico",
+      "time": "2026-07-16 13:48:42",
+      "market_question": "Putin out as President of Russia by July 31, 2026?",
+      "headline": "Teenager accused of carrying out sabotage actions in Poland for Russia",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 13:44:10",
-      "market_question": "Putin out as President of Russia by September 30, 2026?",
-      "headline": "Vice President Mike Pence - Politico",
+      "time": "2026-07-16 13:48:42",
+      "market_question": "Putin out as President of Russia by August 31, 2026?",
+      "headline": "Teenager accused of carrying out sabotage actions in Poland for Russia",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,41 +464,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 13:44:10",
-      "market_question": "Will Trump endorse JD Vance for president before 2027?",
-      "headline": "Vice President Mike Pence - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 13:48:42",
+      "market_question": "Will Chuck Smith be the Republican nominee for Senate in Virginia?",
+      "headline": "Chuck Rettig - Politico",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-16 13:44:10",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Vice President Mike Pence - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 13:44:10",
+      "time": "2026-07-16 13:48:41",
       "market_question": "Trump out as President before GTA VI?",
-      "headline": "Vice President Mike Pence - Politico",
+      "headline": "Teenager accused of carrying out sabotage actions in Poland for Russia",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 13:48:41",
+      "market_question": "Putin out as President of Russia by September 30, 2026?",
+      "headline": "Teenager accused of carrying out sabotage actions in Poland for Russia",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
