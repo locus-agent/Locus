@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T12:23:37.840811+00:00",
-  "last_heartbeat": "2026-07-16T12:23:37.840811+00:00",
-  "uptime_seconds": 499961,
+  "generated_at": "2026-07-16T12:28:48.878115+00:00",
+  "last_heartbeat": "2026-07-16T12:28:48.878115+00:00",
+  "uptime_seconds": 500272,
   "dry_run": false,
   "markets_tracked": 1393,
-  "classify_error_streak": 2250,
+  "classify_error_streak": 2261,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 444,
+  "headlines_scanned_today": 448,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4081,
+  "classifications_24h": 4093,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1064,
-    "matched": 883,
-    "classified": 4081,
+    "news": 1066,
+    "matched": 885,
+    "classified": 4093,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 0.94,
-    "total_pnl_usd": 34.95,
+    "unrealized_pnl_usd": 0.93,
+    "total_pnl_usd": 34.94,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2329.0
+    "avg_classification_latency_ms": 2329.3
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3175,
+      "current_price": 0.3174999999999999,
       "pnl_pct": 19.36,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.63,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0335,
-      "pnl_pct": -3.46,
+      "current_price": 0.033,
+      "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.32,
-      "pnl_usd": -0.01,
+      "current_value_usd": 0.31,
+      "pnl_usd": -0.02,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 12:18:33",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "With midterms on deck, Trump to deliver primetime speech on election security - Reuters",
+      "time": "2026-07-16 12:27:23",
+      "market_question": "Will Trump's approval rating hit 35% in 2026?",
+      "headline": "Trump's rancher allies push Rollins to reopen border to cattle - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 12:18:33",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "With midterms on deck, Trump to deliver primetime speech on election security - Reuters",
+      "time": "2026-07-16 12:27:23",
+      "market_question": "Will Trump's Speech to the Nation be less than 5 minutes long?",
+      "headline": "Trump's rancher allies push Rollins to reopen border to cattle - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 12:18:33",
-      "market_question": "Will Trump\u2019s remarks not air?",
-      "headline": "With midterms on deck, Trump to deliver primetime speech on election security - Reuters",
+      "time": "2026-07-16 12:27:23",
+      "market_question": "Will Trump's Speech to the Nation be between 15 and 20 minutes long?",
+      "headline": "Trump's rancher allies push Rollins to reopen border to cattle - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -475,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 12:18:33",
-      "market_question": "Will Trump say \"Crooked\" during Speech to the Nation?",
-      "headline": "With midterms on deck, Trump to deliver primetime speech on election security - Reuters",
+      "time": "2026-07-16 12:27:23",
+      "market_question": "Will Trump's Speech to the Nation be between 20 and 25 minutes long?",
+      "headline": "Trump's rancher allies push Rollins to reopen border to cattle - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -491,14 +491,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 12:18:32",
-      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
-      "headline": "With midterms on deck, Trump to deliver primetime speech on election security - Reuters",
+      "time": "2026-07-16 12:27:23",
+      "market_question": "Will Trump's Speech to the Nation be between 25 and 30 minutes long?",
+      "headline": "Trump's rancher allies push Rollins to reopen border to cattle - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -507,7 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
