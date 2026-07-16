@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T02:52:07.765830+00:00",
-  "last_heartbeat": "2026-07-16T02:52:07.765830+00:00",
-  "uptime_seconds": 465671,
+  "generated_at": "2026-07-16T02:57:16.542985+00:00",
+  "last_heartbeat": "2026-07-16T02:57:16.542985+00:00",
+  "uptime_seconds": 465980,
   "dry_run": false,
   "markets_tracked": 1388,
-  "classify_error_streak": 1769,
+  "classify_error_streak": 1773,
   "track_record": {
     "total": 11503,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 115,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 116,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4139,
+  "classifications_24h": 4141,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 88,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1074,
     "matched": 889,
-    "classified": 4139,
+    "classified": 4141,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2310.4
+    "avg_classification_latency_ms": 2310.5
   },
   "live_readiness": {
     "ready": false,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 02:51:54",
-      "market_question": "Will OpenAI\u2019s market cap be between $1.25T and $1.5T at market close on IPO day?",
-      "headline": "AI Appreciation Day 2026: 7 Professions Getting A Massive Boost From Artificial Intelligence - News18",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 02:51:54",
-      "market_question": "Will Google have the best AI model at the end of July 2026?",
-      "headline": "AI Appreciation Day 2026: 7 Professions Getting A Massive Boost From Artificial Intelligence - News18",
+      "time": "2026-07-16 02:54:05",
+      "market_question": "Will OpenAI's valuation hit (HIGH) $1.75T by December 31?",
+      "headline": "TSMC's second-quarter profit seen hitting record on AI boom - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 02:51:54",
-      "market_question": "Will Microsoft have the best AI model at the end of July 2026?",
-      "headline": "AI Appreciation Day 2026: 7 Professions Getting A Massive Boost From Artificial Intelligence - News18",
+      "time": "2026-07-16 02:54:05",
+      "market_question": "Will OpenAI's valuation hit (HIGH) $1.5T by December 31?",
+      "headline": "TSMC's second-quarter profit seen hitting record on AI boom - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,25 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 02:51:54",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
-      "headline": "AI Appreciation Day 2026: 7 Professions Getting A Massive Boost From Artificial Intelligence - News18",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 02:51:54",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "AI Appreciation Day 2026: 7 Professions Getting A Massive Boost From Artificial Intelligence - News18",
+      "time": "2026-07-16 02:54:05",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "TSMC's second-quarter profit seen hitting record on AI boom - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -510,6 +478,38 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 02:54:05",
+      "market_question": "Will OpenAI's valuation hit (HIGH) $2.0T by December 31?",
+      "headline": "TSMC's second-quarter profit seen hitting record on AI boom - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 02:54:02",
+      "market_question": "Trump, Putin, and Zelensky seen together before 2027?",
+      "headline": "TSMC's second-quarter profit seen hitting record on AI boom - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
