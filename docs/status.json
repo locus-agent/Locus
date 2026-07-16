@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T14:11:58.884191+00:00",
-  "last_heartbeat": "2026-07-16T14:11:58.884191+00:00",
-  "uptime_seconds": 506462,
+  "generated_at": "2026-07-16T14:17:08.457777+00:00",
+  "last_heartbeat": "2026-07-16T14:17:08.457777+00:00",
+  "uptime_seconds": 506771,
   "dry_run": false,
-  "markets_tracked": 1399,
-  "classify_error_streak": 2429,
+  "markets_tracked": 1398,
+  "classify_error_streak": 2437,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 550,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 576,
+  "headlines_last_cycle": 3,
   "signals_24h": 0,
-  "classifications_24h": 4192,
+  "classifications_24h": 4236,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 299,
+    "price_target_market": 320,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1095,
-    "matched": 913,
-    "classified": 4192,
+    "news": 1114,
+    "matched": 925,
+    "classified": 4236,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2337.3
+    "avg_classification_latency_ms": 2337.6
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3174999999999999,
+      "current_price": 0.3175,
       "pnl_pct": 19.36,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.63,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 14:10:24",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
-      "headline": "The Navy\u2019s Strategy to Weaponize Data and Artificial Intelligence - USNI News",
+      "time": "2026-07-16 14:16:58",
+      "market_question": "Will Apple release iPhone 18 in 2026?",
+      "headline": "Iran, US step up attacks, though release of American may signal path to climbdown - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 14:10:20",
-      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
-      "headline": "The Navy\u2019s Strategy to Weaponize Data and Artificial Intelligence - USNI News",
+      "time": "2026-07-16 14:16:58",
+      "market_question": "Will Trump accuse Iran of election interference by July 16?",
+      "headline": "Iran, US step up attacks, though release of American may signal path to climbdown - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 14:16:58",
+      "market_question": "Will Trump say \"Transgender\" during Speech to the Nation?",
+      "headline": "Teenagers from 15 should be given free meningitis B vaccine, say UK experts",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,52 +480,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 14:06:01",
-      "market_question": "Will Trump deport 200-300k people?",
-      "headline": "Texas flooding surges from huge rainstorms as rescuers pull people from rising waters - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 14:16:58",
+      "market_question": "Will Trump say \"Venezuela\" during Speech to the Nation?",
+      "headline": "Teenagers from 15 should be given free meningitis B vaccine, say UK experts",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-16 14:06:01",
-      "market_question": "Will Trump deport less than 200k people?",
-      "headline": "Texas flooding surges from huge rainstorms as rescuers pull people from rising waters - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 14:16:58",
+      "market_question": "Will Trump say \"China\" during Speech to the Nation?",
+      "headline": "Teenagers from 15 should be given free meningitis B vaccine, say UK experts",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 14:06:01",
-      "market_question": "Will Trump deport more than 1m people?",
-      "headline": "Texas flooding surges from huge rainstorms as rescuers pull people from rising waters - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
