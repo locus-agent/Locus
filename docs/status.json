@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T01:09:12.852981+00:00",
-  "last_heartbeat": "2026-07-16T01:09:12.852981+00:00",
-  "uptime_seconds": 459496,
+  "generated_at": "2026-07-16T01:14:21.568983+00:00",
+  "last_heartbeat": "2026-07-16T01:14:21.568983+00:00",
+  "uptime_seconds": 459805,
   "dry_run": false,
-  "markets_tracked": 1382,
-  "classify_error_streak": 1699,
+  "markets_tracked": 1381,
+  "classify_error_streak": 1704,
   "track_record": {
     "total": 11494,
     "accuracy": 18.0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 64,
+  "headlines_scanned_today": 66,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4150,
+  "classifications_24h": 4128,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 154,
+    "prefiltered_haiku": 147,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1077,
-    "matched": 890,
-    "classified": 4150,
+    "news": 1074,
+    "matched": 886,
+    "classified": 4128,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2308.2
+    "avg_classification_latency_ms": 2308.3
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.795,
+      "current_price": 0.7949999999999999,
       "pnl_pct": 16.91,
       "amount_usd": 24.99,
       "current_value_usd": 29.22,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 01:06:47",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Tens of thousands of Argentine soccer fans celebrate their team's World Cup semifinal victory - AP News",
+      "time": "2026-07-16 01:11:10",
+      "market_question": "Will the Republicans win the Alabama Senate race in 2026?",
+      "headline": "Senate: Louisiana - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,14 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:06:47",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Tens of thousands of Argentine soccer fans celebrate their team's World Cup semifinal victory - AP News",
+      "time": "2026-07-16 01:11:10",
+      "market_question": "Will the Democrats win the Louisiana Senate race in 2026?",
+      "headline": "Senate: Louisiana - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -459,14 +459,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:06:47",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Tens of thousands of Argentine soccer fans celebrate their team's World Cup semifinal victory - AP News",
+      "time": "2026-07-16 01:11:10",
+      "market_question": "Will the Democrats win the Virginia Senate race in 2026?",
+      "headline": "Senate: Louisiana - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -475,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:06:47",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Tens of thousands of Argentine soccer fans celebrate their team's World Cup semifinal victory - AP News",
+      "time": "2026-07-16 01:11:10",
+      "market_question": "Will the Republicans win the Louisiana Senate race in 2026?",
+      "headline": "Senate: Louisiana - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -491,25 +491,25 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "both",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:06:47",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Argentina face action after waving Falklands banner",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 01:11:10",
+      "market_question": "Will the Republicans win the Montana Senate race in 2026?",
+      "headline": "Senate: Louisiana - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
