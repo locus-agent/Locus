@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T18:19:37.493817+00:00",
-  "last_heartbeat": "2026-07-16T18:19:37.493817+00:00",
-  "uptime_seconds": 521321,
+  "generated_at": "2026-07-16T18:24:46.730297+00:00",
+  "last_heartbeat": "2026-07-16T18:24:46.730297+00:00",
+  "uptime_seconds": 521630,
   "dry_run": false,
-  "markets_tracked": 1367,
-  "classify_error_streak": 2846,
+  "markets_tracked": 1368,
+  "classify_error_streak": 2857,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 786,
+  "headlines_scanned_today": 790,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4052,
+  "classifications_24h": 4067,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 327,
+    "price_target_market": 331,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T18:05:37.874951+00:00"
+    "last_check": "2026-07-16T18:20:38.254891+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1058,
-    "matched": 883,
-    "classified": 4052,
+    "news": 1059,
+    "matched": 885,
+    "classified": 4067,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 1.0,
+    "unrealized_pnl_usd": 0.99,
     "total_pnl_usd": 35.01,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2353.7
+    "avg_classification_latency_ms": 2354.2
   },
   "live_readiness": {
     "ready": false,
@@ -238,8 +238,8 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.040000000000000036,
-      "pnl_pct": 15.28,
+      "current_price": 0.03950000000000009,
+      "pnl_pct": 13.84,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.38,
       "pnl_usd": 0.05,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 18:16:41",
-      "market_question": "Will OpenAI\u2019s market cap be less than $500B at market close on IPO day?",
-      "headline": "White House teleprompter operator placed on leave amid prediction market insider trading investigation - Politico",
+      "time": "2026-07-16 18:23:23",
+      "market_question": "Trump calls Nicki Minaj hot again in 2026?",
+      "headline": "Brazil calls Trump\u2019s 25% tariff unjustifiable, vows to impose reciprocal tariffs - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,68 +448,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 18:16:38",
-      "market_question": "Will OpenAI\u2019s market cap be between $1.25T and $1.5T at market close on IPO day?",
-      "headline": "White House teleprompter operator placed on leave amid prediction market insider trading investigation - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 18:23:21",
+      "market_question": "Will Trump\u2019s remarks not air?",
+      "headline": "Brazil calls Trump\u2019s 25% tariff unjustifiable, vows to impose reciprocal tariffs - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 18:16:38",
-      "market_question": "Will OpenAI\u2019s market cap be between $1T and $1.25T at market close on IPO day?",
-      "headline": "White House teleprompter operator placed on leave amid prediction market insider trading investigation - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 18:23:21",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "Brazil calls Trump\u2019s 25% tariff unjustifiable, vows to impose reciprocal tariffs - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 18:16:38",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "headline": "White House teleprompter operator placed on leave amid prediction market insider trading investigation - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 18:23:21",
+      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
+      "headline": "Brazil calls Trump\u2019s 25% tariff unjustifiable, vows to impose reciprocal tariffs - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 18:16:38",
-      "market_question": "Will OpenAI\u2019s market cap be between $500B and $750B at market close on IPO day?",
-      "headline": "White House teleprompter operator placed on leave amid prediction market insider trading investigation - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 18:23:18",
+      "market_question": "Trump declassifies new UFO files by August 15?",
+      "headline": "Zelenskiy taps new defence chief in bid to quell political crisis - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
