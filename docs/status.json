@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T05:00:40.068607+00:00",
-  "last_heartbeat": "2026-07-16T05:00:40.068607+00:00",
-  "uptime_seconds": 473383,
+  "generated_at": "2026-07-16T05:05:49.196606+00:00",
+  "last_heartbeat": "2026-07-16T05:05:49.196606+00:00",
+  "uptime_seconds": 473692,
   "dry_run": false,
   "markets_tracked": 1364,
-  "classify_error_streak": 1815,
+  "classify_error_streak": 1833,
   "track_record": {
     "total": 11503,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 146,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 156,
+  "headlines_last_cycle": 4,
   "signals_24h": 0,
-  "classifications_24h": 4013,
+  "classifications_24h": 4056,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 9,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 313,
+    "price_target_market": 320,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T04:50:14.610550+00:00"
+    "last_check": "2026-07-16T05:05:14.987881+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1036,
-    "matched": 858,
-    "classified": 4013,
+    "news": 1044,
+    "matched": 867,
+    "classified": 4056,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2312.6
+    "avg_classification_latency_ms": 2313.3
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.033,
+      "current_price": 0.03300000000000003,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 04:56:52",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Family of Black teen found dead after boat trip agrees to inspect his cellphone with DA - AP News",
+      "time": "2026-07-16 05:05:38",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Israel\u2019s latest strikes kill a dozen people in Gaza, including police officers - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,25 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 04:56:49",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
-      "headline": "On the 16th, President Lee Jae Myung defined artificial intelligence (AI) as a \"civilized historical.. - \ub9e4\uc77c\uacbd\uc81c",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 04:56:49",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "On the 16th, President Lee Jae Myung defined artificial intelligence (AI) as a \"civilized historical.. - \ub9e4\uc77c\uacbd\uc81c",
+      "time": "2026-07-16 05:05:36",
+      "market_question": "Will Trump deport 400-500k people?",
+      "headline": "Israel\u2019s latest strikes kill a dozen people in Gaza, including police officers - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,36 +464,52 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 04:56:49",
-      "market_question": "Will Trump be impeached before his term ends?",
-      "headline": "Family of Black teen found dead after boat trip agrees to inspect his cellphone with DA - AP News",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 05:05:36",
+      "market_question": "Will Trump deport less than 200k people?",
+      "headline": "Israel\u2019s latest strikes kill a dozen people in Gaza, including police officers - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 04:56:49",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Family of Black teen found dead after boat trip agrees to inspect his cellphone with DA - AP News",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 05:05:36",
+      "market_question": "Will Trump deport 900k-1m people?",
+      "headline": "Israel\u2019s latest strikes kill a dozen people in Gaza, including police officers - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 05:05:36",
+      "market_question": "Will Trump deport 200-300k people?",
+      "headline": "Israel\u2019s latest strikes kill a dozen people in Gaza, including police officers - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
