@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T19:06:05.688881+00:00",
-  "last_heartbeat": "2026-07-16T19:06:05.688881+00:00",
-  "uptime_seconds": 524109,
+  "generated_at": "2026-07-16T19:11:15.751588+00:00",
+  "last_heartbeat": "2026-07-16T19:11:15.751588+00:00",
+  "uptime_seconds": 524419,
   "dry_run": false,
-  "markets_tracked": 1371,
-  "classify_error_streak": 2899,
+  "markets_tracked": 1370,
+  "classify_error_streak": 2909,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 811,
+  "headlines_scanned_today": 815,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4067,
+  "classifications_24h": 4086,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1056,
-    "matched": 886,
-    "classified": 4067,
+    "news": 1059,
+    "matched": 890,
+    "classified": 4086,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2355.4
+    "avg_classification_latency_ms": 2355.8
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0395,
+      "current_price": 0.03950000000000009,
       "pnl_pct": 13.84,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.38,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 19:04:55",
-      "market_question": "Will Trump say \"Million,\" \"Billion,\" or \"Trillion\" 20+ times during Speech to the Nation?",
-      "headline": "Nvidia-backed startup Fireworks valued at $17.5 billion in latest funding - Reuters",
+      "time": "2026-07-16 19:09:23",
+      "market_question": "Will Bitcoin kimchi premium hit 8% in 2026?",
+      "headline": "Chip selloff drags Wall Street lower, offsetting solid earnings, economic data - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 19:09:20",
+      "market_question": "Will Chip Keating win the 2026 Oklahoma Governor Republican primary election?",
+      "headline": "Chip selloff drags Wall Street lower, offsetting solid earnings, economic data - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,41 +464,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 19:02:51",
-      "market_question": "Will Trump accuse Venezuela of election interference by July 16?",
-      "headline": "Rubio gathers countries on left-wing political violence as it becomes a Trump focus in elections - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 19:02:51",
-      "market_question": "Will Trump accuse Russia of election interference by July 16?",
-      "headline": "Rubio gathers countries on left-wing political violence as it becomes a Trump focus in elections - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 19:02:51",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Rubio gathers countries on left-wing political violence as it becomes a Trump focus in elections - AP News",
+      "time": "2026-07-16 19:07:13",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Franco-German defence cooperation under strain as Macron, Merz meet - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -496,20 +480,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 19:02:51",
-      "market_question": "Will Trump accuse Iran of election interference by July 16?",
-      "headline": "Rubio gathers countries on left-wing political violence as it becomes a Trump focus in elections - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 19:07:13",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "Ousted defence minister lays bare rift at heart of Ukraine's war effort - Reuters",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-16 19:07:13",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Ousted defence minister lays bare rift at heart of Ukraine's war effort - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
