@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T01:04:03.406917+00:00",
-  "last_heartbeat": "2026-07-16T01:04:03.406917+00:00",
-  "uptime_seconds": 459186,
+  "generated_at": "2026-07-16T01:09:12.852981+00:00",
+  "last_heartbeat": "2026-07-16T01:09:12.852981+00:00",
+  "uptime_seconds": 459496,
   "dry_run": false,
-  "markets_tracked": 1383,
-  "classify_error_streak": 1691,
+  "markets_tracked": 1382,
+  "classify_error_streak": 1699,
   "track_record": {
     "total": 11494,
     "accuracy": 18.0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 61,
+  "headlines_scanned_today": 64,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4142,
+  "classifications_24h": 4150,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 156,
+    "prefiltered_haiku": 154,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T00:50:07.861819+00:00"
+    "last_check": "2026-07-16T01:05:08.229003+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1076,
-    "matched": 888,
-    "classified": 4142,
+    "news": 1077,
+    "matched": 890,
+    "classified": 4150,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2308.0
+    "avg_classification_latency_ms": 2308.2
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.7949999999999999,
+      "current_price": 0.795,
       "pnl_pct": 16.91,
       "amount_usd": 24.99,
       "current_value_usd": 29.22,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.033,
+      "current_price": 0.03300000000000003,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 01:02:25",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Southern District of New York - Politico",
+      "time": "2026-07-16 01:06:47",
+      "market_question": "Will Trump attend 2 World Cup matches?",
+      "headline": "Tens of thousands of Argentine soccer fans celebrate their team's World Cup semifinal victory - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,62 +443,62 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:02:21",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Southern District of New York - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 01:06:47",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "Tens of thousands of Argentine soccer fans celebrate their team's World Cup semifinal victory - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:02:21",
-      "market_question": "Will a new country buy Bitcoin by December 31, 2026?",
-      "headline": "Southern District of New York - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 01:06:47",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "Tens of thousands of Argentine soccer fans celebrate their team's World Cup semifinal victory - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:02:21",
-      "market_question": "Will Apple TV announce a new project at SDCC 2026?",
-      "headline": "Southern District of New York - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 01:06:47",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "Tens of thousands of Argentine soccer fans celebrate their team's World Cup semifinal victory - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:02:21",
-      "market_question": "Trump declassifies new UFO files by August 15?",
-      "headline": "Southern District of New York - Politico",
+      "time": "2026-07-16 01:06:47",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Argentina face action after waving Falklands banner",
       "direction": null,
       "materiality": null,
       "confidence": null,
