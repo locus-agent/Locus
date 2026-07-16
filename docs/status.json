@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T19:00:54.642991+00:00",
-  "last_heartbeat": "2026-07-16T19:00:54.642991+00:00",
-  "uptime_seconds": 523798,
+  "generated_at": "2026-07-16T19:06:05.688881+00:00",
+  "last_heartbeat": "2026-07-16T19:06:05.688881+00:00",
+  "uptime_seconds": 524109,
   "dry_run": false,
-  "markets_tracked": 1369,
-  "classify_error_streak": 2883,
+  "markets_tracked": 1371,
+  "classify_error_streak": 2899,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 807,
+  "headlines_scanned_today": 811,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4055,
+  "classifications_24h": 4067,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T18:50:39.411483+00:00"
+    "last_check": "2026-07-16T19:05:39.767130+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1055,
-    "matched": 884,
-    "classified": 4055,
+    "news": 1056,
+    "matched": 886,
+    "classified": 4067,
     "signals": 0,
     "trades": 0
   },
@@ -137,11 +137,11 @@
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
     "unrealized_pnl_usd": 0.99,
-    "total_pnl_usd": 35.0,
+    "total_pnl_usd": 35.01,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2354.9
+    "avg_classification_latency_ms": 2355.4
   },
   "live_readiness": {
     "ready": false,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.039000000000000035,
-      "pnl_pct": 12.39,
+      "current_price": 0.0395,
+      "pnl_pct": 13.84,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.37,
-      "pnl_usd": 0.04,
+      "current_value_usd": 0.38,
+      "pnl_usd": 0.05,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 18:58:20",
+      "time": "2026-07-16 19:04:55",
       "market_question": "Will Trump say \"Million,\" \"Billion,\" or \"Trillion\" 20+ times during Speech to the Nation?",
-      "headline": "IDF, Oaktree to invest $1.7 billion in Bloom Energy fuel cells for AI infrastructure - Reuters",
+      "headline": "Nvidia-backed startup Fireworks valued at $17.5 billion in latest funding - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +448,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 18:56:12",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Micron signs deals with Qualcomm, others for AI-powered automobile chip components - Reuters",
+      "time": "2026-07-16 19:02:51",
+      "market_question": "Will Trump accuse Venezuela of election interference by July 16?",
+      "headline": "Rubio gathers countries on left-wing political violence as it becomes a Trump focus in elections - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 19:02:51",
+      "market_question": "Will Trump accuse Russia of election interference by July 16?",
+      "headline": "Rubio gathers countries on left-wing political violence as it becomes a Trump focus in elections - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 19:02:51",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Rubio gathers countries on left-wing political violence as it becomes a Trump focus in elections - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,52 +496,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 18:56:09",
-      "market_question": "Trump meets with Putin by December 31?",
-      "headline": "Micron signs deals with Qualcomm, others for AI-powered automobile chip components - Reuters",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 19:02:51",
+      "market_question": "Will Trump accuse Iran of election interference by July 16?",
+      "headline": "Rubio gathers countries on left-wing political violence as it becomes a Trump focus in elections - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 18:56:09",
-      "market_question": "Trump signs housing bill by end of July?",
-      "headline": "Micron signs deals with Qualcomm, others for AI-powered automobile chip components - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 18:56:09",
-      "market_question": "Will Trump meet with iShowSpeed in 2026?",
-      "headline": "Micron signs deals with Qualcomm, others for AI-powered automobile chip components - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
