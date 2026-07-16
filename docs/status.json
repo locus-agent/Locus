@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T10:19:55.072344+00:00",
-  "last_heartbeat": "2026-07-16T10:19:55.072344+00:00",
-  "uptime_seconds": 492538,
+  "generated_at": "2026-07-16T10:25:03.738557+00:00",
+  "last_heartbeat": "2026-07-16T10:25:03.738557+00:00",
+  "uptime_seconds": 492847,
   "dry_run": false,
-  "markets_tracked": 1385,
-  "classify_error_streak": 2097,
+  "markets_tracked": 1386,
+  "classify_error_streak": 2099,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 358,
+  "headlines_scanned_today": 359,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4156,
+  "classifications_24h": 4123,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T10:05:23.590122+00:00"
+    "last_check": "2026-07-16T10:20:23.982920+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1086,
-    "matched": 902,
-    "classified": 4156,
+    "news": 1080,
+    "matched": 896,
+    "classified": 4123,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 0.96,
-    "total_pnl_usd": 34.97,
+    "unrealized_pnl_usd": 0.95,
+    "total_pnl_usd": 34.96,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2323.3
+    "avg_classification_latency_ms": 2323.4
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.316,
+      "current_price": 0.31599999999999995,
       "pnl_pct": 18.8,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.63,
@@ -238,8 +238,8 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.036,
-      "pnl_pct": 3.75,
+      "current_price": 0.035500000000000004,
+      "pnl_pct": 2.31,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.34,
       "pnl_usd": 0.01,
@@ -432,6 +432,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-16 10:24:20",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Birju Shah: Requiring AI audits makes sense. But Illinois legislators got the order of things wrong. - Chicago Tribune",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 10:24:19",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Birju Shah: Requiring AI audits makes sense. But Illinois legislators got the order of things wrong. - Chicago Tribune",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
       "time": "2026-07-16 10:15:29",
       "market_question": "Ukraine election held by December 31, 2026?",
       "headline": "Russia and Ukraine strike vessels in Black Sea, wheat prices jump - Reuters",
@@ -466,38 +498,6 @@
     {
       "time": "2026-07-16 10:15:29",
       "market_question": "Ukraine election called by December 31, 2026?",
-      "headline": "Russia and Ukraine strike vessels in Black Sea, wheat prices jump - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 10:15:29",
-      "market_question": "Will Donald Trump visit Russia in 2026?",
-      "headline": "Russia and Ukraine strike vessels in Black Sea, wheat prices jump - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 10:15:29",
-      "market_question": "Will Trump and Putin meet next in Russia?",
       "headline": "Russia and Ukraine strike vessels in Black Sea, wheat prices jump - Reuters",
       "direction": null,
       "materiality": null,
