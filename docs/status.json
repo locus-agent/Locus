@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T11:21:43.833680+00:00",
-  "last_heartbeat": "2026-07-16T11:21:43.833680+00:00",
-  "uptime_seconds": 496247,
+  "generated_at": "2026-07-16T11:26:53.196971+00:00",
+  "last_heartbeat": "2026-07-16T11:26:53.196971+00:00",
+  "uptime_seconds": 496556,
   "dry_run": false,
   "markets_tracked": 1392,
-  "classify_error_streak": 2190,
+  "classify_error_streak": 2196,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 409,
-  "headlines_last_cycle": 2,
+  "headlines_scanned_today": 411,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4143,
+  "classifications_24h": 4146,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1081,
-    "matched": 896,
-    "classified": 4143,
+    "matched": 897,
+    "classified": 4146,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2326.5
+    "avg_classification_latency_ms": 2326.7
   },
   "live_readiness": {
     "ready": false,
@@ -224,8 +224,8 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.317,
-      "pnl_pct": 19.17,
+      "current_price": 0.3174999999999999,
+      "pnl_pct": 19.36,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.63,
       "pnl_usd": 0.1,
@@ -238,8 +238,8 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.034,
-      "pnl_pct": -2.02,
+      "current_price": 0.0335,
+      "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
       "pnl_usd": -0.01,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 11:21:20",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "US fires first shots in new tariffs offensive with 25% tax on most Brazil imports - Reuters",
+      "time": "2026-07-16 11:25:44",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Rebooting the internet: inside the open-source project to let AI programs pay each other",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,14 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 11:21:20",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
-      "headline": "US fires first shots in new tariffs offensive with 25% tax on most Brazil imports - Reuters",
+      "time": "2026-07-16 11:25:44",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Rebooting the internet: inside the open-source project to let AI programs pay each other",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -459,30 +459,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 11:21:20",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "US fires first shots in new tariffs offensive with 25% tax on most Brazil imports - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 11:21:17",
-      "market_question": "Will New People (NL) gain the most seats in the next Russian parliamentary election?",
-      "headline": "US fires first shots in new tariffs offensive with 25% tax on most Brazil imports - Reuters",
+      "time": "2026-07-16 11:25:41",
+      "market_question": "Will Apple TV announce a new project at SDCC 2026?",
+      "headline": "Rebooting the internet: inside the open-source project to let AI programs pay each other",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,20 +480,36 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 11:21:17",
-      "market_question": "Will New People (NL) win the most seats in the next Russian parliamentary election?",
-      "headline": "US fires first shots in new tariffs offensive with 25% tax on most Brazil imports - Reuters",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:23:32",
+      "market_question": "Will Trump attend 1 World Cup match?",
+      "headline": "How an Italian sculptor created the World Cup trophy that became an icon - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 11:23:32",
+      "market_question": "President Trump to Attend World Cup Final?",
+      "headline": "How an Italian sculptor created the World Cup trophy that became an icon - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
     }
   ],
   "prompt": {
