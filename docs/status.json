@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T11:01:06.567888+00:00",
-  "last_heartbeat": "2026-07-16T11:01:06.567888+00:00",
-  "uptime_seconds": 495010,
+  "generated_at": "2026-07-16T11:06:16.192051+00:00",
+  "last_heartbeat": "2026-07-16T11:06:16.192051+00:00",
+  "uptime_seconds": 495319,
   "dry_run": false,
-  "markets_tracked": 1387,
-  "classify_error_streak": 2151,
+  "markets_tracked": 1391,
+  "classify_error_streak": 2170,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 394,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 401,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 4216,
+  "classifications_24h": 4238,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T10:50:25.481447+00:00"
+    "last_check": "2026-07-16T11:05:25.811201+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1101,
-    "matched": 915,
-    "classified": 4216,
+    "news": 1106,
+    "matched": 921,
+    "classified": 4238,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 0.95,
-    "total_pnl_usd": 34.96,
+    "unrealized_pnl_usd": 0.94,
+    "total_pnl_usd": 34.95,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2325.1
+    "avg_classification_latency_ms": 2325.8
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.31599999999999995,
+      "current_price": 0.316,
       "pnl_pct": 18.8,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.63,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.035,
-      "pnl_pct": 0.87,
+      "current_price": 0.0345,
+      "pnl_pct": -0.57,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.33,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 10:59:21",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "Mikie Sherrill used taxpayer-funded helicopter to attend college alumni gathering - Politico",
+      "time": "2026-07-16 11:05:55",
+      "market_question": "Will Trump say \"Million,\" \"Billion,\" or \"Trillion\" 20+ times during Speech to the Nation?",
+      "headline": "Uber launches $15 billion bid for Delivery Hero to create global takeout giant - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,68 +448,68 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 10:59:21",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "Mikie Sherrill used taxpayer-funded helicopter to attend college alumni gathering - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:03:51",
+      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
+      "headline": "Space startup funding holds near record highs as SpaceX IPO draws new investors - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 10:59:21",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "Mikie Sherrill used taxpayer-funded helicopter to attend college alumni gathering - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:03:51",
+      "market_question": "Anthropic IPO before 2027?",
+      "headline": "Space startup funding holds near record highs as SpaceX IPO draws new investors - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 10:59:21",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "Mikie Sherrill used taxpayer-funded helicopter to attend college alumni gathering - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:03:51",
+      "market_question": "Will OpenAI IPO by December 31 2026?",
+      "headline": "Space startup funding holds near record highs as SpaceX IPO draws new investors - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 10:59:21",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "World Health Organization - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:03:51",
+      "market_question": "Will Anthropic have the highest IPO Market Cap 2026?",
+      "headline": "Space startup funding holds near record highs as SpaceX IPO draws new investors - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
