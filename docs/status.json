@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T23:52:29.701930+00:00",
-  "last_heartbeat": "2026-07-16T23:52:29.701930+00:00",
-  "uptime_seconds": 541293,
+  "generated_at": "2026-07-16T23:57:48.905514+00:00",
+  "last_heartbeat": "2026-07-16T23:57:48.905514+00:00",
+  "uptime_seconds": 541612,
   "dry_run": false,
   "markets_tracked": 1383,
-  "classify_error_streak": 3400,
+  "classify_error_streak": 3411,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1050,
-  "headlines_last_cycle": 3,
+  "headlines_scanned_today": 1053,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4091,
+  "classifications_24h": 4102,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1054,
-    "matched": 881,
-    "classified": 4091,
+    "news": 1055,
+    "matched": 882,
+    "classified": 4102,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2370.5
+    "avg_classification_latency_ms": 2370.7
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 23:52:27",
-      "market_question": "Will Trump launch a coin by December 31?",
-      "headline": "SpaceX Starship Launch Aborted on the Pad at the last moment - AP News",
+      "time": "2026-07-16 23:56:48",
+      "market_question": "Will Trump\u2019s remarks not air?",
+      "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 23:56:48",
+      "market_question": "Will Trump's Speech to the Nation be between 20 and 25 minutes long?",
+      "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,41 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 23:52:27",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "England to ban sale of high-caffeine energy drinks to under-16s from next year - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 23:52:27",
-      "market_question": "Will Trump and Putin meet next in Turkey?",
-      "headline": "England to ban sale of high-caffeine energy drinks to under-16s from next year - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 23:52:25",
-      "market_question": "Will X launch a USD stablecoin in 2026?",
-      "headline": "SpaceX Starship Launch Aborted on the Pad at the last moment - AP News",
+      "time": "2026-07-16 23:56:48",
+      "market_question": "Will Trump's Speech to the Nation be between 5 and 10 minutes long?",
+      "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -496,9 +480,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 23:52:25",
-      "market_question": "Will OpenAI launch a token before 2027?",
-      "headline": "SpaceX Starship Launch Aborted on the Pad at the last moment - AP News",
+      "time": "2026-07-16 23:56:48",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 23:56:48",
+      "market_question": "Will Trump's Speech to the Nation be between 15 and 20 minutes long?",
+      "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
