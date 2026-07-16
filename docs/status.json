@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T20:44:02.981729+00:00",
-  "last_heartbeat": "2026-07-16T20:44:02.981729+00:00",
-  "uptime_seconds": 529986,
+  "generated_at": "2026-07-16T20:49:13.251101+00:00",
+  "last_heartbeat": "2026-07-16T20:49:13.251101+00:00",
+  "uptime_seconds": 530296,
   "dry_run": false,
   "markets_tracked": 1377,
-  "classify_error_streak": 3132,
+  "classify_error_streak": 3160,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 919,
-  "headlines_last_cycle": 7,
+  "headlines_scanned_today": 927,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4151,
+  "classifications_24h": 4181,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 340,
+    "price_target_market": 339,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1064,
-    "matched": 898,
-    "classified": 4151,
+    "news": 1071,
+    "matched": 904,
+    "classified": 4181,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2362.4
+    "avg_classification_latency_ms": 2363.1
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.040999999999999995,
+      "current_price": 0.041000000000000036,
       "pnl_pct": 18.16,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.39,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 20:43:42",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "The European far-right\u2019s World Cup conundrum - Politico",
+      "time": "2026-07-16 20:48:12",
+      "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
+      "headline": "Ukraine\u2019s new prime minister takes office with a hard winter looming and protests on the streets - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 20:43:42",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "The European far-right\u2019s World Cup conundrum - Politico",
+      "time": "2026-07-16 20:48:12",
+      "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
+      "headline": "Ukraine\u2019s new prime minister takes office with a hard winter looming and protests on the streets - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +464,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 20:43:42",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "The European far-right\u2019s World Cup conundrum - Politico",
+      "time": "2026-07-16 20:48:12",
+      "market_question": "Ukraine election called by December 31, 2026?",
+      "headline": "Ukraine\u2019s new prime minister takes office with a hard winter looming and protests on the streets - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 20:48:12",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Ukraine\u2019s new prime minister takes office with a hard winter looming and protests on the streets - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 20:43:42",
-      "market_question": "Will Trump say \"World Cup\" during Speech to the Nation?",
-      "headline": "The European far-right\u2019s World Cup conundrum - Politico",
+      "time": "2026-07-16 20:48:12",
+      "market_question": "Ukraine election called by August 31, 2026?",
+      "headline": "Ukraine\u2019s new prime minister takes office with a hard winter looming and protests on the streets - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -491,23 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 20:43:42",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "The European far-right\u2019s World Cup conundrum - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
