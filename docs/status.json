@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T21:36:21.072901+00:00",
-  "last_heartbeat": "2026-07-16T21:36:21.072901+00:00",
-  "uptime_seconds": 533124,
+  "generated_at": "2026-07-16T21:41:34.746229+00:00",
+  "last_heartbeat": "2026-07-16T21:41:34.746229+00:00",
+  "uptime_seconds": 533438,
   "dry_run": false,
   "markets_tracked": 1378,
-  "classify_error_streak": 3219,
+  "classify_error_streak": 3233,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 965,
+  "headlines_scanned_today": 968,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4142,
+  "classifications_24h": 4102,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 332,
+    "price_target_market": 330,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1061,
-    "matched": 893,
-    "classified": 4142,
+    "news": 1054,
+    "matched": 886,
+    "classified": 4102,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2365.3
+    "avg_classification_latency_ms": 2365.6
   },
   "live_readiness": {
     "ready": false,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.046,
-      "pnl_pct": 32.57,
+      "current_price": 0.045500000000000096,
+      "pnl_pct": 31.13,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.44,
-      "pnl_usd": 0.11,
+      "current_value_usd": 0.43,
+      "pnl_usd": 0.1,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,9 +432,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 21:25:35",
-      "market_question": "Will a Chinese company have the best AI model by December 31?",
-      "headline": "Slumping AI stocks drag down markets around the world - AP News",
+      "time": "2026-07-16 21:40:49",
+      "market_question": "Will Trump's Speech to the Nation be between 10 and 15 minutes long?",
+      "headline": "ABC, NBC will not air Trump's election security speech on broadcast networks - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 21:40:49",
+      "market_question": "Will Trump's Speech to the Nation be between 25 and 30 minutes long?",
+      "headline": "ABC, NBC will not air Trump's election security speech on broadcast networks - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 21:40:49",
+      "market_question": "Will Trump say \"Interfere\" or \"Interference\" during Speech to the Nation?",
+      "headline": "ABC, NBC will not air Trump's election security speech on broadcast networks - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +480,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 21:25:35",
-      "market_question": "Will Perplexity AI have the highest IPO Market Cap 2026?",
-      "headline": "Slumping AI stocks drag down markets around the world - AP News",
+      "time": "2026-07-16 21:40:49",
+      "market_question": "Will Trump's Speech to the Nation be between 5 and 10 minutes long?",
+      "headline": "ABC, NBC will not air Trump's election security speech on broadcast networks - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -459,14 +491,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 21:25:32",
+      "time": "2026-07-16 21:40:49",
       "market_question": "Will Trump\u2019s remarks not air?",
-      "headline": "Wildfire smoke makes air unhealthy from the US Midwest to East Coast. Officials say stay inside - AP News",
+      "headline": "ABC, NBC will not air Trump's election security speech on broadcast networks - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -475,39 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 21:25:32",
-      "market_question": "Will Trump say \"Middle East\" during Speech to the Nation?",
-      "headline": "Wildfire smoke makes air unhealthy from the US Midwest to East Coast. Officials say stay inside - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 21:25:32",
-      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
-      "headline": "Wildfire smoke makes air unhealthy from the US Midwest to East Coast. Officials say stay inside - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
