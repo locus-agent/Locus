@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T07:04:16.756942+00:00",
-  "last_heartbeat": "2026-07-16T07:04:16.756942+00:00",
-  "uptime_seconds": 480800,
+  "generated_at": "2026-07-16T07:09:25.860706+00:00",
+  "last_heartbeat": "2026-07-16T07:09:25.860706+00:00",
+  "uptime_seconds": 481109,
   "dry_run": false,
-  "markets_tracked": 1373,
-  "classify_error_streak": 1914,
+  "markets_tracked": 1375,
+  "classify_error_streak": 1923,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 221,
+  "headlines_scanned_today": 224,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4095,
+  "classifications_24h": 4111,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T06:50:17.669674+00:00"
+    "last_check": "2026-07-16T07:05:18.075591+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1063,
-    "matched": 879,
-    "classified": 4095,
+    "news": 1066,
+    "matched": 882,
+    "classified": 4111,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2316.5
+    "avg_classification_latency_ms": 2316.8
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 07:00:17",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Britain takes British Steel into public ownership - Reuters",
+      "time": "2026-07-16 07:07:01",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Hyundai Motor Group to make Boston Dynamics wholly owned with purchase of SoftBank stake - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 07:06:58",
+      "market_question": "2026 Balance of Power: R Senate, D House",
+      "headline": "U.S. Senate unanimously opposes clemency for FTX founder Sam Bankman-Fried",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 07:06:58",
+      "market_question": "2026 Balance of Power: D Senate, R House",
+      "headline": "U.S. Senate unanimously opposes clemency for FTX founder Sam Bankman-Fried",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 07:06:58",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Hyundai Motor Group to make Boston Dynamics wholly owned with purchase of SoftBank stake - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,57 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 07:00:17",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Britain takes British Steel into public ownership - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 07:00:17",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Britain takes British Steel into public ownership - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 07:00:17",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Britain takes British Steel into public ownership - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 07:00:17",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Britain takes British Steel into public ownership - Reuters",
+      "time": "2026-07-16 07:06:58",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Hyundai Motor Group to make Boston Dynamics wholly owned with purchase of SoftBank stake - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
