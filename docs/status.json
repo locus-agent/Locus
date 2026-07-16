@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-16T08:26:39.021961+00:00",
-  "last_heartbeat": "2026-07-16T08:26:39.021961+00:00",
-  "uptime_seconds": 485742,
+  "generated_at": "2026-07-16T08:31:47.825004+00:00",
+  "last_heartbeat": "2026-07-16T08:31:47.825004+00:00",
+  "uptime_seconds": 486051,
   "dry_run": false,
-  "markets_tracked": 1380,
+  "markets_tracked": 1382,
   "classify_error_streak": 1993,
   "track_record": {
     "total": 11508,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 288,
+  "headlines_scanned_today": 289,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4190,
+  "classifications_24h": 4183,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 347,
+    "price_target_market": 340,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1092,
+    "news": 1091,
     "matched": 904,
-    "classified": 4190,
+    "classified": 4183,
     "signals": 0,
     "trades": 0
   },
@@ -136,8 +136,8 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 1.07,
-    "total_pnl_usd": 35.08,
+    "unrealized_pnl_usd": 1.05,
+    "total_pnl_usd": 35.06,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.048,
-      "pnl_pct": 38.33,
+      "current_price": 0.046,
+      "pnl_pct": 32.57,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.46,
-      "pnl_usd": 0.13,
+      "current_value_usd": 0.44,
+      "pnl_usd": 0.11,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-16 08:30:12",
+      "market_question": "Will stablecoins hit $500B before 2027?",
+      "headline": "Visa says stablecoins will power micro-commerce in AI agentic economy",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "price_target_market",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-16 08:25:52",
       "market_question": "Will China unban Bitcoin by 2027?",
       "headline": "Rights groups urge Thailand not to deport Chinese journalist to China - Reuters",
@@ -482,22 +498,6 @@
     {
       "time": "2026-07-16 08:25:52",
       "market_question": "Will Trump deport 400-500k people?",
-      "headline": "Rights groups urge Thailand not to deport Chinese journalist to China - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 08:25:52",
-      "market_question": "Will Trump deport more than 1m people?",
       "headline": "Rights groups urge Thailand not to deport Chinese journalist to China - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
