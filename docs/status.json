@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T13:51:20.444540+00:00",
-  "last_heartbeat": "2026-07-16T13:51:20.444540+00:00",
-  "uptime_seconds": 505223,
+  "generated_at": "2026-07-16T13:56:29.456139+00:00",
+  "last_heartbeat": "2026-07-16T13:56:29.456139+00:00",
+  "uptime_seconds": 505532,
   "dry_run": false,
-  "markets_tracked": 1397,
-  "classify_error_streak": 2378,
+  "markets_tracked": 1400,
+  "classify_error_streak": 2382,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 510,
+  "headlines_scanned_today": 514,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4091,
+  "classifications_24h": 4097,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 298,
+    "price_target_market": 296,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1063,
-    "matched": 888,
-    "classified": 4091,
+    "news": 1065,
+    "matched": 890,
+    "classified": 4097,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2334.4
+    "avg_classification_latency_ms": 2334.7
   },
   "live_readiness": {
     "ready": false,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3175,
+      "current_price": 0.3174999999999999,
       "pnl_pct": 19.36,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.63,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 13:48:42",
-      "market_question": "Putin out as President of Russia by July 31, 2026?",
-      "headline": "Teenager accused of carrying out sabotage actions in Poland for Russia",
+      "time": "2026-07-16 13:55:08",
+      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
+      "headline": "Inside the high-stakes race to build an open financial system specifically for AI bots",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,30 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 13:48:42",
-      "market_question": "Putin out as President of Russia by August 31, 2026?",
-      "headline": "Teenager accused of carrying out sabotage actions in Poland for Russia",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 13:48:42",
-      "market_question": "Will Chuck Smith be the Republican nominee for Senate in Virginia?",
-      "headline": "Chuck Rettig - Politico",
+      "time": "2026-07-16 13:55:08",
+      "market_question": "Will Donald Trump visit Russia in 2026?",
+      "headline": "Poland charges man allegedly paid by Russia to inflame Polish-Ukrainian tensions - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,36 +464,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 13:48:41",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Teenager accused of carrying out sabotage actions in Poland for Russia",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 13:55:08",
+      "market_question": "Will Trump and Putin meet next in Russia?",
+      "headline": "Poland charges man allegedly paid by Russia to inflame Polish-Ukrainian tensions - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-16 13:48:41",
+      "time": "2026-07-16 13:55:08",
       "market_question": "Putin out as President of Russia by September 30, 2026?",
-      "headline": "Teenager accused of carrying out sabotage actions in Poland for Russia",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "headline": "Poland charges man allegedly paid by Russia to inflame Polish-Ukrainian tensions - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-16 13:55:08",
+      "market_question": "Putin out as President of Russia by July 31, 2026?",
+      "headline": "Poland charges man allegedly paid by Russia to inflame Polish-Ukrainian tensions - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
