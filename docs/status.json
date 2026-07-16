@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T00:48:37.110762+00:00",
-  "last_heartbeat": "2026-07-16T00:48:37.110762+00:00",
-  "uptime_seconds": 458260,
+  "generated_at": "2026-07-16T00:53:46.259142+00:00",
+  "last_heartbeat": "2026-07-16T00:53:46.259142+00:00",
+  "uptime_seconds": 458569,
   "dry_run": false,
   "markets_tracked": 1383,
-  "classify_error_streak": 1671,
+  "classify_error_streak": 1674,
   "track_record": {
     "total": 11494,
     "accuracy": 18.0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 41,
+  "headlines_scanned_today": 44,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4137,
+  "classifications_24h": 4140,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 182,
+    "prefiltered_haiku": 178,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T00:35:07.538076+00:00"
+    "last_check": "2026-07-16T00:50:07.861819+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1076,
-    "matched": 889,
-    "classified": 4137,
+    "news": 1078,
+    "matched": 891,
+    "classified": 4140,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2307.4
+    "avg_classification_latency_ms": 2307.5
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 00:44:52",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "New monkey species with orange lips found 'hiding' in DRC forest",
+      "time": "2026-07-16 00:51:29",
+      "market_question": "Will China unban Bitcoin by 2027?",
+      "headline": "'I must get out into the free world', dissident who fled China on boat tells BBC",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +448,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 00:44:49",
-      "market_question": "Will Donald Trump visit Canada in 2026?",
-      "headline": "Orange haze from Canada wildfires seen in Ontario and northern US",
+      "time": "2026-07-16 00:51:29",
+      "market_question": "Trump out as President before GTA VI?",
+      "headline": "'I must get out into the free world', dissident who fled China on boat tells BBC",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 00:51:26",
+      "market_question": "Will John Braun advance to the general election for WA-03?",
+      "headline": "Todd Blanche\u2019s chances of becoming attorney general could hinge on John Cornyn - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 00:51:26",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "'I must get out into the free world', dissident who fled China on boat tells BBC",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,41 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 00:44:49",
-      "market_question": "Trump, Putin, and Zelensky seen together before 2027?",
-      "headline": "Orange haze from Canada wildfires seen in Ontario and northern US",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 00:44:49",
-      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
-      "headline": "Orange haze from Canada wildfires seen in Ontario and northern US",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 00:44:49",
-      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "Orange haze from Canada wildfires seen in Ontario and northern US",
+      "time": "2026-07-16 00:51:26",
+      "market_question": "Will Trump attend 0 World Cup matches?",
+      "headline": "'I must get out into the free world', dissident who fled China on boat tells BBC",
       "direction": null,
       "materiality": null,
       "confidence": null,
