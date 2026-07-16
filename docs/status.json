@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-16T01:40:04.339100+00:00",
-  "last_heartbeat": "2026-07-16T01:40:04.339100+00:00",
-  "uptime_seconds": 461347,
+  "generated_at": "2026-07-16T01:45:13.379054+00:00",
+  "last_heartbeat": "2026-07-16T01:45:13.379054+00:00",
+  "uptime_seconds": 461656,
   "dry_run": false,
   "markets_tracked": 1384,
-  "classify_error_streak": 1706,
+  "classify_error_streak": 1708,
   "track_record": {
-    "total": 11494,
+    "total": 11503,
     "accuracy": 18.0,
     "by_category": {
       "other": 16.2,
@@ -24,39 +24,39 @@
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.0,
-    "overall_total": 11494,
+    "overall_total": 11503,
     "buckets": [
       {
         "name": "very_low",
         "range": "0.00-0.15",
-        "total": 6246,
-        "correct": 452,
+        "total": 6250,
+        "correct": 453,
         "accuracy_pct": 7.2,
-        "avg_pnl_pct": 9.34,
+        "avg_pnl_pct": 9.33,
         "color": "red"
       },
       {
         "name": "low",
         "range": "0.15-0.30",
-        "total": 1120,
+        "total": 1121,
         "correct": 376,
-        "accuracy_pct": 33.6,
-        "avg_pnl_pct": 19.12,
+        "accuracy_pct": 33.5,
+        "avg_pnl_pct": 19.1,
         "color": "green"
       },
       {
         "name": "mid",
         "range": "0.30-0.50",
-        "total": 1306,
+        "total": 1307,
         "correct": 483,
         "accuracy_pct": 37.0,
-        "avg_pnl_pct": 5.11,
+        "avg_pnl_pct": 5.09,
         "color": "green"
       },
       {
         "name": "fair",
         "range": "0.50-0.70",
-        "total": 769,
+        "total": 770,
         "correct": 248,
         "accuracy_pct": 32.2,
         "avg_pnl_pct": 1.01,
@@ -74,7 +74,7 @@
       {
         "name": "extreme",
         "range": "0.85-1.00",
-        "total": 1424,
+        "total": 1426,
         "correct": 244,
         "accuracy_pct": 17.1,
         "avg_pnl_pct": -2.74,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 73,
+  "headlines_scanned_today": 75,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4056,
+  "classifications_24h": 4061,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 128,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1055,
-    "matched": 868,
-    "classified": 4056,
+    "news": 1056,
+    "matched": 869,
+    "classified": 4061,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2308.3
+    "avg_classification_latency_ms": 2308.4
   },
   "live_readiness": {
     "ready": false,
@@ -196,7 +196,7 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.795,
+      "current_price": 0.7949999999999999,
       "pnl_pct": 16.91,
       "amount_usd": 24.99,
       "current_value_usd": 29.22,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03300000000000003,
+      "current_price": 0.033,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 01:37:26",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "Fairfax County social workers use AI to cut down on paperwork time - WJLA",
+      "time": "2026-07-16 01:41:49",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "3 Questions: Neural transparency and the future of AI design - MIT News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,14 +443,30 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 01:37:24",
-      "market_question": "Will Trump cut corporate taxes before 2027?",
-      "headline": "Fairfax County social workers use AI to cut down on paperwork time - WJLA",
+      "time": "2026-07-16 01:41:49",
+      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
+      "headline": "3 Questions: Neural transparency and the future of AI design - MIT News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 01:41:46",
+      "market_question": "Milei out as President of Argentina before 2027?",
+      "headline": "Why England's loss to Argentina felt like most painful in 60 years of hurt",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 01:37:24",
-      "market_question": "Bitcoin all time high by December 31, 2026?",
-      "headline": "Fairfax County social workers use AI to cut down on paperwork time - WJLA",
+      "time": "2026-07-16 01:41:46",
+      "market_question": "Will Javier Milei win the 2027 Argentina presidential election?",
+      "headline": "Why England's loss to Argentina felt like most painful in 60 years of hurt",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -474,15 +490,15 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 01:37:24",
-      "market_question": "Bitcoin all time high by September 30, 2026?",
-      "headline": "Fairfax County social workers use AI to cut down on paperwork time - WJLA",
+      "time": "2026-07-16 01:41:46",
+      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
+      "headline": "Why England's loss to Argentina felt like most painful in 60 years of hurt",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -490,23 +506,7 @@
       "fee_cost": null,
       "time_horizon": null,
       "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 01:37:24",
-      "market_question": "Ethereum all time high by December 31, 2026?",
-      "headline": "Fairfax County social workers use AI to cut down on paperwork time - WJLA",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
