@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T06:17:56.542003+00:00",
-  "last_heartbeat": "2026-07-16T06:17:56.542003+00:00",
-  "uptime_seconds": 478020,
+  "generated_at": "2026-07-16T06:23:05.734891+00:00",
+  "last_heartbeat": "2026-07-16T06:23:05.734891+00:00",
+  "uptime_seconds": 478329,
   "dry_run": false,
-  "markets_tracked": 1372,
-  "classify_error_streak": 1882,
+  "markets_tracked": 1371,
+  "classify_error_streak": 1889,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 203,
+  "headlines_scanned_today": 206,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4094,
+  "classifications_24h": 4107,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 332,
+    "price_target_market": 333,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T06:05:16.528532+00:00"
+    "last_check": "2026-07-16T06:20:16.872550+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1063,
-    "matched": 881,
-    "classified": 4094,
+    "news": 1065,
+    "matched": 883,
+    "classified": 4107,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2315.3
+    "avg_classification_latency_ms": 2315.6
   },
   "live_readiness": {
     "ready": false,
@@ -224,8 +224,8 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.31200000000000006,
-      "pnl_pct": 17.29,
+      "current_price": 0.3125,
+      "pnl_pct": 17.48,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.62,
       "pnl_usd": 0.09,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 06:11:20",
-      "market_question": "Will Bitcoin kimchi premium hit 8% in 2026?",
-      "headline": "Asian shares slump on chipmaker drag, bonds cheer cooler inflation - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 06:09:13",
-      "market_question": "Will Anthropic or OpenAI IPO first?",
-      "headline": "Anthropic CEO gives $1 million to super PAC amid battle of AI big-money groups - Politico",
+      "time": "2026-07-16 06:22:20",
+      "market_question": "Will MicroStrategy announce holding 1M+ BTC by December 31, 2026?-bV81",
+      "headline": "Live updates: ZachXBT calls hardware wallets complete garbage; BTC steady near $65,000",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,52 +448,68 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 06:09:09",
-      "market_question": "Anthropic acquired before 2027?",
-      "headline": "Anthropic CEO gives $1 million to super PAC amid battle of AI big-money groups - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 06:22:20",
+      "market_question": "Sam Altman out as OpenAI CEO before 2027?",
+      "headline": "\u2018Jurassic Park\u2019 actor Sam Neill died from pneumonia, agent says - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-16 06:09:09",
-      "market_question": "Will Anthropic be acquired before 2027?",
-      "headline": "Anthropic CEO gives $1 million to super PAC amid battle of AI big-money groups - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 06:22:20",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "\u2018Jurassic Park\u2019 actor Sam Neill died from pneumonia, agent says - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-16 06:09:09",
-      "market_question": "Anthropic IPO before 2027?",
-      "headline": "Anthropic CEO gives $1 million to super PAC amid battle of AI big-money groups - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 06:22:20",
+      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
+      "headline": "\u2018Jurassic Park\u2019 actor Sam Neill died from pneumonia, agent says - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-16 06:22:20",
+      "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
+      "headline": "\u2018Jurassic Park\u2019 actor Sam Neill died from pneumonia, agent says - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
     }
   ],
   "prompt": {
