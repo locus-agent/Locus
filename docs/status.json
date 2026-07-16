@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T18:24:46.730297+00:00",
-  "last_heartbeat": "2026-07-16T18:24:46.730297+00:00",
-  "uptime_seconds": 521630,
+  "generated_at": "2026-07-16T18:29:55.300143+00:00",
+  "last_heartbeat": "2026-07-16T18:29:55.300143+00:00",
+  "uptime_seconds": 521938,
   "dry_run": false,
   "markets_tracked": 1368,
-  "classify_error_streak": 2857,
+  "classify_error_streak": 2862,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,7 +82,7 @@
       }
     ]
   },
-  "headlines_scanned_today": 790,
+  "headlines_scanned_today": 792,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
   "classifications_24h": 4067,
@@ -121,7 +121,7 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1059,
+    "news": 1056,
     "matched": 885,
     "classified": 4067,
     "signals": 0,
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 0.99,
-    "total_pnl_usd": 35.01,
+    "unrealized_pnl_usd": 0.98,
+    "total_pnl_usd": 35.0,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2354.2
+    "avg_classification_latency_ms": 2354.3
   },
   "live_readiness": {
     "ready": false,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03950000000000009,
-      "pnl_pct": 13.84,
+      "current_price": 0.0385,
+      "pnl_pct": 10.95,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.38,
-      "pnl_usd": 0.05,
+      "current_value_usd": 0.37,
+      "pnl_usd": 0.04,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 18:23:23",
-      "market_question": "Trump calls Nicki Minaj hot again in 2026?",
-      "headline": "Brazil calls Trump\u2019s 25% tariff unjustifiable, vows to impose reciprocal tariffs - AP News",
+      "time": "2026-07-16 18:27:45",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "Illinois State Board of Education issues AI guidance, written with help from AI - Capitol City Now",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 18:27:44",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Illinois State Board of Education issues AI guidance, written with help from AI - Capitol City Now",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +464,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 18:23:21",
-      "market_question": "Will Trump\u2019s remarks not air?",
-      "headline": "Brazil calls Trump\u2019s 25% tariff unjustifiable, vows to impose reciprocal tariffs - AP News",
+      "time": "2026-07-16 18:27:41",
+      "market_question": "Will Trump say \"Iran\" or \"Iranian\" 20+ times during Speech to the Nation?",
+      "headline": "Iran and US step up attacks, though release of American may signal path to climbdown - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 18:27:41",
+      "market_question": "Will Apple release iPhone 18 in 2026?",
+      "headline": "Iran and US step up attacks, though release of American may signal path to climbdown - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 18:23:21",
-      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
-      "headline": "Brazil calls Trump\u2019s 25% tariff unjustifiable, vows to impose reciprocal tariffs - AP News",
+      "time": "2026-07-16 18:27:41",
+      "market_question": "Will Trump accuse Iran of election interference by July 16?",
+      "headline": "Iran and US step up attacks, though release of American may signal path to climbdown - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -475,39 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 18:23:21",
-      "market_question": "Will any presidential candidate win outright in the first round of the Brazil election?",
-      "headline": "Brazil calls Trump\u2019s 25% tariff unjustifiable, vows to impose reciprocal tariffs - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 18:23:18",
-      "market_question": "Trump declassifies new UFO files by August 15?",
-      "headline": "Zelenskiy taps new defence chief in bid to quell political crisis - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
