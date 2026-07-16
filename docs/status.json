@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T11:32:02.928687+00:00",
-  "last_heartbeat": "2026-07-16T11:32:02.928687+00:00",
-  "uptime_seconds": 496866,
+  "generated_at": "2026-07-16T11:37:13.567130+00:00",
+  "last_heartbeat": "2026-07-16T11:37:13.567130+00:00",
+  "uptime_seconds": 497177,
   "dry_run": false,
-  "markets_tracked": 1390,
-  "classify_error_streak": 2196,
+  "markets_tracked": 1394,
+  "classify_error_streak": 2210,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 414,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 422,
+  "headlines_last_cycle": 5,
   "signals_24h": 0,
-  "classifications_24h": 4145,
+  "classifications_24h": 4106,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 357,
+    "price_target_market": 348,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T11:20:26.331254+00:00"
+    "last_check": "2026-07-16T11:35:26.842198+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1080,
-    "matched": 896,
-    "classified": 4145,
+    "news": 1074,
+    "matched": 890,
+    "classified": 4106,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2326.7
+    "avg_classification_latency_ms": 2327.0
   },
   "live_readiness": {
     "ready": false,
@@ -432,84 +432,84 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 11:30:06",
-      "market_question": "Will Bitcoin dip to $10,000 by December 31, 2026?",
-      "headline": "The most popular bitcoin call option has slipped by $10,000",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:36:56",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "AI chatbots are at risk of spreading government restrictions on online speech, a new study says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 11:30:06",
-      "market_question": "Will Bitcoin reach $100,000 in July?",
-      "headline": "The most popular bitcoin call option has slipped by $10,000",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:36:56",
+      "market_question": "Will Trump speak to Emmanuel Macron in July?",
+      "headline": "AI chatbots are at risk of spreading government restrictions on online speech, a new study says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 11:30:06",
-      "market_question": "Will Bitcoin reach $67,500 in July?",
-      "headline": "The most popular bitcoin call option has slipped by $10,000",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:36:56",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "AI chatbots are at risk of spreading government restrictions on online speech, a new study says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 11:30:06",
-      "market_question": "Will Bitcoin reach $75,000 in July?",
-      "headline": "The most popular bitcoin call option has slipped by $10,000",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:36:55",
+      "market_question": "Will the US federal government take a stake in OpenAI?",
+      "headline": "AI chatbots are at risk of spreading government restrictions on online speech, a new study says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-16 11:30:06",
-      "market_question": "Will Bitcoin reach $70,000 in July?",
-      "headline": "The most popular bitcoin call option has slipped by $10,000",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-16 11:36:55",
+      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
+      "headline": "AI chatbots are at risk of spreading government restrictions on online speech, a new study says - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "price_target_market",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
