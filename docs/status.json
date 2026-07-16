@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T07:35:10.186518+00:00",
-  "last_heartbeat": "2026-07-16T07:35:10.186518+00:00",
-  "uptime_seconds": 482653,
+  "generated_at": "2026-07-16T07:40:19.095040+00:00",
+  "last_heartbeat": "2026-07-16T07:40:19.095040+00:00",
+  "uptime_seconds": 482962,
   "dry_run": false,
   "markets_tracked": 1375,
-  "classify_error_streak": 1965,
+  "classify_error_streak": 1968,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 261,
+  "headlines_scanned_today": 262,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4205,
+  "classifications_24h": 4208,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T07:20:18.510889+00:00"
+    "last_check": "2026-07-16T07:35:19.005160+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -123,7 +123,7 @@
   "pipeline_24h": {
     "news": 1097,
     "matched": 907,
-    "classified": 4205,
+    "classified": 4208,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2318.5
+    "avg_classification_latency_ms": 2318.6
   },
   "live_readiness": {
     "ready": false,
@@ -432,6 +432,70 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-16 07:35:24",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Morning Bid: This AI, it will make a profit, right? - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 07:35:24",
+      "market_question": "Will OpenAI's valuation hit (LOW) $800B by December 31?",
+      "headline": "Morning Bid: This AI, it will make a profit, right? - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 07:35:24",
+      "market_question": "Will OpenAI's valuation hit (HIGH) $900B by December 31?",
+      "headline": "Morning Bid: This AI, it will make a profit, right? - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 07:35:21",
+      "market_question": "Will Trump say \"Make America Great Again\" during Speech to the Nation?",
+      "headline": "Morning Bid: This AI, it will make a profit, right? - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-16 07:33:10",
       "market_question": "Will Trump accuse Iran of election interference by July 16?",
       "headline": "US military says it completed latest strikes on Iran, targets included Bandar Abbas - Reuters",
@@ -446,70 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 07:31:03",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Canva launches Code 2.0, offering AI website building to every user \u2014 including free accounts - Venturebeat",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 07:31:03",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Canva launches Code 2.0, offering AI website building to every user \u2014 including free accounts - Venturebeat",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 07:31:03",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "Canva launches Code 2.0, offering AI website building to every user \u2014 including free accounts - Venturebeat",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 07:31:03",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "Canva launches Code 2.0, offering AI website building to every user \u2014 including free accounts - Venturebeat",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
     }
   ],
   "prompt": {
