@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T23:57:05.555665+00:00",
-  "last_heartbeat": "2026-07-15T23:57:05.555665+00:00",
-  "uptime_seconds": 455169,
+  "generated_at": "2026-07-16T00:02:17.877163+00:00",
+  "last_heartbeat": "2026-07-16T00:02:17.877163+00:00",
+  "uptime_seconds": 455481,
   "dry_run": false,
   "markets_tracked": 1383,
-  "classify_error_streak": 1601,
+  "classify_error_streak": 1610,
   "track_record": {
     "total": 11494,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1048,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 1,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4047,
+  "classifications_24h": 4050,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 202,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 305,
+    "price_target_market": 303,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1049,
-    "matched": 870,
-    "classified": 4047,
+    "news": 1050,
+    "matched": 871,
+    "classified": 4050,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2305.0
+    "avg_classification_latency_ms": 2305.3
   },
   "live_readiness": {
     "ready": false,
@@ -186,8 +186,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.1756,
-    "sharpe_7d": -0.56
+    "drawdown_7d": 0.0557,
+    "sharpe_7d": 0.12
   },
   "open_positions": [
     {
@@ -196,7 +196,7 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.7949999999999999,
+      "current_price": 0.795,
       "pnl_pct": 16.91,
       "amount_usd": 24.99,
       "current_value_usd": 29.22,
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.30400000000000005,
+      "current_price": 0.304,
       "pnl_pct": 14.29,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.61,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-15 23:56:38",
-      "market_question": "Will Frank F. Blas Jr. win the 2026 Guam Governor Republican primary election?",
-      "headline": "Barney Frank - Politico",
+      "time": "2026-07-16 00:01:04",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "Skullcandy\u2019s bass-boosting Crusher headphones now come with Bose\u2019s ANC",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 00:01:01",
+      "market_question": "Will OpenAI announce earbuds or headphones in 2026?",
+      "headline": "Skullcandy\u2019s bass-boosting Crusher headphones now come with Bose\u2019s ANC",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,68 +464,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-15 23:54:30",
-      "market_question": "Will Trump attend 1 World Cup match?",
-      "headline": "'That's why he's the king' - Messi sets up third World Cup final",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 00:01:01",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "Skullcandy\u2019s bass-boosting Crusher headphones now come with Bose\u2019s ANC",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-15 23:54:30",
-      "market_question": "Will Trump attend 0 World Cup matches?",
-      "headline": "'That's why he's the king' - Messi sets up third World Cup final",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 00:01:01",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "Skullcandy\u2019s bass-boosting Crusher headphones now come with Bose\u2019s ANC",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-15 23:54:30",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "'That's why he's the king' - Messi sets up third World Cup final",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-16 00:01:01",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "Skullcandy\u2019s bass-boosting Crusher headphones now come with Bose\u2019s ANC",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-15 23:54:30",
-      "market_question": "Will Trump attend 2 World Cup matches?",
-      "headline": "'That's why he's the king' - Messi sets up third World Cup final",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
