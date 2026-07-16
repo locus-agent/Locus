@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T17:02:11.303998+00:00",
-  "last_heartbeat": "2026-07-16T17:02:11.303998+00:00",
-  "uptime_seconds": 516674,
+  "generated_at": "2026-07-16T17:07:21.977203+00:00",
+  "last_heartbeat": "2026-07-16T17:07:21.977203+00:00",
+  "uptime_seconds": 516985,
   "dry_run": false,
-  "markets_tracked": 1363,
-  "classify_error_streak": 2683,
+  "markets_tracked": 1367,
+  "classify_error_streak": 2689,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 696,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 700,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4017,
+  "classifications_24h": 4011,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T16:50:35.824305+00:00"
+    "last_check": "2026-07-16T17:05:36.159965+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1055,
+    "news": 1056,
     "matched": 879,
-    "classified": 4017,
+    "classified": 4011,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2347.8
+    "avg_classification_latency_ms": 2348.0
   },
   "live_readiness": {
     "ready": false,
@@ -238,8 +238,8 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.043,
-      "pnl_pct": 23.92,
+      "current_price": 0.043500000000000094,
+      "pnl_pct": 25.36,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.41,
       "pnl_usd": 0.08,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 17:02:05",
-      "market_question": "Will Alibaba have the best Chinese AI model at the end of July 2026?",
-      "headline": "EXPLAINER \u2013 What to expect from China\u2019s global AI conference - Anadolu Ajans\u0131",
+      "time": "2026-07-16 17:06:28",
+      "market_question": "Will Trump\u2019s remarks not air?",
+      "headline": "How to protect yourself from the bad air caused by wildfires - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,46 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 17:02:05",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
-      "headline": "EXPLAINER \u2013 What to expect from China\u2019s global AI conference - Anadolu Ajans\u0131",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 17:02:05",
-      "market_question": "Will a Chinese company have the best AI model by December 31?",
-      "headline": "EXPLAINER \u2013 What to expect from China\u2019s global AI conference - Anadolu Ajans\u0131",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 17:02:02",
-      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
-      "headline": "EXPLAINER \u2013 What to expect from China\u2019s global AI conference - Anadolu Ajans\u0131",
+      "time": "2026-07-16 17:06:24",
+      "market_question": "Will Trump announce Kyle Diamantas as the next FDA commissioner by December 31?",
+      "headline": "Kalshi to allow bets on clinical trials, FDA decisions - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +464,41 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 17:02:02",
+      "time": "2026-07-16 17:06:24",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "How to protect yourself from the bad air caused by wildfires - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-16 17:06:24",
+      "market_question": "Mitch McConnell steps down from Senate before his term ends?",
+      "headline": "How to protect yourself from the bad air caused by wildfires - AP News",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-16 17:06:24",
       "market_question": "Will Treg Taylor advance from the 2026 Alaska Governor primary election?",
-      "headline": "EXPLAINER \u2013 What to expect from China\u2019s global AI conference - Anadolu Ajans\u0131",
+      "headline": "How to protect yourself from the bad air caused by wildfires - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
