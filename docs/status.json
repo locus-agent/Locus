@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T02:21:14.102214+00:00",
-  "last_heartbeat": "2026-07-16T02:21:14.102214+00:00",
-  "uptime_seconds": 463817,
+  "generated_at": "2026-07-16T02:26:23.392294+00:00",
+  "last_heartbeat": "2026-07-16T02:26:23.392294+00:00",
+  "uptime_seconds": 464126,
   "dry_run": false,
   "markets_tracked": 1384,
-  "classify_error_streak": 1752,
+  "classify_error_streak": 1755,
   "track_record": {
     "total": 11503,
     "accuracy": 18.0,
@@ -82,13 +82,13 @@
       }
     ]
   },
-  "headlines_scanned_today": 100,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 102,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4108,
+  "classifications_24h": 4113,
   "selectivity_pct": 0.0,
   "gates_24h": {
-    "prefiltered_haiku": 106,
+    "prefiltered_haiku": 101,
     "cooldown_skip": 0,
     "stale": 0,
     "capped": 0,
@@ -122,8 +122,8 @@
   },
   "pipeline_24h": {
     "news": 1067,
-    "matched": 881,
-    "classified": 4108,
+    "matched": 882,
+    "classified": 4113,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 1.09,
-    "total_pnl_usd": 35.1,
+    "unrealized_pnl_usd": 0.9,
+    "total_pnl_usd": 34.92,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2309.8
+    "avg_classification_latency_ms": 2309.9
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.79,
-      "pnl_pct": 16.18,
+      "current_price": 0.785,
+      "pnl_pct": 15.44,
       "amount_usd": 24.99,
-      "current_value_usd": 29.03,
-      "pnl_usd": 4.04,
+      "current_value_usd": 28.85,
+      "pnl_usd": 3.86,
       "edge_type": "momentum",
       "event_id": "674406"
     },
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03300000000000003,
+      "current_price": 0.033,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 02:21:13",
-      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
-      "headline": "AI's Energy Paradox: Can Artificial Intelligence Help Solve The Power Crisis It Is Creating? - BW Businessworld",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 02:14:38",
-      "market_question": "Trump out as President before GTA VI?",
-      "headline": "Cadence rolls out AI agent to speed circuit board, chip packaging design - Reuters",
+      "time": "2026-07-16 02:25:36",
+      "market_question": "Will AI be charged with a crime before 2027?",
+      "headline": "California pair charged with laundering crypto proceeds from darknet fentanyl sales",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +448,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 02:14:35",
-      "market_question": "Milei out as President of Argentina before 2027?",
-      "headline": "Cadence rolls out AI agent to speed circuit board, chip packaging design - Reuters",
+      "time": "2026-07-16 02:25:36",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "California pair charged with laundering crypto proceeds from darknet fentanyl sales",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 02:25:33",
+      "market_question": "Trump meets with Putin by December 31?",
+      "headline": "California pair charged with laundering crypto proceeds from darknet fentanyl sales",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -480,9 +480,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 02:14:35",
-      "market_question": "Putin out as President of Russia by September 30, 2026?",
-      "headline": "Cadence rolls out AI agent to speed circuit board, chip packaging design - Reuters",
+      "time": "2026-07-16 02:25:33",
+      "market_question": "Will Trump meet with iShowSpeed in 2026?",
+      "headline": "California pair charged with laundering crypto proceeds from darknet fentanyl sales",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 02:14:35",
-      "market_question": "Tamas Sulyok out as President of Hungary by July 31?",
-      "headline": "Cadence rolls out AI agent to speed circuit board, chip packaging design - Reuters",
+      "time": "2026-07-16 02:25:33",
+      "market_question": "Will Trump meet with MrBeast in 2026?",
+      "headline": "California pair charged with laundering crypto proceeds from darknet fentanyl sales",
       "direction": null,
       "materiality": null,
       "confidence": null,
