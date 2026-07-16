@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-16T12:34:00.030523+00:00",
-  "last_heartbeat": "2026-07-16T12:34:00.030523+00:00",
-  "uptime_seconds": 500583,
+  "generated_at": "2026-07-16T12:39:10.748650+00:00",
+  "last_heartbeat": "2026-07-16T12:39:10.748650+00:00",
+  "uptime_seconds": 500894,
   "dry_run": false,
   "markets_tracked": 1395,
-  "classify_error_streak": 2275,
+  "classify_error_streak": 2279,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 453,
-  "headlines_last_cycle": 1,
+  "headlines_scanned_today": 455,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4114,
+  "classifications_24h": 4109,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-16T12:20:28.057082+00:00"
+    "last_check": "2026-07-16T12:35:28.465465+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1069,
-    "matched": 888,
-    "classified": 4114,
+    "news": 1068,
+    "matched": 887,
+    "classified": 4109,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2329.8
+    "avg_classification_latency_ms": 2329.9
   },
   "live_readiness": {
     "ready": false,
@@ -224,8 +224,8 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3174999999999999,
-      "pnl_pct": 19.36,
+      "current_price": 0.31699999999999995,
+      "pnl_pct": 19.17,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.63,
       "pnl_usd": 0.1,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03300000000000003,
+      "current_price": 0.033,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-16 12:33:51",
-      "market_question": "Will Trump accuse Iran of election interference by July 16?",
-      "headline": "EXCLUSIVE: Iran tells Houthis to close Red Sea gateway if US hits power network, sources say - Reuters",
+      "time": "2026-07-16 12:38:14",
+      "market_question": "Will Google have a #1 AI model by December 31, 2026?",
+      "headline": "Google loses court fight against $854,250 Italian fine over gambling advertising - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,14 +443,46 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-16 12:33:48",
-      "market_question": "Will OpenAI release a social network in 2026?",
-      "headline": "EXCLUSIVE: Iran tells Houthis to close Red Sea gateway if US hits power network, sources say - Reuters",
+      "time": "2026-07-16 12:38:14",
+      "market_question": "Will the next Google Gemini Pro model be released on July 17, 2026?",
+      "headline": "Google loses court fight against $854,250 Italian fine over gambling advertising - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 12:38:13",
+      "market_question": "Sundar Pichai out as Google CEO before 2027?",
+      "headline": "Google loses court fight against $854,250 Italian fine over gambling advertising - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-16 12:38:10",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
+      "headline": "Google loses court fight against $854,250 Italian fine over gambling advertising - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,41 +496,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-16 12:33:48",
-      "market_question": "Will Trump say \"Transgender\" during Speech to the Nation?",
-      "headline": "EXCLUSIVE: Iran tells Houthis to close Red Sea gateway if US hits power network, sources say - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 12:33:48",
-      "market_question": "Will Trump say \"Venezuela\" during Speech to the Nation?",
-      "headline": "EXCLUSIVE: Iran tells Houthis to close Red Sea gateway if US hits power network, sources say - Reuters",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-16 12:33:48",
-      "market_question": "Will Trump say \"China\" during Speech to the Nation?",
-      "headline": "EXCLUSIVE: Iran tells Houthis to close Red Sea gateway if US hits power network, sources say - Reuters",
+      "time": "2026-07-16 12:38:10",
+      "market_question": "Will Google have the best Math AI model at the end of July 2026?",
+      "headline": "Google loses court fight against $854,250 Italian fine over gambling advertising - Reuters",
       "direction": null,
       "materiality": null,
       "confidence": null,
