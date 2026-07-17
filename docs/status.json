@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T09:22:02.135094+00:00",
-  "last_heartbeat": "2026-07-17T09:22:02.135094+00:00",
-  "uptime_seconds": 575465,
+  "generated_at": "2026-07-17T10:57:44.542140+00:00",
+  "last_heartbeat": "2026-07-17T10:57:44.542140+00:00",
+  "uptime_seconds": 581208,
   "dry_run": false,
-  "markets_tracked": 1359,
-  "classify_error_streak": 4084,
+  "markets_tracked": 1366,
+  "classify_error_streak": 4159,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 335,
-  "headlines_last_cycle": 10,
+  "headlines_scanned_today": 369,
+  "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4282,
+  "classifications_24h": 4183,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 291,
+    "price_target_market": 288,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-17T07:51:02.769248+00:00"
+    "last_check": "2026-07-17T10:45:03.880483+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1066,
-    "matched": 890,
-    "classified": 4282,
+    "news": 1032,
+    "matched": 866,
+    "classified": 4183,
     "signals": 0,
     "trades": 0
   },
@@ -136,12 +136,12 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 3.52,
-    "total_pnl_usd": 37.53,
+    "unrealized_pnl_usd": 3.89,
+    "total_pnl_usd": 37.9,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2855.8
+    "avg_classification_latency_ms": 3284.5
   },
   "live_readiness": {
     "ready": false,
@@ -196,11 +196,11 @@
       "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
       "side": "YES",
       "entry_price": 0.68,
-      "current_price": 0.855,
-      "pnl_pct": 25.74,
+      "current_price": 0.865,
+      "pnl_pct": 27.21,
       "amount_usd": 24.99,
-      "current_value_usd": 31.42,
-      "pnl_usd": 6.43,
+      "current_value_usd": 31.79,
+      "pnl_usd": 6.8,
       "edge_type": "momentum",
       "event_id": "674406"
     },
@@ -224,8 +224,8 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.3254999999999999,
-      "pnl_pct": 22.37,
+      "current_price": 0.3265,
+      "pnl_pct": 22.74,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.65,
       "pnl_usd": 0.12,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 09:22:00",
-      "market_question": "Will Donald Trump visit Israel in 2026?",
-      "headline": "Israel has had a tough month in the U.S. It\u2019s fighting back. - Politico",
+      "time": "2026-07-17 10:44:44",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump doubles down on US election attacks in his primetime speech - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,30 +443,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 09:21:59",
-      "market_question": "Netanyahu drops out of Israel election by September 30?",
-      "headline": "Israel has had a tough month in the U.S. It\u2019s fighting back. - Politico",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 09:21:59",
-      "market_question": "Netanyahu drops out of Israel election by July 31?",
-      "headline": "Israel has had a tough month in the U.S. It\u2019s fighting back. - Politico",
+      "time": "2026-07-17 10:44:44",
+      "market_question": "Will Donald Trump publicly insult someone on July 30, 2026?",
+      "headline": "Trump doubles down on US election attacks in his primetime speech - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,9 +464,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 09:21:59",
-      "market_question": "Israel election: will Likud lose seats?",
-      "headline": "Israel has had a tough month in the U.S. It\u2019s fighting back. - Politico",
+      "time": "2026-07-17 10:44:44",
+      "market_question": "Will Trump be in the WC Champions Photo?",
+      "headline": "Trump doubles down on US election attacks in his primetime speech - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 10:44:43",
+      "market_question": "Will Donald Trump publicly insult someone on July 16, 2026?",
+      "headline": "Trump doubles down on US election attacks in his primetime speech - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -496,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 09:21:56",
-      "market_question": "Record crypto liquidation in 2026?",
-      "headline": "Taiwan sentences BitShine crypto exchange ringleader to 22 years in $39 million fraud case: reports",
+      "time": "2026-07-17 10:29:18",
+      "market_question": "Will Trump be impeached by end of 2026?",
+      "headline": "Trump doubles down on US election attacks in his primetime speech - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
