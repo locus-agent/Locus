@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T04:51:20.118723+00:00",
-  "last_heartbeat": "2026-07-17T04:51:20.118723+00:00",
-  "uptime_seconds": 559223,
+  "generated_at": "2026-07-17T04:56:28.441972+00:00",
+  "last_heartbeat": "2026-07-17T04:56:28.441972+00:00",
+  "uptime_seconds": 559531,
   "dry_run": false,
   "markets_tracked": 1349,
-  "classify_error_streak": 3892,
+  "classify_error_streak": 3897,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 220,
+  "headlines_scanned_today": 223,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4525,
+  "classifications_24h": 4530,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1132,
-    "matched": 955,
-    "classified": 4525,
+    "news": 1135,
+    "matched": 956,
+    "classified": 4530,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2382.4
+    "avg_classification_latency_ms": 2382.5
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.03300000000000003,
+      "current_price": 0.033,
       "pnl_pct": -4.9,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.31,
@@ -432,41 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 04:45:54",
-      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
-      "headline": "Catastrophic flooding sweeps across Texas, in photos - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-17 04:45:54",
-      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
-      "headline": "Catastrophic flooding sweeps across Texas, in photos - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-17 04:43:46",
-      "market_question": "Will Trump and Putin meet next in China?",
-      "headline": "Trump accuses China of 2020 election interference, contradicting U.S. intel - Reuters",
+      "time": "2026-07-17 04:52:32",
+      "market_question": "Will the Democratic Party control the Senate after the 2026 Midterm elections?",
+      "headline": "Why American elections are so complicated \u2014 and secure - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,9 +448,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 04:43:46",
-      "market_question": "Will Trump accuse Israel of election interference by July 16?",
-      "headline": "Trump accuses China of 2020 election interference, contradicting U.S. intel - Reuters",
+      "time": "2026-07-17 04:52:32",
+      "market_question": "Will the 2026 Midterm Elections happen as scheduled?",
+      "headline": "Why American elections are so complicated \u2014 and secure - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -491,14 +459,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "both",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 04:43:46",
-      "market_question": "Will Trump admin declassify foreign election interference files by July 17?",
-      "headline": "Trump accuses China of 2020 election interference, contradicting U.S. intel - Reuters",
+      "time": "2026-07-17 04:52:32",
+      "market_question": "Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Why American elections are so complicated \u2014 and secure - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -507,7 +475,39 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "embedding",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 04:52:32",
+      "market_question": "Will FW win the most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?",
+      "headline": "Why American elections are so complicated \u2014 and secure - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 04:52:32",
+      "market_question": "Will the Taiwan People\u2019s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?",
+      "headline": "Why American elections are so complicated \u2014 and secure - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
     }
