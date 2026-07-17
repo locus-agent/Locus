@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T02:11:51.681308+00:00",
-  "last_heartbeat": "2026-07-17T02:11:51.681308+00:00",
-  "uptime_seconds": 549655,
+  "generated_at": "2026-07-17T02:16:59.911013+00:00",
+  "last_heartbeat": "2026-07-17T02:16:59.911013+00:00",
+  "uptime_seconds": 549963,
   "dry_run": false,
   "markets_tracked": 1391,
-  "classify_error_streak": 3664,
+  "classify_error_streak": 3681,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 107,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 118,
+  "headlines_last_cycle": 1,
   "signals_24h": 0,
-  "classifications_24h": 4289,
+  "classifications_24h": 4271,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 340,
+    "price_target_market": 341,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1081,
-    "matched": 916,
-    "classified": 4289,
+    "news": 1074,
+    "matched": 911,
+    "classified": 4271,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2377.4
+    "avg_classification_latency_ms": 2377.8
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,41 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 02:00:41",
-      "market_question": "Will Apple release a touchscreen MacBook in 2026?",
-      "headline": "Apple adds new 36-month financing options for iPad purchases - 9to5Mac",
+      "time": "2026-07-17 02:16:58",
+      "market_question": "Will Donald Trump visit Canada in 2026?",
+      "headline": "Canada fires prompt US air quality alerts as smoke blankets major cities",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-17 02:16:58",
+      "market_question": "Will Trump accuse Canada of election interference by July 16?",
+      "headline": "Canada fires prompt US air quality alerts as smoke blankets major cities",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-17 02:14:53",
+      "market_question": "U.S. enacts AI safety bill before 2027?",
+      "headline": "White House launches AI cybersecurity clearinghouse - CNN",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -443,14 +475,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 02:00:41",
-      "market_question": "Will Apple release iPhone 18 in 2026?",
-      "headline": "Apple adds new 36-month financing options for iPad purchases - 9to5Mac",
+      "time": "2026-07-17 02:14:52",
+      "market_question": "Trump declassifies new UFO files by August 31?",
+      "headline": "White House launches AI cybersecurity clearinghouse - CNN",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -459,14 +491,14 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 02:00:41",
-      "market_question": "Will Apple release a foldable iPhone before 2027?",
-      "headline": "Apple adds new 36-month financing options for iPad purchases - 9to5Mac",
+      "time": "2026-07-17 02:14:52",
+      "market_question": "Will Trump say \"AI\" or \"Artificial Intelligence\" during Speech to the Nation?",
+      "headline": "White House launches AI cybersecurity clearinghouse - CNN",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -475,39 +507,7 @@
       "time_horizon": "medium",
       "adjusted_materiality": 0.0,
       "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 02:00:41",
-      "market_question": "Will Apple TV announce a new project at SDCC 2026?",
-      "headline": "Apple adds new 36-month financing options for iPad purchases - 9to5Mac",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 02:00:40",
-      "market_question": "Will Apple release a new product line before 2027?",
-      "headline": "Apple adds new 36-month financing options for iPad purchases - 9to5Mac",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
+      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
