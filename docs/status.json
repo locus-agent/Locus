@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T04:41:02.804925+00:00",
-  "last_heartbeat": "2026-07-17T04:41:02.804925+00:00",
-  "uptime_seconds": 558606,
+  "generated_at": "2026-07-17T04:46:11.852968+00:00",
+  "last_heartbeat": "2026-07-17T04:46:11.852968+00:00",
+  "uptime_seconds": 558915,
   "dry_run": false,
   "markets_tracked": 1350,
-  "classify_error_streak": 3876,
+  "classify_error_streak": 3892,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 216,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 220,
+  "headlines_last_cycle": 2,
   "signals_24h": 0,
-  "classifications_24h": 4518,
+  "classifications_24h": 4527,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1131,
-    "matched": 955,
-    "classified": 4518,
+    "news": 1133,
+    "matched": 956,
+    "classified": 4527,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2382.0
+    "avg_classification_latency_ms": 2382.4
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 04:30:33",
-      "market_question": "Will Citigroup or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "US hits more bridges in Iran in an expansion of its airstrike campaign - Politico",
+      "time": "2026-07-17 04:45:54",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "headline": "Catastrophic flooding sweeps across Texas, in photos - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,9 +448,9 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-17 04:30:33",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "US hits more bridges in Iran in an expansion of its airstrike campaign - Politico",
+      "time": "2026-07-17 04:45:54",
+      "market_question": "Will the Democrats win the Texas Senate race in 2026?",
+      "headline": "Catastrophic flooding sweeps across Texas, in photos - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -464,52 +464,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-17 04:30:33",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "US hits more bridges in Iran in an expansion of its airstrike campaign - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-17 04:43:46",
+      "market_question": "Will Trump and Putin meet next in China?",
+      "headline": "Trump accuses China of 2020 election interference, contradicting U.S. intel - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-17 04:30:33",
-      "market_question": "Will UBS or any of its underwriting affiliates serve as the lead underwriter in OpenAI's initial public offering?",
-      "headline": "US hits more bridges in Iran in an expansion of its airstrike campaign - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-17 04:43:46",
+      "market_question": "Will Trump accuse Israel of election interference by July 16?",
+      "headline": "Trump accuses China of 2020 election interference, contradicting U.S. intel - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-17 04:30:33",
-      "market_question": "Will Barclays or any of its underwriting affiliates serve as the lead underwriter in Anthropic's initial public offering?",
-      "headline": "US hits more bridges in Iran in an expansion of its airstrike campaign - Politico",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-17 04:43:46",
+      "market_question": "Will Trump admin declassify foreign election interference files by July 17?",
+      "headline": "Trump accuses China of 2020 election interference, contradicting U.S. intel - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
