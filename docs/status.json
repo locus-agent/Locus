@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T06:13:37.307263+00:00",
-  "last_heartbeat": "2026-07-17T06:13:37.307263+00:00",
-  "uptime_seconds": 564160,
+  "generated_at": "2026-07-17T06:18:46.118567+00:00",
+  "last_heartbeat": "2026-07-17T06:18:46.118567+00:00",
+  "uptime_seconds": 564469,
   "dry_run": false,
-  "markets_tracked": 1349,
-  "classify_error_streak": 3946,
+  "markets_tracked": 1351,
+  "classify_error_streak": 3955,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 254,
+  "headlines_scanned_today": 260,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4443,
+  "classifications_24h": 4465,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1105,
-    "matched": 932,
-    "classified": 4443,
+    "news": 1111,
+    "matched": 938,
+    "classified": 4465,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2383.6
+    "avg_classification_latency_ms": 2383.8
   },
   "live_readiness": {
     "ready": false,
@@ -432,25 +432,9 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 06:09:20",
-      "market_question": "Will Anthony Albanese be Prime Minister of Australia after the next election?",
-      "headline": "When does Andy Burnham become prime minister? Six key questions answered",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 06:09:20",
+      "time": "2026-07-17 06:15:54",
       "market_question": "Will Pauline Hanson be Prime Minister of Australia after the next election?",
-      "headline": "When does Andy Burnham become prime minister? Six key questions answered",
+      "headline": "A former prime minister who led Israel out of Lebanon fears mistakes are being repeated - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +448,41 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 06:09:20",
+      "time": "2026-07-17 06:15:54",
+      "market_question": "Netanyahu drops out of Israel election by July 31?",
+      "headline": "A former prime minister who led Israel out of Lebanon fears mistakes are being repeated - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 06:15:54",
+      "market_question": "Will Anthony Albanese be Prime Minister of Australia after the next election?",
+      "headline": "A former prime minister who led Israel out of Lebanon fears mistakes are being repeated - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 06:15:54",
       "market_question": "Will Angus Taylor be Prime Minister of Australia after the next election?",
-      "headline": "When does Andy Burnham become prime minister? Six key questions answered",
+      "headline": "A former prime minister who led Israel out of Lebanon fears mistakes are being repeated - AP News",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,36 +496,20 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 06:09:17",
-      "market_question": "Will Chris Hipkins be the next Prime Minister of New Zealand after the 2026 elections?",
-      "headline": "When does Andy Burnham become prime minister? Six key questions answered",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-17 06:15:54",
+      "market_question": "Netanyahu drops out of Israel election by September 30?",
+      "headline": "A former prime minister who led Israel out of Lebanon fears mistakes are being repeated - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-17 06:09:17",
-      "market_question": "Will Prime Intellect launch a token by December 31, 2026?",
-      "headline": "When does Andy Burnham become prime minister? Six key questions answered",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
