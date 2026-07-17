@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T04:10:11.117853+00:00",
-  "last_heartbeat": "2026-07-17T04:10:11.117853+00:00",
-  "uptime_seconds": 556754,
+  "generated_at": "2026-07-17T04:15:19.920030+00:00",
+  "last_heartbeat": "2026-07-17T04:15:19.920030+00:00",
+  "uptime_seconds": 557063,
   "dry_run": false,
   "markets_tracked": 1366,
-  "classify_error_streak": 3843,
+  "classify_error_streak": 3854,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 204,
+  "headlines_scanned_today": 206,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4498,
+  "classifications_24h": 4495,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 350,
+    "price_target_market": 347,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1128,
-    "matched": 955,
-    "classified": 4498,
+    "news": 1125,
+    "matched": 953,
+    "classified": 4495,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2381.3
+    "avg_classification_latency_ms": 2381.5
   },
   "live_readiness": {
     "ready": false,
@@ -238,7 +238,7 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0335,
+      "current_price": 0.033500000000000085,
       "pnl_pct": -3.46,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.32,
@@ -432,9 +432,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 04:08:44",
-      "market_question": "Will Kamala Harris win the California Governor Election in 2026?",
-      "headline": "California Power & Politics - Politico",
+      "time": "2026-07-17 04:13:06",
+      "market_question": "Will Trump deport more than 1m people?",
+      "headline": "Trump alleges 'shocking vulnerabilities' in US election security ahead of midterms",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 04:13:06",
+      "market_question": "Trump alleges Georgia foreign election interference by July 16?",
+      "headline": "Trump alleges 'shocking vulnerabilities' in US election security ahead of midterms",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 04:13:06",
+      "market_question": "Will Trump and Putin not meet?",
+      "headline": "Trump alleges 'shocking vulnerabilities' in US election security ahead of midterms",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 04:13:06",
+      "market_question": "Trump declares election interference national emergency by December 31?",
+      "headline": "Trump alleges 'shocking vulnerabilities' in US election security ahead of midterms",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 04:08:44",
-      "market_question": "Will Stephen Cloobeck win the California Governor Election in 2026?",
-      "headline": "California Power & Politics - Politico",
+      "time": "2026-07-17 04:13:06",
+      "market_question": "Will Trump accuse Israel of election interference by July 16?",
+      "headline": "Trump alleges 'shocking vulnerabilities' in US election security ahead of midterms",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -462,54 +510,6 @@
       "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 04:08:41",
-      "market_question": "Will Alex Padilla win the California Governor Election in 2026?",
-      "headline": "California Power & Politics - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-17 04:08:41",
-      "market_question": "Will Chad Bianco win the California Governor Election in 2026?",
-      "headline": "California Power & Politics - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-17 04:08:41",
-      "market_question": "Will Kyle Langford win the California Governor Election in 2026?",
-      "headline": "California Power & Politics - Politico",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
