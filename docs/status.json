@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T03:29:00.295738+00:00",
-  "last_heartbeat": "2026-07-17T03:29:00.295738+00:00",
-  "uptime_seconds": 554283,
+  "generated_at": "2026-07-17T03:34:08.758066+00:00",
+  "last_heartbeat": "2026-07-17T03:34:08.758066+00:00",
+  "uptime_seconds": 554592,
   "dry_run": false,
-  "markets_tracked": 1383,
-  "classify_error_streak": 3778,
+  "markets_tracked": 1382,
+  "classify_error_streak": 3786,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 160,
+  "headlines_scanned_today": 162,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4372,
+  "classifications_24h": 4380,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1092,
-    "matched": 929,
-    "classified": 4372,
+    "news": 1093,
+    "matched": 930,
+    "classified": 4380,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2379.6
+    "avg_classification_latency_ms": 2379.7
   },
   "live_readiness": {
     "ready": false,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.035,
-      "pnl_pct": 0.87,
+      "current_price": 0.0345,
+      "pnl_pct": -0.57,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.33,
-      "pnl_usd": 0.0,
+      "pnl_usd": -0.0,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,9 +432,57 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 03:27:08",
-      "market_question": "Will Trump meet with Joseph Aoun in July 2026?",
-      "headline": "Amy Duggar Says She Spoke with Girl Accusing Joseph of Sexually Assaulting Her When She Was 9 - Yahoo",
+      "time": "2026-07-17 03:29:19",
+      "market_question": "Will OpenAI have the best AI model at the end of July 2026?",
+      "headline": "China's Moonshot unveils world's largest open AI model, closing in on US rivals - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 03:29:19",
+      "market_question": "Will Moonshot have the best AI model at the end of July 2026?",
+      "headline": "China's Moonshot unveils world's largest open AI model, closing in on US rivals - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 03:29:19",
+      "market_question": "Will a Chinese company have the best AI model by December 31?",
+      "headline": "China's Moonshot unveils world's largest open AI model, closing in on US rivals - Reuters",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 03:29:19",
+      "market_question": "Will Meta have a #1 AI model by December 31, 2026?",
+      "headline": "China's Moonshot unveils world's largest open AI model, closing in on US rivals - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +496,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 03:27:08",
-      "market_question": "Will AI be charged with a crime before 2027?",
-      "headline": "Amy Duggar Says She Spoke with Girl Accusing Joseph of Sexually Assaulting Her When She Was 9 - Yahoo",
+      "time": "2026-07-17 03:29:19",
+      "market_question": "Will OpenAI have a #1 AI model by December 31, 2026?",
+      "headline": "China's Moonshot unveils world's largest open AI model, closing in on US rivals - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -462,54 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 03:27:08",
-      "market_question": "Quantum breaks Bitcoin by December 31, 2027?",
-      "headline": "Researchers define new frontier in quantum materials - Phys.org",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-17 03:27:08",
-      "market_question": "Quantum breaks Bitcoin by December 31, 2026?",
-      "headline": "Researchers define new frontier in quantum materials - Phys.org",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-17 03:27:08",
-      "market_question": "Will New Jersey use a new congressional map for the 2026 United States midterm elections?",
-      "headline": "Researchers define new frontier in quantum materials - Phys.org",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
