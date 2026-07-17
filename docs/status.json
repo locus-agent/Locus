@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T01:20:25.072385+00:00",
-  "last_heartbeat": "2026-07-17T01:20:25.072385+00:00",
-  "uptime_seconds": 546568,
+  "generated_at": "2026-07-17T01:25:33.659291+00:00",
+  "last_heartbeat": "2026-07-17T01:25:33.659291+00:00",
+  "uptime_seconds": 546877,
   "dry_run": false,
   "markets_tracked": 1386,
-  "classify_error_streak": 3566,
+  "classify_error_streak": 3567,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 64,
+  "headlines_scanned_today": 65,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4154,
+  "classifications_24h": 4150,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -113,7 +113,7 @@
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-17T01:05:49.570434+00:00"
+    "last_check": "2026-07-17T01:20:49.948386+00:00"
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1052,
-    "matched": 889,
-    "classified": 4154,
+    "news": 1051,
+    "matched": 888,
+    "classified": 4150,
     "signals": 0,
     "trades": 0
   },
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 01:17:46",
-      "market_question": "Will Trump say \"Million,\" \"Billion,\" or \"Trillion\" 20+ times during Speech to the Nation?",
-      "headline": "Kioxia owes Viasat $229 million for infringing flash-memory patents, US jury says - Reuters",
+      "time": "2026-07-17 01:24:24",
+      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
+      "headline": "Mississippi teachers say new state-mandated process for buying classroom supplies is more difficult - AP News",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 01:24:21",
+      "market_question": "Will Trump say \"China\" during Speech to the Nation?",
+      "headline": "Mississippi teachers say new state-mandated process for buying classroom supplies is more difficult - AP News",
       "direction": null,
       "materiality": null,
       "confidence": null,
@@ -448,68 +464,52 @@
       "ensemble_used": null
     },
     {
-      "time": "2026-07-17 01:09:03",
-      "market_question": "Will Trump and Putin not meet?",
-      "headline": "Trump gives national address that\u2019s expected to make election conspiracy theories a focus - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-17 01:24:21",
+      "market_question": "Will Trump say \"Maduro\" during Speech to the Nation?",
+      "headline": "Mississippi teachers say new state-mandated process for buying classroom supplies is more difficult - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-17 01:09:03",
-      "market_question": "Trump declares election interference national emergency by December 31?",
-      "headline": "Trump gives national address that\u2019s expected to make election conspiracy theories a focus - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-17 01:24:21",
+      "market_question": "Will Trump say \"Transgender\" during Speech to the Nation?",
+      "headline": "Mississippi teachers say new state-mandated process for buying classroom supplies is more difficult - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "both",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 01:09:03",
-      "market_question": "Will Trump be in the WC Champions Photo?",
-      "headline": "Trump gives national address that\u2019s expected to make election conspiracy theories a focus - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     },
     {
-      "time": "2026-07-17 01:09:03",
-      "market_question": "Will Trump be impeached by end of 2026?",
-      "headline": "Trump gives national address that\u2019s expected to make election conspiracy theories a focus - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
+      "time": "2026-07-17 01:24:21",
+      "market_question": "Will Trump say \"Venezuela\" during Speech to the Nation?",
+      "headline": "Mississippi teachers say new state-mandated process for buying classroom supplies is more difficult - AP News",
+      "direction": null,
+      "materiality": null,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": false
+      "ensemble_used": null
     }
   ],
   "prompt": {
