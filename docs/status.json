@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-17T01:15:16.832729+00:00",
-  "last_heartbeat": "2026-07-17T01:15:16.832729+00:00",
-  "uptime_seconds": 546260,
+  "generated_at": "2026-07-17T01:20:25.072385+00:00",
+  "last_heartbeat": "2026-07-17T01:20:25.072385+00:00",
+  "uptime_seconds": 546568,
   "dry_run": false,
   "markets_tracked": 1386,
   "classify_error_streak": 3566,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 63,
+  "headlines_scanned_today": 64,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4153,
+  "classifications_24h": 4154,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1051,
-    "matched": 888,
-    "classified": 4153,
+    "news": 1052,
+    "matched": 889,
+    "classified": 4154,
     "signals": 0,
     "trades": 0
   },
@@ -224,7 +224,7 @@
       "slug": "next-french-presidential-election",
       "side": "YES",
       "entry_price": 0.266,
-      "current_price": 0.32199999999999995,
+      "current_price": 0.322,
       "pnl_pct": 21.05,
       "amount_usd": 0.5306879839781693,
       "current_value_usd": 0.64,
@@ -238,11 +238,11 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.039000000000000035,
-      "pnl_pct": 12.39,
+      "current_price": 0.03950000000000009,
+      "pnl_pct": 13.84,
       "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.37,
-      "pnl_usd": 0.04,
+      "current_value_usd": 0.38,
+      "pnl_usd": 0.05,
       "edge_type": "news",
       "event_id": "48292"
     },
@@ -432,6 +432,22 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-17 01:17:46",
+      "market_question": "Will Trump say \"Million,\" \"Billion,\" or \"Trillion\" 20+ times during Speech to the Nation?",
+      "headline": "Kioxia owes Viasat $229 million for infringing flash-memory patents, US jury says - Reuters",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-17 01:09:03",
       "market_question": "Will Trump and Putin not meet?",
       "headline": "Trump gives national address that\u2019s expected to make election conspiracy theories a focus - AP News",
@@ -492,22 +508,6 @@
       "adjusted_materiality": 0.0,
       "action": "error",
       "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 01:09:03",
-      "market_question": "Will Trump\u2019s remarks not air?",
-      "headline": "Trump gives national address that\u2019s expected to make election conspiracy theories a focus - AP News",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
       "consensus_score": null,
       "ensemble_used": false
     }
