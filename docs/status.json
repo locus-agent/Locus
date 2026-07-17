@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T07:56:49.531024+00:00",
-  "last_heartbeat": "2026-07-17T07:56:49.531024+00:00",
-  "uptime_seconds": 570353,
+  "generated_at": "2026-07-17T09:22:02.135094+00:00",
+  "last_heartbeat": "2026-07-17T09:22:02.135094+00:00",
+  "uptime_seconds": 575465,
   "dry_run": false,
-  "markets_tracked": 1357,
-  "classify_error_streak": 4039,
+  "markets_tracked": 1359,
+  "classify_error_streak": 4084,
   "track_record": {
     "total": 11508,
     "accuracy": 18.0,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 312,
-  "headlines_last_cycle": 0,
+  "headlines_scanned_today": 335,
+  "headlines_last_cycle": 10,
   "signals_24h": 0,
-  "classifications_24h": 4388,
+  "classifications_24h": 4282,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -95,7 +95,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 294,
+    "price_target_market": 291,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1089,
-    "matched": 916,
-    "classified": 4388,
+    "news": 1066,
+    "matched": 890,
+    "classified": 4282,
     "signals": 0,
     "trades": 0
   },
@@ -141,7 +141,7 @@
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 2386.2
+    "avg_classification_latency_ms": 2855.8
   },
   "live_readiness": {
     "ready": false,
@@ -432,9 +432,25 @@
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 07:54:37",
-      "market_question": "Will Alibaba have the best Chinese AI model at the end of July 2026?",
-      "headline": "China\u2019s Xi calls for step up of global effort in AI, as US curbs squeeze China\u2019s tech access - AP News",
+      "time": "2026-07-17 09:22:00",
+      "market_question": "Will Donald Trump visit Israel in 2026?",
+      "headline": "Israel has had a tough month in the U.S. It\u2019s fighting back. - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "both",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 09:21:59",
+      "market_question": "Netanyahu drops out of Israel election by September 30?",
+      "headline": "Israel has had a tough month in the U.S. It\u2019s fighting back. - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +464,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 07:54:36",
-      "market_question": "Will a Chinese company have the best AI model by December 31?",
-      "headline": "China\u2019s Xi calls for step up of global effort in AI, as US curbs squeeze China\u2019s tech access - AP News",
+      "time": "2026-07-17 09:21:59",
+      "market_question": "Netanyahu drops out of Israel election by July 31?",
+      "headline": "Israel has had a tough month in the U.S. It\u2019s fighting back. - Politico",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +480,25 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 07:54:36",
-      "market_question": "Will Anthropic extend Claude Fable 5 paid-plan access again by July 19?",
-      "headline": "China\u2019s Xi calls for step up of global effort in AI, as US curbs squeeze China\u2019s tech access - AP News",
+      "time": "2026-07-17 09:21:59",
+      "market_question": "Israel election: will Likud lose seats?",
+      "headline": "Israel has had a tough month in the U.S. It\u2019s fighting back. - Politico",
+      "direction": "neutral",
+      "materiality": 0.0,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
+      "match_source": "embedding",
+      "consensus_score": null,
+      "ensemble_used": false
+    },
+    {
+      "time": "2026-07-17 09:21:56",
+      "market_question": "Record crypto liquidation in 2026?",
+      "headline": "Taiwan sentences BitShine crypto exchange ringleader to 22 years in $39 million fraud case: reports",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -478,38 +510,6 @@
       "match_source": "keyword",
       "consensus_score": null,
       "ensemble_used": false
-    },
-    {
-      "time": "2026-07-17 07:54:33",
-      "market_question": "Trump calls Nicki Minaj hot again in 2026?",
-      "headline": "China\u2019s Xi calls for step up of global effort in AI, as US curbs squeeze China\u2019s tech access - AP News",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
-    },
-    {
-      "time": "2026-07-17 07:52:21",
-      "market_question": "President Trump to Attend World Cup Final?",
-      "headline": "England missing final piece of jigsaw - Kane",
-      "direction": null,
-      "materiality": null,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": null
     }
   ],
   "prompt": {
