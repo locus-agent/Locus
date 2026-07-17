@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-16T23:57:48.905514+00:00",
-  "last_heartbeat": "2026-07-16T23:57:48.905514+00:00",
-  "uptime_seconds": 541612,
+  "generated_at": "2026-07-17T00:03:00.605595+00:00",
+  "last_heartbeat": "2026-07-17T00:03:00.605595+00:00",
+  "uptime_seconds": 541924,
   "dry_run": false,
   "markets_tracked": 1383,
   "classify_error_streak": 3411,
@@ -82,10 +82,10 @@
       }
     ]
   },
-  "headlines_scanned_today": 1053,
+  "headlines_scanned_today": 0,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4102,
+  "classifications_24h": 4090,
   "selectivity_pct": 0.0,
   "gates_24h": {
     "prefiltered_haiku": 0,
@@ -121,9 +121,9 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1055,
-    "matched": 882,
-    "classified": 4102,
+    "news": 1053,
+    "matched": 880,
+    "classified": 4090,
     "signals": 0,
     "trades": 0
   },
@@ -136,7 +136,7 @@
     "losses": 18,
     "win_rate_pct": 55.0,
     "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 0.71,
+    "unrealized_pnl_usd": 0.7,
     "total_pnl_usd": 34.72,
     "recent_winrate": 0.65,
     "kelly_factor": 0.85,
@@ -186,8 +186,8 @@
   "circuit_breaker": {
     "triggered": false,
     "reason": "",
-    "drawdown_7d": 0.0557,
-    "sharpe_7d": 0.12
+    "drawdown_7d": 0.1538,
+    "sharpe_7d": null
   },
   "open_positions": [
     {
@@ -238,8 +238,8 @@
       "slug": "openai-ipo-closing-market-cap",
       "side": "YES",
       "entry_price": 0.0565,
-      "current_price": 0.0475,
-      "pnl_pct": 36.89,
+      "current_price": 0.047,
+      "pnl_pct": 35.45,
       "amount_usd": 0.3296432873334284,
       "current_value_usd": 0.45,
       "pnl_usd": 0.12,
@@ -432,6 +432,38 @@
   ],
   "recent_classifications": [
     {
+      "time": "2026-07-16 23:58:56",
+      "market_question": "Will a Chinese company have the best AI model by December 31?",
+      "headline": "As heatwaves strike, Europeans turn to prized Chinese air-conditioner",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
+      "time": "2026-07-16 23:58:56",
+      "market_question": "Will Alibaba have the best Chinese AI model at the end of July 2026?",
+      "headline": "As heatwaves strike, Europeans turn to prized Chinese air-conditioner",
+      "direction": null,
+      "materiality": null,
+      "confidence": null,
+      "edge": null,
+      "fee_cost": null,
+      "time_horizon": null,
+      "adjusted_materiality": null,
+      "action": "prefiltered",
+      "match_source": "keyword",
+      "consensus_score": null,
+      "ensemble_used": null
+    },
+    {
       "time": "2026-07-16 23:56:48",
       "market_question": "Will Trump\u2019s remarks not air?",
       "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
@@ -466,38 +498,6 @@
     {
       "time": "2026-07-16 23:56:48",
       "market_question": "Will Trump's Speech to the Nation be between 5 and 10 minutes long?",
-      "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "keyword",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 23:56:48",
-      "market_question": "Will Trump say \"Fake News\" during Speech to the Nation?",
-      "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
-      "direction": "neutral",
-      "materiality": 0.0,
-      "confidence": null,
-      "edge": null,
-      "fee_cost": null,
-      "time_horizon": "medium",
-      "adjusted_materiality": 0.0,
-      "action": "error",
-      "match_source": "embedding",
-      "consensus_score": null,
-      "ensemble_used": false
-    },
-    {
-      "time": "2026-07-16 23:56:48",
-      "market_question": "Will Trump's Speech to the Nation be between 15 and 20 minutes long?",
       "headline": "ABC, NBC, CNN will not air Trump's election security speech live on primary channels - Reuters",
       "direction": "neutral",
       "materiality": 0.0,
