@@ -1,5 +1,38 @@
 # Backtest Results
 
+## Replay backtest (branch `improvements`, 2026-10-29) — current
+
+`python cli.py backtest` (code: `locus/backtest/replay.py`, `replay_data.py`,
+`costs.py`; full numbers: `docs/replay_results.json`; Russian write-up with the
+table and conclusions: `CHANGES_RU.md`).
+
+- Inputs: the live agent's own logged Claude classifications (10,587 directional
+  calls with confidence, 2026-06-10 .. 2026-07-17, recovered from the git history
+  of `docs/classifications.json`), public CLOB `/prices-history` (hourly; minute
+  level for entries) and Gamma resolutions. No LLM calls.
+- Execution: synthetic book around the historical mid (three spread/depth
+  settings) + Polymarket taker fee `feeRate*p*(1-p)`; entry `latency` (first
+  minute print >= 60s after the call), `after` (next hourly print), `before`
+  (last print before the call, optimistic).
+- Walk-forward calibration (only labels observable before each call).
+
+**Missing from public data (not modeled):** historical order books (depth and
+spread at a past moment), Claude re-evaluation / take-profit exits, momentum
+boost, multi-source / correlation / category / CoV gates, passive maker entries.
+
+Headline (latency entry, base book): legacy 169 trades, +$167 on $1,419 (ROI
++11.8%, max DD $171); calibrated 57 trades, +$28.6 on $528 (ROI +5.4%, max DD
+$60). With a 1-hour entry delay both lose (-11% / -24% ROI); with a wide book
+both are ~flat. Calibration MSE vs 24h realized side value: raw confidence 0.136,
+market price 0.008, p_cal 0.009 — Claude's calls carry little information
+beyond the price; results are driven by entry speed and spread. One month of
+data, 50-170 trades: not statistically conclusive.
+
+---
+
+## Original pilot (`locus/backtest/real.py`) — historical
+
+
 This document summarizes the most recent run of the real-data backtest pilot
 (`locus/backtest/real.py`), which replays resolved Polymarket crypto markets through the
 classification → edge → gating pipeline using historical headlines, to see what the
