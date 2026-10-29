@@ -31,6 +31,7 @@ from locus.core.multi_classifier import classify_ensemble, is_low_consensus
 from locus.core import event_context
 from locus.core import passive
 from locus.core import whale_tracker
+from locus.core import orderbook
 from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
 from locus.core.journal import maybe_write_journal, maybe_check_missed_opportunities
 from locus.core import positions
@@ -42,6 +43,28 @@ log = logging.getLogger(__name__)
 # ============================================================
 # V2: Event-Driven Pipeline
 # ============================================================
+
+async def compute_edge(market, classification, event):
+    """Run detect_edge_v2 in a worker thread. In the calibrated model the
+    executable side's live book is fetched first and REQUIRED: no book -> no
+    signal (fail closed), because slippage can't be priced without it."""
+    loop = asyncio.get_event_loop()
+
+    def _work():
+        book = None
+        if config.EDGE_MODEL == "calibrated" and classification.direction in ("bullish", "bearish"):
+            token = get_token_id(market, "YES")
+            if not token and getattr(market, "tokens", None):
+                token = market.tokens[0].get("token_id")  # YES=first convention
+            book = orderbook.fetch_book(token)
+            if book is None:
+                log.info(f"[edge] no live book for {market.slug or market.condition_id} — skip (fail closed)")
+                return None
+            return detect_edge_v2(market, classification, event, book=book)
+        return detect_edge_v2(market, classification, event)
+
+    return await loop.run_in_executor(None, _work)
+
 
 def _batches(items, size):
     """Yield successive `size`-length slices of `items` (size floored to 1)."""
@@ -818,7 +841,10 @@ class PipelineV2:
                         raw_signal, signal, action, edge_type = None, None, "error", None
                     else:
                         self.stats["classify_error_streak"] = 0
-                        edge_metrics = detect_edge_v2(market, classification, event)
+                        # Off the event loop: the calibrated model fetches the
+                        # live book (and momentum may hit the price-history
+                        # API) — neither may block other candidates.
+                        edge_metrics = await compute_edge(market, classification, event)
                         raw_signal = edge_metrics.signal if edge_metrics else None
                         if edge_metrics is not None and raw_signal is None and edge_metrics.skip_reason:
                             # Sizing declined the trade (kelly_negative: the
@@ -1007,7 +1033,8 @@ class PipelineV2:
                                 )
                                 console.print(
                                     f"  [yellow]ORDERBOOK SKIP[/yellow]: {signal.side} "
-                                    f"into imbalance {imbalance:+.2f} "
+                                    f"into imbalance "
+                                    f"{'n/a (book unavailable)' if imbalance is None else format(imbalance, '+.2f')} "
                                     f"on \"{market.question[:40]}\""
                                 )
                                 signal, action = None, "orderbook_skip"
@@ -1429,7 +1456,7 @@ class PipelineV2:
                         f"holding whale trade on \"{market.question[:40]}\""
                     )
                 else:
-                    edge_metrics = detect_edge_v2(market, classification, whale_event)
+                    edge_metrics = await compute_edge(market, classification, whale_event)
                     raw_signal = edge_metrics.signal if edge_metrics else None
                     signal, _ = gate_trade(whale_event, raw_signal, self._traded_headlines)
                     reserved = signal is not None
