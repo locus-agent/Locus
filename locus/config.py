@@ -123,6 +123,39 @@ TELEGRAM_CHANNEL_IDS = [
 # Chat the trading-notification bot posts to (and accepts /portfolio from). When
 # empty, locus/core/telegram_bot.py is fully disabled (all notifications no-op).
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+
+# --- Real-time Telegram news (MTProto user client, locus/sources/telegram_mtproto.py) ---
+# api_id / api_hash from https://my.telegram.org -> API development tools.
+# The session file is created ONCE by `python scripts/telegram_login.py`; the
+# pipeline only connects with it and never logs in by itself.
+TELEGRAM_API_ID = os.getenv("TELEGRAM_API_ID", "")
+TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH", "")
+TELEGRAM_SESSION = os.getenv("TELEGRAM_SESSION", "telegram_news.session")
+# Public channel usernames (no @). Defaults were checked via the t.me/s/<name>
+# web preview on 2026-10-29 (all posting that week). They are third-party
+# aggregators/mirrors, not the original outlets — headlines can be wrong;
+# the materiality/confirmation gates still apply.
+DEFAULT_TELEGRAM_NEWS_CHANNELS = [
+    "WalterBloomberg",      # Walter Bloomberg (mirror of the @DeItaone wire on X)
+    "financialjuice",       # FinancialJuice macro/markets squawk
+    "TreeNewsFeed",         # Tree News feed (crypto + macro headlines)
+    "PolymarketIntel",      # Polymarket Intel
+    "WatcherGuru",          # Watcher Guru
+    "wublockchainenglish",  # Wu Blockchain News
+    "unfolded",             # unfolded. (crypto headlines)
+]
+TELEGRAM_NEWS_CHANNELS = [
+    c.strip().lstrip("@")
+    for c in os.getenv("TELEGRAM_NEWS_CHANNELS", ",".join(DEFAULT_TELEGRAM_NEWS_CHANNELS)).split(",")
+    if c.strip()
+]
+# RSS is a slow fallback: when a real-time source (Telegram MTProto or the
+# Twitter stream) is configured, RSS polls less often and its items are
+# routed after real-time items (lower priority in the dedup router).
+RSS_INTERVAL_SECONDS = float(os.getenv("RSS_INTERVAL_SECONDS", "120"))
+RSS_INTERVAL_WITH_REALTIME_SECONDS = float(os.getenv("RSS_INTERVAL_WITH_REALTIME_SECONDS", "300"))
+# Lower number = routed first. Unknown sources get 5.
+SOURCE_PRIORITY = {"telegram": 0, "twitter": 0, "truthsocial": 1, "newsapi": 3, "rss": 4}
 # Send a drawdown alert once an open position's unrealized loss exceeds this
 # fraction (0.25 = -25%). See positions.update_and_manage.
 TELEGRAM_DRAWDOWN_ALERT_PCT = float(os.getenv("TELEGRAM_DRAWDOWN_ALERT_PCT", "0.25"))

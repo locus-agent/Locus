@@ -206,3 +206,110 @@ python -m pytest -q             # тесты
 - **Решения Claude о выходе** (take-profit и переоценки) в бэктесте не моделируются.
 - **Live-путь не проверялся на бирже.** FAK-лестницу и чтение REST-стакана проверяли
   только тесты с фейковым SDK, без реальных денег.
+
+---
+
+# Ветка `telegram-source`: Telegram-новости в реальном времени
+
+Ветка основана на `improvements`. Всё локально, без пушей, режим только paper.
+Тесты: **1114 passed**; из них 19 новых в `tests/test_telegram_mtproto.py`.
+
+## Что добавлено
+
+| Файл | Что |
+|---|---|
+| `locus/sources/telegram_mtproto.py` | `TelegramNewsListener` — слушатель каналов через Telethon (MTProto, пользовательский клиент) |
+| `locus/core/latency.py` | метрики задержки по источникам: публикация → получение, получение → классификация (p50/p90) |
+| `scripts/telegram_login.py` | **одноразовый** вход: создаёт файл сессии, опционально вступает в каналы (`--join`) |
+| `locus/sources/news_stream.py` | `PriorityNewsQueue`; подключение слушателя в `NewsAggregator`; RSS замедляется; дедуп по хешу работает и без модели эмбеддингов |
+| `locus/core/pipeline.py`, `export_status.py` | замер «получение → классификация»; `latency_by_source` в `docs/status.json` |
+| `locus/config.py`, `.env.example`, `requirements.txt`, `.gitignore` | новые настройки; `telethon`; `*.session` не попадает в git |
+
+## Как это работает
+
+- **Почему MTProto, а не Bot API.** Бот видит только каналы, где он админ. Пользовательский
+  клиент получает новые посты любого публичного канала, на который подписан аккаунт,
+  примерно за секунду.
+- **Формат событий.** Каждый пост превращается в `NewsEvent`:
+  - `source="telegram"`;
+  - `url=https://t.me/<канал>/<id>`;
+  - `raw_data={"channel", "message_id", "via": "mtproto"}`;
+  - `published_at` — время поста в Telegram, `received_at` — время получения;
+  - `latency_ms` — разница между ними.
+- **Очистка заголовка.** Из текста убираются эмодзи, markdown, ссылки и префиксы
+  «BREAKING:» / «JUST IN:», чтобы дедуп сопоставил пост с той же новостью из RSS или Twitter.
+- **Приоритет над RSS.**
+  - Внутренняя очередь агрегатора стала приоритетной: Telegram и Twitter → 0,
+    Truth Social → 1, NewsAPI → 3, RSS → 4 (`SOURCE_PRIORITY`).
+  - Пачка RSS больше не задерживает быстрый заголовок, а дубль из RSS после Telegram
+    отбрасывается.
+  - Когда настроен быстрый источник, RSS опрашивается раз в 300 с вместо 120.
+- **Безопасность.**
+  - Пайплайн **никогда не логинится**: он только подключается (`connect()`) с готовым
+    файлом сессии.
+  - Если нет `api_id`/`api_hash`, каналов, файла сессии или сессия не авторизована, источник
+    отключается с понятной строкой в логе, а остальное работает дальше.
+  - Если не установлен `telethon` — тоже отключается.
+  - Источник только читает и ничего не отправляет.
+- **Метрики.** `docs/status.json → latency_by_source.telegram` содержит
+  `publish_to_receive_ms_p50/p90` и `receive_to_classify_ms_p50/p90`.
+
+## Каналы по умолчанию
+
+Каждый проверен через веб-превью `t.me/s/<имя>` 29.10.2026; все публиковали посты на этой неделе:
+- `WalterBloomberg` — зеркало ленты @DeItaone;
+- `financialjuice`;
+- `TreeNewsFeed`;
+- `PolymarketIntel`;
+- `WatcherGuru`;
+- `wublockchainenglish`;
+- `unfolded`.
+
+Это сторонние агрегаторы и зеркала, а не первоисточники: заголовки бывают неточными.
+Гейты materiality и подтверждения работают как прежде.
+
+В `.env.example` закомментированы существующие, но не включённые каналы:
+- `PolymarketNews` — реже постит;
+- `cointelegraph` — медленнее;
+- `tree_news` — почти пустой;
+- `BRICSNews` и `disclosetv` — быстрые, но часто непроверенные.
+
+Не существуют или без публичного превью: `FirstSquawk`, `unusual_whales`, `Reuters`,
+`watcher_guru`, `solidintel_x`.
+
+## Настройка (делает Рома сам, один раз)
+
+1. **Получить api_id и api_hash.**
+   - Откройте https://my.telegram.org, войдите по номеру телефона (код придёт в Telegram)
+     и откройте **API development tools**.
+   - Заполните форму: App title (например, `locus-news`), Short name (`locusnews`),
+     Platform — Desktop, остальное можно оставить пустым. Нажмите *Create application*.
+   - Скопируйте **App api_id** (число) и **App api_hash** (строка). Это секреты:
+     никому их не отправляйте и не коммитьте.
+   - Лучше использовать отдельный, второстепенный аккаунт Telegram.
+2. **Вписать их в `.env`** (не в `.env.example`):
+   ```
+   TELEGRAM_API_ID=1234567
+   TELEGRAM_API_HASH=0123456789abcdef0123456789abcdef
+   TELEGRAM_SESSION=telegram_news.session
+   TELEGRAM_NEWS_CHANNELS=WalterBloomberg,financialjuice,TreeNewsFeed,PolymarketIntel,WatcherGuru,wublockchainenglish,unfolded
+   ```
+3. **Установить зависимость:** `pip install telethon` (или `pip install -r requirements.txt`).
+4. **Один раз войти и подписаться на каналы** — в своём терминале:
+   ```
+   python scripts/telegram_login.py --join
+   ```
+   Скрипт спросит номер телефона, код из Telegram и пароль 2FA, если он есть. Он создаст
+   файл `telegram_news.session` и подпишет аккаунт на каналы. MTProto доставляет посты
+   только тех каналов, на которые аккаунт подписан.
+5. **Запуск** как обычно, в paper-режиме: `python cli.py watch`. В логе появится
+   `[telegram-mtproto] listening to @WalterBloomberg, ...`, а в статусе вырастет `tg:`.
+
+**Важно про файл сессии.** Это полный вход в ваш аккаунт Telegram.
+- Храните его только локально; он уже в `.gitignore`, не отправляйте его никому.
+- Чтобы отозвать доступ: Telegram → Настройки → Устройства → завершить сеанс, и удалить файл.
+
+**Риски.**
+- Пользовательский клиент Telegram допускает, но частые вступления в каналы и массовые
+  действия могут вызвать ограничения.
+- Скрипт вступает только в каналы из списка и больше ничего не делает.

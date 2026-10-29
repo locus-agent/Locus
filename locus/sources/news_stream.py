@@ -74,9 +74,16 @@ class SemanticDeduper:
             emb = self._encode(headline)
         except Exception as e:
             log.debug(f"[dedup] encode failed, forwarding headline: {e}")
-            return None  # fail open
+            # fail open for THIS headline, but still remember its exact hash so
+            # a byte-identical copy from a slower source (RSS after Telegram)
+            # is caught even without the embedding model
+            self._recent.append({"embedding": None, "timestamp": now,
+                                 "short_hash": short_hash, "headline": headline})
+            return None
 
         for entry in self._recent:
+            if entry["embedding"] is None:
+                continue
             sim = float(np.dot(emb, entry["embedding"]))
             if sim > self.threshold:
                 return entry, sim
@@ -465,19 +472,56 @@ class NewsAPISource:
             await asyncio.sleep(self.interval)
 
 
+class PriorityNewsQueue:
+    """Queue facade the sources `put` NewsEvents into; `get` returns the
+    highest-priority (config.SOURCE_PRIORITY, lower first) event, FIFO within
+    a priority. A burst of RSS items can no longer delay a Telegram/Twitter
+    headline that arrived after them."""
+
+    def __init__(self):
+        self._q: asyncio.PriorityQueue = asyncio.PriorityQueue()
+        self._seq = 0
+
+    async def put(self, event: "NewsEvent") -> None:
+        self._seq += 1
+        prio = config.SOURCE_PRIORITY.get(event.source, 5)
+        await self._q.put((prio, self._seq, event))
+
+    def put_nowait(self, event: "NewsEvent") -> None:
+        self._seq += 1
+        self._q.put_nowait((config.SOURCE_PRIORITY.get(event.source, 5), self._seq, event))
+
+    async def get(self) -> "NewsEvent":
+        return (await self._q.get())[2]
+
+    def qsize(self) -> int:
+        return self._q.qsize()
+
+    def empty(self) -> bool:
+        return self._q.empty()
+
+
 class NewsAggregator:
     """Runs all news sources concurrently, deduplicates, emits to output queue."""
 
     def __init__(self, output_queue: asyncio.Queue):
+        from locus.sources.telegram_mtproto import TelegramNewsListener
+
         self.output_queue = output_queue
-        self._internal_queue: asyncio.Queue = asyncio.Queue()
+        self._internal_queue = PriorityNewsQueue()
         # Cross-source dedup: semantic (cosine) rather than hash-only, so a story
         # reworded by a second outlet is still caught.
         self._deduper = SemanticDeduper(config.DEDUP_COSINE_THRESHOLD)
 
         self.twitter = TwitterStream(config.TWITTER_BEARER_TOKEN, config.TWITTER_KEYWORDS)
         self.telegram = TelegramMonitor(config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_CHANNEL_IDS)
-        self.rss = RSSFallback(interval_seconds=120)
+        self.telegram_mtproto = TelegramNewsListener(
+            config.TELEGRAM_API_ID, config.TELEGRAM_API_HASH,
+            config.TELEGRAM_SESSION, config.TELEGRAM_NEWS_CHANNELS,
+        )
+        realtime = self.telegram_mtproto.enabled or bool(config.TWITTER_BEARER_TOKEN)
+        self.rss = RSSFallback(interval_seconds=(
+            config.RSS_INTERVAL_WITH_REALTIME_SECONDS if realtime else config.RSS_INTERVAL_SECONDS))
         self.newsapi = NewsAPISource(config.NEWSAPI_KEY, config.NEWSAPI_DAILY_LIMIT)
 
         self.stats = {"twitter": 0, "telegram": 0, "rss": 0, "newsapi": 0, "total": 0, "deduped": 0}
@@ -487,6 +531,7 @@ class NewsAggregator:
         await asyncio.gather(
             supervise("twitter_stream", lambda: self.twitter.stream(self._internal_queue), self.stats),
             supervise("telegram_monitor", lambda: self.telegram.stream(self._internal_queue), self.stats),
+            supervise("telegram_mtproto", lambda: self.telegram_mtproto.stream(self._internal_queue), self.stats),
             supervise("rss_fallback", lambda: self.rss.stream(self._internal_queue), self.stats),
             supervise("newsapi_source", lambda: self.newsapi.stream(self._internal_queue), self.stats),
             supervise("dedup_router", self._dedup_router, self.stats),
@@ -510,6 +555,8 @@ class NewsAggregator:
 
             self.stats[event.source] = self.stats.get(event.source, 0) + 1
             self.stats["total"] += 1
+            from locus.core import latency
+            latency.record_receive(event.source, event.latency_ms)
 
             await self.output_queue.put(event)
 

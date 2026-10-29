@@ -31,7 +31,7 @@ from locus.core.multi_classifier import classify_ensemble, is_low_consensus
 from locus.core import event_context
 from locus.core import passive
 from locus.core import whale_tracker
-from locus.core import orderbook
+from locus.core import latency, orderbook
 from locus.core.orderbook import fetch_orderbook_imbalance, orderbook_allows
 from locus.core.journal import maybe_write_journal, maybe_check_missed_opportunities
 from locus.core import positions
@@ -822,6 +822,13 @@ class PipelineV2:
                     # prefilter -> Sonnet deep when tiered; ensemble/single-model
                     # otherwise). See _classify_with_semaphores.
                     classification = await self._classify_with_semaphores(event, market)
+                    if not getattr(event, "_latency_recorded", False):
+                        # receive -> first classification, per source
+                        latency.record_classified(event.source, event.received_at)
+                        try:
+                            event._latency_recorded = True
+                        except AttributeError:
+                            pass
 
                     # Feed the dashboard's average model-call latency.
                     self.stats["classification_latency_sum_ms"] += classification.latency_ms
