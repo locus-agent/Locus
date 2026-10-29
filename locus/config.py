@@ -166,7 +166,14 @@ RSS_FEEDS = [
 ]
 
 # --- Pipeline Settings ---
-DRY_RUN = os.getenv("DRY_RUN", "true").lower() == "true"
+# Paper mode is the default. Live order placement needs BOTH an explicit
+# DRY_RUN=false (or `watch --live`) AND the acknowledgement
+# LOCUS_LIVE_ACK=I_UNDERSTAND_REAL_MONEY in the environment — a stray
+# DRY_RUN=false copied from someone else's .env can no longer flip the agent
+# into real-money trading on its own.
+LIVE_ACK_PHRASE = "I_UNDERSTAND_REAL_MONEY"
+LIVE_ACK = os.getenv("LOCUS_LIVE_ACK", "") == LIVE_ACK_PHRASE
+DRY_RUN = not (os.getenv("DRY_RUN", "true").lower() == "false" and LIVE_ACK)
 MAX_BET_USD = float(os.getenv("MAX_BET_USD", "25"))
 # Notional bankroll for quarter-Kelly sizing (size = bankroll * kelly / 4,
 # capped at MAX_BET_USD). With the defaults, materiality 1.0 hits the cap.
@@ -224,8 +231,14 @@ FEE_RATES = {
     "technology": 0.04,
     "ai": 0.04,
     "crypto": 0.07,
-    "sports": 0.03,
+    # Taker rates per docs.polymarket.com/trading/fees (checked 2026-10-29):
+    # sports 0.05 (some NFL/NCAAF markets temporarily 0.03), economics,
+    # culture, weather 0.05. Makers pay 0.
+    "sports": 0.05,
     "finance": 0.04,
+    "economics": 0.05,
+    "culture": 0.05,
+    "weather": 0.05,
     "other": 0.05,
 }
 _fee_rates_override = os.getenv("FEE_RATES", "")
@@ -594,7 +607,10 @@ EVOLVE_MAX_RETRIES = int(os.getenv("EVOLVE_MAX_RETRIES", "2"))
 # can publish uptime. None when nothing set it (standalone export, dashboard).
 WATCH_START_TIME = None
 # Auto-commit and push docs/status.json after each pipeline cycle.
-AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"
+# OFF by default: when on, every export cycle git-commits and PUSHES
+# docs/status.json (open positions, PnL, classifications) to origin — i.e. it
+# publishes your book to whatever remote the clone points at.
+AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "false").lower() == "true"
 # Minimum time between auto-pushes, regardless of how often cycles run.
 AUTO_PUSH_MIN_INTERVAL_SECONDS = float(os.getenv("AUTO_PUSH_MIN_INTERVAL_SECONDS", "300"))
 # Display-only filter: when set to an ISO date (e.g. "2026-06-14"), the
@@ -750,3 +766,33 @@ TWITTER_KEYWORDS = [
     # Catch chatter about Trump's Truth Social posts.
     "truth social", "truthsocial",
 ]
+
+
+# --- Safety / execution-quality additions (branch `improvements`) ---
+# Orderbook gate: an unreachable/empty book now BLOCKS the trade (fail closed).
+ORDERBOOK_FAIL_OPEN = os.getenv("ORDERBOOK_FAIL_OPEN", "false").lower() == "true"
+ORDERBOOK_FETCH_TIMEOUT_SECONDS = float(os.getenv("ORDERBOOK_FETCH_TIMEOUT_SECONDS", "3"))
+# Momentum lookups are cached (and run off the event loop) — TTL in seconds.
+MOMENTUM_CACHE_TTL_SECONDS = float(os.getenv("MOMENTUM_CACHE_TTL_SECONDS", "120"))
+
+# Edge model: "calibrated" (p_cal - effective ask - fee, depth-aware, Kelly on
+# p_cal) or "legacy" (materiality * room, Kelly on raw Claude confidence).
+EDGE_MODEL = os.getenv("EDGE_MODEL", "calibrated").lower()
+# Minimum net edge (probability points per share, after fee + slippage).
+CAL_EDGE_THRESHOLD = float(os.getenv("CAL_EDGE_THRESHOLD", "0.04"))
+# Kelly fraction applied to the calibrated full-Kelly stake (0.5 = half Kelly).
+CAL_KELLY_FRACTION = float(os.getenv("CAL_KELLY_FRACTION", "0.5"))
+# Slippage assumed when no book is supplied (backtests/tests only — the live
+# pipeline requires a real book and fails closed without one).
+DEFAULT_SLIPPAGE = float(os.getenv("DEFAULT_SLIPPAGE", "0.01"))
+# Probability calibration (locus/memory/prob_calibration.py)
+CALIBRATION_MIN_CELL = int(os.getenv("CALIBRATION_MIN_CELL", "30"))
+CALIBRATION_PRIOR_STRENGTH = float(os.getenv("CALIBRATION_PRIOR_STRENGTH", "50"))
+CALIBRATION_CACHE_TTL_SECONDS = float(os.getenv("CALIBRATION_CACHE_TTL_SECONDS", "900"))
+
+# Exit ladder (executor.close_position_live): marketable FAK sells walked down
+# the bid book, never below best_bid * (1 - max slippage).
+EXIT_LADDER_STEPS = int(os.getenv("EXIT_LADDER_STEPS", "3"))
+EXIT_MAX_SLIPPAGE_PCT = float(os.getenv("EXIT_MAX_SLIPPAGE_PCT", "8"))
+STOP_LOSS_MAX_SLIPPAGE_PCT = float(os.getenv("STOP_LOSS_MAX_SLIPPAGE_PCT", "20"))
+EXIT_RETRY_DELAY_SECONDS = float(os.getenv("EXIT_RETRY_DELAY_SECONDS", "1.0"))

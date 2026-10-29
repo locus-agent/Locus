@@ -83,8 +83,15 @@ def cmd_watch(args):
     config.WATCH_START_TIME = watch_start_time
 
     if args.live:
-        config.DRY_RUN = False
-        console.print("[red bold]LIVE TRADING ENABLED[/red bold]\n")
+        if not config.LIVE_ACK:
+            console.print(
+                "[red bold]--live refused[/red bold]: set "
+                f"LOCUS_LIVE_ACK={config.LIVE_ACK_PHRASE} to confirm real-money "
+                "trading. Staying in paper (dry-run) mode.\n"
+            )
+        else:
+            config.DRY_RUN = False
+            console.print("[red bold]LIVE TRADING ENABLED[/red bold]\n")
     else:
         console.print("[yellow]Dry-run mode (use --live to trade for real)[/yellow]\n")
 

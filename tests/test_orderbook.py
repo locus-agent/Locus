@@ -1,6 +1,8 @@
 """Orderbook imbalance gate: score math, allow/block logic, and fail-open fetch."""
 import types
 
+import pytest
+
 from locus.core import orderbook
 from locus.core.orderbook import (
     compute_imbalance,
@@ -67,8 +69,15 @@ def test_no_blocked_by_strong_buy_pressure():
     assert orderbook_allows("NO", -0.5) is True         # sell pressure is fine
 
 
-def test_none_score_always_allows():
-    # Fail open: an unavailable book must never block a trade.
+def test_none_score_blocks_by_default():
+    # Fail closed: no book -> no trade (slippage and flow are unknowable).
+    assert orderbook_allows("YES", None) is False
+    assert orderbook_allows("NO", None) is False
+
+
+def test_none_score_allows_when_fail_open_configured(monkeypatch):
+    from locus import config
+    monkeypatch.setattr(config, "ORDERBOOK_FAIL_OPEN", True)
     assert orderbook_allows("YES", None) is True
     assert orderbook_allows("NO", None) is True
 
@@ -93,14 +102,61 @@ def test_fetch_no_token_returns_none():
 
 
 def test_fetch_parses_book(monkeypatch):
-    book = _fake_book([(0.49, 300.0)], [(0.51, 100.0)])
-    monkeypatch.setattr(orderbook, "_clob_client",
-                        lambda: types.SimpleNamespace(get_order_book=lambda t: book))
+    monkeypatch.setattr(orderbook, "_http_get_book", lambda t: {
+        "bids": [{"price": "0.49", "size": "300"}],
+        "asks": [{"price": "0.51", "size": "100"}]})
     assert fetch_orderbook_imbalance("tok") == 0.5
 
 
-def test_fetch_fails_open_on_error(monkeypatch):
-    def boom():
+def test_fetch_error_returns_none_and_gate_blocks(monkeypatch):
+    def boom(t):
         raise RuntimeError("CLOB unreachable")
-    monkeypatch.setattr(orderbook, "_clob_client", boom)
+    monkeypatch.setattr(orderbook, "_http_get_book", boom)
     assert fetch_orderbook_imbalance("tok") is None
+    assert orderbook_allows("YES", fetch_orderbook_imbalance("tok")) is False
+
+
+def test_empty_book_returns_none(monkeypatch):
+    monkeypatch.setattr(orderbook, "_http_get_book", lambda t: {"bids": [], "asks": []})
+    assert fetch_orderbook_imbalance("tok") is None
+
+
+def test_fetch_book_sorts_and_filters(monkeypatch):
+    monkeypatch.setattr(orderbook, "_http_get_book", lambda t: {
+        "bids": [{"price": "0.40", "size": "5"}, {"price": "0.45", "size": "7"},
+                 {"price": "bad", "size": "1"}],
+        "asks": [{"price": "0.60", "size": "3"}, {"price": "0.55", "size": "2"},
+                 {"price": "0.70", "size": "0"}]})
+    book = orderbook.fetch_book("tok")
+    assert book["bids"] == [(0.45, 7.0), (0.40, 5.0)]
+    assert book["asks"] == [(0.55, 2.0), (0.60, 3.0)]
+
+
+def test_side_book_mirrors_no():
+    yes = {"bids": [(0.45, 7.0)], "asks": [(0.55, 2.0)]}
+    no = orderbook.side_book(yes, "NO")
+    assert no["asks"] == [(0.55, 7.0)]
+    assert no["bids"] == [(0.45, 2.0)]
+    assert orderbook.side_book(yes, "YES") is yes
+    assert orderbook.side_book(None, "NO") is None
+
+
+def test_walk_asks_for_usd_crosses_levels():
+    asks = [(0.50, 10.0), (0.60, 100.0)]
+    shares, vwap, spent = orderbook.walk_asks_for_usd(asks, 11.0)
+    # 10 sh @0.50 = $5, then $6 @0.60 = 10 sh -> 20 sh for $11
+    assert shares == pytest.approx(20.0)
+    assert spent == pytest.approx(11.0)
+    assert vwap == pytest.approx(0.55)
+
+
+def test_walk_asks_limited_by_depth():
+    shares, vwap, spent = orderbook.walk_asks_for_usd([(0.5, 4.0)], 100.0)
+    assert shares == 4.0 and spent == pytest.approx(2.0) and vwap == 0.5
+
+
+def test_walk_bids_respects_floor():
+    bids = [(0.50, 10.0), (0.45, 10.0), (0.30, 100.0)]
+    filled, vwap = orderbook.walk_bids_for_shares(bids, 50.0, floor_price=0.44)
+    assert filled == 20.0
+    assert vwap == pytest.approx(0.475)

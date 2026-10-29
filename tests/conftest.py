@@ -47,6 +47,36 @@ def _pin_passive_defaults(monkeypatch):
 
 
 @pytest.fixture(autouse=True)
+def _pin_legacy_models(monkeypatch):
+    """The pre-existing suite was written against the legacy edge model and the
+    single-shot GTC close. Pin those (both still shipped, selectable via
+    EDGE_MODEL=legacy / EXIT_LADDER_STEPS=1) so the old assertions keep
+    testing what they were written for; the new behavior has its own tests
+    (test_calibrated_edge.py, test_exit_ladder.py, ...) which re-enable it."""
+    from locus import config
+
+    monkeypatch.setattr(config, "EDGE_MODEL", "legacy", raising=False)
+    monkeypatch.setattr(config, "EXIT_LADDER_STEPS", 1, raising=False)
+    monkeypatch.setattr(config, "EXIT_RETRY_DELAY_SECONDS", 0.0, raising=False)
+    monkeypatch.setattr(config, "ORDERBOOK_FAIL_OPEN", False, raising=False)
+
+
+@pytest.fixture(autouse=True)
+def _hermetic_book(monkeypatch):
+    """No test may hit the public CLOB /book endpoint. Default to a balanced
+    two-sided book (imbalance 0) so pipeline tests that aren't about the
+    orderbook gate pass it, exactly as they did when the SDK-less fetch
+    returned None and the gate failed open. Orderbook tests override this."""
+    from locus.core import orderbook
+
+    monkeypatch.setattr(
+        orderbook, "_http_get_book",
+        lambda token_id: {"bids": [{"price": "0.49", "size": "100"}],
+                          "asks": [{"price": "0.51", "size": "100"}]},
+    )
+
+
+@pytest.fixture(autouse=True)
 def _disable_momentum(monkeypatch):
     """Keep the momentum hybrid off by default so detect_edge_v2 never reaches
     for the live price-history API during tests. Tests that exercise momentum
