@@ -841,8 +841,13 @@ def _live_close(
         and exit_reason in TOPUP_EXIT_REASONS
         and bool(position.get("token_count"))
     )
-    result = executor.close_position_live(
+    # Exit ladder: marketable FAK sells walked down the bid book under a max
+    # slippage cap (wider for the hard stop / time-pressure exits), with
+    # retries — a resting GTC that never fills can no longer leave a stop-loss
+    # unexecuted.
+    result = executor.close_position_ladder(
         position["condition_id"], position["side"], shares,
+        stop_loss=exit_reason in ("sl", "time_pressure"),
         max_spread=(float("inf") if force else None),
         allow_topup=allow_topup,
     )
