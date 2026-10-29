@@ -30,6 +30,11 @@ from rich.table import Table
 from locus import config
 from locus.core.classifier import classify
 from locus.core.edge import detect_edge_v2
+from locus.backtest.costs import BookModel, buy_cost
+from locus.markets.gamma import _fee_rate_for_category
+
+# Execution-cost model for fills (see locus/backtest/costs.py).
+_BOOK = BookModel()
 from locus.markets.gamma import Market, _infer_category
 from locus.sources.news_stream import NewsEvent
 
@@ -583,6 +588,7 @@ def run_pilot():
             condition_id=c["condition_id"],
             question=c["question"],
             category="crypto",
+            fee_rate=_fee_rate_for_category("crypto", c["question"]),
             yes_price=price_before,
             no_price=round(1.0 - price_before, 4),
             volume=c["volume"],
@@ -636,13 +642,16 @@ def run_pilot():
             entry = 1.0 - price_before
             won = not resolved_yes
 
+        # Fill against the synthetic book (no historical depth is public) and
+        # pay the Polymarket taker fee; hold to resolution (payout has no fee).
+        # Previously PnL assumed a free fill exactly at the historical mid.
         bet = signal.bet_amount
-        if entry <= 0:
+        shares, _vwap, cash_out = buy_cost(
+            _BOOK.side_book(price_before, signal.side), bet, market.fee_rate)
+        if shares <= 0:
             pnl = 0.0
-        elif won:
-            pnl = bet * (1.0 / entry - 1.0)
         else:
-            pnl = -bet
+            pnl = (shares if won else 0.0) - cash_out
 
         trades.append(
             TradeRecord(
