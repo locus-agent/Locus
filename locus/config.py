@@ -846,4 +846,11 @@ CALIBRATION_CACHE_TTL_SECONDS = float(os.getenv("CALIBRATION_CACHE_TTL_SECONDS",
 EXIT_LADDER_STEPS = int(os.getenv("EXIT_LADDER_STEPS", "3"))
 EXIT_MAX_SLIPPAGE_PCT = float(os.getenv("EXIT_MAX_SLIPPAGE_PCT", "8"))
 STOP_LOSS_MAX_SLIPPAGE_PCT = float(os.getenv("STOP_LOSS_MAX_SLIPPAGE_PCT", "20"))
+# time_pressure (a deep loser running into market close) is NOT a stop-loss:
+# it still uses the ladder (a resting GTC that never fills shouldn't carry a
+# position into resolution), but with its own, tighter slippage cap — not
+# STOP_LOSS_MAX_SLIPPAGE_PCT's 20%, which was sized for "flatten at any cost"
+# and would also waive the spread guard (positions._live_close only ignores
+# the spread for exit_reason="sl", never for time_pressure).
+TIME_PRESSURE_MAX_SLIPPAGE_PCT = float(os.getenv("TIME_PRESSURE_MAX_SLIPPAGE_PCT", "10"))
 EXIT_RETRY_DELAY_SECONDS = float(os.getenv("EXIT_RETRY_DELAY_SECONDS", "1.0"))

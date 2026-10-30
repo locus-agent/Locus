@@ -14,6 +14,7 @@ def ladder(monkeypatch):
     monkeypatch.setattr(config, "EXIT_LADDER_STEPS", 3)
     monkeypatch.setattr(config, "EXIT_MAX_SLIPPAGE_PCT", 9.0)
     monkeypatch.setattr(config, "STOP_LOSS_MAX_SLIPPAGE_PCT", 30.0)
+    monkeypatch.setattr(config, "TIME_PRESSURE_MAX_SLIPPAGE_PCT", 12.0)
     monkeypatch.setattr(config, "EXIT_RETRY_DELAY_SECONDS", 0.0)
 
 
@@ -74,6 +75,41 @@ def test_stop_loss_uses_wider_cap_and_ignores_spread(monkeypatch):
     assert [c["slip"] for c in calls] == [pytest.approx(10), pytest.approx(20), pytest.approx(30)]
     assert all(c["max_spread"] == 1.0 for c in calls)
     assert res["status"] == "close_failed"
+
+
+def test_time_pressure_uses_its_own_tighter_cap_and_ignores_spread(monkeypatch):
+    # time_pressure must NOT reuse the stop-loss's 30%-at-step-3 band — it
+    # gets its own, tighter TIME_PRESSURE_MAX_SLIPPAGE_PCT (pinned to 12 by
+    # the `ladder` fixture) — but still ignores the spread guard, same as
+    # stop_loss, so a wide book can't pin a time-pressure exit open.
+    calls = _scripted(monkeypatch, [{"status": "close_failed"}] * 3)
+    res = executor.close_position_ladder("c", "YES", 40.0, time_pressure=True)
+    assert [c["slip"] for c in calls] == [pytest.approx(4), pytest.approx(8), pytest.approx(12)]
+    assert all(c["max_spread"] == 1.0 for c in calls)
+    assert res["status"] == "close_failed"
+
+
+def test_time_pressure_and_stop_loss_use_different_slippage_bands(monkeypatch):
+    # Regression guard for the original bug: time_pressure and stop_loss must
+    # diverge (previously both mapped to the same stop_loss=True branch).
+    sl_calls = _scripted(monkeypatch, [{"status": "close_failed"}] * 3)
+    executor.close_position_ladder("c", "YES", 40.0, stop_loss=True)
+    tp_calls = _scripted(monkeypatch, [{"status": "close_failed"}] * 3)
+    executor.close_position_ladder("c", "YES", 40.0, time_pressure=True)
+    assert [c["slip"] for c in sl_calls] != [c["slip"] for c in tp_calls]
+    assert sl_calls[-1]["slip"] == pytest.approx(30)   # STOP_LOSS_MAX_SLIPPAGE_PCT
+    assert tp_calls[-1]["slip"] == pytest.approx(12)   # TIME_PRESSURE_MAX_SLIPPAGE_PCT
+
+
+def test_plain_exit_ignores_neither_stop_loss_nor_time_pressure_band(monkeypatch):
+    # Neither flag set (take-profit style ladder use, if ever routed there) —
+    # EXIT_MAX_SLIPPAGE_PCT and the spread guard both apply normally.
+    calls = _scripted(monkeypatch, [{"status": "skipped_wide_spread"}])
+    res = executor.close_position_ladder("c", "YES", 40.0)
+    assert calls[0]["slip"] == pytest.approx(3.0)   # EXIT_MAX_SLIPPAGE_PCT/3 at step 1
+    assert calls[0]["max_spread"] is None            # spread guard NOT waived
+    assert res["status"] == "skipped_wide_spread"
+    assert len(calls) == 1                           # wide-spread stops a non-stop/non-tp ladder
 
 
 def test_error_stops_ladder(monkeypatch):
@@ -312,11 +348,17 @@ def _close_via(monkeypatch, tmp_db, exit_reason, status="closed_x", fraction=1.0
 def test_stop_loss_uses_ladder(tmp_db, monkeypatch):
     ladder_calls, live_calls = _close_via(monkeypatch, tmp_db, "sl")
     assert len(ladder_calls) == 1 and len(live_calls) == 0
+    assert ladder_calls[0][1]["stop_loss"] is True
+    assert ladder_calls[0][1]["time_pressure"] is False
 
 
 def test_time_pressure_uses_ladder(tmp_db, monkeypatch):
     ladder_calls, live_calls = _close_via(monkeypatch, tmp_db, "time_pressure")
     assert len(ladder_calls) == 1 and len(live_calls) == 0
+    # The original bug: time_pressure was dispatched with stop_loss=True,
+    # silently inheriting the stop-loss's wider slippage band.
+    assert ladder_calls[0][1]["stop_loss"] is False
+    assert ladder_calls[0][1]["time_pressure"] is True
 
 
 @pytest.mark.parametrize("exit_reason", [

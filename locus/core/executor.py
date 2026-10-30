@@ -914,24 +914,35 @@ def _order_fill_price(client, order_id: str) -> float | None:
 
 def close_position_ladder(
     condition_id: str, side: str, shares: float, *, stop_loss: bool = False,
-    max_spread: float | None = None, allow_topup: bool = False,
+    time_pressure: bool = False, max_spread: float | None = None,
+    allow_topup: bool = False,
 ) -> dict:
     """Exit via a ladder of marketable FAK sells walking down the bid book.
 
-    Step k of EXIT_LADDER_STEPS allows k/N of the max slippage
-    (STOP_LOSS_MAX_SLIPPAGE_PCT for stop-losses, else EXIT_MAX_SLIPPAGE_PCT)
-    below the best bid at that moment. A partial fill continues with the
-    remainder at the next step; an unfilled/failed step retries after
-    EXIT_RETRY_DELAY_SECONDS. Non-retryable statuses (error_*, wide spread on a
-    non-stop exit) stop the ladder. Stop-losses ignore the spread guard — the
-    slippage floor is their protection — so a wide book can no longer pin a
-    losing position open.
+    Step k of EXIT_LADDER_STEPS allows k/N of the max slippage below the best
+    bid at that moment: STOP_LOSS_MAX_SLIPPAGE_PCT for `stop_loss`,
+    TIME_PRESSURE_MAX_SLIPPAGE_PCT for `time_pressure` (deliberately tighter
+    than the stop-loss cap — time_pressure is "running out of time to flatten
+    cleanly", not "flatten at any cost"), else EXIT_MAX_SLIPPAGE_PCT. A
+    partial fill continues with the remainder at the next step; an
+    unfilled/failed step retries after EXIT_RETRY_DELAY_SECONDS.
+    Non-retryable statuses (error_*, wide spread on neither stop_loss nor
+    time_pressure) stop the ladder. Both stop_loss and time_pressure ignore
+    the spread guard — the slippage floor is their protection, and for
+    time_pressure specifically a wide-but-skipped book would otherwise leave
+    the position open right into resolution.
 
     Returns the close_position_live result shape. With EXIT_LADDER_STEPS=1 the
     single step's result is returned unchanged."""
-    max_slip = config.STOP_LOSS_MAX_SLIPPAGE_PCT if stop_loss else config.EXIT_MAX_SLIPPAGE_PCT
+    if stop_loss:
+        max_slip = config.STOP_LOSS_MAX_SLIPPAGE_PCT
+    elif time_pressure:
+        max_slip = config.TIME_PRESSURE_MAX_SLIPPAGE_PCT
+    else:
+        max_slip = config.EXIT_MAX_SLIPPAGE_PCT
+    ignore_spread_guard = stop_loss or time_pressure
     steps = max(1, int(config.EXIT_LADDER_STEPS))
-    if stop_loss and max_spread is None:
+    if ignore_spread_guard and max_spread is None:
         max_spread = 1.0
     remaining = shares
     sold_total = proceeds = topup_cost = topup_shares = 0.0
@@ -960,7 +971,7 @@ def close_position_ladder(
             if remaining < CLOSE_DUST_SHARES:
                 break
             continue
-        if status.startswith("error") or (status == "skipped_wide_spread" and not stop_loss):
+        if status.startswith("error") or (status == "skipped_wide_spread" and not ignore_spread_guard):
             break
         if status == "close_failed" and _is_balance_error(res.get("error")):
             # Rejected against our own holding/allowance, not the book — a

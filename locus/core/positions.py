@@ -866,7 +866,8 @@ def _live_close(
         # before the ladder existed.
         result = executor.close_position_ladder(
             position["condition_id"], position["side"], shares,
-            stop_loss=exit_reason in ("sl", "time_pressure"),
+            stop_loss=exit_reason == "sl",
+            time_pressure=exit_reason == "time_pressure",
             max_spread=(float("inf") if force else None),
             allow_topup=allow_topup,
         )
