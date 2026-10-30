@@ -384,13 +384,24 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
     # Performance + dynamic-Kelly sizing snapshot: recent realized win rate over
     # the last KELLY_WINRATE_LOOKBACK closes and the multiplier it currently maps
     # to (see edge.winrate_factor / size_position).
-    perf = compute_performance(current_prices)
+    #
+    # LIVE ONLY — this feeds the dashboard's headline performance number, and
+    # a dry-run (paper) fill never moved real money, so it must never inflate
+    # or dilute the real track record. Paper gets its own clearly-labeled
+    # field (performance_paper) below, computed the same way but never
+    # merged into `perf`.
+    perf = compute_performance(current_prices, mode="live")
     recent_wr = memory.get_recent_winrate(config.KELLY_WINRATE_LOOKBACK)
     perf["recent_winrate"] = round(recent_wr, 4)
     perf["kelly_factor"] = round(edge.winrate_factor(recent_wr), 4)
     perf["winrate_lookback"] = config.KELLY_WINRATE_LOOKBACK
     # Mean model-call latency across classifications this run (pipeline-tracked).
     perf["avg_classification_latency_ms"] = round(avg_classification_latency_ms, 1)
+
+    # Paper (dry-run) performance — informative only, never substituted for
+    # `perf` above. recent_winrate/kelly_factor are a live-only concept (they
+    # drive real position sizing), so they're intentionally absent here.
+    perf_paper = compute_performance(current_prices, mode="paper")
 
     status = {
         "generated_at": now.isoformat(),
@@ -399,7 +410,11 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
         "dry_run": config.DRY_RUN,
         "markets_tracked": markets_tracked,
         "classify_error_streak": classify_error_streak,
-        "track_record": memory.get_track_record(),
+        # LIVE ONLY, same reasoning as `perf` above — classifier accuracy on
+        # real trades, never diluted by simulated dry-run fills. See
+        # track_record_paper below for the simulated counterpart.
+        "track_record": memory.get_track_record(mode="live"),
+        "track_record_paper": memory.get_track_record(mode="paper"),
         # Accuracy by entry-price bucket. Cached inside the calibrator and only
         # recomputed when a calibration run grades new rows, so the 30s export
         # cycle stays cheap.
@@ -458,6 +473,10 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "trades": logger.get_trade_count_since(since_24h),
         },
         "performance": perf,
+        # Simulated (dry-run) performance, reported separately so it's never
+        # mistaken for real results — see the "paper" mode docstrings on
+        # compute_performance/get_track_record.
+        "performance_paper": perf_paper,
         "live_readiness": compute_live_readiness(),
         "circuit_breaker": {
             "triggered": cb["triggered"],

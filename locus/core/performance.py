@@ -983,8 +983,20 @@ def _fetch_current_yes_price(condition_id: str) -> float | None:
     return None
 
 
-def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
+def compute_performance(current_prices: dict[str, float] | None = None,
+                        mode: str = "all") -> dict:
     """Aggregate the positions table into a performance summary.
+
+    `mode` ("all" default, or "live"/"paper") splits by the position's
+    ORIGINATING trade's status (trades.status via positions.trade_id — same
+    join and semantics as calibration_report's `mode`): "live" keeps only
+    trade_status in ('executed', 'filled') — real on-chain fills; "paper"
+    keeps only trade_status='dry_run' — simulated, never real money. A
+    position with no linked trade at all (trade_id IS NULL) is excluded from
+    both "live" and "paper" (unknowable which it was), only ever counted
+    under "all". Existing callers (journal.py, telegram_bot.py) keep the
+    unfiltered "all" default; export_status.py calls "live"/"paper"
+    explicitly for the dashboard's separated figures.
 
     Realized PnL sums realized_pnl_usd over all positions (including
     partial close_half realizations on still-open ones); wins (realized PnL
@@ -994,12 +1006,23 @@ def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
     positions at current_prices when given, else the position's stored
     mark, else a Gamma fetch, else entry (zero contribution).
     """
-    trades = logger.get_trades_for_performance()
+    if mode not in ("live", "paper", "all"):
+        raise ValueError(f"compute_performance: unknown mode {mode!r}")
+    all_trades = logger.get_trades_for_performance()
+    trade_status_by_id = {t["id"]: t["status"] for t in all_trades}
+    trades = all_trades
     current_prices = dict(current_prices or {})
 
     conn = logger._conn()
     rows = [dict(r) for r in conn.execute("SELECT * FROM positions").fetchall()]
     conn.close()
+
+    if mode != "all":
+        wanted = {"dry_run"} if mode == "paper" else {"executed", "filled"}
+        def _matches(trade_id):
+            return trade_status_by_id.get(trade_id) in wanted
+        rows = [p for p in rows if _matches(p.get("trade_id"))]
+        trades = [t for t in trades if _matches(t["id"])]
 
     # Display-only window for the dashboard performance panel: when set, scope
     # every metric below to positions opened on or after PERFORMANCE_START_DATE
@@ -1033,6 +1056,7 @@ def compute_performance(current_prices: dict[str, float] | None = None) -> dict:
             unrealized += position_pnl_basis(p, price_now)
 
     return {
+        "mode": mode,
         "trades_total": len(trades),
         "deployed_usd": round(deployed, 2),
         "open_count": len(open_rows),

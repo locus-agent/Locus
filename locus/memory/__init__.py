@@ -40,7 +40,9 @@ Respond with ONLY the lesson text — no preamble, no JSON."""
 
 
 TRACK_RECORD_TTL_SECONDS = 300.0
-_track_record_cache: tuple[float, dict] | None = None
+# Keyed by mode ("all"/"live"/"paper") since get_track_record's result now
+# depends on it; each entry is (monotonic timestamp, result dict).
+_track_record_cache: dict[str, tuple[float, dict]] | None = None
 
 
 def invalidate_track_record_cache() -> None:
@@ -49,27 +51,46 @@ def invalidate_track_record_cache() -> None:
     _track_record_cache = None
 
 
-def get_track_record() -> dict:
+def get_track_record(mode: str = "all") -> dict:
     """
     Summarize the `calibration` table: total resolved classifications,
     overall accuracy, and accuracy broken down by market category and news source.
 
-    Cached for TRACK_RECORD_TTL_SECONDS — this runs on every classify call
-    (~1,500/day), and the underlying tables only change when the calibrator
-    runs (which invalidates the cache explicitly).
+    `mode` ("all" default, or "live"/"paper") splits the trade-linked
+    calibration rows by their trade's status (trades.status — 'executed'/
+    'filled' is live, 'dry_run' is paper; same semantics as
+    performance.compute_performance's `mode`). The non-traded
+    classification_grades rows (no trade_id at all — a headline that was
+    classified but never traded) carry no live/paper status and are only
+    ever included under mode="all". Existing callers (classifier.py's prompt
+    context, calibrator.py, the TUI, cli.py calibrate) keep the unfiltered
+    "all" default — classifier accuracy feedback is valid signal regardless
+    of whether a given historical trade moved real or simulated money;
+    export_status.py calls "live"/"paper" explicitly for the dashboard's
+    separated figures.
+
+    Cached for TRACK_RECORD_TTL_SECONDS per mode — this runs on every classify
+    call (~1,500/day), and the underlying tables only change when the
+    calibrator runs (which invalidates the cache explicitly).
     """
+    if mode not in ("live", "paper", "all"):
+        raise ValueError(f"get_track_record: unknown mode {mode!r}")
     global _track_record_cache
-    if (
-        _track_record_cache is not None
-        and time.monotonic() - _track_record_cache[0] < TRACK_RECORD_TTL_SECONDS
-    ):
-        return _track_record_cache[1]
+    cached = _track_record_cache.get(mode) if _track_record_cache else None
+    if cached is not None and time.monotonic() - cached[0] < TRACK_RECORD_TTL_SECONDS:
+        return cached[1]
 
     rows = logger.get_calibration_with_trades()
-    # Non-traded directional classifications graded against the market's
-    # later price move — same shape (market_question, news_source, correct),
-    # ~100x the sample size of trade-only grading.
-    rows = rows + logger.get_classification_grades_with_meta()
+    if mode == "live":
+        rows = [r for r in rows if r.get("trade_status") in ("executed", "filled")]
+    elif mode == "paper":
+        rows = [r for r in rows if r.get("trade_status") == "dry_run"]
+    else:
+        # Non-traded directional classifications graded against the market's
+        # later price move — same shape (market_question, news_source,
+        # correct), ~100x the sample size of trade-only grading. No trade
+        # link at all, so only meaningful when pooling everything.
+        rows = rows + logger.get_classification_grades_with_meta()
 
     by_category: dict[str, list[int]] = {}
     by_source: dict[str, list[int]] = {}
@@ -84,12 +105,15 @@ def get_track_record() -> dict:
         return round(sum(values) / len(values) * 100, 1) if values else 0.0
 
     result = {
+        "mode": mode,
         "total": len(rows),
         "accuracy": _pct([r["correct"] for r in rows]),
         "by_category": {cat: _pct(vals) for cat, vals in by_category.items()},
         "by_source": {src: _pct(vals) for src, vals in by_source.items()},
     }
-    _track_record_cache = (time.monotonic(), result)
+    if _track_record_cache is None:
+        _track_record_cache = {}
+    _track_record_cache[mode] = (time.monotonic(), result)
     return result
 
 

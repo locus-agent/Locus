@@ -258,6 +258,28 @@
     margin-top: 8px;
   }
 
+  .perf-paper-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dotted var(--row-border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .paper-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
+    border-radius: 3px;
+    padding: 1px 5px;
+    text-transform: uppercase;
+  }
+
   /* Live readiness */
   .readiness-head {
     display: flex;
@@ -811,7 +833,7 @@
 
   <section class="block">
     <div class="panel">
-      <div class="panel-title" id="perf-title">Performance (dry run)</div>
+      <div class="panel-title" id="perf-title">Performance — Live</div>
       <div class="perf-grid">
         <div class="perf-cell">
           <div class="perf-label">Trades</div>
@@ -849,7 +871,11 @@
           <div class="perf-sub">per model call, this run</div>
         </div>
       </div>
-      <div class="perf-note">simulated fills at last price, no fees/slippage · Kelly size = ½-Kelly × win-rate factor</div>
+      <div class="perf-note">Real on-chain fills only · simulated fills at last price, no fees/slippage · Kelly size = ½-Kelly × win-rate factor</div>
+      <div class="perf-paper-badge" id="perf-paper-badge">
+        <span class="paper-tag">PAPER</span>
+        <span id="perf-paper-summary">—</span>
+      </div>
     </div>
   </section>
 
@@ -1254,8 +1280,10 @@
   }
 
   function renderPerformance(status) {
-    document.getElementById('perf-title').textContent =
-      'Performance ' + (status.dry_run ? '(dry run)' : '(live)');
+    // status.performance is always LIVE-ONLY (real on-chain fills) now,
+    // independent of whether the agent is CURRENTLY configured for dry-run
+    // trading — see export_status.py's compute_performance(mode="live").
+    document.getElementById('perf-title').textContent = 'Performance — Live';
 
     const p = status.performance || {};
     document.getElementById('perf-trades').textContent = p.trades_total ?? '—';
@@ -1306,6 +1334,21 @@
       (lat === null || lat === undefined || lat === 0)
         ? '—'
         : Math.round(lat) + ' ms';
+
+    // Paper (dry-run, simulated) performance — never mixed into the live
+    // figures above; see export_status.py's performance_paper field.
+    const pp = status.performance_paper || {};
+    const ppEl = document.getElementById('perf-paper-summary');
+    if (!pp.trades_total) {
+      ppEl.textContent = 'no simulated trades yet';
+    } else {
+      const [ppTxt] = fmtPnl(pp.realized_pnl_usd);
+      ppEl.textContent =
+        pp.trades_total + ' simulated trade' + (pp.trades_total === 1 ? '' : 's') +
+        ' · ' + (pp.closed_count ?? 0) + ' closed · ' +
+        (pp.win_rate_pct == null ? 'win rate —' : pp.win_rate_pct.toFixed(1) + '% win rate') +
+        ' · ' + ppTxt + ' simulated PnL (never real money)';
+    }
   }
 
   function edgeBadge(type) {

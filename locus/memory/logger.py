@@ -543,10 +543,12 @@ def set_meta(key: str, value: str) -> None:
 
 
 def get_trades_for_performance() -> list[dict]:
-    """Real (dry-run or live) trades with the fields PnL math needs."""
+    """Real (dry-run or live) trades with the fields PnL math needs.
+    `status` is included so callers can split live (executed/filled) from
+    paper (dry_run) — see performance.compute_performance's `mode` param."""
     conn = _conn()
     rows = conn.execute(
-        """SELECT id, market_id, side, amount_usd, market_price
+        """SELECT id, market_id, side, amount_usd, market_price, status
            FROM trades WHERE status IN ('dry_run', 'executed', 'filled')"""
     ).fetchall()
     conn.close()
@@ -798,11 +800,13 @@ def get_classification_grades_with_meta() -> list[dict]:
 
 
 def get_calibration_with_trades() -> list[dict]:
-    """Resolved calibration records joined with their trade's question and news source."""
+    """Resolved calibration records joined with their trade's question, news
+    source, and status (trades.status — 'dry_run' is paper, 'executed'/
+    'filled' is live; see memory.get_track_record's `mode` param)."""
     conn = _conn()
     rows = conn.execute("""
         SELECT c.trade_id, c.classification, c.correct,
-               t.market_question, t.news_source
+               t.market_question, t.news_source, t.status AS trade_status
         FROM calibration c
         JOIN trades t ON c.trade_id = t.id
         WHERE c.correct IS NOT NULL
