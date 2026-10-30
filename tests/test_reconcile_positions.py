@@ -71,8 +71,9 @@ def _status(tmp_db, condition_id: str) -> str:
 
 
 def test_ok_position(tmp_db, monkeypatch):
+    # $25 at 0.50 -> the DB expects 50 shares; the chain agrees.
     _open(tmp_db, "c_ok")
-    _holdings(monkeypatch, {"c_ok": 60.0})
+    _holdings(monkeypatch, {"c_ok": 50.0})
 
     report = positions.reconcile_positions(fix=False, client=CLIENT)
 
@@ -81,7 +82,8 @@ def test_ok_position(tmp_db, monkeypatch):
     assert report["market_closed"] == []
     entry = report["entries"][0]
     assert entry["line"].startswith("OK:")
-    assert "held=60 tokens — matches DB" in entry["line"]
+    assert "held=50 tokens — matches DB" in entry["line"]
+    assert entry["expected"] == 50.0
     assert entry["market_state"] == "open"
     assert "market OPEN" in entry["line"]
 
@@ -197,7 +199,7 @@ def test_mixed_book_only_mismatch_closed(tmp_db, monkeypatch):
     _open(tmp_db, "c_ok")
     _open(tmp_db, "c_phantom")
     _open(tmp_db, "c_unknown")
-    _holdings(monkeypatch, {"c_ok": 12.0, "c_phantom": 0.0, "c_unknown": None})
+    _holdings(monkeypatch, {"c_ok": 50.0, "c_phantom": 0.0, "c_unknown": None})
 
     report = positions.reconcile_positions(fix=True, client=CLIENT)
 
@@ -228,7 +230,7 @@ def test_closed_market_flagged_but_never_auto_closed(tmp_db, monkeypatch):
     # touch it — the tokens may still be claimable at resolution.
     _open(tmp_db, "c_closedmkt")
     pid = positions.get_open_positions()[0]["id"]
-    _holdings(monkeypatch, {"c_closedmkt": 40.0})
+    _holdings(monkeypatch, {"c_closedmkt": 50.0})
     _gamma_states(monkeypatch, {"c_closedmkt": True})
 
     report = positions.reconcile_positions(fix=True, client=CLIENT)
@@ -245,7 +247,7 @@ def test_closed_market_flagged_but_never_auto_closed(tmp_db, monkeypatch):
 
 def test_market_not_found_reported(tmp_db, monkeypatch):
     _open(tmp_db, "c_gone")
-    _holdings(monkeypatch, {"c_gone": 10.0})
+    _holdings(monkeypatch, {"c_gone": 50.0})
     _gamma_states(monkeypatch, {"c_gone": None})  # absent from Gamma's response
 
     report = positions.reconcile_positions(fix=False, client=CLIENT)
@@ -275,7 +277,7 @@ def test_gamma_fetch_failure_reports_not_found(tmp_db, monkeypatch):
     # A Gamma outage must not break reconciliation: the balance check still
     # runs, and every market reads NOT FOUND (report-only, nothing closed).
     _open(tmp_db, "c_outage")
-    _holdings(monkeypatch, {"c_outage": 5.0})
+    _holdings(monkeypatch, {"c_outage": 50.0})
     monkeypatch.setattr(
         positions.gamma, "fetch_markets_by_condition_ids",
         lambda ids: (_ for _ in ()).throw(RuntimeError("gamma down")),
@@ -285,3 +287,71 @@ def test_gamma_fetch_failure_reports_not_found(tmp_db, monkeypatch):
 
     assert report["ok"] and report["fixed"] == []
     assert report["entries"][0]["market_state"] == "not_found"
+
+
+# --- Relative tolerance (holding_matches): >1% or >0.5 tokens is a MISMATCH ---
+
+
+def _set_token_count(tmp_db, condition_id: str, token_count: float) -> None:
+    conn = tmp_db._conn()
+    conn.execute("UPDATE positions SET token_count=? WHERE condition_id=?",
+                 (token_count, condition_id))
+    conn.commit()
+    conn.close()
+
+
+def test_partial_divergence_is_mismatch_but_never_auto_closed(tmp_db, monkeypatch):
+    # The position-57 case: the DB believes 1.995 tokens are held, the chain
+    # holds 0.005 — a 99.7% divergence must read MISMATCH, but --fix must NOT
+    # close it (held > 0 is real exposure, only held==0 phantoms are fixable).
+    _open(tmp_db, "c_lepen")
+    pid = positions.get_open_positions()[0]["id"]
+    _set_token_count(tmp_db, "c_lepen", 1.995)
+    _holdings(monkeypatch, {"c_lepen": 0.005})
+
+    report = positions.reconcile_positions(fix=True, client=CLIENT)
+
+    assert report["mismatches"] == [pid]
+    assert report["fixed"] == []
+    entry = report["entries"][0]
+    assert entry["state"] == "mismatch"
+    assert entry["held"] == 0.005 and entry["expected"] == 1.995
+    assert "NOT auto-closed" in entry["line"]
+    assert "99.7% off" in entry["line"]
+    assert _status(tmp_db, "c_lepen") == "open"
+
+
+def test_rounding_dust_within_tolerance_is_ok(tmp_db, monkeypatch):
+    # 34.9 held vs 35 expected: 0.1 tokens / 0.29% — CLOB size-snapping dust.
+    _open(tmp_db, "c_dust")
+    _set_token_count(tmp_db, "c_dust", 35.0)
+    _holdings(monkeypatch, {"c_dust": 34.9})
+
+    report = positions.reconcile_positions(fix=True, client=CLIENT)
+
+    assert report["ok"] == [positions.get_open_positions()[0]["id"]]
+    assert report["mismatches"] == [] and report["fixed"] == []
+
+
+def test_excess_on_chain_is_also_mismatch(tmp_db, monkeypatch):
+    # More on-chain than the DB knows about (untracked fill) diverges too.
+    _open(tmp_db, "c_excess")
+    pid = positions.get_open_positions()[0]["id"]
+    _set_token_count(tmp_db, "c_excess", 50.0)
+    _holdings(monkeypatch, {"c_excess": 55.0})
+
+    report = positions.reconcile_positions(fix=True, client=CLIENT)
+
+    assert report["mismatches"] == [pid] and report["fixed"] == []
+    assert _status(tmp_db, "c_excess") == "open"
+
+
+def test_holding_matches_bounds():
+    # Within both bounds -> ok.
+    assert positions.holding_matches(100.0, 99.6)      # 0.4 sh, 0.4%
+    assert positions.holding_matches(35.0, 34.9)       # 0.1 sh, 0.29%
+    # Absolute bound: > 0.5 tokens fails even when the % is tiny.
+    assert not positions.holding_matches(100.0, 99.4)  # 0.6 sh, 0.6%
+    # Relative bound: > 1% fails even when the share gap is below 0.5.
+    assert not positions.holding_matches(10.0, 9.6)    # 0.4 sh, 4%
+    assert not positions.holding_matches(1.995, 0.005)  # position 57

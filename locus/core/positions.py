@@ -1360,19 +1360,49 @@ def _mark_reconciled_closed(conn, position_id: int) -> None:
     )
 
 
-def _verify_position_holding(client, position: dict) -> tuple[str, float | None]:
+# Tolerance for DB-vs-on-chain share comparison: a divergence is a MISMATCH
+# when it exceeds EITHER bound (position 57 sat at 1.995 in the DB vs 0.005
+# on-chain and still read OK under the old held>0 rule). Below both bounds is
+# rounding dust from CLOB size snapping, not missing accounting.
+RECONCILE_TOLERANCE_PCT = 0.01     # 1% of the expected holding
+RECONCILE_TOLERANCE_SHARES = 0.5   # absolute share gap
+
+
+def holding_matches(expected: float, held: float) -> bool:
+    """Whether an on-chain holding agrees with the DB's expected share count,
+    within the reconcile tolerance (diff <= 1% of expected AND <= 0.5 tokens).
+    Excess on-chain is judged by the same bounds as a deficit."""
+    diff = abs(expected - held)
+    if diff > RECONCILE_TOLERANCE_SHARES:
+        return False
+    if expected > 0 and diff / expected > RECONCILE_TOLERANCE_PCT:
+        return False
+    return True
+
+
+def _verify_position_holding(client, position: dict) -> tuple[str, float | None, float]:
     """Verify one open position against its real on-chain token balance.
 
     Resolves the position's outcome token_id from its condition_id/side, then
-    asks the exchange for the held share count. Returns (state, held):
-      - ("ok", shares)        held > 0 — genuinely open
-      - ("mismatch", 0.0)     held == 0 — DB says open, exchange holds nothing
-      - ("unknown", None)     balance couldn't be verified (no client, token
-                              unresolved, or held_token_shares returned None —
-                              e.g. the client lacks the call); never auto-closed
+    asks the exchange for the held share count and compares it with the share
+    count the DB believes it holds (token_count when recorded, else the legacy
+    amount/entry derivation). Returns (state, held, expected):
+      - ("ok", shares, expected)       held agrees with the DB within the
+                                       reconcile tolerance (holding_matches)
+      - ("mismatch", held, expected)   held == 0 (a phantom open — the only
+                                       auto-fixable case) or held diverges from
+                                       the DB by more than the tolerance
+      - ("unknown", None, expected)    balance couldn't be verified (no client,
+                                       token unresolved, or held_token_shares
+                                       returned None); never auto-closed
     """
+    expected = position_shares(
+        position["side"], position["entry_yes_price"],
+        position.get("amount_usd") or 0.0,
+        token_count=position.get("token_count"),
+    )
     if client is None:
-        return "unknown", None
+        return "unknown", None, expected
     try:
         token_id = executor._resolve_token_id(
             client, position["condition_id"], position["side"]
@@ -1380,16 +1410,18 @@ def _verify_position_holding(client, position: dict) -> tuple[str, float | None]
     except Exception as e:
         log.warning("[positions] reconcile: token resolve failed for position %s (%s)",
                     position["id"], e)
-        return "unknown", None
+        return "unknown", None, expected
     if not token_id:
-        return "unknown", None
+        return "unknown", None, expected
 
     held = executor.held_token_shares(client, token_id)
     if held is None:
-        return "unknown", None
+        return "unknown", None, expected
     if held <= 0:
-        return "mismatch", 0.0
-    return "ok", held
+        return "mismatch", 0.0, expected
+    if not holding_matches(expected, held):
+        return "mismatch", held, expected
+    return "ok", held, expected
 
 
 def reconcile_positions(fix: bool = False, client=None) -> dict:
@@ -1398,11 +1430,16 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
     For each status='open' position, check the real held token balance via
     executor.held_token_shares. A position the exchange holds nothing for is a
     MISMATCH (a phantom open — e.g. an order that never actually filled, or a
-    close that updated the chain but not the DB). A position with a positive
-    balance is OK. A position whose balance can't be verified (no CLOB client,
-    token unresolved, or the client lacks the balance call) is UNKNOWN and is
-    NEVER auto-closed — reconciliation only ever closes positions it has
-    positively confirmed are empty.
+    close that updated the chain but not the DB). A position whose balance
+    diverges from the DB's expected share count by more than the reconcile
+    tolerance (holding_matches: >1% of expected or >0.5 tokens) is ALSO a
+    MISMATCH — but only the held==0 phantom is auto-fixable; a diverging
+    nonzero holding is real exposure that must be resolved by hand (partial
+    untracked sell, untracked fill), so `fix=True` never touches it. Within
+    tolerance is OK. A position whose balance can't be verified (no CLOB
+    client, token unresolved, or the client lacks the balance call) is UNKNOWN
+    and is NEVER auto-closed — reconciliation only ever closes positions it
+    has positively confirmed are empty.
 
     Each position's Gamma market status is also checked (one batch fetch):
     "market OPEN" (closed=False), "market CLOSED" (closed=True), or "market NOT
@@ -1411,13 +1448,13 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
     resolution, so `fix=True` NEVER auto-closes it; it is only flagged loudly
     (report key "market_closed"). Only the held==0 MISMATCH is auto-fixable.
 
-    `fix=False` (default) reports only. `fix=True` closes each MISMATCH as
-    closed_reconciled / reconcile_mismatch, realizing nothing further (prior
-    partial realizations on the row are preserved). `client` is the
-    CLOB client; built via executor.create_clob_client() when omitted (injectable
-    for tests). Returns a report dict:
-        {"entries": [{"id", "market_question", "state", "held", "market_state",
-                      "line"}, ...],
+    `fix=False` (default) reports only. `fix=True` closes each held==0 phantom
+    MISMATCH as closed_reconciled / reconcile_mismatch, realizing nothing
+    further (prior partial realizations on the row are preserved). `client` is
+    the CLOB client; built via executor.create_clob_client() when omitted
+    (injectable for tests). Returns a report dict:
+        {"entries": [{"id", "market_question", "state", "held", "expected",
+                      "market_state", "line"}, ...],
          "ok": [ids], "mismatches": [ids], "unknown": [ids],
          "market_closed": [ids], "fixed": [ids]}
     """
@@ -1446,15 +1483,26 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
     unknown_ids: list[int] = []
     market_closed_ids: list[int] = []
 
+    phantom_ids: list[int] = []
     for position in open_positions:
         pid = position["id"]
-        state, held = _verify_position_holding(client, position)
+        state, held, expected = _verify_position_holding(client, position)
         if state == "ok":
             ok_ids.append(pid)
             line = f"OK: ID={pid} held={held:g} tokens — matches DB"
         elif state == "mismatch":
             mismatch_ids.append(pid)
-            line = f"MISMATCH: ID={pid} DB says open but held=0 on Polymarket"
+            if held == 0.0:
+                phantom_ids.append(pid)
+                line = f"MISMATCH: ID={pid} DB says open but held=0 on Polymarket"
+            else:
+                off_pct = (abs(expected - held) / expected * 100.0
+                           if expected > 0 else float("inf"))
+                line = (
+                    f"MISMATCH: ID={pid} DB expects {expected:g} tokens but "
+                    f"held={held:g} on Polymarket ({off_pct:.1f}% off) — "
+                    f"NOT auto-closed, resolve by hand"
+                )
         else:
             unknown_ids.append(pid)
             line = f"UNKNOWN: could not verify ID={pid}"
@@ -1481,15 +1529,16 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
             "market_question": position["market_question"],
             "state": state,
             "held": held,
+            "expected": expected,
             "market_state": market_state,
             "line": line,
         })
 
     fixed_ids: list[int] = []
-    if fix and mismatch_ids:
+    if fix and phantom_ids:
         conn = logger._conn()
         try:
-            for pid in mismatch_ids:
+            for pid in phantom_ids:
                 _mark_reconciled_closed(conn, pid)
                 fixed_ids.append(pid)
                 log.info("[positions] reconcile FIX: position %s closed_reconciled "
