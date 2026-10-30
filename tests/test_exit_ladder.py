@@ -191,6 +191,65 @@ def test_ladder_retries_plain_close_failed_not_a_balance_error(monkeypatch):
     assert res["status"] == "executed"
 
 
+# --- price_estimated must survive the multi-step result rebuild -------------
+
+def test_ladder_price_estimated_true_when_any_selling_step_estimated(monkeypatch):
+    # Step 1 sells part of the position with a REAL fill price (no flag);
+    # step 2 sells the rest but only via a book-walk estimate (flag True).
+    # The aggregated multi-step result must still say price_estimated=True —
+    # before this fix the rebuilt dict silently dropped it.
+    _scripted(monkeypatch, [
+        {"status": "partial_close", "order_id": "A", "price": 0.60, "shares": 10.0,
+         "sold_shares": 10.0, "remaining_shares": 30.0},
+        {"status": "executed", "order_id": "B", "price": 0.50, "shares": 30.0,
+         "sold_shares": 30.0, "remaining_shares": 0.0, "price_estimated": True},
+    ])
+    res = executor.close_position_ladder("c", "YES", 40.0)
+    assert res["status"] == "executed"
+    assert res["price_estimated"] is True
+
+
+def test_ladder_price_estimated_true_when_first_selling_step_estimated(monkeypatch):
+    # Order shouldn't matter: an estimate on an EARLIER step must still
+    # propagate even if the later (final) step had a real fill price.
+    _scripted(monkeypatch, [
+        {"status": "partial_close", "order_id": "A", "price": 0.60, "shares": 10.0,
+         "sold_shares": 10.0, "remaining_shares": 30.0, "price_estimated": True},
+        {"status": "executed", "order_id": "B", "price": 0.50, "shares": 30.0,
+         "sold_shares": 30.0, "remaining_shares": 0.0},
+    ])
+    res = executor.close_position_ladder("c", "YES", 40.0)
+    assert res["status"] == "executed"
+    assert res["price_estimated"] is True
+
+
+def test_ladder_no_price_estimated_key_when_all_steps_real(monkeypatch):
+    # No step was ever estimated -> the aggregated result must NOT carry the
+    # key at all, matching the single-step (EXIT_LADDER_STEPS=1) behavior.
+    _scripted(monkeypatch, [
+        {"status": "partial_close", "order_id": "A", "price": 0.60, "shares": 10.0,
+         "sold_shares": 10.0, "remaining_shares": 30.0},
+        {"status": "executed", "order_id": "B", "price": 0.50, "shares": 30.0,
+         "sold_shares": 30.0, "remaining_shares": 0.0},
+    ])
+    res = executor.close_position_ladder("c", "YES", 40.0)
+    assert res["status"] == "executed"
+    assert "price_estimated" not in res
+
+
+def test_ladder_price_estimated_false_flag_does_not_count_as_estimated(monkeypatch):
+    # A step that explicitly reports price_estimated=False (a real fill, same
+    # as omitting the key) must not flip the aggregate to True.
+    _scripted(monkeypatch, [
+        {"status": "partial_close", "order_id": "A", "price": 0.60, "shares": 10.0,
+         "sold_shares": 10.0, "remaining_shares": 30.0, "price_estimated": False},
+        {"status": "executed", "order_id": "B", "price": 0.50, "shares": 30.0,
+         "sold_shares": 30.0, "remaining_shares": 0.0, "price_estimated": False},
+    ])
+    res = executor.close_position_ladder("c", "YES", 40.0)
+    assert "price_estimated" not in res
+
+
 def test_legacy_close_still_gtc(monkeypatch):
     monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
     book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
@@ -287,3 +346,72 @@ def test_half_close_via_sl_trigger_still_uses_ladder(tmp_db, monkeypatch):
     # by fraction.
     ladder_calls, live_calls = _close_via(monkeypatch, tmp_db, "sl", fraction=0.5)
     assert len(ladder_calls) == 1 and len(live_calls) == 0
+
+
+# --- End-to-end: positions._close reads and persists the aggregated flag ----
+
+def test_close_persists_aggregated_price_estimated_from_real_ladder(tmp_db, monkeypatch):
+    # Drive the REAL close_position_ladder (not stubbed) through
+    # positions._close for exit_reason="sl". The book is exhausted after a
+    # partial, estimated fill, so the ladder's aggregated result is itself
+    # "partial_close" — the one outcome branch in _close that writes an
+    # exit_decisions row with the "[price estimated ...]" annotation. Proves
+    # the aggregated flag survives close_position_ladder ->
+    # positions._live_close -> _close's DB write end to end.
+    from locus import config
+    from locus.core import executor, positions
+
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(config, "EXIT_LADDER_STEPS", 3)
+    monkeypatch.setattr(config, "EXIT_RETRY_DELAY_SECONDS", 0.0)
+    _scripted(monkeypatch, [
+        {"status": "partial_close", "order_id": "A", "price": 0.60, "shares": 10.0,
+         "sold_shares": 10.0, "remaining_shares": 30.0, "price_estimated": True},
+        {"status": "skipped_thin_book", "order_id": None, "price": None, "shares": None},
+        {"status": "skipped_thin_book", "order_id": None, "price": None, "shares": None},
+    ])
+
+    pos = _open_position(tmp_db)
+    conn = tmp_db._conn()
+    positions._close(conn, pos, 0.50, "closed_sl", "sl")
+    conn.commit()
+
+    row = conn.execute(
+        "SELECT reasoning FROM exit_decisions WHERE position_id=? "
+        "ORDER BY id DESC LIMIT 1", (pos["id"],),
+    ).fetchone()
+    status_row = conn.execute(
+        "SELECT status, token_count FROM positions WHERE id=?", (pos["id"],),
+    ).fetchone()
+    conn.close()
+
+    assert status_row["status"] == "open"          # only partially flattened
+    assert status_row["token_count"] == pytest.approx(30.0)
+    assert "price estimated" in row["reasoning"]
+
+
+def test_close_no_estimated_annotation_when_all_ladder_steps_real(tmp_db, monkeypatch):
+    from locus import config
+    from locus.core import executor, positions
+
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    monkeypatch.setattr(config, "EXIT_LADDER_STEPS", 3)
+    monkeypatch.setattr(config, "EXIT_RETRY_DELAY_SECONDS", 0.0)
+    _scripted(monkeypatch, [
+        {"status": "partial_close", "order_id": "A", "price": 0.60, "shares": 10.0,
+         "sold_shares": 10.0, "remaining_shares": 30.0},
+        {"status": "skipped_thin_book", "order_id": None, "price": None, "shares": None},
+        {"status": "skipped_thin_book", "order_id": None, "price": None, "shares": None},
+    ])
+
+    pos = _open_position(tmp_db)
+    conn = tmp_db._conn()
+    positions._close(conn, pos, 0.50, "closed_sl", "sl")
+    conn.commit()
+
+    row = conn.execute(
+        "SELECT reasoning FROM exit_decisions WHERE position_id=? "
+        "ORDER BY id DESC LIMIT 1", (pos["id"],),
+    ).fetchone()
+    conn.close()
+    assert "price estimated" not in row["reasoning"]

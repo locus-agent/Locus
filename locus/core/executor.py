@@ -935,6 +935,7 @@ def close_position_ladder(
         max_spread = 1.0
     remaining = shares
     sold_total = proceeds = topup_cost = topup_shares = 0.0
+    any_estimated = False
     last: dict = {}
     for k in range(1, steps + 1):
         slip = max_slip * k / steps
@@ -951,6 +952,8 @@ def close_position_ladder(
             sold = res.get("sold_shares") or res.get("shares") or 0.0
             sold_total += sold
             proceeds += sold * (res.get("price") or 0.0)
+            if res.get("price_estimated"):
+                any_estimated = True
             if status == "executed":
                 break
             remaining = res.get("remaining_shares") or 0.0
@@ -985,6 +988,8 @@ def close_position_ladder(
             "sold_shares": sold_total,
             "remaining_shares": last.get("remaining_shares", 0.0) if flat else remaining,
         }
+        if any_estimated:
+            result["price_estimated"] = True
     if topup_shares > 0:
         result["topup_cost_usd"] = round(topup_cost, 4)
         result["topup_shares"] = topup_shares
