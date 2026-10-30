@@ -593,6 +593,16 @@ class PipelineV2:
         console.print()
 
         await asyncio.get_event_loop().run_in_executor(None, positions.backfill_positions)
+        # Startup DB-vs-chain sync (report-only, never closes anything): the DB
+        # may have drifted from reality while the pipeline was down (a manual
+        # flatten on Polymarket, an untracked fill). Failures here must never
+        # block startup.
+        try:
+            await asyncio.get_event_loop().run_in_executor(
+                None, positions.startup_position_sync
+            )
+        except Exception as e:
+            log.warning(f"[pipeline] Startup position sync error: {e}")
         # Passive-entry crash recovery (core/passive.py): reconcile persisted
         # pending limit orders against the CLOB — a fill that happened while we
         # were down opens its position late with the real fill data, a vanished

@@ -237,6 +237,21 @@ def notify_drawdown_alert(position: dict, pnl_pct: float) -> bool:
     return _send(text)
 
 
+def notify_reconcile_mismatch(mismatches: list[dict]) -> bool:
+    """⚠️ startup sync found open DB positions that diverge from the wallet's
+    real on-chain holding (positions.startup_position_sync) — report only,
+    never auto-closed. One message for every mismatch found at this startup
+    (the caller sends this at most once per run)."""
+    lines = [f"⚠️ STARTUP RECONCILE: {len(mismatches)} position(s) diverge "
+             "from on-chain holdings (not auto-closed):"]
+    for m in mismatches:
+        lines.append(
+            f"#{m['id']} {m['market_question'][:50]}: DB expects "
+            f"{m['expected']:g}, chain has {m['held']:g}"
+        )
+    return _send("\n".join(lines))
+
+
 # --- Interactive command bot (/portfolio, /positions) ------------------------
 
 def _authorized(update) -> bool:

@@ -25,6 +25,7 @@ import time
 from datetime import datetime, timezone
 
 import anthropic
+import httpx
 
 from locus import config
 from locus.markets import gamma
@@ -1587,6 +1588,94 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
         "market_closed": market_closed_ids,
         "fixed": fixed_ids,
     }
+
+
+# --- Startup sync: report-only DB-vs-chain check, no CLOB client needed ------
+#
+# reconcile_positions (above) needs a real CLOB client (API creds) and is
+# meant to be run deliberately, with --fix as an explicit choice. On every
+# pipeline startup we want a cheaper, always-safe check: the wallet's real
+# holdings straight from Polymarket's public Data API (no auth), compared
+# against the DB's open positions with the same tolerance as reconcile
+# (holding_matches). Any divergence is reported — logged and one Telegram
+# message for the whole run — and NEVER auto-closed; a human (or a later
+# `reconcile-positions --fix`) decides what to do.
+
+def fetch_wallet_positions(wallet: str, timeout: float = 15.0) -> list[dict]:
+    """Raw open positions for `wallet` from the public Data API
+    (`{POLYMARKET_DATA_HOST}/positions`) — no auth required. Each row carries
+    conditionId/outcomeIndex/size among other fields (see the Data API)."""
+    with httpx.Client(timeout=timeout) as client:
+        resp = client.get(
+            f"{config.POLYMARKET_DATA_HOST}/positions", params={"user": wallet}
+        )
+        resp.raise_for_status()
+        return resp.json() or []
+
+
+def startup_position_sync(wallet: str | None = None,
+                          fetcher=fetch_wallet_positions) -> dict | None:
+    """Compare the DB's open positions against the wallet's real on-chain
+    holdings at startup. Report-only: divergences are logged and sent to
+    Telegram ONCE for the whole call (never per-position, never repeated on a
+    later cycle) — no position is ever closed here. Returns None when skipped
+    (no wallet configured) or a report dict {"checked", "mismatches"} when it
+    ran (mismatches is [] when everything agrees).
+
+    Divergence uses the same tolerance as reconcile_positions
+    (holding_matches: >1% of expected or >0.5 tokens). A position absent from
+    the chain response entirely is treated as held=0 (fully gone)."""
+    wallet = wallet or config.POLYMARKET_FUNDER_ADDRESS
+    if not wallet:
+        log.info("[positions] startup sync skipped: no POLYMARKET_FUNDER_ADDRESS")
+        return None
+
+    open_positions = get_open_positions()
+    if not open_positions:
+        return {"checked": 0, "mismatches": []}
+
+    try:
+        chain_rows = fetcher(wallet)
+    except Exception as e:
+        log.warning("[positions] startup sync: Data API fetch failed (%s); "
+                    "skipping this run", e)
+        return None
+
+    chain_by_key: dict[tuple[str, int], float] = {}
+    for row in chain_rows:
+        cid = row.get("conditionId")
+        idx = row.get("outcomeIndex")
+        size = row.get("size")
+        if cid is None or idx is None or size is None:
+            continue
+        chain_by_key[(cid, idx)] = chain_by_key.get((cid, idx), 0.0) + float(size)
+
+    mismatches: list[dict] = []
+    for position in open_positions:
+        outcome_index = {"YES": 0, "NO": 1}.get((position.get("side") or "").upper())
+        expected = position_shares(
+            position["side"], position["entry_yes_price"],
+            position.get("amount_usd") or 0.0,
+            token_count=position.get("token_count"),
+        )
+        held = chain_by_key.get((position["condition_id"], outcome_index), 0.0)
+        if not holding_matches(expected, held):
+            mismatches.append({
+                "id": position["id"],
+                "market_question": position["market_question"],
+                "expected": expected,
+                "held": held,
+            })
+            log.warning(
+                "[positions] startup sync MISMATCH: position %s expects %.4f "
+                "tokens, Data API reports %.4f held (\"%s\")",
+                position["id"], expected, held,
+                position["market_question"][:60],
+            )
+
+    if mismatches:
+        telegram_bot.notify_reconcile_mismatch(mismatches)
+    return {"checked": len(open_positions), "mismatches": mismatches}
 
 
 def _format_time_remaining_for(condition_id: str) -> str:
