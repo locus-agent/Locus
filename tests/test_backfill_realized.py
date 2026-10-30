@@ -513,6 +513,204 @@ def test_audit_all_closed_positions_reliability_labels(tmp_db):
     assert rows_by_id[pid_incomplete]["reliability"] == "incomplete"
 
 
+# --- close_open_position: the one path that can flip an OPEN position closed
+
+# Opaque sentinel passed as `client` in every test below so
+# close_open_position never calls the real executor.create_clob_client() (it
+# only does that when client is None) — no test may touch the network.
+_CLOSE_OPEN_CLIENT = object()
+
+
+def _no_onchain_signal(monkeypatch):
+    """Keep the on-chain eligibility path inert (state='unknown') with no
+    network call — token resolution reports nothing resolvable."""
+    from locus.core import executor
+    monkeypatch.setattr(executor, "_resolve_token_id",
+                        lambda client, condition_id, side: None)
+
+
+def test_close_open_missing_position_returns_none(tmp_db):
+    assert backfill.close_open_position(99999, wallet=WALLET,
+                                        fetcher=_fetcher([]),
+                                        client=_CLOSE_OPEN_CLIENT) is None
+
+
+def test_close_open_db_passive_dry_run_writes_nothing(tmp_db, monkeypatch):
+    # Position-57 shape: no BUY at all in the feed, two SELLs. db_passive
+    # fallback makes it eligible without any on-chain check.
+    _no_onchain_signal(monkeypatch)
+    pid = _open(tmp_db, "c57", side="YES", entry=0.266)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET realized_pnl_usd=-0.148, opened_at=? WHERE id=?",
+        ("2026-07-09 16:55:31", pid),
+    )
+    conn.commit()
+    conn.close()
+    activity = [
+        _trade("c57", "SELL", 0, 38.0669, 148.0, T_IN_1),
+        _trade("c57", "SELL", 0, 0.5119, 1.99, T_IN_1),
+    ]
+    result = backfill.close_open_position(pid, apply=False, wallet=WALLET,
+                                          fetcher=_fetcher(activity),
+                                          client=_CLOSE_OPEN_CLIENT)
+    assert result["eligible"] is True
+    assert result["buy_source"] == "db_passive"
+    assert result["old_realized"] == pytest.approx(-0.148)
+    assert result["new_realized"] == pytest.approx(-1.32, abs=0.01)
+    assert result["applied"] is False
+    # Nothing written — still open, unchanged realized.
+    pos = _row(tmp_db, pid)
+    assert pos["status"] == "open"
+    assert pos["realized_pnl_usd"] == pytest.approx(-0.148)
+    assert _audit_rows(tmp_db, pid) == []
+
+
+def test_close_open_apply_closes_and_writes_audit_row(tmp_db, monkeypatch):
+    _no_onchain_signal(monkeypatch)
+    pid = _open(tmp_db, "c57", side="YES", entry=0.266)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET realized_pnl_usd=-0.148, opened_at=? WHERE id=?",
+        ("2026-07-09 16:55:31", pid),
+    )
+    conn.commit()
+    conn.close()
+    activity = [
+        _trade("c57", "SELL", 0, 38.0669, 148.0, T_IN_1),
+        _trade("c57", "SELL", 0, 0.5119, 1.99, T_IN_1),
+    ]
+    result = backfill.close_open_position(pid, apply=True, wallet=WALLET,
+                                          fetcher=_fetcher(activity),
+                                          client=_CLOSE_OPEN_CLIENT)
+    assert result["applied"] is True
+    pos = _row(tmp_db, pid)
+    assert pos["status"] == "closed_reconciled"
+    assert pos["exit_reason"] == "backfill_close"
+    assert pos["closed_at"] is not None
+    assert pos["realized_pnl_usd"] == pytest.approx(-1.32, abs=0.01)
+    audits = _audit_rows(tmp_db, pid)
+    assert len(audits) == 1
+    assert audits[0]["decision"] == "close_open"
+    assert "db_passive" in audits[0]["reasoning"]
+
+
+def test_close_open_apply_is_idempotent(tmp_db, monkeypatch):
+    _no_onchain_signal(monkeypatch)
+    pid = _open(tmp_db, "c57", side="YES", entry=0.266)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET opened_at=? WHERE id=?",
+        ("2026-07-09 16:55:31", pid),
+    )
+    conn.commit()
+    conn.close()
+    activity = [
+        _trade("c57", "SELL", 0, 38.0669, 148.0, T_IN_1),
+        _trade("c57", "SELL", 0, 0.5119, 1.99, T_IN_1),
+    ]
+    first = backfill.close_open_position(pid, apply=True, wallet=WALLET,
+                                         fetcher=_fetcher(activity),
+                                         client=_CLOSE_OPEN_CLIENT)
+    assert first["applied"] is True
+    second = backfill.close_open_position(pid, apply=True, wallet=WALLET,
+                                          fetcher=_fetcher(activity),
+                                          client=_CLOSE_OPEN_CLIENT)
+    assert second["already_closed"] is True
+    assert second["applied"] is False
+    pos = _row(tmp_db, pid)
+    assert pos["status"] == "closed_reconciled"
+    assert pos["realized_pnl_usd"] == pytest.approx(first["new_realized"])
+    assert len(_audit_rows(tmp_db, pid)) == 1  # not duplicated
+
+
+def test_close_open_does_not_touch_other_positions(tmp_db, monkeypatch):
+    _no_onchain_signal(monkeypatch)
+    pid_target = _open(tmp_db, "c57", side="YES", entry=0.266)
+    pid_other = _open(tmp_db, "c_other", side="YES", entry=0.50)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET opened_at=? WHERE id=?",
+        ("2026-07-09 16:55:31", pid_target),
+    )
+    conn.commit()
+    conn.close()
+    activity = [
+        _trade("c57", "SELL", 0, 38.0669, 148.0, T_IN_1),
+        _trade("c57", "SELL", 0, 0.5119, 1.99, T_IN_1),
+    ]
+    result = backfill.close_open_position(pid_target, apply=True, wallet=WALLET,
+                                          fetcher=_fetcher(activity),
+                                          client=_CLOSE_OPEN_CLIENT)
+    assert result["applied"] is True
+    target = _row(tmp_db, pid_target)
+    assert target["status"] == "closed_reconciled"
+    other = _row(tmp_db, pid_other)
+    assert other["status"] == "open"
+    assert (other["realized_pnl_usd"] or 0.0) == pytest.approx(0.0)
+
+
+def test_close_open_not_eligible_refuses_to_write(tmp_db, monkeypatch):
+    # Full ledger BUY present (buy_source="ledger") and the on-chain path
+    # reports "unknown" (token unresolved) -> never confirmation.
+    _no_onchain_signal(monkeypatch)
+    pid = _open(tmp_db, "c59", side="YES", entry=0.68)
+    activity = [
+        _trade("c59", "BUY", 0, 21.59, 31.75),
+    ]
+    result = backfill.close_open_position(pid, apply=True, wallet=WALLET,
+                                          fetcher=_fetcher(activity),
+                                          client=_CLOSE_OPEN_CLIENT)
+    assert result["eligible"] is False
+    assert result["applied"] is False
+    pos = _row(tmp_db, pid)
+    assert pos["status"] == "open"
+    assert _audit_rows(tmp_db, pid) == []
+
+
+def test_close_open_onchain_path_eligible(tmp_db, monkeypatch):
+    # Ledger shows a complete, fully-exited history (buy_source="ledger"),
+    # but the on-chain balance confirms the DB's remainder is mostly gone
+    # (held << expected) — the second eligibility path, independent of
+    # buy_source.
+    from locus.core import positions as positions_mod
+    pid = _open(tmp_db, "c_chain", side="YES", entry=0.50, amount=25.0)
+    conn = tmp_db._conn()
+    conn.execute(
+        "UPDATE positions SET opened_at=? WHERE id=?",
+        ("2026-07-23 00:00:00", pid),
+    )
+    conn.commit()
+    conn.close()
+    activity = [
+        _trade("c_chain", "BUY", 0, 25.0, 50.0, T_IN_1),
+        _trade("c_chain", "SELL", 0, 20.0, 50.0, T_IN_1),
+    ]
+    monkeypatch.setattr(
+        positions_mod, "_verify_position_holding",
+        lambda client, position: ("mismatch", 0.005, 50.0),
+    )
+    result = backfill.close_open_position(pid, apply=False, wallet=WALLET,
+                                          fetcher=_fetcher(activity),
+                                          client=object())
+    assert result["trades_matched"] == 2
+    assert result["complete"] is True
+    assert result["buy_source"] == "ledger"
+    assert result["onchain_confirmed"] is True
+    assert result["eligible"] is True
+    assert any("on-chain balance confirms" in b for b in result["basis"])
+
+
+def test_close_open_already_closed_short_circuits(tmp_db):
+    pid = _open(tmp_db, "c1", side="NO", entry=0.64)
+    _close_row(tmp_db, pid, realized=-4.68)
+    result = backfill.close_open_position(pid, apply=True, wallet=WALLET,
+                                          fetcher=_fetcher([]))
+    assert result["already_closed"] is True
+    assert result["applied"] is False
+    assert _row(tmp_db, pid)["realized_pnl_usd"] == pytest.approx(-4.68)
+
+
 def test_audit_all_closed_positions_never_writes(tmp_db):
     pid = _open(tmp_db, "c1", side="NO", entry=0.64)
     _close_row(tmp_db, pid, realized=0.0)

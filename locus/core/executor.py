@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import math
+import threading
 import time
 
 from locus import config
@@ -18,12 +19,47 @@ log = logging.getLogger(__name__)
 CLOSE_DUST_SHARES = 1.0
 
 
-def execute_trade(signal: Signal) -> dict:
-    """Execute a trade on Polymarket or log a dry-run. Synchronous."""
-    daily_spent = abs(logger.get_daily_pnl())
-    if daily_spent + signal.bet_amount > config.DAILY_SPEND_LIMIT_USD:
-        return _log_and_return(signal, status="rejected_daily_limit", order_id=None)
+# Daily-spend reservation. execute_trade runs in worker threads (run_in_executor)
+# for concurrent candidates, so "read today's spend, then place, then write the
+# trade row" raced: two signals could both pass the check. Now the check and an
+# in-memory reservation happen atomically under one lock; the reservation is
+# held until the trade row is committed (inside the execute call), then
+# released — at which point the DB itself carries the spend.
+_spend_lock = threading.Lock()
+_reserved_usd = 0.0
 
+
+def reserve_daily_budget(amount: float) -> bool:
+    """Atomically check today's committed spend + in-flight reservations and,
+    if `amount` fits under DAILY_SPEND_LIMIT_USD, reserve it."""
+    global _reserved_usd
+    with _spend_lock:
+        committed = abs(logger.get_daily_pnl())
+        if committed + _reserved_usd + amount > config.DAILY_SPEND_LIMIT_USD + 1e-9:
+            return False
+        _reserved_usd += amount
+        return True
+
+
+def release_daily_budget(amount: float) -> None:
+    global _reserved_usd
+    with _spend_lock:
+        _reserved_usd = max(0.0, _reserved_usd - amount)
+
+
+def execute_trade(signal: Signal) -> dict:
+    """Execute a trade on Polymarket or log a dry-run. Synchronous.
+    The daily-spend check is an atomic reserve -> commit (trade row) -> release."""
+    amount = signal.bet_amount
+    if not reserve_daily_budget(amount):
+        return _log_and_return(signal, status="rejected_daily_limit", order_id=None)
+    try:
+        return _execute_reserved(signal)
+    finally:
+        release_daily_budget(amount)
+
+
+def _execute_reserved(signal: Signal) -> dict:
     if config.DRY_RUN:
         return _log_and_return(signal, status="dry_run", order_id=None)
 
@@ -365,6 +401,21 @@ def _diagnose_order_error(exc, token_id, price, size, side, tick_size=None) -> l
     return reasons
 
 
+def _is_balance_error(error: str | None) -> bool:
+    """Whether a close_failed's error message is an exchange "not enough
+    balance / allowance" rejection — the book is fine, but the order was
+    rejected against our own holding/approval (an inflated share count, a
+    stale allowance), which a plain retry won't fix either — not a book
+    problem a wider ladder step or a 30s-later retry can cure. Position 54
+    hit this hundreds of times a day before positions.py's close-retry
+    backoff started checking for it. Lives here (not in positions.py, its
+    only other caller) because close_position_ladder below must also check
+    it, and positions.py already imports this module — the reverse import
+    would cycle."""
+    low = (error or "").lower()
+    return "not enough balance" in low or "allowance" in low
+
+
 def book_side(book, side: str) -> list:
     """Resting levels for one book side ('bids' or 'asks').
 
@@ -487,7 +538,7 @@ def _resolve_token_id(client, condition_id: str, side: str) -> str | None:
 
 def close_position_live(
     condition_id: str, side: str, shares: float, max_spread: float | None = None,
-    allow_topup: bool = False,
+    allow_topup: bool = False, max_slippage_pct: float | None = None,
 ) -> dict:
     """Flatten `shares` of an open `side` position with a real CLOB SELL.
 
@@ -516,7 +567,14 @@ def close_position_live(
     is sold. Whenever a top-up BUY filled — even if the follow-up sell then
     failed — the result carries `topup_cost_usd` / `topup_shares` so the caller
     folds the real dollars spent and tokens received into the position's cost
-    basis; conservation of PnL depends on it."""
+    basis; conservation of PnL depends on it.
+
+    `max_slippage_pct` (exit ladder, see close_position_ladder): instead of a
+    resting GTC at best bid — which on a thin book just sits there and gets
+    cancelled, leaving a stop-loss unexecuted — sell as a marketable FAK
+    (fill-and-kill) whose limit is best_bid * (1 - max_slippage_pct/100). It is
+    sized to the bid depth inside that band and can never fill below the floor
+    or rest on the book. None keeps the legacy GTC-at-best-bid behavior."""
     max_spread = config.LIVE_MAX_SPREAD if max_spread is None else max_spread
     # Top-up accounting hoisted outside the try: once the BUY fills, every exit
     # path (including the outer exception handler) must report it.
@@ -566,6 +624,12 @@ def close_position_live(
         best_bid, best_ask, bid_size = _bid_levels(book)
         log.info("[executor] close book for token=%s: best_bid=%s best_ask=%s bid_size=%s",
                  token_id, best_bid, best_ask, bid_size)
+        floor_price = None
+        if max_slippage_pct is not None and best_bid:
+            floor_price = best_bid * (1.0 - max_slippage_pct / 100.0)
+            bid_size = bid_depth_within(book, best_bid, max_slippage_pct)
+            log.info("[executor] ladder step: floor=%.4f (%.1f%% under best bid), "
+                     "depth inside band=%.2f sh", floor_price, max_slippage_pct, bid_size)
         price, sell_shares, status = plan_live_sell(
             shares, best_bid, best_ask, bid_size, max_spread
         )
@@ -593,6 +657,13 @@ def close_position_live(
 
         tick_size = _get_tick_size(client, token_id)
         neg_risk = _get_neg_risk(client, token_id)
+        order_type_name = "GTC"
+        if floor_price is not None:
+            # Limit at the floor, rounded UP to the tick so a fill can never
+            # land below the slippage cap; FAK = take what crosses, kill rest.
+            tick = float(tick_size)
+            price = max(tick, math.ceil(floor_price / tick - 1e-9) * tick)
+            order_type_name = "FAK" if hasattr(OrderType, "FAK") else "FOK"
         price = round_to_tick(price, tick_size)
         log.info("[executor] close order ready: SELL token=%s price=%.4f size=%.4f "
                  "tick_size=%s neg_risk=%s", token_id, price, sell_shares, tick_size, neg_risk)
@@ -607,7 +678,7 @@ def close_position_live(
             signed_order = client.create_order(
                 order_args, PartialCreateOrderOptions(tick_size=tick_size, neg_risk=neg_risk)
             )
-            resp = client.post_order(signed_order, OrderType.GTC)
+            resp = client.post_order(signed_order, getattr(OrderType, order_type_name))
         except Exception as order_exc:
             _diagnose_order_error(order_exc, token_id, price, sell_shares, "SELL", tick_size)
             # The SELL was rejected — the position is still held on-chain. Report
@@ -652,23 +723,50 @@ def close_position_live(
             base_held = held if held is not None else intended_shares
             remaining_shares = max(base_held - sold_shares, 0.0)
 
+            price_estimated = False
+            if floor_price is not None:
+                # The FAK limit is only a floor — the real fill can land
+                # anywhere between it and the best bid. Prefer the REAL fill
+                # price from the exchange's trade history (same source the
+                # balance-confirm path uses); only fall back to walking the
+                # snapshot book (an estimate, flagged as such) when no trade
+                # record can be found for this order.
+                fills_price = _order_fill_price(client, order_id)
+                if fills_price is not None:
+                    price = fills_price
+                else:
+                    price_estimated = True
+                    from locus.core.orderbook import walk_bids_for_shares
+                    levels = sorted(
+                        (book_level_price_size(b) for b in book_side(book, "bids")),
+                        key=lambda l: l[0], reverse=True)
+                    _, est = walk_bids_for_shares(levels, sold_shares, floor_price)
+                    if est > 0:
+                        price = max(round(est, 4), price)
             if unsold_intent < CLOSE_DUST_SHARES:
                 log.info("[executor] close CONFIRMED (flat): sold %.4f sh token=%s @ "
-                         "%.4f (order %s); %.4f sh intent unsold (dust)", sold_shares,
-                         token_id, price, order_id, unsold_intent)
-                return _with_topup(
-                    {"status": "executed", "order_id": order_id, "price": price,
-                     "shares": sold_shares, "sold_shares": sold_shares,
-                     "remaining_shares": remaining_shares})
+                         "%.4f (order %s); %.4f sh intent unsold (dust)%s", sold_shares,
+                         token_id, price, order_id, unsold_intent,
+                         " (price ESTIMATED from book snapshot)" if price_estimated else "")
+                result = {"status": "executed", "order_id": order_id, "price": price,
+                         "shares": sold_shares, "sold_shares": sold_shares,
+                         "remaining_shares": remaining_shares}
+                if floor_price is not None:
+                    result["price_estimated"] = price_estimated
+                return _with_topup(result)
 
             log.warning("[executor] PARTIAL close: sold %.4f of intended %.4f sh — "
                         "%.4f sh REMAIN held for token=%s (order %s); position must "
                         "stay open", sold_shares, intended_shares, remaining_shares,
                         token_id, order_id)
-            return _with_topup(
-                {"status": "partial_close", "order_id": order_id, "price": price,
-                 "shares": sold_shares, "sold_shares": sold_shares,
-                 "remaining_shares": remaining_shares})
+            partial_result = {
+                "status": "partial_close", "order_id": order_id, "price": price,
+                "shares": sold_shares, "sold_shares": sold_shares,
+                "remaining_shares": remaining_shares,
+            }
+            if floor_price is not None:
+                partial_result["price_estimated"] = price_estimated
+            return _with_topup(partial_result)
         # Unconfirmed (resting/unknown) per the order ledger. The ledger can
         # misreport a filled SELL: a FILLED order drops out of the open-orders
         # listing, so _fetch_order's "not found" reads as resting even though
@@ -812,6 +910,102 @@ def _order_fill_price(client, order_id: str) -> float | None:
     if total_shares <= 0:
         return None
     return total_usd / total_shares
+
+
+def close_position_ladder(
+    condition_id: str, side: str, shares: float, *, stop_loss: bool = False,
+    time_pressure: bool = False, max_spread: float | None = None,
+    allow_topup: bool = False,
+) -> dict:
+    """Exit via a ladder of marketable FAK sells walking down the bid book.
+
+    Step k of EXIT_LADDER_STEPS allows k/N of the max slippage below the best
+    bid at that moment: STOP_LOSS_MAX_SLIPPAGE_PCT for `stop_loss`,
+    TIME_PRESSURE_MAX_SLIPPAGE_PCT for `time_pressure` (deliberately tighter
+    than the stop-loss cap — time_pressure is "running out of time to flatten
+    cleanly", not "flatten at any cost"), else EXIT_MAX_SLIPPAGE_PCT. A
+    partial fill continues with the remainder at the next step; an
+    unfilled/failed step retries after EXIT_RETRY_DELAY_SECONDS.
+    Non-retryable statuses (error_*, wide spread on neither stop_loss nor
+    time_pressure) stop the ladder. Both stop_loss and time_pressure ignore
+    the spread guard — the slippage floor is their protection, and for
+    time_pressure specifically a wide-but-skipped book would otherwise leave
+    the position open right into resolution.
+
+    Returns the close_position_live result shape. With EXIT_LADDER_STEPS=1 the
+    single step's result is returned unchanged."""
+    if stop_loss:
+        max_slip = config.STOP_LOSS_MAX_SLIPPAGE_PCT
+    elif time_pressure:
+        max_slip = config.TIME_PRESSURE_MAX_SLIPPAGE_PCT
+    else:
+        max_slip = config.EXIT_MAX_SLIPPAGE_PCT
+    ignore_spread_guard = stop_loss or time_pressure
+    steps = max(1, int(config.EXIT_LADDER_STEPS))
+    if ignore_spread_guard and max_spread is None:
+        max_spread = 1.0
+    remaining = shares
+    sold_total = proceeds = topup_cost = topup_shares = 0.0
+    any_estimated = False
+    last: dict = {}
+    for k in range(1, steps + 1):
+        slip = max_slip * k / steps
+        res = close_position_live(condition_id, side, remaining, max_spread=max_spread,
+                                  allow_topup=allow_topup and k == 1,
+                                  max_slippage_pct=slip)
+        if steps == 1:
+            return res
+        last = res
+        topup_cost += res.get("topup_cost_usd") or 0.0
+        topup_shares += res.get("topup_shares") or 0.0
+        status = res.get("status", "")
+        if status in ("executed", "partial_close"):
+            sold = res.get("sold_shares") or res.get("shares") or 0.0
+            sold_total += sold
+            proceeds += sold * (res.get("price") or 0.0)
+            if res.get("price_estimated"):
+                any_estimated = True
+            if status == "executed":
+                break
+            remaining = res.get("remaining_shares") or 0.0
+            if remaining < CLOSE_DUST_SHARES:
+                break
+            continue
+        if status.startswith("error") or (status == "skipped_wide_spread" and not ignore_spread_guard):
+            break
+        if status == "close_failed" and _is_balance_error(res.get("error")):
+            # Rejected against our own holding/allowance, not the book — a
+            # wider slippage band on the next step fixes nothing (position 54
+            # pattern). Stop the ladder now instead of burning every
+            # remaining step on a doomed retry.
+            log.warning(
+                "[executor] ladder step %d/%d: balance/allowance error (%s) — "
+                "stopping, not retrying with a wider slippage band",
+                k, steps, res.get("error"),
+            )
+            break
+        if k < steps and config.EXIT_RETRY_DELAY_SECONDS > 0:
+            time.sleep(config.EXIT_RETRY_DELAY_SECONDS)
+
+    if sold_total <= 0:
+        result = dict(last)
+    else:
+        flat = last.get("status") == "executed" or remaining < CLOSE_DUST_SHARES
+        result = {
+            "status": "executed" if flat else "partial_close",
+            "order_id": last.get("order_id"),
+            "price": round(proceeds / sold_total, 4),
+            "shares": sold_total,
+            "sold_shares": sold_total,
+            "remaining_shares": last.get("remaining_shares", 0.0) if flat else remaining,
+        }
+        if any_estimated:
+            result["price_estimated"] = True
+    if topup_shares > 0:
+        result["topup_cost_usd"] = round(topup_cost, 4)
+        result["topup_shares"] = topup_shares
+    result["ladder_steps"] = steps
+    return result
 
 
 def held_token_shares(client, token_id: str) -> float | None:

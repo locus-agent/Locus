@@ -72,6 +72,34 @@ def run_with_watchdog(run, *, max_restarts: int = 10, delay_seconds: int = 5) ->
             time.sleep(delay_seconds)
 
 
+def cmd_backtest(args):
+    """Replay backtest (locus/backtest/replay.py). Paper only: reads public
+    Polymarket data, never trades, never calls an LLM."""
+    import json
+    from locus.backtest import replay
+    from locus.backtest.costs import BookModel
+    from locus.backtest.replay_data import DATA_DIR
+
+    res = replay.main(
+        books={
+            "tight": BookModel(0.005, 0.01, 80.0),
+            "base": BookModel(0.01, 0.01, 40.0),
+            "wide": BookModel(0.02, 0.01, 20.0),
+        },
+        entries=tuple(args.entry or ("latency", "after", "before")),
+    )
+    (DATA_DIR / "replay_results.json").write_text(json.dumps(res, indent=2))
+    for r in res["runs"]:
+        console.print(
+            f"{r['entry']:8s} {r['book']['name']:6s} {r['model']:10s} trades={r['trades']:4d} "
+            f"win%={r.get('win_rate_pct')} pnl=${r.get('total_pnl_usd')} "
+            f"deployed=${r.get('deployed_usd')} roi%={r.get('roi_pct')} "
+            f"maxDD=${r.get('max_drawdown_usd')}"
+        )
+    console.print(f"calibration quality: {res['calibration_quality']}")
+    console.print(f"full results: {DATA_DIR / 'replay_results.json'}")
+
+
 def cmd_watch(args):
     """V2: Event-driven pipeline — real-time news → classify → trade."""
     from datetime import datetime, timezone
@@ -83,8 +111,15 @@ def cmd_watch(args):
     config.WATCH_START_TIME = watch_start_time
 
     if args.live:
-        config.DRY_RUN = False
-        console.print("[red bold]LIVE TRADING ENABLED[/red bold]\n")
+        if not config.LIVE_ACK:
+            console.print(
+                "[red bold]--live refused[/red bold]: set "
+                f"LOCUS_LIVE_ACK={config.LIVE_ACK_PHRASE} to confirm real-money "
+                "trading. Staying in paper (dry-run) mode.\n"
+            )
+        else:
+            config.DRY_RUN = False
+            console.print("[red bold]LIVE TRADING ENABLED[/red bold]\n")
     else:
         console.print("[yellow]Dry-run mode (use --live to trade for real)[/yellow]\n")
 
@@ -725,6 +760,62 @@ def cmd_backfill_realized(args):
             )
         return
 
+    if args.close_open is not None:
+        pid = args.close_open
+        try:
+            result = backfill.close_open_position(pid, apply=args.apply)
+        except RuntimeError as e:
+            console.print(f"[red]{e}[/red]")
+            sys.exit(1)
+        if result is None:
+            console.print(f"[red]Position #{pid} not found.[/red]")
+            sys.exit(1)
+        if result["already_closed"]:
+            console.print(
+                f"[yellow]Position #{pid} is already "
+                f"{result.get('status') or 'closed'} — nothing to do.[/yellow]"
+            )
+            return
+
+        console.print(
+            f"\n[bold yellow]"
+            f"{'APPLYING' if args.apply else 'PREVIEW ONLY — nothing written'}"
+            f"[/bold yellow]\n"
+            f"close-open: position #{pid}\n"
+            f"  buy_source={result['buy_source']}  "
+            f"estimated={result['estimated']}  complete={result['complete']}\n"
+            f"  BUY ${result['buys_usd']:.4f}  SELL ${result['sells_usd']:.4f}  "
+            f"REDEEM ${result['redeemed_usd']:.4f}\n"
+            f"  old realized_pnl_usd = {result['old_realized']:+.4f}\n"
+            f"  new realized_pnl_usd = {result['new_realized']:+.4f}\n"
+            f"  delta                = {result['delta']:+.4f}\n"
+        )
+        if not result["eligible"]:
+            console.print(
+                "[red bold]NOT ELIGIBLE[/red bold] — neither "
+                "buy_source=db_passive nor the on-chain balance confirms "
+                "the remainder is gone. Refusing to close."
+            )
+            return
+        console.print(f"[green]Eligible[/green] — {'; '.join(result['basis'])}")
+        if args.apply:
+            if result["applied"]:
+                console.print(
+                    f"\n[bold green]Applied[/bold green] — position #{pid} "
+                    f"closed as closed_reconciled."
+                )
+            else:
+                console.print(
+                    "\n[yellow]Nothing applied[/yellow] — position was "
+                    "closed concurrently before this write landed."
+                )
+        else:
+            console.print(
+                f"\nTo apply: [bold]python cli.py backfill-realized "
+                f"--close-open {pid} --apply[/bold]"
+            )
+        return
+
     try:
         report = backfill.backfill_realized(apply=args.apply, ids=ids)
     except RuntimeError as e:
@@ -1030,6 +1121,11 @@ def main():
     p_watch.set_defaults(func=cmd_watch)
 
     # dashboard
+    p_bt = sub.add_parser("backtest", help="Replay backtest over logged classifications (public data, no LLM calls)")
+    p_bt.add_argument("--entry", choices=["latency", "after", "before"], action="append",
+                      help="entry-price mode(s); default: all three")
+    p_bt.set_defaults(func=cmd_backtest)
+
     p_dash = sub.add_parser("dashboard", help="Launch live terminal dashboard (TUI)")
     p_dash.set_defaults(func=cmd_dashboard)
 
@@ -1094,6 +1190,14 @@ def main():
         help="Preview-only: show what closing OPEN position ID as "
              "closed_reconciled with the ledger's realized would look like "
              "(never writes anything)",
+    )
+    p_backfill.add_argument(
+        "--close-open", type=int, default=None, metavar="ID",
+        help="Close ONE open position as closed_reconciled with "
+             "realized_pnl_usd set from the ledger total. Dry-run by "
+             "default (preview only); combine with --apply to write. "
+             "Refuses unless buy_source=db_passive or the on-chain balance "
+             "confirms the DB's remainder is gone.",
     )
     p_backfill.set_defaults(func=cmd_backfill_realized)
 

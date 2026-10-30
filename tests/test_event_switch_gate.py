@@ -40,7 +40,7 @@ def _benign_defaults(monkeypatch):
     """Neutral gate inputs so each test flips exactly one gate: orderbook
     unavailable (fails open), CoV off, exclusion filters on, sports on,
     generous category limits, standard resolution floor."""
-    monkeypatch.setattr(pipeline, "fetch_orderbook_imbalance", lambda token: None)
+    monkeypatch.setattr(pipeline, "fetch_orderbook_imbalance", lambda token: 0.0)
     monkeypatch.setattr(config, "COV_ENABLED", False)
     monkeypatch.setattr(config, "EXCLUDE_PRICE_TARGET_MARKETS", True)
     monkeypatch.setattr(config, "EXCLUDE_COINFLIP_MARKETS", True)

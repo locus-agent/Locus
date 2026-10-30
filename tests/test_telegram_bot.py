@@ -639,7 +639,7 @@ def test_positions_close_failure_reason_surfaces(tmp_db, monkeypatch, status, ph
     from locus.core import executor
     monkeypatch.setattr(config, "DRY_RUN", False)
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         return {"status": status, "order_id": None, "price": None, "shares": None}
 
     monkeypatch.setattr(executor, "close_position_live", fake_close)
@@ -657,7 +657,7 @@ def test_close_failure_reports_topup_skip(tmp_db, monkeypatch):
     from locus.core import executor
     monkeypatch.setattr(config, "DRY_RUN", False)
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         return {"status": "skipped_thin_book", "order_id": None, "price": None,
                 "shares": None, "topup_skipped": "no_bid_liquidity"}
 
@@ -736,7 +736,7 @@ def test_force_close_subminimum_holding_tries_topup(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", False)
     calls = []
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         calls.append({"shares": shares, "max_spread": max_spread,
                       "allow_topup": allow_topup})
         return {"status": "executed", "order_id": "F-1", "price": 0.04,

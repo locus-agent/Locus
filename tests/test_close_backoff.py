@@ -29,7 +29,7 @@ def _stub_close(monkeypatch, status):
     """close_position_live stub returning a fixed status, counting calls."""
     calls = []
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         calls.append(status)
         result = {"status": status, "order_id": None, "price": None, "shares": None}
         if status == "executed":
@@ -150,7 +150,7 @@ def test_transient_and_error_statuses_keep_retrying(tmp_db, monkeypatch, status)
 def _stub_close_with_error(monkeypatch, error):
     calls = []
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         calls.append(error)
         return {"status": "close_failed", "order_id": None, "price": None,
                 "shares": None, "error": error}

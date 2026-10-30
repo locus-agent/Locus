@@ -442,6 +442,10 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
             "already_priced_in": logger.get_classification_count_since(since_24h, action="already_priced_in"),
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
+            # Telegram-specific incremental effect of TELEGRAM_REQUIRES_CONFIRMATION
+            # (see pipeline.gate_trade) — distinct from the generic bucket above
+            # so this flag's own block count can be read off the dashboard.
+            "needs_confirmation_telegram": logger.get_classification_count_since(since_24h, action="needs_confirmation_telegram"),
             "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
             "low_consensus": logger.get_classification_count_since(since_24h, action="low_consensus"),
             "circuit_breaker": logger.get_classification_count_since(since_24h, action="circuit_breaker"),
@@ -465,6 +469,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "news": 0, "momentum": 0, "arbitrage": 0,
             **logger.get_edge_type_breakdown_since(since_24h, action="signal"),
         },
+        # Per-source latency (publish->receive, receive->classify), in-process.
+        "latency_by_source": _latency_summary(),
         "pipeline_24h": {
             "news": logger.get_news_event_count_since(since_24h),
             "matched": logger.get_matched_headline_count_since(since_24h),
@@ -542,6 +548,14 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
 
     _auto_push_status()
     return status
+
+
+def _latency_summary() -> dict:
+    try:
+        from locus.core import latency
+        return latency.summary()
+    except Exception:
+        return {}
 
 
 def _auto_push_status():

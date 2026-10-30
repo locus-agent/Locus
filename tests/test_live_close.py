@@ -495,7 +495,7 @@ def test_live_close_places_order_and_records_id(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", False)
     calls = []
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         calls.append((condition_id, side, round(shares, 4)))
         return {"status": "executed", "order_id": "LIVE-999", "price": 0.6, "shares": shares}
 
@@ -523,7 +523,7 @@ def test_live_close_sells_recorded_token_count(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", False)
     calls = []
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         calls.append((condition_id, side, round(shares, 4)))
         return {"status": "executed", "order_id": "LIVE-777", "price": 0.6, "shares": shares}
 
@@ -553,7 +553,7 @@ def test_half_close_sells_half_the_token_count(tmp_db, monkeypatch):
     calls = []
     monkeypatch.setattr(
         executor, "close_position_live",
-        lambda cid, side, shares, max_spread=None, allow_topup=False:
+        lambda cid, side, shares, max_spread=None, allow_topup=False, **_kw:
         calls.append(round(shares, 4)) or
         {"status": "executed", "order_id": "LIVE-H", "price": 0.6, "shares": shares},
     )
@@ -1091,7 +1091,7 @@ def test_topup_armed_only_for_explicit_close_reasons(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", False)
     seen = []
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         seen.append(allow_topup)
         return {"status": "executed", "order_id": "X", "price": 0.5,
                 "shares": shares, "sold_shares": shares, "remaining_shares": 0.0}

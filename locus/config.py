@@ -141,6 +141,39 @@ TELEGRAM_CHANNEL_IDS = [
 # Chat the trading-notification bot posts to (and accepts /portfolio from). When
 # empty, locus/core/telegram_bot.py is fully disabled (all notifications no-op).
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+
+# --- Real-time Telegram news (MTProto user client, locus/sources/telegram_mtproto.py) ---
+# api_id / api_hash from https://my.telegram.org -> API development tools.
+# The session file is created ONCE by `python scripts/telegram_login.py`; the
+# pipeline only connects with it and never logs in by itself.
+TELEGRAM_API_ID = os.getenv("TELEGRAM_API_ID", "")
+TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH", "")
+TELEGRAM_SESSION = os.getenv("TELEGRAM_SESSION", "telegram_news.session")
+# Public channel usernames (no @). Defaults were checked via the t.me/s/<name>
+# web preview on 2026-10-29 (all posting that week). They are third-party
+# aggregators/mirrors, not the original outlets — headlines can be wrong;
+# the materiality/confirmation gates still apply.
+DEFAULT_TELEGRAM_NEWS_CHANNELS = [
+    "WalterBloomberg",      # Walter Bloomberg (mirror of the @DeItaone wire on X)
+    "financialjuice",       # FinancialJuice macro/markets squawk
+    "TreeNewsFeed",         # Tree News feed (crypto + macro headlines)
+    "PolymarketIntel",      # Polymarket Intel
+    "WatcherGuru",          # Watcher Guru
+    "wublockchainenglish",  # Wu Blockchain News
+    "unfolded",             # unfolded. (crypto headlines)
+]
+TELEGRAM_NEWS_CHANNELS = [
+    c.strip().lstrip("@")
+    for c in os.getenv("TELEGRAM_NEWS_CHANNELS", ",".join(DEFAULT_TELEGRAM_NEWS_CHANNELS)).split(",")
+    if c.strip()
+]
+# RSS is a slow fallback: when a real-time source (Telegram MTProto or the
+# Twitter stream) is configured, RSS polls less often and its items are
+# routed after real-time items (lower priority in the dedup router).
+RSS_INTERVAL_SECONDS = float(os.getenv("RSS_INTERVAL_SECONDS", "120"))
+RSS_INTERVAL_WITH_REALTIME_SECONDS = float(os.getenv("RSS_INTERVAL_WITH_REALTIME_SECONDS", "300"))
+# Lower number = routed first. Unknown sources get 5.
+SOURCE_PRIORITY = {"telegram": 0, "twitter": 0, "truthsocial": 1, "newsapi": 3, "rss": 4}
 # Send a drawdown alert once an open position's unrealized loss exceeds this
 # fraction (0.25 = -25%). See positions.update_and_manage.
 TELEGRAM_DRAWDOWN_ALERT_PCT = float(os.getenv("TELEGRAM_DRAWDOWN_ALERT_PCT", "0.25"))
@@ -184,7 +217,14 @@ RSS_FEEDS = [
 ]
 
 # --- Pipeline Settings ---
-DRY_RUN = os.getenv("DRY_RUN", "true").lower() == "true"
+# Paper mode is the default. Live order placement needs BOTH an explicit
+# DRY_RUN=false (or `watch --live`) AND the acknowledgement
+# LOCUS_LIVE_ACK=I_UNDERSTAND_REAL_MONEY in the environment — a stray
+# DRY_RUN=false copied from someone else's .env can no longer flip the agent
+# into real-money trading on its own.
+LIVE_ACK_PHRASE = "I_UNDERSTAND_REAL_MONEY"
+LIVE_ACK = os.getenv("LOCUS_LIVE_ACK", "") == LIVE_ACK_PHRASE
+DRY_RUN = not (os.getenv("DRY_RUN", "true").lower() == "false" and LIVE_ACK)
 MAX_BET_USD = float(os.getenv("MAX_BET_USD", "25"))
 # Notional bankroll for quarter-Kelly sizing (size = bankroll * kelly / 4,
 # capped at MAX_BET_USD). With the defaults, materiality 1.0 hits the cap.
@@ -242,8 +282,14 @@ FEE_RATES = {
     "technology": 0.04,
     "ai": 0.04,
     "crypto": 0.07,
-    "sports": 0.03,
+    # Taker rates per docs.polymarket.com/trading/fees (checked 2026-10-29):
+    # sports 0.05 (some NFL/NCAAF markets temporarily 0.03), economics,
+    # culture, weather 0.05. Makers pay 0.
+    "sports": 0.05,
     "finance": 0.04,
+    "economics": 0.05,
+    "culture": 0.05,
+    "weather": 0.05,
     "other": 0.05,
 }
 _fee_rates_override = os.getenv("FEE_RATES", "")
@@ -323,6 +369,19 @@ MIN_CONFIRMING_SOURCES = int(os.getenv("MIN_CONFIRMING_SOURCES", "2"))
 # one story, not two), and its own materiality must clear this floor — a 0.05
 # throwaway directional row shouldn't vouch for a 0.9 signal.
 CONFIRMATION_MIN_MATERIALITY = float(os.getenv("CONFIRMATION_MIN_MATERIALITY", "0.30"))
+# Telegram (MTProto) channels are third-party aggregators/mirrors, not the
+# original wire (sources/telegram_mtproto.py: "headlines can be wrong"), and
+# are routed/deduped ahead of slower sources (SOURCE_PRIORITY telegram=0;
+# RSS polls slower while a realtime source is active) — so a misread
+# telegram headline could open a position before a corroborating copy from
+# another source even arrives. When True (default), every telegram-sourced
+# signal needs the same MIN_CONFIRMING_SOURCES-within-CONFIRMATION_WINDOW_HOURS
+# confirmation as a high-materiality call, REGARDLESS of materiality — not
+# just at/above HIGH_MATERIALITY_THRESHOLD like every other source. Set
+# False to restore the old behavior (telegram treated like any other source).
+TELEGRAM_REQUIRES_CONFIRMATION = (
+    os.getenv("TELEGRAM_REQUIRES_CONFIRMATION", "true").lower() == "true"
+)
 
 # Event context awareness: markets sharing a Gamma event_id are sibling
 # outcomes of one event. Cap how many positions we hold across one event so a
@@ -612,7 +671,10 @@ EVOLVE_MAX_RETRIES = int(os.getenv("EVOLVE_MAX_RETRIES", "2"))
 # can publish uptime. None when nothing set it (standalone export, dashboard).
 WATCH_START_TIME = None
 # Auto-commit and push docs/status.json after each pipeline cycle.
-AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "true").lower() == "true"
+# OFF by default: when on, every export cycle git-commits and PUSHES
+# docs/status.json (open positions, PnL, classifications) to origin — i.e. it
+# publishes your book to whatever remote the clone points at.
+AUTO_PUSH_STATUS = os.getenv("AUTO_PUSH_STATUS", "false").lower() == "true"
 # Minimum time between auto-pushes, regardless of how often cycles run.
 AUTO_PUSH_MIN_INTERVAL_SECONDS = float(os.getenv("AUTO_PUSH_MIN_INTERVAL_SECONDS", "300"))
 # Display-only filter: when set to an ISO date (e.g. "2026-06-14"), the
@@ -768,3 +830,40 @@ TWITTER_KEYWORDS = [
     # Catch chatter about Trump's Truth Social posts.
     "truth social", "truthsocial",
 ]
+
+
+# --- Safety / execution-quality additions (branch `improvements`) ---
+# Orderbook gate: an unreachable/empty book now BLOCKS the trade (fail closed).
+ORDERBOOK_FAIL_OPEN = os.getenv("ORDERBOOK_FAIL_OPEN", "false").lower() == "true"
+ORDERBOOK_FETCH_TIMEOUT_SECONDS = float(os.getenv("ORDERBOOK_FETCH_TIMEOUT_SECONDS", "3"))
+# Momentum lookups are cached (and run off the event loop) — TTL in seconds.
+MOMENTUM_CACHE_TTL_SECONDS = float(os.getenv("MOMENTUM_CACHE_TTL_SECONDS", "120"))
+
+# Edge model: "calibrated" (p_cal - effective ask - fee, depth-aware, Kelly on
+# p_cal) or "legacy" (materiality * room, Kelly on raw Claude confidence).
+EDGE_MODEL = os.getenv("EDGE_MODEL", "calibrated").lower()
+# Minimum net edge (probability points per share, after fee + slippage).
+CAL_EDGE_THRESHOLD = float(os.getenv("CAL_EDGE_THRESHOLD", "0.04"))
+# Kelly fraction applied to the calibrated full-Kelly stake (0.5 = half Kelly).
+CAL_KELLY_FRACTION = float(os.getenv("CAL_KELLY_FRACTION", "0.5"))
+# Slippage assumed when no book is supplied (backtests/tests only — the live
+# pipeline requires a real book and fails closed without one).
+DEFAULT_SLIPPAGE = float(os.getenv("DEFAULT_SLIPPAGE", "0.01"))
+# Probability calibration (locus/memory/prob_calibration.py)
+CALIBRATION_MIN_CELL = int(os.getenv("CALIBRATION_MIN_CELL", "30"))
+CALIBRATION_PRIOR_STRENGTH = float(os.getenv("CALIBRATION_PRIOR_STRENGTH", "50"))
+CALIBRATION_CACHE_TTL_SECONDS = float(os.getenv("CALIBRATION_CACHE_TTL_SECONDS", "900"))
+
+# Exit ladder (executor.close_position_live): marketable FAK sells walked down
+# the bid book, never below best_bid * (1 - max slippage).
+EXIT_LADDER_STEPS = int(os.getenv("EXIT_LADDER_STEPS", "3"))
+EXIT_MAX_SLIPPAGE_PCT = float(os.getenv("EXIT_MAX_SLIPPAGE_PCT", "8"))
+STOP_LOSS_MAX_SLIPPAGE_PCT = float(os.getenv("STOP_LOSS_MAX_SLIPPAGE_PCT", "20"))
+# time_pressure (a deep loser running into market close) is NOT a stop-loss:
+# it still uses the ladder (a resting GTC that never fills shouldn't carry a
+# position into resolution), but with its own, tighter slippage cap — not
+# STOP_LOSS_MAX_SLIPPAGE_PCT's 20%, which was sized for "flatten at any cost"
+# and would also waive the spread guard (positions._live_close only ignores
+# the spread for exit_reason="sl", never for time_pressure).
+TIME_PRESSURE_MAX_SLIPPAGE_PCT = float(os.getenv("TIME_PRESSURE_MAX_SLIPPAGE_PCT", "10"))
+EXIT_RETRY_DELAY_SECONDS = float(os.getenv("EXIT_RETRY_DELAY_SECONDS", "1.0"))
