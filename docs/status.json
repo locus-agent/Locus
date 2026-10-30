@@ -1,26 +1,23 @@
 {
-  "generated_at": "2026-07-17T12:05:58.850209+00:00",
-  "last_heartbeat": "2026-07-17T12:05:58.850209+00:00",
-  "uptime_seconds": 585302,
+  "generated_at": "2026-10-30T17:55:45.282806+00:00",
+  "last_heartbeat": "2026-10-30T17:55:45.282806+00:00",
+  "uptime_seconds": null,
   "dry_run": false,
-  "markets_tracked": 1367,
-  "classify_error_streak": 4236,
+  "markets_tracked": 0,
+  "classify_error_streak": 0,
   "track_record": {
-    "total": 11508,
-    "accuracy": 18.0,
-    "by_category": {
-      "other": 16.2,
-      "ai": 12.8,
-      "politics": 19.5,
-      "technology": 11.8,
-      "crypto": 19.8,
-      "sports": 26.2
-    },
-    "by_source": {
-      "rss": 18.5,
-      "newsapi": 17.2,
-      "truthsocial": 7.4
-    }
+    "mode": "live",
+    "total": 0,
+    "accuracy": 0.0,
+    "by_category": {},
+    "by_source": {}
+  },
+  "track_record_paper": {
+    "mode": "paper",
+    "total": 0,
+    "accuracy": 0.0,
+    "by_category": {},
+    "by_source": {}
   },
   "accuracy_by_price": {
     "overall_accuracy": 18.0,
@@ -82,11 +79,11 @@
       }
     ]
   },
-  "headlines_scanned_today": 416,
+  "headlines_scanned_today": 0,
   "headlines_last_cycle": 0,
   "signals_24h": 0,
-  "classifications_24h": 4203,
-  "selectivity_pct": 0.0,
+  "classifications_24h": 0,
+  "selectivity_pct": null,
   "gates_24h": {
     "prefiltered_haiku": 0,
     "cooldown_skip": 0,
@@ -95,7 +92,7 @@
     "too_close_to_resolution": 0,
     "sports_disabled": 0,
     "sports_event_cap": 0,
-    "price_target_market": 281,
+    "price_target_market": 0,
     "coinflip_market": 0,
     "correlation_block": 0,
     "category_limit": 0,
@@ -109,11 +106,11 @@
     "reentry_triggered": 0
   },
   "watched_markets_count": 0,
-  "missed_opportunities_24h": 6,
+  "missed_opportunities_24h": 0,
   "whale": {
     "watched_wallets": 4,
     "triggered_24h": 0,
-    "last_check": "2026-07-17T10:45:03.880483+00:00"
+    "last_check": null
   },
   "edge_types_24h": {
     "news": 0,
@@ -121,39 +118,53 @@
     "arbitrage": 0
   },
   "pipeline_24h": {
-    "news": 1033,
-    "matched": 871,
-    "classified": 4203,
+    "news": 0,
+    "matched": 0,
+    "classified": 0,
     "signals": 0,
     "trades": 0
   },
   "performance": {
-    "trades_total": 52,
-    "deployed_usd": 1244.19,
-    "open_count": 5,
-    "closed_count": 40,
-    "wins": 22,
-    "losses": 18,
-    "win_rate_pct": 55.0,
-    "realized_pnl_usd": 34.01,
-    "unrealized_pnl_usd": 4.99,
-    "total_pnl_usd": 39.0,
-    "recent_winrate": 0.65,
-    "kelly_factor": 0.85,
+    "mode": "live",
+    "trades_total": 22,
+    "deployed_usd": 663.61,
+    "open_count": 1,
+    "closed_count": 21,
+    "wins": 7,
+    "losses": 14,
+    "win_rate_pct": 33.3,
+    "realized_pnl_usd": -65.77,
+    "unrealized_pnl_usd": 0.12,
+    "total_pnl_usd": -65.65,
+    "recent_winrate": 0.4,
+    "kelly_factor": 0.475,
     "winrate_lookback": 20,
-    "avg_classification_latency_ms": 4399.4
+    "avg_classification_latency_ms": 0.0
+  },
+  "performance_paper": {
+    "mode": "paper",
+    "trades_total": 30,
+    "deployed_usd": 580.58,
+    "open_count": 0,
+    "closed_count": 26,
+    "wins": 15,
+    "losses": 11,
+    "win_rate_pct": 57.7,
+    "realized_pnl_usd": 61.42,
+    "unrealized_pnl_usd": 0.0,
+    "total_pnl_usd": 61.42
   },
   "live_readiness": {
     "ready": false,
-    "criteria_met": 3,
+    "criteria_met": 2,
     "criteria_total": 4,
-    "sharpe_days_count": 16,
+    "sharpe_days_count": 18,
     "metrics": [
       {
         "key": "closed_trades",
         "label": "Closed Trades",
         "unit": "count",
-        "value": 40,
+        "value": 47,
         "threshold_display": "\u2265 20",
         "pass": true
       },
@@ -161,7 +172,7 @@
         "key": "win_rate",
         "label": "Win Rate",
         "unit": "pct",
-        "value": 55.0,
+        "value": 46.8,
         "threshold_display": "> 55%",
         "pass": false
       },
@@ -169,55 +180,27 @@
         "key": "sharpe_ratio",
         "label": "Sharpe Ratio",
         "unit": "ratio",
-        "value": 3.14,
+        "value": -0.29,
         "threshold_display": "> 0.50",
-        "pass": true
+        "pass": false
       },
       {
         "key": "max_drawdown",
         "label": "Max Drawdown",
         "unit": "pct",
-        "value": 5.1,
+        "value": 8.8,
         "threshold_display": "< 15%",
         "pass": true
       }
     ]
   },
   "circuit_breaker": {
-    "triggered": false,
-    "reason": "",
-    "drawdown_7d": 0.1538,
+    "triggered": true,
+    "reason": "7d drawdown 20.4% > 20% limit",
+    "drawdown_7d": 0.2039,
     "sharpe_7d": null
   },
   "open_positions": [
-    {
-      "time": "2026-07-11 07:53:20",
-      "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
-      "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
-      "side": "YES",
-      "entry_price": 0.68,
-      "current_price": 0.895,
-      "pnl_pct": 31.62,
-      "amount_usd": 24.99,
-      "current_value_usd": 32.89,
-      "pnl_usd": 7.9,
-      "edge_type": "momentum",
-      "event_id": "674406"
-    },
-    {
-      "time": "2026-07-11 04:35:51",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "slug": "maine-senate-election-winner",
-      "side": "NO",
-      "entry_price": 0.64,
-      "current_price": 0.655,
-      "pnl_pct": -4.17,
-      "amount_usd": 34.56,
-      "current_value_usd": 33.12,
-      "pnl_usd": -1.44,
-      "edge_type": "news",
-      "event_id": "57650"
-    },
     {
       "time": "2026-07-09 16:55:31",
       "market_question": "Will Marine Le Pen win the 2027 French presidential election?",
@@ -231,37 +214,57 @@
       "pnl_usd": 0.12,
       "edge_type": "news",
       "event_id": "79987"
-    },
+    }
+  ],
+  "closed_positions": [
     {
-      "time": "2026-07-02 10:08:30",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
-      "slug": "openai-ipo-closing-market-cap",
-      "side": "YES",
-      "entry_price": 0.0565,
-      "current_price": 0.03300000000000003,
-      "pnl_pct": -4.9,
-      "amount_usd": 0.3296432873334284,
-      "current_value_usd": 0.31,
-      "pnl_usd": -0.02,
-      "edge_type": "news",
-      "event_id": "48292"
-    },
-    {
-      "time": "2026-06-30 00:56:15",
+      "time": "2026-10-30T15:03:51.610079+00:00",
       "market_question": "Will Dan Sullivan win the Alaska Senate race in 2026?",
       "slug": "alaska-senate-election-winner",
       "side": "NO",
       "entry_price": 0.295,
-      "current_price": 0.335,
-      "pnl_pct": -6.34,
-      "amount_usd": 24.85,
-      "current_value_usd": 23.28,
-      "pnl_usd": -1.57,
-      "edge_type": "news",
-      "event_id": "59233"
-    }
-  ],
-  "closed_positions": [
+      "exit_price": null,
+      "realized_pnl_usd": -6.2348,
+      "exit_reason": "reconcile_mismatch",
+      "event_id": "59233",
+      "partial": false
+    },
+    {
+      "time": "2026-10-30T15:03:51.610064+00:00",
+      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "slug": "openai-ipo-closing-market-cap",
+      "side": "YES",
+      "entry_price": 0.0565,
+      "exit_price": null,
+      "realized_pnl_usd": -5.328256712666571,
+      "exit_reason": "reconcile_mismatch",
+      "event_id": "48292",
+      "partial": false
+    },
+    {
+      "time": "2026-10-30T15:03:51.610037+00:00",
+      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "slug": "maine-senate-election-winner",
+      "side": "NO",
+      "entry_price": 0.64,
+      "exit_price": null,
+      "realized_pnl_usd": -4.6756,
+      "exit_reason": "reconcile_mismatch",
+      "event_id": "57650",
+      "partial": false
+    },
+    {
+      "time": "2026-10-30T15:03:51.609766+00:00",
+      "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
+      "slug": "who-will-be-the-democratic-nominee-in-the-maine-senate-race-on-july-27-20260706182929391",
+      "side": "YES",
+      "entry_price": 0.68,
+      "exit_price": null,
+      "realized_pnl_usd": -1.0394,
+      "exit_reason": "reconcile_mismatch",
+      "event_id": "674406",
+      "partial": false
+    },
     {
       "time": "2026-07-10T11:43:17.187137+00:00",
       "market_question": "Will the Republicans win the Maine Senate race in 2026?",
@@ -269,7 +272,7 @@
       "side": "NO",
       "entry_price": 0.425,
       "exit_price": null,
-      "realized_pnl_usd": 1.1199999999999979,
+      "realized_pnl_usd": 0.4678999999999979,
       "exit_reason": "UPD: \u00bd closed +9% \u2192 fully closed ?",
       "event_id": "57650",
       "partial": true
@@ -281,7 +284,7 @@
       "side": "YES",
       "entry_price": 0.0985,
       "exit_price": 0.0695,
-      "realized_pnl_usd": -0.6200000000000001,
+      "realized_pnl_usd": -0.7434000000000001,
       "exit_reason": "drawdown_decision",
       "event_id": "556131",
       "partial": false
@@ -305,7 +308,7 @@
       "side": "NO",
       "entry_price": 0.555,
       "exit_price": 0.575,
-      "realized_pnl_usd": -1.8300000000000018,
+      "realized_pnl_usd": -2.914400000000002,
       "exit_reason": "news_decision",
       "event_id": "57672",
       "partial": false
@@ -317,7 +320,7 @@
       "side": "NO",
       "entry_price": 0.58,
       "exit_price": 0.715,
-      "realized_pnl_usd": -8.329999999999998,
+      "realized_pnl_usd": -9.169699999999999,
       "exit_reason": "drawdown_decision",
       "event_id": "655630",
       "partial": false
@@ -333,108 +336,60 @@
       "exit_reason": "manual",
       "event_id": "89525",
       "partial": false
-    },
-    {
-      "time": "2026-06-30T02:27:00.081379+00:00",
-      "market_question": "Will Julie Gonzales be the Democratic nominee for Senate in Colorado?",
-      "slug": "colorado-democratic-senate-primary-winner",
-      "side": "YES",
-      "entry_price": 0.0695,
-      "exit_price": 0.0915,
-      "realized_pnl_usd": 2.5418705035971207,
-      "exit_reason": "manual",
-      "event_id": "80037",
-      "partial": false
-    },
-    {
-      "time": "2026-06-29T10:09:40.830878+00:00",
-      "market_question": "Bitcoin Up or Down on June 29?",
-      "slug": "bitcoin-up-or-down-on-june-29-2026",
-      "side": "NO",
-      "entry_price": 0.535,
-      "exit_price": 0.685,
-      "realized_pnl_usd": -8.054838709677421,
-      "exit_reason": "drawdown_decision",
-      "event_id": "641220",
-      "partial": false
-    },
-    {
-      "time": "2026-06-28T23:48:37.291128+00:00",
-      "market_question": "Will Trump deport 400-500k people?",
-      "slug": "how-many-people-will-trump-deport-in-2026-823",
-      "side": "YES",
-      "entry_price": 0.415,
-      "exit_price": 0.435,
-      "realized_pnl_usd": 1.2226506024096426,
-      "exit_reason": "manual",
-      "event_id": "73866",
-      "partial": false
-    },
-    {
-      "time": "2026-06-28 12:47:20",
-      "market_question": "Will Dan Sullivan win the Alaska Senate race in 2026?",
-      "slug": "alaska-senate-election-winner",
-      "side": "NO",
-      "entry_price": 0.32,
-      "exit_price": null,
-      "realized_pnl_usd": 0.0,
-      "exit_reason": "manual",
-      "event_id": "59233",
-      "partial": false
     }
   ],
   "exit_decisions": [
     {
-      "time": "2026-07-12 17:40:58",
-      "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
-      "side": "YES",
-      "trigger": "news",
-      "decision": "close",
-      "reasoning": "The original thesis relied on Democrats converging on a replacement nominee after Platner's withdrawal, but Patrick Dempsey shutting down buzz signals the field remains uncertain and Troy Jackson is not the consensus pick. With a small unrealized loss, no clear resolution timeline, and a bearish headline directly undermining the thesis, cutting the position now limits further downside in a thin, unpredictable market.",
-      "pnl_pct": -1.47
-    },
-    {
-      "time": "2026-07-12 17:40:58",
-      "market_question": "Will Troy Jackson be the Maine Senate Democratic nominee on July 27?",
-      "side": "YES",
-      "trigger": "news_decision",
-      "decision": "close_failed",
-      "reasoning": "Live SELL not confirmed (news_decision); position kept open",
-      "pnl_pct": -1.47
-    },
-    {
-      "time": "2026-07-12 07:28:20",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
+      "time": "2026-10-30 16:51:58",
+      "market_question": "Will Bitcoin dip to $60,000 in July?",
       "side": "NO",
-      "trigger": "news",
-      "decision": "hold",
-      "reasoning": "The trigger headline is essentially a restatement of the original thesis-confirming news (Platner withdrawing), not a genuine contradiction \u2014 both headlines describe the same event (his withdrawal), so my NO position thesis remains intact. With +5.6% unrealized gain and no new bullish information actually undermining the position, holding is appropriate while the market continues to price in the weakened Democratic field.",
-      "pnl_pct": 5.56
+      "trigger": "backfill",
+      "decision": "pnl_backfill",
+      "reasoning": "Realized PnL backfilled from data-api.polymarket.com/activity (wallet 0xadAeDBd606926aa399852caBec5028Ab99B9e7B9): window 2026-07-07 05:10:20..2026-07-08T12:35:50.839385+00:00, 2 TRADE + 0 REDEEM/MERGE rows matched \u2014 BUY $24.9900 (59.5 sh), SELL $15.8203 + REDEEM $0.0000 (59.5 + 0 sh); completeness check: 59.5 - 59.5 - 0 = +0 sh unexplained (within the 0.5-token tolerance); realized_true $-9.1697 minus already recorded $-8.3300 = delta $-0.8397",
+      "pnl_pct": null
     },
     {
-      "time": "2026-07-11 21:22:33",
-      "market_question": "Will the Democrats win the Maine Senate race in 2026?",
-      "side": "NO",
-      "trigger": "news",
-      "decision": "hold",
-      "reasoning": "The trigger headline is essentially the same news as the original thesis (Platner withdrawing), just a duplicate/confirmation from a different outlet \u2014 it doesn't contradict the NO position. With no PnL change and the original thesis intact (a weakened Democratic field), holding is appropriate.",
-      "pnl_pct": 0.0
-    },
-    {
-      "time": "2026-07-11 06:14:24",
-      "market_question": "Will OpenAI\u2019s market cap be between $750B and $1T at market close on IPO day?",
+      "time": "2026-10-30 16:51:58",
+      "market_question": "Will Google have the best AI model at the end of July 2026?",
       "side": "YES",
-      "trigger": "time_pressure",
-      "decision": "partial_close",
-      "reasoning": "Partial live SELL (time_pressure): sold 39.99999999999999 @ 0.029 (realized $-0.23); 9.500000000000007 tokens remain, position kept open",
-      "pnl_pct": -12.1
+      "trigger": "backfill",
+      "decision": "pnl_backfill",
+      "reasoning": "Realized PnL backfilled from data-api.polymarket.com/activity (wallet 0xadAeDBd606926aa399852caBec5028Ab99B9e7B9): window 2026-07-02 08:51:32..2026-07-10T08:05:55.119026+00:00, 2 TRADE + 0 REDEEM/MERGE rows matched \u2014 BUY $2.0720 (20 sh), SELL $1.3286 + REDEEM $0.0000 (20 + 0 sh); completeness check: 20 - 20 - 0 = +0 sh unexplained (within the 0.5-token tolerance); realized_true $-0.7434 minus already recorded $-0.6200 = delta $-0.1234",
+      "pnl_pct": null
+    },
+    {
+      "time": "2026-10-30 16:51:58",
+      "market_question": "Will the Republicans win the Maine Senate race in 2026?",
+      "side": "NO",
+      "trigger": "backfill",
+      "decision": "pnl_backfill",
+      "reasoning": "Realized PnL backfilled from data-api.polymarket.com/activity (wallet 0xadAeDBd606926aa399852caBec5028Ab99B9e7B9): window 2026-06-30 19:10:52..2026-07-10T11:43:17.187137+00:00, 6 TRADE + 0 REDEEM/MERGE rows matched \u2014 BUY $25.3590 (43 sh), SELL $25.8269 + REDEEM $0.0000 (43 + 0 sh); completeness check: 43 - 43 - 0 = +0 sh unexplained (within the 0.5-token tolerance); realized_true $+0.4679 minus already recorded $+1.1200 = delta $-0.6521",
+      "pnl_pct": null
+    },
+    {
+      "time": "2026-10-30 16:51:58",
+      "market_question": "Will the Republicans win the Texas Senate race in 2026?",
+      "side": "NO",
+      "trigger": "backfill",
+      "decision": "pnl_backfill",
+      "reasoning": "Realized PnL backfilled from data-api.polymarket.com/activity (wallet 0xadAeDBd606926aa399852caBec5028Ab99B9e7B9): window 2026-06-30 15:20:30..2026-07-09T06:20:53.251892+00:00, 2 TRADE + 0 REDEEM/MERGE rows matched \u2014 BUY $25.4785 (55.4 sh), SELL $22.5641 + REDEEM $0.0000 (55 + 0 sh); completeness check: 55.4 - 55 - 0 = +0.4 sh unexplained (within the 0.5-token tolerance); realized_true $-2.9144 minus already recorded $-1.8300 = delta $-1.0844",
+      "pnl_pct": null
+    },
+    {
+      "time": "2026-10-30 16:51:58",
+      "market_question": "Bitcoin Up or Down on June 29?",
+      "side": "NO",
+      "trigger": "backfill",
+      "decision": "pnl_backfill",
+      "reasoning": "Realized PnL backfilled from data-api.polymarket.com/activity (wallet 0xadAeDBd606926aa399852caBec5028Ab99B9e7B9): window 2026-06-29 09:43:29..2026-06-29T10:09:40.830878+00:00, 2 TRADE + 1 REDEEM/MERGE rows matched \u2014 BUY $25.9488 (56.75 sh), SELL $16.5215 + REDEEM $0.7500 (56 + 0.75 sh); completeness check: 56.75 - 56 - 0.75 = +0 sh unexplained (within the 0.5-token tolerance); realized_true $-8.6773 minus already recorded $-8.0548 = delta $-0.6225",
+      "pnl_pct": null
     }
   ],
   "recent_classifications": [
     {
-      "time": "2026-07-17 11:47:56",
-      "market_question": "Another crypto hack over $100m by September 30?",
-      "headline": "Wall St futures fall as chip selloff gathers pace; Netflix tumbles - Reuters",
+      "time": "2026-07-17 12:15:31",
+      "market_question": "OpenAI announces it has achieved AGI before 2027?",
+      "headline": "Xi urges global AI collaboration as 29 nations launch Shanghai body - India Today",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -448,9 +403,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 11:47:56",
-      "market_question": "Another S&P 500 Company buys Bitcoin by December 31, 2026?",
-      "headline": "Wall St futures fall as chip selloff gathers pace; Netflix tumbles - Reuters",
+      "time": "2026-07-17 12:15:31",
+      "market_question": "Will Alibaba have the best Chinese AI model at the end of July 2026?",
+      "headline": "Xi urges global AI collaboration as 29 nations launch Shanghai body - India Today",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -464,9 +419,9 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 11:47:53",
-      "market_question": "Another crypto hack over $100m by September 30?",
-      "headline": "US companies face rise in cyber attacks - Reuters",
+      "time": "2026-07-17 12:15:31",
+      "market_question": "Will a Chinese company have the best AI model by December 31?",
+      "headline": "Xi urges global AI collaboration as 29 nations launch Shanghai body - India Today",
       "direction": "neutral",
       "materiality": 0.0,
       "confidence": null,
@@ -480,36 +435,36 @@
       "ensemble_used": false
     },
     {
-      "time": "2026-07-17 11:47:53",
-      "market_question": "Will USD-denominated stablecoin market share fall below 99% in 2026?",
-      "headline": "Wall St futures fall as chip selloff gathers pace; Netflix tumbles - Reuters",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-17 12:15:31",
+      "market_question": "Will Trump launch a coin by December 31?",
+      "headline": "Xi urges global AI collaboration as 29 nations launch Shanghai body - India Today",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     },
     {
-      "time": "2026-07-17 11:47:53",
-      "market_question": "Will Chip Keating win the 2026 Oklahoma Governor Republican primary election?",
-      "headline": "Wall St futures fall as chip selloff gathers pace; Netflix tumbles - Reuters",
-      "direction": null,
-      "materiality": null,
+      "time": "2026-07-17 12:15:31",
+      "market_question": "Will OpenAI launch a token before 2027?",
+      "headline": "Xi urges global AI collaboration as 29 nations launch Shanghai body - India Today",
+      "direction": "neutral",
+      "materiality": 0.0,
       "confidence": null,
       "edge": null,
       "fee_cost": null,
-      "time_horizon": null,
-      "adjusted_materiality": null,
-      "action": "prefiltered",
+      "time_horizon": "medium",
+      "adjusted_materiality": 0.0,
+      "action": "error",
       "match_source": "keyword",
       "consensus_score": null,
-      "ensemble_used": null
+      "ensemble_used": false
     }
   ],
   "prompt": {
@@ -644,33 +599,5 @@
       "reflection": "(reflection generation failed: BadRequestError)"
     }
   ],
-  "pending_suggestions": [
-    {
-      "id": 5,
-      "type": "stale_geopolitical",
-      "text": "3+ geopolitical stale misses (avg +38%) \u2014 consider increasing MAX_NEWS_AGE_SECONDS_GEOPOLITICAL by 25%",
-      "category": "geopolitical",
-      "avg_pct_move": 37.6,
-      "miss_count": 3,
-      "time": "2026-07-11 22:00:36"
-    },
-    {
-      "id": 4,
-      "type": "low_materiality",
-      "text": "2+ ai low_materiality misses \u2014 consider lowering materiality threshold by 0.05",
-      "category": "ai",
-      "avg_pct_move": 32.1,
-      "miss_count": 2,
-      "time": "2026-06-27 22:00:34"
-    },
-    {
-      "id": 3,
-      "type": "low_materiality",
-      "text": "2+ politics low_materiality misses \u2014 consider lowering materiality threshold by 0.05",
-      "category": "politics",
-      "avg_pct_move": 25.0,
-      "miss_count": 2,
-      "time": "2026-06-24 22:00:59"
-    }
-  ]
+  "pending_suggestions": []
 }
