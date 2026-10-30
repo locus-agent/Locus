@@ -288,13 +288,16 @@ TOPUP_EXIT_REASONS = frozenset({"manual", "sl", "time_pressure"})
 # A close that fails because the BOOK can't support the sell (thin/empty/wide)
 # won't succeed 30 seconds later either — an unsellable zombie-book position
 # would otherwise retry every management cycle forever (position 54: 1,325
-# close_failed decisions in ~11.5h). After such a failure, close ATTEMPTS on
-# that position are suppressed for config.CLOSE_RETRY_BACKOFF_SECONDS. The
-# position stays fully marked and its triggers keep evaluating — only the
-# doomed order placement is skipped (with one log line stating the intent).
-# Genuine errors (error_*) and transient failures (close_failed — a rejected
-# or unconfirmed order) are NOT backed off; nor are dry-run/resolution closes
-# (no CLOB order involved), and a manual close always bypasses.
+# close_failed decisions in ~11.5h). Likewise a close_failed rejected as "not
+# enough balance / allowance" (_is_balance_error) is an exchange-side rejection
+# against our own holding/approval, not a book problem — a 30s-later retry
+# fails identically. After either failure, close ATTEMPTS on that position
+# are suppressed for config.CLOSE_RETRY_BACKOFF_SECONDS. The position stays
+# fully marked and its triggers keep evaluating — only the doomed order
+# placement is skipped (with one log line stating the intent). Other
+# close_failed causes (a plain rejected/unconfirmed order) and genuine errors
+# (error_*) are NOT backed off; nor are dry-run/resolution closes (no CLOB
+# order involved), and a manual close always bypasses.
 #
 # In-memory only (position_id -> monotonic timestamp of the failure): a
 # restart simply retries once, which is the desired behavior anyway.
@@ -302,6 +305,17 @@ TOPUP_EXIT_REASONS = frozenset({"manual", "sl", "time_pressure"})
 NON_TRANSIENT_CLOSE_STATUSES = frozenset(
     {"skipped_thin_book", "skipped_empty_book", "skipped_wide_spread"}
 )
+
+
+def _is_balance_error(error: str | None) -> bool:
+    """Whether a close_failed's error message is an exchange "not enough
+    balance / allowance" rejection — the book is fine, but the order was
+    rejected against our own holding/approval (an inflated share count, a
+    stale allowance), which a plain retry 30s later won't fix either.
+    Position 54 hit this hundreds of times a day before the backoff below."""
+    low = (error or "").lower()
+    return "not enough balance" in low or "allowance" in low
+
 
 _close_backoff: dict[int, float] = {}
 
@@ -761,7 +775,7 @@ def cooldown_allows(position: dict, trigger: str, now: datetime | None = None) -
 
 def _live_close(
     position: dict, exit_reason: str, fraction: float, force: bool = False
-) -> tuple[str, str | None, float | None, float | None, float | None, float, float]:
+) -> tuple[str, str | None, float | None, float | None, float | None, float, float, bool]:
     """Flatten `fraction` of the position on the CLOB (live trading only).
 
     `force=True` (operator force-close) disables the wide-spread protective
@@ -770,7 +784,7 @@ def _live_close(
     so a dust holding still goes through top-up-and-sell first.
 
     Returns (outcome, order_id, remaining_shares, sold_shares, fill_price,
-    topup_cost_usd, topup_shares).
+    topup_cost_usd, topup_shares, price_estimated).
     sold_shares is the share count that actually matched, and fill_price is
     the SELL fill price of the HELD side's token (i.e. the NO-token price for
     a NO position) — together the real proceeds, so _close can realize the
@@ -778,20 +792,25 @@ def _live_close(
     sell happened. topup_cost_usd/topup_shares are the real dollars spent and
     tokens received by a dust top-up BUY (top-up-and-sell; 0.0/0.0 when none
     happened) — _close MUST fold them into the position's basis and holding
-    whatever the outcome, or PnL conservation breaks.
+    whatever the outcome, or PnL conservation breaks. price_estimated is True
+    when the SELL was confirmed by the on-chain balance rather than the order
+    ledger and no real fill price could be found (executor.close_position_live
+    then falls back to the order's limit price) — the caller should flag this
+    in whatever it records, since fill_price is a floor, not a measurement.
 
-      - ("closed", None, None, None, None, 0, 0): nothing to sell on the
-        exchange — every close while DRY_RUN and every resolution close
+      - ("closed", None, None, None, None, 0, 0, False): nothing to sell on
+        the exchange — every close while DRY_RUN and every resolution close
         (settles on-chain) skip the CLOB, so the local close is always safe to
         record as a simulated/settled fill at the marked price.
-      - ("closed", order_id, remaining, sold, price, ...): the live SELL
-        flattened everything it set out to (any remainder is dust); record the
-        close with the real Polymarket order_id.
-      - ("partial", order_id, remaining, sold, price, ...): the SELL filled but
-        `remaining` tokens are STILL HELD on-chain (thin book / partial fill).
-        The caller must KEEP the position open, shrink token_count to
-        `remaining`, and realize only the sold chunk — recording a close here
-        would hide live exposure.
+      - ("closed", order_id, remaining, sold, price, ..., price_estimated):
+        the live SELL flattened everything it set out to (any remainder is
+        dust); record the close with the real Polymarket order_id.
+      - ("partial", order_id, remaining, sold, price, ..., price_estimated):
+        the SELL filled but `remaining` tokens are STILL HELD on-chain (thin
+        book / partial fill, or a balance-confirmed partial drop). The caller
+        must KEEP the position open, shrink token_count to `remaining`, and
+        realize only the sold chunk — recording a close here would hide live
+        exposure.
       - ("failed", None, None, None, None, ...): the live SELL could NOT be
         confirmed (close_failed, a thin/empty/wide book, or a missing client).
         We still hold the full position on-chain, so the caller MUST keep it
@@ -819,7 +838,7 @@ def _live_close(
             "— close recorded locally only for \"%s\"",
             config.DRY_RUN, exit_reason, position["market_question"][:40],
         )
-        return "closed", None, None, None, None, 0.0, 0.0
+        return "closed", None, None, None, None, 0.0, 0.0, False
     # Prefer the real filled token_count (the BUY filled at the ask, so deriving
     # shares from amount_usd / entry_yes_price over-counts); scale by the close
     # fraction. Falls back to the derivation for dry-run/legacy positions.
@@ -866,25 +885,34 @@ def _live_close(
             "error": result.get("error"),
             "topup_skipped": result.get("topup_skipped"),
         }
-    if result["status"] in NON_TRANSIENT_CLOSE_STATUSES:
-        # The book can't support the sell and won't shortly: arm the backoff
-        # so the management cycle stops re-placing a doomed order every ~30s.
-        # Transient failures (close_failed) and error_* keep retrying as before.
+    is_balance_error = (result["status"] == "close_failed"
+                       and _is_balance_error(result.get("error")))
+    if result["status"] in NON_TRANSIENT_CLOSE_STATUSES or is_balance_error:
+        # The book can't support the sell (or the order is rejected against our
+        # own holding/allowance) and won't shortly: arm the backoff so the
+        # management cycle stops re-placing a doomed order every ~30s.
+        # Other close_failed causes (a rejected/unconfirmed order with no
+        # balance signature) and error_* keep retrying as before.
         _close_backoff[position["id"]] = time.monotonic()
         log.warning(
-            "[positions] close backoff ARMED on position %s (%s): further close "
-            "attempts suppressed for %.0fs",
-            position["id"], result["status"], config.CLOSE_RETRY_BACKOFF_SECONDS,
+            "[positions] close backoff ARMED on position %s (%s%s): further "
+            "close attempts suppressed for %.0fs",
+            position["id"], result["status"],
+            " — not enough balance/allowance" if is_balance_error else "",
+            config.CLOSE_RETRY_BACKOFF_SECONDS,
         )
+    price_estimated = bool(result.get("price_estimated"))
     if result["status"] == "executed":
         sold = result.get("sold_shares", result.get("shares"))
         log.info(
             f"[positions] Live close order {result['order_id']} placed: SELL "
             f"{sold} {position['side']} @ "
             f"{result['price']} on \"{position['market_question'][:40]}\""
+            + (" (price ESTIMATED, confirmed by balance)" if price_estimated else "")
         )
         return ("closed", result["order_id"], result.get("remaining_shares"),
-                sold, result.get("price"), topup_cost, topup_shares)
+                sold, result.get("price"), topup_cost, topup_shares,
+                price_estimated)
     if result["status"] == "partial_close":
         # Sold part of the holding; tokens still remain on-chain. Keep the position
         # open and let the caller shrink token_count to the real remainder and
@@ -897,7 +925,7 @@ def _live_close(
         )
         return ("partial", result["order_id"], remaining,
                 result.get("sold_shares"), result.get("price"),
-                topup_cost, topup_shares)
+                topup_cost, topup_shares, price_estimated)
     # SELL not confirmed. Do NOT record the close — keep the position open.
     # A top-up that filled before the failure is still passed through: the
     # bought tokens/dollars are real and must land in the basis.
@@ -908,7 +936,7 @@ def _live_close(
         + f") on \"{position['market_question'][:40]}\" — position kept OPEN, "
         "close NOT recorded (we still hold this on-chain)"
     )
-    return "failed", None, None, None, None, topup_cost, topup_shares
+    return "failed", None, None, None, None, topup_cost, topup_shares, False
 
 
 def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str,
@@ -952,14 +980,14 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
         "fraction=%.2f)", position["id"], exit_reason, fraction,
     )
     (outcome, exit_order_id, remaining_shares, sold_shares, fill_price,
-     topup_cost, topup_shares) = _live_close(position, exit_reason, fraction,
-                                             force=force)
+     topup_cost, topup_shares, price_estimated) = _live_close(
+         position, exit_reason, fraction, force=force)
     log.info(
         "[positions] _close: _live_close returned outcome=%s exit_order_id=%s "
         "remaining_shares=%s sold_shares=%s fill_price=%s topup_cost=%s "
-        "topup_shares=%s (position_id=%s)",
+        "topup_shares=%s price_estimated=%s (position_id=%s)",
         outcome, exit_order_id, remaining_shares, sold_shares, fill_price,
-        topup_cost, topup_shares, position["id"],
+        topup_cost, topup_shares, price_estimated, position["id"],
     )
     if topup_shares > 0:
         # A dust top-up BUY filled during this close attempt: real dollars
@@ -1052,7 +1080,9 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
             (position["id"], exit_reason or status or "close",
              f"Partial live SELL ({exit_reason or status}): sold {sold_shares} "
              f"@ {fill_price} (realized ${realized:+.2f}); {remaining_shares} "
-             "tokens remain, position kept open",
+             "tokens remain, position kept open"
+             + (" [price estimated — confirmed by on-chain balance, not the "
+                "order ledger]" if price_estimated else ""),
              round(current_pct, 2), yes_price),
         )
         return realized
@@ -1163,11 +1193,13 @@ def _close(conn, position: dict, yes_price: float, status: str, exit_reason: str
     realized_pct = realized / chunk_cost * 100.0 if chunk_cost > 0 else 0.0
     position["realized_pnl_usd"] = (position.get("realized_pnl_usd") or 0.0) + realized
     if fraction >= 1.0:
-        telegram_bot.notify_position_closed(position, realized_pct, realized, exit_reason)
+        telegram_bot.notify_position_closed(position, realized_pct, realized, exit_reason,
+                                            price_estimated=price_estimated)
     else:
         position["amount_usd"] = amount * (1.0 - sold_fraction)
         position["token_count"] = new_token_count
-        telegram_bot.notify_half_closed(position, realized_pct, realized)
+        telegram_bot.notify_half_closed(position, realized_pct, realized,
+                                        price_estimated=price_estimated)
     return realized
 
 

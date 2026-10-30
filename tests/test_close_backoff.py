@@ -140,6 +140,62 @@ def test_transient_and_error_statuses_keep_retrying(tmp_db, monkeypatch, status)
     assert pos["id"] not in positions._close_backoff
 
 
+# --- "not enough balance / allowance" close_failed also arms the backoff -----
+#
+# This status is nominally close_failed (a transient-looking rejection), but
+# an exchange rejection against our OWN holding/approval is not fixed by
+# waiting 30 seconds — position 54 hit this hundreds of times in one day
+# before this backoff existed.
+
+def _stub_close_with_error(monkeypatch, error):
+    calls = []
+
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+        calls.append(error)
+        return {"status": "close_failed", "order_id": None, "price": None,
+                "shares": None, "error": error}
+
+    monkeypatch.setattr(executor, "close_position_live", fake_close)
+    return calls
+
+
+@pytest.mark.parametrize("message", [
+    "not enough balance / allowance",
+    "Not Enough Balance or allowance",
+    "insufficient allowance",
+])
+def test_balance_error_arms_backoff(tmp_db, monkeypatch, message):
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    calls = _stub_close_with_error(monkeypatch, message)
+    pos = _open(tmp_db)
+
+    _close(tmp_db, pos)                       # attempt 1: fails, arms backoff
+    assert calls == [message]
+
+    _close(tmp_db, pos)                       # attempt 2: suppressed
+    assert calls == [message]                 # no second order attempt
+    assert pos["id"] in positions._close_backoff
+
+
+def test_plain_close_failed_error_does_not_arm_backoff(tmp_db, monkeypatch):
+    # A rejection with no balance/allowance signature stays transient-retry.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    calls = _stub_close_with_error(monkeypatch, "order rejected: bad signature")
+    pos = _open(tmp_db)
+
+    _close(tmp_db, pos)
+    _close(tmp_db, pos)
+    assert calls == ["order rejected: bad signature"] * 2  # both hit the exchange
+    assert pos["id"] not in positions._close_backoff
+
+
+def test_is_balance_error_helper():
+    assert positions._is_balance_error("not enough balance / allowance")
+    assert positions._is_balance_error("Insufficient ALLOWANCE for spender")
+    assert not positions._is_balance_error("order rejected: bad signature")
+    assert not positions._is_balance_error(None)
+
+
 def test_success_clears_backoff(tmp_db, monkeypatch):
     monkeypatch.setattr(config, "DRY_RUN", False)
     _stub_close(monkeypatch, "skipped_thin_book")

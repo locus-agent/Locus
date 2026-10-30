@@ -45,6 +45,14 @@ LIVE_MAX_SPREAD = float(os.getenv("LIVE_MAX_SPREAD", "0.05"))
 # not filled yet, missing -> error). A local position is only opened on a
 # confirmed fill.
 ORDER_RECONCILE_WAIT_SECONDS = float(os.getenv("ORDER_RECONCILE_WAIT_SECONDS", "2"))
+# When a SELL's order-ledger reconcile can't confirm the fill, the on-chain
+# token balance arbitrates before the close is declared failed: a FILLED order
+# drops out of the open-orders listing, so "not found" does NOT mean unfilled
+# (position 59's SELL matched on-chain while the DB logged close_failed). The
+# balance is re-checked up to BALANCE_CONFIRM_RETRIES times,
+# BALANCE_CONFIRM_WAIT_SECONDS apart, to let the chain state settle.
+BALANCE_CONFIRM_RETRIES = int(os.getenv("BALANCE_CONFIRM_RETRIES", "3"))
+BALANCE_CONFIRM_WAIT_SECONDS = float(os.getenv("BALANCE_CONFIRM_WAIT_SECONDS", "2"))
 # Polymarket CLOB order minimums (server-enforced). An order must be worth at
 # least MIN_ORDER_USD in notional AND at least MIN_ORDER_SHARES outcome tokens,
 # or the exchange rejects it (e.g. "Size (1.08) lower than the minimum: 5").

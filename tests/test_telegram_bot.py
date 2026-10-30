@@ -245,6 +245,30 @@ def test_notify_position_closed_simple_when_total_matches_chunk(enabled):
     )
 
 
+def test_notify_position_closed_flags_estimated_price(enabled):
+    # A close confirmed by on-chain balance (not the order ledger) has no
+    # measured fill price — the message must say so explicitly.
+    pos = {"market_question": "Will X?", "realized_pnl_usd": -4.5}
+    assert telegram_bot.notify_position_closed(
+        pos, -12.3, -4.5, "sl", price_estimated=True) is True
+    assert enabled[-1] == (
+        "🔴 CLOSED\n"
+        "Market: Will X?\n"
+        "PnL: -4.50 (-12.30%) | Reason: sl\n"
+        "⚠️ Fill price estimated (confirmed by balance, not the order ledger)"
+    )
+
+
+def test_notify_half_closed_flags_estimated_price(enabled):
+    pos = {"market_question": "Will X?", "realized_pnl_usd": 3.0,
+           "token_count": 20.0, "amount_usd": 10.0}
+    assert telegram_bot.notify_half_closed(
+        pos, 20.0, 3.0, price_estimated=True) is True
+    assert enabled[-1].endswith(
+        "⚠️ Fill price estimated (confirmed by balance, not the order ledger)"
+    )
+
+
 def test_notify_passive_filled_format(enabled):
     pos = {"market_question": "Will X?", "side": "YES", "price": 0.41,
            "token_count": 24.0, "actual_cost_usd": 9.84}

@@ -669,11 +669,51 @@ def close_position_live(
                 {"status": "partial_close", "order_id": order_id, "price": price,
                  "shares": sold_shares, "sold_shares": sold_shares,
                  "remaining_shares": remaining_shares})
-        # Unconfirmed (resting/unknown): the position is NOT flattened. Cancel the
-        # resting order so it can't fill later untracked, and report close_failed
-        # so the caller keeps the local position open and retries next cycle.
-        log.warning("[executor] close NOT confirmed (reconcile=%s) for order %s — "
-                    "cancelling and reporting close_failed; position stays open",
+        # Unconfirmed (resting/unknown) per the order ledger. The ledger can
+        # misreport a filled SELL: a FILLED order drops out of the open-orders
+        # listing, so _fetch_order's "not found" reads as resting even though
+        # the sell matched on-chain (position 59's 36.5-share SELL, logged
+        # close_failed while the tokens were gone). Before cancelling, let the
+        # on-chain balance arbitrate — fill truth is the balance, the same
+        # principle as the passive path.
+        sold_by_balance, held_after = _confirm_sell_by_balance(client, token_id, held)
+        if sold_by_balance is not None:
+            fills_price = _order_fill_price(client, order_id)
+            price_estimated = fills_price is None
+            realized_price = price if price_estimated else fills_price
+            remaining_shares = max(held_after or 0.0, 0.0)
+            unsold_intent = max(intended_shares - sold_by_balance, 0.0)
+            base = {"order_id": order_id, "price": realized_price,
+                    "shares": sold_by_balance, "sold_shares": sold_by_balance,
+                    "remaining_shares": remaining_shares,
+                    "price_estimated": price_estimated,
+                    "confirmed_by": "balance"}
+            if unsold_intent < CLOSE_DUST_SHARES:
+                log.warning(
+                    "[executor] close CONFIRMED BY BALANCE: reconcile said %s for "
+                    "order %s, but the holding dropped %.4f sh (%.4f remain) — "
+                    "executed @ %.4f%s", fill_status, order_id, sold_by_balance,
+                    remaining_shares, realized_price,
+                    " (price ESTIMATED from the order limit)" if price_estimated else "",
+                )
+                return _with_topup({"status": "executed", **base})
+            # The balance confirms a PARTIAL fill; cancel the resting remainder
+            # so it can't fill later untracked, keep the position open on the rest.
+            log.warning(
+                "[executor] PARTIAL close confirmed by balance: %.4f of intended "
+                "%.4f sh sold (order %s, reconcile said %s); cancelling the "
+                "remainder, %.4f sh remain held", sold_by_balance, intended_shares,
+                order_id, fill_status, remaining_shares,
+            )
+            cancel_order_safe(client, order_id)
+            return _with_topup({"status": "partial_close", **base})
+        # Balance unavailable or genuinely unchanged: the position is NOT
+        # flattened. Cancel the resting order so it can't fill later untracked,
+        # and report close_failed so the caller keeps the local position open
+        # and retries next cycle.
+        log.warning("[executor] close NOT confirmed (reconcile=%s, balance "
+                    "unchanged/unavailable) for order %s — cancelling and "
+                    "reporting close_failed; position stays open",
                     fill_status, order_id)
         cancel_order_safe(client, order_id)
         return _with_topup(
@@ -692,6 +732,86 @@ def close_position_live(
         return _with_topup(
             {"status": "close_failed", "order_id": None, "price": None,
              "shares": None, "error": f"{type(e).__name__}: {e}"})
+
+
+# Minimum balance drop (in shares) that counts as "something actually sold"
+# when the on-chain balance arbitrates an unconfirmed SELL.
+_BALANCE_DROP_EPSILON_SHARES = 0.01
+
+
+def _confirm_sell_by_balance(client, token_id: str,
+                             held_before: float | None) -> tuple[float | None, float | None]:
+    """Arbitrate an unconfirmed SELL by the on-chain token balance.
+
+    Returns (sold_shares, held_after): sold_shares is the confirmed balance
+    drop when the holding actually shrank, or None when nothing can be
+    confirmed — held_before unknown, balance unavailable, or the balance
+    genuinely didn't move. The balance is re-checked up to
+    config.BALANCE_CONFIRM_RETRIES times, config.BALANCE_CONFIRM_WAIT_SECONDS
+    apart, because chain state can lag the match by a few seconds."""
+    if held_before is None:
+        return None, None
+    held_after = None
+    for attempt in range(max(int(config.BALANCE_CONFIRM_RETRIES), 1)):
+        if attempt:
+            time.sleep(config.BALANCE_CONFIRM_WAIT_SECONDS)
+        held_after = held_token_shares(client, token_id)
+        if (held_after is not None
+                and held_before - held_after > _BALANCE_DROP_EPSILON_SHARES):
+            return held_before - held_after, held_after
+    return None, held_after
+
+
+def _order_fill_price(client, order_id: str) -> float | None:
+    """Volume-weighted REAL fill price of `order_id` from the exchange's trade
+    fills, or None when no fill record can be found (missing get_trades, query
+    error, or the order appears in no trade).
+
+    Used when a SELL was confirmed by the on-chain balance rather than the
+    order ledger: the order's limit price is only a floor for what the sell
+    actually realized, so the caller prefers the true fill price and falls
+    back to the limit price flagged as estimated. Both taker fills
+    (taker_order_id) and maker fills (maker_orders[].order_id) are matched."""
+    lister = getattr(client, "get_trades", None)
+    if not callable(lister):
+        return None
+    try:
+        params = None
+        try:
+            from py_clob_client_v2.clob_types import TradeParams
+            params = TradeParams()
+        except ImportError:
+            try:
+                from py_clob_client_v2 import TradeParams
+                params = TradeParams()
+            except ImportError:
+                params = None
+        trades = (lister(params) if params is not None else lister()) or []
+    except Exception as e:
+        log.warning("[executor] trade-fills fetch failed for order %s (%s); "
+                    "fill price unknown", order_id, e)
+        return None
+
+    total_shares = 0.0
+    total_usd = 0.0
+    for trade in trades:
+        fills: list[tuple[float, float]] = []
+        if str(_field(trade, "taker_order_id") or "") == str(order_id):
+            p, s = _field(trade, "price"), _field(trade, "size")
+            if p and s:
+                fills.append((float(p), float(s)))
+        for maker in _field(trade, "maker_orders") or []:
+            if str(_field(maker, "order_id") or "") == str(order_id):
+                p = _field(maker, "price") or _field(trade, "price")
+                s = _field(maker, "matched_amount", "size")
+                if p and s:
+                    fills.append((float(p), float(s)))
+        for p, s in fills:
+            total_shares += s
+            total_usd += p * s
+    if total_shares <= 0:
+        return None
+    return total_usd / total_shares
 
 
 def held_token_shares(client, token_id: str) -> float | None:

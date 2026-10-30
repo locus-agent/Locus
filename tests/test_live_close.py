@@ -115,6 +115,7 @@ def _install_fake_v2_module(monkeypatch, clob_client_cls):
     mod.Side = types.SimpleNamespace(BUY="BUY", SELL="SELL")
     mod.BalanceAllowanceParams = lambda **kw: ("params", kw)
     mod.AssetType = types.SimpleNamespace(COLLATERAL="COLLATERAL", CONDITIONAL="CONDITIONAL")
+    mod.TradeParams = lambda **kw: ("trade-params", kw)
     # cancel_order_safe builds an OrderPayload to cancel an unfilled SELL.
     mod.OrderPayload = lambda **kw: ("payload", kw)
     monkeypatch.setitem(sys.modules, "py_clob_client_v2", mod)
@@ -124,7 +125,8 @@ def _install_fake_v2_module(monkeypatch, clob_client_cls):
 def _install_fake_clob(monkeypatch, captured, book,
                        outcomes=("YES", "NO"),
                        fill_result=None,
-                       held_balance=None):
+                       held_balance=None,
+                       trades_result=None):
     """Fake CLOB client. `outcomes` sets the real outcome labels get_market
     reports (default YES/NO; pass ("Up","Down") to exercise the positional
     fallback). `fill_result` is what get_order returns on reconcile (default a
@@ -134,6 +136,9 @@ def _install_fake_clob(monkeypatch, captured, book,
     given (in shares), makes get_balance_allowance report that on-chain holding
     so the close's balance-cap can be exercised; None (default) omits the method
     entirely, matching a client release that lacks it (no cap applied).
+    `trades_result`, when given, installs get_trades returning that list (for
+    the balance-confirm path's real-fill-price lookup); omitted entirely
+    (no method) by default, matching a client release that lacks it.
 
     Every created order is appended to captured["orders"] (in order), with
     captured["order_args"] still the most recent one for older tests."""
@@ -195,6 +200,11 @@ def _install_fake_clob(monkeypatch, captured, book,
             captured["balance_params"] = params
             return {"balance": str(int(held_balance * 1_000_000))}
         FakeClobClient.get_balance_allowance = get_balance_allowance
+
+    if trades_result is not None:
+        def get_trades(self, params=None):
+            return trades_result
+        FakeClobClient.get_trades = get_trades
 
     _install_fake_v2_module(monkeypatch, FakeClobClient)
 
@@ -333,6 +343,149 @@ def test_close_position_live_resting_sell_is_close_failed(monkeypatch):
     assert result["order_id"] is None
     assert "reconcile" in result["error"]
     # the unfilled SELL was cancelled, not left dangling on the book
+    assert captured.get("cancelled")
+
+
+# --- unconfirmed SELL: the on-chain balance arbitrates before cancelling ------
+#
+# Position 59's case: the order ledger reconciled as resting/not-found (a
+# FILLED order drops out of open-orders), but the SELL actually matched
+# on-chain. Before declaring close_failed, the balance is re-checked and, if
+# it dropped, the close is confirmed from the real holding instead.
+
+def _queue_balance(monkeypatch, values):
+    """Stub executor.held_token_shares to return successive `values` on each
+    call (the initial balance-cap read, then each confirm-by-balance probe)."""
+    it = iter(values)
+    monkeypatch.setattr(executor, "held_token_shares",
+                        lambda client, token_id: next(it))
+
+
+def test_unconfirmed_sell_confirmed_by_balance_uses_real_fill_price(monkeypatch):
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    monkeypatch.setattr(config, "BALANCE_CONFIRM_WAIT_SECONDS", 0)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    trades = [{"taker_order_id": "LIVE-123", "price": "0.59", "size": "40"}]
+    _install_fake_clob(monkeypatch, captured, book,
+                       fill_result={"status": "LIVE", "size_matched": "0"},
+                       trades_result=trades)
+    # initial balance-cap read (40.0), then the confirm probe sees 0 left.
+    _queue_balance(monkeypatch, [40.0, 0.0])
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "executed"
+    assert result["sold_shares"] == pytest.approx(40.0)
+    assert result["remaining_shares"] == pytest.approx(0.0)
+    assert result["price"] == pytest.approx(0.59)  # real fill price, not the limit
+    assert result["price_estimated"] is False
+    assert result["confirmed_by"] == "balance"
+
+
+def test_unconfirmed_sell_confirmed_by_balance_without_fill_price_is_estimated(monkeypatch):
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    monkeypatch.setattr(config, "BALANCE_CONFIRM_WAIT_SECONDS", 0)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    # No trades_result -> the fake client has no get_trades at all.
+    _install_fake_clob(monkeypatch, captured, book,
+                       fill_result={"status": "LIVE", "size_matched": "0"})
+    _queue_balance(monkeypatch, [40.0, 0.0])
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "executed"
+    assert result["price_estimated"] is True
+    assert result["price"] == pytest.approx(0.60)  # falls back to the order limit
+
+
+def test_unconfirmed_sell_partial_balance_drop_cancels_remainder(monkeypatch):
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    monkeypatch.setattr(config, "BALANCE_CONFIRM_WAIT_SECONDS", 0)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book,
+                       fill_result={"status": "LIVE", "size_matched": "0"})
+    # Held 40 before, only dropped to 10 (30 sold) — not a full flatten.
+    _queue_balance(monkeypatch, [40.0, 10.0])
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "partial_close"
+    assert result["sold_shares"] == pytest.approx(30.0)
+    assert result["remaining_shares"] == pytest.approx(10.0)
+    assert result["confirmed_by"] == "balance"
+    # the still-resting remainder was cancelled so it can't fill untracked
+    assert captured.get("cancelled")
+
+
+def test_unconfirmed_sell_balance_unchanged_stays_close_failed(monkeypatch):
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    monkeypatch.setattr(config, "BALANCE_CONFIRM_WAIT_SECONDS", 0)
+    monkeypatch.setattr(config, "BALANCE_CONFIRM_RETRIES", 3)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book,
+                       fill_result={"status": "LIVE", "size_matched": "0"})
+    # Initial read 40.0, then 3 confirm retries all still report 40.0 (unchanged).
+    _queue_balance(monkeypatch, [40.0, 40.0, 40.0, 40.0])
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "close_failed"
+    assert "confirmed_by" not in result
+    assert captured.get("cancelled")
+
+
+def test_full_close_propagates_price_estimated_to_notification(tmp_db, monkeypatch):
+    # _close must thread price_estimated from _live_close through to the
+    # Telegram notification — the operator needs to know the shown PnL is
+    # not a measured fill.
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    sent = []
+    monkeypatch.setattr(config, "TELEGRAM_BOT_TOKEN", "tok")
+    monkeypatch.setattr(config, "TELEGRAM_CHAT_ID", "123")
+    from locus.core import telegram_bot
+    monkeypatch.setattr(telegram_bot, "_send", lambda text: (sent.append(text), True)[1])
+    monkeypatch.setattr(
+        executor, "close_position_live",
+        lambda *a, **k: {"status": "executed", "order_id": "LIVE-EST", "price": 0.6,
+                         "shares": 40.0, "sold_shares": 40.0, "remaining_shares": 0.0,
+                         "price_estimated": True, "confirmed_by": "balance"},
+    )
+
+    pos = _open(tmp_db, side="YES", entry=0.50, amount=25.0, token_count=40.0)
+    positions.close_manual(pos["id"])
+
+    assert sent and "Fill price estimated" in sent[-1]
+
+
+def test_unconfirmed_sell_balance_unavailable_stays_close_failed(monkeypatch):
+    # held_token_shares returns None throughout (no cap applied, no confirm
+    # possible) — old behavior preserved exactly.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    monkeypatch.setattr(config, "BALANCE_CONFIRM_WAIT_SECONDS", 0)
+
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book,
+                       fill_result={"status": "LIVE", "size_matched": "0"})
+    monkeypatch.setattr(executor, "held_token_shares", lambda client, token_id: None)
+
+    result = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+
+    assert result["status"] == "close_failed"
+    assert "confirmed_by" not in result
     assert captured.get("cancelled")
 
 

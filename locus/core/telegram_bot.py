@@ -111,7 +111,8 @@ def _shares(n: float) -> str:
     return f"{n:g}"
 
 
-def notify_position_closed(position: dict, pnl_pct: float, pnl_usd: float, reason: str) -> bool:
+def notify_position_closed(position: dict, pnl_pct: float, pnl_usd: float, reason: str,
+                           price_estimated: bool = False) -> bool:
     """🔴 a position fully closed. Clears any drawdown-alert dedup for it.
 
     `pnl_pct` arrives from positions._close already as the realized return on
@@ -121,7 +122,12 @@ def notify_position_closed(position: dict, pnl_pct: float, pnl_usd: float, reaso
     `position['realized_pnl_usd']` is the position's CUMULATIVE realized PnL
     including this final chunk (the same basis calibration-report reads). When
     earlier half-closes made the total differ from this chunk, both are shown
-    so the final chunk's number doesn't read as the whole position's result."""
+    so the final chunk's number doesn't read as the whole position's result.
+
+    `price_estimated=True` means the SELL was confirmed by the on-chain
+    balance rather than the order ledger and no real fill price could be
+    found — the PnL shown used the order's limit price as a floor, not a
+    measured fill, and the message flags that explicitly."""
     _drawdown_alerted.discard(position.get("id"))
     total = position.get("realized_pnl_usd")
     lines = ["🔴 CLOSED", f"Market: {_q(position)}"]
@@ -130,17 +136,22 @@ def notify_position_closed(position: dict, pnl_pct: float, pnl_usd: float, reaso
         lines.append(f"Position total: {total:+.2f} (incl. earlier partial sales)")
     else:
         lines.append(f"PnL: {pnl_usd:+.2f} ({pnl_pct:+.2f}%) | Reason: {reason}")
+    if price_estimated:
+        lines.append("⚠️ Fill price estimated (confirmed by balance, not the order ledger)")
     return _send("\n".join(lines))
 
 
-def notify_half_closed(position: dict, pnl_pct: float, pnl_usd: float) -> bool:
+def notify_half_closed(position: dict, pnl_pct: float, pnl_usd: float,
+                       price_estimated: bool = False) -> bool:
     """🟡 part of the position was realized, the rest left to ride.
 
     `pnl_usd`/`pnl_pct` are THIS chunk's realized return on the sold chunk's
     cost; `position` carries the post-close state — realized_pnl_usd (cumulative
     on this position so far), token_count and amount_usd (the remainder). A
     near-zero chunk is normal: Polymarket has no trading fees, so the spread is
-    the only cost and it can eat the whole gain."""
+    the only cost and it can eat the whole gain.
+
+    `price_estimated=True` — see notify_position_closed."""
     total = position.get("realized_pnl_usd")
     total = pnl_usd if total is None else total
     spread_note = " (spread)" if abs(pnl_usd) < 0.01 else ""
@@ -157,6 +168,8 @@ def notify_half_closed(position: dict, pnl_pct: float, pnl_usd: float) -> bool:
         f"Position total realized so far: {total:+.2f}\n"
         f"{open_line}"
     )
+    if price_estimated:
+        text += "\n⚠️ Fill price estimated (confirmed by balance, not the order ledger)"
     return _send(text)
 
 
