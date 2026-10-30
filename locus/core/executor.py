@@ -401,6 +401,21 @@ def _diagnose_order_error(exc, token_id, price, size, side, tick_size=None) -> l
     return reasons
 
 
+def _is_balance_error(error: str | None) -> bool:
+    """Whether a close_failed's error message is an exchange "not enough
+    balance / allowance" rejection — the book is fine, but the order was
+    rejected against our own holding/approval (an inflated share count, a
+    stale allowance), which a plain retry won't fix either — not a book
+    problem a wider ladder step or a 30s-later retry can cure. Position 54
+    hit this hundreds of times a day before positions.py's close-retry
+    backoff started checking for it. Lives here (not in positions.py, its
+    only other caller) because close_position_ladder below must also check
+    it, and positions.py already imports this module — the reverse import
+    would cycle."""
+    low = (error or "").lower()
+    return "not enough balance" in low or "allowance" in low
+
+
 def book_side(book, side: str) -> list:
     """Resting levels for one book side ('bids' or 'asks').
 
@@ -708,34 +723,50 @@ def close_position_live(
             base_held = held if held is not None else intended_shares
             remaining_shares = max(base_held - sold_shares, 0.0)
 
+            price_estimated = False
             if floor_price is not None:
-                # The FAK limit is only a floor; estimate the realized price by
-                # walking the snapshot book for the matched size (never below
-                # the floor).
-                from locus.core.orderbook import walk_bids_for_shares
-                levels = sorted(
-                    (book_level_price_size(b) for b in book_side(book, "bids")),
-                    key=lambda l: l[0], reverse=True)
-                _, est = walk_bids_for_shares(levels, sold_shares, floor_price)
-                if est > 0:
-                    price = max(round(est, 4), price)
+                # The FAK limit is only a floor — the real fill can land
+                # anywhere between it and the best bid. Prefer the REAL fill
+                # price from the exchange's trade history (same source the
+                # balance-confirm path uses); only fall back to walking the
+                # snapshot book (an estimate, flagged as such) when no trade
+                # record can be found for this order.
+                fills_price = _order_fill_price(client, order_id)
+                if fills_price is not None:
+                    price = fills_price
+                else:
+                    price_estimated = True
+                    from locus.core.orderbook import walk_bids_for_shares
+                    levels = sorted(
+                        (book_level_price_size(b) for b in book_side(book, "bids")),
+                        key=lambda l: l[0], reverse=True)
+                    _, est = walk_bids_for_shares(levels, sold_shares, floor_price)
+                    if est > 0:
+                        price = max(round(est, 4), price)
             if unsold_intent < CLOSE_DUST_SHARES:
                 log.info("[executor] close CONFIRMED (flat): sold %.4f sh token=%s @ "
-                         "%.4f (order %s); %.4f sh intent unsold (dust)", sold_shares,
-                         token_id, price, order_id, unsold_intent)
-                return _with_topup(
-                    {"status": "executed", "order_id": order_id, "price": price,
-                     "shares": sold_shares, "sold_shares": sold_shares,
-                     "remaining_shares": remaining_shares})
+                         "%.4f (order %s); %.4f sh intent unsold (dust)%s", sold_shares,
+                         token_id, price, order_id, unsold_intent,
+                         " (price ESTIMATED from book snapshot)" if price_estimated else "")
+                result = {"status": "executed", "order_id": order_id, "price": price,
+                         "shares": sold_shares, "sold_shares": sold_shares,
+                         "remaining_shares": remaining_shares}
+                if floor_price is not None:
+                    result["price_estimated"] = price_estimated
+                return _with_topup(result)
 
             log.warning("[executor] PARTIAL close: sold %.4f of intended %.4f sh — "
                         "%.4f sh REMAIN held for token=%s (order %s); position must "
                         "stay open", sold_shares, intended_shares, remaining_shares,
                         token_id, order_id)
-            return _with_topup(
-                {"status": "partial_close", "order_id": order_id, "price": price,
-                 "shares": sold_shares, "sold_shares": sold_shares,
-                 "remaining_shares": remaining_shares})
+            partial_result = {
+                "status": "partial_close", "order_id": order_id, "price": price,
+                "shares": sold_shares, "sold_shares": sold_shares,
+                "remaining_shares": remaining_shares,
+            }
+            if floor_price is not None:
+                partial_result["price_estimated"] = price_estimated
+            return _with_topup(partial_result)
         # Unconfirmed (resting/unknown) per the order ledger. The ledger can
         # misreport a filled SELL: a FILLED order drops out of the open-orders
         # listing, so _fetch_order's "not found" reads as resting even though
@@ -927,6 +958,17 @@ def close_position_ladder(
                 break
             continue
         if status.startswith("error") or (status == "skipped_wide_spread" and not stop_loss):
+            break
+        if status == "close_failed" and _is_balance_error(res.get("error")):
+            # Rejected against our own holding/allowance, not the book — a
+            # wider slippage band on the next step fixes nothing (position 54
+            # pattern). Stop the ladder now instead of burning every
+            # remaining step on a doomed retry.
+            log.warning(
+                "[executor] ladder step %d/%d: balance/allowance error (%s) — "
+                "stopping, not retrying with a wider slippage band",
+                k, steps, res.get("error"),
+            )
             break
         if k < steps and config.EXIT_RETRY_DELAY_SECONDS > 0:
             time.sleep(config.EXIT_RETRY_DELAY_SECONDS)

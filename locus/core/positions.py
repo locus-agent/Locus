@@ -308,15 +308,10 @@ NON_TRANSIENT_CLOSE_STATUSES = frozenset(
 )
 
 
-def _is_balance_error(error: str | None) -> bool:
-    """Whether a close_failed's error message is an exchange "not enough
-    balance / allowance" rejection — the book is fine, but the order was
-    rejected against our own holding/approval (an inflated share count, a
-    stale allowance), which a plain retry 30s later won't fix either.
-    Position 54 hit this hundreds of times a day before the backoff below."""
-    low = (error or "").lower()
-    return "not enough balance" in low or "allowance" in low
-
+# _is_balance_error moved to executor.py (close_position_ladder needs it too,
+# and executor can't import this module back without cycling); kept under
+# this name here since every caller in this file already spells it this way.
+_is_balance_error = executor._is_balance_error
 
 _close_backoff: dict[int, float] = {}
 
@@ -861,16 +856,26 @@ def _live_close(
         and exit_reason in TOPUP_EXIT_REASONS
         and bool(position.get("token_count"))
     )
-    # Exit ladder: marketable FAK sells walked down the bid book under a max
-    # slippage cap (wider for the hard stop / time-pressure exits), with
-    # retries — a resting GTC that never fills can no longer leave a stop-loss
-    # unexecuted.
-    result = executor.close_position_ladder(
-        position["condition_id"], position["side"], shares,
-        stop_loss=exit_reason in ("sl", "time_pressure"),
-        max_spread=(float("inf") if force else None),
-        allow_topup=allow_topup,
-    )
+    if exit_reason in ("sl", "time_pressure"):
+        # Exit ladder: marketable FAK sells walked down the bid book under a
+        # max slippage cap, with retries — a resting GTC that never fills can
+        # no longer leave a stop-loss or time-pressure exit unexecuted.
+        # Scoped to these two reasons only: every other close (take-profit,
+        # manual Close/Half/Force, news re-eval, near-certain, resolution)
+        # keeps the original GTC-at-best-bid path below, unchanged from
+        # before the ladder existed.
+        result = executor.close_position_ladder(
+            position["condition_id"], position["side"], shares,
+            stop_loss=exit_reason in ("sl", "time_pressure"),
+            max_spread=(float("inf") if force else None),
+            allow_topup=allow_topup,
+        )
+    else:
+        result = executor.close_position_live(
+            position["condition_id"], position["side"], shares,
+            max_spread=(float("inf") if force else None),
+            allow_topup=allow_topup,
+        )
     log.info(
         "[positions] _live_close: close_position_live returned status=%s order_id=%s "
         "price=%s shares=%s topup_shares=%s", result["status"], result.get("order_id"),

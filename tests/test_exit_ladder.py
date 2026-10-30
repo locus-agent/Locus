@@ -6,7 +6,7 @@ import pytest
 
 from locus import config
 from locus.core import executor
-from tests.test_live_close import _install_fake_clob, _level
+from test_live_close import _install_fake_clob, _level
 
 
 @pytest.fixture(autouse=True)
@@ -83,6 +83,8 @@ def test_error_stops_ladder(monkeypatch):
 
 
 def test_fak_order_priced_at_slippage_floor(monkeypatch):
+    # No get_trades on this fake client -> _order_fill_price finds nothing,
+    # so the result falls back to the book-walk estimate AND must say so.
     monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
     book = types.SimpleNamespace(
         bids=[_level(0.60, 10), _level(0.57, 20), _level(0.40, 1000)],
@@ -98,6 +100,95 @@ def test_fak_order_priced_at_slippage_floor(monkeypatch):
     assert res["status"] == "partial_close"         # 30 of 40 sold
     # realized price estimated by walking the book, not the floor
     assert res["price"] == pytest.approx((10 * 0.60 + 20 * 0.57) / 30, abs=1e-4)
+    assert res["price_estimated"] is True           # honestly flagged as an estimate
+
+
+def test_fak_order_prefers_real_fill_price_over_book_walk(monkeypatch):
+    # When the exchange's trade history has a real fill for this order, it
+    # must win over the book-snapshot estimate (and NOT be flagged estimated)
+    # — the whole point of task 3's "honest accounting" fix.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    book = types.SimpleNamespace(
+        bids=[_level(0.60, 10), _level(0.57, 20), _level(0.40, 1000)],
+        asks=[_level(0.62, 1000)])
+    captured = {}
+    trades = [{"taker_order_id": "LIVE-123", "price": "0.585", "size": "30"}]
+    _install_fake_clob(monkeypatch, captured, book, trades_result=trades)
+    res = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05,
+                                       max_slippage_pct=10.0)
+    assert res["status"] == "partial_close"
+    assert res["price"] == pytest.approx(0.585)     # real VWAP, not the book-walk estimate
+    assert res["price_estimated"] is False
+
+
+def test_ordinary_gtc_close_has_no_price_estimated_key(monkeypatch):
+    # A plain (non-ladder) GTC close never set this key before task 3 and
+    # must not start now — only floor_price (FAK/ladder) closes carry it.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    book = types.SimpleNamespace(bids=[_level(0.60, 1000)], asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book)
+    res = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
+    assert res["status"] == "executed"
+    assert "price_estimated" not in res
+
+
+# --- FAK + balance confirmation: no hanging orders, works like GTC --------
+
+def test_fak_unconfirmed_sell_confirmed_by_balance_no_hanging_order(monkeypatch):
+    # A FAK order the ledger reports as an unknown/terminal non-fill status
+    # (reconcile_order's conservative default) must still be recognized as
+    # filled via the on-chain balance, exactly like a GTC close — and the
+    # (already-dead) order is still best-effort cancelled, never left
+    # resting untracked.
+    monkeypatch.setattr(config, "POLYMARKET_PRIVATE_KEY", "0xkey")
+    monkeypatch.setattr(config, "BALANCE_CONFIRM_WAIT_SECONDS", 0)
+    book = types.SimpleNamespace(
+        bids=[_level(0.60, 10), _level(0.57, 20), _level(0.40, 1000)],
+        asks=[_level(0.62, 1000)])
+    captured = {}
+    _install_fake_clob(monkeypatch, captured, book,
+                       fill_result={"status": "CANCELLED", "size_matched": "0"},
+                       held_balance=40.0)
+    held_values = iter([40.0, 0.0])  # initial cap read, then the confirm probe
+    monkeypatch.setattr(executor, "held_token_shares", lambda client, token_id: next(held_values))
+
+    res = executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05,
+                                       max_slippage_pct=10.0)
+
+    assert res["status"] == "executed"
+    assert res["confirmed_by"] == "balance"
+    assert res["price_estimated"] is True  # no get_trades on this fake client
+    # the dead FAK order was cancelled, never left resting untracked
+    assert captured.get("cancelled")
+
+
+def test_ladder_stops_on_balance_error_without_retrying(monkeypatch):
+    # A close_failed carrying a "not enough balance/allowance" rejection is
+    # not a book problem — retrying with a wider slippage band on the next
+    # step fixes nothing. The ladder must stop after step 1, not burn all
+    # EXIT_LADDER_STEPS on a doomed retry.
+    calls = _scripted(monkeypatch, [
+        {"status": "close_failed", "order_id": None, "price": None,
+         "shares": None, "error": "not enough balance / allowance"},
+    ])
+    res = executor.close_position_ladder("c", "YES", 40.0)
+    assert len(calls) == 1          # no second/third step attempted
+    assert res["status"] == "close_failed"
+
+
+def test_ladder_retries_plain_close_failed_not_a_balance_error(monkeypatch):
+    # A rejection with no balance/allowance signature is still transient —
+    # the ladder keeps retrying it exactly as before this fix.
+    calls = _scripted(monkeypatch, [
+        {"status": "close_failed", "order_id": None, "price": None,
+         "shares": None, "error": "order rejected: bad signature"},
+        {"status": "executed", "order_id": "B", "price": 0.55, "shares": 40.0,
+         "sold_shares": 40.0, "remaining_shares": 0.0},
+    ])
+    res = executor.close_position_ladder("c", "YES", 40.0)
+    assert len(calls) == 2          # retried into step 2
+    assert res["status"] == "executed"
 
 
 def test_legacy_close_still_gtc(monkeypatch):
@@ -107,3 +198,92 @@ def test_legacy_close_still_gtc(monkeypatch):
     _install_fake_clob(monkeypatch, captured, book)
     executor.close_position_live("cond1", "YES", 40.0, max_spread=0.05)
     assert captured["posted"][1] == "GTC"
+
+
+# --- Dispatch scope: positions._live_close uses the ladder ONLY for sl/time_pressure -
+
+def _open_position(tmp_db, token_count=40.0):
+    from locus.core import positions
+    from locus.markets.gamma import Market
+
+    MKT = Market("cond1", "Will X happen?", "ai", 0.50, 0.50, 5000, "", True, [])
+    trade_id = tmp_db.log_trade(
+        market_id="cond1", market_question="Will X happen?", claude_score=0.7,
+        market_price=0.50, edge=0.2, side="YES", amount_usd=25.0,
+        status="executed", classification="bullish", materiality=0.7,
+    )
+    positions.open_position(trade_id, MKT, "YES", 25.0, token_count=token_count)
+    return positions.get_open_positions()[0]
+
+
+def _close_via(monkeypatch, tmp_db, exit_reason, status="closed_x", fraction=1.0,
+              force=False):
+    """Drive positions._close for `exit_reason`, with both close_position_ladder
+    and close_position_live stubbed so the dispatch (and ONLY the dispatch)
+    can be observed."""
+    from locus import config
+    from locus.core import executor, positions
+
+    monkeypatch.setattr(config, "DRY_RUN", False)
+    ladder_calls = []
+    live_calls = []
+
+    def fake_ladder(*a, **k):
+        ladder_calls.append((a, k))
+        return {"status": "executed", "order_id": "L", "price": 0.5,
+                "shares": 40.0, "sold_shares": 40.0, "remaining_shares": 0.0}
+
+    def fake_live(*a, **k):
+        live_calls.append((a, k))
+        return {"status": "executed", "order_id": "G", "price": 0.5,
+                "shares": 40.0, "sold_shares": 40.0, "remaining_shares": 0.0}
+
+    monkeypatch.setattr(executor, "close_position_ladder", fake_ladder)
+    monkeypatch.setattr(executor, "close_position_live", fake_live)
+
+    pos = _open_position(tmp_db)
+    conn = tmp_db._conn()
+    positions._close(conn, pos, 0.50, status, exit_reason, fraction=fraction,
+                     force=force)
+    conn.commit()
+    conn.close()
+    return ladder_calls, live_calls
+
+
+def test_stop_loss_uses_ladder(tmp_db, monkeypatch):
+    ladder_calls, live_calls = _close_via(monkeypatch, tmp_db, "sl")
+    assert len(ladder_calls) == 1 and len(live_calls) == 0
+
+
+def test_time_pressure_uses_ladder(tmp_db, monkeypatch):
+    ladder_calls, live_calls = _close_via(monkeypatch, tmp_db, "time_pressure")
+    assert len(ladder_calls) == 1 and len(live_calls) == 0
+
+
+@pytest.mark.parametrize("exit_reason", [
+    "manual", "tp_decision", "news_decision", "drawdown_decision",
+    "near_certain_yes_0.97", "near_certain_no_0.02",
+])
+def test_other_exit_reasons_use_plain_gtc(tmp_db, monkeypatch, exit_reason):
+    # Take-profit, manual Close/Half/Force, news re-eval, drawdown re-eval,
+    # near-certain locks — everything except sl/time_pressure keeps the
+    # original GTC-at-best-bid path, unchanged from before the ladder existed.
+    ladder_calls, live_calls = _close_via(monkeypatch, tmp_db, exit_reason)
+    assert len(live_calls) == 1 and len(ladder_calls) == 0
+
+
+def test_manual_force_close_uses_plain_gtc_not_ladder(tmp_db, monkeypatch):
+    # Force close (operator two-step confirm) is always exit_reason="manual"
+    # in practice — confirm force=True doesn't accidentally route to the
+    # ladder, and max_spread=inf is still passed through to close_position_live.
+    ladder_calls, live_calls = _close_via(monkeypatch, tmp_db, "manual", force=True)
+    assert len(live_calls) == 1 and len(ladder_calls) == 0
+    assert live_calls[0][1]["max_spread"] == float("inf")
+
+
+def test_half_close_via_sl_trigger_still_uses_ladder(tmp_db, monkeypatch):
+    # A fractional close (close_half-style) under exit_reason="sl" still
+    # dispatches to the ladder — the scoping is purely by exit_reason, not
+    # by fraction.
+    ladder_calls, live_calls = _close_via(monkeypatch, tmp_db, "sl", fraction=0.5)
+    assert len(ladder_calls) == 1 and len(live_calls) == 0
