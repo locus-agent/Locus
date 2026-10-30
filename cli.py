@@ -580,15 +580,118 @@ def cmd_reconcile_positions(args):
         console.print("[dim]run with --fix to apply (close the mismatches above)[/dim]")
 
 
+# Positions singled out for a detailed BUY/SELL/REDEEM breakdown in the audit
+# (closed with suspicious DB-vs-ledger gaps at the time of the 2026-10-30 audit).
+AUDIT_DETAIL_IDS = [39, 46, 47, 55, 41]
+
+
+def _print_backfill_table(rows, title):
+    table = Table(title=title, show_header=True, header_style="bold cyan")
+    table.add_column("ID", justify="right", width=4)
+    table.add_column("Status", width=16)
+    table.add_column("Market", max_width=28)
+    table.add_column("BUY $", justify="right", width=7)
+    table.add_column("SELL $", justify="right", width=7)
+    table.add_column("REDEEM $", justify="right", width=8)
+    table.add_column("Unexpl. sh", justify="right", width=10)
+    table.add_column("Complete", width=8)
+    table.add_column("DB real.", justify="right", width=8)
+    table.add_column("Ledger", justify="right", width=8)
+    table.add_column("Delta", justify="right", width=8)
+    table.add_column("Write", width=5)
+
+    for r in rows:
+        delta_color = "red" if r["delta"] < 0 else "green"
+        complete_str = ("[green]yes[/green]" if r["complete"]
+                        else "[red]NO[/red]")
+        table.add_row(
+            str(r["position_id"]),
+            r["status"] or "—",
+            r["market_question"][:28],
+            f"{r['buys_usd']:.2f}",
+            f"{r['sells_usd']:.2f}",
+            f"{r['redeemed_usd']:.2f}" if r["redeemed_usd"] else "—",
+            f"{r['unexplained_shares']:+g}",
+            complete_str,
+            f"{r['already_realized']:+.2f}",
+            f"{r['realized_true']:+.2f}",
+            f"[{delta_color}]{r['delta']:+.2f}[/{delta_color}]",
+            "yes" if r["writable"] else "—",
+        )
+    console.print(table)
+
+
+def _print_detail_breakdown(position_id, matched, row):
+    console.print(f"\n[bold]#{position_id}[/bold] {row['market_question']} "
+                  f"(side {row['side']}, status {row['status']})")
+    sub = Table(show_header=True, header_style="dim")
+    sub.add_column("When")
+    sub.add_column("Type", width=8)
+    sub.add_column("Side", width=5)
+    sub.add_column("Size", justify="right")
+    sub.add_column("USDC", justify="right")
+    import datetime as _dt
+    all_rows = (matched["trade"] + matched["proceeds_extra"]
+               + matched["cost_extra"])
+    for r in sorted(all_rows, key=lambda x: x.get("timestamp") or 0):
+        ts = r.get("timestamp")
+        when = (_dt.datetime.fromtimestamp(ts, _dt.timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+                if ts else "—")
+        sub.add_row(when, r.get("type", "—"), r.get("side") or "—",
+                   f"{r.get('size', 0):g}", f"{r.get('usdcSize', 0):.4f}")
+    console.print(sub)
+    console.print(
+        f"  BUY ${row['buys_usd']:.4f} ({row['bought_shares']:g} sh)  |  "
+        f"SELL ${row['sells_usd']:.4f} ({row['sold_shares']:g} sh)  |  "
+        f"REDEEM ${row['redeemed_usd']:.4f} ({row['redeemed_shares']:g} sh)\n"
+        f"  completeness: {row['bought_shares']:g} - {row['sold_shares']:g} - "
+        f"{row['redeemed_shares']:g} = {row['unexplained_shares']:+g} sh "
+        f"unexplained -> {'[green]complete[/green]' if row['complete'] else '[red]INCOMPLETE[/red]'}\n"
+        f"  realized_true [bold]{row['realized_true']:+.4f}[/bold] vs "
+        f"DB {row['already_realized']:+.4f} (delta {row['delta']:+.4f})"
+    )
+
+
 def cmd_backfill_realized(args):
     """Backfill realized PnL on closed positions from the Data API activity
-    feed. Dry-run by default (table only); --apply writes the deltas plus an
-    exit_decisions audit row per adjusted position."""
+    feed (TRADE + REDEEM/MERGE/SPLIT). Dry-run by default (table only);
+    --apply writes the deltas plus an exit_decisions audit row per adjusted
+    position — only for positions whose ledger is `complete` (bought shares -
+    sold - redeemed within COMPLETENESS_TOLERANCE_SHARES)."""
     from locus.core import backfill
 
     ids = None
     if args.ids:
         ids = [int(x) for x in args.ids.split(",") if x.strip()]
+
+    if args.preview_open is not None:
+        try:
+            preview = backfill.preview_reconcile_with_ledger(args.preview_open)
+        except RuntimeError as e:
+            console.print(f"[red]{e}[/red]")
+            sys.exit(1)
+        if preview is None:
+            console.print(f"[red]Position #{args.preview_open} not found.[/red]")
+            sys.exit(1)
+        console.print(
+            f"\n[bold yellow]PREVIEW ONLY — nothing written[/bold yellow]\n"
+            f"If #{args.preview_open} were closed as closed_reconciled with "
+            f"realized_pnl_usd set from the ledger:\n"
+        )
+        _print_backfill_table([preview], "Preview: close-as-reconciled")
+        console.print(
+            f"  Would set realized_pnl_usd = "
+            f"[bold]{preview['preview_total_realized']:+.4f}[/bold] "
+            f"(currently {preview['already_realized']:+.4f})"
+        )
+        if not preview["complete"]:
+            console.print(
+                "[red bold]WARNING[/red bold] — the ledger is INCOMPLETE for "
+                f"this position ({preview['unexplained_shares']:+g} sh "
+                "unexplained): this number is NOT reliable. Do not apply "
+                "without resolving the gap first."
+            )
+        return
 
     try:
         report = backfill.backfill_realized(apply=args.apply, ids=ids)
@@ -596,71 +699,73 @@ def cmd_backfill_realized(args):
         console.print(f"[red]{e}[/red]")
         sys.exit(1)
 
+    types = report["activity_types"]
+    console.print(
+        f"\n[bold]Realized-PnL audit[/bold] — wallet {report['wallet']}, "
+        f"source {backfill.ACTIVITY_SOURCE}\n"
+        f"Activity types in this wallet's feed: "
+        + ", ".join(f"{t} ({n})" for t, n in sorted(types.items())) + "\n"
+    )
+
     rows = report["rows"]
     if not rows:
         console.print("[yellow]No closed positions matched any wallet activity.[/yellow]")
         return
 
-    console.print(
-        f"\n[bold]Realized-PnL backfill[/bold] — wallet {report['wallet']}, "
-        f"source {backfill.ACTIVITY_SOURCE}\n"
-    )
-    table = Table(show_header=True, header_style="bold cyan")
-    table.add_column("ID", justify="right", width=4)
-    table.add_column("Status", width=18)
-    table.add_column("Market", max_width=34)
-    table.add_column("BUY $", justify="right", width=8)
-    table.add_column("SELL $", justify="right", width=8)
-    table.add_column("Miss.BUY $", justify="right", width=10)
-    table.add_column("DB real.", justify="right", width=8)
-    table.add_column("True", justify="right", width=8)
-    table.add_column("Delta", justify="right", width=8)
-    table.add_column("Write", width=5)
+    _print_backfill_table(rows, "backfill-realized: all matched closed positions")
 
-    for r in rows:
-        delta_color = "red" if r["delta"] < 0 else "green"
-        miss = (f"{r['est_missing_cost_usd']:.2f}" if r["incomplete_buy"] else "—")
-        table.add_row(
-            str(r["position_id"]),
-            r["status"] or "—",
-            r["market_question"][:34],
-            f"{r['buys_usd']:.2f}",
-            f"{r['sells_usd']:.2f}",
-            miss,
-            f"{r['already_realized']:+.2f}",
-            f"{r['realized_true']:+.2f}",
-            f"[{delta_color}]{r['delta']:+.2f}[/{delta_color}]",
-            "yes" if r["writable"] else "—",
-        )
-    console.print(table)
-    if any(r["incomplete_buy"] for r in rows):
-        console.print(
-            "[dim]Miss.BUY $: the activity feed is missing buy fills for this "
-            "position; the gap is costed at the position's entry price.[/dim]"
-        )
+    by_id = {r["position_id"]: r for r in rows}
+    detail_ids = [i for i in AUDIT_DETAIL_IDS if i in by_id]
+    if detail_ids:
+        console.print("\n[bold]Detailed breakdown for flagged positions[/bold]")
+        from locus.memory import logger as _logger
+        conn = _logger._conn()
+        try:
+            all_positions = [dict(r) for r in
+                             conn.execute("SELECT * FROM positions ORDER BY id").fetchall()]
+        finally:
+            conn.close()
+        activity = backfill.fetch_wallet_activity(report["wallet"])
+        for pid in detail_ids:
+            position = next(p for p in all_positions if p["id"] == pid)
+            matched = backfill.match_position_activity(position, activity, all_positions)
+            _print_detail_breakdown(pid, matched, by_id[pid])
+
+    complete_rows = [r for r in rows if r["complete"]]
+    incomplete_rows = [r for r in rows if not r["complete"]]
+    db_total = sum(r["already_realized"] for r in rows)
+    ledger_total_complete = sum(r["realized_true"] for r in complete_rows)
+    ledger_total_incomplete = sum(r["realized_true"] for r in incomplete_rows)
+    console.print(
+        f"\n[bold]Totals (matched positions only, n={len(rows)})[/bold]\n"
+        f"  Currently in DB:                     {db_total:+.2f}\n"
+        f"  Per ledger — complete  (n={len(complete_rows):>2}, trustworthy):  "
+        f"{ledger_total_complete:+.2f}\n"
+        f"  Per ledger — incomplete(n={len(incomplete_rows):>2}, NOT reliable): "
+        f"{ledger_total_incomplete:+.2f}"
+    )
 
     if args.apply:
         if report["applied"]:
             console.print(
-                f"[red bold]APPLIED[/red bold] — adjusted "
+                f"\n[red bold]APPLIED[/red bold] — adjusted "
                 f"{len(report['applied'])} position(s): "
                 f"{', '.join(f'#{i}' for i in report['applied'])} "
                 f"(audit rows written to exit_decisions)"
             )
         else:
-            console.print("[green]Nothing to apply.[/green]")
+            console.print("\n[green]Nothing to apply.[/green]")
         if report["skipped_ids"]:
             console.print(
-                f"[yellow]Not written (outside --ids): "
+                f"[yellow]Not written (outside --ids or incomplete ledger): "
                 f"{', '.join(f'#{i}' for i in report['skipped_ids'])}[/yellow]"
             )
     else:
         pending = [r for r in rows if r["writable"]]
-        if pending:
-            console.print(
-                f"[dim]dry-run — {len(pending)} adjustment(s) pending; "
-                f"run with --apply to write[/dim]"
-            )
+        console.print(
+            f"\n[dim]dry-run — {len(pending)} adjustment(s) pending and "
+            f"complete; run with --apply --ids ... to write[/dim]"
+        )
 
 
 def cmd_stats(args):
@@ -830,6 +935,12 @@ def main():
     p_backfill.add_argument(
         "--ids", type=str, default=None,
         help="Comma-separated position ids allowed to be written (e.g. 49,54,58,59)",
+    )
+    p_backfill.add_argument(
+        "--preview-open", type=int, default=None, metavar="ID",
+        help="Preview-only: show what closing OPEN position ID as "
+             "closed_reconciled with the ledger's realized would look like "
+             "(never writes anything)",
     )
     p_backfill.set_defaults(func=cmd_backfill_realized)
 
