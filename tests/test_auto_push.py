@@ -90,3 +90,29 @@ def test_archives_rewrite_only_on_new_rows(tmp_db, tmp_path, monkeypatch):
     import json
     data = json.loads((tmp_path / "journal.json").read_text())
     assert [e["date"] for e in data["entries"]] == ["2026-06-14", "2026-06-13"]
+
+
+def test_autouse_fixture_disables_auto_push_by_default():
+    # conftest.py's _disable_auto_push autouse fixture must have already
+    # forced this off before this test body even runs.
+    assert config.AUTO_PUSH_STATUS is False
+
+
+def test_git_push_against_real_repo_is_blocked():
+    # Belt-and-suspenders: even if a test forgot to redirect REPO_DIR to a
+    # disposable tmp repo, a `git push` whose cwd is the real project repo
+    # must be refused by the autouse guard, never reach the network.
+    import locus.core.export_status as es
+    with __import__("pytest").raises(RuntimeError, match="BLOCKED"):
+        subprocess.run(["git", "push", "origin", "main"], cwd=es.REPO_DIR,
+                       capture_output=True)
+
+
+def test_git_push_against_tmp_repo_is_not_blocked(tmp_path):
+    # The guard only targets the REAL repo directory — a push attempted from
+    # a disposable tmp_path repo (test_auto_push.py's own pattern) must still
+    # run for real (and simply fail locally with "no remote", which is fine).
+    _git(tmp_path, "init", "-q")
+    result = subprocess.run(["git", "push", "origin", "main"], cwd=tmp_path,
+                            capture_output=True, text=True)
+    assert "BLOCKED" not in (result.stderr or "")
