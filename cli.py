@@ -830,6 +830,80 @@ def cmd_backfill_realized(args):
         )
 
 
+def cmd_onchain_balance(args):
+    """Read-only: check one position's outcome-token balance directly on
+    Polygon via RPC (locus.core.onchain), independent of the CLOB and the
+    Data API. Never writes anything, never trades."""
+    from locus import config
+    from locus.core import backfill, onchain
+    from locus.memory import logger as _logger
+
+    conn = _logger._conn()
+    try:
+        row = conn.execute(
+            "SELECT * FROM positions WHERE id=?", (args.position_id,)
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        console.print(f"[red]Position #{args.position_id} not found.[/red]")
+        sys.exit(1)
+    position = dict(row)
+
+    wallet = config.POLYMARKET_FUNDER_ADDRESS
+    if not wallet:
+        console.print(
+            "[red]POLYMARKET_FUNDER_ADDRESS is not set — nothing to check "
+            "(the funder/proxy wallet is where CTF tokens are held for this "
+            "signing setup; see locus/core/onchain.py).[/red]"
+        )
+        sys.exit(1)
+    if not config.POLYGON_RPC_URL:
+        console.print(
+            "[yellow]POLYGON_RPC_URL is not set — the RPC fallback is "
+            "disabled, so this command has nothing to query. Set it in "
+            ".env to enable.[/yellow]"
+        )
+        sys.exit(1)
+
+    outcome_index = {"YES": 0, "NO": 1}.get((position.get("side") or "").upper())
+    console.print(
+        f"\n[bold]Position #{position['id']}[/bold]: "
+        f"{position['market_question']} (side {position['side']})"
+    )
+    console.print(f"  Wallet (funder/proxy): {wallet}")
+    console.print(f"  CTF contract:          {onchain.CTF_CONTRACT_ADDRESS}")
+
+    try:
+        activity = backfill.fetch_wallet_activity(wallet)
+    except Exception as e:
+        console.print(f"[red]Could not fetch Data API activity to resolve a "
+                      f"token id: {e}[/red]")
+        sys.exit(1)
+    token_id = next(
+        (r.get("asset") for r in activity
+         if r.get("conditionId") == position["condition_id"]
+         and r.get("outcomeIndex") == outcome_index and r.get("asset")),
+        None,
+    )
+    if token_id is None:
+        console.print(
+            "[yellow]No matching activity row found for this position's "
+            "market+outcome — can't resolve an ERC1155 token id to query. "
+            "(This happens for positions this wallet's activity feed has no "
+            "coverage for at all; see cli.py backfill-realized.)[/yellow]"
+        )
+        sys.exit(1)
+    console.print(f"  Token id (ERC1155):    {token_id}")
+
+    balance = onchain.held_token_shares_onchain(wallet, token_id)
+    if balance is None:
+        console.print("[red]RPC call failed — see logs for details "
+                      "(URL/key are masked there).[/red]")
+        sys.exit(1)
+    console.print(f"\n  [bold]On-chain balance: {balance:g} tokens[/bold]")
+
+
 def cmd_stats(args):
     from locus.memory import logger
 
@@ -1005,6 +1079,14 @@ def main():
              "(never writes anything)",
     )
     p_backfill.set_defaults(func=cmd_backfill_realized)
+
+    # onchain-balance
+    p_onchain = sub.add_parser(
+        "onchain-balance",
+        help="Read-only: check one position's outcome-token balance via Polygon RPC",
+    )
+    p_onchain.add_argument("position_id", type=int, help="Position id to check")
+    p_onchain.set_defaults(func=cmd_onchain_balance)
 
     # stats
     p_stats = sub.add_parser("stats", help="Performance statistics")

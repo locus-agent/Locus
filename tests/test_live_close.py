@@ -705,6 +705,72 @@ def test_held_token_shares_none_on_missing_method(monkeypatch):
     assert executor.held_token_shares(client, "tok-yes") is None
 
 
+# --- held_token_shares: on-chain RPC fallback when the CLOB returns nothing ---
+
+def test_held_token_shares_falls_back_to_onchain_rpc(monkeypatch):
+    # The CLOB has the method but reports no balance field at all (None) —
+    # the on-chain RPC fallback should pick it up, using the funder/proxy
+    # wallet as the owner (never the signing EOA).
+    _install_fake_balance_types(monkeypatch)  # avoid a real py_clob_client_v2 import
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xFunder")
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+
+    class FakeClient:
+        def get_balance_allowance(self, params):
+            return {"balance": None}
+
+    from locus.core import onchain
+    captured = {}
+
+    def fake_held(owner, token_id, rpc_url=None):
+        captured["owner"] = owner
+        captured["token_id"] = token_id
+        return 12.5
+
+    monkeypatch.setattr(onchain, "held_token_shares_onchain", fake_held)
+
+    result = executor.held_token_shares(FakeClient(), "tok-yes")
+    assert result == 12.5
+    assert captured["owner"] == "0xFunder"
+    assert captured["token_id"] == "tok-yes"
+
+
+def test_held_token_shares_falls_back_on_clob_exception(monkeypatch):
+    _install_fake_balance_types(monkeypatch)
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xFunder")
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+
+    class FakeClient:
+        def get_balance_allowance(self, params):
+            raise RuntimeError("CLOB down")
+
+    from locus.core import onchain
+    monkeypatch.setattr(onchain, "held_token_shares_onchain",
+                        lambda owner, token_id, rpc_url=None: 7.0)
+
+    assert executor.held_token_shares(FakeClient(), "tok-yes") == 7.0
+
+
+def test_held_token_shares_fallback_disabled_without_funder(monkeypatch):
+    # No funder address -> the fallback can't resolve an owner, so it's a
+    # clean None (never calls the RPC).
+    _install_fake_balance_types(monkeypatch)
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "")
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+
+    from locus.core import onchain
+    monkeypatch.setattr(
+        onchain, "held_token_shares_onchain",
+        lambda *a, **k: (_ for _ in ()).throw(AssertionError("should not be called")),
+    )
+
+    class FakeClient:
+        def get_balance_allowance(self, params):
+            return {"balance": None}
+
+    assert executor.held_token_shares(FakeClient(), "tok-yes") is None
+
+
 # --- the close path must NOT flatten the local position on an unconfirmed sell -
 
 def test_failed_live_close_keeps_position_open_and_records_nothing(tmp_db, monkeypatch):

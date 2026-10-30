@@ -18,6 +18,17 @@ def _disable_telegram(monkeypatch):
 
 
 @pytest.fixture(autouse=True)
+def _disable_polygon_rpc(monkeypatch):
+    """Keep the Polygon RPC on-chain fallback off by default so the suite
+    never touches the real network (a developer .env may carry a real
+    Alchemy URL for live trading). Tests that exercise the fallback set
+    config.POLYGON_RPC_URL explicitly and fake httpx.post."""
+    from locus import config
+
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "", raising=False)
+
+
+@pytest.fixture(autouse=True)
 def _force_dry_run(monkeypatch):
     """Default every test to dry-run so the exit/close paths simulate fills
     instead of hitting the real CLOB — a developer .env may set DRY_RUN=false

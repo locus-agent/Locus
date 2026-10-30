@@ -120,6 +120,16 @@ POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 # keys; this read-only data API exposes the same recent-trade stream.
 POLYMARKET_DATA_HOST = os.getenv("POLYMARKET_DATA_HOST", "https://data-api.polymarket.com")
 
+# --- Polygon RPC (read-only on-chain balance fallback; see core/onchain.py) ---
+# Empty (default) disables the on-chain RPC fallback entirely — every caller
+# (executor.held_token_shares, reconcile_positions, startup_position_sync)
+# behaves exactly as before this feature existed. Set to an Alchemy (or any
+# JSON-RPC) Polygon mainnet endpoint to enable it. Never logged in full —
+# core/onchain.py masks it (host only) in every log line.
+POLYGON_RPC_URL = os.getenv("POLYGON_RPC_URL", "")
+ONCHAIN_RPC_TIMEOUT_SECONDS = float(os.getenv("ONCHAIN_RPC_TIMEOUT_SECONDS", "10"))
+ONCHAIN_RPC_RETRIES = int(os.getenv("ONCHAIN_RPC_RETRIES", "2"))
+
 # --- Twitter API v2 ---
 TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN", "")
 

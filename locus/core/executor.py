@@ -824,9 +824,15 @@ def held_token_shares(client, token_id: str) -> float | None:
     OVER-counts the tokens we own. Selling that inflated count makes the CLOB
     reject the close as "not enough balance / allowance" (e.g. balance 60.0,
     order 66.64), and the position never flattens. The close caps the SELL to
-    this real holding so the order is always sellable. Best-effort: returns None
-    (no cap) when the client lacks the call or it errors, leaving prior behaviour
-    unchanged."""
+    this real holding so the order is always sellable.
+
+    Primary source is the CLOB client's get_balance_allowance. When that
+    fails or the client lacks the call, falls back to a direct Polygon RPC
+    eth_call against the CTF contract (locus.core.onchain) for the funder/
+    proxy wallet — a no-op (still None) when POLYGON_RPC_URL isn't configured
+    or POLYMARKET_FUNDER_ADDRESS is empty, so behavior is unchanged unless the
+    fallback is explicitly enabled. Best-effort either way: returns None (no
+    cap) rather than raising."""
     try:
         from py_clob_client_v2 import BalanceAllowanceParams, AssetType
 
@@ -836,12 +842,26 @@ def held_token_shares(client, token_id: str) -> float | None:
         raw = (resp.get("balance") if isinstance(resp, dict)
                else getattr(resp, "balance", None))
         if raw is None:
-            return None
+            return _held_token_shares_onchain_fallback(token_id)
         return float(raw) / 1_000_000
     except Exception as e:
-        log.warning("[executor] token balance fetch failed for %s (%s); SELL not "
-                    "capped to on-chain holding", token_id, e)
+        log.warning("[executor] token balance fetch failed for %s (%s); trying "
+                    "on-chain RPC fallback", token_id, e)
+        return _held_token_shares_onchain_fallback(token_id)
+
+
+def _held_token_shares_onchain_fallback(token_id: str) -> float | None:
+    """Last-resort balance read straight from the CTF contract via Polygon
+    RPC, for the funder/proxy wallet (where a POLY_1271 deposit wallet's
+    tokens actually sit — see onchain.py). None whenever the fallback itself
+    isn't usable (no RPC URL, no funder address, or the call fails) —
+    identical to the pre-fallback behavior."""
+    if not config.POLYMARKET_FUNDER_ADDRESS:
         return None
+    from locus.core import onchain
+    return onchain.held_token_shares_onchain(
+        config.POLYMARKET_FUNDER_ADDRESS, token_id
+    )
 
 
 def get_live_balance() -> float | None:

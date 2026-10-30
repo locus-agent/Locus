@@ -54,7 +54,7 @@ def test_matching_holding_is_silent(tmp_db, _telegram_capture):
     report = positions.startup_position_sync(wallet=WALLET,
                                               fetcher=lambda w: chain)
 
-    assert report == {"checked": 1, "mismatches": []}
+    assert report == {"checked": 1, "mismatches": [], "source_mismatches": []}
     assert _telegram_capture == []
     # Read-only: the position is untouched.
     assert positions.get_open_positions()[0]["status"] == "open"
@@ -119,7 +119,7 @@ def test_no_open_positions_skips_fetch(tmp_db, _telegram_capture):
     report = positions.startup_position_sync(
         wallet=WALLET, fetcher=lambda w: called.append(w) or [])
 
-    assert report == {"checked": 0, "mismatches": []}
+    assert report == {"checked": 0, "mismatches": [], "source_mismatches": []}
     assert called == []  # the Data API was never hit — nothing to check
 
 
@@ -247,3 +247,76 @@ def test_fetch_wallet_positions_single_short_page_no_second_call(monkeypatch):
     rows = positions.fetch_wallet_positions(WALLET, page_size=500)
     assert len(rows) == 1
     assert calls == [0]  # a single short page ends pagination immediately
+
+
+# --- Source cross-check: Data API vs on-chain RPC ----------------------------
+
+def test_source_cross_check_flags_disagreement(tmp_db, _telegram_capture, monkeypatch):
+    from locus.core import onchain
+
+    pid = _open(tmp_db, "c_cross", side="YES", token_count=50.0)
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+    chain = [{"conditionId": "c_cross", "outcomeIndex": 0, "size": 50.0,
+             "asset": "999"}]
+    monkeypatch.setattr(onchain, "held_token_shares_onchain",
+                        lambda owner, token_id, rpc_url=None: 10.0)
+
+    report = positions.startup_position_sync(wallet=WALLET,
+                                              fetcher=lambda w: chain)
+
+    # Primary DB-vs-Data-API check is unaffected (50 matches 50).
+    assert report["mismatches"] == []
+    assert len(report["source_mismatches"]) == 1
+    sm = report["source_mismatches"][0]
+    assert sm["id"] == pid
+    assert sm["data_api_held"] == 50.0 and sm["rpc_held"] == 10.0
+    # Secondary cross-check doesn't trigger the primary Telegram alert.
+    assert _telegram_capture == []
+
+
+def test_source_cross_check_noop_without_rpc_url(tmp_db, _telegram_capture):
+    # POLYGON_RPC_URL stays "" (conftest default).
+    _open(tmp_db, "c_norpc", side="YES", token_count=50.0)
+    chain = [{"conditionId": "c_norpc", "outcomeIndex": 0, "size": 50.0,
+             "asset": "999"}]
+
+    report = positions.startup_position_sync(wallet=WALLET,
+                                              fetcher=lambda w: chain)
+
+    assert report["source_mismatches"] == []
+
+
+def test_source_cross_check_silent_when_sources_agree(tmp_db, _telegram_capture,
+                                                       monkeypatch):
+    from locus.core import onchain
+
+    _open(tmp_db, "c_agree", side="YES", token_count=50.0)
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+    chain = [{"conditionId": "c_agree", "outcomeIndex": 0, "size": 50.0,
+             "asset": "999"}]
+    monkeypatch.setattr(onchain, "held_token_shares_onchain",
+                        lambda owner, token_id, rpc_url=None: 50.0)
+
+    report = positions.startup_position_sync(wallet=WALLET,
+                                              fetcher=lambda w: chain)
+
+    assert report["source_mismatches"] == []
+
+
+def test_source_cross_check_noop_without_asset_field(tmp_db, _telegram_capture,
+                                                      monkeypatch):
+    # A Data API row with no 'asset' field -> no token id to check against.
+    from locus.core import onchain
+
+    _open(tmp_db, "c_noasset", side="YES", token_count=50.0)
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+    chain = [{"conditionId": "c_noasset", "outcomeIndex": 0, "size": 50.0}]
+    monkeypatch.setattr(
+        onchain, "held_token_shares_onchain",
+        lambda *a, **k: (_ for _ in ()).throw(AssertionError("should not be called")),
+    )
+
+    report = positions.startup_position_sync(wallet=WALLET,
+                                              fetcher=lambda w: chain)
+
+    assert report["source_mismatches"] == []

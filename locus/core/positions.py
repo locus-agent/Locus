@@ -1485,14 +1485,27 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
     MISMATCH as closed_reconciled / reconcile_mismatch, realizing nothing
     further (prior partial realizations on the row are preserved). `client` is
     the CLOB client; built via executor.create_clob_client() when omitted
-    (injectable for tests). Returns a report dict:
+    (injectable for tests).
+
+    Independently of the DB-vs-holding check above, each position also gets a
+    source cross-check (_cross_check_data_api_vs_rpc): the Data API's reported
+    size for that outcome token vs a direct Polygon RPC eth_call for the same
+    token — two unrelated read paths that should agree. A no-op when
+    POLYGON_RPC_URL isn't configured or the Data API fetch fails; never auto-
+    closes anything, purely a "these two sources disagree" flag
+    (entry["source_mismatch"], report["source_mismatches"]).
+
+    Returns a report dict:
         {"entries": [{"id", "market_question", "state", "held", "expected",
-                      "market_state", "line"}, ...],
+                      "market_state", "source_mismatch", "line"}, ...],
          "ok": [ids], "mismatches": [ids], "unknown": [ids],
-         "market_closed": [ids], "fixed": [ids]}
+         "market_closed": [ids], "fixed": [ids], "source_mismatches": [ids]}
     """
     open_positions = get_open_positions()
     market_states: dict[str, dict] = {}
+    data_api_by_key: dict[tuple[str, int], float] = {}
+    data_api_asset_by_key: dict[tuple[str, int], str] = {}
+    data_api_available = False
     if open_positions:
         try:
             market_states = gamma.fetch_markets_by_condition_ids(
@@ -1501,6 +1514,14 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
         except Exception as e:
             log.warning("[positions] reconcile: Gamma market fetch failed (%s); "
                         "market status will report NOT FOUND", e)
+        if config.POLYMARKET_FUNDER_ADDRESS:
+            try:
+                chain_rows = fetch_wallet_positions(config.POLYMARKET_FUNDER_ADDRESS)
+                data_api_by_key, data_api_asset_by_key = _data_api_position_index(chain_rows)
+                data_api_available = True
+            except Exception as e:
+                log.warning("[positions] reconcile: Data API fetch failed (%s); "
+                            "source cross-check skipped", e)
     if client is None and open_positions:
         try:
             client = executor.create_clob_client()
@@ -1517,9 +1538,29 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
     market_closed_ids: list[int] = []
 
     phantom_ids: list[int] = []
+    source_mismatch_ids: list[int] = []
     for position in open_positions:
         pid = position["id"]
         state, held, expected = _verify_position_holding(client, position)
+
+        source_cross = None
+        if data_api_available:
+            outcome_index = {"YES": 0, "NO": 1}.get((position.get("side") or "").upper())
+            data_api_held = data_api_by_key.get(
+                (position["condition_id"], outcome_index), 0.0
+            )
+            asset = data_api_asset_by_key.get((position["condition_id"], outcome_index))
+            source_cross = _cross_check_data_api_vs_rpc(
+                config.POLYMARKET_FUNDER_ADDRESS, data_api_held, asset
+            )
+            if source_cross is not None:
+                source_mismatch_ids.append(pid)
+                log.warning(
+                    "[positions] reconcile: SOURCE MISMATCH on position %s — "
+                    "Data API reports %.4f but RPC reports %.4f held (\"%s\")",
+                    pid, source_cross["data_api_held"], source_cross["rpc_held"],
+                    position["market_question"][:60],
+                )
         if state == "ok":
             ok_ids.append(pid)
             line = f"OK: ID={pid} held={held:g} tokens — matches DB"
@@ -1564,6 +1605,7 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
             "held": held,
             "expected": expected,
             "market_state": market_state,
+            "source_mismatch": source_cross,
             "line": line,
         })
 
@@ -1587,7 +1629,58 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
         "unknown": unknown_ids,
         "market_closed": market_closed_ids,
         "fixed": fixed_ids,
+        "source_mismatches": source_mismatch_ids,
     }
+
+
+# --- Cross-source check: Data API vs on-chain RPC ---------------------------
+#
+# Two independent READ paths for the same outcome-token balance — Polymarket's
+# public Data API and a direct Polygon RPC eth_call (locus.core.onchain) —
+# should always agree. Shared by reconcile_positions and startup_position_sync
+# so a disagreement between the two (as opposed to a DB-vs-reality mismatch,
+# which is the primary check in both functions) is flagged distinctly. A no-op
+# (returns None / empty) whenever POLYGON_RPC_URL isn't configured.
+
+def _data_api_position_index(
+    chain_rows: list[dict],
+) -> tuple[dict[tuple[str, int], float], dict[tuple[str, int], str]]:
+    """(size_by_key, asset_by_key) from a Data API /positions response, keyed
+    by (conditionId, outcomeIndex). `asset` is the ERC1155 token id string —
+    the Data API reports it directly, so no separate CLOB/CTF resolution step
+    is needed to run the RPC cross-check below."""
+    size_by_key: dict[tuple[str, int], float] = {}
+    asset_by_key: dict[tuple[str, int], str] = {}
+    for row in chain_rows:
+        cid = row.get("conditionId")
+        idx = row.get("outcomeIndex")
+        size = row.get("size")
+        if cid is None or idx is None or size is None:
+            continue
+        key = (cid, idx)
+        size_by_key[key] = size_by_key.get(key, 0.0) + float(size)
+        asset = row.get("asset")
+        if asset and key not in asset_by_key:
+            asset_by_key[key] = asset
+    return size_by_key, asset_by_key
+
+
+def _cross_check_data_api_vs_rpc(wallet: str, data_api_held: float,
+                                 asset: str | None) -> dict | None:
+    """Independent cross-check of the Data API's reported size against a
+    direct Polygon RPC eth_call for the same outcome token. Returns None when
+    the RPC fallback isn't usable (no POLYGON_RPC_URL, no asset/token id
+    known) or the call itself fails — never a false positive from an
+    unavailable source. A dict {"data_api_held", "rpc_held"} when both are
+    known and disagree beyond holding_matches' tolerance; None when they
+    agree."""
+    if not config.POLYGON_RPC_URL or not asset:
+        return None
+    from locus.core import onchain
+    rpc_held = onchain.held_token_shares_onchain(wallet, asset)
+    if rpc_held is None or holding_matches(data_api_held, rpc_held):
+        return None
+    return {"data_api_held": round(data_api_held, 6), "rpc_held": round(rpc_held, 6)}
 
 
 # --- Startup sync: report-only DB-vs-chain check, no CLOB client needed ------
@@ -1636,12 +1729,19 @@ def startup_position_sync(wallet: str | None = None,
     holdings at startup. Report-only: divergences are logged and sent to
     Telegram ONCE for the whole call (never per-position, never repeated on a
     later cycle) — no position is ever closed here. Returns None when skipped
-    (no wallet configured) or a report dict {"checked", "mismatches"} when it
-    ran (mismatches is [] when everything agrees).
+    (no wallet configured) or a report dict {"checked", "mismatches",
+    "source_mismatches"} when it ran (empty lists when everything agrees).
 
-    Divergence uses the same tolerance as reconcile_positions
+    Divergence (DB vs Data API) uses the same tolerance as reconcile_positions
     (holding_matches: >1% of expected or >0.5 tokens). A position absent from
-    the chain response entirely is treated as held=0 (fully gone)."""
+    the chain response entirely is treated as held=0 (fully gone).
+
+    Independently, each position also gets a source cross-check
+    (_cross_check_data_api_vs_rpc): the Data API's reported size vs a direct
+    Polygon RPC eth_call for the same outcome token. A no-op when
+    POLYGON_RPC_URL isn't configured; logged only (no Telegram) when the two
+    sources disagree — this is a secondary signal, not the primary DB-drift
+    alert."""
     wallet = wallet or config.POLYMARKET_FUNDER_ADDRESS
     if not wallet:
         log.info("[positions] startup sync skipped: no POLYMARKET_FUNDER_ADDRESS")
@@ -1649,7 +1749,7 @@ def startup_position_sync(wallet: str | None = None,
 
     open_positions = get_open_positions()
     if not open_positions:
-        return {"checked": 0, "mismatches": []}
+        return {"checked": 0, "mismatches": [], "source_mismatches": []}
 
     try:
         chain_rows = fetcher(wallet)
@@ -1658,16 +1758,10 @@ def startup_position_sync(wallet: str | None = None,
                     "skipping this run", e)
         return None
 
-    chain_by_key: dict[tuple[str, int], float] = {}
-    for row in chain_rows:
-        cid = row.get("conditionId")
-        idx = row.get("outcomeIndex")
-        size = row.get("size")
-        if cid is None or idx is None or size is None:
-            continue
-        chain_by_key[(cid, idx)] = chain_by_key.get((cid, idx), 0.0) + float(size)
+    chain_by_key, asset_by_key = _data_api_position_index(chain_rows)
 
     mismatches: list[dict] = []
+    source_mismatches: list[dict] = []
     for position in open_positions:
         outcome_index = {"YES": 0, "NO": 1}.get((position.get("side") or "").upper())
         expected = position_shares(
@@ -1690,9 +1784,25 @@ def startup_position_sync(wallet: str | None = None,
                 position["market_question"][:60],
             )
 
+        asset = asset_by_key.get((position["condition_id"], outcome_index))
+        source_cross = _cross_check_data_api_vs_rpc(wallet, held, asset)
+        if source_cross is not None:
+            source_mismatches.append({
+                "id": position["id"],
+                "market_question": position["market_question"],
+                **source_cross,
+            })
+            log.warning(
+                "[positions] startup sync SOURCE MISMATCH: position %s — "
+                "Data API reports %.4f but RPC reports %.4f held (\"%s\")",
+                position["id"], source_cross["data_api_held"],
+                source_cross["rpc_held"], position["market_question"][:60],
+            )
+
     if mismatches:
         telegram_bot.notify_reconcile_mismatch(mismatches)
-    return {"checked": len(open_positions), "mismatches": mismatches}
+    return {"checked": len(open_positions), "mismatches": mismatches,
+            "source_mismatches": source_mismatches}
 
 
 def _format_time_remaining_for(condition_id: str) -> str:

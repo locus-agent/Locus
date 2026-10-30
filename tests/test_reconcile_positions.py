@@ -5,6 +5,7 @@ status (OPEN / CLOSED / NOT FOUND — a CLOSED market is flagged, never
 auto-closed)."""
 import pytest
 
+from locus import config
 from locus.core import positions, executor
 from locus.markets.gamma import Market
 
@@ -218,7 +219,7 @@ def test_no_open_positions(tmp_db, monkeypatch):
                         lambda: (_ for _ in ()).throw(AssertionError("should not build")))
     report = positions.reconcile_positions(fix=True)
     assert report == {"entries": [], "ok": [], "mismatches": [], "unknown": [],
-                      "market_closed": [], "fixed": []}
+                      "market_closed": [], "fixed": [], "source_mismatches": []}
 
 
 # --- Gamma market status (OPEN / CLOSED / NOT FOUND) --------------------------
@@ -355,3 +356,84 @@ def test_holding_matches_bounds():
     # Relative bound: > 1% fails even when the share gap is below 0.5.
     assert not positions.holding_matches(10.0, 9.6)    # 0.4 sh, 4%
     assert not positions.holding_matches(1.995, 0.005)  # position 57
+
+
+# --- Source cross-check: Data API vs on-chain RPC (independent of CLOB) -----
+
+def test_source_cross_check_flags_disagreement(tmp_db, monkeypatch):
+    from locus.core import onchain
+
+    _open(tmp_db, "c_cross")
+    pid = positions.get_open_positions()[0]["id"]
+    _holdings(monkeypatch, {"c_cross": 50.0})  # CLOB/primary source: OK
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xFunder")
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+    monkeypatch.setattr(
+        positions, "fetch_wallet_positions",
+        lambda wallet: [{"conditionId": "c_cross", "outcomeIndex": 0,
+                         "size": 50.0, "asset": "12345"}],
+    )
+    monkeypatch.setattr(onchain, "held_token_shares_onchain",
+                        lambda owner, token_id, rpc_url=None: 10.0)  # disagrees
+
+    report = positions.reconcile_positions(fix=False, client=CLIENT)
+
+    assert report["source_mismatches"] == [pid]
+    entry = report["entries"][0]
+    assert entry["source_mismatch"] == {"data_api_held": 50.0, "rpc_held": 10.0}
+    # The primary DB-vs-holding state is unaffected by the source cross-check.
+    assert entry["state"] == "ok"
+
+
+def test_source_cross_check_silent_when_sources_agree(tmp_db, monkeypatch):
+    from locus.core import onchain
+
+    _open(tmp_db, "c_agree")
+    _holdings(monkeypatch, {"c_agree": 50.0})
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xFunder")
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+    monkeypatch.setattr(
+        positions, "fetch_wallet_positions",
+        lambda wallet: [{"conditionId": "c_agree", "outcomeIndex": 0,
+                         "size": 50.0, "asset": "12345"}],
+    )
+    monkeypatch.setattr(onchain, "held_token_shares_onchain",
+                        lambda owner, token_id, rpc_url=None: 50.0)
+
+    report = positions.reconcile_positions(fix=False, client=CLIENT)
+
+    assert report["source_mismatches"] == []
+    assert report["entries"][0]["source_mismatch"] is None
+
+
+def test_source_cross_check_noop_without_rpc_url(tmp_db, monkeypatch):
+    _open(tmp_db, "c_norpc")
+    _holdings(monkeypatch, {"c_norpc": 50.0})
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xFunder")
+    # POLYGON_RPC_URL stays "" (conftest default) -> no cross-check possible.
+    monkeypatch.setattr(
+        positions, "fetch_wallet_positions",
+        lambda wallet: [{"conditionId": "c_norpc", "outcomeIndex": 0,
+                         "size": 999.0, "asset": "12345"}],  # would disagree
+    )
+
+    report = positions.reconcile_positions(fix=False, client=CLIENT)
+
+    assert report["source_mismatches"] == []
+
+
+def test_source_cross_check_noop_when_data_api_fetch_fails(tmp_db, monkeypatch):
+    _open(tmp_db, "c_dataapidown")
+    _holdings(monkeypatch, {"c_dataapidown": 50.0})
+    monkeypatch.setattr(config, "POLYMARKET_FUNDER_ADDRESS", "0xFunder")
+    monkeypatch.setattr(config, "POLYGON_RPC_URL", "https://rpc.example/v2/key")
+    monkeypatch.setattr(
+        positions, "fetch_wallet_positions",
+        lambda wallet: (_ for _ in ()).throw(RuntimeError("Data API down")),
+    )
+
+    report = positions.reconcile_positions(fix=False, client=CLIENT)
+
+    # No false mismatch just because the Data API itself is unreachable.
+    assert report["source_mismatches"] == []
+    assert report["ok"] == [positions.get_open_positions()[0]["id"]]
