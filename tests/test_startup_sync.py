@@ -149,7 +149,7 @@ def test_fetch_failure_is_swallowed(tmp_db, _telegram_capture):
     assert positions.get_open_positions()[0]["status"] == "open"
 
 
-def test_fetch_wallet_positions_hits_data_api(monkeypatch):
+def test_fetch_wallet_positions_passes_size_threshold_zero(monkeypatch):
     captured = {}
 
     class FakeResponse:
@@ -177,4 +177,73 @@ def test_fetch_wallet_positions_hits_data_api(monkeypatch):
     rows = positions.fetch_wallet_positions(WALLET)
     assert rows == [{"conditionId": "c1", "outcomeIndex": 0, "size": 10.0}]
     assert captured["url"] == f"{config.POLYMARKET_DATA_HOST}/positions"
-    assert captured["params"] == {"user": WALLET}
+    assert captured["params"]["user"] == WALLET
+    # sizeThreshold=0 so dust holdings (position 57's 0.005) aren't dropped
+    # by the API's own default filtering.
+    assert captured["params"]["sizeThreshold"] == 0
+
+
+def test_fetch_wallet_positions_paginates_until_short_page(monkeypatch):
+    pages = {
+        0: [{"conditionId": f"c{i}", "outcomeIndex": 0, "size": 1.0} for i in range(500)],
+        500: [{"conditionId": "c500", "outcomeIndex": 0, "size": 1.0}],
+    }
+    captured_offsets = []
+
+    class FakeResponse:
+        def __init__(self, data):
+            self._data = data
+
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return self._data
+
+    class FakeClient:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def get(self, url, params=None):
+            offset = params["offset"]
+            captured_offsets.append(offset)
+            return FakeResponse(pages[offset])
+
+    import httpx
+    monkeypatch.setattr(httpx, "Client", lambda timeout=15.0: FakeClient())
+
+    rows = positions.fetch_wallet_positions(WALLET, page_size=500)
+    assert len(rows) == 501  # both pages concatenated
+    assert captured_offsets == [0, 500]  # stopped after the short page
+
+
+def test_fetch_wallet_positions_single_short_page_no_second_call(monkeypatch):
+    calls = []
+
+    class FakeResponse:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return [{"conditionId": "c1", "outcomeIndex": 0, "size": 1.0}]
+
+    class FakeClient:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def get(self, url, params=None):
+            calls.append(params["offset"])
+            return FakeResponse()
+
+    import httpx
+    monkeypatch.setattr(httpx, "Client", lambda timeout=15.0: FakeClient())
+
+    rows = positions.fetch_wallet_positions(WALLET, page_size=500)
+    assert len(rows) == 1
+    assert calls == [0]  # a single short page ends pagination immediately

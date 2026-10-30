@@ -1601,16 +1601,33 @@ def reconcile_positions(fix: bool = False, client=None) -> dict:
 # message for the whole run — and NEVER auto-closed; a human (or a later
 # `reconcile-positions --fix`) decides what to do.
 
-def fetch_wallet_positions(wallet: str, timeout: float = 15.0) -> list[dict]:
-    """Raw open positions for `wallet` from the public Data API
+def fetch_wallet_positions(wallet: str, timeout: float = 15.0,
+                           page_size: int = 500, max_pages: int = 40) -> list[dict]:
+    """Every open position for `wallet` from the public Data API
     (`{POLYMARKET_DATA_HOST}/positions`) — no auth required. Each row carries
-    conditionId/outcomeIndex/size among other fields (see the Data API)."""
+    conditionId/outcomeIndex/size among other fields (see the Data API).
+
+    `sizeThreshold=0` is passed explicitly so dust holdings (like position
+    57's 0.005 on-chain remainder) aren't silently dropped by the API's own
+    default filtering — the whole point of this check is to catch exactly
+    that kind of near-empty divergence. Paginated by offset until a short
+    page, same pattern as backfill.fetch_wallet_activity."""
+    rows: list[dict] = []
+    offset = 0
     with httpx.Client(timeout=timeout) as client:
-        resp = client.get(
-            f"{config.POLYMARKET_DATA_HOST}/positions", params={"user": wallet}
-        )
-        resp.raise_for_status()
-        return resp.json() or []
+        for _ in range(max_pages):
+            resp = client.get(
+                f"{config.POLYMARKET_DATA_HOST}/positions",
+                params={"user": wallet, "sizeThreshold": 0,
+                       "limit": page_size, "offset": offset},
+            )
+            resp.raise_for_status()
+            page = resp.json() or []
+            rows.extend(page)
+            if len(page) < page_size:
+                break
+            offset += page_size
+    return rows
 
 
 def startup_position_sync(wallet: str | None = None,
