@@ -165,6 +165,67 @@ def test_incomplete_ledger_flagged_not_estimated(tmp_db):
     assert row["realized_true"] == pytest.approx(23.9506 - 21.59, abs=0.01)
 
 
+def test_db_passive_fallback_costs_only_exited_shares(tmp_db):
+    # Position-55 shape: no BUY at all in the feed, SELL totals 29.5 sh. The
+    # fallback costs exactly the EXITED shares at entry price (not the full
+    # original size, since there's no held remainder here anyway).
+    pid = _open(tmp_db, "c55", side="YES", entry=0.29)
+    _close_row(tmp_db, pid, status="closed_manual", realized=1.475,
+              opened_at="2026-07-06 22:06:57",
+              closed_at="2026-07-09 18:09:07")
+    activity = [
+        _trade("c55", "SELL", 0, 5.44, 16.0, backfill._epoch("2026-07-09 17:40:46")),
+        _trade("c55", "SELL", 0, 4.59, 13.5, backfill._epoch("2026-07-09 18:09:08")),
+    ]
+    report = backfill.backfill_realized(apply=False, wallet=WALLET,
+                                        fetcher=_fetcher(activity))
+    row = report["rows"][0]
+    assert row["buy_source"] == "db_passive"
+    assert row["estimated"] is True
+    assert row["complete"]  # complete by construction
+    # cost = 0.29 * 29.5 = 8.555; realized_true = 10.03 - 8.555 = 1.475
+    assert row["realized_true"] == pytest.approx(1.475, abs=0.01)
+    assert row["delta"] == pytest.approx(0.0, abs=0.01)
+    assert not row["writable"]  # estimated rows are never writable
+
+
+def test_estimated_never_writable_even_in_ids(tmp_db):
+    pid = _open(tmp_db, "c57", side="YES", entry=0.266)
+    _close_row(tmp_db, pid, realized=-0.15,
+              opened_at="2026-07-09 16:55:31",
+              closed_at="2026-09-01 00:00:00")
+    activity = [
+        _trade("c57", "SELL", 0, 38.0669, 148.0, backfill._epoch("2026-07-09 18:46:56")),
+        _trade("c57", "SELL", 0, 0.5119, 1.99, backfill._epoch("2026-07-09 18:49:08")),
+    ]
+    report = backfill.backfill_realized(apply=True, ids=[pid], wallet=WALLET,
+                                        fetcher=_fetcher(activity))
+    row = report["rows"][0]
+    assert row["buy_source"] == "db_passive"
+    assert report["applied"] == []
+    assert pid in report["skipped_ids"]
+    assert _row(tmp_db, pid)["realized_pnl_usd"] == pytest.approx(-0.15)
+    assert _audit_rows(tmp_db, pid) == []
+
+
+def test_ledger_buy_present_does_not_trigger_fallback(tmp_db):
+    # Any real BUY presence (even partial, like position 59's 31.75 of
+    # 36.75) must NOT trigger the db_passive fallback — that path is only
+    # for a BUY leg that's entirely absent.
+    pid = _open(tmp_db, "c59", side="YES", entry=0.68)
+    _close_row(tmp_db, pid)
+    activity = [
+        _trade("c59", "BUY", 0, 21.59, 31.75),
+        _trade("c59", "SELL", 0, 23.9506, 36.75, T_IN_1),
+    ]
+    report = backfill.backfill_realized(apply=False, wallet=WALLET,
+                                        fetcher=_fetcher(activity))
+    row = report["rows"][0]
+    assert row["buy_source"] == "ledger"
+    assert row["estimated"] is False
+    assert not row["complete"]
+
+
 def test_delta_subtracts_already_recorded(tmp_db):
     # Position-54 case: -4.46 already realized by earlier partial closes; the
     # feed's full-history truth is -5.33 -> only the -0.87 gap is written.
@@ -385,9 +446,13 @@ def test_preview_open_position_shows_hypothetical_total(tmp_db):
 
     assert preview["position_id"] == pid
     assert preview["writable"] is False  # preview never writes, regardless
-    # No BUY in the feed at all -> wildly incomplete, flagged loudly.
-    assert not preview["complete"]
-    assert preview["realized_true"] == pytest.approx(38.5788, abs=0.01)
+    # No BUY in the feed at all -> db_passive fallback: cost the sold shares
+    # at the entry price (0.266 * 149.99 sh ~= 39.90), not the full ledger
+    # proceeds taken at face value.
+    assert preview["buy_source"] == "db_passive"
+    assert preview["estimated"] is True
+    assert preview["complete"]  # complete by construction under the fallback
+    assert preview["realized_true"] == pytest.approx(-1.32, abs=0.01)
     assert preview["preview_total_realized"] == pytest.approx(
         preview["already_realized"] + preview["delta"])
     # Nothing was written — still open, unchanged realized.
@@ -398,3 +463,63 @@ def test_preview_open_position_shows_hypothetical_total(tmp_db):
 def test_preview_missing_position_returns_none(tmp_db):
     assert backfill.preview_reconcile_with_ledger(
         99999, wallet=WALLET, fetcher=_fetcher([])) is None
+
+
+# --- audit_all_closed_positions: full coverage, including no_data gaps ------
+
+def test_audit_all_closed_positions_covers_unmatched(tmp_db):
+    pid_matched = _open(tmp_db, "c1", side="NO", entry=0.64)
+    _close_row(tmp_db, pid_matched)
+    pid_gap = _open(tmp_db, "c_gap", side="YES", entry=0.50)
+    _close_row(tmp_db, pid_gap, realized=2.0,
+              opened_at="2026-01-01 00:00:00", closed_at="2026-01-02 00:00:00")
+
+    activity = [
+        _trade("c1", "BUY", 1, 34.56, 96.0),
+        _trade("c1", "SELL", 1, 29.88, 96.0, T_IN_2),
+    ]
+    report = backfill.audit_all_closed_positions(wallet=WALLET,
+                                                  fetcher=_fetcher(activity))
+    rows_by_id = {r["position_id"]: r for r in report["rows"]}
+    assert len(rows_by_id) == 2
+    assert rows_by_id[pid_matched]["reliability"] == "reliable"
+    assert rows_by_id[pid_gap]["reliability"] == "no_data"
+    assert rows_by_id[pid_gap]["realized_true"] is None
+    assert rows_by_id[pid_gap]["already_realized"] == pytest.approx(2.0)
+
+
+def test_audit_all_closed_positions_reliability_labels(tmp_db):
+    pid_reliable = _open(tmp_db, "c1", side="NO", entry=0.64)
+    _close_row(tmp_db, pid_reliable)
+    pid_estimated = _open(tmp_db, "c55", side="YES", entry=0.29)
+    _close_row(tmp_db, pid_estimated, status="closed_manual", realized=1.475,
+              opened_at="2026-07-06 22:06:57", closed_at="2026-07-09 18:09:07")
+    pid_incomplete = _open(tmp_db, "c59", side="YES", entry=0.68)
+    _close_row(tmp_db, pid_incomplete)
+
+    activity = [
+        _trade("c1", "BUY", 1, 34.56, 96.0),
+        _trade("c1", "SELL", 1, 29.88, 96.0, T_IN_2),
+        _trade("c55", "SELL", 0, 5.44, 16.0, backfill._epoch("2026-07-09 17:40:46")),
+        _trade("c55", "SELL", 0, 4.59, 13.5, backfill._epoch("2026-07-09 18:09:08")),
+        _trade("c59", "BUY", 0, 21.59, 31.75),
+        _trade("c59", "SELL", 0, 23.9506, 36.75, T_IN_1),
+    ]
+    report = backfill.audit_all_closed_positions(wallet=WALLET,
+                                                  fetcher=_fetcher(activity))
+    rows_by_id = {r["position_id"]: r for r in report["rows"]}
+    assert rows_by_id[pid_reliable]["reliability"] == "reliable"
+    assert rows_by_id[pid_estimated]["reliability"] == "estimated"
+    assert rows_by_id[pid_incomplete]["reliability"] == "incomplete"
+
+
+def test_audit_all_closed_positions_never_writes(tmp_db):
+    pid = _open(tmp_db, "c1", side="NO", entry=0.64)
+    _close_row(tmp_db, pid, realized=0.0)
+    activity = [
+        _trade("c1", "BUY", 1, 34.56, 96.0),
+        _trade("c1", "SELL", 1, 29.88, 96.0, T_IN_2),
+    ]
+    backfill.audit_all_closed_positions(wallet=WALLET, fetcher=_fetcher(activity))
+    assert _row(tmp_db, pid)["realized_pnl_usd"] == pytest.approx(0.0)
+    assert _audit_rows(tmp_db, pid) == []

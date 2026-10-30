@@ -594,16 +594,18 @@ def _print_backfill_table(rows, title):
     table.add_column("SELL $", justify="right", width=7)
     table.add_column("REDEEM $", justify="right", width=8)
     table.add_column("Unexpl. sh", justify="right", width=10)
-    table.add_column("Complete", width=8)
+    table.add_column("Reliab.", width=10)
     table.add_column("DB real.", justify="right", width=8)
     table.add_column("Ledger", justify="right", width=8)
     table.add_column("Delta", justify="right", width=8)
     table.add_column("Write", width=5)
 
+    from locus.core import backfill as _bf
     for r in rows:
         delta_color = "red" if r["delta"] < 0 else "green"
-        complete_str = ("[green]yes[/green]" if r["complete"]
-                        else "[red]NO[/red]")
+        rel = _bf.reliability(r)
+        rel_color = {"reliable": "green", "estimated": "yellow",
+                    "incomplete": "red"}[rel]
         table.add_row(
             str(r["position_id"]),
             r["status"] or "—",
@@ -612,11 +614,41 @@ def _print_backfill_table(rows, title):
             f"{r['sells_usd']:.2f}",
             f"{r['redeemed_usd']:.2f}" if r["redeemed_usd"] else "—",
             f"{r['unexplained_shares']:+g}",
-            complete_str,
+            f"[{rel_color}]{rel}[/{rel_color}]",
             f"{r['already_realized']:+.2f}",
             f"{r['realized_true']:+.2f}",
             f"[{delta_color}]{r['delta']:+.2f}[/{delta_color}]",
             "yes" if r["writable"] else "—",
+        )
+    console.print(table)
+
+
+def _print_full_coverage_table(rows):
+    table = Table(title="All closed positions: DB vs ledger coverage",
+                 show_header=True, header_style="bold cyan")
+    table.add_column("ID", justify="right", width=4)
+    table.add_column("Status", width=16)
+    table.add_column("Market", max_width=36)
+    table.add_column("DB real.", justify="right", width=8)
+    table.add_column("Ledger", justify="right", width=8)
+    table.add_column("Delta", justify="right", width=8)
+    table.add_column("Reliab.", width=10)
+
+    rel_color = {"reliable": "green", "estimated": "yellow",
+                "incomplete": "red", "no_data": "dim white"}
+    for r in sorted(rows, key=lambda x: x["position_id"]):
+        rel = r["reliability"]
+        ledger_str = f"{r['realized_true']:+.2f}" if r["realized_true"] is not None else "—"
+        delta_str = f"{r['delta']:+.2f}" if r["delta"] is not None else "—"
+        c = rel_color[rel]
+        table.add_row(
+            str(r["position_id"]),
+            r["status"] or "—",
+            r["market_question"][:36],
+            f"{r['already_realized']:+.2f}",
+            ledger_str,
+            delta_str,
+            f"[{c}]{rel}[/{c}]",
         )
     console.print(table)
 
@@ -731,19 +763,49 @@ def cmd_backfill_realized(args):
             matched = backfill.match_position_activity(position, activity, all_positions)
             _print_detail_breakdown(pid, matched, by_id[pid])
 
-    complete_rows = [r for r in rows if r["complete"]]
-    incomplete_rows = [r for r in rows if not r["complete"]]
+    reliable_rows = [r for r in rows if backfill.reliability(r) == "reliable"]
+    estimated_rows = [r for r in rows if backfill.reliability(r) == "estimated"]
+    incomplete_rows = [r for r in rows if backfill.reliability(r) == "incomplete"]
     db_total = sum(r["already_realized"] for r in rows)
-    ledger_total_complete = sum(r["realized_true"] for r in complete_rows)
+    ledger_total_reliable = sum(r["realized_true"] for r in reliable_rows)
+    ledger_total_estimated = sum(r["realized_true"] for r in estimated_rows)
     ledger_total_incomplete = sum(r["realized_true"] for r in incomplete_rows)
     console.print(
         f"\n[bold]Totals (matched positions only, n={len(rows)})[/bold]\n"
-        f"  Currently in DB:                     {db_total:+.2f}\n"
-        f"  Per ledger — complete  (n={len(complete_rows):>2}, trustworthy):  "
-        f"{ledger_total_complete:+.2f}\n"
-        f"  Per ledger — incomplete(n={len(incomplete_rows):>2}, NOT reliable): "
+        f"  Currently in DB:                       {db_total:+.2f}\n"
+        f"  Per ledger — reliable   (n={len(reliable_rows):>2}, trustworthy):  "
+        f"{ledger_total_reliable:+.2f}\n"
+        f"  Per ledger — estimated  (n={len(estimated_rows):>2}, db_passive "
+        f"inference): {ledger_total_estimated:+.2f}\n"
+        f"  Per ledger — incomplete (n={len(incomplete_rows):>2}, NOT reliable): "
         f"{ledger_total_incomplete:+.2f}"
     )
+
+    # Full coverage across ALL closed positions (not just the ones this
+    # wallet's activity feed matched at all) — surfaces the positions the
+    # feed doesn't cover (e.g. anything opened before this wallet's earliest
+    # indexed activity).
+    try:
+        full_report = backfill.audit_all_closed_positions(wallet=report["wallet"])
+        full_rows = full_report["rows"]
+        console.print()
+        _print_full_coverage_table(full_rows)
+        no_data_rows = [r for r in full_rows if r["reliability"] == "no_data"]
+        all_reliable_rows = [r for r in full_rows if r["reliability"] == "reliable"]
+        full_db_total = sum(r["already_realized"] for r in full_rows)
+        full_ledger_reliable_total = sum(r["realized_true"] for r in all_reliable_rows)
+        console.print(
+            f"\n[bold]Totals (ALL {len(full_rows)} closed positions)[/bold]\n"
+            f"  Currently in DB:                       {full_db_total:+.2f}\n"
+            f"  Per ledger — reliable only (n={len(all_reliable_rows):>2}): "
+            f"{full_ledger_reliable_total:+.2f}\n"
+            f"  Not covered by the activity feed at all (no_data): "
+            f"{len(no_data_rows)} position(s)"
+            + (" — " + ", ".join(f"#{r['position_id']}" for r in no_data_rows)
+               if no_data_rows else "")
+        )
+    except RuntimeError as e:
+        console.print(f"[red]{e}[/red]")
 
     if args.apply:
         if report["applied"]:

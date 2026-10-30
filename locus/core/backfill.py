@@ -34,6 +34,20 @@ completeness check — bought_shares - sold_shares - redeemed_shares should be
 `unexplained_shares` gap when it doesn't. Only complete rows are trustworthy
 enough to ever write; an incomplete row's realized_true is shown for
 reference but is NOT a reliable number.
+
+DB fallback for a WHOLLY missing BUY (positions 55 and 57 confirmed: zero BUY
+rows in both /activity and /trades, despite a confirmed on-chain fill — our
+own order reconcile saw a real FILLED/MATCHED order, so the fill happened;
+Polymarket's indexer appears to not surface it under this wallet at all,
+plausibly a maker-side fill the feed doesn't attribute to the resting side).
+When the matched ledger shows ~0 bought shares but SOME sold/redeemed shares,
+compute_adjustment falls back to the position's own entry_yes_price x the
+shares actually sold/redeemed (NOT the full original size — a still-open
+remainder's cost isn't part of today's realized number) as the BUY leg,
+tagged `buy_source="db_passive"` and `estimated=True`. This is an inference,
+not an independent ledger confirmation — `complete` reads True by
+construction (bought is defined to equal sold+redeemed), but `estimated`
+rows are never `writable`.
 """
 from __future__ import annotations
 
@@ -64,6 +78,11 @@ MIN_ADJUSTMENT_USD = 0.01
 
 # Share-count tolerance for the bought/sold/redeemed completeness check.
 COMPLETENESS_TOLERANCE_SHARES = 0.5
+
+# Below this many matched BUY+SPLIT shares, the ledger is treated as having
+# NO buy leg at all (vs. merely incomplete) — the trigger for the db_passive
+# fallback, not a tolerance on an otherwise-present BUY.
+DB_FALLBACK_BUY_EPSILON_SHARES = 1.0
 
 # Our positional YES/NO convention -> Data API outcomeIndex.
 _OUTCOME_INDEX = {"YES": 0, "NO": 1}
@@ -200,18 +219,35 @@ def match_position_activity(position: dict, activity: list[dict],
     return result
 
 
+def _entry_side_price(position: dict) -> float:
+    """The held side's entry price (YES price as-is, NO as 1 - YES price)."""
+    entry_yes = position.get("entry_yes_price") or 0.0
+    return entry_yes if (position.get("side") or "").upper() == "YES" else 1.0 - entry_yes
+
+
 def compute_adjustment(position: dict, matched: dict[str, list[dict]]) -> dict:
-    """True realized PnL for a CLOSED position from its matched activity, and
-    the delta against what the DB already realized.
+    """True realized PnL for a position from its matched activity, and the
+    delta against what the DB already realized.
 
     realized_true = (SELL + REDEEM/MERGE usdcSize) - (BUY + SPLIT usdcSize) —
-    a strict reading of the ledger, no estimation. Completeness is checked
-    separately: bought_shares - sold_shares - redeemed_shares should be ~0 for
-    a position holding nothing (COMPLETENESS_TOLERANCE_SHARES); when it isn't,
-    `complete` is False and `unexplained_shares` carries the signed gap
-    (positive = shares vanished with no recorded SELL/REDEEM, i.e. realized_true
-    UNDERSTATES true proceeds; negative = more was sold/redeemed than bought,
-    i.e. a missing BUY, so realized_true OVERSTATES true profit)."""
+    a strict reading of the ledger, no estimation, UNLESS the ledger shows
+    essentially no BUY/SPLIT at all (< DB_FALLBACK_BUY_EPSILON_SHARES) while
+    some SELL/REDEEM did happen: Polymarket's indexer can miss a fill
+    entirely rather than just under/over-report it (confirmed for positions
+    55 and 57 — zero BUY rows in both /activity and /trades despite a
+    confirmed on-chain fill). In that case the BUY leg falls back to
+    entry_side_price x (sold_shares + redeemed_shares) — the cost of the
+    shares that actually exited, not the full original size, since a
+    still-open remainder's cost is not part of today's realized number —
+    tagged buy_source="db_passive" and estimated=True (never writable).
+
+    Otherwise completeness is checked on the ledger alone: bought_shares -
+    sold_shares - redeemed_shares should be ~0 for a position holding nothing
+    (COMPLETENESS_TOLERANCE_SHARES); when it isn't, `complete` is False and
+    `unexplained_shares` carries the signed gap (positive = shares vanished
+    with no recorded SELL/REDEEM, i.e. realized_true UNDERSTATES true
+    proceeds; negative = more was sold/redeemed than bought, i.e. a partially
+    missing BUY, so realized_true OVERSTATES true profit)."""
     trade = matched["trade"]
     proceeds_extra = matched["proceeds_extra"]
     cost_extra = matched["cost_extra"]
@@ -227,9 +263,22 @@ def compute_adjustment(position: dict, matched: dict[str, list[dict]]) -> dict:
     split_usd = sum(r.get("usdcSize") or 0.0 for r in cost_extra)
     split_shares = sum(r.get("size") or 0.0 for r in cost_extra)
 
-    total_buys_usd = buys_usd + split_usd
-    total_bought_shares = bought_shares + split_shares
+    ledger_buys_usd = buys_usd + split_usd
+    ledger_bought_shares = bought_shares + split_shares
     total_proceeds_usd = sells_usd + redeemed_usd
+    exited_shares = sold_shares + redeemed_shares
+
+    buy_source = "ledger"
+    estimated = False
+    if ledger_bought_shares < DB_FALLBACK_BUY_EPSILON_SHARES and exited_shares > 0:
+        buy_source = "db_passive"
+        estimated = True
+        side_entry = _entry_side_price(position)
+        total_buys_usd = side_entry * exited_shares
+        total_bought_shares = exited_shares
+    else:
+        total_buys_usd = ledger_buys_usd
+        total_bought_shares = ledger_bought_shares
 
     unexplained_shares = total_bought_shares - sold_shares - redeemed_shares
     complete = abs(unexplained_shares) <= COMPLETENESS_TOLERANCE_SHARES
@@ -244,6 +293,8 @@ def compute_adjustment(position: dict, matched: dict[str, list[dict]]) -> dict:
         "trades_matched": len(trade),
         "redeems_matched": len(proceeds_extra),
         "splits_matched": len(cost_extra),
+        "buy_source": buy_source,
+        "estimated": estimated,
         "buys_usd": round(total_buys_usd, 4),
         "sells_usd": round(sells_usd, 4),
         "redeemed_usd": round(redeemed_usd, 4),
@@ -265,7 +316,8 @@ def _audit_reasoning(row: dict, wallet: str, position: dict) -> str:
         f"Realized PnL backfilled from {ACTIVITY_SOURCE} (wallet {wallet}): "
         f"window {position.get('opened_at')}..{position.get('closed_at') or 'now'}, "
         f"{row['trades_matched']} TRADE + {row['redeems_matched']} REDEEM/MERGE rows "
-        f"matched — BUY ${row['buys_usd']:.4f} ({row['bought_shares']:g} sh), "
+        f"matched — BUY ${row['buys_usd']:.4f} ({row['bought_shares']:g} sh, "
+        f"source={row['buy_source']}), "
         f"SELL ${row['sells_usd']:.4f} + REDEEM ${row['redeemed_usd']:.4f} "
         f"({row['sold_shares']:g} + {row['redeemed_shares']:g} sh); "
         f"completeness check: {row['bought_shares']:g} - {row['sold_shares']:g} - "
@@ -276,6 +328,12 @@ def _audit_reasoning(row: dict, wallet: str, position: dict) -> str:
         f"minus already recorded ${row['already_realized']:+.4f} "
         f"= delta ${row['delta']:+.4f}"
     )
+    if row["estimated"]:
+        text += (
+            ". WARNING: buy leg is ESTIMATED (db_passive fallback — the feed "
+            "showed no BUY at all for this position), not an independent "
+            "ledger confirmation"
+        )
     return text
 
 
@@ -294,9 +352,11 @@ def backfill_realized(apply: bool = False, ids: list[int] | None = None,
     Open positions are never touched — their basis/realized bookkeeping belongs
     to the live close paths. `ids` restricts which positions may be WRITTEN
     (the report always covers every closed position with matched activity).
-    Writes require BOTH a non-trivial delta AND `complete=True` — an
-    incomplete ledger's realized_true is not trustworthy enough to apply, even
-    if the position id is in `ids`. One exit_decisions audit row
+    Writes require a non-trivial delta, `complete=True`, AND `estimated=False`
+    — an incomplete ledger, or one whose BUY leg came from the db_passive
+    fallback (not an independent ledger confirmation), is never trustworthy
+    enough to apply, even if the position id is in `ids`. One exit_decisions
+    audit row
     (trigger='backfill', decision='pnl_backfill') is written per adjusted
     position. Returns {"rows", "applied", "skipped_ids", "wallet",
     "activity_types"}."""
@@ -321,6 +381,7 @@ def backfill_realized(apply: bool = False, ids: list[int] | None = None,
             row = compute_adjustment(position, matched)
             row["writable"] = (
                 row["complete"]
+                and not row["estimated"]
                 and abs(row["delta"]) >= MIN_ADJUSTMENT_USD
                 and (ids is None or position["id"] in ids)
             )
@@ -358,6 +419,66 @@ def backfill_realized(apply: bool = False, ids: list[int] | None = None,
                if abs(r["delta"]) >= MIN_ADJUSTMENT_USD and not r["writable"]]
     return {"rows": rows, "applied": applied, "skipped_ids": skipped,
             "wallet": wallet, "activity_types": activity_types}
+
+
+def reliability(row: dict) -> str:
+    """One-word reliability verdict for a computed row:
+      - "reliable"   — ledger-only, complete (trustworthy, writable).
+      - "estimated"  — complete only via the db_passive BUY fallback
+                       (an inference, never writable).
+      - "incomplete" — ledger present but bought/sold/redeemed don't balance.
+    """
+    if row["estimated"]:
+        return "estimated"
+    return "reliable" if row["complete"] else "incomplete"
+
+
+def audit_all_closed_positions(wallet: str | None = None,
+                               fetcher=fetch_wallet_activity) -> dict:
+    """Every closed position in the DB, whether or not the wallet's activity
+    feed covers it at all — the full-coverage counterpart to
+    backfill_realized (which only reports positions it found SOME matching
+    activity for). A position with zero matched rows gets reliability
+    "no_data" and realized_true=None, so gaps in Data API coverage (e.g. this
+    wallet's feed starts 2026-06-23; anything opened earlier has no activity
+    under this address at all) are visible instead of silently dropped.
+    Read-only — never writes anything. Returns {"rows", "wallet",
+    "activity_types"}."""
+    wallet = wallet or config.POLYMARKET_FUNDER_ADDRESS
+    if not wallet:
+        raise RuntimeError(
+            "No wallet to audit: POLYMARKET_FUNDER_ADDRESS is not set"
+        )
+    activity = fetcher(wallet)
+    activity_types = activity_type_counts(activity)
+
+    conn = logger._conn()
+    try:
+        closed_positions = _fetch_positions(conn, include_open=False)
+        all_positions = _fetch_positions(conn, include_open=True)
+    finally:
+        conn.close()
+
+    rows: list[dict] = []
+    for position in closed_positions:
+        matched = match_position_activity(position, activity, all_positions)
+        if not any(matched.values()):
+            rows.append({
+                "position_id": position["id"],
+                "status": position.get("status"),
+                "side": position.get("side"),
+                "market_question": position.get("market_question") or "",
+                "already_realized": round(position.get("realized_pnl_usd") or 0.0, 4),
+                "realized_true": None,
+                "delta": None,
+                "reliability": "no_data",
+            })
+            continue
+        row = compute_adjustment(position, matched)
+        row["reliability"] = reliability(row)
+        rows.append(row)
+
+    return {"rows": rows, "wallet": wallet, "activity_types": activity_types}
 
 
 def preview_reconcile_with_ledger(position_id: int, wallet: str | None = None,
