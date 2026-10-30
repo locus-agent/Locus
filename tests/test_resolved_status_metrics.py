@@ -87,10 +87,13 @@ def test_live_readiness_counts_resolution_closes(tmp_db):
 
 
 def test_calibration_report_includes_resolution_closes(tmp_db):
+    # _resolved_position's trades are status='dry_run' (paper) — this test is
+    # about resolution-status visibility (LOGIC_REVIEW.md finding #2), not
+    # the paper/live split, so mode="all" keeps its original scope.
     _resolved_position(tmp_db, "m1", "YES", 0.50, 25.0, 1.0)
     _resolved_position(tmp_db, "m2", "YES", 0.50, 25.0, 0.0)
 
-    report = calibration_report()
+    report = calibration_report(mode="all")
     assert report["summary"]["n"] == 2
     assert report["summary"]["wins"] == 1
     labels = {e["label"] for e in report["by_exit_reason"] if e["n"]}

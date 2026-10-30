@@ -931,11 +931,28 @@ def cmd_stats(args):
 
 
 def cmd_calibration_report(args):
-    """Read-only calibration analytics over closed positions (no writes)."""
+    """Read-only calibration analytics over closed positions (no writes).
+
+    Defaults to live (real on-chain fills) only — paper (dry-run) positions
+    never count toward a performance decision. --paper shows the paper-only
+    report instead; --all pools both (clearly labeled, not a performance
+    number). Without --paper/--all, a one-line paper summary is appended so
+    paper activity is visible without being mixed into the live numbers."""
     from locus.core import performance
 
-    report = performance.calibration_report()
+    mode = "paper" if args.paper else ("all" if args.all else "live")
+    report = performance.calibration_report(mode=mode)
     print(performance.format_calibration_report(report))
+
+    if mode == "live":
+        counts = performance.paper_live_counts()
+        p = counts["paper"]
+        if p["n"]:
+            console.print(
+                f"\n[dim]({p['n']} paper (dry-run) position(s) exist, not "
+                f"counted above — total simulated PnL {p['total_pnl']:+.2f}; "
+                f"run with --paper to see the full paper report)[/dim]"
+            )
 
 
 def cmd_evolve(args):
@@ -1096,6 +1113,15 @@ def main():
     p_calrep = sub.add_parser(
         "calibration-report",
         help="Read-only calibration analytics over closed positions",
+    )
+    p_calrep_mode = p_calrep.add_mutually_exclusive_group()
+    p_calrep_mode.add_argument(
+        "--paper", action="store_true",
+        help="Show only paper (dry-run) positions, instead of the live default",
+    )
+    p_calrep_mode.add_argument(
+        "--all", action="store_true",
+        help="Pool paper + live together (clearly labeled, not a performance number)",
     )
     p_calrep.set_defaults(func=cmd_calibration_report)
 

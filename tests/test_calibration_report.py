@@ -320,7 +320,9 @@ def test_brier_by_prompt_version_time_linkage(tmp_db):
 def test_brier_prompt_version_unknown_without_trade_link(tmp_db):
     # A closed position with no linked trade can't be attributed to a version
     # (or a confidence): it lands in the honest 'unknown' bucket with the
-    # entry-implied prediction, never guessed.
+    # entry-implied prediction, never guessed. It also can't be attributed to
+    # paper or live (no trades.status to read) — mode="all" is the only mode
+    # that ever includes it.
     conn = tmp_db._conn()
     conn.execute(
         """INSERT INTO positions (trade_id, condition_id, market_question, side,
@@ -331,7 +333,7 @@ def test_brier_prompt_version_unknown_without_trade_link(tmp_db):
     )
     conn.commit()
     conn.close()
-    rep = performance.calibration_report()
+    rep = performance.calibration_report(mode="all")
     by = {e["label"]: e for e in rep["brier"]["by_prompt_version"]}
     assert by["unknown (no linked trade)"]["n"] == 1
     assert by["unknown (no linked trade)"]["brier"] == pytest.approx((0.4 - 1.0) ** 2)

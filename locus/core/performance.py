@@ -515,15 +515,27 @@ def _grouped(rows: list[dict], key_fn, order: list[str] | None = None) -> list[d
     return [{"label": l, **_group_stats(buckets[l])} for l in ranked]
 
 
-def calibration_report() -> dict:
+def calibration_report(mode: str = "live") -> dict:
     """Read-only calibration analysis of CLOSED positions (every terminal
     status with a stamped closed_at, including 'resolved') joined to their
     trade's classification data.
+
+    `mode` selects which positions count, by their ORIGINATING trade's status
+    (trades.status, via positions.trade_id — no separate paper/live column
+    exists or is needed): "live" (default) keeps only trade_status='executed'
+    — real on-chain fills, the only thing that should drive track-record
+    decisions; "paper" keeps only trade_status='dry_run' — simulated fills
+    from DRY_RUN=true runs, informative for testing a prompt/threshold change
+    but NEVER real performance; "all" pools both (rarely what you want — a
+    paper position's "PnL" never moved real money). Mixing paper into a
+    live-performance decision is exactly the mistake this parameter exists to
+    prevent.
 
     Pure read: opens its own connection, runs a single SELECT, and never writes,
     migrates, or touches trading logic — safe to run while the live agent trades.
 
     Returns a structured dict (rendered by format_calibration_report):
+      - mode: the mode this report was computed for ("live"/"paper"/"all")
       - summary: n, wins, win_rate, total_pnl, small_sample flag + threshold
       - by_materiality / by_category / by_direction / by_fill_quality /
         by_exit_reason / by_entry_price / by_time_to_resolution /
@@ -537,6 +549,8 @@ def calibration_report() -> dict:
     'unknown' bucket, and positions without actual_cost_usd are reported as a
     separate 'unknown' fill-quality group rather than misclassified.
     """
+    if mode not in ("live", "paper", "all"):
+        raise ValueError(f"calibration_report: unknown mode {mode!r}")
     conn = logger._conn()
     rows = [
         dict(r) for r in conn.execute(
@@ -544,12 +558,17 @@ def calibration_report() -> dict:
                       p.actual_cost_usd, p.realized_pnl_usd, p.exit_reason,
                       p.market_question, p.opened_at, p.end_date, p.entry_volume_usd,
                       t.materiality AS materiality, t.classification AS direction,
-                      t.confidence AS confidence, t.created_at AS trade_created_at
+                      t.confidence AS confidence, t.created_at AS trade_created_at,
+                      t.status AS trade_status
                FROM positions p
                LEFT JOIN trades t ON p.trade_id = t.id
                WHERE p.status != 'open' AND p.closed_at IS NOT NULL"""
         ).fetchall()
     ]
+    if mode == "live":
+        rows = [r for r in rows if r.get("trade_status") == "executed"]
+    elif mode == "paper":
+        rows = [r for r in rows if r.get("trade_status") == "dry_run"]
     # Prompt versions for the Brier-by-prompt-version breakdown (also a pure
     # read; versions are matched to trades by timestamp — see
     # _prompt_version_label for why that's the only linkage the schema has).
@@ -643,6 +662,7 @@ def calibration_report() -> dict:
     best_trades = [_trade_entry(r) for r in by_pnl[::-1][:TOP_TRADES_N]]
 
     return {
+        "mode": mode,
         "summary": summary,
         "by_materiality": by_materiality,
         "by_category": by_category,
@@ -656,6 +676,29 @@ def calibration_report() -> dict:
         "best_trades": best_trades,
         "worst_trades": worst_trades,
     }
+
+
+def paper_live_counts() -> dict:
+    """Cheap paper-vs-live split of every closed position, by its
+    originating trade's status (see calibration_report's `mode` docstring
+    for why this is the right join and why the two must never be pooled).
+    Used for the calibration-report header/footer and anywhere else a quick
+    "how much of this is real" sanity check is needed — a full
+    calibration_report() call is overkill just for n/win_rate/total_pnl.
+    Returns {"live": {...}, "paper": {...}}, each a _group_stats shape."""
+    conn = logger._conn()
+    rows = [
+        dict(r) for r in conn.execute(
+            """SELECT p.realized_pnl_usd, t.status AS trade_status
+               FROM positions p
+               LEFT JOIN trades t ON p.trade_id = t.id
+               WHERE p.status != 'open' AND p.closed_at IS NOT NULL"""
+        ).fetchall()
+    ]
+    conn.close()
+    live = [r for r in rows if r.get("trade_status") == "executed"]
+    paper = [r for r in rows if r.get("trade_status") == "dry_run"]
+    return {"live": _group_stats(live), "paper": _group_stats(paper)}
 
 
 def _fmt_pct(v: float | None) -> str:
@@ -790,13 +833,34 @@ def _render_trade_list(title: str, trades: list[dict]) -> list[str]:
     return lines
 
 
+_MODE_LABELS = {
+    "live": "LIVE — real on-chain fills only",
+    "paper": "PAPER — simulated dry-run fills only (never real money)",
+    "all": "ALL — live + paper pooled (NOT a performance number)",
+}
+
+
 def format_calibration_report(report: dict) -> str:
     """Render calibration_report() output as a plain-text report (no rich markup)."""
     s = report["summary"]
+    mode = report.get("mode", "live")
     out: list[str] = []
     out.append("=" * 69)
     out.append("  CALIBRATION REPORT  (read-only — closed positions only)")
+    out.append(f"  Mode: {_MODE_LABELS.get(mode, mode)}")
     out.append("=" * 69)
+    if mode == "paper":
+        out.append("")
+        out.append("  " + "*" * 65)
+        out.append("  ** PAPER MODE: every number below is a SIMULATED fill.")
+        out.append("  ** No real money moved. Do not use this as a performance claim.")
+        out.append("  " + "*" * 65)
+    elif mode == "all":
+        out.append("")
+        out.append("  " + "*" * 65)
+        out.append("  ** ALL MODE: paper (simulated) and live (real) positions are")
+        out.append("  ** POOLED below. This number does NOT represent real performance.")
+        out.append("  " + "*" * 65)
     out.append("")
     out.append(f"  Total closed trades : {s['n']}")
     out.append(f"  Overall win rate    : {_fmt_pct(s['win_rate'])} ({s['wins']}/{s['n']} wins)")

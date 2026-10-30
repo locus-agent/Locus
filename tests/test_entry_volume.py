@@ -116,7 +116,7 @@ def test_report_buckets_by_entry_volume(tmp_db):
         positions.open_position(trade_id, _mkt(volume=vol, cid=cid), "YES", 25.0)
         _close(tmp_db, cid, pnl)
 
-    rep = performance.calibration_report()
+    rep = performance.calibration_report(mode="all")
     by = {e["label"]: e for e in rep["by_entry_volume"]}
     assert by["[<$50k]"]["n"] == 1
     assert by["[<$50k]"]["win_rate"] == pytest.approx(100.0)
@@ -150,7 +150,7 @@ def test_report_renders_with_all_null_legacy_volumes(tmp_db):
     conn.commit()
     conn.close()
 
-    rep = performance.calibration_report()
+    rep = performance.calibration_report(mode="all")
     by = {e["label"]: e for e in rep["by_entry_volume"]}
     assert list(by) == ["unknown (pre-column)"]
     assert by["unknown (pre-column)"]["n"] == 2
