@@ -64,7 +64,7 @@ def whale_pipeline(tmp_db, monkeypatch):
     monkeypatch.setattr(pl.positions, "check_category_exposure",
                         lambda *a, **k: {"allowed": True, "warning": False,
                                          "current_usd": 0, "limit_usd": 100, "pct": 0})
-    monkeypatch.setattr(pl, "fetch_orderbook_imbalance", lambda *a, **k: None)
+    monkeypatch.setattr(pl, "fetch_orderbook_imbalance", lambda *a, **k: 0.0)  # neutral book
     monkeypatch.setattr(pl, "verify_novelty", lambda *a, **k: None)
     monkeypatch.setattr(pl, "compute_circuit_breaker",
                         lambda: {"triggered": False, "reason": "", "metrics": {}})

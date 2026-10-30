@@ -69,7 +69,7 @@ def build_pipeline(monkeypatch, matched_markets, classify_delays=None,
     `matched_markets` (a mutable list, so tests can vary it between events),
     classification is a canned bullish call (optionally delayed per market, to
     control interleaving), edge detection always produces a YES signal, and
-    the orderbook returns `orderbook_scores` in call order (then None=allow).
+    the orderbook returns `orderbook_scores` in call order (then 0.0 = neutral, allowed).
     Everything else — gate_trade, the late gates, logging, execution — is real.
     """
     delays = classify_delays or {}
@@ -100,7 +100,7 @@ def build_pipeline(monkeypatch, matched_markets, classify_delays=None,
     monkeypatch.setattr(pl, "detect_edge_v2", edge)
 
     def orderbook(token_id):
-        return scores.pop(0) if scores else None
+        return scores.pop(0) if scores else 0.0  # neutral book (None now fails closed)
 
     monkeypatch.setattr(pl, "fetch_orderbook_imbalance", orderbook)
     return p
@@ -492,7 +492,7 @@ def test_whale_gate_block_releases_reservation(tmp_db, monkeypatch):
 def test_whale_signal_keeps_reservation_until_execution(tmp_db, monkeypatch):
     market = mkt("w", "eW")
     headline = "whale moved on w"
-    opp = _whale_setup(monkeypatch, market, headline, orderbook_score=None)
+    opp = _whale_setup(monkeypatch, market, headline, orderbook_score=0.0)
     p = pl.PipelineV2()
     asyncio.run(p._investigate_whale_opportunity(opp))
     assert headline in p._traded_headlines  # handed to the executor stage

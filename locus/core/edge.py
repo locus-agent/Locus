@@ -90,6 +90,10 @@ class Signal:
     # Per-share trading fee modeled at entry, and the raw edge net of it.
     fee_cost: float = 0.0
     net_edge: float = 0.0
+    # Calibrated model only (EDGE_MODEL=calibrated); None under legacy.
+    p_cal: float | None = None
+    effective_price: float | None = None  # depth-walked VWAP of the side bought
+    slippage: float | None = None         # effective_price - best ask
 
 
 @dataclass
@@ -117,6 +121,16 @@ class EdgeMetrics:
     # "kelly_negative" (zero/negative Kelly at these odds: do not trade). The
     # pipeline logs it as the classification's action so the funnel shows it.
     skip_reason: str | None = None
+    p_cal: float | None = None
+    calibration_level: str | None = None
+    calibration_support: int = 0
+    effective_price: float | None = None
+    slippage: float | None = None
+
+
+# (token_id, lookback_minutes) -> (monotonic_ts, momentum). Momentum is a
+# slow-moving input; caching it keeps the per-signal hot path free of HTTP.
+_momentum_cache: dict[tuple[str, int], tuple[float, float | None]] = {}
 
 
 def get_price_momentum(market: Market, lookback_minutes: int = 60) -> float | None:
@@ -130,6 +144,17 @@ def get_price_momentum(market: Market, lookback_minutes: int = 60) -> float | No
     token_id = get_token_id(market, "YES")
     if not token_id:
         return None
+    key = (token_id, int(lookback_minutes))
+    hit = _momentum_cache.get(key)
+    if hit is not None and time.monotonic() - hit[0] < config.MOMENTUM_CACHE_TTL_SECONDS:
+        return hit[1]
+    value = _fetch_price_momentum(token_id, lookback_minutes)
+    _momentum_cache[key] = (time.monotonic(), value)
+    return value
+
+
+def _fetch_price_momentum(token_id: str, lookback_minutes: int) -> float | None:
+    """Uncached price-history fetch behind get_price_momentum."""
     now = int(time.time())
     start_ts = now - lookback_minutes * 60
     try:
@@ -163,6 +188,157 @@ def get_price_momentum(market: Market, lookback_minutes: int = 60) -> float | No
 
 
 def detect_edge_v2(
+    market: Market,
+    classification: Classification,
+    news_event: NewsEvent,
+    book: dict | None = None,
+) -> EdgeMetrics | None:
+    """Dispatch on config.EDGE_MODEL: "calibrated" (default) or "legacy".
+
+    `book` is the live YES-token book ({'bids','asks'} best-first, see
+    orderbook.fetch_book). The calibrated model walks it for slippage; without
+    one it assumes DEFAULT_SLIPPAGE over the mid (backtests/tests only — the
+    live pipeline passes a real book or skips the trade).
+    """
+    if config.EDGE_MODEL == "calibrated":
+        return detect_edge_calibrated(market, classification, news_event, book)
+    return detect_edge_legacy(market, classification, news_event)
+
+
+def polymarket_fee_per_share(fee_rate: float, price: float) -> float:
+    """Taker fee in USDC per share: feeRate * p * (1 - p)
+    (docs.polymarket.com/trading/fees). Makers pay nothing."""
+    return fee_rate * price * (1.0 - price)
+
+
+def calibrated_kelly_fraction(p: float, cost: float) -> float:
+    """Full-Kelly fraction for a binary share costing `cost` (price + fee per
+    share) that pays 1 with probability p: f = (p - cost) / (1 - cost)."""
+    if not (0.0 < cost < 1.0):
+        return 0.0
+    return (p - cost) / (1.0 - cost)
+
+
+def detect_edge_calibrated(
+    market: Market,
+    classification: Classification,
+    news_event: NewsEvent,
+    book: dict | None = None,
+    win_prob=None,
+) -> EdgeMetrics | None:
+    """edge = p_cal - effective_ask - fee(effective_ask)
+
+    - p_cal: calibrated probability the bought side pays out
+      (memory.prob_calibration; `win_prob` overrides for backtests/tests).
+    - effective_ask: VWAP of walking the side's asks for the stake actually
+      placed — slippage is priced, not assumed away. NO uses the mirrored
+      YES bids (NO ask = 1 - YES bid).
+    - fee: Polymarket taker fee per share at that price.
+    Sizing: CAL_KELLY_FRACTION x Kelly on p_cal at the all-in cost, capped at
+    MAX_BET_USD and at the fillable depth. Zero/negative Kelly -> no trade.
+    """
+    from locus.core.orderbook import side_book, walk_asks_for_usd
+    from locus.memory import prob_calibration
+
+    if classification.direction not in ("bullish", "bearish"):
+        return None
+    yes = market.yes_price
+    if classification.direction == "bullish":
+        side = "YES"
+        if not (config.BULLISH_MIN_PRICE < yes <= config.BULLISH_MAX_PRICE):
+            return None
+        side_mid = yes
+    else:
+        side = "NO"
+        if not (config.BEARISH_MIN_PRICE < yes <= config.BEARISH_MAX_PRICE):
+            return None
+        side_mid = 1.0 - yes
+
+    if book is not None:
+        asks = side_book(book, side)["asks"]
+        if not asks:
+            return None
+    else:
+        asks = [(min(side_mid + config.DEFAULT_SLIPPAGE, 0.999), float("inf"))]
+    best_ask = asks[0][0]
+
+    category = getattr(market, "category", "") or "other"
+    if win_prob is not None:
+        p_cal, support, level = win_prob(classification.confidence, category, side_mid)
+    else:
+        p_cal, support, level = prob_calibration.calibrated_win_prob(
+            classification.confidence, category, side_mid)
+
+    def _price(stake_usd: float):
+        shares, vwap, spent = walk_asks_for_usd(asks, stake_usd)
+        fee = polymarket_fee_per_share(market.fee_rate, vwap) if vwap else 0.0
+        return shares, vwap, spent, fee
+
+    # Pass 1: price the maximum stake (conservative), size, then re-price the
+    # stake actually placed (smaller stake -> less slippage).
+    shares, vwap, spent, fee = _price(config.MAX_BET_USD)
+    if shares <= 0:
+        return None
+    for _ in range(2):
+        cost = vwap + fee
+        f = calibrated_kelly_fraction(p_cal, cost)
+        stake = config.KELLY_BANKROLL_USD * f * config.CAL_KELLY_FRACTION
+        stake = min(round(stake, 2), config.MAX_BET_USD, spent)
+        if stake <= 0:
+            break
+        stake = max(stake, min(config.KELLY_MIN_BET_USD, spent))
+        shares, vwap, spent, fee = _price(stake)
+
+    cost = vwap + fee
+    net_edge = p_cal - cost
+    log.info(
+        f"[edge] calibrated {side}: p_cal={p_cal:.3f} ({level}, n={support}) "
+        f"best_ask={best_ask:.3f} vwap={vwap:.3f} fee={fee:.4f} net_edge={net_edge:+.3f}"
+    )
+    metrics = EdgeMetrics(
+        edge=net_edge, expected_edge=net_edge, vol_adj=1.0, recommended_size=0.0,
+        fee_cost=fee, net_edge=net_edge, p_cal=p_cal, calibration_level=level,
+        calibration_support=support, effective_price=vwap,
+        slippage=vwap - best_ask,
+    )
+    if net_edge < config.CAL_EDGE_THRESHOLD:
+        return None
+    if calibrated_kelly_fraction(p_cal, cost) <= 0 or spent <= 0:
+        metrics.skip_reason = "kelly_negative"
+        return metrics
+    bet_amount = round(spent, 2)
+
+    total_latency = news_event.latency_ms + classification.latency_ms
+    metrics.recommended_size = bet_amount
+    metrics.signal = Signal(
+        market=market,
+        claude_score=classification.materiality,
+        market_price=yes,
+        edge=net_edge,
+        side=side,
+        bet_amount=bet_amount,
+        reasoning=classification.reasoning,
+        headlines=news_event.headline,
+        news_source=news_event.source,
+        classification=classification.direction,
+        materiality=classification.materiality,
+        adjusted_materiality=classification.adjusted_materiality,
+        confidence=classification.confidence,
+        news_latency_ms=news_event.latency_ms,
+        classification_latency_ms=classification.latency_ms,
+        total_latency_ms=total_latency,
+        expected_edge=net_edge,
+        vol_adj=1.0,
+        fee_cost=fee,
+        net_edge=net_edge,
+        p_cal=p_cal,
+        effective_price=vwap,
+        slippage=vwap - best_ask,
+    )
+    return metrics
+
+
+def detect_edge_legacy(
     market: Market,
     classification: Classification,
     news_event: NewsEvent,

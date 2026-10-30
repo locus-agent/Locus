@@ -465,6 +465,8 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "news": 0, "momentum": 0, "arbitrage": 0,
             **logger.get_edge_type_breakdown_since(since_24h, action="signal"),
         },
+        # Per-source latency (publish->receive, receive->classify), in-process.
+        "latency_by_source": _latency_summary(),
         "pipeline_24h": {
             "news": logger.get_news_event_count_since(since_24h),
             "matched": logger.get_matched_headline_count_since(since_24h),
@@ -542,6 +544,14 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
 
     _auto_push_status()
     return status
+
+
+def _latency_summary() -> dict:
+    try:
+        from locus.core import latency
+        return latency.summary()
+    except Exception:
+        return {}
 
 
 def _auto_push_status():

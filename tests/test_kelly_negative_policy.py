@@ -118,7 +118,7 @@ def _run_candidate(tmp_db, monkeypatch, confidence):
     monkeypatch.setattr(pl, "prefilter_match", lambda *a, **k: False)
     monkeypatch.setattr(pl.logger, "find_recent_classification",
                         lambda *a, **k: None)
-    monkeypatch.setattr(pl, "fetch_orderbook_imbalance", lambda token_id: None)
+    monkeypatch.setattr(pl, "fetch_orderbook_imbalance", lambda token_id: 0.0)
     monkeypatch.setattr(config, "MIN_MATERIALITY_BULLISH", 0.3)
     monkeypatch.setattr(config, "HIGH_MATERIALITY_THRESHOLD", 0.9)
     monkeypatch.setattr(config, "CIRCUIT_BREAKER_ENABLED", False)

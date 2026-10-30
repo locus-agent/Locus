@@ -72,6 +72,34 @@ def run_with_watchdog(run, *, max_restarts: int = 10, delay_seconds: int = 5) ->
             time.sleep(delay_seconds)
 
 
+def cmd_backtest(args):
+    """Replay backtest (locus/backtest/replay.py). Paper only: reads public
+    Polymarket data, never trades, never calls an LLM."""
+    import json
+    from locus.backtest import replay
+    from locus.backtest.costs import BookModel
+    from locus.backtest.replay_data import DATA_DIR
+
+    res = replay.main(
+        books={
+            "tight": BookModel(0.005, 0.01, 80.0),
+            "base": BookModel(0.01, 0.01, 40.0),
+            "wide": BookModel(0.02, 0.01, 20.0),
+        },
+        entries=tuple(args.entry or ("latency", "after", "before")),
+    )
+    (DATA_DIR / "replay_results.json").write_text(json.dumps(res, indent=2))
+    for r in res["runs"]:
+        console.print(
+            f"{r['entry']:8s} {r['book']['name']:6s} {r['model']:10s} trades={r['trades']:4d} "
+            f"win%={r.get('win_rate_pct')} pnl=${r.get('total_pnl_usd')} "
+            f"deployed=${r.get('deployed_usd')} roi%={r.get('roi_pct')} "
+            f"maxDD=${r.get('max_drawdown_usd')}"
+        )
+    console.print(f"calibration quality: {res['calibration_quality']}")
+    console.print(f"full results: {DATA_DIR / 'replay_results.json'}")
+
+
 def cmd_watch(args):
     """V2: Event-driven pipeline — real-time news → classify → trade."""
     from datetime import datetime, timezone
@@ -83,8 +111,15 @@ def cmd_watch(args):
     config.WATCH_START_TIME = watch_start_time
 
     if args.live:
-        config.DRY_RUN = False
-        console.print("[red bold]LIVE TRADING ENABLED[/red bold]\n")
+        if not config.LIVE_ACK:
+            console.print(
+                "[red bold]--live refused[/red bold]: set "
+                f"LOCUS_LIVE_ACK={config.LIVE_ACK_PHRASE} to confirm real-money "
+                "trading. Staying in paper (dry-run) mode.\n"
+            )
+        else:
+            config.DRY_RUN = False
+            console.print("[red bold]LIVE TRADING ENABLED[/red bold]\n")
     else:
         console.print("[yellow]Dry-run mode (use --live to trade for real)[/yellow]\n")
 
@@ -1030,6 +1065,11 @@ def main():
     p_watch.set_defaults(func=cmd_watch)
 
     # dashboard
+    p_bt = sub.add_parser("backtest", help="Replay backtest over logged classifications (public data, no LLM calls)")
+    p_bt.add_argument("--entry", choices=["latency", "after", "before"], action="append",
+                      help="entry-price mode(s); default: all three")
+    p_bt.set_defaults(func=cmd_backtest)
+
     p_dash = sub.add_parser("dashboard", help="Launch live terminal dashboard (TUI)")
     p_dash.set_defaults(func=cmd_dashboard)
 

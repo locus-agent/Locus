@@ -68,7 +68,7 @@ def _scripted_seller(monkeypatch, results):
     requested = []
     queue = list(results)
 
-    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False):
+    def fake_close(condition_id, side, shares, max_spread=None, allow_topup=False, **_kw):
         requested.append(round(shares, 4))
         return queue.pop(0)
 
