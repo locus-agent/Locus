@@ -760,6 +760,62 @@ def cmd_backfill_realized(args):
             )
         return
 
+    if args.close_open is not None:
+        pid = args.close_open
+        try:
+            result = backfill.close_open_position(pid, apply=args.apply)
+        except RuntimeError as e:
+            console.print(f"[red]{e}[/red]")
+            sys.exit(1)
+        if result is None:
+            console.print(f"[red]Position #{pid} not found.[/red]")
+            sys.exit(1)
+        if result["already_closed"]:
+            console.print(
+                f"[yellow]Position #{pid} is already "
+                f"{result.get('status') or 'closed'} — nothing to do.[/yellow]"
+            )
+            return
+
+        console.print(
+            f"\n[bold yellow]"
+            f"{'APPLYING' if args.apply else 'PREVIEW ONLY — nothing written'}"
+            f"[/bold yellow]\n"
+            f"close-open: position #{pid}\n"
+            f"  buy_source={result['buy_source']}  "
+            f"estimated={result['estimated']}  complete={result['complete']}\n"
+            f"  BUY ${result['buys_usd']:.4f}  SELL ${result['sells_usd']:.4f}  "
+            f"REDEEM ${result['redeemed_usd']:.4f}\n"
+            f"  old realized_pnl_usd = {result['old_realized']:+.4f}\n"
+            f"  new realized_pnl_usd = {result['new_realized']:+.4f}\n"
+            f"  delta                = {result['delta']:+.4f}\n"
+        )
+        if not result["eligible"]:
+            console.print(
+                "[red bold]NOT ELIGIBLE[/red bold] — neither "
+                "buy_source=db_passive nor the on-chain balance confirms "
+                "the remainder is gone. Refusing to close."
+            )
+            return
+        console.print(f"[green]Eligible[/green] — {'; '.join(result['basis'])}")
+        if args.apply:
+            if result["applied"]:
+                console.print(
+                    f"\n[bold green]Applied[/bold green] — position #{pid} "
+                    f"closed as closed_reconciled."
+                )
+            else:
+                console.print(
+                    "\n[yellow]Nothing applied[/yellow] — position was "
+                    "closed concurrently before this write landed."
+                )
+        else:
+            console.print(
+                f"\nTo apply: [bold]python cli.py backfill-realized "
+                f"--close-open {pid} --apply[/bold]"
+            )
+        return
+
     try:
         report = backfill.backfill_realized(apply=args.apply, ids=ids)
     except RuntimeError as e:
@@ -1134,6 +1190,14 @@ def main():
         help="Preview-only: show what closing OPEN position ID as "
              "closed_reconciled with the ledger's realized would look like "
              "(never writes anything)",
+    )
+    p_backfill.add_argument(
+        "--close-open", type=int, default=None, metavar="ID",
+        help="Close ONE open position as closed_reconciled with "
+             "realized_pnl_usd set from the ledger total. Dry-run by "
+             "default (preview only); combine with --apply to write. "
+             "Refuses unless buy_source=db_passive or the on-chain balance "
+             "confirms the DB's remainder is gone.",
     )
     p_backfill.set_defaults(func=cmd_backfill_realized)
 

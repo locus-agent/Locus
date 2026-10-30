@@ -481,6 +481,190 @@ def audit_all_closed_positions(wallet: str | None = None,
     return {"rows": rows, "wallet": wallet, "activity_types": activity_types}
 
 
+CLOSE_OPEN_EXIT_REASON = "backfill_close"
+
+
+def _onchain_confirms_remainder(position: dict, client=None) -> tuple[bool, float | None, float]:
+    """Whether a direct on-chain balance check confirms this OPEN position's
+    DB-recorded remainder is mostly gone (held substantially under the DB's
+    expected share count, beyond the reconcile tolerance) — the second
+    close_open_position eligibility path, independent of the ledger's
+    buy_source. Reuses positions._verify_position_holding/holding_matches
+    (the same on-chain-truth logic reconcile_positions runs); `client` is
+    injectable for tests, built via executor.create_clob_client() when
+    omitted. Excess on-chain balance (held > expected) is NOT confirmation —
+    that's unexplained extra exposure, not a settled remainder. A client,
+    token, or balance that can't be resolved reports (False, None,
+    expected) — never treated as confirmation."""
+    from locus.core import positions as positions_mod
+    if client is None:
+        from locus.core import executor
+        try:
+            client = executor.create_clob_client()
+        except Exception as e:
+            log.warning("[backfill] close-open: CLOB client unavailable (%s); "
+                        "on-chain eligibility path skipped", e)
+            client = None
+    state, held, expected = positions_mod._verify_position_holding(client, position)
+    confirmed = (
+        state == "mismatch" and held is not None
+        and held < expected and not positions_mod.holding_matches(expected, held)
+    )
+    return confirmed, held, expected
+
+
+def _close_open_audit_reasoning(row: dict, wallet: str, position: dict,
+                                basis: list[str]) -> str:
+    """One self-contained audit line for exit_decisions: why this OPEN
+    position was allowed to close, and how its realized total was computed."""
+    text = (
+        f"Closed OPEN position as closed_reconciled via "
+        f"backfill-realized --close-open (wallet {wallet}, source "
+        f"{ACTIVITY_SOURCE}): eligibility — {'; '.join(basis)}; "
+        f"BUY ${row['buys_usd']:.4f} ({row['bought_shares']:g} sh, "
+        f"source={row['buy_source']}), "
+        f"SELL ${row['sells_usd']:.4f} + REDEEM ${row['redeemed_usd']:.4f} "
+        f"({row['sold_shares']:g} + {row['redeemed_shares']:g} sh); "
+        f"realized total ${row['realized_true']:+.4f} "
+        f"(was ${row['already_realized']:+.4f}, delta ${row['delta']:+.4f})"
+    )
+    if row["estimated"]:
+        text += (
+            ". WARNING: buy leg is ESTIMATED (db_passive fallback — the feed "
+            "showed no BUY at all for this position), not an independent "
+            "ledger confirmation"
+        )
+    return text
+
+
+def close_open_position(position_id: int, apply: bool = False,
+                        wallet: str | None = None,
+                        fetcher=fetch_wallet_activity,
+                        client=None) -> dict | None:
+    """Preview (default) or --apply close a single OPEN position as
+    closed_reconciled, with realized_pnl_usd set from the Data API ledger.
+
+    Unlike backfill_realized (closed positions only, writes a DELTA on top of
+    what's already realized) and preview_reconcile_with_ledger (always
+    read-only, for inspection), this is the one path that can actually flip
+    an OPEN position closed — gated tightly because the number it writes is
+    frequently an ESTIMATE. Eligible only when EITHER:
+      - the ledger's buy leg is buy_source="db_passive" (the BUY never
+        appeared in the feed at all — confirmed for position 57), OR
+      - the live on-chain balance confirms the DB's remaining holding is
+        mostly gone (_onchain_confirms_remainder) even though it isn't
+        exactly zero (the only case reconcile_positions --fix already closes
+        on its own).
+    Neither condition met -> eligible=False in the result and nothing is
+    ever written, regardless of `apply`.
+
+    Touches ONLY position_id — no other row is read for writing. On a
+    write, sets status='closed_reconciled', exit_reason='backfill_close',
+    closed_at=now, and realized_pnl_usd = realized_true — the ledger's
+    TOTAL, not a delta added on top of what's there: this position's
+    existing realized_pnl_usd was never a real partial realization (just
+    whatever default/estimate last left there), so adding a delta on top of
+    it would double-count. The old value, new value, and delta are all
+    reported either way. One exit_decisions audit row is written on
+    success. Calling --apply again after the position is already closed is
+    a no-op, not an error (`already_closed=True` in the result; the UPDATE
+    is scoped `WHERE status='open'`). Dry-run (apply=False, the default)
+    never writes. Returns None if position_id doesn't exist."""
+    wallet = wallet or config.POLYMARKET_FUNDER_ADDRESS
+    if not wallet:
+        raise RuntimeError(
+            "No wallet to audit: POLYMARKET_FUNDER_ADDRESS is not set"
+        )
+
+    conn = logger._conn()
+    try:
+        db_row = conn.execute(
+            "SELECT * FROM positions WHERE id=?", (position_id,)
+        ).fetchone()
+        if db_row is None:
+            return None
+        position = dict(db_row)
+        all_positions = _fetch_positions(conn, include_open=True)
+    finally:
+        conn.close()
+
+    if position["status"] != "open":
+        return {
+            "position_id": position_id,
+            "status": position["status"],
+            "already_closed": True,
+            "eligible": None,
+            "applied": False,
+        }
+
+    activity = fetcher(wallet)
+    matched = match_position_activity(position, activity, all_positions)
+    adj = compute_adjustment(position, matched)
+
+    onchain_confirmed, held, expected = _onchain_confirms_remainder(position, client)
+    eligible_db_passive = adj["buy_source"] == "db_passive"
+    # The on-chain path still needs a COMPLETE ledger — a confirmed-gone
+    # balance doesn't make an otherwise-unbalanced bought/sold/redeemed
+    # reading trustworthy enough to write.
+    eligible_onchain = onchain_confirmed and adj["complete"]
+    eligible = eligible_db_passive or eligible_onchain
+    basis = []
+    if eligible_db_passive:
+        basis.append("buy_source=db_passive (no BUY in feed)")
+    if eligible_onchain:
+        basis.append(
+            f"on-chain balance confirms remainder (held={held:g} vs "
+            f"DB-expected={expected:g})"
+        )
+
+    result = {
+        **adj,
+        "held": held,
+        "expected_shares": expected,
+        "onchain_confirmed": onchain_confirmed,
+        "eligible": eligible,
+        "basis": basis,
+        "old_realized": adj["already_realized"],
+        "new_realized": adj["realized_true"],
+        "already_closed": False,
+        "applied": False,
+    }
+
+    if not eligible or not apply:
+        return result
+
+    conn = logger._conn()
+    try:
+        now_iso = datetime.now(timezone.utc).isoformat()
+        cur = conn.execute(
+            """UPDATE positions
+               SET status='closed_reconciled', exit_reason=?,
+                   unrealized_pnl_pct=0, closed_at=?, realized_pnl_usd=?
+               WHERE id=? AND status='open'""",
+            (CLOSE_OPEN_EXIT_REASON, now_iso, result["new_realized"], position_id),
+        )
+        if cur.rowcount == 0:
+            result["already_closed"] = True
+            return result
+        conn.execute(
+            """INSERT INTO exit_decisions
+               (position_id, trigger, decision, reasoning, pnl_pct, yes_price)
+               VALUES (?, 'backfill', 'close_open', ?, NULL, NULL)""",
+            (position_id, _close_open_audit_reasoning(adj, wallet, position, basis)),
+        )
+        conn.commit()
+        result["applied"] = True
+        log.info(
+            "[backfill] close-open: position %s closed_reconciled, "
+            "realized_pnl_usd %+.4f -> %+.4f (source %s)",
+            position_id, result["old_realized"], result["new_realized"],
+            ACTIVITY_SOURCE,
+        )
+    finally:
+        conn.close()
+    return result
+
+
 def preview_reconcile_with_ledger(position_id: int, wallet: str | None = None,
                                   fetcher=fetch_wallet_activity) -> dict | None:
     """Preview-only: what closing `position_id` as closed_reconciled WOULD
