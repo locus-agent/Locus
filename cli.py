@@ -580,6 +580,89 @@ def cmd_reconcile_positions(args):
         console.print("[dim]run with --fix to apply (close the mismatches above)[/dim]")
 
 
+def cmd_backfill_realized(args):
+    """Backfill realized PnL on closed positions from the Data API activity
+    feed. Dry-run by default (table only); --apply writes the deltas plus an
+    exit_decisions audit row per adjusted position."""
+    from locus.core import backfill
+
+    ids = None
+    if args.ids:
+        ids = [int(x) for x in args.ids.split(",") if x.strip()]
+
+    try:
+        report = backfill.backfill_realized(apply=args.apply, ids=ids)
+    except RuntimeError as e:
+        console.print(f"[red]{e}[/red]")
+        sys.exit(1)
+
+    rows = report["rows"]
+    if not rows:
+        console.print("[yellow]No closed positions matched any wallet activity.[/yellow]")
+        return
+
+    console.print(
+        f"\n[bold]Realized-PnL backfill[/bold] — wallet {report['wallet']}, "
+        f"source {backfill.ACTIVITY_SOURCE}\n"
+    )
+    table = Table(show_header=True, header_style="bold cyan")
+    table.add_column("ID", justify="right", width=4)
+    table.add_column("Status", width=18)
+    table.add_column("Market", max_width=34)
+    table.add_column("BUY $", justify="right", width=8)
+    table.add_column("SELL $", justify="right", width=8)
+    table.add_column("Miss.BUY $", justify="right", width=10)
+    table.add_column("DB real.", justify="right", width=8)
+    table.add_column("True", justify="right", width=8)
+    table.add_column("Delta", justify="right", width=8)
+    table.add_column("Write", width=5)
+
+    for r in rows:
+        delta_color = "red" if r["delta"] < 0 else "green"
+        miss = (f"{r['est_missing_cost_usd']:.2f}" if r["incomplete_buy"] else "—")
+        table.add_row(
+            str(r["position_id"]),
+            r["status"] or "—",
+            r["market_question"][:34],
+            f"{r['buys_usd']:.2f}",
+            f"{r['sells_usd']:.2f}",
+            miss,
+            f"{r['already_realized']:+.2f}",
+            f"{r['realized_true']:+.2f}",
+            f"[{delta_color}]{r['delta']:+.2f}[/{delta_color}]",
+            "yes" if r["writable"] else "—",
+        )
+    console.print(table)
+    if any(r["incomplete_buy"] for r in rows):
+        console.print(
+            "[dim]Miss.BUY $: the activity feed is missing buy fills for this "
+            "position; the gap is costed at the position's entry price.[/dim]"
+        )
+
+    if args.apply:
+        if report["applied"]:
+            console.print(
+                f"[red bold]APPLIED[/red bold] — adjusted "
+                f"{len(report['applied'])} position(s): "
+                f"{', '.join(f'#{i}' for i in report['applied'])} "
+                f"(audit rows written to exit_decisions)"
+            )
+        else:
+            console.print("[green]Nothing to apply.[/green]")
+        if report["skipped_ids"]:
+            console.print(
+                f"[yellow]Not written (outside --ids): "
+                f"{', '.join(f'#{i}' for i in report['skipped_ids'])}[/yellow]"
+            )
+    else:
+        pending = [r for r in rows if r["writable"]]
+        if pending:
+            console.print(
+                f"[dim]dry-run — {len(pending)} adjustment(s) pending; "
+                f"run with --apply to write[/dim]"
+            )
+
+
 def cmd_stats(args):
     from locus.memory import logger
 
@@ -734,6 +817,21 @@ def main():
         help="Close confirmed phantom positions (held=0); default is report-only",
     )
     p_recon.set_defaults(func=cmd_reconcile_positions)
+
+    # backfill-realized
+    p_backfill = sub.add_parser(
+        "backfill-realized",
+        help="Backfill realized PnL on closed positions from Data API activity",
+    )
+    p_backfill.add_argument(
+        "--apply", action="store_true",
+        help="Write the deltas (default is dry-run: table only)",
+    )
+    p_backfill.add_argument(
+        "--ids", type=str, default=None,
+        help="Comma-separated position ids allowed to be written (e.g. 49,54,58,59)",
+    )
+    p_backfill.set_defaults(func=cmd_backfill_realized)
 
     # stats
     p_stats = sub.add_parser("stats", help="Performance statistics")
