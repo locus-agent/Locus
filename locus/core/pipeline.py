@@ -369,6 +369,17 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
                              non-identical headline (exact match, the dedup
                              cache's key) with materiality >=
                              CONFIRMATION_MIN_MATERIALITY
+      "needs_confirmation_telegram" — same confirmation check and window as
+                             "needs_confirmation" above, but triggered by
+                             config.TELEGRAM_REQUIRES_CONFIRMATION (default
+                             True) for a telegram-sourced signal BELOW the
+                             high-materiality threshold — telegram's own
+                             channels are third-party mirrors/aggregators, not
+                             confirmed at the source. Other sources are
+                             unaffected; a telegram signal already >=
+                             HIGH_MATERIALITY_THRESHOLD still falls under the
+                             plain "needs_confirmation" action above, since
+                             that block isn't this flag's incremental effect
       "signal"             — approved by these gates. The headline is RESERVED
                              into traded_headlines here, in the same synchronous
                              step as the "capped" check above (gate_trade never
@@ -483,7 +494,29 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
     # wire story cross-posted through a second feed is logged under that
     # feed's source via the 'cached' path and is one story, not two) whose own
     # materiality cleared CONFIRMATION_MIN_MATERIALITY.
-    if mat >= config.HIGH_MATERIALITY_THRESHOLD:
+    #
+    # Telegram (MTProto) is a special case: config.TELEGRAM_REQUIRES_CONFIRMATION
+    # (default True) requires the SAME confirmation for every telegram-sourced
+    # signal regardless of materiality — the channels are third-party
+    # aggregators/mirrors, not the original wire (see
+    # sources/telegram_mtproto.py's module docstring: "headlines can be
+    # wrong"), and telegram is routed/deduped ahead of slower sources
+    # (SOURCE_PRIORITY telegram=0, RSS deliberately slowed down while a
+    # realtime source is active), so a single misread telegram headline could
+    # open a position before any corroborating copy from another source even
+    # arrives. Tagged with its own action (needs_confirmation_telegram,
+    # distinct from the generic needs_confirmation) so this flag's incremental
+    # effect — trades it blocks that the high-materiality gate alone would NOT
+    # have — can be counted separately via the same
+    # logger.get_classification_count_since(action=...) mechanism the
+    # dashboard's gates_24h panel already uses for every other gate.
+    high_materiality = mat >= config.HIGH_MATERIALITY_THRESHOLD
+    telegram_forced_confirmation = (
+        not high_materiality
+        and event.source == "telegram"
+        and config.TELEGRAM_REQUIRES_CONFIRMATION
+    )
+    if high_materiality or telegram_forced_confirmation:
         since = (
             (now or datetime.now(timezone.utc))
             - timedelta(hours=config.CONFIRMATION_WINDOW_HOURS)
@@ -495,6 +528,15 @@ def gate_trade(event: NewsEvent, signal, traded_headlines: set[str], now: dateti
         )
         sources.add(event.source)
         if len(sources) < config.MIN_CONFIRMING_SOURCES:
+            if telegram_forced_confirmation:
+                log.info(
+                    "Filtered: needs_confirmation_telegram | %s | materiality "
+                    "%.2f (below high-materiality threshold %.2f) | %d/%d "
+                    "confirming sources",
+                    market.slug, mat, config.HIGH_MATERIALITY_THRESHOLD,
+                    len(sources), config.MIN_CONFIRMING_SOURCES,
+                )
+                return None, "needs_confirmation_telegram"
             return None, "needs_confirmation"
 
     # Reserve the headline NOW, atomically with the "capped" check at the top:

@@ -50,11 +50,11 @@ def sig(materiality=0.35, direction="bullish"):
 SIG = sig()
 
 
-def ev(headline, published_ago_s, latency_ms=None):
+def ev(headline, published_ago_s, latency_ms=None, source="rss"):
     pub = NOW - timedelta(seconds=published_ago_s)
     if latency_ms is None:
         latency_ms = int(published_ago_s * 1000)  # received just now
-    return NewsEvent(headline=headline, source="rss", url="",
+    return NewsEvent(headline=headline, source=source, url="",
                      received_at=NOW, published_at=pub, latency_ms=latency_ms)
 
 
@@ -355,3 +355,57 @@ def test_null_materiality_row_does_not_confirm(tmp_db):
                          headline="different story", materiality=None)
     s, a = gate_trade(ev("big news", 60), sig(0.6, "bullish"), set(), now=NOW)
     assert s is None and a == "needs_confirmation"
+
+
+# --- TELEGRAM_REQUIRES_CONFIRMATION: forces confirmation for telegram below
+# the high-materiality threshold, where every other source would pass straight
+# through -----------------------------------------------------------------
+
+def test_telegram_below_high_materiality_without_second_source_rejected(tmp_db):
+    # materiality 0.4 clears the bullish floor (0.3) but is below
+    # HIGH_MATERIALITY_THRESHOLD (0.5) — a plain source would pass straight
+    # through to "signal"; telegram must not, with the flag at its default.
+    s, a = gate_trade(ev("big news", 60, source="telegram"),
+                      sig(0.4, "bullish"), set(), now=NOW)
+    assert s is None and a == "needs_confirmation_telegram"
+
+
+def test_telegram_below_high_materiality_with_second_source_passes(tmp_db):
+    _seed_classification(tmp_db, source="rss", direction="bullish")
+    s, a = gate_trade(ev("big news", 60, source="telegram"),
+                      sig(0.4, "bullish"), set(), now=NOW)
+    assert s is not None and a == "signal"
+
+
+def test_telegram_flag_disabled_restores_old_behavior(tmp_db, monkeypatch):
+    monkeypatch.setattr(config, "TELEGRAM_REQUIRES_CONFIRMATION", False)
+    s, a = gate_trade(ev("big news", 60, source="telegram"),
+                      sig(0.4, "bullish"), set(), now=NOW)
+    assert s is not None and a == "signal"
+
+
+def test_rss_below_high_materiality_unaffected_by_telegram_flag(tmp_db):
+    # The flag must only ever touch source="telegram" — every other source
+    # keeps today's behavior (no confirmation needed below HIGH_MATERIALITY_
+    # THRESHOLD), with the default TELEGRAM_REQUIRES_CONFIRMATION=True.
+    assert config.TELEGRAM_REQUIRES_CONFIRMATION is True
+    s, a = gate_trade(ev("big news", 60, source="rss"),
+                      sig(0.4, "bullish"), set(), now=NOW)
+    assert s is not None and a == "signal"
+
+
+def test_telegram_at_high_materiality_uses_plain_needs_confirmation(tmp_db):
+    # At/above HIGH_MATERIALITY_THRESHOLD, telegram goes through the SAME
+    # gate every source already goes through — tagged with the generic
+    # action, not the telegram-specific one, since the flag isn't the reason
+    # confirmation was required here.
+    s, a = gate_trade(ev("big news", 60, source="telegram"),
+                      sig(0.6, "bullish"), set(), now=NOW)
+    assert s is None and a == "needs_confirmation"
+
+
+def test_telegram_forced_confirmation_does_not_consume_headline_cap(tmp_db):
+    traded = set()
+    gate_trade(ev("big news", 60, source="telegram"), sig(0.4, "bullish"),
+              traded, now=NOW)
+    assert "big news" not in traded

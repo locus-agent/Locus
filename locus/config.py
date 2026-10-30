@@ -369,6 +369,19 @@ MIN_CONFIRMING_SOURCES = int(os.getenv("MIN_CONFIRMING_SOURCES", "2"))
 # one story, not two), and its own materiality must clear this floor — a 0.05
 # throwaway directional row shouldn't vouch for a 0.9 signal.
 CONFIRMATION_MIN_MATERIALITY = float(os.getenv("CONFIRMATION_MIN_MATERIALITY", "0.30"))
+# Telegram (MTProto) channels are third-party aggregators/mirrors, not the
+# original wire (sources/telegram_mtproto.py: "headlines can be wrong"), and
+# are routed/deduped ahead of slower sources (SOURCE_PRIORITY telegram=0;
+# RSS polls slower while a realtime source is active) — so a misread
+# telegram headline could open a position before a corroborating copy from
+# another source even arrives. When True (default), every telegram-sourced
+# signal needs the same MIN_CONFIRMING_SOURCES-within-CONFIRMATION_WINDOW_HOURS
+# confirmation as a high-materiality call, REGARDLESS of materiality — not
+# just at/above HIGH_MATERIALITY_THRESHOLD like every other source. Set
+# False to restore the old behavior (telegram treated like any other source).
+TELEGRAM_REQUIRES_CONFIRMATION = (
+    os.getenv("TELEGRAM_REQUIRES_CONFIRMATION", "true").lower() == "true"
+)
 
 # Event context awareness: markets sharing a Gamma event_id are sibling
 # outcomes of one event. Cap how many positions we hold across one event so a

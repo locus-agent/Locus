@@ -442,6 +442,10 @@ def export_status(headlines_last_cycle: int = 0, markets_tracked: int = 0, class
             "orderbook_skip": logger.get_classification_count_since(since_24h, action="orderbook_skip"),
             "already_priced_in": logger.get_classification_count_since(since_24h, action="already_priced_in"),
             "needs_confirmation": logger.get_classification_count_since(since_24h, action="needs_confirmation"),
+            # Telegram-specific incremental effect of TELEGRAM_REQUIRES_CONFIRMATION
+            # (see pipeline.gate_trade) — distinct from the generic bucket above
+            # so this flag's own block count can be read off the dashboard.
+            "needs_confirmation_telegram": logger.get_classification_count_since(since_24h, action="needs_confirmation_telegram"),
             "event_exposure_block": logger.get_classification_count_since(since_24h, action="event_exposure_block"),
             "low_consensus": logger.get_classification_count_since(since_24h, action="low_consensus"),
             "circuit_breaker": logger.get_classification_count_since(since_24h, action="circuit_breaker"),
